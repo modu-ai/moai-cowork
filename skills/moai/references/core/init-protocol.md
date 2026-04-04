@@ -164,17 +164,17 @@ ELSE
 질문: "도움을 받을 하네스를 선택하세요 (다중 선택 가능)"
 
 페이지 1/2:
-  [1] content_generator
-  [2] email_harness
-  [3] marketing_strategist
-  [4] financial_analyzer
+  [1] copywriting (카피라이팅)
+  [2] email-crafter (이메일 작성)
+  [3] ad-campaign (광고 캠페인)
+  [4] financial-model (재무 모델링)
   [5] 다음 (→ 페이지 2)
 
 페이지 2/2:
-  [1] automation_harness
-  [2] compliance_checker
-  [3] meeting_facilitator
-  [4] strategy_planner
+  [1] sop-writer (SOP 작성)
+  [2] compliance (컴플라이언스)
+  [3] meeting-strategist (회의 전략)
+  [4] market-research (시장 조사)
   [5] 이전 (← 페이지 1)
 ```
 
@@ -186,7 +186,7 @@ ELSE
 
 각 선택된 하네스에 대해 최대 **4질문**으로 컨텍스트 수집:
 
-### 예시 1: content_generator
+### 예시 1: copywriting
 ```
 Q1. 주요 콘텐츠 형식? (4옵션)
 Q2. 타겟 독자? (3옵션)
@@ -194,7 +194,7 @@ Q3. 톤&스타일? (4옵션)
 Q4. 발행 채널? (3옵션)
 ```
 
-### 예시 2: financial_analyzer
+### 예시 2: financial-model
 ```
 Q1. 분석 범위? (4옵션)
 Q2. 주요 메트릭? (3옵션)
@@ -304,7 +304,7 @@ Context Depth:
 ## --harness 옵션 (빠른 경로)
 
 ```bash
-/moai init --harness=email_harness --language=ko --country=kr
+/moai init --harness email-crafter
 ```
 
 이 경우:
@@ -320,7 +320,7 @@ Context Depth:
 |-----|------|
 | 프로필 이미 존재 | Phase 0-B로 분기 |
 | 질문 응답 불완전 | 현재 질문 재시도 |
-| 하네스 미설치 | `/moai install` 안내 |
+| 하네스 미설치 | `/moai init` 안내 |
 | 네트워크 오류 (웹검색) | 오프라인 모드로 진행 |
 
 ---
@@ -338,7 +338,7 @@ Context Depth:
   - 선택 하네스: {harness_list}
 
 다음 단계:
-  /moai --help        (명령어 확인)
+  /moai help          (명령어 확인)
   /moai status        (설치 상태)
   /moai {harness-id}  (하네스 실행)
 ```

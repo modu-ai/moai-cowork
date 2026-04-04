@@ -33,16 +33,16 @@ MoAI 환경과 프로필 상태를 진단하고 문제를 식별하는 프로토
 │ └─ 마지막 업데이트: 2026-04-04 (신선함)
 │
 │ [Phase 3] 하네스 설치 상태
-│ ├─ content_generator: ✓ (설치됨)
-│ ├─ email_harness: ✓ (설치됨)
-│ ├─ automation_harness: ✗ (미설치)
-│ │  └─ 설치 권장: /moai install --harness=automation_harness
+│ ├─ copywriting: ✓ (설치됨)
+│ ├─ email-crafter: ✓ (설치됨)
+│ ├─ sop-writer: ✗ (미설치)
+│ │  └─ 설치 권장: /moai init --harness sop-writer
 │ └─ 설치된 하네스: 2/5
 │
 │ [Phase 4] 규칙 파일 검사
 │ ├─ 00-moai-core.md: ✓
-│ ├─ 01-content_generator.md: ✓
-│ ├─ 01-email_harness.md: ✓
+│ ├─ 01-copywriting.md: ✓
+│ ├─ 01-email-crafter.md: ✓
 │ ├─ 02-locale-kr.md: ✓
 │ └─ 규칙 로드 성공: ✓
 │
@@ -60,7 +60,7 @@ MoAI 환경과 프로필 상태를 진단하고 문제를 식별하는 프로토
 │
 │ ═════════════════════════════════════════════
 │ 전체 진단: ✓ HEALTHY (건강함)
-│ 조치 필요: 1개 (automation_harness 설치)
+│ 조치 필요: 1개 (sop-writer 설치)
 │ 성능: 96%
 │ ═════════════════════════════════════════════
 └─────────────────────────────────────────────────┘
@@ -115,20 +115,20 @@ FOR each harness in installed_harnesses:
 ### 2-2. 출력 예시
 
 ```
-MoAI 현황 (Kim Chul Soo)
+MoAI 현황 ({user_name})
 ═════════════════════════════════════════════════
 
 프로필:
-  이름: Kim Chul Soo
-  역할: 마케팅 관리자
-  회사: TechStartup Inc.
+  이름: {user_name}
+  역할: {user_role}
+  회사: {company_name}
   로케일: ko_KR (한국, KRW)
   프로필 완성도: 95% (A+)
 
 설치된 하네스:
-  ✓ content_generator (마지막 사용: 2026-04-04 10:30)
-  ✓ email_harness (마지막 사용: 2026-04-02 14:15)
-  ○ automation_harness (미설치, 추천됨)
+  ✓ copywriting (마지막 사용: 2026-04-04 10:30)
+  ✓ email-crafter (마지막 사용: 2026-04-02 14:15)
+  ○ sop-writer (미설치, 추천됨)
 
 진화 상태:
   총 작업 수: 12개
@@ -143,7 +143,7 @@ MoAI 현황 (Kim Chul Soo)
   컨텍스트 신선도: 양호
 
 다음 권장 조치:
-  1. automation_harness 설치
+  1. sop-writer 설치
   2. 월간 프로필 검토 (2026-04-11 예정)
 
 ═════════════════════════════════════════════════
@@ -169,7 +169,7 @@ IF 프로필_완성도 < 60%:
   WARNING: "프로필이 불완전합니다. /moai init --reset 권장"
 
 IF 하네스_설치 == 0:
-  ERROR: "설치된 하네스가 없습니다. /moai install --harness=... 필요"
+  ERROR: "설치된 하네스가 없습니다. /moai init 실행 필요"
 
 IF evolution_평가_평균 < 5:
   WARNING: "평가가 낮습니다. /moai evolution --suggest 확인"
@@ -296,7 +296,7 @@ Available backups:
 
 ```bash
 /moai logs --level=ERROR
-/moai logs --harness=content_generator
+/moai logs --harness=copywriting
 /moai logs --after=2026-04-04T09:00:00+09:00
 ```
 

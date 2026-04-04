@@ -16,10 +16,10 @@
 - **명시적 대상**: 산출물(문서, 이메일, 계획서 등)
 
 ### 1.2 의도 분류 알고리즘
-- IF 사용자_요청 IN [콘텐츠_생성, 글쓰기, 블로그, SNS, 이메일] → content_generator, email_harness
-- IF 사용자_요청 IN [자동화_신청, 워크플로우_최적화] → automation_harness, workflow_optimizer
-- IF 사용자_요청 IN [법규_검토, 규제, 컴플라이언스] → compliance_checker, contract_analyzer
-- IF 사용자_요청 IN [일정관리, 협업, 커뮤니케이션] → meeting_facilitator, feedback_analyzer
+- IF 사용자_요청 IN [콘텐츠_생성, 글쓰기, 블로그, SNS, 이메일] → copywriting, email-crafter, social-media
+- IF 사용자_요청 IN [자동화, 워크플로우_최적화, 프로세스] → sop-writer, project-tracker, remote-work-ops
+- IF 사용자_요청 IN [법규_검토, 규제, 컴플라이언스] → compliance, contract-review, regulatory
+- IF 사용자_요청 IN [일정관리, 협업, 커뮤니케이션] → meeting-strategist, stakeholder-report
 
 ---
 
@@ -27,15 +27,15 @@
 
 | 키워드 그룹 | 예시 | 하네스 | 우선순위 |
 |-----------|------|------|---------|
-| 콘텐츠 창작 | 블로그, 글쓰기, SNS, 카피 | content_generator | 1순위 |
-| 이메일 | 이메일 작성, 제안서 | email_harness | 1순위 |
-| 마케팅 | 캠페인, 퍼널, 광고, SEO | marketing_strategist | 1순위 |
-| 재무/분석 | 예산, ROI, 수익 | financial_analyst | 1순위 |
-| 전략/계획 | OKR, 로드맵, 분기 계획 | strategy_planner | 1순위 |
-| 자동화 | 반복작업, 프로세스, 파이프라인 | automation_harness | 1순위 |
-| 법규/컴플라이언스 | 법규, 계약, 규제 | compliance_checker | 1순위 |
-| 기술/개발 | 코드, API, 아키텍처 | tech_advisor | 2순위 |
-| 협업/일정 | 회의, 일정, 진척도 | meeting_facilitator | 2순위 |
+| 콘텐츠 창작 | 블로그, 글쓰기, SNS, 카피 | copywriting, newsletter, content-calendar | 1순위 |
+| 이메일 | 이메일 작성, 제안서 | email-crafter, proposal-writer | 1순위 |
+| 마케팅 | 캠페인, 퍼널, 광고, SEO | ad-campaign, growth-hacking, social-media | 1순위 |
+| 재무/분석 | 예산, ROI, 수익 | financial-model, analytics-report, data-analysis | 1순위 |
+| 전략/계획 | OKR, 로드맵, 분기 계획 | product-roadmap, market-research, business-model-canvas | 1순위 |
+| 자동화/운영 | 반복작업, 프로세스, 파이프라인 | sop-writer, project-tracker, remote-work-ops | 1순위 |
+| 법규/컴플라이언스 | 법규, 계약, 규제 | compliance, contract-review, regulatory | 1순위 |
+| 기술/개발 | 코드, API, 아키텍처 | feature-spec, technical-writer, release-notes | 2순위 |
+| 협업/일정 | 회의, 일정, 진척도 | meeting-strategist, stakeholder-report | 2순위 |
 
 ---
 
@@ -60,20 +60,20 @@
 
 ### 4.1 순차 실행 (Sequential)
 예: "캠페인 계획 → 이메일 초안 → 성과 분석"
-- Phase 1: strategy_planner
-- Phase 2: email_harness
-- Phase 3: financial_analyst
+- Phase 1: ad-campaign
+- Phase 2: email-crafter
+- Phase 3: analytics-report
 
 ### 4.2 병렬 실행 (Parallel)
 예: "마케팅 전략 + 재무 예산 동시 필요"
-- Track A: strategy_planner
-- Track B: financial_analyst
+- Track A: market-research
+- Track B: financial-model
 - 병합 및 통합 분석
 
 ### 4.3 의존적 실행 (Dependent)
 예: "법규 검토 후 계약서 작성"
-- Phase 1: compliance_checker (제약사항 산출)
-- Phase 2: contract_analyzer (Phase 1 결과 참조)
+- Phase 1: compliance (제약사항 산출)
+- Phase 2: contract-review (Phase 1 결과 참조)
 
 ---
 
@@ -88,10 +88,10 @@
 │  ├─ YES → 자동화/계획/분석 확인
 │  └─ NO → 다음 분기
 ├─ [전문분야&규제] 신호?
-│  ├─ YES → compliance_checker
+│  ├─ YES → compliance, contract-review, regulatory
 │  └─ NO → 다음 분기
 └─ [라이프&커뮤니케이션] 신호?
-   ├─ YES → meeting_facilitator
+   ├─ YES → meeting-strategist, travel-planner, event-organizer
    └─ NO → 일반 AskUserQuestion
 ```
 
@@ -114,9 +114,9 @@
 `.moai/routing-rules.yaml`:
 ```yaml
 tech_startup:
-  high_priority: [tech_advisor, automation_harness, product_strategist]
+  high_priority: [feature-spec, ai-strategy, product-roadmap]
 finance_corp:
-  high_priority: [financial_analyst, compliance_checker, strategy_planner]
+  high_priority: [financial-model, compliance, accounting-tax]
 ```
 
 ### 7.2 사용자 선호도 학습
@@ -130,7 +130,7 @@ finance_corp:
 
 | 상황 | 조치 |
 |-----|------|
-| 하네스 미설치 | `/moai install --harness={name}` 제안 |
+| 하네스 미설치 | `/moai init --harness {name}` 제안 |
 | 프로필 불완전 | `/moai init` 재실행 유도 |
 | 모두 불확실 | 일반 AI 어시스턴트로 폴백 |
 | 모호 (해소 불가) | 2회 재시도 후 다시 분류 |

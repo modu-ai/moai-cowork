@@ -13,12 +13,10 @@ Phase 1: 하네스 식별
   → 사용자 요청 또는 /moai {harness-id} 명령어
   → router.md에서 적절한 하네스 확인
 
-Phase 2: 하네스 메타데이터 로드
-  skills/moai/references/{harness-id}/
-  ├── README.md (설명)
-  ├── workflow.md (워크플로우)
-  ├── templates/ (템플릿)
-  └── examples/ (예시)
+Phase 2: 하네스 레퍼런스 로드
+  references/harness-100/{lang}/{harness-id}.md
+  → lang = 사용자 언어 (ko, en)
+  → 하네스 정의: 페르소나, 워크플로우, 출력형식, 반성기준
 
 Phase 3: 규칙 로드
   .claude/rules/
@@ -55,7 +53,7 @@ MoAI 시스템 메시지에 주입:
 
 ### 2-1. 하네스별 워크플로우 예시
 
-**content_generator 예**
+**copywriting 예**
 ```
 입력: 주제, 길이, 톤, 타겟 독자
 
@@ -76,9 +74,9 @@ Step 4: 검수
 출력: 마크다운 파일
 ```
 
-**automation_harness 예**
+**sop-writer 예**
 ```
-입력: 프로세스 설명, 반복 주기, 도구
+입력: 프로세스 설명, 대상 업무, 담당자
 
 Step 1: 현 상태(AS-IS) 분석
   → 단계별 현황
@@ -86,21 +84,21 @@ Step 1: 현 상태(AS-IS) 분석
   → 병목 지점
 
 Step 2: 목표 상태(TO-BE) 설계
-  → 자동화 대상 확인
-  → 도구/API 선택
+  → 표준화 대상 확인
+  → 도구/시스템 선택
   → 예상 효율 계산
 
-Step 3: 구현 계획
-  → 단계별 설정안
-  → 테스트 절차
-  → 롤백 계획
+Step 3: SOP 문서 작성
+  → 단계별 절차서
+  → 체크리스트
+  → 예외 처리 가이드
 
-Step 4: 모니터링 전략
+Step 4: 검증 및 배포 계획
   → KPI 정의
-  → 로깅 설정
-  → 에러 처리
+  → 교육 자료
+  → 피드백 수집 절차
 
-출력: 설정 매뉴얼 + 구현 가이드
+출력: SOP 문서 + 체크리스트
 ```
 
 ### 2-2. 에러 처리
@@ -142,9 +140,9 @@ IF 실행_중_오류:
 ```yaml
 # metadata.yaml
 project_id: "proj-2026-04-04-001"
-harness: "content_generator"
+harness: "copywriting"
 created_at: "2026-04-04T10:30:00+09:00"
-user: "Kim Chul Soo"
+user: "{user_name}"
 title: "디지털 마케팅 트렌드 2026"
 status: "completed"
 duration_minutes: 12
@@ -284,7 +282,7 @@ computer:///.moai/projects/proj-2026-04-04-001/outputs/content_generator_2026-04
 ```
 /moai batch
 config: {
-  harnesses: [content_generator, email_harness],
+  harnesses: [copywriting, email-crafter],
   projects: [proj_001, proj_002],
   schedule: "2026-04-05T09:00:00+09:00"
 }
