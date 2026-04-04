@@ -1,509 +1,191 @@
-# localization-protocol.md — 로케일 현지화 프로토콜
+# localization-protocol.md — 로캘 현지화 프로토콜
 
 ## 개요
-MoAI가 사용자의 로케일(언어, 국가, 시간대, 통화)을 자동 감지하고 
-현지 규제, 문화, 비즈니스 관행을 반영하여 산출물을 생성하는 프로토콜입니다.
+MoAI는 **전세계 모든 국가**를 지원한다. 사용자의 근무 국가를 `/moai init` Phase 1-A Q2에서
+입력받아, 웹검색 기반으로 해당 국가의 규제·문화·비즈니스 관행 데이터를 실시간 수집한다.
+
+**핵심 원칙**: 플러그인에 한국(KR) 기본 데이터만 내장하고, 나머지 국가는 웹검색으로 동적 생성한다.
 
 ---
 
-## 1. 로케일 자동감지
-
-### 1-1. 감지 순서
+## 1. 로케일 결정 흐름
 
 ```
-Priority 1: 글로벌 프로필
-  → /mnt/.auto-memory/moai-profile.md
-  ├─ user_profile.country (개인 국가)
-  └─ company_profile.company_country (회사 국가)
-
-Priority 2: 시스템 환경
-  → OS 시스템 로케일
-  → 브라우저 언어 설정
-  
-Priority 3: /moai init 과정
-  → Phase 1-A Q2 (국가 선택)
-  
-Priority 4: 웹 요청 헤더
-  → Accept-Language 헤더
-  → Cloudflare 지역 정보
+사용자 근무 국가 입력 (Phase 1-A Q2)
+  │
+  ├─ 한국(KR) → references/locale/kr/index.md 로딩 (내장 데이터)
+  │
+  └─ 그 외 전세계 → 웹검색 기반 실시간 수집
+       │
+       ├─ cultural-adaptation-guide.md 참조 (수집 항목 템플릿)
+       ├─ 웹검색 5개 카테고리 수행
+       └─ 결과를 .moai/locale-context.md에 저장
 ```
 
-### 1-2. 로케일 구성
+---
+
+## 2. 로케일 구성 (모든 국가 공통)
 
 ```yaml
 locale_config:
-  country: "KR"              # ISO 3166-1 alpha-2
-  language: "ko"             # ISO 639-1
-  script: "Hang"             # ISO 15924 (선택)
-  locale_string: "ko_KR"     # BCP 47 형식
-  timezone: "Asia/Seoul"     # IANA 타임존
-  currency: "KRW"            # ISO 4217
-  week_start: "monday"       # [sunday, monday, saturday]
-  number_format: "1,000.00"  # [1,000.00, 1.000,00, 1 000,00]
-  date_format: "YYYY-MM-DD"  # [YYYY-MM-DD, DD/MM/YYYY, MM/DD/YYYY]
-  time_format: "24h"         # [12h, 24h]
-```
-
-### 1-3. 저장 위치
-
-```
-.moai/locale-context.md
-
-내용:
-country: KR
-language: korean
-timezone: Asia/Seoul
-currency: KRW
-business_hours: 09:00-18:00
-holidays: [설, 추석, ...] # 정부 공휴일 + 기업별
-web_search_locale: ko.search.naver.com (또는 google.co.kr)
-laws: [개인정보보호법, 전자상거래법, ...]
+  country: "{ISO 3166-1 alpha-2}"   # 예: KR, US, JP, DE, VN...
+  language: "{ISO 639-1}"           # 예: ko, en, ja, de, vi...
+  locale_string: "{lang}_{country}" # 예: ko_KR, en_US
+  timezone: "{IANA timezone}"       # 예: Asia/Seoul, America/New_York
+  currency: "{ISO 4217}"            # 예: KRW, USD, JPY
+  week_start: "{monday|sunday|saturday}"
+  number_format: "{1,000.00|1.000,00|1 000,00}"
+  date_format: "{YYYY-MM-DD|DD/MM/YYYY|MM/DD/YYYY}"
+  time_format: "{12h|24h}"
 ```
 
 ---
 
-## 2. 비-카테고리10 하네스의 로케일 참조
+## 3. 웹검색 기반 로케일 데이터 수집
 
-모든 하네스가 로케일을 고려합니다:
+### 3-1. 수집 카테고리 (5개)
 
-### 2-1. 화폐 표기
+근무 국가가 한국 외인 경우, 아래 5개 카테고리를 웹검색으로 수집한다:
 
-**content_generator**
+| # | 카테고리 | 웹검색 쿼리 패턴 | 수집 항목 |
+|---|---------|-----------------|----------|
+| 1 | 세법 | "{country} tax law basics {year}" | VAT/GST 세율, 소득세 구간, 법인세율, 주요 신고일정 |
+| 2 | 노동법 | "{country} labor law employment rules {year}" | 근무시간, 최저임금, 유급휴가, 해고 규정, 사회보험 |
+| 3 | 데이터보호법 | "{country} data protection privacy law" | 주요 법률명, 동의 요건, 보관기한, 위반 벌칙 |
+| 4 | 비즈니스 관행 | "{country} business culture etiquette" | 호칭, 회의 문화, 관계 형성, 의사결정 방식 |
+| 5 | 형식 표준 | "{country} date currency number format standard" | 날짜, 시간, 통화, 숫자, 주소, 전화번호 형식 |
+
+### 3-2. 수집 프로세스
+
 ```
-현금흐름 언급 시:
-한국: "연 10억 원 규모의 투자"
-미국: "Investment of $10 million annually"
-일본: "年10億円規模の投資"
-
-저장: 모든 숫자에 통화 기호 + 국가별 형식
-```
-
-### 2-2. 날짜 표기
-
-**email_harness**
-```
-한국: "2026년 4월 4일" 또는 "2026-04-04"
-미국: "April 4, 2026" 또는 "04/04/2026"
-일본: "2026年4月4日"
-```
-
-### 2-3. 비즈니스 관행
-
-**automation_harness**
-```
-한국:
-- 근무 시간: 09:00 ~ 18:00
-- 주말: 토요일, 일요일
-- 공휴일: 설(3일), 추석(3일)
-- 오토메이션 스케줄: 오전 9시 또는 자정
-
-미국:
-- 근무 시간: 08:00 ~ 17:00
-- 주말: 토요일, 일요일
-- 공휴일: Thanksgiving, Christmas 등
-- 오토메이션 스케줄: 자정 또는 새벽
-```
-
----
-
-## 3. 카테고리10 하네스 — 웹검색 현지화
-
-### 3-1. 웹검색 키워드 패턴
-
-**하네스별 맞춤 검색 전략**
-
-**content_generator**
-```
-주제: "디지털 마케팅 트렌드"
-로케일: ko_KR
-
-검색 패턴:
-1. 한국 특화 키워드:
-   "한국 디지털 마케팅 동향 2026"
-   "국내 SNS 마케팅 트렌드"
-   "한국 소비자 구매 패턴"
-
-2. 로컬 언론/통계:
-   - 조중동 (경제섹션)
-   - 매일경제, 한국경제
-   - 통계청, 소비자 분석 리포트
-
-3. 로컬 사이트 우선:
-   .kr, .co.kr 도메인
-   NAVER, Daum 검색 결과
-
-4. 제외 키워드:
-   "China", "US market" (맥락 불일치)
-```
-
-**marketing_strategist**
-```
-주제: "B2B SaaS 마케팅 전략"
-로케일: ko_KR
-
-검색 패턴:
-1. 한국 SaaS 사례:
-   "한국 SaaS 기업 성공 사례"
-   "국내 B2B 마케팅 벤치마크"
-   "한국 B2B 구매 의사결정 프로세스"
-
-2. 로컬 시장 특성:
-   "한국 IT 시장 규모"
-   "한국 엔터프라이즈 구매 결정 요인"
-
-3. 한국식 비즈니스 문화:
-   - 관계 중심 (Relationship-driven)
-   - ROI 강조
-   - 신뢰도 중시
-```
-
-### 3-2. 검색 결과 필터링
-
-```python
-def filter_search_results(results, locale):
-  filtered = []
-  
-  FOR result in results:
-    # 1. 언어 매칭
-    IF result.language != locale.language:
-      continue
-    
-    # 2. 시간 신선도
-    IF result.date < now() - 90days:
-      continue  # 오래된 정보 제외
-    
-    # 3. 신뢰도 평가
-    IF result.domain NOT IN trusted_sources:
-      score -= 20%
-    
-    # 4. 로컬 특화
-    IF result.mentions_local_context:
-      score += 30%
-    
-    # 5. 정부/공식 출처
-    IF result.is_official_source:
-      score += 50%
-    
-    filtered.append((score, result))
-  
-  RETURN sorted(filtered, by=score, descending=True)
+FOR each category in [세법, 노동법, 데이터보호법, 비즈니스 관행, 형식 표준]:
+  1. 웹검색 실행 (쿼리 = category별 패턴 + 근무 국가 + 현재 연도)
+  2. 상위 3-5개 결과에서 핵심 정보 추출
+  3. 공식 출처 (정부 사이트, .gov) 우선
+  4. 최신 정보 우선 (1년 이내)
+  5. 추출 결과를 locale-context.md 형식에 맞춰 저장
 ```
 
 ### 3-3. 결과 저장
 
-```
-.moai/locale-context.md에 추가:
+```markdown
+# .moai/locale-context.md
 
-web_search_results:
-  - query: "한국 디지털 마케팅 동향 2026"
-    results:
-      - source: "조중동 경제면"
-        title: "2026년 한국 마케팅 전망"
-        url: https://...
-        relevance: 95%
-      - source: "매일경제"
-        title: "국내 SNS 마케팅 현황"
-        ...
+## 로케일 기본정보
+- country: {country_code}
+- language: {language}
+- timezone: {timezone}
+- currency: {currency}
+- date_format: {date_format}
+
+## 세법 요약
+{웹검색 수집 결과}
+
+## 노동법 요약
+{웹검색 수집 결과}
+
+## 데이터보호법 요약
+{웹검색 수집 결과}
+
+## 비즈니스 관행
+{웹검색 수집 결과}
+
+## 형식 표준
+{웹검색 수집 결과}
+
+---
+수집일: {timestamp}
+출처: {검색에 사용된 주요 URL 목록}
 ```
 
 ---
 
-## 4. 규제 및 법률 적용
+## 4. 한국(KR) 내장 데이터
 
-### 4-1. 로케일별 규제 매핑
+한국은 플러그인에 내장된 `references/locale/kr/index.md`를 사용한다.
+이 파일에는 세법, 노동법, 데이터보호법, 비즈니스 관행, 형식 표준이 포함되어 있다.
 
-**한국 (KR)**
+웹검색이 불가능한 오프라인 환경에서도 한국 로케일은 완전하게 동작한다.
+
+---
+
+## 5. 하네스 실행 시 로케일 적용
+
+### 5-1. 모든 하네스 공통 적용
+
+하네스 실행 시 `.moai/locale-context.md`를 로딩하여:
+
+- **화폐 표기**: 해당 국가 통화 기호 + 형식 사용
+- **날짜 표기**: 해당 국가 날짜 형식 사용
+- **법적 고지**: 해당 국가 규제 반영 (개인정보, 광고 규제 등)
+- **비즈니스 톤**: 해당 국가 문화에 맞는 어조와 호칭
+
+### 5-2. 규제 민감 하네스 (법률, 세무, HR 등)
+
+카테고리 8-10의 하네스는 로케일 데이터를 **필수적으로** 참조한다:
+- `contract-review`: 해당 국가 계약법 기준
+- `accounting-tax`: 해당 국가 세법 기준
+- `labor-hr`: 해당 국가 노동법 기준
+- `compliance`: 해당 국가 데이터보호법 기준
+- `regulatory`: 해당 국가 산업별 규제 기준
+
+### 5-3. 규제 데이터 갱신
+
 ```
-적용 법률:
-1. 개인정보보호법
-   - 수집 목적 명시 필수
-   - 3년 보유 제한
-   - GDPR 대신 PIPA 준수
+로케일 데이터 유효기간: 90일 (권장)
 
-2. 전자상거래법
-   - 통신판매신고 필수
-   - 반품 권리: 7일
-   - 환불 기한: 3일
-
-3. 통신판매법
-   - 광고 메일: 수신동의 필수
-   - "광고" 표시 의무
-   - 스팸 금지
-
-4. 개인정보보호지침
-   - 개인정보 유출 신고 의무
-   - 암호화 권장
-```
-
-**미국 (US)**
-```
-적용 법률:
-1. GDPR (EU 거주자)
-   - 명시적 동의 필수
-   - DPIA 수행
-
-2. CCPA (캘리포니아)
-   - 옵트아웃 권리
-   - 삭제 권리
-
-3. CAN-SPAM
-   - 메일 주제에 "광고" 표시
-   - 수신 거부 옵션 제공
-
-4. FTC 규칙
-   - 허위 광고 금지
-   - 공시 요구사항
-```
-
-### 4-2. 규제 강제 적용
-
-```python
-def apply_regulations(output, harness, locale):
-  
-  regulations = load_regulations(locale.country)
-  
-  FOR regulation in regulations:
-    # 1. 규제 검증
-    IF regulation.applies_to(harness, output):
-      
-      # 2. 컴플라이언스 확인
-      IF NOT output.complies_with(regulation):
-        
-        # 3. 자동 수정
-        output = apply_fix(output, regulation)
-        
-        # 4. 경고 기록
-        log_warning(f"{regulation.name} 적용됨")
-  
-  RETURN output
+갱신 트리거:
+1. /moai init 재실행 시 자동 갱신
+2. /moai doctor 실행 시 갱신 여부 확인
+3. 규제 민감 하네스 실행 시 90일 초과면 갱신 권고
 ```
 
 ---
 
-## 5. 문화 및 비즈니스 관행
+## 6. 로캘별 페르소나 적응
 
-### 5-1. 문화 적응
+근무 국가에 따라 MoAI의 페르소나(호칭, 톤)를 자동 조정한다:
 
-**인사말 및 호칭**
 ```
-한국:
-- 존칭 사용 (님, 님께서)
-- 나이/서열 존중
-- 공식적 어조
-
-미국:
-- 캐주얼한 호칭 (First name)
-- 평등한 톤
-- 친근한 어조
-
-일본:
-- 경어 (です体, ます체)
-- 높임 표현
-- 간접적 표현
-```
-
-**이모지 및 특수문자**
-```
-한국: 
-- 이모지 사용 최소화 (공식 문서)
-- 전통 기호 존중 (불, 복, 길 등)
-
-미국:
-- 이모지 자유로움
-- 타이포그래피 활용
-
-일본:
-- 전통 기호 (吉, 福)
-- 이모지 선별적 사용
-```
-
-### 5-2. 비즈니스 관행
-
-**의사결정 프로세스**
-```
-한국:
-- 의사결정 자가 중심적 (결정자 명확)
-- 보고 체계 엄격
-- 관계 기반 협상
-
-미국:
-- 팀 기반 의사결정
-- 투명성 중시
-- 계약 기반 협상
-
-일본:
-- 합의 기반 (Consensus)
-- 위계 중시
-- 시간 여유 필요
+IF country == "KR": 호칭 = "{이름}님", 톤 = 격식-친근 (존댓말)
+IF country == "JP": 호칭 = "{성}さん", 톤 = 정중-격식
+IF country in ["US","GB","AU","CA"]: 호칭 = "Hi {이름}!", 톤 = 전문-캐주얼
+IF country == "DE": 호칭 = "Herr/Frau {성}", 톤 = 전문
+IF country == "FR": 호칭 = "Monsieur/Madame {성}", 톤 = 전문-따뜻
+IF country == "BR": 호칭 = "{이름}", 톤 = 캐주얼-친근
+IF country == "VN": 호칭 = "Anh/Chị {이름}", 톤 = 정중-친근
+IF country == "TH": 호칭 = "คุณ{이름}", 톤 = 정중-따뜻
+ELSE: 웹검색으로 해당 국가 비즈니스 호칭/톤 파악 → 적용
 ```
 
 ---
 
-## 6. 타임존 및 스케줄링
+## 7. 다중 로케일 처리
 
-### 6-1. 자동 스케줄 조정
-
-```python
-def schedule_automation(task, locale):
-  # 근무 시간 기반 스케줄
-  business_hours = get_business_hours(locale.country)
-  
-  # 퍼센타일 기반 최적 시간
-  optimal_time = calculate_optimal_time(
-    business_hours,
-    locale.timezone,
-    task.type
-  )
-  
-  # 예: 한국 메일링
-  # 근무 시간: 09:00 ~ 18:00
-  # 최적 시간: 10:00 (오픈율 최고)
-  
-  schedule_task(task, optimal_time)
-```
-
-### 6-2. 시간대 표시
-
-```
-한국 사용자 기준:
-- 모든 시간은 Asia/Seoul (UTC+09:00)
-- 다른 국가 시간 참조 시 변환:
-  "미국 동부 시간 10:00 AM = 한국 시간 밤 11:00 PM"
-```
-
----
-
-## 7. 수치 및 통화 표기
-
-### 7-1. 숫자 형식
-
-```
-한국:
-  1,000,000 (쉼표)
-  소수점: . (마침표)
-  예: ₩1,000,000.00
-
-미국:
-  1,000,000 (쉼표)
-  소수점: . (마침표)
-  예: $1,000,000.00
-
-독일:
-  1.000.000 (마침표)
-  소수점: , (쉼표)
-  예: €1.000.000,00
-```
-
-### 7-2. 통화 표기
-
-```
-자동 변환:
-"월 10억 원" (한국) → "$800,000" (미국) → "€750,000" (EU)
-
-환율 출처: 세계은행 또는 OANDA (일일 업데이트)
-주의: 환율 변동 안내 필수
-```
-
----
-
-## 8. 성능 및 최적화
-
-### 8-1. 현지화 캐싱
-
-```
-로케일 설정 캐시:
-- TTL: 30일 (또는 명시적 변경까지)
-- 저장: .moai/locale-cache.yaml
-- 히트율 목표: > 95%
-```
-
-### 8-2. 웹검색 최적화
-
-```
-검색 결과 캐싱:
-- 쿼리별 캐시 (동일 쿼리 반복 최소화)
-- 언어별 분리 캐싱
-- 신선도: 30일
-- 크기 제한: 100MB
-```
-
----
-
-## 9. 다중 로케일 처리
-
-### 9-1. 다국가 조직
-
+### 7-1. 다국가 조직
 ```
 회사가 다국가 운영 시:
-primary_locale: "ko_KR" (개인 국가)
-secondary_locales: ["en_US", "ja_JP"] (회사 국가)
+primary_locale: "{개인 근무 국가}"
+secondary_locales: ["{회사 본사 국가}", ...]
 
-규칙: 개인 선호 우선, 회사 요구시 조정
+규칙: 개인 근무 국가 우선, 회사 요구 시 조정
 ```
 
-### 9-2. 국제 프로젝트
-
+### 7-2. 일시적 로케일 전환
 ```
 /moai {harness} --locale=en_US
-→ 일시적으로 미국 로케일로 작업
+→ 일시적으로 해당 로케일로 작업
 → 프로젝트 종료 후 원래 로케일 복귀
 ```
 
 ---
 
-## 10. 피드백 및 개선
+## 8. Graceful Degradation
 
-### 10-1. 현지화 피드백
-
-```
-평가 후:
-"이 콘텐츠가 한국 시장에 적합했나요?"
-[1] 매우 적합
-[2] 적합
-[3] 보통
-[4] 부적합
-[5] 전혀 부적합
-
-부적합 시 → 규칙 조정
-```
-
-### 10-2. 새 로케일 추가
-
-```
-/moai locale --add --country=VN --language=vi
-
-단계:
-1. 규제 정보 수집
-2. 비즈니스 관행 정의
-3. 웹검색 소스 매핑
-4. 테스트 프로젝트 실행
-5. 피드백 기반 조정
-```
-
----
-
-## 11. 감사 및 컴플라이언스
-
-### 11-1. 규제 감사
-
-```
-매월 자동 감사:
-- 적용 법규 현행 여부 확인
-- 규정 변경 모니터링
-- 컴플라이언스 체크리스트 업데이트
-
-변경 시 알림:
-/moai notifications --type=regulatory
-```
-
-### 11-2. 컴플라이언스 로그
-
-```
-.moai/compliance-log.md:
-
-2026-04-04 컴플라이언스 체크
-├─ 개인정보보호법: ✓ 준수
-├─ 전자상거래법: ✓ 준수
-└─ 통신판매법: ✓ 준수
-
-위반 이력: 없음
+| 상황 | 대응 |
+|------|------|
+| 웹검색 완전 실패 | 사용자에게 직접 주요 규제/관행 입력 요청 |
+| 웹검색 부분 실패 | 수집된 항목만 저장, 누락 항목 명시 |
+| 한국(KR) 선택 | 내장 데이터 사용 (웹검색 불필요) |
+| 90일 초과 데이터 | 갱신 권고 메시지, 기존 데이터로 계속 동작 |
+| 로케일 미설정 | `/moai init` 안내 |

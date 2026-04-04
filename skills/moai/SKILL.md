@@ -109,7 +109,7 @@ description: "MoAI — 100개 자기진화 도메인 하네스 AI 전문가. '/m
 | CLAUDE.md/rules 자동 로딩 실패 | `/moai` 호출로 수동 복구 |
 | 글로벌 프로필 미접근 | 새로 수집, `.moai/config.json`에 복사본 |
 | AskUserQuestion 실패 | 텍스트 대화로 fallback |
-| 웹검색 실패 (현지화) | 내장 기본 규제 데이터 사용 + 수동 입력 안내 |
+| 웹검색 실패 (현지화) | 한국은 내장 데이터, 기타 국가는 사용자 직접 입력 안내 |
 | 회사 프로필 미입력 | 비즈니스 하네스는 기본값 사용, 추후 `/moai profile`로 보완 |
 
 ## 9. 레퍼런스 맵
@@ -146,8 +146,9 @@ references/
 │   ├── ko/                  — 한국어 (100개 .md)
 │   └── en/                  — 영어 (100개 .md)
 │
-└── locale/                  — 로캘별 문화 적응 데이터
-    ├── cultural-adaptation-guide.md
-    ├── kr/ jp/ us/ uk/ vn/ th/
-    └── (각 국가별 규제/관행 기본 데이터)
+└── locale/                  — 로캘 현지화 데이터
+    ├── cultural-adaptation-guide.md  — 웹검색 수집 가이드 (전세계)
+    └── kr/                          — 한국 내장 데이터 (유일한 내장 로케일)
+        └── index.md                 — 세법, 노동법, 데이터보호법, 관행, 형식
+    # 한국 외 국가: /moai init 시 웹검색으로 동적 수집 → .moai/locale-context.md 저장
 ```
