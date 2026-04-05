@@ -126,6 +126,7 @@ moai-cowork/
 │               ├── kr/index.md        # 한국 내장 데이터
 │               └── cultural-adaptation-guide.md
 │
+├── .mcp.json                          # MCP 서버 정의 (Sequential Thinking)
 ├── README.md                          # 한국어 (이 문서)
 ├── README-en.md ~ README-he.md        # 16개 언어 README
 ├── CONTRIBUTING.md                    # 기여 가이드
@@ -148,6 +149,14 @@ moai-cowork/
 | `evaluation-protocol.md` | 산출물 평가 (S/A/B/C/D 등급) |
 | `diagnostic-protocol.md` | `/moai doctor`, `/moai status` |
 | `localization-protocol.md` | 로캘 자동감지 + 웹검색 현지화 |
+
+### 내장 MCP 서버
+
+플러그인 설치 시 아래 MCP 서버가 자동으로 등록됩니다:
+
+| MCP 서버 | 패키지 | 용도 |
+|----------|--------|------|
+| **Sequential Thinking** | `@modelcontextprotocol/server-sequential-thinking` | 구조화된 단계별 사고 — 복잡한 문제 분해, 가설 검증, 다단계 추론 |
 
 ---
 
