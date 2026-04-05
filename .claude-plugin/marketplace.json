@@ -1,0 +1,33 @@
+{
+  "name": "moai-cowork",
+  "owner": {
+    "name": "GOOS (modu-ai)",
+    "email": "namgoos@gmail.com"
+  },
+  "metadata": {
+    "description": "MoAI — 100개 자기학습 도메인 하네스 플러그인. 글로벌 프로필, 17개 언어, 웹검색 현지화 지원.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "moai-cowork",
+      "source": ".",
+      "description": "MoAI — 100 self-evolving domain harnesses for Cowork. Personalized AI expert with global profile sharing, 17 languages, and web-search localization.",
+      "version": "0.1.0",
+      "author": {
+        "name": "GOOS",
+        "email": "namgoos@gmail.com"
+      },
+      "homepage": "https://github.com/modu-ai/moai-cowork#readme",
+      "repository": "https://github.com/modu-ai/moai-cowork",
+      "license": "MIT",
+      "keywords": [
+        "harness", "self-evolving", "playbook", "automation",
+        "multilingual", "productivity", "assistant", "persona",
+        "global-profile", "cowork", "localization"
+      ],
+      "category": "productivity",
+      "tags": ["ai-harness", "domain-expert", "self-learning", "multilingual", "localization"]
+    }
+  ]
+}
