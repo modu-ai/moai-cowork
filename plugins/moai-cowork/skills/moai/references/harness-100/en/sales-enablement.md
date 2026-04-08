@@ -1,80 +1,99 @@
-# Sales Enablement (sales-enablement)
+# Sales Enablement (48)
 
-> MoAI-Cowork V.0.1.0 Harness Reference | Category 2
+> MoAI-Cowork V0.1.3 Harness Reference
 
 ## Overview
 
-Sales support materials: pitch decks, battle cards, case studies, playbooks
-
-## Persona
-
-I am a **Sales Enablement Expert**. I specialize in sales support materials: pitch decks, battle cards, case studies, playbooks, providing systematic and practical deliverables to help users achieve their goals.
+A sales enablement pipeline where an agent team collaborates to produce: Customer Analysis, Proposal, Presentation, and Follow-up Plan.
 
 ## Expert Roles
 
-- **customer-analyst**: 고객 프로파일링, 니즈 분석, 의사결정 매핑
-- **followup-manager**: 팔로업 일정 설계, 이메일 템플릿 작성, 이의 대응(Objection Handling)
-- **presenter**: 스토리라인 설계, 슬라이드 구성, DMU별 메시지 분기
-- **proposal-writer**: 가치 제안(Value Proposition) 설계, ROI 산출, 솔루션 구성 설계
-- **sales-reviewer**: 고객↔제안서 정합성, 제안서↔PT 정합성, PT↔팔로업 정합성
+- **Customer Analyst**: Customer Analysis Expert. Analyzes the target customer's business situation, needs, decision-making structure, budget, and competitive solution usage to provide the foundation for a tailored sales strategy.
+  - Customer Profiling: Comprehensively analyze company size, industry, revenue, organizational structure, and recent news
+  - Needs Analysis: Identify the customer's business challenges (pain points) and strategic priorities
+  - Decision-Making Mapping: Identify the DMU (Decision Making Unit) — decision-makers, influencers, gatekeepers, and end users
+  - Competitive Landscape Assessment: Analyze the solutions the customer currently uses and barriers to switching
+  - Budget & Timeline Estimation: Estimate purchase budget, decision-making timeline, and procurement process
+
+- **Follow-up Manager**: Sales Follow-up Management Expert. Develops post-proposal follow-up schedules, email templates, objection handling scripts, and action plans through to contract closure.
+  - Follow-up Schedule Design: Define touchpoint actions for Day 1/3/7/14/30 after the proposal
+  - Email Template Creation: Write situation-specific emails (thank you/reminder/additional materials/objection response/closing push)
+  - Objection Handling: Prepare response scripts for each anticipated objection
+  - Negotiation Strategy: Set response ranges and red lines for price and terms negotiation scenarios
+  - Pipeline Management: Provide transition criteria and checklists for each deal stage
+
+- **Presenter**: Sales Presentation Design Expert. Converts proposal content into a persuasive presentation storyline and slide structure. Designs tailored messaging for each DMU role.
+  - Storyline Design: Design a persuasion structure following Customer Challenge → Solution → Evidence → CTA
+  - Slide Structure: Create key messages, visual guides, and speaker notes for each slide
+  - DMU-Specific Messaging: Differentiate emphasis for each audience type — executives, operational leads, technical teams
+  - Demo Scenario Design: When live demonstrations are needed, design the demo scenario
+  - Q&A Preparation: Prepare anticipated questions and recommended answers
+
+- **Proposal Writer**: Sales Proposal Writing Expert. Creates customized solution proposals based on customer analysis results, including value proposition, solution matching, ROI calculation, and pricing.
+  - Value Proposition Design: Structure solution matching and expected outcomes for each customer pain point
+  - ROI Calculation: Compute quantitative benefits (cost savings, revenue increase, productivity improvement) relative to adoption costs
+  - Solution Architecture Design: Configure product/service packages aligned with customer needs
+  - Pricing Proposal: Design competitive pricing options (tiered, bundled, annual/monthly)
+  - Implementation Plan: Present implementation timeline, milestones, and success criteria
+
+- **Sales Reviewer**: Sales Enablement Reviewer (QA). Cross-validates consistency across customer analysis, proposal, presentation, and follow-up, and evaluates the persuasiveness, coherence, and completeness of the sales strategy.
+  - Customer to Proposal Consistency: Are all customer pain points addressed in the proposal without gaps?
+  - Proposal to Presentation Consistency: Are the proposal's core value points effectively reflected in the presentation?
+  - Presentation to Follow-up Consistency: Does the post-presentation follow-up naturally continue the presentation flow?
+  - Pricing Consistency: Do all price references across proposal, presentation, and follow-up materials match?
+  - Customer Language Consistency: Do all documents consistently use the customer's business terminology?
 
 ## Workflow
 
-### Phase 1: Preparation
+### Phase 1: Preparation (Performed directly by the orchestrator)
 
-1. Analyze user request — identify goals, constraints, existing materials
-2. Reference `.moai/context.md` — check previous context
-3. Load profile — read user information from `/mnt/.auto-memory/moai-profile.md`
-4. Determine scope — full process vs. partial execution
+1. Extract from user input:
+    - **Customer Info**: Customer company name, industry, size, contact person
+    - **Our Info**: Product/service, strengths, price range
+    - **Sales Situation**: Deal stage, competitive landscape, timeline
+    - **Existing Materials** (optional): Customer analysis, existing proposals, etc.
+2. Create the `_workspace/` directory at the project root
+3. Organize input and save as `_workspace/00_input.md`
+4. If existing files are present, copy them to `_workspace/` and skip the corresponding phase
 
-### Phase 2: Execution
+### Phase 2: Team Assembly and Execution
 
-1. **Research/Analysis** — web search, data collection, situational assessment
-2. **Strategy** — direction setting based on analysis, apply core frameworks
-3. **Deliverable Creation** — generate documents/materials step by step
-4. **Review/Refinement** — cross-validation, consistency check, quality assurance
+| Order | Task | Owner | Dependencies | Deliverable |
+|-------|------|-------|-------------|-------------|
+| 1 | Customer analysis | customer-analyst | None | `_workspace/01_customer_analysis.md` |
+| 2 | Proposal writing | proposal-writer | Task 1 | `_workspace/02_proposal.md` |
+| 3a | Presentation design | presenter | Tasks 1, 2 | `_workspace/03_presentation.md` |
+| 3b | Follow-up planning | followup-manager | Tasks 1, 2 | `_workspace/04_followup_plan.md` |
+| 4 | Sales review | sales-reviewer | Tasks 1, 2, 3a, 3b | `_workspace/05_review_report.md` |
 
-### Phase 3: Finalization
+Tasks 3a (Presentation) and 3b (Follow-up) execute **in parallel**. Both depend on Tasks 1 (Customer Analysis) and 2 (Proposal), so they start simultaneously after the proposal is complete.
 
-1. Organize final deliverables — format adjustment, user customization
-2. Save files — save to workspace folder + provide computer:// links
-3. Summary report — provide key results summary
-4. Reflection — save session reflection to `.moai/evolution/reflections/`
+**Inter-agent communication flow:**
+- customer-analyst completes → sends pain points and BANT assessment to proposal-writer
+- proposal-writer completes → sends value proposition and ROI to presenter; sends pricing and objections to followup-manager
+- presenter completes → sends Q&A predictions to followup-manager
+- sales-reviewer cross-verifies all deliverables. When RED Must Fix items are found, sends revision requests to the relevant agent → rework → re-verify (up to 2 iterations)
 
-## Deliverable Formats
+### Phase 3: Integration and Final Deliverables
 
-| Deliverable | Format | Description |
-|-------------|--------|-------------|
-| Strategy/Analysis | `.md` | Strategic brief, analysis report |
-| Execution Document | `.md` / `.docx` | Main deliverables (reports, guides) |
-| Data/Numbers | `.xlsx` / `.csv` | Numerical data, comparison tables, models |
-| Presentation | `.pptx` | Slide decks (when needed) |
-| Checklist | `.md` | Execution checklist, review items |
+1. Verify all files in `_workspace/`
+2. Confirm that all RED Must Fix items from the review report have been addressed
+3. Report the final summary to the user
 
-## Context Collection Questions (AskUserQuestion)
+## Deliverables
 
-Sample questions for Phase 4 deep context collection (max 4 questions, max 4 options each):
 
-| Q | Question | Options |
-|---|----------|---------|
-| Q1 | Main objective? | New start / Improve existing / Problem solving / Strategy planning |
-| Q2 | Target audience? | Internal team / Executives / Customers / Investors |
-| Q3 | Urgency? | Immediate (1 day) / This week / This month / Long-term |
-| Q4 | Preferred tone? | Formal/Professional / Casual/Friendly / Data-driven / Storytelling |
+## Extension Skills
 
-## Related Harnesses
+- **roi-calculator**: ROI/TCO/Payback formulas, value quantification framework, 3-stage presentation
+- **objection-handler**: BANT+C objection classification, LAER response framework, severity assessment, negotiation strategy
 
-Harnesses that work well together with this one:
+## Error Handling
 
-- `brand-identity` — Brand Identity
-- `personal-branding` — Personal Branding
-- `brand-voice-guide` — Brand Voice Guide
-
-## Cowork Execution Guide
-
-- **File creation**: Create directly in workspace using Write tool
-- **Data processing**: Use Python/Node in Bash sandbox
-- **Web search**: Collect latest data via WebSearch/WebFetch
-- **Presentations**: Can integrate with pptx skill
-- **Spreadsheets**: Can integrate with xlsx skill
-- **Documents**: Can integrate with docx skill
+| Error Type | Strategy |
+|-----------|----------|
+| Insufficient customer info | Build a hypothesis-based profile using industry/size, tag with "HYPOTHESIS-BASED" |
+| Insufficient product info | Draft using a general B2B solution framework, tag with "PRODUCT INFO NEEDED" |
+| Web search failure | Proceed with general knowledge, tag with "DATA LIMITED" |
+| Agent failure | Retry once → if still failing, proceed without that deliverable and note the omission in the review report |
+| RED found in review | Send revision request to the relevant agent → rework → re-verify (up to 2 iterations) |

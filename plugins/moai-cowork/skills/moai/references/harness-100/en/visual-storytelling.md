@@ -1,80 +1,85 @@
-# Visual Storytelling (visual-storytelling)
+# Visual Storytelling (15)
 
-> MoAI-Cowork V.0.1.0 Harness Reference | Category 1
+> MoAI-Cowork V.0.1.3 Harness Reference
 
 ## Overview
-
-Visual narrative design, infographics, and data storytelling
-
-## Persona
-
-I am a **Visual Storytelling Expert**. I specialize in visual narrative design, infographics, and data storytelling, providing systematic and practical deliverables to help users achieve their goals.
+A harness where an agent team collaborates to produce visual storytelling: story design, text writing, AI image generation, HTML layout, and integrated editing.
 
 ## Expert Roles
-
-- **editorial-reviewer**: 내러티브 흐름, 텍스트-이미지 조화, 시각적 통일감
-- **essay-writer**: 본문 서술, 캡션 작성, 인용구/에피그래프
-- **image-prompter**: 프롬프트 설계, 스타일 일관성, 이미지 생성 실행
-- **layout-builder**: HTML/CSS 페이지 제작, 반응형 디자인, 타이포그래피 설계
-- **story-architect**: 내러티브 아크 설계, 장면(Scene) 분할, 시각-텍스트 밸런스
+- **editorial-reviewer**: Editorial reviewer (QA). Cross-validates consistency across story, text, images, and layout, verifying the quality of narrative flow, emotional consistency, and visual unity.
+- **essay-writer**: Essay writer. Writes the text portion of visual storytelling. Composes body text, captions, quotes, and dialogue in an emotional style that breathes in sync with images scene by scene.
+- **image-prompter**: Image . Gemini Image utilization Visual Storyof Scenein Image generate. Scene between Visual Consistency Prompt design.
+- **layout-builder**: Layout . Textand Image Integration HTML/CSS Visual Story page produce. Responsive , Typography, design.
+- **story-architect**: Story Design. Visual Storytellingof Narrative Structure, Scene composition, visual-Text Balance design. Scene Imageand Textof combinationto of narrative photography .
 
 ## Workflow
 
-### Phase 1: Preparation
+### Phase 1: Preparation (Performed Directly by the Orchestrator)
 
-1. Analyze user request — identify goals, constraints, existing materials
-2. Reference `.moai/context.md` — check previous context
-3. Load profile — read user information from `/mnt/.auto-memory/moai-profile.md`
-4. Determine scope — full process vs. partial execution
+1. Extract from user input:
+ - **Story **: Visual Storyof /
+ - **type** (Selection): in/in/BrandStory/
+ - **** (Selection): ///intense
+ - **Scene ** (Selection): 
+ - ** File** (Selection): Text, Image, 
+2. `_workspace/` and `_workspace/images/` generate
+3. Organize input and save to `_workspace/00_input.md`in save
+4. If existing files are present `_workspace/`, copy to _workspace/ and skip the corresponding Phase
+5. Based on the scope of the request **determine the execution mode** ( " per mode" )
 
-### Phase 2: Execution
+### Phase 2: Team Assembly and Execution
 
-1. **Research/Analysis** — web search, data collection, situational assessment
-2. **Strategy** — direction setting based on analysis, apply core frameworks
-3. **Deliverable Creation** — generate documents/materials step by step
-4. **Review/Refinement** — cross-validation, consistency check, quality assurance
+ compositionand . between of relationship and :
 
-### Phase 3: Finalization
+| sequence | | | of | |
+|------|------|------|------|--------|
+| 1 | Story Design | architect | None | `_workspace/01_story_blueprint.md` |
+| 2a | Text writing | writer | 1 | `_workspace/02_essay_text.md` |
+| 2b | Image Prompt· | prompter | 1 | `_workspace/03_image_prompts.md`, `images/` |
+| 3 | HTML Layout | builder | 2a, 2b | `_workspace/04_layout.html` |
+| 4 | Editing Review | reviewer | 2a, 2b, 3 | `_workspace/05_review_report.md` |
 
-1. Organize final deliverables — format adjustment, user customization
-2. Save files — save to workspace folder + provide computer:// links
-3. Summary report — provide key results summary
-4. Reflection — save session reflection to `.moai/evolution/reflections/`
+ 2a(Text)and 2b(Image) **executed in parallel**. 1(Story Design)in ofto whenin when .
 
-## Deliverable Formats
+**Inter-team communication flow:**
+- architect complete -> writerTo Sceneper Text Role·Emotion before, prompterTo Visual ·Image concept before, builderTo Scene Structure·ratio before
+- writer complete -> prompterTo Text Emotionand Image before, builderTo Text placement Guide before
+- prompter complete -> builderTo Image File··placement Information before
+- reviewer cross-validate. 🔴 Must Fix when AgentTo → → Verification (vs 2)
 
-| Deliverable | Format | Description |
-|-------------|--------|-------------|
-| Strategy/Analysis | `.md` | Strategic brief, analysis report |
-| Execution Document | `.md` / `.docx` | Main deliverables (reports, guides) |
-| Data/Numbers | `.xlsx` / `.csv` | Numerical data, comparison tables, models |
-| Presentation | `.pptx` | Slide decks (when needed) |
-| Checklist | `.md` | Execution checklist, review items |
+### Phase 3: Integration and Final Deliverables
 
-## Context Collection Questions (AskUserQuestion)
+Reviewof based on :
 
-Sample questions for Phase 4 deep context collection (max 4 questions, max 4 options each):
+1. `_workspace/` within File verify
+2. from the review report 🔴 Must Fix reflected verify
+3. summary To :
+ - Story lean — `01_story_blueprint.md`
+ - in Text — `02_essay_text.md`
+ - Image Prompt — `03_image_prompts.md`
+ - HTML Layout — `04_layout.html`
+ - Review — `05_review_report.md`
+ - Image — `images/` 
 
-| Q | Question | Options |
-|---|----------|---------|
-| Q1 | Main objective? | New start / Improve existing / Problem solving / Strategy planning |
-| Q2 | Target audience? | Internal team / Executives / Customers / Investors |
-| Q3 | Urgency? | Immediate (1 day) / This week / This month / Long-term |
-| Q4 | Preferred tone? | Formal/Professional / Casual/Friendly / Data-driven / Storytelling |
+## Deliverables
+- `00_input.md` — Organized user input
+- `01_story_blueprint.md` — Story blueprint
+- `02_essay_text.md` — Essay body text
+- `03_image_prompts.md` — Image prompt sheet
+- `04_layout.html` — HTML layout
+- `05_review_report.md` — Editorial review report
+- `images/` — Generated images directory
 
-## Related Harnesses
+## Extension Skills
+- **image-prompt-engineering**: AI Image (Gemini/DALL-E/Midjourney) Prompt Writing Guide. compositionper Prompt , Style before, Consistency technique, Prompt Pattern image-prompter Extended Skill. 'Image Prompt', 'AI Image Style', 'Prompt Writing', 'composition ', 'Style Consistency', ' Prompt' etc. AI Image Prompt Optimization when . , Image candidates of .
+- **narrative-structure-patterns**: Visual Storytellingof Narrative Structure Pattern Library. 3/5/hero's journey Structure, Emotion Curve Design, Scene before technique, Text-Image Balance Formula story-architect Extended Skill. 'Narrative Structure', 'Story arc', 'Emotion Curve', 'Scene before', ' Structure', 'Visual rhythm' etc. Story Design when . , Text writing Image of .
 
-Harnesses that work well together with this one:
+## Error Handling
 
-- `youtube-production` — YouTube Production
-- `newsletter` — Newsletter
-- `content-repurposer` — Content Repurposer
-
-## Cowork Execution Guide
-
-- **File creation**: Create directly in workspace using Write tool
-- **Data processing**: Use Python/Node in Bash sandbox
-- **Web search**: Collect latest data via WebSearch/WebFetch
-- **Presentations**: Can integrate with pptx skill
-- **Spreadsheets**: Can integrate with xlsx skill
-- **Documents**: Can integrate with docx skill
+| in type | Strategy |
+|----------|------|
+| Image | vs Prompt 1 when → when + Prompt Text |
+| | StoryDesign 3 Suggestion after |
+| Agent failure | 1 retry -> if still fails, proceed without that deliverable, note omission in review report |
+| RED found in review | Request revision from relevant agent -> rework -> re-verify (up to 2 times) |
+| Image-Text Emotion conflict | Image Prompt Text |

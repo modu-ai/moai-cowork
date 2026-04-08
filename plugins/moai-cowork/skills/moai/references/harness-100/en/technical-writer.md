@@ -1,80 +1,104 @@
-# Technical Writer (technical-writer)
+# Technical Writer (81-technical-writer)
 
-> MoAI-Cowork V.0.1.0 Harness Reference | Category 4
+> MoAI-Cowork V.0.1.3 Harness Reference
 
 ## Overview
-
-Technical documentation: manuals, API guides, release notes
-
-## Persona
-
-I am a **Technical Writer Expert**. I specialize in technical documentation: manuals, api guides, release notes, providing systematic and practical deliverables to help users achieve their goals.
+technical document writing structuredesign→→diagram→review→versionmanagement A harness where an agent team collaborates to produce deliverables.
 
 ## Expert Roles
-
-- **diagram-maker**: 아키텍처 다이어그램, 시퀀스 다이어그램, 플로차트
-- **doc-writer**: 본문 집필, 코드 예제, 튜토리얼 작성
-- **info-architect**: 독자 분석, 문서 유형 결정, 목차 설계
-- **tech-reviewer**: 기술 정확성, 완전성, 일관성
-- **version-controller**: 버전 번호 관리, 변경 이력 관리, 메타데이터 관리
+- **diagram-maker**: diagram writingspecialist. Mermaid grammaras diagram, when diagram, flowchart etc. technical document wheneach material creation.
+  - whensystem composition element and annual total visualization
+  - between communication flow, API order
+  - decision-making flow, process stage
+  - data model, total
+  - status before, company
+- **doc-writer**: technical document specialist. information design according to body text writingand, code example and includedKorean nature also technical document creation.
+  - structure designfrom sectionby body text writing
+  - execution possibleKorean code example writing, stageby description included
+  - orderversus according toto do number stageby guide
+  - endpoint, un-, , error code organization
+  - day, tone consistency, style guide levelnumber
+- **info-architect**: information designspecialist. technical document reader analysisand, quality document structure and table of contents designand, document typeby template provide.
+  - target reader technical level, purpose, definition
+  - API reference//guide/document/operations during quality type
+  - information quality flow reflectedKorean totalquality table of contents composition
+  - gap reference, condition, related document annual structure design
+  - each section purpose, , expected minute guide
+- **tech-reviewer**: technical reviewer(QA). document technicalquality accuracy, completeness, consistency, reader qualitynature verifyand specific revision feedback provide.
+  - code example, API , description technicalqualityas matching
+  - section, un-description items, done error without
+  - , peoplepeople rule, code style document overallfrom dayqualityperson
+  - target reader level description person
+  - table of contents and body text dayvalue, diagram qualityKorean position existing
+- **version-controller**: version managementspecialist. document data, change capability, version managementand, deployment preparation status confirm.
+  - Semantic Versioning(Major.Minor.Patch) applied
+  - each version change matters, change reason, impact scope basisrecord
+  - writingspecialist, reviewer, status, category, management
+  - final format, verify, data nature also confirm
+  - document cycle, person responsible, basis standard definition
 
 ## Workflow
+### Phase 1: preparation (Orchestrator directly perform)
 
-### Phase 1: Preparation
+1. Extract from user input:
+ - **document week**: regarding documentperson
+ - **document type** (optional): API//guide//operations
+ - **target reader** (optional): role, technical level
+ - **reference material** (optional): code, existing document, 
+ - **existing file** (optional): existing document plan, structureplan
+2. `_workspace/` Create the directory at the project root
+3. Organize input and save to `_workspace/00_input.md`
+4. If existing files are provided, copy them to `_workspace/`and skip the corresponding Phase
+5. Determine the **execution mode** based on the scope of the request
 
-1. Analyze user request — identify goals, constraints, existing materials
-2. Reference `.moai/context.md` — check previous context
-3. Load profile — read user information from `/mnt/.auto-memory/moai-profile.md`
-4. Determine scope — full process vs. partial execution
+### Phase 2: team composition and execution
 
-### Phase 2: Execution
+| order | task | responsible | dependency | deliverable |
+|------|------|------|------|--------|
+| 1 | structure design | architect | None | `_workspace/01_doc_structure.md` |
+| 2a | body text | writer | task 1 | `_workspace/02_doc_draft.md` |
+| 2b | diagram writing | diagram | task 1 | `_workspace/03_diagrams.md` |
+| 3 | technical review | reviewer | task 2a, 2b | `_workspace/04_review_report.md` |
+| 4 | version management | version | task 1~3 | `_workspace/05_version_meta.md` |
 
-1. **Research/Analysis** — web search, data collection, situational assessment
-2. **Strategy** — direction setting based on analysis, apply core frameworks
-3. **Deliverable Creation** — generate documents/materials step by step
-4. **Review/Refinement** — cross-validation, consistency check, quality assurance
+task 2a(body text) and 2b(diagram) ** execution**. task 1(structure) only dependency when whenworkto do number .
 
-### Phase 3: Finalization
+**teamKRW between flow:**
+- architect complete → writerto table of contents·content strategy, diagramto diagram requirement, versionto data deliver
+- writer ↔ diagram: position, caption 
+- reviewer body text+diagram cross-verification. 🔴 required revision findings when Request revision from the relevant agent -> rework -> re-verify (up to 2 rounds)
+- version review result reflectedto final data 
 
-1. Organize final deliverables — format adjustment, user customization
-2. Save files — save to workspace folder + provide computer:// links
-3. Summary report — provide key results summary
-4. Reflection — save session reflection to `.moai/evolution/reflections/`
+### Phase 3: integration and final deliverable
 
-## Deliverable Formats
+1. `_workspace/` Verify all files in the directory
+2. review reportConfirm that all critical revisions from the review report have been addressed
+3. Report the final summary to the user:
+ - document structure — `01_doc_structure.md`
+ - document body text — `02_doc_draft.md`
+ - diagram — `03_diagrams.md`
+ - review report — `04_review_report.md`
+ - version — `05_version_meta.md`
 
-| Deliverable | Format | Description |
-|-------------|--------|-------------|
-| Strategy/Analysis | `.md` | Strategic brief, analysis report |
-| Execution Document | `.md` / `.docx` | Main deliverables (reports, guides) |
-| Data/Numbers | `.xlsx` / `.csv` | Numerical data, comparison tables, models |
-| Presentation | `.pptx` | Slide decks (when needed) |
-| Checklist | `.md` | Execution checklist, review items |
+## Deliverables
+all deliverable `_workspace/` save:
+- `00_input.md` — user input organization
+- `01_doc_structure.md` — document structure designfrom
+- `02_doc_draft.md` — document body text plan
+- `03_diagrams.md` — diagram 
+- `04_review_report.md` — technical review report
+- `05_version_meta.md` — version management data
 
-## Context Collection Questions (AskUserQuestion)
+## Extension Skills
+- **diagram-patterns**: `.claude/skills/diagram-patterns/skill.md`
+- **api-doc-standards**: `.claude/skills/api-doc-standards/skill.md`
+- **code-example-patterns**: `.claude/skills/code-example-patterns/skill.md`
 
-Sample questions for Phase 4 deep context collection (max 4 questions, max 4 options each):
-
-| Q | Question | Options |
-|---|----------|---------|
-| Q1 | Main objective? | New start / Improve existing / Problem solving / Strategy planning |
-| Q2 | Target audience? | Internal team / Executives / Customers / Investors |
-| Q3 | Urgency? | Immediate (1 day) / This week / This month / Long-term |
-| Q4 | Preferred tone? | Formal/Professional / Casual/Friendly / Data-driven / Storytelling |
-
-## Related Harnesses
-
-Harnesses that work well together with this one:
-
-- `product-mgr` — Product Manager
-- `product-roadmap` — Product Roadmap
-- `feature-spec` — Feature Spec
-
-## Cowork Execution Guide
-
-- **File creation**: Create directly in workspace using Write tool
-- **Data processing**: Use Python/Node in Bash sandbox
-- **Web search**: Collect latest data via WebSearch/WebFetch
-- **Presentations**: Can integrate with pptx skill
-- **Spreadsheets**: Can integrate with xlsx skill
-- **Documents**: Can integrate with docx skill
+## Error Handling
+| error type | strategy |
+|----------|------|
+| document week/scope people | reader·purpose afterreport present, optional also |
+| technical taxdepartmentmatters insufficient | [confirm needed] , review when verify |
+| code example verify impossible | "verify needed" tablewhen, readerto test |
+| agent failure | Retry once -> proceed without that deliverable, note the gap in the review report |
+| reviewfrom 🔴 findings | Request revision from the relevant agent -> rework -> re-verify (up to 2 rounds) |

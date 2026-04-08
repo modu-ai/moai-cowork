@@ -1,80 +1,99 @@
-# Research Assistant (research-assistant)
+# Research Assistant (63-research-assistant)
 
-> MoAI-Cowork V.0.1.0 Harness Reference | Category 5
+> MoAI-Cowork v0.1.3 Harness Reference
 
 ## Overview
-
-Research assistance: data collection, literature review, summarization
-
-## Persona
-
-I am a **Research Assistant Expert**. I specialize in research assistance: data collection, literature review, summarization, providing systematic and practical deliverables to help users achieve their goals.
+An agent team harness for academic research assistance.
 
 ## Expert Roles
-
-- **critic-synthesizer**: 비판적 평가, 테마 종합, 연구 갭 식별
-- **literature-searcher**: 검색 전략 수립, 데이터베이스 탐색, 스노우볼링
-- **note-taker**: 핵심 요약, 인용 추출, 방법론 분석
-- **reference-manager**: 서지 정보 수집, 인용 형식 변환, 본문 내 인용 생성
-- **research-coordinator**: 검색 포괄성 검증, 메모-종합 정합성, 인용 정확성 검증
+- **critic-synthesizer**: Critical Analysis and Synthesis Specialist. Critically analyzes collected literature, identifies research gaps, and constructs the core narrative of the literature review through thematic synthesis.
+  - Critical Evaluation: Assess each study's methodological rigor, logical consistency, and generalizability
+  - Thematic Synthesis: Identify and organize key themes, patterns, and trends that run through the literature
+  - Research Gap Identification: Identify unexplored areas, contradictory findings, and unresolved questions in existing research
+  - Theoretical Framework Analysis: Compare major theoretical perspectives and evaluate their applicability to the research topic
+  - Synthesis Narrative Construction: Design the logical flow and storyline of the literature review
+- **literature-searcher**: Literature Search Specialist. Systematically explores academic databases and the web to collect papers, books, and reports related to the research topic, and evaluates their relevance.
+  - Search Strategy Development: Derive core keywords, synonyms, and related terms from the research question
+  - Database Exploration: Search Google Scholar, arXiv, PubMed, SSRN, and others via web search
+  - Snowballing: Track backward references and forward citations from key papers
+  - Relevance Filtering: Evaluate relevance based on abstracts and apply inclusion/exclusion criteria
+  - Literature Map Generation: Classify literature by sub-topic within the research area
+- **note-taker**: Note-Taking Specialist. Reads each piece of literature thoroughly and organizes key arguments, methodology, major findings, and quotable passages into a structured format.
+  - Core Summary: Summarize each source's research question, methodology, key findings, and conclusions
+  - Quote Extraction: Extract key passages worth direct citation along with page numbers
+  - Methodology Analysis: Document the strengths and limitations of the research design, data collection, and analysis methods
+  - Connection Identification: Tag commonalities, contradictions, and developmental relationships between sources
+  - Research Question Linkage: Specify how each source contributes to the user's research question
+- **reference-manager**: Reference Management Specialist. Accurately manages bibliographic information for all cited sources, converts to requested citation formats (APA, MLA, Chicago, etc.), and verifies duplicates and omissions.
+  - Bibliographic Information Collection: Accurately record each source's author, year, title, source, DOI, and URL
+  - Citation Format Conversion: Convert to requested formats such as APA 7th, MLA 9th, Chicago, Harvard, and IEEE
+  - In-text Citation Generation: Generate in-text citation formats (author-year, footnotes, etc.) for use in the body text
+  - Duplicate/Omission Verification: Cross-verify consistency between the reference list and in-text citations
+  - BibTeX/RIS Generation: Support export to formats compatible with reference management software
+- **research-coordinator**: Research Coordinator (QA). Cross-verifies consistency across literature search, notes, critical analysis, and references, confirms research quality standards are met, and produces the final report.
+  - Search Comprehensiveness Verification: Confirm that the literature search is sufficiently comprehensive and no key sources are missing
+  - Note-Synthesis Consistency: Verify that reading note content is accurately reflected in the synthesis analysis
+  - Citation Accuracy Verification: Cross-verify between in-text citations and the reference list
+  - Logical Consistency: Evaluate the logical flow and adequacy of evidence in the synthesis narrative
+  - Final Report Writing: Summarize the entire research assistance process and suggest follow-up actions
 
 ## Workflow
+### Phase 1: Preparation (Performed Directly by Orchestrator)
 
-### Phase 1: Preparation
+1. Extract from user input:
+    - **Research Topic/Question**: What to investigate
+    - **Research Purpose** (optional): Paper writing, presentation, report, etc.
+    - **Citation Format** (optional): APA, MLA, Chicago, etc. (default: APA 7th)
+    - **Scope Limitations** (optional): Time period, language, field, number of sources
+    - **Existing Materials** (optional): Already collected papers, notes
+2. Create the `_workspace/` directory in the project root
+3. Organize inputs and save to `_workspace/00_input.md`
+4. If existing materials are provided, copy them to `_workspace/` and skip the relevant phase
+5. Determine the **execution mode** based on the scope of the request
 
-1. Analyze user request — identify goals, constraints, existing materials
-2. Reference `.moai/context.md` — check previous context
-3. Load profile — read user information from `/mnt/.auto-memory/moai-profile.md`
-4. Determine scope — full process vs. partial execution
+### Phase 2: Team Assembly and Execution
 
-### Phase 2: Execution
+| Order | Task | Owner | Dependencies | Deliverable |
+|-------|------|-------|-------------|-------------|
+| 1 | Literature Search | literature-searcher | None | `_workspace/01_literature_search.md` |
+| 2a | Reading Notes | note-taker | Task 1 | `_workspace/02_reading_notes.md` |
+| 2b | Draft Bibliography | reference-manager | Task 1 | `_workspace/04_bibliography.md` (draft) |
+| 3 | Critical Synthesis | critic-synthesizer | Task 2a | `_workspace/03_critical_synthesis.md` |
+| 4 | Final Bibliography | reference-manager | Task 3 | `_workspace/04_bibliography.md` (final) |
+| 5 | Research Coordination | research-coordinator | Tasks 2a, 3, 4 | `_workspace/05_research_summary.md` |
 
-1. **Research/Analysis** — web search, data collection, situational assessment
-2. **Strategy** — direction setting based on analysis, apply core frameworks
-3. **Deliverable Creation** — generate documents/materials step by step
-4. **Review/Refinement** — cross-validation, consistency check, quality assurance
+Tasks 2a (notes) and 2b (draft bibliography) are executed **in parallel**.
 
-### Phase 3: Finalization
+**Inter-agent Communication Flow:**
+- literature-searcher completes -> Delivers source list and priorities to note-taker; delivers bibliographic info to reference-manager
+- note-taker completes -> Delivers notes and connections to critic-synthesizer
+- critic-synthesizer completes -> Delivers citation list to reference-manager
+- research-coordinator cross-verifies all deliverables. When RED issues are found, sends correction requests to the relevant agent -> rework -> re-verification (up to 2 rounds)
 
-1. Organize final deliverables — format adjustment, user customization
-2. Save files — save to workspace folder + provide computer:// links
-3. Summary report — provide key results summary
-4. Reflection — save session reflection to `.moai/evolution/reflections/`
+### Phase 3: Integration and Final Deliverables
 
-## Deliverable Formats
+1. Review all files in `_workspace/`
+2. Confirm all RED items from the research coordination report have been addressed
+3. Present the final summary to the user:
+    - Literature Search Results — `01_literature_search.md`
+    - Reading Notes — `02_reading_notes.md`
+    - Critical Synthesis — `03_critical_synthesis.md`
+    - Bibliography — `04_bibliography.md`
+    - Research Report — `05_research_summary.md`
 
-| Deliverable | Format | Description |
-|-------------|--------|-------------|
-| Strategy/Analysis | `.md` | Strategic brief, analysis report |
-| Execution Document | `.md` / `.docx` | Main deliverables (reports, guides) |
-| Data/Numbers | `.xlsx` / `.csv` | Numerical data, comparison tables, models |
-| Presentation | `.pptx` | Slide decks (when needed) |
-| Checklist | `.md` | Execution checklist, review items |
+## Deliverables
 
-## Context Collection Questions (AskUserQuestion)
 
-Sample questions for Phase 4 deep context collection (max 4 questions, max 4 options each):
+## Extension Skills
+- **citation-formatter**: A specialized skill for accurately converting academic citations and references across major styles including APA, MLA, and Chicago. Used by the reference-manager agent when collecting bibliographic information and standardizing formats. Automatically applied in contexts involving 'citation format,' 'APA,' 'MLA,' 'Chicago,' 'references,' 'BibTeX,' or 'bibliography management.' Note: automatic bibliographic extraction from academic databases and Zotero/EndNote software operation are outside the scope of this skill.
+- **research-assistant**: A pipeline where an agent team systematically performs academic research assistance. Use this skill for requests such as 'search for papers,' 'literature review,' 'organize research materials,' 'academic research,' 'organize references,' 'prior research analysis,' 'research trend analysis,' 'literature search,' or 'academic note organization.' Note: experiment execution, statistical analysis execution, final paper writing, and journal submission are outside the scope of this skill.
+- **systematic-review-protocol**: A specialized skill providing PRISMA protocols and literature search strategies for systematic reviews. Used by the literature-searcher and critic-synthesizer agents when systematically searching, screening, and synthesizing academic literature. Automatically applied in contexts involving 'systematic review,' 'PRISMA,' 'literature search strategy,' 'inclusion/exclusion criteria,' or 'Boolean search.' Note: direct access to academic databases (Scopus, WoS) and meta-analysis statistical execution are outside the scope of this skill.
 
-| Q | Question | Options |
-|---|----------|---------|
-| Q1 | Main objective? | New start / Improve existing / Problem solving / Strategy planning |
-| Q2 | Target audience? | Internal team / Executives / Customers / Investors |
-| Q3 | Urgency? | Immediate (1 day) / This week / This month / Long-term |
-| Q4 | Preferred tone? | Formal/Professional / Casual/Friendly / Data-driven / Storytelling |
-
-## Related Harnesses
-
-Harnesses that work well together with this one:
-
-- `course-builder` — Course Builder
-- `exam-prep` — Exam Prep
-- `thesis-advisor` — Thesis Advisor
-
-## Cowork Execution Guide
-
-- **File creation**: Create directly in workspace using Write tool
-- **Data processing**: Use Python/Node in Bash sandbox
-- **Web search**: Collect latest data via WebSearch/WebFetch
-- **Presentations**: Can integrate with pptx skill
-- **Spreadsheets**: Can integrate with xlsx skill
-- **Documents**: Can integrate with docx skill
+## Error Handling
+| Error Type | Strategy |
+|-----------|----------|
+| Web search failure | Recommend based on known major journals and authors; note "search limitations" |
+| Full text inaccessible | Work based on abstracts; mark "full text unverified" |
+| Insufficient sources | Expand search to adjacent fields; label as "preliminary synthesis" |
+| Agent failure | Retry once; if still failing, proceed without that deliverable; note omission in report |
+| Citation format unknown | Apply APA 7th as default; request confirmation from the user |

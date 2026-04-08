@@ -1,80 +1,101 @@
-# Investor Report (investor-report)
+# Investor Report (51-investor-report)
 
-> MoAI-Cowork V.0.1.0 Harness Reference | Category 3
+> MoAI-Cowork V.0.1.3 Harness Reference
 
 ## Overview
-
-Investor reports, IR materials, pitch deck creation
-
-## Persona
-
-I am a **Investor Report Expert**. I specialize in investor reports, ir materials, pitch deck creation, providing systematic and practical deliverables to help users achieve their goals.
+Investor report generation: an agent team collaborates to produce financial performance analysis, KPI dashboard, market trends, strategy updates, and risk disclosures.
 
 ## Expert Roles
-
-- **financial-analyst**: P&L 분석, 현금흐름 분석, 핵심 재무지표 산출
-- **ir-reviewer**: 재무↔KPI 정합성, 시장↔전략 정합성, 수치 일관성
-- **kpi-designer**: KPI 선정, 트렌드 시각화, 벤치마크 비교
-- **market-analyst**: 산업 트렌드 분석, 경쟁 환경 분석, 규제 동향
-- **strategy-updater**: 전략 진행 상황, 향후 로드맵, 리스크 공시
+- **financial-analyst**: Financial analysis expert. Analyzes P&L, cash flow, and key financial metrics, interprets period-over-period and budget-vs-actual variances, and writes the financial section from an investor perspective.
+  - P&L Analysis
+  - Cash Flow Analysis
+  - Key Financial Metrics
+  - Comparative Analysis
+  - Financial Highlights
+- **ir-reviewer**: IR report reviewer (QA). Cross-validates consistency across financial, KPI, market, and strategy sections, and evaluates the report's persuasiveness, transparency, and completeness from an investor perspective.
+  - Financial ↔ KPI Consistency
+  - Market ↔ Strategy Consistency
+  - Numerical Consistency
+  - Investor Perspective Evaluation
+  - Compliance
+- **kpi-designer**: KPI dashboard design expert. Selects key performance indicators from an investor perspective and systematizes trend visualization, benchmark comparisons, and goal achievement rates.
+  - KPI Selection
+  - Trend Visualization
+  - Benchmark Comparison
+  - Goal Achievement Tracking
+  - Traffic Light System
+- **market-analyst**: Market trends analysis expert. Analyzes industry trends, competitive landscape changes, regulatory developments, and macroeconomic impacts to write the market section of the investor report.
+  - Industry Trend Analysis
+  - Competitive Landscape Analysis
+  - Regulatory Developments
+  - Macroeconomic Impact
+  - Market Outlook
+- **strategy-updater**: Strategy update writer. Writes the progress of business strategy, future roadmap, and risk disclosures from an investor perspective. Also completes the final integrated report.
+  - Strategy Progress
+  - Future Roadmap
+  - Risk Disclosure
+  - Executive Message
+  - Final Integrated Report
 
 ## Workflow
 
-### Phase 1: Preparation
+### Phase 1: Preparation (Performed directly by orchestrator)
 
-1. Analyze user request — identify goals, constraints, existing materials
-2. Reference `.moai/context.md` — check previous context
-3. Load profile — read user information from `/mnt/.auto-memory/moai-profile.md`
-4. Determine scope — full process vs. partial execution
+1. Extract from user input:
+    - **Company Information**: Company name, industry, stage (startup/growth/public)
+    - **Reporting Period**: Quarterly/semi-annual/annual, target period
+    - **Financial Data**: P&L, cash flow, KPIs, etc. (file or text)
+    - **Strategy Information** (optional): Existing strategy, initiative progress
+    - **Target Investors**: VC/PE/public shareholders/creditors
+2. Create `_workspace/` directory at the project root
+3. Organize the input and save to `_workspace/00_input.md`
+4. If existing files are provided, copy them to `_workspace/`
 
-### Phase 2: Execution
+### Phase 2: Team Assembly and Execution
 
-1. **Research/Analysis** — web search, data collection, situational assessment
-2. **Strategy** — direction setting based on analysis, apply core frameworks
-3. **Deliverable Creation** — generate documents/materials step by step
-4. **Review/Refinement** — cross-validation, consistency check, quality assurance
+| Order | Task | Assigned To | Dependencies | Deliverable |
+|-------|------|-------------|-------------|-------------|
+| 1a | Financial Analysis | financial-analyst | None | `_workspace/01_financial_analysis.md` |
+| 1b | Market Trends | market-analyst | None | `_workspace/03_market_trends.md` |
+| 2 | KPI Dashboard | kpi-designer | Task 1a | `_workspace/02_kpi_dashboard.md` |
+| 3 | Strategy + Risk + Integration | strategy-updater | Tasks 1a, 1b, 2 | `_workspace/04_strategy_update.md`, `_workspace/06_investor_report_final.md` |
+| 4 | IR Review | ir-reviewer | Tasks 1a, 1b, 2, 3 | `_workspace/05_review_report.md` |
 
-### Phase 3: Finalization
+Tasks 1a (Financial) and 1b (Market) are **executed in parallel**.
 
-1. Organize final deliverables — format adjustment, user customization
-2. Save files — save to workspace folder + provide computer:// links
-3. Summary report — provide key results summary
-4. Reflection — save session reflection to `.moai/evolution/reflections/`
+**Inter-team Communication Flow:**
+- financial-analyst completes → delivers financial KPI data to kpi-designer, requests revenue variance factor analysis from market-analyst
+- market-analyst completes → delivers benchmark data to kpi-designer, delivers implications to strategy-updater
+- kpi-designer completes → delivers KPI achievement status to strategy-updater
+- strategy-updater completes → delivers all documents + final integrated report to ir-reviewer
+- ir-reviewer cross-validates all deliverables. If 🔴 Must Fix items are found, sends revision requests to the relevant agent → rework → re-validate (up to 2 times)
 
-## Deliverable Formats
+### Phase 3: Integration and Final Deliverables
 
-| Deliverable | Format | Description |
-|-------------|--------|-------------|
-| Strategy/Analysis | `.md` | Strategic brief, analysis report |
-| Execution Document | `.md` / `.docx` | Main deliverables (reports, guides) |
-| Data/Numbers | `.xlsx` / `.csv` | Numerical data, comparison tables, models |
-| Presentation | `.pptx` | Slide decks (when needed) |
-| Checklist | `.md` | Execution checklist, review items |
+1. Verify all files in `_workspace/`
+2. Confirm that all 🔴 Must Fix items from the review report have been addressed
+3. Report the final integrated report (`06_investor_report_final.md`) to the user
 
-## Context Collection Questions (AskUserQuestion)
+## Deliverables
+All deliverables are saved in the `_workspace/` directory:
+- `00_input.md` — Organized user input
+- `01_financial_analysis.md` — Financial performance analysis report
+- `02_kpi_dashboard.md` — KPI dashboard
+- `03_market_trends.md` — Market trends report
+- `04_strategy_update.md` — Strategy update and risk disclosure
+- `05_review_report.md` — Review report
+- `06_investor_report_final.md` — Final integrated report
 
-Sample questions for Phase 4 deep context collection (max 4 questions, max 4 options each):
+## Extension Skills
+- **financial-ratio-analyzer**: DuPont analysis, SaaS metrics, 5 financial ratio categories
+- **kpi-benchmark-engine**: Industry KPI benchmarks, SMART-R selection framework, pyramid structure
 
-| Q | Question | Options |
-|---|----------|---------|
-| Q1 | Main objective? | New start / Improve existing / Problem solving / Strategy planning |
-| Q2 | Target audience? | Internal team / Executives / Customers / Investors |
-| Q3 | Urgency? | Immediate (1 day) / This week / This month / Long-term |
-| Q4 | Preferred tone? | Formal/Professional / Casual/Friendly / Data-driven / Storytelling |
+## Error Handling
 
-## Related Harnesses
-
-Harnesses that work well together with this one:
-
-- `startup-launcher` — Startup Launcher
-- `market-research` — Market Research
-- `financial-model` — Financial Model
-
-## Cowork Execution Guide
-
-- **File creation**: Create directly in workspace using Write tool
-- **Data processing**: Use Python/Node in Bash sandbox
-- **Web search**: Collect latest data via WebSearch/WebFetch
-- **Presentations**: Can integrate with pptx skill
-- **Spreadsheets**: Can integrate with xlsx skill
-- **Documents**: Can integrate with docx skill
+| Error Type | Strategy |
+|-----------|----------|
+| Incomplete financial data | Perform analysis with available data, specify missing items |
+| Web search failure | Work from general market knowledge, note "data limited" |
+| Agent failure | Retry once → if still fails, proceed without that deliverable |
+| 🔴 found in review | Send revision request to the relevant agent → rework → re-validate (up to 2 times) |
+| Numerical discrepancy | Unify using financial analyst as the source of truth |

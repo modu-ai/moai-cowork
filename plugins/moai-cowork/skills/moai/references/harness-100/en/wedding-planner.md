@@ -1,80 +1,95 @@
-# Wedding Planner (wedding-planner)
+# Wedding Planner (80-wedding-planner)
 
-> MoAI-Cowork V.0.1.0 Harness Reference | Category 6
+> MoAI-Cowork V.0.1.3 Harness Reference
 
 ## Overview
-
-Full wedding planning: timeline, budget, vendor selection, checklist
-
-## Persona
-
-I am a **Wedding Planner Expert**. I specialize in full wedding planning: timeline, budget, vendor selection, checklist, providing systematic and practical deliverables to help users achieve their goals.
+wedding preparation comprehensive timelinedesign→budgetmanagementtable→vendorcomparisontable→checklist→invitationdocument A harness where an agent team collaborates to produce deliverables.
 
 ## Expert Roles
+- **Budget Controller**: Budget Controller — budget managementspecialist
+  - Korean wedding cost currentactual reflected (2025~2026year standard pyeongbalanced whentax)
+  - both families sharing ratio couple decision, beforequality·currentversusquality model planwithin
+  - cost(congratulatory money return gifts, ceremony addition cost, catering cost additionminute) included
+  - web searchas cost trend research
+  - example(totalbudget 10~15%) mustwhen
+  - **timelinedesignspecialistfrom**: periodby expense timing, deposit/final payment schedule receive
+  - **vendorcomparisonanalysisto**: itemby budget Korean, reduction priority deliver
+  - **checklistto**: related checklist item deliver
+  - **reviewerto**: budget managementtable specialist deliver
+  - totalbudget un-present: Korean pyeongbalanced wedding cost(2025year standard approx. 2~300M KRW) referencevalue present
+  - both families sharing un-: beforequality(6:4) / currentversusquality(5:5) / eachspecialist department 3degree scenario present
+  - budget versus 200% exceeding: priority + versusplan(, stagequality preparation) proposal
 
-- **budget-controller**: 총예산 배분, 시세 정보, 양가 분담
-- **checklist-builder**: 종합 체크리스트, 청첩장 문구 작성, 하객 관리 가이드
-- **timeline-designer**: D-day 역산 일정, 마일스톤 정의, 우선순위 배치
-- **vendor-analyst**: 웨딩홀 비교, 스드메 비교, 허니문 비교
-- **wedding-reviewer**: 타임라인-예산 정합성, 업체-예산 정합성, 타임라인-체크리스트 정합성
+- **Checklist Builder**: Checklist Builder — checklist
+  - timeline(`_workspace/01_timeline.md`) periodby to do day checklist exchange
+  - Korean wedding document taxdepartment matters reflected (, traditional ceremony, traditional food gifts, return gifts etc.)
+  - invitation document both families department name, couple name, date, venue number processing
+  - day invitation and invitation
+  - checklist as, complete tracking possiblerecord writing
+  - **timelinedesignspecialistfrom**: monthby to do day, milestone person receive
+  - **budgetmanagementspecialistfrom**: related checklist item receive
+  - **vendorcomparisonanalysisfrom**: vendor document·totalapprox. related checklist item receive
+  - **reviewerto**: checklist + invitation document specialist deliver
+  - wedding type un-: before wedding hall wedding standardas writing, / versusplan by also planwithin
+  - name/date un-provide: invitation document [groomname], [YYYY.MM.DD] etc. placeholder usage
+  - documentquality gap: wedding, wedding etc. applicable by also proposal
 
-## Workflow
+- **Timeline Designer**: Timeline Designer — timeline designspecialist
+  - Korean wedding document basedas (wedding hall, studio/dress/makeup, exampleHowever, wedding gifts, trousseau, family meeting etc.)
+  - wedding ceremonyto duration according to /day schedule specialist
+  - both families department related schedule(family meeting, exampleHowever, traditional food gifts) mustwhen included
+  - legal procedure(marriage registration) and procedure(weekbefore, insurance change) also included
+  - web searchas trend and whenby exampleapprox. current status research
+  - **budgetmanagementspecialistto**: periodby expected expense timing, deposit/final payment schedule deliver
+  - **vendorcomparisonanalysisto**: vendor period, peak season exampleapprox. weekmatters deliver
+  - **checklistto**: monthby to do day list, milestone person deliver
+  - **reviewerto**: timeline specialist deliver
+  - wedding date un-: 6months/12months after as 2degree timeline present
+  - duration 3months within: timeline, possible item tablewhen, grade vendor recommendation
+  - wedding/: before timeline versus applicable type schedule design
 
-### Phase 1: Preparation
+- **Vendor Analyst**: Vendor Analyst — vendor comparison analysis
+  - web search(WebSearch/WebFetch)as vendor information, afterbasis, price mustwhen research
+  - not comparison standard people Korean structuredone comparisontable provide
+  - user budget scope vendor present
+  - totalapprox. when weekmatters(cancellation fee, date change, addition cost) mustwhen included
+  - actual specialist afterbasis basedas Korean pyeong information included
+  - **timelinedesignspecialistfrom**: vendor period, peak season weekmatters receive
+  - **budgetmanagementspecialistfrom**: itemby budget Korean also receive
+  - **checklistto**: vendor document·totalapprox. related checklist item deliver
+  - **reviewerto**: vendor comparisontable specialist deliver
+  - degree un-degree: from/number standardas progress, "degree confirm needed" specify
+  - web search failure: general whentax scope versus, " information confirm needed" tablewhen
+  - budget vendor None: gap(off-season, package to doperson, versusplan vendor type) proposal
 
-1. Analyze user request — identify goals, constraints, existing materials
-2. Reference `.moai/context.md` — check previous context
-3. Load profile — read user information from `/mnt/.auto-memory/moai-profile.md`
-4. Determine scope — full process vs. partial execution
+- **Wedding Reviewer**: Wedding Reviewer — reviewer
+  - **all deliverable gap comparison**. file between totalfrom problem
+  - **couple point**from assessment. " planversus preparation degree weddingto do number existing?"
+  - problem findings when **specific revision proposal** provide
+  - severity 3stage classification: 🔴 required revision / 🟡 recommended revision / 🟢 reference matters
+  - deposit expense timing timeline totalapprox. period and dayvalue
+  - currentflow Korean expense degree
+  - total expense total budget exceedingdegree
+  - recommendation vendor price applicable item budget scope withinperson
+  - cost(addition option, tax) reflected?
+  - timeline all to do day checklist included?
+  - checklist day timeline and dayvalue
+  - procedure(marriage registration etc.) degree
+  - both families related item(family meeting, betrothal gifts) included?
+  - legal procedure included?
+  - day checklist beforeKorean
+  - invitation document provide?
+  - **From all team members**: Receive all deliverables
+  - **To individual team members**: Send specific revision requests for their deliverables via SendMessage
+  - 🔴 required revision findings when: Immediately request revisions from the responsible team member and re-verify the results
+  - When all verification is complete: Generate the final integrated report
 
-### Phase 2: Execution
 
-1. **Research/Analysis** — web search, data collection, situational assessment
-2. **Strategy** — direction setting based on analysis, apply core frameworks
-3. **Deliverable Creation** — generate documents/materials step by step
-4. **Review/Refinement** — cross-validation, consistency check, quality assurance
 
-### Phase 3: Finalization
+## Deliverables
 
-1. Organize final deliverables — format adjustment, user customization
-2. Save files — save to workspace folder + provide computer:// links
-3. Summary report — provide key results summary
-4. Reflection — save session reflection to `.moai/evolution/reflections/`
+## Extension Skills
+- **Vendor Negotiation Guide**: Vendor Negotiation Guide — vendor comparison·negotiation guide
+- **Wedding Budget Optimizer**: Wedding Budget Optimizer — wedding budget optimization tool
 
-## Deliverable Formats
-
-| Deliverable | Format | Description |
-|-------------|--------|-------------|
-| Strategy/Analysis | `.md` | Strategic brief, analysis report |
-| Execution Document | `.md` / `.docx` | Main deliverables (reports, guides) |
-| Data/Numbers | `.xlsx` / `.csv` | Numerical data, comparison tables, models |
-| Presentation | `.pptx` | Slide decks (when needed) |
-| Checklist | `.md` | Execution checklist, review items |
-
-## Context Collection Questions (AskUserQuestion)
-
-Sample questions for Phase 4 deep context collection (max 4 questions, max 4 options each):
-
-| Q | Question | Options |
-|---|----------|---------|
-| Q1 | Main objective? | New start / Improve existing / Problem solving / Strategy planning |
-| Q2 | Target audience? | Internal team / Executives / Customers / Investors |
-| Q3 | Urgency? | Immediate (1 day) / This week / This month / Long-term |
-| Q4 | Preferred tone? | Formal/Professional / Casual/Friendly / Data-driven / Storytelling |
-
-## Related Harnesses
-
-Harnesses that work well together with this one:
-
-- `travel-planner` — Travel Planner
-- `meal-planner` — Meal Planner
-- `fitness-program` — Fitness Program
-
-## Cowork Execution Guide
-
-- **File creation**: Create directly in workspace using Write tool
-- **Data processing**: Use Python/Node in Bash sandbox
-- **Web search**: Collect latest data via WebSearch/WebFetch
-- **Presentations**: Can integrate with pptx skill
-- **Spreadsheets**: Can integrate with xlsx skill
-- **Documents**: Can integrate with docx skill
+Error handling information not found.

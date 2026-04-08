@@ -1,80 +1,107 @@
-# Course Builder (course-builder)
+# Course Builder (08-course-builder)
 
-> MoAI-Cowork V.0.1.0 Harness Reference | Category 5
+> MoAI-Cowork V.0.1.3 Harness Reference
 
 ## Overview
 
-Online course design, curriculum, quizzes, hands-on assignments
-
-## Persona
-
-I am a **Course Builder Expert**. I specialize in online course design, curriculum, quizzes, hands-on assignments, providing systematic and practical deliverables to help users achieve their goals.
+A harness where an agent team collaborates to produce online courses from curriculum design through lesson plans, quizzes, and hands-on labs.
 
 ## Expert Roles
 
-- **content-writer**: 교안 작성, 슬라이드 구성안, 강사 노트
-- **course-reviewer**: 학습목표 정렬 검증, 난이도 일관성, 커버리지 분석
-- **curriculum-designer**: 학습목표 수립, 커리큘럼 구조 설계, 선수학습 매핑
-- **lab-designer**: 레슨별 실습과제, 모듈별 미니 프로젝트, 캡스톤 프로젝트
-- **quiz-maker**: 형성평가 설계, 총괄평가 설계, 문항 유형 다양화
+- **Content Writer**: Course content writer. Creates per-lesson lesson plans, presentation slide outlines, instructor notes, and learner handouts based on the curriculum.
+  - Lesson Plan Writing: Design the teaching flow for each lesson and write lesson plans explaining key concepts
+  - Slide Outlines: Plan presentation slide content, structure, and visual aids
+  - Instructor Notes: Write supplementary explanations, examples, and question prompts for the instructor
+  - Learner Handouts: Write summary reference materials for learners to use during and after class
+  - Example Development: Develop real-world and workplace examples that make abstract concepts concrete
+
+- **Course Reviewer**: Course reviewer (QA). Cross-validates learning objective alignment across curriculum, lesson plans, quizzes, and labs. Identifies difficulty inconsistencies, coverage gaps, and quality issues.
+  - Learning Objective Alignment: Are all lesson plans, quizzes, and labs mapped to curriculum learning objectives?
+  - Difficulty Consistency: Does the difficulty curve across Lesson -> Quiz -> Lab progress naturally?
+  - Coverage Analysis: Are there any learning objectives not covered by lesson plans, quizzes, or labs?
+  - Learning Time Validation: Are estimated learning times realistic?
+  - Pedagogical Quality: Are active learning, feedback loops, and scaffolding appropriately designed?
+
+- **Curriculum Designer**: Curriculum designer. Establishes learning objectives, designs curriculum structure, breaks content into modules and lessons, maps prerequisites, and designs learning paths. Follows the ADDIE model and Bloom's Taxonomy for systematic instructional design.
+  - Learning Objective Development: Define stage-by-stage learning objectives following Bloom's Taxonomy (Remember -> Understand -> Apply -> Analyze -> Evaluate -> Create)
+  - Curriculum Structure Design: Divide the course into Module -> Lesson -> Topic units and determine logical sequencing
+  - Prerequisite Mapping: Specify prerequisite knowledge for each module and document learning dependencies
+  - Learning Time Estimation: Estimate learning time per module (video + hands-on + quiz)
+  - Learning Path Design: Distinguish required from optional paths and design level-based branching (beginner/intermediate/advanced)
+
+- **Lab Designer**: Lab designer. Designs hands-on labs, mini projects, and capstone projects aligned to learning objectives. Includes rubrics, sample solutions, and scaffolding.
+  - Per-Lesson Labs: Short hands-on exercises (15-30 min) applying key concepts from each lesson
+  - Per-Module Mini Projects: Medium-scope projects (1-2 hours) integrating concepts from multiple lessons
+  - Capstone Project: A comprehensive final project (4-8 hours) synthesizing all course learning
+  - Rubrics: Detailed grading criteria defined at Excellent/Good/Needs Improvement levels
+  - Scaffolding Design: Provide level-appropriate hints, templates, and starter code
+
+- **Quiz Maker**: Quiz maker. Designs formative assessments (per-lesson quizzes) and summative assessments (module/course exams) aligned to learning objectives. Includes diverse item types and feedback based on Bloom's Taxonomy.
+  - Formative Assessment Design: Short quizzes (3-5 items) per lesson to check understanding
+  - Summative Assessment Design: Comprehensive exams (10-20 items) per module/course to measure competency
+  - Item Type Diversification: Multiple choice, short answer, code writing, fill-in-the-blank, matching, sequencing, etc.
+  - Wrong Answer Feedback: Explain why the selected answer is incorrect and point to what needs review
+  - Difficulty Balancing: Maintain a ratio of easy (60%) -> medium (30%) -> hard (10%)
 
 ## Workflow
 
-### Phase 1: Preparation
+### Phase 1: Preparation (Performed Directly by the Orchestrator)
 
-1. Analyze user request — identify goals, constraints, existing materials
-2. Reference `.moai/context.md` — check previous context
-3. Load profile — read user information from `/mnt/.auto-memory/moai-profile.md`
-4. Determine scope — full process vs. partial execution
+1. Extract from user input:
+   - **Course Topic**: Subject/field the course covers
+   - **Target Learner**: Beginner/Intermediate/Advanced, background knowledge
+   - **Course Scale**: Total learning time, number of modules
+   - **Lab Environment** (optional): Tools, languages, platforms to use
+   - **Existing Files** (optional): Curriculum, lesson plans, etc.
+2. Create the `_workspace/` directory at the project root
+3. Organize input and save to `_workspace/00_input.md`
+4. If existing files are available, copy to `_workspace/` and skip the corresponding phase
+5. Determine execution mode based on scope
 
-### Phase 2: Execution
+### Phase 2: Team Assembly and Execution
 
-1. **Research/Analysis** — web search, data collection, situational assessment
-2. **Strategy** — direction setting based on analysis, apply core frameworks
-3. **Deliverable Creation** — generate documents/materials step by step
-4. **Review/Refinement** — cross-validation, consistency check, quality assurance
+| Order | Task | Owner | Dependency | Deliverable |
+|-------|------|-------|------------|-------------|
+| 1 | Curriculum design | curriculum-designer | None | `_workspace/01_curriculum.md` |
+| 2a | Lesson plan writing | content-writer | Task 1 | `_workspace/02_lesson_plans.md` |
+| 2b | Quiz creation | quiz-maker | Task 1 | `_workspace/03_quizzes.md` |
+| 2c | Lab design | lab-designer | Task 1 | `_workspace/04_labs.md` |
+| 3 | Course review | course-reviewer | Tasks 2a, 2b, 2c | `_workspace/05_review_report.md` |
 
-### Phase 3: Finalization
+Tasks 2a (lessons), 2b (quizzes), and 2c (labs) run **in parallel**. All depend only on Task 1 (curriculum).
 
-1. Organize final deliverables — format adjustment, user customization
-2. Save files — save to workspace folder + provide computer:// links
-3. Summary report — provide key results summary
-4. Reflection — save session reflection to `.moai/evolution/reflections/`
+**Inter-agent communication flow:**
+- curriculum-designer completes -> delivers per-lesson objectives and concepts to content-writer; Bloom's level ratios to quiz-maker; lab environment and scenarios to lab-designer
+- content-writer completes -> delivers key concepts and examples to quiz-maker (as item material); lesson content to lab-designer (for lab alignment)
+- course-reviewer cross-validates all deliverables. On RED Must Fix findings, sends revision requests -> rework -> re-validate (up to 2 cycles)
 
-## Deliverable Formats
+### Phase 3: Integration and Final Deliverables
 
-| Deliverable | Format | Description |
-|-------------|--------|-------------|
-| Strategy/Analysis | `.md` | Strategic brief, analysis report |
-| Execution Document | `.md` / `.docx` | Main deliverables (reports, guides) |
-| Data/Numbers | `.xlsx` / `.csv` | Numerical data, comparison tables, models |
-| Presentation | `.pptx` | Slide decks (when needed) |
-| Checklist | `.md` | Execution checklist, review items |
+1. Verify all files in `_workspace/`
+2. Confirm all RED Must Fix items have been addressed
+3. Report final summary to user
 
-## Context Collection Questions (AskUserQuestion)
+## Deliverables
 
-Sample questions for Phase 4 deep context collection (max 4 questions, max 4 options each):
+- `00_input.md` — Organized user input
+- `01_curriculum.md` — Curriculum / course design document
+- `02_lesson_plans.md` — Lesson plans / instructor notes
+- `03_quizzes.md` — Quizzes / assessment items
+- `04_labs.md` — Hands-on labs / projects
+- `05_review_report.md` — Review report
 
-| Q | Question | Options |
-|---|----------|---------|
-| Q1 | Main objective? | New start / Improve existing / Problem solving / Strategy planning |
-| Q2 | Target audience? | Internal team / Executives / Customers / Investors |
-| Q3 | Urgency? | Immediate (1 day) / This week / This month / Long-term |
-| Q4 | Preferred tone? | Formal/Professional / Casual/Friendly / Data-driven / Storytelling |
+## Extension Skills
 
-## Related Harnesses
+- **assessment-engineering**: An assessment engineering skill used by the quiz-maker agent. Provides item type design guides, distractor psychology, rubric construction, and formative/summative assessment strategies. Used for 'quiz design,' 'assessment items,' 'rubrics,' 'exam creation,' and related topics.
+- **lab-scaffolding**: A lab scaffolding skill used by the lab-designer agent. Provides lab difficulty calibration, starter code design, capstone project structures, and self-directed learning strategies. Used for 'lab design,' 'project assignments,' 'scaffolding,' 'hands-on labs,' and related topics.
+- **learning-design**: A learning design skill used by the curriculum-designer and content-writer agents. Provides core instructional design theories and applications including Bloom's Taxonomy, Gagne's Nine Events of Instruction, Backward Design, and Cognitive Load Theory. Used for 'learning objectives,' 'instructional design,' 'curriculum,' 'learning theory,' and related topics.
 
-Harnesses that work well together with this one:
+## Error Handling
 
-- `exam-prep` — Exam Prep
-- `thesis-advisor` — Thesis Advisor
-- `academic-paper` — Academic Paper
-
-## Cowork Execution Guide
-
-- **File creation**: Create directly in workspace using Write tool
-- **Data processing**: Use Python/Node in Bash sandbox
-- **Web search**: Collect latest data via WebSearch/WebFetch
-- **Presentations**: Can integrate with pptx skill
-- **Spreadsheets**: Can integrate with xlsx skill
-- **Documents**: Can integrate with docx skill
+| Error Type | Strategy |
+|-----------|----------|
+| Insufficient domain expertise | Supplement with web search; note "External verification recommended" in report |
+| Lab environment unclear | Default to free cloud tools (Google Colab, etc.) |
+| Agent failure | Retry once -> proceed without that deliverable; note in review report |
+| RED found in review | Send revision request -> rework -> re-validate (up to 2 cycles) |
+| Learning objective gap discovered | Request supplementary content from the relevant agent |

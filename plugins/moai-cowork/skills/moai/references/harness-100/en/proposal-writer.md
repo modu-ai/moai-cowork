@@ -1,80 +1,105 @@
-# Proposal Writer (proposal-writer)
+# Proposal Writer (86-proposal-writer)
 
-> MoAI-Cowork V.0.1.0 Harness Reference | Category 7
+> MoAI-Cowork V.0.1.3 Harness Reference
 
 ## Overview
-
-Business proposals, RFP responses, project proposal writing
-
-## Persona
-
-I am a **Proposal Writer Expert**. I specialize in business proposals, rfp responses, project proposal writing, providing systematic and practical deliverables to help users achieve their goals.
+proposal clientanalysis→solutiondesign→price→differentiation→specialistperson A harness where an agent team collaborates to produce deliverables.
 
 ## Expert Roles
-
-- **client-analyst**: 고객 비즈니스 이해, Pain Point 분석, 의사결정 구조 분석
-- **differentiator**: USP(고유 판매 제안) 정의, 경쟁우위 분석, 레퍼런스/실적 구성
-- **pricing-strategist**: 원가 분석, 가격 모델 설계, 경쟁 가격 벤치마크
-- **proposal-designer**: 제안서 구조 설계, 섹션 통합, 디자인 가이드
-- **solution-architect**: 솔루션 아키텍처 설계, 구현 방법론 정의, 일정 계획(WBS)
+- **client-analyst**: proposal client analysis. re- client current status, task, decision-making structure, competition situation analysisto proposal strategyquality direction establish.
+  - client company model, sales structure, nature strategy identify
+  - client core problem and personKorean cost/loss
+  - decision person role and company mapping
+  - client comparison reviewand competition proposal/versusplan analysis
+  - specifyquality requirements goal and identify
+- **differentiator**: proposal differentiation strategy. specialistcompany inherentKorean strength(USP), competitionadvantage, results/reference utilizationto competition proposal versus optional number differentiation strategy establish.
+  - competitor to do number specialistcompany inherent strength definition
+  - technical, , team, process, service from advantage item identification
+  - company project perform results and performance persuasioncapability composition
+  - proposal overall 3~4items core numberweek design
+  - " person" data and case within composition
+- **pricing-strategist**: proposal price strategy. KRW analysis, price model design, competition price comparison, ROI calculation, to doperson/person strategy establish.
+  - directly(personcase, , person) and between calculation
+  - daywhen//performancebased etc. client qualityKorean price model proposal
+  - competitor/market price level analysisto positioning
+  - client investmentfrom number investmentrevenuerate total
+  - to doperson, package, stageby etc. negotiation preparation
+- **proposal-designer**: proposal integration specialist and cross-verification expert(QA). all section integrationto persuasioncapability final proposal compositionand, clientanalysis-solution-price-differentiation between consistency cross-verification.
+  - client and proposal type optimizationdone proposal structure decision
+  - clientanalysis, solution, price, differentiation flowas integration
+  - wheneachquality element(tabledegree, , , chart) guide provide
+  - decision-makingspecialist for 1~2degree Executive Summary writing
+  - all deliverable between consistency final inspection
+- **solution-architect**: proposal solution designspecialist. client requirements technical/service composition designand, implementation plan, schedule, deliverable, quality report approach establish.
+  - client overall solution structure design
+  - project perform method, stage, milestone design
+  - task minute structure and schedule establish
+  - needed role, competency, deploy duration definition
+  - deliverable verify method, personnumber standard, specialist report design
 
 ## Workflow
+### Phase 1: preparation (Orchestrator directly perform)
 
-### Phase 1: Preparation
+1. Extract from user input:
+ - **client**: clientcompanypeople, , scale
+ - **proposal target**: /service/project
+ - **RFP** (optional): RFP/RFI document
+ - **competition situation** (optional): competitor
+ - **existing material** (optional): before proposal, company itemsfrom, results material
+2. `_workspace/` Create the directory at the project root
+3. Organize input and save to `_workspace/00_input.md`
+4. If existing files are provided, copy them to `_workspace/`and skip the corresponding Phase
+5. Determine the **execution mode** based on the scope of the request
 
-1. Analyze user request — identify goals, constraints, existing materials
-2. Reference `.moai/context.md` — check previous context
-3. Load profile — read user information from `/mnt/.auto-memory/moai-profile.md`
-4. Determine scope — full process vs. partial execution
+### Phase 2: team composition and execution
 
-### Phase 2: Execution
+| order | task | responsible | dependency | deliverable |
+|------|------|------|------|--------|
+| 1 | client analysis | analyst | None | `_workspace/01_client_analysis.md` |
+| 2a | solution design | architect | task 1 | `_workspace/02_solution_design.md` |
+| 2b | differentiation strategy | differentiator | task 1 | `_workspace/04_differentiation.md` |
+| 3 | price strategy | strategist | task 1, 2a | `_workspace/03_pricing_model.md` |
+| 4 | proposal integration and verify | designer | task 2a, 2b, 3 | `_workspace/05_final_proposal.md` |
 
-1. **Research/Analysis** — web search, data collection, situational assessment
-2. **Strategy** — direction setting based on analysis, apply core frameworks
-3. **Deliverable Creation** — generate documents/materials step by step
-4. **Review/Refinement** — cross-validation, consistency check, quality assurance
+task 2a(solution) and 2b(differentiation) ** execution**. task 1(clientanalysis) only dependency.
 
-### Phase 3: Finalization
+**teamKRW between flow:**
+- analyst complete → architectto requirements+technicalenvironment deliver, differentiatorto competitionanalysis+company deliver, strategistto budget+priceinformation deliver
+- architect complete → strategistto KRW element deliver, differentiatorto technical gapbypoint deliver
+- differentiator complete → strategistto value message deliver
+- strategist complete → designerto price strategyfrom deliver
+- designer all deliverable cross-verification. 🔴 required revision findings when Request revision from the relevant agent -> rework -> re-verify (up to 2 rounds)
 
-1. Organize final deliverables — format adjustment, user customization
-2. Save files — save to workspace folder + provide computer:// links
-3. Summary report — provide key results summary
-4. Reflection — save session reflection to `.moai/evolution/reflections/`
+### Phase 3: integration and final deliverable
 
-## Deliverable Formats
+1. `_workspace/` Verify all files in the directory
+2. verify reportConfirm that all critical revisions from the review report have been addressed
+3. Report the final summary to the user:
+ - client analysis — `01_client_analysis.md`
+ - solution design — `02_solution_design.md`
+ - price strategy — `03_pricing_model.md`
+ - differentiation strategy — `04_differentiation.md`
+ - final proposal — `05_final_proposal.md`
 
-| Deliverable | Format | Description |
-|-------------|--------|-------------|
-| Strategy/Analysis | `.md` | Strategic brief, analysis report |
-| Execution Document | `.md` / `.docx` | Main deliverables (reports, guides) |
-| Data/Numbers | `.xlsx` / `.csv` | Numerical data, comparison tables, models |
-| Presentation | `.pptx` | Slide decks (when needed) |
-| Checklist | `.md` | Execution checklist, review items |
+## Deliverables
+all deliverable `_workspace/` save:
+- `00_input.md` — user input organization
+- `01_client_analysis.md` — client analysis report
+- `02_solution_design.md` — solution designfrom
+- `03_pricing_model.md` — price strategyfrom
+- `04_differentiation.md` — differentiation strategyfrom
+- `05_final_proposal.md` — final proposal and verify report
 
-## Context Collection Questions (AskUserQuestion)
+## Extension Skills
+- **roi-calculator**: `.claude/skills/roi-calculator/skill.md`
+- **win-theme-builder**: `.claude/skills/win-theme-builder/skill.md`
 
-Sample questions for Phase 4 deep context collection (max 4 questions, max 4 options each):
-
-| Q | Question | Options |
-|---|----------|---------|
-| Q1 | Main objective? | New start / Improve existing / Problem solving / Strategy planning |
-| Q2 | Target audience? | Internal team / Executives / Customers / Investors |
-| Q3 | Urgency? | Immediate (1 day) / This week / This month / Long-term |
-| Q4 | Preferred tone? | Formal/Professional / Casual/Friendly / Data-driven / Storytelling |
-
-## Related Harnesses
-
-Harnesses that work well together with this one:
-
-- `presentation` — Presentation
-- `meeting-strategist` — Meeting Strategist
-- `report-gen` — Report Generator
-
-## Cowork Execution Guide
-
-- **File creation**: Create directly in workspace using Write tool
-- **Data processing**: Use Python/Node in Bash sandbox
-- **Web search**: Collect latest data via WebSearch/WebFetch
-- **Presentations**: Can integrate with pptx skill
-- **Spreadsheets**: Can integrate with xlsx skill
-- **Documents**: Can integrate with docx skill
+## Error Handling
+| error type | strategy |
+|----------|------|
+| client information insufficient | /scalefrom file , userto core information question |
+| RFP None | user inputfrom requirements , proposal structure applied |
+| specialistcompany information None | userto strength/results question, minimum information differentiation composition |
+| web search failure | user provide material based task, "external data un-secure" specify |
+| agent failure | Retry once -> proceed without that deliverable |
+| verifyfrom 🔴 findings | Request revision from the relevant agent -> rework -> re-verify (up to 2 rounds) |

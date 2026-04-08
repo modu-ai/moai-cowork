@@ -1,80 +1,117 @@
-# YouTube Production (youtube-production)
+# Youtube Production (01-youtube-production)
 
-> MoAI-Cowork V.0.1.0 Harness Reference | Category 1
+> MoAI-Cowork V.0.1.3 Harness Reference
 
 ## Overview
 
-Full production pipeline for YouTube video content: planning → script → thumbnail → SEO
-
-## Persona
-
-I am a **YouTube Production Expert**. I specialize in full production pipeline for youtube video content: planning → script → thumbnail → seo, providing systematic and practical deliverables to help users achieve their goals.
+A harness where an agent team collaborates to produce YouTube video content through the pipeline of strategy, script, thumbnail, and SEO.
 
 ## Expert Roles
 
-- **content-strategist**: 주제 분석, 타깃 오디언스 정의, 경쟁 벤치마킹
-- **production-reviewer**: 전략-대본 정합성, 대본-썸네일 정합성, 대본-SEO 정합성
-- **scriptwriter**: 훅 작성, 본문 구성, 대사 스타일링
-- **seo-optimizer**: 제목 최적화, 설명란 작성, 태그 전략
-- **thumbnail-designer**: 썸네일 컨셉 설계, 텍스트 오버레이 설계, 컬러 전략
+- **Content Strategist**: YouTube content strategist. Performs topic analysis, target audience definition, competitive channel benchmarking, content positioning, and video concept design.
+  - Topic Analysis: Derive viable video angles from the topic/keywords provided by the user
+  - Target Audience Definition: Analyze the core viewer segment's interests, pain points, and search intent
+  - Competitive Benchmarking: Research existing YouTube videos on the same topic via web search and identify differentiation opportunities
+  - Content Concept Design: Determine the video's tone, structure (listicle/story/tutorial/interview/comparison, etc.), and core hook
+  - Keyword Research: Identify primary and related keywords based on search traffic potential
+
+- **Production Reviewer**: YouTube production reviewer (QA). Cross-validates consistency across strategy, script, thumbnail, and SEO. Identifies gaps, contradictions, and quality issues and provides actionable feedback.
+  - Strategy–Script Alignment: Is the brief's core angle faithfully reflected in the script?
+  - Script–Thumbnail Alignment: Does the script deliver on the curiosity the thumbnail promises?
+  - Script–SEO Alignment: Are the primary keywords naturally woven into the script?
+  - Title–Thumbnail–Hook Triangle: Do these three elements create synergy without contradicting each other?
+  - Quality Checklist: Structure, length, tone, CTA, legal considerations, etc.
+
+- **Scriptwriter**: YouTube scriptwriter. Creates video scripts optimized for audience retention based on the strategy brief. Generates timecode-based scripts including hook, development, transitions, and closing.
+  - Hook Writing: Design an opening that captures the viewer within the first 5–10 seconds
+  - Body Structure: Logical progression across segments with well-placed transitions
+  - Dialogue Styling: Conversational tone, natural rhythm, direct address to the viewer
+  - Visual Cue Insertion: Editing directives such as `[B-roll: ...]`, `[Graphic: ...]`, `[Text Overlay: ...]`
+  - CTA Design: Likes, subscriptions, and comments — woven naturally into the content
+
+- **Seo Optimizer**: YouTube SEO specialist. Handles search optimization, metadata creation, tag strategy, description optimization, and subtitle/chapter generation. Maximizes discoverability through the YouTube algorithm.
+  - Title Optimization: Include search keywords + drive clicks — under 60 characters, with the primary keyword placed near the front
+  - Description Writing: Place the core value proposition + keywords in the first 2 lines (visible when collapsed)
+  - Tag Strategy: Structure tags from primary keyword → related keywords → channel name → series name
+  - Chapter Markers: Generate YouTube chapters based on the script's timecodes
+  - Subtitle File Generation: Convert the script to SRT format
+  - Hashtags: Select 3 hashtags to appear above the video title
+
+- **Thumbnail Designer**: YouTube thumbnail designer. Designs thumbnail concepts that maximize click-through rate (CTR) and produces actual thumbnails using Gemini image generation.
+  - Thumbnail Concept Design: Determine how to visually express the strategy brief's core angle
+  - Text Overlay Design: A punchy 3–5 word text overlay — complementing the title without repeating it
+  - Color Strategy: Choose a color scheme that stands out from competing thumbnails
+  - Image Generation: Produce actual thumbnail images using Gemini image generation
+  - A/B Variants: Create a primary thumbnail + 1–2 alternatives to provide options
 
 ## Workflow
 
-### Phase 1: Preparation
+### Phase 1: Preparation (Performed directly by the orchestrator)
 
-1. Analyze user request — identify goals, constraints, existing materials
-2. Reference `.moai/context.md` — check previous context
-3. Load profile — read user information from `/mnt/.auto-memory/moai-profile.md`
-4. Determine scope — full process vs. partial execution
+1. Extract from user input:
+   - **Topic/Keywords**: The subject the video will cover
+   - **Channel Info** (optional): Channel tone, subscriber count, existing content direction
+   - **Constraints** (optional): Video length, specific requirements
+   - **Existing Files** (optional): Scripts, briefs, or other materials provided by the user
+2. Create the `_workspace/` directory at the project root
+3. Organize the input and save it as `_workspace/00_input.md`
+4. If existing files are provided, copy them to `_workspace/` and skip the corresponding phase
+5. Determine the **execution mode** based on request scope (see "Scope-Based Modes" below)
 
-### Phase 2: Execution
+### Phase 2: Team Assembly and Execution
 
-1. **Research/Analysis** — web search, data collection, situational assessment
-2. **Strategy** — direction setting based on analysis, apply core frameworks
-3. **Deliverable Creation** — generate documents/materials step by step
-4. **Review/Refinement** — cross-validation, consistency check, quality assurance
+Assemble the team and assign tasks. Task dependencies are as follows:
 
-### Phase 3: Finalization
+| Order | Task | Owner | Depends On | Deliverable |
+|-------|------|-------|------------|-------------|
+| 1 | Content strategy | strategist | None | `_workspace/01_strategist_brief.md` |
+| 2a | Script writing | writer | Task 1 | `_workspace/02_scriptwriter_script.md` |
+| 2b | Thumbnail design & generation | designer | Task 1 | `_workspace/03_thumbnail_concept.md` |
+| 3 | SEO package | seo | Tasks 1, 2a | `_workspace/04_seo_package.md`, `_workspace/subtitle.srt` |
+| 4 | Production review | reviewer | Tasks 2a, 2b, 3 | `_workspace/05_review_report.md` |
 
-1. Organize final deliverables — format adjustment, user customization
-2. Save files — save to workspace folder + provide computer:// links
-3. Summary report — provide key results summary
-4. Reflection — save session reflection to `.moai/evolution/reflections/`
+Tasks 2a (script) and 2b (thumbnail) run **in parallel**. Both depend only on Task 1 (strategy), so they can start simultaneously.
 
-## Deliverable Formats
+**Inter-agent communication flow:**
+- strategist complete → deliver core angle & tone to writer, title candidates & emotional triggers to designer, keyword map to seo
+- writer complete → deliver hook core message to designer (thumbnail-hook consistency), deliver script to seo
+- seo complete → deliver title-thumbnail combination feedback to designer
+- reviewer cross-validates all deliverables. On 🔴 Must Fix: request revision from the responsible agent → rework → re-validate (up to 2 rounds)
 
-| Deliverable | Format | Description |
-|-------------|--------|-------------|
-| Strategy/Analysis | `.md` | Strategic brief, analysis report |
-| Execution Document | `.md` / `.docx` | Main deliverables (reports, guides) |
-| Data/Numbers | `.xlsx` / `.csv` | Numerical data, comparison tables, models |
-| Presentation | `.pptx` | Slide decks (when needed) |
-| Checklist | `.md` | Execution checklist, review items |
+### Phase 3: Integration and Final Deliverables
 
-## Context Collection Questions (AskUserQuestion)
+Compile the final deliverables based on the reviewer's report:
 
-Sample questions for Phase 4 deep context collection (max 4 questions, max 4 options each):
+1. Verify all files in `_workspace/`
+2. Confirm all 🔴 Must Fix items from the review report have been addressed
+3. Report the final summary to the user:
+   - Strategy Brief — `01_strategist_brief.md`
+   - Video Script — `02_scriptwriter_script.md`
+   - Thumbnail Concept + Images — `03_thumbnail_concept.md`
+   - SEO Package — `04_seo_package.md`
+   - Review Report — `05_review_report.md`
+   - Subtitle File — `subtitle.srt`
 
-| Q | Question | Options |
-|---|----------|---------|
-| Q1 | Main objective? | New start / Improve existing / Problem solving / Strategy planning |
-| Q2 | Target audience? | Internal team / Executives / Customers / Investors |
-| Q3 | Urgency? | Immediate (1 day) / This week / This month / Long-term |
-| Q4 | Preferred tone? | Formal/Professional / Casual/Friendly / Data-driven / Storytelling |
+## Deliverables
 
-## Related Harnesses
+- `00_input.md` — Organized user input
+- `01_strategist_brief.md` — Strategy brief
+- `02_scriptwriter_script.md` — Video script
+- `03_thumbnail_concept.md` — Thumbnail concept
+- `04_seo_package.md` — SEO package
+- `05_review_report.md` — Review report
+- `subtitle.srt` — Subtitle file
 
-Harnesses that work well together with this one:
+## Extension Skills
 
-- `newsletter` — Newsletter
-- `content-repurposer` — Content Repurposer
-- `social-media` — Social Media
+- **hook-writing**: YouTube video hook (opening) writing skill. Provides 15 hook patterns, viewer retention psychology, and click-to-watch conversion formulas. Referenced by the scriptwriter agent when designing video openings to minimize viewer drop-off. Also used standalone for requests like 'show me hook patterns' or 'how to write great openings.' Full script writing and SEO optimization fall under the youtube-production skill.
+- **thumbnail-psychology**: YouTube thumbnail visual psychology skill. Provides color theory, composition principles, CTR optimization patterns, and mobile readability checklists. Referenced by the thumbnail-designer agent when designing visually effective thumbnails. Also used standalone for requests like 'how to make great thumbnails' or 'thumbnails that boost click-through rate.' Actual image generation falls under the gemini-3-pro-imagegen skill.
 
-## Cowork Execution Guide
+## Error Handling
 
-- **File creation**: Create directly in workspace using Write tool
-- **Data processing**: Use Python/Node in Bash sandbox
-- **Web search**: Collect latest data via WebSearch/WebFetch
-- **Presentations**: Can integrate with pptx skill
-- **Spreadsheets**: Can integrate with xlsx skill
-- **Documents**: Can integrate with docx skill
+| Error Type | Strategy |
+|-----------|----------|
+| Web search failure | Strategist works from general knowledge, report notes "data limitation" |
+| Thumbnail image generation failure | Proceed with text concept only, include Gemini prompt for user retry |
+| Agent failure | Retry once → if still failing, proceed without that deliverable, note omission in review report |
+| 🔴 found in review | Request revision from responsible agent → rework → re-validate (up to 2 rounds) |

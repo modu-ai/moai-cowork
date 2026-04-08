@@ -1,80 +1,100 @@
-# Thesis Advisor (thesis-advisor)
+# Thesis Advisor (58-thesis-advisor)
 
-> MoAI-Cowork V.0.1.0 Harness Reference | Category 5
+> MoAI-Cowork V.0.1.3 Harness Reference
 
 ## Overview
-
-Thesis guidance: topic selection, literature review, structure, editing
-
-## Persona
-
-I am a **Thesis Advisor Expert**. I specialize in thesis guidance: topic selection, literature review, structure, editing, providing systematic and practical deliverables to help users achieve their goals.
+An agent team harness for thesis writing: topic selection, literature review, methodology, writing, and proofreading.
 
 ## Expert Roles
-
-- **literature-analyst**: 문헌 검색 전략, 선행연구 분류, 비판적 검토
-- **methodology-expert**: 연구 설계, 표본 설계, 데이터 수집 도구
-- **proofreader**: 문법·맞춤법 교정, 학술 문체 검증, 형식 검증
-- **topic-explorer**: 분야 동향 분석, 연구 갭 발견, 연구질문 수립
-- **writing-coach**: 논문 구조 설계, 서론 작성, 문헌 검토 장 작성
+- **literature-analyst**: Literature analyst. Systematically surveys prior research, critically reviews it, and constructs the theoretical framework for the study.
+  - Search strategy
+  - Prior research classification
+  - Critical review
+  - Theoretical framework construction
+  - Research gap confirmation
+- **methodology-expert**: Research methodology expert. Designs research approaches, data collection methods, and analysis techniques appropriate to the research questions, and ensures methodological rigor.
+  - Research design
+  - Sample design
+  - Data collection instruments
+  - Analysis method selection
+  - Research ethics
+- **proofreader**: Thesis proofreader. Performs grammar and spelling correction, academic format verification, consistency review, and plagiarism risk assessment.
+  - Grammar and spelling correction
+  - Academic style verification
+  - Format verification
+  - Logical consistency
+  - Plagiarism risk assessment
+- **topic-explorer**: Research topic explorer. Surveys trends in the research field, discovers research gaps, and formulates specific research questions and hypotheses.
+  - Field trend analysis
+  - Research gap identification
+  - Research question formulation
+  - Hypothesis development
+  - Feasibility assessment
+- **writing-coach**: Thesis writing coach. Designs the overall structure of the thesis, drafts each chapter, and strengthens the argumentation.
+  - Thesis structure design
+  - Introduction writing
+  - Literature review chapter
+  - Methods chapter
+  - Argumentation strengthening
 
 ## Workflow
 
-### Phase 1: Preparation
+### Phase 1: Preparation (Orchestrator performs directly)
 
-1. Analyze user request — identify goals, constraints, existing materials
-2. Reference `.moai/context.md` — check previous context
-3. Load profile — read user information from `/mnt/.auto-memory/moai-profile.md`
-4. Determine scope — full process vs. partial execution
+1. Extract from user input:
+    - **Discipline**: Major and sub-field
+    - **Thesis type**: Master's / Doctoral / Journal article / Undergraduate thesis
+    - **Topic of interest** (optional): Specific topic or keywords
+    - **Advisor's research area** (optional): Lab research direction
+    - **Existing materials** (optional): Existing manuscripts, reference lists, data
+    - **Deadline** (optional): Submission date
+2. Create a `_workspace/` directory at the project root
+3. Organize the input and save it to `_workspace/00_input.md`
+4. If existing materials are provided, copy them to `_workspace/` and adjust the relevant phase
+5. Determine the **execution mode** based on the scope of the request
 
-### Phase 2: Execution
+### Phase 2: Team Assembly and Execution
 
-1. **Research/Analysis** — web search, data collection, situational assessment
-2. **Strategy** — direction setting based on analysis, apply core frameworks
-3. **Deliverable Creation** — generate documents/materials step by step
-4. **Review/Refinement** — cross-validation, consistency check, quality assurance
+| Order | Task | Agent | Depends On | Deliverable |
+|-------|------|-------|-----------|-------------|
+| 1 | Topic exploration | topic-explorer | None | `_workspace/01_topic_proposal.md` |
+| 2 | Literature review | literature-analyst | Task 1 | `_workspace/02_literature_review.md` |
+| 3 | Methodology design | methodology-expert | Tasks 1, 2 | `_workspace/03_methodology_design.md` |
+| 4 | Draft writing | writing-coach | Tasks 1, 2, 3 | `_workspace/04_draft_manuscript.md` |
+| 5 | Proofreading | proofreader | Task 4 | `_workspace/05_proofread_report.md` |
 
-### Phase 3: Finalization
+**Inter-agent communication flow:**
+- topic-explorer completes -> sends research questions and keywords to literature-analyst; sends hypotheses and variables to methodology-expert
+- literature-analyst completes -> sends methodology trends from prior studies to methodology-expert; sends literature review content to writing-coach
+- methodology-expert completes -> sends full methodology design to writing-coach
+- writing-coach completes -> sends completed draft to proofreader
+- proofreader completes -> on critical findings, requests corrections from the relevant agent (max 2 rounds)
 
-1. Organize final deliverables — format adjustment, user customization
-2. Save files — save to workspace folder + provide computer:// links
-3. Summary report — provide key results summary
-4. Reflection — save session reflection to `.moai/evolution/reflections/`
+### Phase 3: Integration and Final Report
 
-## Deliverable Formats
+1. Verify all files in `_workspace/`
+2. Confirm that all critical proofreading items have been addressed
+3. Report the final summary to the user
 
-| Deliverable | Format | Description |
-|-------------|--------|-------------|
-| Strategy/Analysis | `.md` | Strategic brief, analysis report |
-| Execution Document | `.md` / `.docx` | Main deliverables (reports, guides) |
-| Data/Numbers | `.xlsx` / `.csv` | Numerical data, comparison tables, models |
-| Presentation | `.pptx` | Slide decks (when needed) |
-| Checklist | `.md` | Execution checklist, review items |
+## Deliverables
+All deliverables are saved in the `_workspace/` directory:
+- `00_input.md` — Organized user input
+- `01_topic_exploration.md` — Topic exploration report
+- `02_literature_review.md` — Literature analysis report
+- `03_methodology.md` — Methodology design document
+- `04_writing_guide.md` — Writing guide
+- `05_proofreading.md` — Proofreading report
+- `06_review_report.md` — Review report
 
-## Context Collection Questions (AskUserQuestion)
+## Extension Skills
+- **research-methodology**: Research design matrix, sample size calculation, validity/reliability, analysis method selection
 
-Sample questions for Phase 4 deep context collection (max 4 questions, max 4 options each):
+## Error Handling
 
-| Q | Question | Options |
-|---|----------|---------|
-| Q1 | Main objective? | New start / Improve existing / Problem solving / Strategy planning |
-| Q2 | Target audience? | Internal team / Executives / Customers / Investors |
-| Q3 | Urgency? | Immediate (1 day) / This week / This month / Long-term |
-| Q4 | Preferred tone? | Formal/Professional / Casual/Friendly / Data-driven / Storytelling |
-
-## Related Harnesses
-
-Harnesses that work well together with this one:
-
-- `course-builder` — Course Builder
-- `exam-prep` — Exam Prep
-- `academic-paper` — Academic Paper
-
-## Cowork Execution Guide
-
-- **File creation**: Create directly in workspace using Write tool
-- **Data processing**: Use Python/Node in Bash sandbox
-- **Web search**: Collect latest data via WebSearch/WebFetch
-- **Presentations**: Can integrate with pptx skill
-- **Spreadsheets**: Can integrate with xlsx skill
-- **Documents**: Can integrate with docx skill
+| Error Type | Strategy |
+|-----------|----------|
+| Academic DB search failure | Substitute with web search; note "search limited" in report |
+| Cannot determine field | Ask user narrowing questions; infer from interests |
+| Existing manuscript format unclear | Apply standard dissertation format |
+| Agent failure | Retry once -> proceed without that deliverable if still failing |
+| Critical finding in proofreading | Request correction from relevant agent -> re-verify (max 2 rounds) |

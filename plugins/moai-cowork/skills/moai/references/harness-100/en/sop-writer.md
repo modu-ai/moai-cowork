@@ -1,80 +1,102 @@
-# SOP Writer (sop-writer)
+# SOP Writer (83-sop-writer)
 
-> MoAI-Cowork V.0.1.0 Harness Reference | Category 7
+> MoAI-Cowork V.0.1.3 Harness Reference
 
 ## Overview
-
-Standard operating procedures, process documentation, manual creation
-
-## Persona
-
-I am a **SOP Writer Expert**. I specialize in standard operating procedures, process documentation, manual creation, providing systematic and practical deliverables to help users achieve their goals.
+standard operating procedure(SOP) processanalysis→procedure document→checklist→training materials→versionmanagement A harness where an agent team collaborates to produce deliverables.
 
 ## Expert Roles
-
-- **checklist-designer**: 실행 체크리스트 설계, 품질 게이트 설계, 주기별 점검표 작성
-- **procedure-writer**: 절차 구조화, 단계별 기술, 의사결정 분기 설계
-- **process-analyst**: 업무 흐름 매핑, SIPOC 분석, 병목/리스크 식별
-- **training-developer**: 학습 가이드 작성, 시나리오 연습 설계, 평가 문항 개발
-- **version-controller**: 절차서-체크리스트 정합성, 절차서-교육자료 정합성, 용어 일관성 검증
+- **checklist-designer**: SOP checklist designspecialist. procedure document core stage execution inspectiontable exchangeand, quality , dayday/weekbetween/monthbetween inspection checklist design.
+  - procedure document each stage possibleKorean itemas exchange
+  - next stage basis before mustwhen confirm to do quality document definition
+  - dayday/weekbetween/monthbetween/minutebasisby basis inspection checklist design
+  - example situation occurrence when i.e.when reference checklist writing
+  - withindepartment/external company when preparation to do checklist writing
+- **procedure-writer**: SOP procedure document writingspecialist. process analysis result basedas according toto do number peopleKorean stageby procedure document writing. ISO/ requirement department document applied.
+  - versusclassification→duringclassification→taxdepartment stage totalquality procedure design
+  - each stage perform method, judgment standard, weekmatters people technical
+  - "approx. ~" conditionby minutebasis and each procedure specify
+  - situation occurrence when response procedure and technical
+  - ISO 9001/ basis requirements department document structure applied
+- **process-analyst**: SOP process analysis. current work flow systematicas analysisand, input/capability/relatedspecialist/examplesituation identificationto procedure document writing based .
+  - current process whenwork→to overall flow
+  - Supplier-Input-Process-Output-Customer identification
+  - process within degreepoint, between, dependencynature risk identify
+  - each stageby responsibilityspecialist(R), approver(A), specialist(C), reportspecialist(I) definition
+  - flow example/minutebasis situation and response procedure identification
+- **training-developer**: SOP training materials workspecialist. procedure document and checklist basedas personcapability to do number training guide, scenario annual, assessment document work.
+  - procedure document training purpose re-compositionKorean learning document writing
+  - actual situation companyKorean and annual problem design
+  - also /from/actualbasis assessment document development
+  - currentfrom referenceto do number 1degree summary
+  - training targetby and time design
+- **version-controller**: SOP version management and cross-verification expert(QA). procedure document-checklist-training materials between consistency cross-verificationand, document version management total establish.
+  - procedure document all core stage checklist reflecteddegree confirm
+  - training materials procedure document content reflecteddegree confirm
+  - overall document taxfrom , total, daydegree confirm
+  - document change capability, person process, deployment total design
+  - document to deployment degree definition
 
 ## Workflow
+### Phase 1: preparation (Orchestrator directly perform)
 
-### Phase 1: Preparation
+1. Extract from user input:
+ - **target process**: work/procedure regarding SOPperson
+ - **applied scope**: target departmentfrom/team/
+ - ** requirement** (optional): related , authentication(ISO, HACCP etc.)
+ - **existing document** (optional): current , work technicalfrom, 
+2. `_workspace/` Create the directory at the project root
+3. Organize input and save to `_workspace/00_input.md`
+4. If existing files are provided, copy them to `_workspace/`and skip the corresponding Phase
+5. Determine the **execution mode** based on the scope of the request
 
-1. Analyze user request — identify goals, constraints, existing materials
-2. Reference `.moai/context.md` — check previous context
-3. Load profile — read user information from `/mnt/.auto-memory/moai-profile.md`
-4. Determine scope — full process vs. partial execution
+### Phase 2: team composition and execution
 
-### Phase 2: Execution
+| order | task | responsible | dependency | deliverable |
+|------|------|------|------|--------|
+| 1 | process analysis | analyst | None | `_workspace/01_process_analysis.md` |
+| 2 | procedure document writing | writer | task 1 | `_workspace/02_procedure_document.md` |
+| 3a | checklist design | designer | task 2 | `_workspace/03_checklists.md` |
+| 3b | training materials work | developer | task 2 | `_workspace/04_training_materials.md` |
+| 4 | version management and verify | controller | task 3a, 3b | `_workspace/05_version_control.md` |
 
-1. **Research/Analysis** — web search, data collection, situational assessment
-2. **Strategy** — direction setting based on analysis, apply core frameworks
-3. **Deliverable Creation** — generate documents/materials step by step
-4. **Review/Refinement** — cross-validation, consistency check, quality assurance
+task 3a(checklist) and 3b(training materials) ** execution**. task 2(procedure document) only dependency.
 
-### Phase 3: Finalization
+**teamKRW between flow:**
+- analyst complete → writerto process flow+RACI+example deliver, designerto quality degreepoint deliver
+- writer complete → designerto verify standard deliver, developerto difficulty stage+actualnumber case deliver
+- designer complete → developerto checklist usage deliver
+- controller all deliverable cross-verification. 🔴 required revision findings when Request revision from the relevant agent -> rework -> re-verify (up to 2 rounds)
 
-1. Organize final deliverables — format adjustment, user customization
-2. Save files — save to workspace folder + provide computer:// links
-3. Summary report — provide key results summary
-4. Reflection — save session reflection to `.moai/evolution/reflections/`
+### Phase 3: integration and final deliverable
 
-## Deliverable Formats
+1. `_workspace/` Verify all files in the directory
+2. verify reportConfirm that all critical revisions from the review report have been addressed
+3. Report the final summary to the user:
+ - process analysis — `01_process_analysis.md`
+ - tablelevel procedure document — `02_procedure_document.md`
+ - checklist tax — `03_checklists.md`
+ - training materials — `04_training_materials.md`
+ - version management and verify — `05_version_control.md`
 
-| Deliverable | Format | Description |
-|-------------|--------|-------------|
-| Strategy/Analysis | `.md` | Strategic brief, analysis report |
-| Execution Document | `.md` / `.docx` | Main deliverables (reports, guides) |
-| Data/Numbers | `.xlsx` / `.csv` | Numerical data, comparison tables, models |
-| Presentation | `.pptx` | Slide decks (when needed) |
-| Checklist | `.md` | Execution checklist, review items |
+## Deliverables
+all deliverable `_workspace/` save:
+- `00_input.md` — user input organization
+- `01_process_analysis.md` — process analysis result
+- `02_procedure_document.md` — tablelevel procedure document
+- `03_checklists.md` — checklist tax
+- `04_training_materials.md` — training materials
+- `05_version_control.md` — version management and verify report
 
-## Context Collection Questions (AskUserQuestion)
+## Extension Skills
+- **process-mapping**: `.claude/skills/process-mapping/skill.md`
+- **checklist-design**: `.claude/skills/checklist-design/skill.md`
 
-Sample questions for Phase 4 deep context collection (max 4 questions, max 4 options each):
-
-| Q | Question | Options |
-|---|----------|---------|
-| Q1 | Main objective? | New start / Improve existing / Problem solving / Strategy planning |
-| Q2 | Target audience? | Internal team / Executives / Customers / Investors |
-| Q3 | Urgency? | Immediate (1 day) / This week / This month / Long-term |
-| Q4 | Preferred tone? | Formal/Professional / Casual/Friendly / Data-driven / Storytelling |
-
-## Related Harnesses
-
-Harnesses that work well together with this one:
-
-- `proposal-writer` — Proposal Writer
-- `presentation` — Presentation
-- `meeting-strategist` — Meeting Strategist
-
-## Cowork Execution Guide
-
-- **File creation**: Create directly in workspace using Write tool
-- **Data processing**: Use Python/Node in Bash sandbox
-- **Web search**: Collect latest data via WebSearch/WebFetch
-- **Presentations**: Can integrate with pptx skill
-- **Spreadsheets**: Can integrate with xlsx skill
-- **Documents**: Can integrate with docx skill
+## Error Handling
+| error type | strategy |
+|----------|------|
+| existing document None | user person based process re-composition, tablelevel reference |
+| requirement people | applicable day framework web searchas research |
+| agent failure | Retry once -> proceed without that deliverable, verify report specify |
+| verifyfrom 🔴 findings | Request revision from the relevant agent -> rework -> re-verify (up to 2 rounds) |
+| process | process minuteto eacheach SOP creation |

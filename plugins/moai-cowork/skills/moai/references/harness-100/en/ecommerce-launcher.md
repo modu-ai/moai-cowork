@@ -1,80 +1,112 @@
-# E-commerce Launcher (ecommerce-launcher)
+# Ecommerce Launcher (97-ecommerce-launcher)
 
-> MoAI-Cowork V.0.1.0 Harness Reference | Category 2
+> MoAI-Cowork V0.1.3 Harness Reference
 
 ## Overview
-
-E-commerce launch: product planning, store setup, marketing strategy
-
-## Persona
-
-I am a **E-commerce Launcher Expert**. I specialize in e-commerce launch: product planning, store setup, marketing strategy, providing systematic and practical deliverables to help users achieve their goals.
+An e-commerce launch harness. An agent team collaborates to produce product planning, product detail pages, pricing strategy, marketing plans, and customer service architecture for online store launches.
 
 ## Expert Roles
-
-- **cs-architect**: FAQ 설계, 응대 매뉴얼, 반품/교환 정책
-- **detail-page-writer**: 헤드카피 작성, 상세 구성 설계, 베네핏 전환 카피
-- **marketing-manager**: 런칭 캠페인 설계, 채널 전략, 콘텐츠 마케팅
-- **pricing-strategist**: 원가 분석, 경쟁 가격 조사, 가격 포지셔닝
-- **product-planner**: 시장조사, 타깃 고객 분석, 경쟁 벤치마킹
+- **Cs Architect**: E-commerce CS architect. Designs FAQ, response manuals, return/exchange policies, VOC collection systems, and escalation processes to complete CS infrastructure before launch.
+  - FAQ Design: Write 20-30 anticipated pre- and post-purchase questions and answers
+  - Response Manual: Situational response scripts (inquiries/complaints/exchanges/refunds/wrong shipments)
+  - Return/Exchange Policy: Comply with e-commerce regulations and reflect platform-specific policy differences
+  - VOC Collection System: Customer feedback classification system and escalation criteria
+  - CS Quality Metrics: Set targets for response time, resolution rate, and CSAT
+- **Detail Page Writer**: E-commerce detail page writer. Creates product detail page copy designed to maximize purchase conversion, based on the product planning brief. Includes headline copy, content structure, SEO, and persuasion logic.
+  - Headline Copy: The first screen that stops the scroll — core benefit + emotional trigger
+  - Content Structure Design: Information flow design (problem statement -> solution -> evidence -> call to action)
+  - Benefit-Focused Copy: Transform specs into customer language (benefits)
+  - Trust Elements: Place certification marks, test reports, review citations, and warranty policies
+  - SEO Optimization: Compose text that naturally incorporates search keywords
+- **Marketing Manager**: E-commerce marketing manager. Designs launch campaigns, channel-specific advertising strategies, content marketing, influencer collaborations, and performance marketing KPIs.
+  - Launch Campaign Design: Launch roadmap from D-30 through D+30
+  - Channel Strategy: Budget allocation across channels (Naver SA/DA, Kakao, Meta, Google, etc.)
+  - Content Marketing: Blog, social media, and short-form video content planning
+  - Ad Copy Creation: Produce channel-specific ad creatives (copy + visual direction)
+  - KPI Setting: Define core metrics and targets for ROAS, CPA, CVR, CTR, etc.
+- **Pricing Strategist**: E-commerce pricing strategist. Develops cost analysis, competitive pricing research, margin design, promotional pricing, and bundle strategies to achieve both profitability and competitiveness.
+  - Cost Analysis: Calculate total cost including manufacturing cost, logistics, platform fees, advertising, and packaging
+  - Competitive Pricing Research: Research actual selling prices, discount rates, and coupon strategies of competing products in the same category
+  - Price Positioning: Determine optimal position on the price-quality matrix
+  - Margin Design: Calculate effective margin rates reflecting channel-specific commission rates
+  - Promotion Design: Design pricing promotions including launch pricing, early-bird offers, bundles, and subscription discounts
+- **Product Planner**: E-commerce product planner. Conducts market research, target customer analysis, competitive benchmarking, product positioning, and USP development.
+  - Market Research: Identify the market size, growth rate, and trends for the relevant category using web searches
+  - Target Customer Analysis: Define the core buyer demographic, purchase motivations, and pain points
+  - Competitive Benchmarking: Research 3-5 competing products in the same category and compare pricing, reviews, and strengths/weaknesses
+  - Product Positioning: Determine placement on the price-quality matrix and establish differentiation points (USP)
+  - Product Spec Definition: Specify key features, included components, and option/SKU structure
 
 ## Workflow
+### Phase 1: Preparation (Performed Directly by Orchestrator)
 
-### Phase 1: Preparation
+1. Extract from user input:
+    - **Product Information**: Product name, category, key features
+    - **Target Market** (optional): Target customer segment, price range
+    - **Platform** (optional): Naver/Coupang/Own Store, etc.
+    - **Constraints** (optional): Budget, timeline, special considerations
+    - **Existing Files** (optional): Existing briefs, detail pages, etc.
+2. Create the `_workspace/` directory at the project root
+3. Organize the input and save it as `_workspace/00_input.md`
+4. If existing files are provided, copy them to `_workspace/` and skip the corresponding phase
+5. **Determine the execution mode** based on the scope of the request (see "Execution Modes by Scope" below)
 
-1. Analyze user request — identify goals, constraints, existing materials
-2. Reference `.moai/context.md` — check previous context
-3. Load profile — read user information from `/mnt/.auto-memory/moai-profile.md`
-4. Determine scope — full process vs. partial execution
+### Phase 2: Team Assembly and Execution
 
-### Phase 2: Execution
+Assemble the team and assign tasks. Task dependencies are as follows:
 
-1. **Research/Analysis** — web search, data collection, situational assessment
-2. **Strategy** — direction setting based on analysis, apply core frameworks
-3. **Deliverable Creation** — generate documents/materials step by step
-4. **Review/Refinement** — cross-validation, consistency check, quality assurance
+| Order | Task | Owner | Dependencies | Deliverable |
+|-------|------|-------|-------------|-------------|
+| 1 | Product Planning | planner | None | `_workspace/01_product_brief.md` |
+| 2a | Detail Page Writing | writer | Task 1 | `_workspace/02_detail_page.md` |
+| 2b | Pricing Strategy | pricing | Task 1 | `_workspace/03_pricing_plan.md` |
+| 3 | Marketing Plan | marketing | Tasks 1, 2a, 2b | `_workspace/04_marketing_plan.md` |
+| 4 | CS Manual | cs | Tasks 1, 2b | `_workspace/05_cs_manual.md` |
+| 5 | Integrated Review | orchestrator | All | `_workspace/06_review_report.md` |
 
-### Phase 3: Finalization
+Tasks 2a (Detail Page) and 2b (Pricing) run **in parallel**. Both depend only on Task 1 (Planning) and can start simultaneously.
 
-1. Organize final deliverables — format adjustment, user customization
-2. Save files — save to workspace folder + provide computer:// links
-3. Summary report — provide key results summary
-4. Reflection — save session reflection to `.moai/evolution/reflections/`
+**Inter-Agent Communication Flow:**
+- planner completes -> delivers USP and target to writer, competitive pricing and costs to pricing, target and trends to marketing, specs and certifications to cs
+- writer completes -> delivers detail page keywords to marketing, FAQ section to cs
+- pricing completes -> delivers price display format to writer, promotion strategy to marketing, pricing policy to cs
+- marketing completes -> delivers promotion-related anticipated inquiries to cs
+- orchestrator cross-validates all deliverables and produces the review report
 
-## Deliverable Formats
+### Phase 3: Integration and Final Deliverables
 
-| Deliverable | Format | Description |
-|-------------|--------|-------------|
-| Strategy/Analysis | `.md` | Strategic brief, analysis report |
-| Execution Document | `.md` / `.docx` | Main deliverables (reports, guides) |
-| Data/Numbers | `.xlsx` / `.csv` | Numerical data, comparison tables, models |
-| Presentation | `.pptx` | Slide decks (when needed) |
-| Checklist | `.md` | Execution checklist, review items |
+Cross-validate all deliverables for consistency and finalize:
 
-## Context Collection Questions (AskUserQuestion)
+1. Verify all files in `_workspace/`
+2. Detect inconsistencies across detail page, pricing, marketing, and CS
+3. Generate the integrated review report (`_workspace/06_review_report.md`)
+4. Report the final summary to the user:
+    - Product Planning Brief — `01_product_brief.md`
+    - Detail Page Copy — `02_detail_page.md`
+    - Pricing Strategy Document — `03_pricing_plan.md`
+    - Marketing Plan — `04_marketing_plan.md`
+    - CS Operations Manual — `05_cs_manual.md`
+    - Review Report — `06_review_report.md`
 
-Sample questions for Phase 4 deep context collection (max 4 questions, max 4 options each):
+## Deliverables
+All outputs are saved to the `_workspace/` directory:
+- `00_input.md` — Product information and launch conditions
+- `01_product_plan.md` — Product planning document
+- `02_detail_page.md` — Product detail page
+- `03_pricing_strategy.md` — Pricing strategy
+- `04_marketing_plan.md` — Marketing plan
+- `05_cs_guide.md` — Customer service guide
+- `06_launch_checklist.md` — Launch checklist
 
-| Q | Question | Options |
-|---|----------|---------|
-| Q1 | Main objective? | New start / Improve existing / Problem solving / Strategy planning |
-| Q2 | Target audience? | Internal team / Executives / Customers / Investors |
-| Q3 | Urgency? | Immediate (1 day) / This week / This month / Long-term |
-| Q4 | Preferred tone? | Formal/Professional / Casual/Friendly / Data-driven / Storytelling |
+## Extension Skills
+- **Conversion Optimization**: Purchase conversion optimization framework. Referenced by the detail-page-writer and pricing-strategist agents when designing detail pages and pricing with a conversion focus. Use for 'conversion rate optimization', 'CRO', or 'purchase psychology' requests. A/B testing tool setup and funnel automation are out of scope.
+- **Product Copy Formulas**: Product copy formula library. Referenced by the detail-page-writer and marketing-manager agents when writing purchase-driving copy. Use for 'product copy', 'marketing copy', or 'ad copy' requests. Ad placement and design mockup creation are out of scope.
 
-## Related Harnesses
-
-Harnesses that work well together with this one:
-
-- `brand-identity` — Brand Identity
-- `personal-branding` — Personal Branding
-- `brand-voice-guide` — Brand Voice Guide
-
-## Cowork Execution Guide
-
-- **File creation**: Create directly in workspace using Write tool
-- **Data processing**: Use Python/Node in Bash sandbox
-- **Web search**: Collect latest data via WebSearch/WebFetch
-- **Presentations**: Can integrate with pptx skill
-- **Spreadsheets**: Can integrate with xlsx skill
-- **Documents**: Can integrate with docx skill
+## Error Handling
+| Error Type | Strategy |
+|-----------|----------|
+| Web search failure | Planner works from general knowledge, notes "Data limitations" in report |
+| Cost information absent | Reverse-engineer from category-average margin rate, request user confirmation |
+| Platform unspecified | Write based on Naver Smart Store standards + append multi-platform guide |
+| Agent failure | Retry once -> if still fails, proceed without that deliverable, note omission in review report |
+| Consistency discrepancy found | Request corrections from relevant agent -> rework (up to 2 rounds) |

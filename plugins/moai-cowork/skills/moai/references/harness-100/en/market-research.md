@@ -1,80 +1,96 @@
-# Market Research (market-research)
+# Market Research (44)
 
-> MoAI-Cowork V.0.1.0 Harness Reference | Category 3
+> MoAI-Cowork V0.1.3 Harness Reference
 
 ## Overview
 
-Market sizing, customer segments, trend research, competitive landscape
-
-## Persona
-
-I am a **Market Research Expert**. I specialize in market sizing, customer segments, trend research, competitive landscape, providing systematic and practical deliverables to help users achieve their goals.
+Market research: a harness where an agent team collaborates to perform industry analysis → competitor analysis → consumer analysis → trend analysis → research review.
 
 ## Expert Roles
 
-- **competitor-analyst**: 경쟁사 매핑, 전략 그룹 분석, 개별 경쟁사 프로파일
-- **consumer-analyst**: 세그먼테이션, 구매 여정 매핑, 니즈 분석
-- **industry-analyst**: 시장 규모 산정, 산업 구조 분석, 밸류체인 분석
-- **research-reviewer**: 산업 ↔ 경쟁 정합성, 경쟁 ↔ 소비자 정합성, 소비자 ↔ 트렌드 정합성
-- **trend-analyst**: PESTLE 분석, 기술 트렌드, 소비자 트렌드
+- **Competitor Analyst**: Competitive analyst. Performs competitor mapping, strategic group analysis, SWOT analysis, positioning map creation, and competitive advantage identification.
+  - Competitor Mapping: Identify and categorize direct, indirect, and potential competitors
+  - Strategic Group Analysis: Group competitors by strategy and identify strategic positioning
+  - SWOT Analysis: Evaluate strengths, weaknesses, opportunities, and threats for key competitors
+  - Positioning Map: Create 2x2 positioning maps on key competitive dimensions
+  - Competitive Advantage: Identify sources of sustainable competitive advantage (moat)
+
+- **Consumer Analyst**: Consumer analyst. Performs customer segmentation, purchase journey mapping, needs analysis, persona design, and research methodology proposals.
+  - Customer Segmentation: Segment customers by demographics, psychographics, and behavior
+  - Purchase Journey Mapping: Map the end-to-end customer decision and purchase journey
+  - Needs Analysis: Identify unmet needs, pain points, and jobs-to-be-done
+  - Persona Design: Create detailed customer personas based on research insights
+  - Research Methodology: Propose appropriate research methods (surveys, interviews, ethnography, etc.)
+
+- **Industry Analyst**: Industry analyst. Performs market size and growth rate estimation, value chain analysis, industry structure (Porter's 5 Forces), and regulatory environment analysis.
+  - Market Size and Growth: Estimate current market size, CAGR, and growth drivers/inhibitors
+  - Value Chain Analysis: Map the industry value chain, identify high-margin segments
+  - Industry Structure: Porter's 5 Forces analysis for competitive dynamics
+  - Regulatory Environment: Identify key regulations, compliance requirements, and policy trends
+  - Market Segmentation: Break down the market by product, geography, customer type, etc.
+
+- **Research Reviewer**: Research reviewer (QA). Cross-validates consistency across industry, competitive, consumer, and trend analyses. Integrates insights and derives strategic recommendations.
+  - Cross-Analysis Consistency: Verify data and conclusions are consistent across all four analysis areas
+  - Insight Synthesis: Identify cross-cutting themes and integrated insights not visible in individual analyses
+  - Strategic Recommendations: Derive actionable strategic recommendations from the combined research
+  - Data Quality Verification: Check source credibility, methodology soundness, and logical reasoning
+  - Gap Identification: Identify areas requiring additional research or data
+
+- **Trend Analyst**: Trend analyst. Performs macro environment (PESTLE), micro trend, technology trend, scenario analysis, and future outlook assessments.
+  - PESTLE Analysis: Political, Economic, Social, Technological, Legal, Environmental macro environment assessment
+  - Micro Trends: Industry-specific emerging trends, consumer behavior shifts
+  - Technology Trends: Emerging technologies, adoption curves, disruption potential
+  - Scenario Analysis: Multiple future scenarios (optimistic, base, pessimistic) with implications
+  - Future Outlook: 3-5 year industry outlook with key inflection points
 
 ## Workflow
 
-### Phase 1: Preparation
+### Phase 1: Preparation (performed directly by the orchestrator)
 
-1. Analyze user request — identify goals, constraints, existing materials
-2. Reference `.moai/context.md` — check previous context
-3. Load profile — read user information from `/mnt/.auto-memory/moai-profile.md`
-4. Determine scope — full process vs. partial execution
+1. Extract the following from user input:
+    - **Research objective**: What business decision will this inform?
+    - **Industry/Market**: Target industry, geography, market segment
+    - **Existing data** (optional): Prior research, internal data
+    - **Deliverable focus**: Full research or specific analysis area
+2. Create `_workspace/` directory and save input to `_workspace/00_input.md`
+3. Determine execution mode based on request scope
 
-### Phase 2: Execution
+### Phase 2: Team Assembly and Execution
 
-1. **Research/Analysis** — web search, data collection, situational assessment
-2. **Strategy** — direction setting based on analysis, apply core frameworks
-3. **Deliverable Creation** — generate documents/materials step by step
-4. **Review/Refinement** — cross-validation, consistency check, quality assurance
+| Order | Task | Owner | Dependencies | Deliverable |
+|-------|------|-------|-------------|-------------|
+| 1a | Industry analysis | industry-analyst | None | `_workspace/01_industry_analysis.md` |
+| 1b | Competitor analysis | competitor-analyst | None | `_workspace/02_competitor_analysis.md` |
+| 2a | Consumer analysis | consumer-analyst | Tasks 1a, 1b | `_workspace/03_consumer_analysis.md` |
+| 2b | Trend analysis | trend-analyst | Tasks 1a, 1b | `_workspace/04_trend_analysis.md` |
+| 3 | Research review | research-reviewer | Tasks 2a, 2b | `_workspace/05_research_report.md` |
 
-### Phase 3: Finalization
+Tasks 1a and 1b run in parallel. Tasks 2a and 2b run in parallel.
 
-1. Organize final deliverables — format adjustment, user customization
-2. Save files — save to workspace folder + provide computer:// links
-3. Summary report — provide key results summary
-4. Reflection — save session reflection to `.moai/evolution/reflections/`
+### Phase 3: Integration and Final Deliverables
 
-## Deliverable Formats
+1. Verify all files, confirm CRITICAL findings addressed
+2. Report final summary to user
 
-| Deliverable | Format | Description |
-|-------------|--------|-------------|
-| Strategy/Analysis | `.md` | Strategic brief, analysis report |
-| Execution Document | `.md` / `.docx` | Main deliverables (reports, guides) |
-| Data/Numbers | `.xlsx` / `.csv` | Numerical data, comparison tables, models |
-| Presentation | `.pptx` | Slide decks (when needed) |
-| Checklist | `.md` | Execution checklist, review items |
+## Deliverables
 
-## Context Collection Questions (AskUserQuestion)
+All outputs are stored in the `_workspace/` directory:
+- `00_input.md` — User input and research scope
+- `01_industry_analysis.md` — Industry analysis report
+- `02_competitor_analysis.md` — Competitor analysis report
+- `03_consumer_analysis.md` — Consumer analysis report
+- `04_trend_analysis.md` — Trend analysis report
+- `05_research_summary.md` — Integrated research summary and recommendations
 
-Sample questions for Phase 4 deep context collection (max 4 questions, max 4 options each):
+## Extension Skills
 
-| Q | Question | Options |
-|---|----------|---------|
-| Q1 | Main objective? | New start / Improve existing / Problem solving / Strategy planning |
-| Q2 | Target audience? | Internal team / Executives / Customers / Investors |
-| Q3 | Urgency? | Immediate (1 day) / This week / This month / Long-term |
-| Q4 | Preferred tone? | Formal/Professional / Casual/Friendly / Data-driven / Storytelling |
+- **tam-sam-som-calculator**: Market sizing methodology
+- **porter-five-forces**: Industry structure analysis framework
 
-## Related Harnesses
+## Error Handling
 
-Harnesses that work well together with this one:
-
-- `startup-launcher` — Startup Launcher
-- `financial-model` — Financial Model
-- `pricing-strategy` — Pricing Strategy
-
-## Cowork Execution Guide
-
-- **File creation**: Create directly in workspace using Write tool
-- **Data processing**: Use Python/Node in Bash sandbox
-- **Web search**: Collect latest data via WebSearch/WebFetch
-- **Presentations**: Can integrate with pptx skill
-- **Spreadsheets**: Can integrate with xlsx skill
-- **Documents**: Can integrate with docx skill
+| Error Type | Strategy |
+|-----------|----------|
+| Industry not specified | Request clarification or propose 3 related industries |
+| Insufficient data | Use analogous markets, clearly note assumptions |
+| Agent failure | Retry once > proceed without that deliverable |

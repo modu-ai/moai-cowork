@@ -1,80 +1,108 @@
-# Crisis Communication (crisis-communication)
+# Crisis Communication (87-crisis-communication)
 
-> MoAI-Cowork V.0.1.0 Harness Reference | Category 7
+> MoAI-Cowork V.0.1.3 Harness Reference
 
 ## Overview
-
-Crisis communication: press releases, internal notices, stakeholder messaging
-
-## Persona
-
-I am a **Crisis Communication Expert**. I specialize in crisis communication: press releases, internal notices, stakeholder messaging, providing systematic and practical deliverables to help users achieve their goals.
+crisis situation occurrence when situationidentify→messagestrategy→press release→Q&A→monitoringto agent team to integration crisis package creation .
 
 ## Expert Roles
-
-- **media-monitor**: 모니터링 체계 설계, 여론 분석 프레임워크, 차 위기 감지
-- **message-strategist**: 핵심 메시지 설계, 이해관계자별 메시지, 톤 & 매너 가이드
-- **press-release-writer**: 보도자료 작성, 공식 성명서, 홀딩 스테이트먼트
-- **qa-preparer**: 예상 질문 도출, 답변 가이드 작성, 브리지 기법 설계
-- **situation-analyst**: 사실관계 파악, 이해관계자 매핑, 위기 등급 판정
+- **media-monitor**: media monitoring and afterwithin response expert. ·SNS tracking, risk degree, afterwithin response strategy, crisis judgment standard establish.
+  - , SNS, , search trend etc. channelby monitoring plan establish
+  - /department/during ratio, core tracking standard design
+  - , report, etc. 2gap crisis basis report standard setting
+  - stageby afterwithin response scenario establish
+  - crisis standard and proposal
+- **message-strategist**: crisis message strategy. stakeholderby core message, communication tone, channel strategy, presentation design.
+  - 3degree core message(companyactualperson·empathy·responseaction) design
+  - each stakeholder message design
+  - company/description/ etc. situationby qualityKorean decision
+  - press release, SNS, withindepartmentdegree, clientreport etc. channelby message differentiation
+  - ( 1time), 24time, 72time message roadmap establish
+- **press-release-writer**: press release and official document writingspecialist. crisis situation press release, CEO fromKorean, official naturepeople writing.
+  - un- structure crisis press release writing
+  - CEO or versusperson people official document writing
+  - detailed information confirm before i.e.when presentationto do initial document writing
+  - KRW target withindepartment communication document writing
+  - situation before afterwithin press release writing
+- **qa-preparer**: crisis Q&A preparationspecialist. basisspecialist, person, withindepartment versusKorean expected question and answer guide, versusperson when writing.
+  - stakeholderby question example
+  - core message Korean answer template writing
+  - Korean questionfrom core message beforeexchange degree document preparation
+  - 1 core summary writing
+  - also question, question, comparison question response strategy establish
+- **situation-analyst**: crisis situation analysis. companyactualtotal identify, stakeholder mapping, crisis etc.grade , legal·quality risk identification perform.
+  - confirmdone companyactual, un-confirm matters, estimation matters people minute
+  - directly impact(moat, client, KRW) and between impact(weekweek, basis, media, versusduring) classification
+  - 5stage crisis etc.grade(Critical/High/Medium/Low/Watch)
+  - legal responsibility, possiblenature, ·reporting identification
+  - companycase occurrencedepartment currentto and timeas organization
 
 ## Workflow
+### Phase 1: preparation (Orchestrator directly perform)
 
-### Phase 1: Preparation
+1. Extract from user input:
+ - **crisis situation**: day occurrence
+ - ** information**: people, scale, 
+ - **current status**: press coverage department, withindepartment persondegree timing, initial response department
+ - **constraint condition** (optional): legal issue, matters, time constraint
+ - **existing document** (optional): existing press release, withindepartment report etc.
+2. `_workspace/` Create the directory at the project root
+3. Organize input and save to `_workspace/00_input.md`
+4. existing document `_workspace/` companyand applicable Phase 
+5. Determine the **execution mode** based on the scope of the request ( "task scaleby mode" reference)
 
-1. Analyze user request — identify goals, constraints, existing materials
-2. Reference `.moai/context.md` — check previous context
-3. Load profile — read user information from `/mnt/.auto-memory/moai-profile.md`
-4. Determine scope — full process vs. partial execution
+### Phase 2: team composition and execution
 
-### Phase 2: Execution
+team compositionand task to do. task between dependency total next and :
 
-1. **Research/Analysis** — web search, data collection, situational assessment
-2. **Strategy** — direction setting based on analysis, apply core frameworks
-3. **Deliverable Creation** — generate documents/materials step by step
-4. **Review/Refinement** — cross-validation, consistency check, quality assurance
+| order | task | responsible | dependency | deliverable |
+|------|------|------|------|--------|
+| 1 | situation analysis | analyst | None | `_workspace/01_situation_analysis.md` |
+| 2 | message strategy | strategist | task 1 | `_workspace/02_message_strategy.md` |
+| 3a | press release writing | writer | task 1, 2 | `_workspace/03_press_release.md` |
+| 3b | Q&A preparation | preparer | task 1, 2 | `_workspace/04_qa_briefing.md` |
+| 4 | monitoring plan | monitor | task 1, 2, 3a, 3b | `_workspace/05_monitoring_plan.md` |
 
-### Phase 3: Finalization
+task 3a(press release) and 3b(Q&A) ** execution**. task 2(messagestrategy) only dependency when whenworkto do number .
 
-1. Organize final deliverables — format adjustment, user customization
-2. Save files — save to workspace folder + provide computer:// links
-3. Summary report — provide key results summary
-4. Reflection — save session reflection to `.moai/evolution/reflections/`
+**teamKRW between flow:**
+- analyst complete → strategistto crisisetc.grade·stakeholder· deliver
+- strategist complete → writerto coremessage·tone·No-Go Phrases deliver, preparerto stakeholderby message deliver
+- writer complete → preparerto official documentplan deliver (Q&A consistency secure)
+- preparer complete → monitorto expected question pattern deliver
+- monitor all deliverable cross-verificationto message consistency, scenario, inspection
 
-## Deliverable Formats
+### Phase 3: integration and final deliverable
 
-| Deliverable | Format | Description |
-|-------------|--------|-------------|
-| Strategy/Analysis | `.md` | Strategic brief, analysis report |
-| Execution Document | `.md` / `.docx` | Main deliverables (reports, guides) |
-| Data/Numbers | `.xlsx` / `.csv` | Numerical data, comparison tables, models |
-| Presentation | `.pptx` | Slide decks (when needed) |
-| Checklist | `.md` | Execution checklist, review items |
+ verify result basedas final deliverable organization:
 
-## Context Collection Questions (AskUserQuestion)
+1. `_workspace/` Verify all files in the directory
+2. message consistency issue findings applicable agent revision request (versus 2)
+3. Report the final summary to the user:
+ - situation analysis report — `01_situation_analysis.md`
+ - message strategyfrom — `02_message_strategy.md`
+ - press release/document — `03_press_release.md`
+ - Q&A when — `04_qa_briefing.md`
+ - monitoring plan — `05_monitoring_plan.md`
 
-Sample questions for Phase 4 deep context collection (max 4 questions, max 4 options each):
+## Deliverables
+all deliverable `_workspace/` save:
+- `00_input.md` — user input organization
+- `01_situation_analysis.md` — situation analysis report
+- `02_message_strategy.md` — message strategyfrom
+- `03_press_release.md` — press release/official document
+- `04_qa_briefing.md` — Q&A when
+- `05_monitoring_plan.md` — monitoring plan and afterwithin response guide
 
-| Q | Question | Options |
-|---|----------|---------|
-| Q1 | Main objective? | New start / Improve existing / Problem solving / Strategy planning |
-| Q2 | Target audience? | Internal team / Executives / Customers / Investors |
-| Q3 | Urgency? | Immediate (1 day) / This week / This month / Long-term |
-| Q4 | Preferred tone? | Formal/Professional / Casual/Friendly / Data-driven / Storytelling |
+## Extension Skills
+- **stakeholder-mapping**: `.claude/skills/stakeholder-mapping/skill.md`
+- **media-response-templates**: `.claude/skills/media-response-templates/skill.md`
 
-## Related Harnesses
-
-Harnesses that work well together with this one:
-
-- `proposal-writer` — Proposal Writer
-- `presentation` — Presentation
-- `meeting-strategist` — Meeting Strategist
-
-## Cowork Execution Guide
-
-- **File creation**: Create directly in workspace using Write tool
-- **Data processing**: Use Python/Node in Bash sandbox
-- **Web search**: Collect latest data via WebSearch/WebFetch
-- **Presentations**: Can integrate with pptx skill
-- **Spreadsheets**: Can integrate with xlsx skill
-- **Documents**: Can integrate with docx skill
+## Error Handling
+| error type | strategy |
+|----------|------|
+| crisis information insufficient | analyst scenario basedas task, "[information limitation]" specify |
+| web search failure | company crisis type day patternas versus, report " un-confirm" specify |
+| legal judgment needed | ⚖️ tablebasis after ratereview needed matters by also organization, reportnumberquality version |
+| agent failure | Retry once -> proceed without that deliverable, final reporting specify |
+| message day findings | applicable agent revision request → re-task (versus 2) |

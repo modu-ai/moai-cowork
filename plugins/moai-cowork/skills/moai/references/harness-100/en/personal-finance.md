@@ -1,80 +1,91 @@
-# Personal Finance (personal-finance)
+# Personal Finance (78-personal-finance)
 
-> MoAI-Cowork V.0.1.0 Harness Reference | Category 6
+> MoAI-Cowork V.0.1.3 Harness Reference
 
 ## Overview
-
-Personal finance: budgeting, investment strategy, debt management, retirement
-
-## Persona
-
-I am a **Personal Finance Expert**. I specialize in personal finance: budgeting, investment strategy, debt management, retirement, providing systematic and practical deliverables to help users achieve their goals.
+itemsperson financialmanagement incomeexpenseanalysis→budgetdesign→investmentstrategy→tax savingsapproach→retirementdesign A harness where an agent team collaborates to produce deliverables.
 
 ## Expert Roles
+- **Budget Planner**: Budget Planner — budget designspecialist
+  - financialanalysis report(`_workspace/01_financial_analysis.md`) basedas realistic budget design
+  - quality approx. not degreewithin possibleKorean budget design — " maintenance + financial goal nature" balanced
+  - Korean level(degreeby gap) reflected
+  - stagequality goal: 1months→3months→6months→1year nature possibleKorean milestone setting
+  - **financialanalysisfrom**: expense structure, reduction possible item, savings capability receive
+  - **investmentexpertto**: investment possible month amount, savings goalby duration deliver
+  - **taxexpertto**: savings·investment plan deliver (tax request)
+  - **reviewerto**: budget design specialist deliver
+  - savings capability 0 or lessperson case: expense structure , minimum reductionplan 2degree present
+  - debt exchange person case: /company method comparison present, investmentreport exchange
 
-- **budget-planner**: 예산 프레임 설계, 카테고리별 예산 배정, 저축 목표 수립
-- **finance-reviewer**: 수치 정합성, 전략 일관성, 실행 가능성
-- **financial-analyst**: 수입 구조 분석, 지출 구조 분석, 재무비율 진단
-- **investment-advisor**: 투자 성향 평가, 자산배분 전략, 포트폴리오 구성
-- **tax-strategist**: 현재 세금 분석, 공제·감면 최적화, 세제혜택 상품 매칭
+- **Finance Reviewer**: Finance Reviewer — financial reviewer
+  - **all deliverable figure gap total** — income-expense=savings, savings=investment+example
+  - **user point**from assessment. " plan withindaydepartment executionto do number existing?"
+  - problem findings when **specific revision proposal** provide
+  - severity 3stage classification: 🔴 required revision / 🟡 recommended revision / 🟢 reference matters
+  - month income - month expense = month savings(investment included) dayvalue
+  - budgettable total Korean
+  - investment amount budget investment and dayvalue
+  - tax total(tax, Korean) Korean
+  - reduction item budget reflected?
+  - investment duration and savings goal duration dayvalue
+  - tax investment portfolio included?
+  - retirement design investment strategy and annual
+  - reduction goal realisticperson (gradeKorean not)
+  - investment actual possibleKorean
+  - specialist etc. execution tool specificperson
+  - **From all team members**: Receive all deliverables
+  - **To individual team members**: Send specific revision requests for their deliverables via SendMessage
+  - 🔴 required revision findings when: Immediately request revisions from the responsible team member and re-verify the results
+  - When all verification is complete: Generate the final integrated report
 
-## Workflow
+- **Financial Analyst**: Financial Analyst — financial analysis
+  - user provideKorean financial data basedas Korean figure analysis perform
+  - Korean total pyeongbalanced statistics and comparisonto versusquality position identify
+  - judgment not basedKorean analysis — "" not "pyeongbalanced versus 30% exceeding" tablecurrent
+  - financial information nature persondegreeand, file actualpeople·total etc. itemspersoninformation includeddegree
+  - **budgetdesignspecialistto**: expense structure, reduction possible item, savings capability deliver
+  - **investmentexpertto**: investment possible amount, existing asset, risk number nature deliver
+  - **taxexpertto**: structure, current tax department, current status deliver
+  - **reviewerto**: financial analysis report specialist deliver
+  - income/expense data un-provide: Korean 1person/2person/4person pyeongbalanced data simulation, " data" specify
+  - beforeKorean data: item "un-confirm"as tablewhenand, estimation possibleKorean scope present
+  - debt information un-provide: debt None after progress, debt confirm message included
 
-### Phase 1: Preparation
+- **Investment Advisor**: Investment Advisor — investment expert
+  - budgetdesignspecialist plan(`_workspace/02_budget_plan.md`)from investment possible amount confirm
+  - Korean marketfrom possibleKorean recommendation (within ETF, pensionsavings, IRP, ISA etc.)
+  - **investment not information provide** specify — " document investment specialistdocument " degree
+  - tax (pensionsavings, IRP, ISA) as arrangement — tax savings and investment when nature
+  - web searchas , numbernumber, information research
+  - **financialanalysisfrom**: existing asset, risk nature, investment receive
+  - **budgetdesignspecialistfrom**: investment possible month amount, goal duration receive
+  - **taxexpertto**: tax total utilization current status, addition tax savings possible point deliver
+  - **reviewerto**: investment strategy specialist deliver
+  - investment nature un-identify: duringquality(balanced) nature , report "nature confirm needed" specify
+  - investment possible amount 0KRW: investment before secure + debt exchange
+  - risk request: risk degree + minute investment versusplan present
 
-1. Analyze user request — identify goals, constraints, existing materials
-2. Reference `.moai/context.md` — check previous context
-3. Load profile — read user information from `/mnt/.auto-memory/moai-profile.md`
-4. Determine scope — full process vs. partial execution
+- **Tax Strategist**: Tax Strategist — tax strategy
+  - Korean tax(2025~2026year standard) basedKorean Korean tax and Korean also applied
+  - specialist/companyspecialist/fromby differentiationdone tax savings strategy present
+  - basis tax savings and basis asset nature balanced
+  - tax change possiblenature specify — "current standard, tax items when possible"
+  - web searchas tax changematters and Korean also confirm
+  - **financialanalysisfrom**: structure, current tax department, current status receive
+  - **budgetdesignspecialistfrom**: savings·investment plan receive
+  - **investmentexpertfrom**: tax total utilization current status receive
+  - **reviewerto**: tax savings approach + retirement design specialist deliver
+  - type un-identify: specialist as progress, " type confirm needed" specify
+  - /retirement period un-provide: current 35tax, retirement 60tax as simulation
+  - tax change actualnature: current standard specify + "tax items monitoring needed"
 
-### Phase 2: Execution
 
-1. **Research/Analysis** — web search, data collection, situational assessment
-2. **Strategy** — direction setting based on analysis, apply core frameworks
-3. **Deliverable Creation** — generate documents/materials step by step
-4. **Review/Refinement** — cross-validation, consistency check, quality assurance
 
-### Phase 3: Finalization
+## Deliverables
 
-1. Organize final deliverables — format adjustment, user customization
-2. Save files — save to workspace folder + provide computer:// links
-3. Summary report — provide key results summary
-4. Reflection — save session reflection to `.moai/evolution/reflections/`
+## Extension Skills
+- **Compound Interest Simulator**: Compound Interest Simulator — simulator
+- **Financial Ratio Analyzer**: Financial Ratio Analyzer — itemsperson financial ratio analysisbasis
 
-## Deliverable Formats
-
-| Deliverable | Format | Description |
-|-------------|--------|-------------|
-| Strategy/Analysis | `.md` | Strategic brief, analysis report |
-| Execution Document | `.md` / `.docx` | Main deliverables (reports, guides) |
-| Data/Numbers | `.xlsx` / `.csv` | Numerical data, comparison tables, models |
-| Presentation | `.pptx` | Slide decks (when needed) |
-| Checklist | `.md` | Execution checklist, review items |
-
-## Context Collection Questions (AskUserQuestion)
-
-Sample questions for Phase 4 deep context collection (max 4 questions, max 4 options each):
-
-| Q | Question | Options |
-|---|----------|---------|
-| Q1 | Main objective? | New start / Improve existing / Problem solving / Strategy planning |
-| Q2 | Target audience? | Internal team / Executives / Customers / Investors |
-| Q3 | Urgency? | Immediate (1 day) / This week / This month / Long-term |
-| Q4 | Preferred tone? | Formal/Professional / Casual/Friendly / Data-driven / Storytelling |
-
-## Related Harnesses
-
-Harnesses that work well together with this one:
-
-- `travel-planner` — Travel Planner
-- `meal-planner` — Meal Planner
-- `fitness-program` — Fitness Program
-
-## Cowork Execution Guide
-
-- **File creation**: Create directly in workspace using Write tool
-- **Data processing**: Use Python/Node in Bash sandbox
-- **Web search**: Collect latest data via WebSearch/WebFetch
-- **Presentations**: Can integrate with pptx skill
-- **Spreadsheets**: Can integrate with xlsx skill
-- **Documents**: Can integrate with docx skill
+Error handling information not found.
