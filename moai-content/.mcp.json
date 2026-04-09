@@ -3,14 +3,6 @@
     "wordpress": {
       "type": "http",
       "url": "https://mcp.wordpress.com/mcp"
-    },
-    "ghost": {
-      "command": "uvx",
-      "args": ["ghost-mcp"],
-      "env": {
-        "GHOST_API_URL": "${GHOST_API_URL}",
-        "GHOST_ADMIN_API_KEY": "${GHOST_ADMIN_API_KEY}"
-      }
     }
   }
 }
