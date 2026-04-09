@@ -13,8 +13,8 @@
 | [copywriting](./skills/copywriting/) | 마케팅 카피, 헤드라인, CTA, 광고 캠페인, 비주얼 스토리텔링 | 3 | ✅ |
 | [newsletter](./skills/newsletter/) | 뉴스레터 기획~발행, 구독자 확보 전략, 오픈율 최적화 | 1 | ✅ |
 | [media-production](./skills/media-production/) | Remotion 영상, 유튜브 프로덕션, 팟캐스트, 전자책 출판 | 9 | ✅ |
-| [blog](./skills/blog/) | 네이버/티스토리/브런치/WordPress/Ghost 6개 플랫폼 최적화 포스팅 | 0 | ✅ |
-| [social-media](./skills/social-media/) | 인스타/스레드/X/링크드인/유튜브쇼츠/카카오/네이버 7개 플랫폼 콘텐츠 | 0 | ✅ |
+| [blog](./skills/blog/) | 네이버/티스토리/브런치/WordPress/Ghost 6개 플랫폼 최적화 포스팅 | 6 | ✅ |
+| [social-media](./skills/social-media/) | 인스타/스레드/X/링크드인/유튜브쇼츠/카카오 7개 플랫폼 콘텐츠 | 7 | ✅ |
 
 ## MCP 커넥터
 
