@@ -95,7 +95,7 @@ metadata:
 4. **법률/규제 판단은 항상** `mcp__sequential-thinking__sequentialthinking` 호출
 5. 결과물 생성 후 사용자 검토 요청
 
-⚠️ 면책 고지: MoAI는 AI 어시스턴트이며 공인 법률 자문을 대체하지 않습니다. 중요한 법률 사안은 반드시 전문 법률가와 상담하세요.
+⚠️ 면책 고지: AI 보조 분석이며 전문 법률 자문을 대체하지 않습니다
 
 ## MCP 도구 활용 (korean-law)
 
