@@ -94,6 +94,15 @@ metadata:
 - **이미지 생성 실패**: Python 스크립트 실행이 불가한 환경에서는 이미지 생성 프롬프트만 제공하고 Midjourney, DALL-E, Adobe Firefly 등에서 직접 생성하세요.
 - **텍스트 분량 초과**: 카드 1장당 30자 초과 시 핵심 키워드만 남기고 나머지는 이미지 설명이나 캡션으로 이동하세요.
 
+## 공유 에이전트
+
+이 플러그인에서 활용할 수 있는 다른 플러그인의 에이전트:
+
+| 에이전트 | 소속 | 용도 |
+|---------|------|------|
+| quality-evaluator | moai-core | 산출물 품질 PASS/FAIL 판정 |
+| format-converter | moai-office | HWPX/PPTX/DOCX/XLSX 파일 변환 |
+
 ## 이 스킬을 사용하지 말아야 할 때
 
 - **SNS 텍스트 포스팅**: 인스타그램 캡션, 링크드인 포스트 등 텍스트 중심 콘텐츠는 `social-media` 스킬이 더 적합합니다.

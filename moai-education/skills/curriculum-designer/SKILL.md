@@ -89,6 +89,15 @@ metadata:
 | 기존 커리큘럼 개선 요청 | 현행 목차나 강의계획서를 공유해 주시면 개선안을 제안해 드립니다 |
 | 특수 교육 대상 (장애, 고령층 등) | 접근성 가이드라인과 유니버설 디자인 원칙을 적용해 드립니다 |
 
+## 공유 에이전트
+
+이 플러그인에서 활용할 수 있는 다른 플러그인의 에이전트:
+
+| 에이전트 | 소속 | 용도 |
+|---------|------|------|
+| quality-evaluator | moai-core | 산출물 품질 PASS/FAIL 판정 |
+| format-converter | moai-office | HWPX/PPTX/DOCX/XLSX 파일 변환 |
+
 ## 이 스킬을 사용하지 말아야 할 때
 
 - **실제 시험 문제 출제 및 채점** → moai-education:assessment-creator 스킬이 더 적합합니다

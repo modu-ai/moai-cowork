@@ -5,7 +5,7 @@ description: >
   '사업계획서 써줘', '계약서 검토해줘', '마케팅 캠페인 기획해줘', '세금 신고 어떻게 해?',
   '투자 IR 자료 만들어줘', '/moai catalog', '/moai init'으로 시작하세요.
   비즈니스·법률·마케팅·재무·인사 등 전 분야를 커버합니다.
-keywords: "MoAI, 모아이, harness, 하네스, 전문가 모드, expert mode, 프로젝트 설정, init, 카탈로그, catalog"
+keywords: "MoAI, 모아이, 전문가 모드, expert mode, 프로젝트 설정, init, 카탈로그, catalog"
 ---
 
 # MoAI — 한국 사용자 전용 도메인 하네스 시스템

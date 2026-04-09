@@ -96,6 +96,16 @@ MCP 미연결 시: 사용자 제공 데이터 또는 공개 정보 기반으로 
 | 요청 범위가 너무 넓은 경우 | 우선순위 질문 2~3개로 핵심 범위를 좁힌 후 진행 |
 | DART MCP 연결 실패 | 사용자에게 자료 직접 제공 요청. 공개 데이터 기반 진행 |
 
+## 공유 에이전트
+
+이 플러그인에서 활용할 수 있는 다른 플러그인의 에이전트:
+
+| 에이전트 | 소속 | 용도 |
+|---------|------|------|
+| quality-evaluator | moai-core | 산출물 품질 PASS/FAIL 판정 |
+| format-converter | moai-office | HWPX/PPTX/DOCX/XLSX 파일 변환 |
+| content-creator | moai-marketing | 마케팅 콘텐츠 및 카피라이팅 생성 |
+
 ## 이 스킬을 사용하지 말아야 할 때
 
 - 시장 조사, TAM/SAM/SOM 분석, 경쟁사 매핑 → moai-business/market-analyst 사용

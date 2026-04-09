@@ -151,6 +151,14 @@ metadata:
 - **ERP 연동 오류**: SAP·더존·iCUBE 등 ERP에서 내보낸 CSV/Excel 파일을 직접 붙여넣으면 결산 체크리스트 자동화가 가능합니다.
 - **외화 환산 기준일 불일치**: 한국은행 기준환율(ecos.bok.or.kr)에서 월말 고시 환율을 확인한 후 입력해 주세요.
 
+## 참고 레퍼런스
+
+상세 가이드는 아래 파일을 참조하세요:
+- `references/supply-chain.md` — 공급망 관리 및 재고 최적화 가이드
+- `references/ecommerce-launcher.md` — 이커머스 런처 운영 가이드
+- `references/rfp-responder.md` — RFP 응답 및 제안서 작성 가이드
+- `references/import-export.md` — 수출입 절차 및 무역 서류 가이드
+
 ## 이 스킬을 사용하지 말아야 할 때
 
 - **실제 세금 신고·납부**: AI가 작성한 결산 초안을 그대로 세무서에 제출하지 마세요. 세무사에게 검토를 의뢰하세요.

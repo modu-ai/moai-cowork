@@ -162,6 +162,12 @@ metadata:
 
 **AI 보조 분석이며 전문 법률 자문을 대체하지 않습니다.**
 
+## 참고 레퍼런스
+
+상세 가이드는 아래 파일을 참조하세요:
+- `references/legal-research.md` — 판례·법령 리서치 방법론 가이드
+- `references/ip-portfolio.md` — 지적재산권 포트폴리오 관리 가이드
+
 ## 이 스킬을 사용하지 말아야 할 때
 
 - 계약서 검토나 이용약관 작성 → moai-legal/contract-review 사용

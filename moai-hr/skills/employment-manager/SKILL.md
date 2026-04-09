@@ -22,7 +22,22 @@ metadata:
 | 채용 파이프라인 | JD 작성, 면접 설계, 평가 기준, 채용 프로세스 전반 |
 | 온보딩 시스템 | 신입 온보딩, 체크리스트, 멘토링 프로그램 |
 
-참조 가이드: `references/hiring-pipeline.md`, `references/onboarding-system.md`
+참조 가이드: `references/hiring-pipeline.md`, `references/onboarding-system.md`, `references/insurance-registration.md`
+
+## 4대보험 취득신고 절차
+
+신규 직원 입사 시 사업주는 4대보험 취득신고를 기한 내 완료해야 합니다.
+
+| 보험 | 신고 기한 | 신고 기관 |
+|------|-----------|-----------|
+| 국민연금 | 입사일이 속하는 달의 다음달 15일까지 | 국민연금공단 |
+| 건강보험 | 입사일로부터 14일 이내 | 국민건강보험공단 |
+| 고용보험 | 입사일이 속하는 달의 다음달 15일까지 | 근로복지공단 |
+| 산재보험 | 입사일이 속하는 달의 다음달 15일까지 | 근로복지공단 |
+
+4대보험 통합 신고: [4insure.kr](https://www.4insure.kr) (온라인 일괄 신고 가능)
+
+상세 절차 및 서류 목록: `references/insurance-registration.md`
 
 ## 트리거 키워드
 
@@ -93,6 +108,16 @@ metadata:
 - **직급 체계 정보 부족**: 회사 직급 구조(팀장/리더/시니어 등)와 팀 조직도를 제공하면 더 정확한 JD와 온보딩 계획을 작성할 수 있습니다.
 - **업종별 채용 관행 차이**: IT, 제조, 서비스 등 업종마다 채용 절차가 다릅니다. 회사 규모와 업종을 알려주세요.
 - **외국인 채용**: 비자 종류 및 취업 자격 확인이 필요합니다. 출입국관리법 전문가와 병행 검토하세요.
+
+## 공유 에이전트
+
+이 플러그인에서 활용할 수 있는 다른 플러그인의 에이전트:
+
+| 에이전트 | 소속 | 용도 |
+|---------|------|------|
+| quality-evaluator | moai-core | 산출물 품질 PASS/FAIL 판정 |
+| format-converter | moai-office | HWPX/PPTX/DOCX/XLSX 파일 변환 |
+| compliance-checker | moai-legal | 법령·규제 준수 여부 점검 |
 
 ## 이 스킬을 사용하지 말아야 할 때
 
