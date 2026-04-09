@@ -1,3 +1,69 @@
+# 디자인 시스템 출력 계약
+
+랜딩 페이지 디자인 시 아래 형식의 디자인 스펙을 정의합니다.
+
+## Design Spec 출력 형식
+
+```yaml
+design-spec:
+  version: "1.0.0"
+  visual_thesis: "한 문장으로 표현한 분위기"
+  
+  color_tokens:
+    primary: "#XXXXXX"
+    secondary: "#XXXXXX"
+    accent: "#XXXXXX"
+    background: "#XXXXXX"
+    surface: "#XXXXXX"
+    text_primary: "#XXXXXX"
+    text_muted: "#XXXXXX"
+    semantic:
+      success: "#22C55E"
+      error: "#EF4444"
+      warning: "#F59E0B"
+  
+  typography:
+    display: "3rem (히어로 헤드라인)"
+    headline: "1.75rem (섹션 제목)"
+    body: "1rem (16px, 본문)"
+    caption: "0.875rem (보조 정보)"
+    font_ko: "Pretendard"
+    font_en: "Inter"
+  
+  spacing:
+    base: "4px"
+    scale: [4, 8, 12, 16, 24, 32, 48, 64, 96]
+  
+  layout:
+    max_width: "1200px"
+    columns: 12
+    gutter: "24px"
+    breakpoints:
+      mobile: "375px"
+      tablet: "768px"
+      desktop: "1200px"
+  
+  components:
+    button:
+      variants: ["primary", "secondary", "ghost"]
+      min_height: "44px"
+      border_radius: "8px"
+    card:
+      padding: "24px"
+      border_radius: "12px"
+      shadow: "0 2px 8px rgba(0,0,0,0.08)"
+  
+  anti_patterns:
+    - "purple gradient + white card 콤보 금지"
+    - "accent 색상 2개 초과 금지"
+    - "중앙 정렬 텍스트 블록 3줄 초과 금지"
+    - "generic stock 아이콘/사진 금지"
+```
+
+이 스펙은 개발자에게 모호함 없이 전달되는 디자인 계약서입니다.
+
+---
+
 # 프론트엔드 디자인 원칙 레퍼런스
 
 ## Design Token 정의 템플릿

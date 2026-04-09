@@ -22,7 +22,13 @@ metadata:
 - CTA 버튼 문구 및 배치 최적화
 - 제품·서비스 런칭, 이벤트, 리드 수집용 랜딩 페이지
 
-참조 가이드: `references/landing-page/guide.md`, `references/landing-page/design-principles.md`
+참조 가이드:
+- `references/landing-page/guide.md` — 랜딩 페이지 빌더 가이드
+- `references/landing-page/design-principles.md` — 디자인 토큰 및 원칙
+- `references/landing-page/brand-context-template.md` — 브랜드 컨텍스트 사전 수집
+- `references/landing-page/copywriting-rules.md` — 카피 안티패턴 및 규칙
+- `references/landing-page/evaluation-checklist.md` — 평가 체크리스트
+- `references/landing-page/ab-testing-guide.md` — A/B 테스트 가이드
 
 ## 트리거 키워드
 
@@ -40,10 +46,41 @@ metadata:
 
 참조 가이드(`references/`)를 사용할 수 없는 경우 다음 단계로 실행합니다.
 
+### 사전 수집: 브랜드 컨텍스트
+
+작업 시작 전 아래 항목을 확인합니다. 미제공 시 일반 베스트 프랙티스를 적용합니다.
+
+- [ ] 브랜드 보이스 앵커 (형용사 3-5개: 예: "신뢰, 전문, 따뜻한")
+- [ ] 주요 색상 (primary + accent 최소)
+- [ ] 타겟 독자 수준 (초등/고교/대학/전문가)
+- [ ] CTA 전략 (1개? 2개? 3개?)
+- [ ] 톤 예시 ("이런 느낌 좋아요" / "이런 건 싫어요" 각 1-2개)
+
+상세 템플릿: `references/landing-page/brand-context-template.md`
+
 ### 1단계: 목적 및 타겟 파악
 - 전환 목표: 구매 / 회원가입 / 다운로드 / 문의 / 이벤트 참가
 - 타겟 독자 (고통점, 니즈, 반대 의견)
 - 제품·서비스 핵심 가치 제안 (Value Proposition) 1가지
+
+### Hero-First 원칙
+
+히어로 섹션이 전체 페이지 톤을 결정합니다.
+이후 모든 섹션은 히어로의 디자인 언어(색상, 타이포, 모션)를 따릅니다.
+
+히어로 허용: 브랜드명 1개 + 헤드라인 1줄 + 서브헤드라인 1문장 + CTA 1-2개 + 지배적 이미지
+히어로 금지: 통계 나열, 기능 목록, 가격표, 소셜 미디어 아이콘, 네비게이션 외 링크
+
+### CTA 전략 (목적별 결정)
+
+| 페이지 유형 | CTA 수 | 배치 |
+|------------|--------|------|
+| 단일 제품 선택 | 1개 | 히어로만 |
+| 장문 세일즈 페이지 | 3개 | 히어로 + 중간 + 하단 |
+| 리드 생성 | 2개 | 폼 제출 + 보조 CTA |
+| 이벤트 등록 | 2개 | 히어로 + 하단 |
+
+BRIEF에서 CTA 전략을 합의한 후 설계를 시작합니다.
 
 ### 2단계: 랜딩 페이지 섹션 구성
 ```
@@ -92,10 +129,72 @@ metadata:
 - 헤드라인 후보 5가지 제시
 - CTA 버튼 문구 후보 3가지 제시
 
+### 카피 출력 형식 (JSON 구조)
+
+카피 작성 결과는 구조화된 형식으로 산출합니다:
+
+```json
+{
+  "page_type": "landing",
+  "sections": [
+    {
+      "id": "hero",
+      "headline": "헤드라인",
+      "subheadline": "서브헤드라인",
+      "body": null,
+      "cta_primary": "CTA 텍스트",
+      "cta_secondary": null,
+      "visual_direction": "제품 사용 장면 이미지"
+    },
+    {
+      "id": "problem",
+      "headline": "고통점 섹션 제목",
+      "body": "고통점 설명",
+      "items": ["고통점1", "고통점2", "고통점3"]
+    }
+  ],
+  "metadata": {
+    "tone_profile": "신뢰+권위",
+    "reading_level": "고교",
+    "word_count": 0,
+    "cta_count": 0
+  }
+}
+```
+
+이 형식은 디자이너/개발자에게 기계적으로 파싱 가능한 입력을 제공합니다.
+
+### 핵심 규칙: 카피 무결성
+
+디자인/개발 단계에서 카피 텍스트를 수정하지 않습니다.
+- 원본 카피를 그대로 구현
+- 텍스트 수정이 필요하면 카피 작성 단계로 반려
+- 줄바꿈, 강조, 순서 변경만 허용 (내용 변경 금지)
+
+### 톤 프로파일 분석
+
+카피 작성 시 톤 분석을 함께 출력합니다:
+- **주요 감정**: (예: 신뢰, 권위, 호기심)
+- **독자가 느낄 것**: 한 문장으로 요약
+- **문장 평균 길이**: 20단어 이내 권장
+- **피해야 할 것**: 과도한 감탄사, 기술 전문 용어
+
 ### 5단계: 산출물 전달
 - 섹션별 랜딩 페이지 카피 전체
 - 디자인 가이드 (색상, 폰트, 이미지 방향)
 - 개발 또는 노코드 툴(Framer, Webflow) 구현 방향
+
+### 6단계: QA 테스트 (권장)
+
+코드 구현 후 품질 검증:
+- [ ] 데스크톱(1280x720) + 모바일(375x667) 레이아웃 확인
+- [ ] 모든 CTA 버튼 클릭 테스트
+- [ ] 전체 페이지 스크롤 검증 (깨지는 섹션 없음)
+- [ ] Lighthouse 감사: Performance >= 80, Accessibility >= 80
+- [ ] 모든 링크/폼 정상 작동 (404 없음)
+- [ ] 카피 무결성 검증 (원본 대비 변경 없음)
+
+평가 상세: `references/landing-page/evaluation-checklist.md`
 
 ## 실행 규칙
 
