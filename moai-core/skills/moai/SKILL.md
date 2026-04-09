@@ -1,6 +1,7 @@
 ---
 name: moai
-description: "MoAI — 한국 사용자를 위한 도메인 전문가 AI. '/moai init'으로 맞춤형 CLAUDE.md를 생성하고, '/moai catalog'로 카탈로그를 조회하고, '/moai status'로 상태를 확인한다. 유튜브 영상 기획, 시장 조사, 계약서 검토, 사업계획서, 여행 계획, 뉴스레터 작성, 세무 상담, 채용 파이프라인, ESG 보고서, 데이터 분석 등 84개 도메인의 전문가 하네스를 제공한다. 자연어로 도메인 요청 시 자동 감지하여 해당 스킬을 트리거한다. MoAI, 모아이, harness, 하네스, 전문가 모드, expert mode, 프로젝트 설정, init, 카탈로그, catalog."
+description: "MoAI — 한국 사용자를 위한 84개 도메인 하네스 시스템. '/moai init'으로 설치, '/moai catalog'로 조회. 자연어 요청 시 자동 감지하여 해당 전문가 하네스를 트리거한다."
+keywords: "MoAI, 모아이, harness, 하네스, 전문가 모드, expert mode, 프로젝트 설정, init, 카탈로그, catalog"
 ---
 
 # MoAI — 한국 사용자 전용 도메인 하네스 시스템
@@ -213,19 +214,21 @@ mcp__sequential-thinking__sequentialthinking 호출
 - 전략적 의사결정 (가격, 시장진입, 투자)
 - 진화 사이클 (`/moai evolve`)
 
-## 6. 4계층 자기학습 아키텍처
+## 6. 메모리 아키텍처
+
+<!-- 4계층 복잡 구조 → 2계층으로 단순화:
+     파일 기반 메모리(File-based memory)가 복잡한 검색 시스템보다 효과적 (67.2% vs 60.4%) -->
 
 ```
-계층 0: auto-memory (글로벌) — 사용자 프로필 (개인+회사), 하네스 이력
+Layer 1: CLAUDE.md (자동 로딩) — 맞춤형 지침
     ↓
-계층 1: 플러그인 (read-only) — 11개 스킬 + 하네스 레퍼런스 + 실행 코드
-    ↓
-계층 2: .claude/CLAUDE.md (자동 로딩) — 맞춤형 페르소나 + 워크플로우
-    ↓
-계층 3: .moai/ (R/W) — 하네스 도메인 맥락, 진화 데이터
-    ↓
-계층 4: auto-memory 학습 — 세션 간 피드백 누적
+Layer 2: .moai/ (R/W) — 도메인 맥락, 사용자 프로필
+    +
+auto-memory: Claude가 필요 시 자율 저장 (글로벌 프로필, 하네스 이력, 학습 패턴)
 ```
+
+- **플러그인(read-only)**: 11개 스킬 + 하네스 레퍼런스 + 실행 코드는 항상 접근 가능
+- **auto-memory**: 세션 간 지식 누적을 Claude가 자율 판단하여 저장
 
 ## 7. Graceful Degradation
 

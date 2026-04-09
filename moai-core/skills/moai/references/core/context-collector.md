@@ -27,10 +27,14 @@
 **질문 생성 규칙 (중요!)**:
 ```
 1. 하네스 레퍼런스 로딩: Read("references/skills/{harness-id}.md")
-2. "맥락 수집 질문 (AskUserQuestion)" 섹션의 필수 질문(Q1~Q4) 그대로 사용
+2. "맥락 수집 질문 (AskUserQuestion)" 섹션의 필수 질문을 기반으로 사용
 3. 임의로 질문을 만들지 않는다
 4. 옵션 예시도 레퍼런스 원본 그대로
+5. 질문 횟수: 필요한 맥락이 부족할 때 자연스럽게 질문. 형식과 횟수는 상황에 맞게 판단.
+   (레퍼런스 Q1~Q4가 기준이지만, 이미 맥락이 충분하면 생략 가능)
 ```
+
+<!-- "최대 4질문" 하드 리밋 제거: Claude가 상황에 맞게 질문 수를 판단. 과잉 질문도, 무조건 4개 채우기도 불필요. -->
 
 **예시** (레퍼런스 기반):
 
@@ -83,12 +87,16 @@ ELSE:
 ```
 # 하네스 레퍼런스에서 질문 추출
 questions = extract_questions_from_harness_ref(harness_ref, section="맥락 수집 질문")
-Q_count = min(len(questions), 4)
 
-FOR each 질문 in questions[:Q_count]:
+# 이미 프로필/이전 맥락으로 충족된 질문은 스킵
+missing_questions = [q for q in questions if not already_known(q)]
+
+FOR each 질문 in missing_questions:
   options = 질문.options  # 레퍼런스에 정의된 옵션 그대로 사용
   user_response = AskUserQuestion(질문.text, options)
   context_store[질문.id] = user_response
+
+# 질문 횟수는 필요한 맥락에 따라 자율 판단 (최소화 지향)
 ```
 
 ### 2-3. 모호성 감지
@@ -163,7 +171,7 @@ LOOP for round in 1..7:
   IF remaining_context.empty():
     break  (충족)
 
-  questions = generate_questions(remaining_context, max_4)
+  questions = generate_questions(remaining_context)  # 필요한 만큼만
   FOR q in questions:
     response = AskUserQuestion(q)
     store_context(q, response)

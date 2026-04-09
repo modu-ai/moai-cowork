@@ -1,8 +1,12 @@
 # evaluation-protocol.md — 평가 프로토콜
 
 ## 개요
-MoAI 하네스의 산출물과 프로세스를 체계적으로 평가하는 프로토콜입니다.
-정확성, 완전성, 실용성, 톤 적합성, 도메인 적합성 5개 차원에서 평가합니다.
+MoAI 하네스의 산출물을 평가하는 프로토콜입니다.
+결정론적 검증(파일/섹션/포맷)은 verification-protocol에서 처리하며, 본 프로토콜은 AI 판단이 필요한 품질 평가를 담당합니다.
+
+<!-- 강제 0-100% 점수화 제거: Opus 4.6이 자기평가를 자연스럽게 수행. 강제 점수화는 레거시 보상 패턴. -->
+<!-- 강제 피드백 수집 제거: /moai evolve 실행 시에만 트리거. 매 실행마다 수집은 사용자 피로 유발. -->
+<!-- .moai/projects/{id}/evaluation/ 강제 디렉터리 제거: 파일 저장은 사용자 요청 시에만. -->
 
 ---
 
@@ -217,149 +221,44 @@ D등급 (0-64): 미흡
 
 ---
 
-## 8. 자동 평가 시스템
+## 8. 개선 제안 생성
 
-### 8-1. 평가 엔진
-```python
-def auto_evaluate(output, harness, profile, user_feedback=None):
-  dimensions = {
-    'accuracy': evaluate_accuracy(output),
-    'completeness': evaluate_completeness(output, harness),
-    'practicality': evaluate_practicality(output),
-    'tone_fit': evaluate_tone_fit(output, profile),
-    'domain_fit': evaluate_domain_fit(output, profile)
-  }
-  
-  weighted_score = sum(
-    score * weights[dim] 
-    for dim, score in dimensions.items()
-  )
-  
-  # 사용자 피드백 반영
-  IF user_feedback:
-    weighted_score = adjust_with_feedback(weighted_score, user_feedback)
-  
-  grade = score_to_grade(weighted_score)
-  return {
-    'score': weighted_score,
-    'grade': grade,
-    'dimensions': dimensions,
-    'improvements': generate_improvements(dimensions)
-  }
-```
+### 8-1. 자동 개선안
 
----
-
-## 9. 개선 제안 생성
-
-### 9-1. 자동 개선안
+평가 후 산출물에서 개선이 필요한 부분을 자연스럽게 제안한다:
 
 ```
-점수별 자동 제안:
-
-S/A등급:
+A등급 수준:
 "훌륭한 결과입니다! 특히 {최고 차원}이 돋보였습니다."
 
-B등급:
+B등급 수준:
 "좋습니다. 다음 항목 개선을 제안합니다:
-1. {개선점 1} → 예상 +10점
-2. {개선점 2} → 예상 +5점"
+1. {개선점 1}
+2. {개선점 2}"
 
-C등급:
-"다음 5가지를 개선하면 큰 효과가 있을 것 같습니다:
-1. {개선점 1} → 예상 +15점
-2. {개선점 2} → 예상 +12점
-..."
-
-D등급:
-"죄송합니다. 다시 시도하겠습니다.
-주요 문제점:
+C등급 이하:
+"다음 항목 개선이 필요합니다:
 1. {심각한 문제}
-2. {심각한 문제}
 재작업 후 다시 평가하겠습니다."
 ```
 
 ---
 
-## 10. 평가 결과 저장
+## 9. 피드백 수집 (/moai evolve 전용)
 
-### 10-1. 저장 구조
-```
-.moai/projects/{project-id}/evaluation/
-├── auto-eval.json
-└── user-feedback.md
-```
+<!-- 매 실행 후 강제 피드백 수집 제거: 사용자 피로 유발. -->
+<!-- 피드백은 /moai evolve 실행 시에만 소크라테스식으로 수집. -->
 
-### 10-2. 메타데이터
-```json
-{
-  "evaluation_date": "2026-04-04T10:45:00+09:00",
-  "harness": "copywriting",
-  "dimensions": {
-    "accuracy": 92,
-    "completeness": 88,
-    "practicality": 85,
-    "tone_fit": 80,
-    "domain_fit": 87
-  },
-  "weighted_score": 86.7,
-  "grade": "A",
-  "improvements": [
-    "귀사 사례 2개 추가하면 +8점",
-    "실행 ROI 예상치 추가하면 +5점"
-  ],
-  "user_feedback": {
-    "score": 8,
-    "comment": "좋은데 더 실행적이면 좋겠어요"
-  }
-}
-```
-
----
-
-## 11. 평가 피드백 루프
-
-### 11-1. 사용자 평가 vs 자동 평가 비교
-```
-자동 평가 A등급 (86.7)
-사용자 평가 8점/10점 (80)
-
-차이: -6.7점
-
-분석:
-→ 자동 평가가 실용성을 과평가
-→ 사용자는 구체적 실행 스텝 부족 지적
-→ 규칙 업데이트 필요 (실용성 가중치 증대)
-```
-
-### 11-2. 소크라테스식 피드백 수집 (Socratic Feedback)
-
-산출물 전달 후, 단순 점수 평가 대신 열린 질문으로 피드백 품질을 높인다:
+`/moai evolve` 실행 시에만 아래 소크라테스식 피드백 수집을 수행한다.
 
 ```
-산출물 제공 직후 (텍스트 대화 기반):
-
 [유용성 탐색] "이 결과에서 가장 도움이 된 부분은 어디인가요?"
 [기대 대비]  "기대하셨던 것과 다른 부분이 있었나요?"
 [개선 방향]  "다음에 같은 작업을 한다면 어떤 점을 바꾸면 좋을까요?"
 
 적용 규칙:
   - 질문은 최대 2개 (피로 방지)
-  - 사용자가 간단히 "좋았어" 식으로 답하면 추가 질문 하지 않음
-  - 답변 핵심을 요약 확인: "~라는 점을 개선하면 되겠군요"
-  - 수집된 피드백을 user-feedback.md에 텍스트로 저장
-  - evolution-protocol.md의 패턴 발견 입력으로 활용
-```
-
-### 11-3. 학습 루프
-```
-매 평가마다:
-1. 자동 평가 점수 기록
-2. 소크라테스식 피드백 수집 (위 11-2)
-3. 차이점 분석
-4. 규칙 조정 (필요시)
-5. 다음 작업에 반영
-
-→ evolution-protocol.md 참조
+  - 사용자가 간단히 답하면 추가 질문 하지 않음
+  - 수집된 피드백을 evolution-protocol.md의 패턴 발견 입력으로 활용
 ```
 
