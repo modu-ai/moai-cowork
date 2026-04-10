@@ -356,7 +356,7 @@ NANO_BANANA_API_KEY=nb_key_...
 # 로드 우선순위:
 # 1. 환경변수 (os.environ) — Cowork Project Settings에서 주입
 # 2. 프로젝트별 키 (.moai/credentials.env) — 프로젝트 오버라이드
-# 3. 글로벌 키 (${CLAUDE_PLUGIN_DATA}/moai-credentials.env) — 공유
+# 3. 글로벌 키 (CLAUDE_PLUGIN_DATA/moai-credentials.env) — 공유
 
 import os
 from pathlib import Path
@@ -374,12 +374,14 @@ def load_api_key(key_name):
         if key:
             return key
     
-    # 3순위: 글로벌 키
-    global_cred = Path("${CLAUDE_PLUGIN_DATA}/moai-credentials.env")
-    if global_cred.exists():
-        key = _parse_env_file(global_cred, key_name)
-        if key:
-            return key
+    # 3순위: 글로벌 키 (CLAUDE_PLUGIN_DATA 환경변수에서 경로 획득)
+    plugin_data = os.environ.get("CLAUDE_PLUGIN_DATA")
+    if plugin_data:
+        global_cred = Path(plugin_data) / "moai-credentials.env"
+        if global_cred.exists():
+            key = _parse_env_file(global_cred, key_name)
+            if key:
+                return key
     
     return None
 

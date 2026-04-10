@@ -33,7 +33,7 @@ HWPX_STRUCTURE = {
 }
 
 # 템플릿 경로
-TEMPLATE_DIR = Path(__file__).parent.parent / "templates" / "hwpx"
+TEMPLATE_DIR = Path(os.environ.get("CLAUDE_SKILL_DIR", str(Path(__file__).parent.parent))) / "templates" / "hwpx"
 
 TEMPLATES = {
     "base": "base.md",

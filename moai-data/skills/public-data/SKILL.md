@@ -38,7 +38,7 @@ metadata:
 ## 워크플로우
 
 ### Step 1: API 키 확인
-- /mnt/.auto-memory/moai-credentials.env에서 키 로드
+- ${CLAUDE_PLUGIN_DATA}/moai-credentials.env에서 키 로드
 - 키 없으면 발급 방법 안내
 
 ### Step 2: 데이터 검색

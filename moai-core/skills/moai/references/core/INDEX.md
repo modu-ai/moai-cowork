@@ -94,8 +94,7 @@ evolution-protocol.md ← diagnostic-protocol.md
 계층 2: ./CLAUDE.md (자동 로딩, R/W) — 맞춤형 페르소나 + 워크플로우
 계층 3: 프로젝트 데이터 (R/W)
   ├── .moai/ — 도메인 맥락, 진화 데이터, 설정
-  ├── ${CLAUDE_PLUGIN_DATA} — 교차 프로젝트 패턴 DB
-  └── ${CLAUDE_PLUGIN_DATA}/ — 글로벌 프로필
+  └── ${CLAUDE_PLUGIN_DATA} — 글로벌 프로필, API 키, 교차 프로젝트 데이터
 
 + auto-memory: Claude 자율 저장 (세션 간 학습 누적)
 ```

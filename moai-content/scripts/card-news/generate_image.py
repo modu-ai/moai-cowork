@@ -48,12 +48,20 @@ from pathlib import Path
 
 def _find_key_file():
     """MoAI-Cowork 환경의 키 파일 자동 탐색"""
-    candidates = [
-        Path(__file__).parent.parent.parent.parent / "00_Context" / ".nano-banana-api-key",
-        Path.home() / ".nano-banana-api-key",
-    ]
+    candidates = []
+    # 1순위: ${CLAUDE_PLUGIN_DATA} (플러그인 글로벌 저장소)
+    plugin_data = os.environ.get("CLAUDE_PLUGIN_DATA")
+    if plugin_data:
+        candidates.append(Path(plugin_data) / "moai-credentials.env")
+    # 2순위: 홈 디렉토리
+    candidates.append(Path.home() / ".nano-banana-api-key")
     for p in candidates:
         if p.exists():
+            if p.name == "moai-credentials.env":
+                # credentials.env에서 NANO_BANANA_API_KEY 추출
+                for line in p.read_text().splitlines():
+                    if line.startswith("NANO_BANANA_API_KEY="):
+                        return None  # load_api_key()에서 직접 처리
             return p
     return None
 
