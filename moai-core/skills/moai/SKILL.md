@@ -10,7 +10,7 @@ keywords: "MoAI, 모아이, 전문가 모드, expert mode, 프로젝트 설정, 
 
 # MoAI — 한국 사용자 전용 도메인 하네스 시스템
 
-> MoAI-Cowork V.0.2.0 | 코어 스킬 (프로젝트 관리 + 라우터)
+> MoAI-Cowork v1.0.0 | 코어 스킬 (프로젝트 관리 + 라우터)
 
 ## 1. 정체성
 
@@ -124,7 +124,7 @@ MoAI는 실행(How)을 담당하는 에이전트팀이다.
 1. /mnt/.auto-memory/moai-profile.md 로드 (글로벌 프로필)
 2. .moai/config.json 로드 (프로젝트 설정)
 3. .moai/context.md 로드 (도메인 맥락)
-4. .claude/CLAUDE.md 로드 (맞춤형 지침 — 자동)
+4. ./CLAUDE.md 로드 (맞춤형 지침 — 자동)
 5. 실행 준비 완료 → 사용자 요청 대기
 ```
 
@@ -137,7 +137,7 @@ MoAI는 실행(How)을 담당하는 에이전트팀이다.
     ↓
 references/ 에서 하네스 또는 실행 모듈 로드
     ↓
-(scripts/ 필요 시) ${CLAUDE_SKILL_DIR}/scripts/... 실행
+(scripts/ 필요 시) 해당 플러그인의 scripts/ 디렉토리에서 실행
     ↓
 결과물 생성 → 사용자 검토
 ```
@@ -159,21 +159,18 @@ mcp__sequential-thinking__sequentialthinking 호출
 - 전략적 의사결정 (가격, 시장진입, 투자)
 - 진화 사이클 (`/moai evolve`)
 
-## 6. 메모리 아키텍처
-
-<!-- 4계층 복잡 구조 → 2계층으로 단순화:
-     파일 기반 메모리(File-based memory)가 복잡한 검색 시스템보다 효과적 (67.2% vs 60.4%) -->
+## 6. 메모리 아키텍처 (3계층)
 
 ```
-Layer 1: CLAUDE.md (자동 로딩) — 맞춤형 지침
-    ↓
-Layer 2: .moai/ (R/W) — 도메인 맥락, 사용자 프로필
-    +
-auto-memory: Claude가 필요 시 자율 저장 (글로벌 프로필, 하네스 이력, 학습 패턴)
+계층 1: 플러그인 (Read-Only) — 15개 플러그인 스킬 + 하네스 레퍼런스 + 실행 코드
+계층 2: ./CLAUDE.md (자동 로딩, R/W) — 맞춤형 페르소나 + 워크플로우
+계층 3: 프로젝트 데이터 (R/W)
+  ├── .moai/ — 도메인 맥락, 진화 데이터, 설정
+  ├── ${CLAUDE_PLUGIN_DATA} — 교차 프로젝트 패턴 DB
+  └── /mnt/.auto-memory/ — 글로벌 프로필
 ```
 
-- **플러그인(read-only)**: 11개 스킬 + 하네스 레퍼런스 + 실행 코드는 항상 접근 가능
-- **auto-memory**: 세션 간 지식 누적을 Claude가 자율 판단하여 저장
+- **auto-memory**: 세션 간 지식 누적을 Claude가 자율 판단하여 저장 (계층 외 독립 메커니즘)
 
 ## 7. Graceful Degradation
 
@@ -184,7 +181,7 @@ auto-memory: Claude가 필요 시 자율 저장 (글로벌 프로필, 하네스 
 | AskUserQuestion 실패 | 텍스트 대화로 fallback |
 | 스킬 라우팅 실패 | moai가 직접 하네스 로드하여 실행 |
 | sequential-thinking MCP 미접속 | 일반 사고로 진행 |
-| scripts/ 실행 실패 | SKILL.md 내 인라인 코드로 fallback |
+| 도메인 플러그인 scripts/ 실행 실패 | 인라인 코드로 fallback |
 
 ## 문제 해결
 

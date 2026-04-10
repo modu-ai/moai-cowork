@@ -237,7 +237,7 @@ changelog:
 ### 9-2. 자동 백업
 매 업데이트마다:
 ```
-.moai/profile-backups/
+.moai/backups/profile/
 ├── moai-profile-2026-04-04-v1.yaml
 ├── moai-profile-2026-04-10-v2.yaml
 └── moai-profile-current.yaml

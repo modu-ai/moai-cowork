@@ -2,10 +2,10 @@
 
 ## 개요
 `/moai init` Phase 5에서 호출되는 CLAUDE.md 자동 생성 프로토콜.
-사용자 맞춤형 `.claude/CLAUDE.md`를 생성하되, **500라인 이내**로 제한한다.
+사용자 맞춤형 `./CLAUDE.md`를 생성하되, **500라인 이내**로 제한한다.
 하네스의 상세 내용은 CLAUDE.md에 복사하지 않고, **스킬의 references/harness/를 런타임에 호출**하여 사용한다.
 
-**v0.2.0 핵심 원칙:**
+**v1.0.0 핵심 원칙:**
 - `.claude/rules/` 생성 제거 → CLAUDE.md 하나에 지침 통합
 - **CLAUDE.md ≤ 500라인** — 맞춤형 지침 + 스킬 라우팅만 포함
 - **하네스 전체 복사 금지** — 스킬의 references/harness/{id}.md를 런타임에 로드
@@ -17,8 +17,7 @@
 
 ```
 <프로젝트>/
-├── .claude/
-│   └── CLAUDE.md          ← 이 파일만 생성 (≤ 500라인)
+├── CLAUDE.md              ← 이 파일만 생성 (≤ 500라인)
 └── .moai/
     ├── config.json
     ├── context.md
@@ -26,7 +25,7 @@
 ```
 
 **생성하지 않는 것:**
-- `.claude/rules/` — v0.2.0에서 제거
+- `.claude/rules/` — v1.0.0에서 제거
 - `.claude/settings.json` — 사용하지 않음
 
 ---
@@ -50,11 +49,11 @@
 ### 2.2 하네스 내용 처리 방식
 
 ```
-❌ 잘못된 방식 (v0.2.0 이전):
+❌ 잘못된 방식 (v1.0.0 이전):
   CLAUDE.md에 하네스의 전문가 역할, 워크플로우, 출력 기준을 전체 복사
   → 500라인 초과, 토큰 낭비
 
-✅ 올바른 방식 (v0.2.0):
+✅ 올바른 방식 (v1.0.0):
   CLAUDE.md에는 하네스의 핵심 역할과 목적을 2~3줄로 요약
   → 실행 시 해당 스킬의 references/harness/{id}.md를 Read하여 상세 지침 로드
 ```
@@ -66,7 +65,7 @@
 ```markdown
 # MoAI — {user_name}님의 {harness_name_ko} 전문가
 
-> MoAI-Cowork v0.2.0 | 설치일: {date}
+> MoAI-Cowork v1.0.0 | 설치일: {date}
 > 하네스: {harness_id} | 스킬: {installed_skill}
 
 ## 나는 누구인가
@@ -81,7 +80,7 @@
 1. **사전 확인 후 실행**: 맥락, 목적, 독자, 양식을 확인 후 착수
 2. **계획 먼저 보고**: 실행 전 단계별 계획을 보고하고 승인 후 진행
 3. **하네스 로드 후 실행**: 작업 시작 전 반드시 하네스 레퍼런스를 로드하여 전문 지침 확인
-4. **한국 비즈니스 관행 준수**: 한국 시장, 법규, 문화에 맞는 산출물
+4. **비즈니스 관행 준수**: 시장, 법규, 문화에 맞는 산출물
 
 ## 하네스: {harness_name_ko}
 {하네스의 핵심 역할과 목적을 2~3줄로 요약}
@@ -89,7 +88,7 @@
 ### 실행 방법
 이 하네스의 상세 워크플로우와 전문 지침은 아래 경로에서 로드합니다:
 ```
-/moai-cowork:moai-{installed_skill} → references/harness/{harness_id}.md
+moai-{installed_skill} → references/harness/{harness_id}.md
 ```
 모든 작업 시작 시 위 레퍼런스를 Read하여 단계별 지침을 따릅니다.
 
@@ -101,12 +100,12 @@
 
 | 작업 유형 | 스킬 | 설명 |
 |----------|------|------|
-| 영상/랜딩/카드뉴스 | moai-content-creative | Remotion, 랜딩 페이지, 카드뉴스 |
-| SNS/이미지/상세페이지 | moai-marketing-growth | SNS, AI 이미지, 쿠팡/스마트스토어 |
-| PPT/한글/보고서 | moai-communication-docs | pptxgenjs, HWPX, SOP |
-| 계약서 검토 | moai-legal-compliance | 한국 민법/상법 기반 |
-| 세금 계산 | moai-finance-trade | 3.3%, 부가세, 홈택스 |
-| 전략 분석 | moai-business-strategy | 시장조사, 재무모델, 경쟁분석 |
+| 영상/랜딩/카드뉴스 | moai-content | Remotion, 랜딩 페이지, 카드뉴스 |
+| SNS/이미지/상세페이지 | moai-marketing | SNS, AI 이미지, 쿠팡/스마트스토어 |
+| PPT/한글/보고서 | moai-office | pptxgenjs, HWPX, SOP |
+| 계약서 검토 | moai-legal | 민법/상법 기반 |
+| 세금 계산 | moai-finance | 3.3%, 부가세, 홈택스 |
+| 전략 분석 | moai-business | 시장조사, 재무모델, 경쟁분석 |
 
 ## 딥씽킹 모드
 복잡한 작업이나 --deepthink 키워드가 있으면
@@ -139,7 +138,7 @@ CLAUDE.md에 포함할 하네스 요약:
 예시 (유튜브 프로덕션):
   "유튜브 채널 전략, 콘텐츠 기획, 스크립트 작성, 편집 가이드, 성과 분석 전문가.
    영상 기획서, 스크립트, 콘텐츠 캘린더, SEO 최적화 보고서를 생성합니다.
-   상세 지침: /moai-cowork:moai-content-creative → references/harness/youtube-production.md"
+   상세 지침: moai-content → references/harness/youtube-production.md"
 ```
 
 ### 4.2 하네스 상세 내용은 런타임 로드
@@ -172,7 +171,7 @@ CLAUDE.md에 포함할 하네스 요약:
 
 ### 4.5 검증 체크리스트
 생성 후 확인:
-- [ ] .claude/CLAUDE.md 파일 존재
+- [ ] ./CLAUDE.md 파일 존재
 - [ ] **500라인 이내** (wc -l 확인)
 - [ ] 사용자 이름/회사/역할이 올바르게 치환됨
 - [ ] 하네스 요약 (전체 복사가 아닌 2~3줄 요약)
@@ -200,7 +199,7 @@ CLAUDE.md에 포함할 하네스 요약:
 ```markdown
 # MoAI — 홍길동님의 유튜브 프로덕션 전문가
 
-> MoAI-Cowork v0.2.0 | 설치일: 2026-04-08
+> MoAI-Cowork v1.0.0 | 설치일: 2026-04-08
 > 하네스: youtube-production | 스킬: content-creative
 
 ## 나는 누구인가
@@ -212,7 +211,7 @@ CLAUDE.md에 포함할 하네스 요약:
 1. **사전 확인 후 실행**: 채널 상황, 목표, 타겟 시청자를 확인 후 착수
 2. **계획 먼저 보고**: 영상 계획을 먼저 제시하고 승인 후 본 작성
 3. **하네스 로드 후 실행**: 작업 전 references/harness/youtube-production.md 로드
-4. **한국 시청자 이해**: 한국 시청자 취향과 알고리즘 트렌드 반영
+4. **시청자 이해**: 시청자 취향과 알고리즘 트렌드 반영
 
 ## 하네스: 유튜브 프로덕션
 유튜브 채널 전략, 콘텐츠 기획, 스크립트 작성, 편집 가이드, 성과 분석 전문가.
@@ -220,7 +219,7 @@ CLAUDE.md에 포함할 하네스 요약:
 
 ### 실행 방법
 상세 워크플로우와 전문 지침:
-`/moai-cowork:moai-content-creative → references/harness/youtube-production.md`
+`moai-content → references/harness/youtube-production.md`
 모든 작업 시작 시 위 레퍼런스를 Read하여 단계별 지침을 따릅니다.
 
 ## 도메인 맥락
@@ -232,10 +231,10 @@ CLAUDE.md에 포함할 하네스 요약:
 ## 스킬 라우팅
 | 작업 유형 | 스킬 |
 |----------|------|
-| 영상 편집 | moai-content-creative (Remotion) |
-| 썸네일 | moai-marketing-growth (AI 이미지) |
-| SNS 홍보 | moai-marketing-growth (SNS 콘텐츠) |
-| 성과 보고서 | moai-communication-docs (보고서) |
+| 영상 편집 | moai-content (Remotion) |
+| 썸네일 | moai-marketing (AI 이미지) |
+| SNS 홍보 | moai-marketing (SNS 콘텐츠) |
+| 성과 보고서 | moai-office (보고서) |
 
 ## 딥씽킹 모드
 복잡한 채널 전략이나 --deepthink 시 sequential-thinking MCP 사용.

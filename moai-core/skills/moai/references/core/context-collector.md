@@ -26,7 +26,7 @@
 
 **질문 생성 규칙 (중요!)**:
 ```
-1. 하네스 레퍼런스 로딩: Read("references/skills/{harness-id}.md")
+1. 하네스 레퍼런스 로딩: Read("references/harness/{harness-id}.md")
 2. "맥락 수집 질문 (AskUserQuestion)" 섹션의 필수 질문을 기반으로 사용
 3. 임의로 질문을 만들지 않는다
 4. 옵션 예시도 레퍼런스 원본 그대로
@@ -38,19 +38,19 @@
 
 **예시** (레퍼런스 기반):
 
-**copywriting** (references/skills/copywriting.md):
+**copywriting** (references/harness/copywriting.md):
 - Q1. 콘텐츠 목적은? → 브랜드 인지 / 리드 생성 / 전환 유도 / 고객 유지
 - Q2. 타겟 독자는? → B2B 의사결정자 / B2C 소비자 / 내부 직원 / 투자자
 - Q3. 긴급도는? → 즉시 / 1주일 내 / 2주+ / 미정
 - Q4. 선호 톤은? → 전문적 / 캐주얼 / 스토리텔링 / 데이터 중심
 
-**market-research** (references/skills/market-research.md):
+**market-research** (references/harness/market-research.md):
 - Q1. 조사 대상은? → 특정 산업명/제품군
 - Q2. 조사 목적은? → 신규 진입 / 경쟁 대응 / 투자 판단 / 전략 수립
 - Q3. 지리 범위는? → 한국 / 아시아 / 글로벌
 - Q4. 초점은? → 시장 규모 / 경쟁사 / 소비자 니즈 / 트렌드
 
-**technical-writer** (references/skills/technical-writer.md):
+**technical-writer** (references/harness/technical-writer.md):
 - Q1. 문서 유형은? → API 가이드 / 사용자 매뉴얼 / 운영 가이드 / 제품 가이드
 - Q2. 타깃 독자는? → 개발자 / 관리자 / 최종 사용자 / 조합
 - Q3. 기술 스택은? → 웹 / 모바일 / 클라우드 / 데이터베이스 / 기타
@@ -73,7 +73,7 @@
 
 ### 2-1. 초기 평가
 ```
-harness_ref = Read("references/skills/{harness-id}.md")
+harness_ref = Read("references/harness/{harness-id}.md")
 current_context = collect_user_context_from_profile()
 missing_context = A등급 + 필수_B등급 - current_context
 
@@ -272,7 +272,7 @@ IF resolution_attempts >= 2:
 
 ## 하네스 레퍼런스 (원본)
 
-{references/skills/{harness-id}.md 전체 내용 복사}
+{references/harness/{harness-id}.md 전체 내용 복사}
 {축약 금지! 페르소나, 전문가 역할, 워크플로우, 산출물 형식 등 모두 포함}
 ```
 

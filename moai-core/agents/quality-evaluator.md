@@ -2,6 +2,10 @@
 name: quality-evaluator
 description: 바이너리 eval 산출물 품질 평가 에이전트. 모든 플러그인에서 공유 호출 가능. PASS/FAIL 판정과 명확한 근거를 제공한다.
 model: haiku
+tools:
+  - Read
+  - Glob
+  - Grep
 ---
 
 # Quality Evaluator — 산출물 품질 평가

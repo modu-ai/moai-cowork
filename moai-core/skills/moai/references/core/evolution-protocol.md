@@ -25,12 +25,11 @@ Self-Refine 사이클을 통해 지속적으로 개선되며, sequential-thinkin
 사용자 평가 요청:
 
 "이 결과물이 얼마나 도움이 되셨나요?"
-[1] ⭐⭐⭐⭐⭐ (10점) — 매우 만족
-[2] ⭐⭐⭐⭐☆ (8점) — 만족
-[3] ⭐⭐⭐☆☆ (6점) — 보통
-[4] ⭐⭐☆☆☆ (4점) — 미흡
-[5] ⭐☆☆☆☆ (2점) — 불만족
-[Other] 의견 추가
+[1] 매우 만족 (9-10점)
+[2] 만족 (7-8점)
+[3] 보통 (5-6점)
+[4] 불만족 (1-4점)
++ Other (의견 추가)
 
 IF feedback < 7:
   "어떤 부분을 개선했으면 좋을까요?"
@@ -65,13 +64,13 @@ IF 특정 사용자 그룹에서만 문제:
 발견된 패턴에 따라 규칙 개선:
 
 IF 문제_유형 == "톤과 맥락 불일치":
-  update_rule("01-{harness}.md", "톤 가이드" 상세화)
+  update_pattern("pattern-database.md", "톤 가이드" 상세화)
   
 IF 문제_유형 == "누락된 정보":
-  update_rule("context-collector.md", "B등급 추가")
+  update_protocol("context-collector.md", "B등급 추가")
   
 IF 문제_유형 == "지역 규제 무지":
-  update_rule("02-locale-*.md", "규제 내용 추가")
+  update_pattern("pattern-database.md", "규제 내용 추가")
 
 저장 위치: .moai/evolution/
 ├── self-refine-log.md (매 사이클 기록)
@@ -89,8 +88,8 @@ copywriting에서 "사용자는 짧은 문단 선호" 발견
 → sop-writer 결과 설명도 간결화
 
 학습 전파:
-00-moai-core.md (기본) → 모든 하네스에 적용
-→ 개별 하네스 (01-*.md)에 특화된 내용 추가
+pattern-database.md (공통) → 모든 하네스에 적용
+→ 개별 하네스별 특화 패턴 추가
 ```
 
 ---
@@ -139,14 +138,14 @@ copywriting에서 "사용자는 짧은 문단 선호" 발견
 
 ## 2026-04-05 (Update 1)
 
-### 변경 파일: .claude/rules/01-copywriting.md
+### 변경 대상: copywriting 하네스 패턴
 - **변경 이유**: 사용자 피드백 "실행 아이템 필요"
 - **변경 전**: "솔루션 3가지 제시"
 - **변경 후**: "솔루션 3가지 + 각 솔루션별 실행 스텝 3-5개"
 - **예상 효과**: 실용성 점수 +15%
 - **롤백**: 필요시 revert 커밋 ID = abc123def456
 
-### 변경 파일: .claude/rules/00-moai-core.md
+### 변경 대상: moai-core 공통 패턴
 - **변경 이유**: 블로그 vs 실행서 구분 필요
 - **추가 항목**: "산출물 타입에 따른 상세도 가이드"
   - 블로그: 전략 + 배경지식
@@ -221,7 +220,7 @@ IF 규칙_변경_후_평가_점수 < 규칙_변경_전_평가_점수 - 2점:
 ### 3-2. 롤백 프로세스
 ```bash
 # 이전 규칙 버전으로 복원
-/moai evolution --rollback --file=01-copywriting.md --version=v1.2
+/moai evolution --rollback --pattern=copywriting --version=v1.2
 
 # 또는 특정 커밋으로 복원
 /moai evolution --rollback --commit=abc123def456
@@ -273,9 +272,9 @@ IF Day 30 평가 < Day 7 평가:
 .moai/evolution/metrics.csv:
 
 date,harness,feedback_score,completion_time,quality_score,problem_type
-2026-04-04,copywriting,8,12,85,실행성不足
+2026-04-04,copywriting,8,12,85,실행성부족
 2026-04-04,sop-writer,9,8,90,none
-2026-04-05,copywriting,8.5,14,88,실행성不足 (개선중)
+2026-04-05,copywriting,8.5,14,88,실행성부족 (개선중)
 ...
 ```
 

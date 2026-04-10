@@ -17,13 +17,13 @@ MoAI 환경과 프로필 상태를 진단하고 문제를 식별하는 프로토
 ### 1-2. 체크리스트
 
 ```
-┌─ MoAI 환경 진단 (v0.2.0) ────────────────────────┐
+┌─ MoAI 환경 진단 (v1.0.0) ────────────────────────┐
 │
 │ [Phase 1] 파일 시스템 검사
-│ ├─ .claude/CLAUDE.md 존재: ✓
+│ ├─ ./CLAUDE.md 존재: ✓
 │ ├─ .moai/ 디렉토리: ✓
 │ ├─ skills/moai/references/: ✓ (core 포함)
-│ └─ skills/moai/references/skills/: ✓ (84개 스킬)
+│ └─ 15개 플러그인 설치 상태: ✓
 │
 │ [Phase 2] 글로벌 프로필 검사
 │ ├─ /mnt/.auto-memory/moai-profile.md: ✓
@@ -40,8 +40,8 @@ MoAI 환경과 프로필 상태를 진단하고 문제를 식별하는 프로토
 │ └─ 설치된 하네스: 2/84
 │
 │ [Phase 4] 시스템 지침 검사
-│ ├─ .claude/CLAUDE.md 로드: ✓
-│ ├─ v0.2.0 아키텍처 적용: ✓
+│ ├─ ./CLAUDE.md 로드: ✓
+│ ├─ v1.0.0 아키텍처 적용: ✓
 │ └─ 에이전트 디렉터 모델 활성: ✓
 │
 │ [Phase 5] 진화 상태
@@ -69,8 +69,8 @@ MoAI 환경과 프로필 상태를 진단하고 문제를 식별하는 프로토
 **파일 시스템 검사**
 ```
 FOR each critical_file in [
-  .claude/CLAUDE.md,
-  .claude/rules/00-moai-core.md,
+  ./CLAUDE.md,
+  .moai/config.json,
   .moai/evolution/self-refine-log.md
 ]:
   IF file.exists AND file.size > 0:
@@ -176,7 +176,7 @@ IF 컨텍스트_TTL > 30days:
   INFO: "컨텍스트 갱신 시간입니다. /moai refresh-context 권장"
 
 IF CLAUDE.md_로드_실패:
-  ERROR: "시스템 지침 로드 실패. .claude/CLAUDE.md 확인 필요"
+  ERROR: "시스템 지침 로드 실패. ./CLAUDE.md 확인 필요"
 ```
 
 ### 3-2. 진단 레포트 생성
@@ -248,8 +248,8 @@ doctor-report-2026-04-04-1030.md 생성됨
 # 프로필만 초기화
 /moai profile --reset
 
-# 규칙만 초기화 (프로필은 유지)
-/moai rules --reset
+# 진화 데이터만 초기화 (프로필은 유지)
+/moai evolution --reset
 
 # 하네스 컨텍스트만 초기화
 /moai context --reset

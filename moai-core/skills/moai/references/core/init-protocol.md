@@ -2,13 +2,15 @@
 
 ## 개요
 사용자의 MoAI 초기화 프로세스를 정의한다.
-글로벌 프로필 구축 → 카테고리 선택 → 하네스 선택 → 맥락 수집 → CLAUDE.md 맞춤 생성까지 5단계.
+setup-cowork 패턴(역할→플러그인→커넥터)과 claude-code-setup 패턴(자동 감지+추천)을 결합한 5단계 빠른 설정.
 
-**v0.2.0 핵심 변경:**
-- `.claude/rules/` 생성 제거 → CLAUDE.md에 모든 내용 통합
-- 언어 선택 Phase 제거 → 한국어 전용
-- 로케일 Phase 제거 → 한국 전용
-- CLAUDE.md에 하네스 전체 내용 복사 (축약 금지)
+**v2.0 핵심 변경 (v1.0 대비):**
+- Phase 1: 프로필 7질문 → 1질문으로 간소화 (역할/분야만)
+- Phase 2-3 (카테고리+하네스): 제거 → 플러그인 자동 감지로 대체
+- Phase 4 (맥락 수집): init에서 제거 → 하네스 첫 실행 시 Lazy Collection
+- Phase 3: 커넥터 + API 키 입력 통합
+- Phase 4: 첫 실행 안내 추가
+- 총 소요 시간: ~10분+ → **~3분**
 
 ---
 
@@ -21,9 +23,9 @@
     ┌─────────────────────────────┐
     │ header: "프로필"             │
     │ "기존 프로필을 발견했습니다.   │
-    │  📌 이름: {name}            │
-    │  📌 회사: {company}         │
-    │  📌 역할: {role}            │
+    │  • 이름: {name}             │
+    │  • 회사: {company}          │
+    │  • 역할: {role}             │
     │  어떻게 하시겠습니까?"       │
     │                             │
     │  ○ 재사용 (권장)             │
@@ -35,176 +37,327 @@
 
 ---
 
-## Phase 1: 기본 프로필 수집
+## Phase 1: 빠른 프로필
 
-### Phase 1-A: 개인 프로필
+프로필이 없는 경우, 최소 정보만 수집한다. 나머지는 auto-memory로 점진 축적.
 
-AskUserQuestion 호출 (4질문) ✅
-
-```
-Q1 [역할]     "주요 역할은?"
-  ○ 기획/PM  ○ 마케팅/콘텐츠  ○ 경영/전략  ○ 연구/분석
-  + Other
-
-Q2 [산업]     "산업 분야는?"
-  ○ IT/테크  ○ 금융/핀테크  ○ 이커머스/리테일  ○ 교육/연구
-  + Other
-
-Q3 [사업형태] "사업 형태는?"
-  ○ 개인사업자  ○ 법인  ○ 프리랜서  ○ 해당 없음
-  + Other
-
-Q4 [규모]     "조직 규모는?"
-  ○ 1인  ○ 2~50인  ○ 51~200인  ○ 200인+
-  + Other
-```
-
-→ 텍스트 대화로 추가 세부정보 수집 (이름, 회사명 등)
-
-### Phase 1-B: 회사 프로필 (사업형태가 "해당 없음"이 아닌 경우)
-
-AskUserQuestion 호출 (3질문) ✅
-
-```
-Q1 [업종]     "주요 업종은?"
-  ○ 서비스업  ○ 제조업  ○ 유통/물류  ○ 기타
-  + Other
-
-Q2 [경력]     "해당 분야 경력은?"
-  ○ 1년 미만  ○ 1~5년  ○ 5~10년  ○ 10년+
-  + Other
-
-Q3 [호칭]     "선호하는 호칭 스타일은?"
-  ○ 격식 (존칭)  ○ 캐주얼  ○ 전문가 톤
-  + Other
-```
-
-→ moai-profile.md 생성 + MEMORY.md 인덱스 등록
-
----
-
-## Phase 2: 카테고리 선택 (2단계 분기)
-
-### 대분류
+### 1-1. 역할/분야 선택
 
 AskUserQuestion (1질문, 4옵션) ✅
 
 ```
-"어떤 분야의 전문가가 필요한가요?"
+"어떤 분야에서 일하시나요?"
 
-○ 콘텐츠 & 마케팅 (①콘텐츠 + ③마케팅)
-○ 비즈니스 & 전략 (②비즈니스 + ⑨재무)
-○ 전문 & 규제 (⑤법률 + ⑧운영 + ⑩제품)
-○ 라이프 & 커뮤니케이션 (④교육 + ⑥라이프 + ⑦문서)
-+ Other
+○ 비즈니스/전략/창업 — 사업계획, 투자, 시장조사, 재무
+○ 마케팅/콘텐츠/영업 — SNS, 블로그, 광고, 이메일, 카피
+○ 관리/운영/전문직 — 법률, 세무, 인사, 문서, 결재
+○ 제품/기술/연구 — PM, UX, 교육, 데이터, 커리어
++ Other (직접 입력)
 ```
 
-### 소분류
+### 1-2. 이름/회사 수집 (텍스트 대화)
 
-선택된 대분류에 따라 AskUserQuestion (1질문, 2~4옵션) ✅
+```
+"이름(또는 닉네임)과 회사명을 알려주세요.
+ 예: '홍길동, 테크스타트업' 또는 '길동'만 입력해도 됩니다."
+```
 
-[예: "콘텐츠 & 마케팅" 선택 시]
-```
-"세부 분야는?"
-○ 콘텐츠 & 크리에이티브 (유튜브, 영상, 카드뉴스)
-○ 마케팅 & 성장 (SNS, 브랜딩, 이미지생성)
-+ Other
-```
+→ /mnt/.auto-memory/moai-profile.md 생성 (최소 필드)
+→ 추가 정보(산업, 경력, 호칭 등)는 하네스 사용 중 auto-memory로 자연스럽게 축적
 
 ---
 
-## Phase 3: 하네스 선택 (페이지네이션)
+## Phase 2: 플러그인 감지 + 선택
 
-선택된 스킬의 하네스를 4개씩 표시:
+### 2-1. 설치된 플러그인 자동 감지
+
+```
+Cowork에 설치된 moai-* 플러그인을 자동 스캔:
+
+installed_plugins = scan_installed_moai_plugins()
+
+예: [moai-core, moai-business, moai-office, moai-legal]
+```
+
+### 2-2. 주 사용 플러그인 선택
+
+Phase 1 답변 기반으로 관련성 높은 순서로 표시.
 
 AskUserQuestion (1질문, 4옵션, multiSelect) ✅
 
 ```
-[예: content-creative 선택 시]
-"설치할 하네스를 선택하세요 (복수 선택 가능)"
+[예: "비즈니스/전략/창업" 선택 + 4개 플러그인 설치된 경우]
+"주로 사용할 플러그인을 선택하세요 (복수 선택 가능)"
 
-☑ 유튜브 프로덕션 — 채널 운영 전과정
-☐ 뉴스레터 엔진 — 뉴스레터 기획~발행
-☐ 카피라이팅 — 마케팅 카피 전문
-☐ 팟캐스트 스튜디오 — 팟캐스트 기획~배포
-+ Other ("다른 하네스 더 보기")
+☑ moai-business — 사업계획서, 시장조사, 투자제안서, 재무모델
+☐ moai-office — PPT, 한글(HWPX), Word, Excel 문서 생성
+☐ moai-legal — 계약서 검토, 컴플라이언스, NDA
++ Other ("더 보기")
 ```
 
-하네스가 4개 초과 시 페이지네이션:
-- Other → "더 보기" → 다음 4개 표시
-- 전체 선택 완료 시 확인
+```
+[예: "마케팅/콘텐츠/영업" 선택 시]
+"주로 사용할 플러그인을 선택하세요 (복수 선택 가능)"
+
+☑ moai-content — 카드뉴스, 블로그, 뉴스레터, 카피라이팅
+☐ moai-marketing — SEO, SNS, 캠페인, 이메일 시퀀스
+☐ moai-office — PPT, Word, Excel 문서 생성
++ Other ("더 보기")
+```
+
+설치되지 않은 플러그인은 표시하지 않는다.
+"더 보기" 선택 시 나머지 플러그인 페이지네이션.
+
+### 2-3. 미설치 플러그인 안내
+
+```
+IF Phase 1 답변에 매칭되지만 미설치된 플러그인이 있으면:
+
+"추가로 이런 플러그인을 설치하면 좋습니다:
+ - moai-finance — 세무, 부가세, 홈택스, K-IFRS
+ - moai-hr — 근로계약서, 4대보험, 채용
+ 
+ Settings > Plugins에서 설치할 수 있습니다."
+```
 
 ---
 
-## Phase 4: 심층 맥락 수집
+## Phase 3: 커넥터 + API 키 설정
 
-AskUserQuestion (하네스별, 최대 4질문/호출) ✅
-→ 참조: `context-collector.md`
+### 3-1. 공식 커넥터 선택
 
-[유튜브 프로덕션 예시]
+선택된 플러그인에 맞는 Cowork 공식 커넥터를 추천한다.
+
+**커넥터 매핑 테이블:**
+
+| 플러그인 | 권장 커넥터 |
+|---------|-----------|
+| moai-content | WordPress, Canva |
+| moai-marketing | Gmail, HubSpot, Canva |
+| moai-schedules | Google Calendar |
+| moai-product | Notion, Figma, Asana/Linear/Jira |
+| moai-office | Google Drive, Gmail, Notion, Microsoft 365 |
+| moai-support | Slack, HubSpot |
+| moai-operations | Slack, Notion, Asana/Jira |
+
+AskUserQuestion (1질문, 최대 4옵션, multiSelect) ✅
+
 ```
-Q1 [주제] "채널 주제는?"
-  ○ 테크/리뷰  ○ 교육/강의  ○ 엔터/브이로그  ○ 비즈니스/재테크
-  + Other
+[예: moai-office + moai-business 선택 시 — 중복 제거 후 상위 4개]
+"연동할 도구를 선택하세요 (나중에 설정 가능)"
 
-Q2 [규모] "현재 구독자 규모는?"
-  ○ 0~1K  ○ 1K~10K  ○ 10K~100K  ○ 100K+
-  + Other
-
-Q3 [빈도] "업로드 빈도는?"
-  ○ 주 1회  ○ 주 2~3회  ○ 월 2~3회  ○ 비정기
-  + Other
-
-Q4 [톤] "선호하는 소통 톤은?"
-  ○ 격식/전문  ○ 캐주얼/친근  ○ 유머/재미  ○ 교육적/차분
-  + Other
+☐ Google Drive — 문서 저장/공유, Google Docs/Sheets 연동
+☐ Notion — 보고서/회의록을 Notion 페이지로 발행
+☐ Gmail — 문서 이메일 발송
+☐ Microsoft 365 — Outlook, OneDrive, Teams
++ Other ("건너뛰기")
 ```
 
-맥락 충분성 < 80% → 추가 호출 (최대 7회)
+선택 시:
+```
+"선택한 커넥터를 연결하세요:
+ 1. Settings > Connectors 이동
+ 2. {커넥터명} 찾기 > Connect 클릭
+ 3. 계정 인증 (OAuth)
+ 
+ 한 번 연결하면 모든 세션에서 유지됩니다."
+```
+
+건너뛰기 시:
+```
+"커넥터 없이도 모든 기능이 독립 실행됩니다.
+ 나중에 Settings > Connectors에서 언제든 연결 가능합니다."
+```
+
+### 3-2. API 키 등록 (커스텀 MCP)
+
+선택된 플러그인 중 API 키가 필요한 것이 있으면, API 키 등록을 안내한다.
+
+**API 키 필요 플러그인:**
+
+| 플러그인 | MCP 서버 | 환경변수 | 용도 |
+|---------|---------|---------|------|
+| moai-content | Nano Banana | NANO_BANANA_API_KEY | AI 이미지 생성 |
+| moai-business | DART OpenAPI | DART_API_KEY | 기업 공시/재무제표 |
+| moai-legal | 국가법령정보 | KOREAN_LAW_OC | 법령/판례 검색 |
+
+AskUserQuestion (1질문, 최대 4옵션, multiSelect) ✅
+
+```
+[예: moai-business + moai-legal + moai-content 설치 시]
+"API 키를 등록할 서비스를 선택하세요 (나중에 등록 가능)"
+
+☐ DART OpenAPI — 기업 공시 조회, 재무제표 (opendart.fss.or.kr)
+☐ 법령 정보 — 법령/판례 검색 (law.go.kr)
+☐ Nano Banana — AI 이미지 생성 (카드뉴스/썸네일)
++ Other ("건너뛰기 — 나중에 /moai apikey로 등록")
+```
+
+선택 시, 각 서비스별 텍스트 대화로 순차 입력:
+
+```
+[DART 선택 시]
+"DART OpenAPI 키를 입력해 주세요.
+ 아직 없다면 https://opendart.fss.or.kr/ 에서 무료 발급 가능합니다.
+ (건너뛰려면 '건너뛰기' 입력)"
+
+ → 사용자: "abc123def456"
+
+[법령 정보 선택 시]  
+"법령 정보 인증코드를 입력해 주세요.
+ 아직 없다면 https://www.law.go.kr/ Open API에서 발급 가능합니다.
+ (건너뛰려면 '건너뛰기' 입력)"
+
+ → 사용자: "xyz789"
+
+[Nano Banana 선택 시]
+"Nano Banana API 키를 입력해 주세요.
+ (건너뛰려면 '건너뛰기' 입력)"
+
+ → 사용자: "nb_key_..."
+```
+
+### 3-3. API 키 저장 (글로벌 공유)
+
+API 키는 **글로벌 경로**에 저장하여 모든 프로젝트에서 재입력 없이 공유한다.
+
+```
+저장 경로: /mnt/.auto-memory/moai-credentials.env
+
+입력받은 API 키를 글로벌 파일에 저장:
+
+DART_API_KEY=abc123def456
+KOREAN_LAW_OC=xyz789
+NANO_BANANA_API_KEY=nb_key_...
+
+저장 후 안내:
+"API 키가 글로벌 설정에 저장되었습니다.
+ 다른 프로젝트에서도 자동으로 사용됩니다.
+ 키 변경: /moai apikey 로 언제든 수정 가능합니다."
+```
+
+**글로벌 공유 원리:**
+- `/mnt/.auto-memory/`는 모든 Cowork 세션/프로젝트에서 접근 가능
+- 한 번 등록하면 재입력 불필요
+- 프로필(`moai-profile.md`)과 같은 경로에 저장
+- 프로젝트별 키가 필요하면 `.moai/credentials.env`로 오버라이드 가능
+
+### 3-4. 스크립트에서 API 키 로드
+
+```python
+# 로드 우선순위:
+# 1. 환경변수 (os.environ) — Cowork Project Settings에서 주입
+# 2. 프로젝트별 키 (.moai/credentials.env) — 프로젝트 오버라이드
+# 3. 글로벌 키 (/mnt/.auto-memory/moai-credentials.env) — 공유
+
+import os
+from pathlib import Path
+
+def load_api_key(key_name):
+    # 1순위: 환경변수
+    val = os.environ.get(key_name)
+    if val:
+        return val.strip()
+    
+    # 2순위: 프로젝트별 키
+    project_cred = Path(".moai/credentials.env")
+    if project_cred.exists():
+        key = _parse_env_file(project_cred, key_name)
+        if key:
+            return key
+    
+    # 3순위: 글로벌 키
+    global_cred = Path("/mnt/.auto-memory/moai-credentials.env")
+    if global_cred.exists():
+        key = _parse_env_file(global_cred, key_name)
+        if key:
+            return key
+    
+    return None
+
+def _parse_env_file(path, key_name):
+    for line in path.read_text().splitlines():
+        line = line.strip()
+        if line and not line.startswith("#") and line.startswith(f"{key_name}="):
+            return line.split("=", 1)[1].strip()
+    return None
+```
 
 ---
 
-## Phase 5: CLAUDE.md 맞춤 생성 ★
+## Phase 4: CLAUDE.md 생성 + 첫 실행 안내
 
-### 생성 대상
+### 4-1. 생성 대상
+
 ```
 <프로젝트>/
-├── .claude/
-│   └── CLAUDE.md          ← 맞춤형 (≤ 500라인)
+├── CLAUDE.md              ← 맞춤형 (≤ 500라인)
 └── .moai/
-    ├── config.json        ← 하네스 ID, 버전, 설치일
-    ├── context.md         ← 수집된 맥락
+    ├── config.json        ← 플러그인 설정, 커넥터 참조
     └── evolution/
+
+글로벌 (모든 프로젝트 공유):
+/mnt/.auto-memory/
+├── moai-profile.md        ← 사용자 프로필
+└── moai-credentials.env   ← API 키 (Phase 3에서 생성)
         ├── history.json
         └── reflections/
 ```
 
-### CLAUDE.md 생성 규칙
+### 4-2. CLAUDE.md 생성 규칙
+
 1. **500라인 이내** — 맞춤형 지침 + 스킬 라우팅만 포함
-2. **하네스 전체 복사 금지** — 하네스의 핵심 역할/목적을 2~3줄로 요약
-3. 실행 시 해당 스킬의 `references/harness/{id}.md`를 **런타임에 로드**하여 상세 지침 확인
-4. 사용자 프로필 정보를 페르소나에 반영
-5. Phase 4에서 수집한 맥락을 도메인 맥락 섹션에 포함
-6. 스킬 라우팅 테이블 포함 (어떤 작업 → 어떤 스킬)
+2. **하네스 전체 복사 금지** — 핵심 역할/목적을 2~3줄로 요약
+3. 실행 시 `references/harness/{id}.md`를 **런타임에 로드**
+4. Phase 1의 사용자 프로필 정보를 페르소나에 반영
+5. Phase 2에서 선택한 플러그인의 스킬 라우팅 테이블 포함
+6. Phase 3에서 연결한 커넥터 정보 포함
 7. sequential-thinking 사용 조건 명시
 
 → 참조: `claudemd-generator.md`
 
-### config.json 예시
+### 4-3. config.json 예시
+
 ```json
 {
-  "harness_id": "youtube-production",
-  "harness_version": "1.0.0",
-  "installed_skill": "content-creative",
+  "moai_version": "1.0.0",
+  "installed_at": "2026-04-10T15:30:00+09:00",
   "global_profile_ref": "/mnt/.auto-memory/moai-profile.md",
-  "installed_at": "2026-04-08T15:30:00+09:00",
-  "moai_version": "0.2.0",
-  "context_sufficiency": "B",
+  "global_credentials_ref": "/mnt/.auto-memory/moai-credentials.env",
+  "selected_plugins": ["moai-business", "moai-office", "moai-legal"],
+  "connectors": {
+    "official": ["Google Drive", "Notion"],
+    "custom_mcp": {
+      "dart": { "env_key": "DART_API_KEY", "configured": true },
+      "korean-law": { "env_key": "KOREAN_LAW_OC", "configured": true },
+      "nano-banana": { "env_key": "NANO_BANANA_API_KEY", "configured": false }
+    }
+  },
   "evolution": {
     "cycle_count": 0,
     "last_evolved": null
   }
 }
+```
+
+### 4-4. 첫 실행 안내
+
+CLAUDE.md 생성 완료 후:
+
+```
+"설정이 완료되었습니다! 바로 시작해 보세요:
+
+ 선택하신 플러그인 기반 추천:
+ - '사업계획서 써줘' → moai-business
+ - 'PPT 만들어줘' → moai-office
+ - '계약서 검토해줘' → moai-legal
+ 
+ 전체 기능:
+ - '/moai catalog' → 설치된 플러그인 + 하네스 전체 목록
+ - '/moai status' → 현재 설정 상태 확인
+ 
+ 작업을 요청하면 필요한 맥락을 그때 수집합니다.
+ 자연스럽게 대화하시면 됩니다."
 ```
 
 ---
@@ -215,7 +368,54 @@ Q4 [톤] "선호하는 소통 톤은?"
 /moai init --harness youtube-production
 ```
 
-Phase 0 (프로필 감지) → Phase 2-3 스킵 → Phase 4 (맥락 수집) → Phase 5 (CLAUDE.md 생성)
+Phase 0 (프로필 감지) → Phase 2-3 스킵 → Phase 4 (CLAUDE.md 생성)
+
+---
+
+## /moai apikey — API 키 관리 커맨드
+
+```
+/moai apikey
+```
+
+기존 등록된 API 키를 조회/변경/추가한다.
+
+```
+AskUserQuestion (1질문, 4옵션):
+"어떤 작업을 하시겠습니까?"
+
+○ 등록된 키 조회 — 현재 설정된 API 키 목록
+○ 키 추가/변경 — 새 API 키 입력 또는 기존 변경
+○ 키 삭제 — 등록된 API 키 제거
++ Other
+```
+
+---
+
+## 맥락 수집 전략: Lazy Collection
+
+init에서 맥락을 수집하지 않는다. 하네스 첫 실행 시 context-collector.md가 자동 작동:
+
+```
+사용자: "사업계획서 써줘"
+    ↓
+router.md → moai-business 매칭
+    ↓
+execution-protocol.md: 컨텍스트 로드 시도
+    ↓
+.moai/harness-contexts/ 없음 → context-collector.md 실행
+    ↓
+"사업계획서 작성을 위해 몇 가지 여쭤볼게요..."
+(해당 하네스에 필요한 맥락만 수집)
+    ↓
+.moai/harness-contexts/{harness-id}.md에 저장 (다음 실행 시 재사용)
+```
+
+장점:
+- 사용하지 않을 하네스의 맥락은 수집하지 않음
+- 실제 작업 맥락에서 더 정확한 질문 가능
+- init 시간 대폭 단축 (~10분 → ~3분)
+- 맥락 캐시 30일 유효 (context-collector.md 참조)
 
 ---
 
@@ -224,9 +424,10 @@ Phase 0 (프로필 감지) → Phase 2-3 스킵 → Phase 4 (맥락 수집) → 
 | Phase | 질문 수 | 옵션 수 | 제약 준수 |
 |-------|---------|---------|----------|
 | Phase 0 | 1 | 3 | ✅ |
-| Phase 1-A | 4 | 4 | ✅ |
-| Phase 1-B | 3 | 3~4 | ✅ |
-| Phase 2 대분류 | 1 | 4 | ✅ |
-| Phase 2 소분류 | 1 | 2~4 | ✅ |
-| Phase 3 | 1 | 4 (multiSelect) | ✅ |
-| Phase 4 | 최대 4 | 4 | ✅ |
+| Phase 1 | 1 | 4 | ✅ |
+| Phase 2 | 1 | 3~4 (multiSelect) | ✅ |
+| Phase 3-1 커넥터 | 1 | 최대 4 (multiSelect) | ✅ |
+| Phase 3-2 API 키 | 1 | 최대 4 (multiSelect) | ✅ |
+| Phase 3-2 키 입력 | 텍스트 | N/A | ✅ (대화형) |
+
+**총 AskUserQuestion 호출: 최대 5회** (기존 15+회에서 대폭 감소)
