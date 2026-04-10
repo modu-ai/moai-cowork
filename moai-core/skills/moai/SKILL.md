@@ -68,7 +68,7 @@ keywords: "MoAI, 모아이, 전문가, init, catalog, status, 사업, 마케팅,
 
 ## 딥씽킹
 
-`--deepthink` 키워드 포함 시 sequential-thinking MCP 사용.
+`--deepthink` 키워드 포함 시 단계별 심층 분석을 수행합니다.
 자동 트리거: 법률/세무 판단, 2개+ 플러그인 복합 작업, 전략적 의사결정.
 
 ## 사용하지 말아야 할 때

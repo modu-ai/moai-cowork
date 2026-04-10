@@ -41,7 +41,7 @@
 | 도메인 맥락 | ~20라인 | 수집된 사용자 맥락 요약 |
 | 플러그인 라우팅 | ~40라인 | 설치된 플러그인별 스킬 안내 |
 | 커넥터 + 설정 | ~15라인 | 연결된 도구, API 키 참조 |
-| 딥씽킹 + 참조 | ~10라인 | sequential-thinking 조건, 경로 |
+| 딥씽킹 + 참조 | ~10라인 | 딥씽킹 조건, 참조 경로 |
 | **여유분** | ~90라인 | 플러그인 추가/맥락 확장용 |
 | **합계** | **≤ 200** | |
 
@@ -108,7 +108,7 @@ moai-{installed_skill} → references/harness/{harness_id}.md
 
 ## 딥씽킹 모드
 복잡한 작업이나 --deepthink 키워드가 있으면
-sequential-thinking MCP를 사용하여 깊이 분석합니다.
+Claude가 단계별 심층 분석을 수행합니다.
 
 **자동 트리거**: 다단계 분석, 법률/세무 판단, 2개+ 스킬 복합 작업
 
@@ -176,7 +176,7 @@ CLAUDE.md에 포함할 하네스 요약:
 - [ ] 하네스 요약 (전체 복사가 아닌 2~3줄 요약)
 - [ ] 하네스 호출 경로가 정확함
 - [ ] 스킬 라우팅 테이블 포함
-- [ ] sequential-thinking 사용 조건 명시
+- [ ] 딥씽킹 사용 조건 명시
 - [ ] .moai/config.json 생성됨
 - [ ] .moai/context.md 생성됨
 
@@ -236,7 +236,7 @@ CLAUDE.md에 포함할 하네스 요약:
 | 성과 보고서 | moai-office (보고서) |
 
 ## 딥씽킹 모드
-복잡한 채널 전략이나 --deepthink 시 sequential-thinking MCP 사용.
+복잡한 채널 전략이나 --deepthink 시 Claude가 단계별 심층 분석을 수행합니다.
 
 ## 참조 경로
 - 프로필: ${CLAUDE_PLUGIN_DATA}/moai-profile.md

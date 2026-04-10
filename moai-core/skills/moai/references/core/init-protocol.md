@@ -420,7 +420,7 @@ ${CLAUDE_PLUGIN_DATA}/
 4. Phase 1의 사용자 프로필 정보를 페르소나에 반영
 5. Phase 2에서 선택한 플러그인의 스킬 라우팅 테이블 포함
 6. Phase 3에서 연결한 커넥터 정보 포함
-7. sequential-thinking 사용 조건 명시
+7. 딥씽킹(--deepthink) 사용 조건 명시
 
 → 참조: `claudemd-generator.md`
 

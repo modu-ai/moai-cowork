@@ -267,7 +267,7 @@ AskUserQuestion (1질문, 후보 플러그인 최대 4개) ✅
 
 ### 6.3 --deepthink 판단
 복합 요청이거나 2개+ 플러그인이 관여하면:
-→ `mcp__sequential-thinking__sequentialthinking` 호출하여 최적 실행 경로 결정
+→ Claude 심층 분석으로 최적 실행 경로 결정
 
 ---
 
