@@ -1,136 +1,112 @@
-"""HWPX 파일 생성 도구
+"""HWPX 파일 생성 도구 (python-hwpx 기반)
 
-텍스트 내용으로 새 HWPX 파일을 생성합니다.
+python-hwpx 라이브러리를 사용하여 유효한 HWPX 파일을 생성합니다.
+라이브러리가 없으면 설치 안내를 출력합니다.
+
+의존성: pip install python-hwpx
+GitHub: https://github.com/airmang/python-hwpx
 
 Usage:
     python create_hwpx.py --output <output.hwpx> --title "제목" --body "본문"
-    python create_hwpx.py --output <output.hwpx> --paragraphs "단락1" "단락2" "단락3"
+    python create_hwpx.py --output <output.hwpx> --paragraphs "단락1" "단락2"
     python create_hwpx.py --output <output.hwpx> --input-file content.txt
 
 Examples:
     python create_hwpx.py --output report.hwpx --title "월간 보고서" --body "내용입니다."
-    python create_hwpx.py --output letter.hwpx --paragraphs "안녕하세요." "본문입니다." "감사합니다."
-    python create_hwpx.py --output doc.hwpx --input-file paragraphs.txt
+    python create_hwpx.py --output letter.hwpx --paragraphs "안녕하세요." "감사합니다."
 """
 
 import argparse
 import sys
-import zipfile
 from pathlib import Path
-from xml.sax.saxutils import escape
+
+# python-hwpx 의존성 확인
+try:
+    from hwpx import HwpxDocument
+    HAS_HWPX = True
+except ImportError:
+    HAS_HWPX = False
 
 
-# OWPML 네임스페이스
-HP = 'http://www.hancom.co.kr/hwpml/2011/paragraph'
-HS = 'http://www.hancom.co.kr/hwpml/2011/section'
-HH = 'http://www.hancom.co.kr/hwpml/2011/head'
-HC = 'http://www.hancom.co.kr/hwpml/2011/core'
-HV = 'urn:hancom:office:hwpml:version'
-ODF = 'urn:oasis:names:tc:opendocument:xmlns:manifest:1.0'
-
-
-def build_paragraph_xml(text: str, is_title: bool = False) -> str:
-    """단일 단락의 XML을 생성합니다."""
-    safe_text = escape(text)
-    char_pr_id = "1" if is_title else "0"
-    para_pr_id = "1" if is_title else "0"
-    return f'''    <hp:p paraPrIDRef="{para_pr_id}" styleIDRef="0">
-      <hp:run charPrIDRef="{char_pr_id}">
-        <hp:t>{safe_text}</hp:t>
-      </hp:run>
-    </hp:p>'''
-
-
-def create_hwpx(
+def create_hwpx_with_library(
     output_path: str,
     paragraphs: list[str],
     title: str = "",
-    font_hangul: str = "함초롬돋움",
-    font_latin: str = "함초롬돋움",
-    font_size: int = 1000,
-    title_font_size: int = 1600,
-    page_width: int = 59528,
-    page_height: int = 84188,
-    margin_left: int = 4252,
-    margin_right: int = 4252,
-    margin_top: int = 5669,
-    margin_bottom: int = 4252,
-    margin_header: int = 4252,
-    margin_footer: int = 4252,
 ) -> tuple[bool, str]:
-    """HWPX 파일을 생성합니다.
+    """python-hwpx 라이브러리로 유효한 HWPX 파일을 생성합니다."""
+    out = Path(output_path)
+    if out.suffix.lower() != '.hwpx':
+        return False, "Error: 출력 파일은 .hwpx 확장자여야 합니다"
 
-    Args:
-        output_path: 출력 파일 경로
-        paragraphs: 단락 텍스트 목록
-        title: 제목 (별도 서식 적용)
-        font_hangul: 한글 기본 글꼴명
-        font_latin: 영문 기본 글꼴명
-        font_size: 본문 글꼴 크기 (1/100 pt, 기본 1000 = 10pt)
-        title_font_size: 제목 글꼴 크기 (1/100 pt, 기본 1600 = 16pt)
-        page_width: 용지 너비 (hwpunit, A4: 59528)
-        page_height: 용지 높이 (hwpunit, A4: 84188)
+    try:
+        out.parent.mkdir(parents=True, exist_ok=True)
+        doc = HwpxDocument.new()
 
-    Returns:
-        (success, message)
+        if title:
+            doc.add_paragraph(title)
+        for p in paragraphs:
+            doc.add_paragraph(p)
+
+        doc.save_to_path(str(out))
+
+        size_kb = out.stat().st_size / 1024
+        total = len(paragraphs) + (1 if title else 0)
+        return True, f"Created {output_path}\n  {total}개 단락, {size_kb:.1f} KB (python-hwpx)"
+
+    except Exception as e:
+        return False, f"Error: HWPX 생성 실패 - {e}"
+
+
+def create_hwpx_fallback(
+    output_path: str,
+    paragraphs: list[str],
+    title: str = "",
+    font: str = "함초롬돋움",
+    font_size: int = 1000,
+) -> tuple[bool, str]:
+    """python-hwpx 미설치 시 내장 XML 템플릿으로 HWPX를 생성합니다.
+
+    주의: 이 방식은 일부 한글 버전에서 호환성 문제가 발생할 수 있습니다.
+    python-hwpx 설치를 강력히 권장합니다: pip install python-hwpx
     """
-    if not paragraphs and not title:
-        return False, "Error: 최소 한 개의 단락이 필요합니다"
+    import zipfile
+    from xml.sax.saxutils import escape
 
     out = Path(output_path)
     if out.suffix.lower() != '.hwpx':
         return False, "Error: 출력 파일은 .hwpx 확장자여야 합니다"
 
-    # 제목 + 본문 단락 XML 생성
-    para_parts = []
+    HP = 'http://www.hancom.co.kr/hwpml/2011/paragraph'
+    HS = 'http://www.hancom.co.kr/hwpml/2011/section'
+    HH = 'http://www.hancom.co.kr/hwpml/2011/head'
+    HC = 'http://www.hancom.co.kr/hwpml/2011/core'
+
+    def para(text, pr_id="0", char_id="0"):
+        return f'    <hp:p paraPrIDRef="{pr_id}" styleIDRef="0"><hp:run charPrIDRef="{char_id}"><hp:t>{escape(text)}</hp:t></hp:run></hp:p>'
+
+    parts = []
     if title:
-        para_parts.append(build_paragraph_xml(title, is_title=True))
+        parts.append(para(title, "1", "1"))
     for p in paragraphs:
-        para_parts.append(build_paragraph_xml(p, is_title=False))
-    para_xml = '\n'.join(para_parts)
+        parts.append(para(p))
 
-    mimetype = 'application/hwp+zip'
-
-    version_xml = f'''<?xml version="1.0" encoding="UTF-8"?>
-<hv:HWPVersion xmlns:hv="{HV}"
-  major="1" minor="1" micro="0" buildNumber="0"/>'''
-
-    manifest_xml = f'''<?xml version="1.0" encoding="UTF-8"?>
-<odf:manifest xmlns:odf="{ODF}">
-  <odf:file-entry odf:full-path="/" odf:media-type="application/hwp+zip"/>
-  <odf:file-entry odf:full-path="version.xml" odf:media-type="text/xml"/>
-  <odf:file-entry odf:full-path="Contents/content.hpf" odf:media-type="text/xml"/>
-  <odf:file-entry odf:full-path="Contents/header.xml" odf:media-type="text/xml"/>
-  <odf:file-entry odf:full-path="Contents/section0.xml" odf:media-type="text/xml"/>
-</odf:manifest>'''
-
-    content_hpf = f'''<?xml version="1.0" encoding="UTF-8"?>
-<hc:package xmlns:hc="{HC}">
-  <hc:head href="Contents/header.xml"/>
-  <hc:body>
-    <hc:section href="Contents/section0.xml"/>
-  </hc:body>
-</hc:package>'''
-
-    header_xml = f'''<?xml version="1.0" encoding="UTF-8"?>
+    files = {
+        'mimetype': 'application/hwp+zip',
+        'version.xml': '<?xml version="1.0" encoding="UTF-8"?>\n<hv:HWPVersion xmlns:hv="urn:hancom:office:hwpml:version" major="1" minor="1" micro="0" buildNumber="0"/>',
+        'META-INF/manifest.xml': f'<?xml version="1.0" encoding="UTF-8"?>\n<odf:manifest xmlns:odf="urn:oasis:names:tc:opendocument:xmlns:manifest:1.0">\n  <odf:file-entry odf:full-path="/" odf:media-type="application/hwp+zip"/>\n  <odf:file-entry odf:full-path="version.xml" odf:media-type="text/xml"/>\n  <odf:file-entry odf:full-path="Contents/content.hpf" odf:media-type="text/xml"/>\n  <odf:file-entry odf:full-path="Contents/header.xml" odf:media-type="text/xml"/>\n  <odf:file-entry odf:full-path="Contents/section0.xml" odf:media-type="text/xml"/>\n</odf:manifest>',
+        'Contents/content.hpf': f'<?xml version="1.0" encoding="UTF-8"?>\n<hc:package xmlns:hc="{HC}"><hc:head href="Contents/header.xml"/><hc:body><hc:section href="Contents/section0.xml"/></hc:body></hc:package>',
+        'Contents/header.xml': f'''<?xml version="1.0" encoding="UTF-8"?>
 <hh:head xmlns:hh="{HH}" xmlns:hp="{HP}">
   <hh:beginNum page="1" footnote="1" endnote="1"/>
   <hh:refList>
     <hh:fontfaces>
-      <hh:fontface lang="HANGUL">
-        <hp:font id="0" face="{escape(font_hangul)}" type="TTF"/>
-      </hh:fontface>
-      <hh:fontface lang="LATIN">
-        <hp:font id="0" face="{escape(font_latin)}" type="TTF"/>
-      </hh:fontface>
-      <hh:fontface lang="HANJA">
-        <hp:font id="0" face="{escape(font_hangul)}" type="TTF"/>
-      </hh:fontface>
+      <hh:fontface lang="HANGUL"><hp:font id="0" face="{escape(font)}" type="TTF"/></hh:fontface>
+      <hh:fontface lang="LATIN"><hp:font id="0" face="{escape(font)}" type="TTF"/></hh:fontface>
+      <hh:fontface lang="HANJA"><hp:font id="0" face="{escape(font)}" type="TTF"/></hh:fontface>
     </hh:fontfaces>
     <hh:borderFills>
       <hh:borderFill id="1">
-        <hh:slash type="NONE"/>
-        <hh:backSlash type="NONE"/>
+        <hh:slash type="NONE"/><hh:backSlash type="NONE"/>
         <hh:leftBorder type="NONE" width="0.1mm" color="#000000"/>
         <hh:rightBorder type="NONE" width="0.1mm" color="#000000"/>
         <hh:topBorder type="NONE" width="0.1mm" color="#000000"/>
@@ -144,86 +120,73 @@ def create_hwpx(
         <hp:spacing hangul="0" latin="0" hanja="0"/>
         <hp:relSz hangul="100" latin="100" hanja="100"/>
         <hp:offset hangul="0" latin="0" hanja="0"/>
-        <hp:italic/>
-        <hp:bold/>
-        <hp:underline type="NONE"/>
-        <hp:strikeout type="NONE"/>
-        <hp:outline type="NONE"/>
-        <hp:shadow type="NONE"/>
-        <hp:emboss type="NONE"/>
-        <hp:engrave type="NONE"/>
       </hh:charPr>
-      <hh:charPr id="1" height="{title_font_size}" textColor="#000000">
+      <hh:charPr id="1" height="1600" textColor="#000000">
         <hp:fontRef hangul="0" latin="0" hanja="0"/>
         <hp:ratio hangul="100" latin="100" hanja="100"/>
         <hp:spacing hangul="0" latin="0" hanja="0"/>
         <hp:relSz hangul="100" latin="100" hanja="100"/>
         <hp:offset hangul="0" latin="0" hanja="0"/>
-        <hp:italic/>
         <hp:bold value="true"/>
-        <hp:underline type="NONE"/>
-        <hp:strikeout type="NONE"/>
-        <hp:outline type="NONE"/>
-        <hp:shadow type="NONE"/>
-        <hp:emboss type="NONE"/>
-        <hp:engrave type="NONE"/>
       </hh:charPr>
     </hh:charProperties>
-    <hh:tabProperties>
-      <hh:tabPr id="0" autoTabLeft="0" autoTabRight="0"/>
-    </hh:tabProperties>
+    <hh:tabProperties><hh:tabPr id="0" autoTabLeft="0" autoTabRight="0"/></hh:tabProperties>
     <hh:paraProperties>
-      <hh:paraPr id="0" align="BOTH">
-        <hp:margin indent="0" left="0" right="0"/>
-        <hp:spacing lineSpacing="160" before="0" after="0" lineSpacingType="PERCENT"/>
-      </hh:paraPr>
-      <hh:paraPr id="1" align="CENTER">
-        <hp:margin indent="0" left="0" right="0"/>
-        <hp:spacing lineSpacing="160" before="0" after="200" lineSpacingType="PERCENT"/>
-      </hh:paraPr>
+      <hh:paraPr id="0" align="BOTH"><hp:margin indent="0" left="0" right="0"/><hp:spacing lineSpacing="160" before="0" after="0" lineSpacingType="PERCENT"/></hh:paraPr>
+      <hh:paraPr id="1" align="CENTER"><hp:margin indent="0" left="0" right="0"/><hp:spacing lineSpacing="160" before="0" after="200" lineSpacingType="PERCENT"/></hh:paraPr>
     </hh:paraProperties>
-    <hh:styles>
-      <hh:style id="0" type="PARA" name="Normal" paraPrIDRef="0" charPrIDRef="0"/>
-    </hh:styles>
+    <hh:styles><hh:style id="0" type="PARA" name="Normal" paraPrIDRef="0" charPrIDRef="0"/></hh:styles>
   </hh:refList>
-</hh:head>'''
-
-    section_xml = f'''<?xml version="1.0" encoding="UTF-8"?>
+</hh:head>''',
+        'Contents/section0.xml': f'''<?xml version="1.0" encoding="UTF-8"?>
 <hs:sec xmlns:hs="{HS}" xmlns:hp="{HP}">
   <hp:secPr textDirection="HORIZONTAL" spaceColumns="1134">
-    <hp:pageSize width="{page_width}" height="{page_height}"/>
-    <hp:pageMar left="{margin_left}" right="{margin_right}" top="{margin_top}" bottom="{margin_bottom}" header="{margin_header}" footer="{margin_footer}"/>
+    <hp:pageSize width="59528" height="84188"/>
+    <hp:pageMar left="4252" right="4252" top="5669" bottom="4252" header="4252" footer="4252"/>
   </hp:secPr>
-{para_xml}
+{chr(10).join(parts)}
 </hs:sec>'''
+    }
 
     try:
         out.parent.mkdir(parents=True, exist_ok=True)
-
         with zipfile.ZipFile(out, 'w', zipfile.ZIP_DEFLATED) as zf:
-            # mimetype은 첫 번째, 비압축 (ODF 관례)
-            zf.writestr('mimetype', mimetype, compress_type=zipfile.ZIP_STORED)
-            zf.writestr('version.xml', version_xml)
-            zf.writestr('META-INF/manifest.xml', manifest_xml)
-            zf.writestr('Contents/content.hpf', content_hpf)
-            zf.writestr('Contents/header.xml', header_xml)
-            zf.writestr('Contents/section0.xml', section_xml)
+            zf.writestr('mimetype', files['mimetype'], compress_type=zipfile.ZIP_STORED)
+            for name, content in files.items():
+                if name != 'mimetype':
+                    zf.writestr(name, content)
 
         size_kb = out.stat().st_size / 1024
-        total_paras = len(paragraphs) + (1 if title else 0)
+        total = len(paragraphs) + (1 if title else 0)
         return True, (
             f"Created {output_path}\n"
-            f"  {total_paras}개 단락, {size_kb:.1f} KB"
+            f"  {total}개 단락, {size_kb:.1f} KB (fallback 모드)\n"
+            f"  [권장] pip install python-hwpx 설치 시 더 나은 호환성 제공"
         )
-
     except Exception as e:
         return False, f"Error: 파일 생성 실패 - {e}"
 
 
+def create_hwpx(
+    output_path: str,
+    paragraphs: list[str],
+    title: str = "",
+    font: str = "함초롬돋움",
+    font_size: int = 1000,
+) -> tuple[bool, str]:
+    """HWPX 파일을 생성합니다. python-hwpx 우선, 없으면 내장 폴백."""
+    if HAS_HWPX:
+        return create_hwpx_with_library(output_path, paragraphs, title)
+    else:
+        print("[참고] python-hwpx 미설치. 내장 폴백 모드로 생성합니다.", file=sys.stderr)
+        print("[권장] pip install python-hwpx", file=sys.stderr)
+        return create_hwpx_fallback(output_path, paragraphs, title, font, font_size)
+
+
 def main():
-    parser = argparse.ArgumentParser(description="새 HWPX 파일을 생성합니다")
+    parser = argparse.ArgumentParser(description="HWPX 파일을 생성합니다 (python-hwpx 기반)")
     parser.add_argument("--output", "-o", required=True, help="출력 HWPX 파일 경로")
-    parser.add_argument("--title", help="문서 제목 (첫 번째 단락, 볼드+16pt)")
+    parser.add_argument("--title", help="문서 제목")
     parser.add_argument("--body", help="본문 텍스트")
     parser.add_argument("--paragraphs", nargs="+", help="단락 목록")
     parser.add_argument("--input-file", help="단락이 줄로 구분된 텍스트 파일")
@@ -233,15 +196,11 @@ def main():
 
     args = parser.parse_args()
 
-    # 단락 수집
     paragraphs = []
-
     if args.body:
         paragraphs.append(args.body)
-
     if args.paragraphs:
         paragraphs.extend(args.paragraphs)
-
     if args.input_file:
         try:
             with open(args.input_file, 'r', encoding='utf-8') as f:
@@ -262,12 +221,10 @@ def main():
         args.output,
         paragraphs,
         title=args.title or "",
-        font_hangul=args.font,
-        font_latin=args.font,
+        font=args.font,
         font_size=args.font_size,
     )
     print(message)
-
     if not success:
         sys.exit(1)
 

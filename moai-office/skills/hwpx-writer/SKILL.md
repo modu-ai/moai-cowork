@@ -18,9 +18,15 @@ metadata:
 - 작성 가이드: `references/guide.md`
 - OWPML 스펙: `references/owpml-spec.md`
 
+## 의존성
+
+- `python-hwpx` — HWPX 생성 라이브러리 (권장, `pip install python-hwpx`)
+- 미설치 시 내장 XML 폴백으로 동작하나, 한글 호환성이 제한될 수 있음
+- GitHub: https://github.com/airmang/python-hwpx
+
 ## 실행 스크립트
 
-- `${CLAUDE_SKILL_DIR}/scripts/create_hwpx.py` — HWPX 생성
+- `${CLAUDE_SKILL_DIR}/scripts/create_hwpx.py` — HWPX 생성 (python-hwpx 기반)
 - `${CLAUDE_SKILL_DIR}/scripts/extract_text.py` — 텍스트 추출
 - `${CLAUDE_SKILL_DIR}/scripts/extract_hwp.py` — HWP 변환
 - `${CLAUDE_SKILL_DIR}/scripts/pack.py` — HWPX 패킹
