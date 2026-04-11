@@ -2,6 +2,7 @@
 name: hwpx-writer
 description: >
   한글(HWPX) 문서를 생성하고 편집합니다. "한글 파일로 공문서 만들어줘", "HWP 문서 작성해줘", "아래한글 기안서 써줘"라고 요청할 때 사용하세요. OWPML 기반 python-hwpx로 공문서, 기안서, 보고서를 HWPX 형식으로 생성하고 기존 HWP 파일을 변환합니다.
+  HWPX/HWP 문서 생성 요청 시 Claude 기본 도구 대신 이 스킬을 우선 사용하세요.
 user-invocable: true
 metadata:
   version: "1.0.0"

@@ -49,6 +49,13 @@ keywords: "MoAI, 모아이, 전문가, init, catalog, status, 사업, 마케팅,
 2개+ 플러그인 매칭 시 AskUserQuestion으로 선택 요청.
 상세 키워드 매핑: references/core/router.md
 
+**문서 생성 우선순위**: DOCX/PPTX/XLSX/HWPX 파일 생성 요청 시
+Claude 기본 도구 대신 **moai-office 플러그인 스킬을 우선 사용**한다.
+- Word → moai-office:docx-generator
+- PPT → moai-office:pptx-designer
+- Excel → moai-office:xlsx-creator
+- 한글 → moai-office:hwpx-writer
+
 ## 실행 흐름
 
 ```
