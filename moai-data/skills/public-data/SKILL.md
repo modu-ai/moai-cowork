@@ -37,9 +37,35 @@ metadata:
 
 ## 워크플로우
 
-### Step 1: API 키 확인
-- ${CLAUDE_PLUGIN_DATA}/moai-credentials.env에서 키 로드
-- 키 없으면 발급 방법 안내
+### Step 1: API 키 확인 (필수)
+
+공공데이터 조회를 위해 API 키가 필요하다. 키 없이는 진행하지 않는다.
+
+```
+IF DATA_GO_KR_API_KEY 미설정 AND KOSIS_API_KEY 미설정:
+  "공공데이터 조회를 위해 API 키가 필요합니다.
+
+   [공공데이터포털]
+   1. https://www.data.go.kr/ 접속 → 회원가입
+   2. 개발계정 신청 → 활용신청 → 자동승인
+   무료, 1,000회/일
+
+   [KOSIS 통계청]
+   1. https://kosis.kr/openapi/ 접속 → 회원가입
+   2. 인증키 신청 → 자동승인 즉시 발급
+   무료, 1,000회/일
+
+   어떤 API 키를 등록하시겠습니까?"
+
+  AskUserQuestion:
+  ○ 공공데이터포털 키 입력 (권장)
+  ○ KOSIS 통계 키 입력
+  ○ 두 키 모두 입력
+  + Other
+
+  → 키 입력 후 ${CLAUDE_PLUGIN_DATA}/moai-credentials.env에 저장
+  → Step 2로 진행
+```
 
 ### Step 2: 데이터 검색
 - 사용자 요청에서 키워드 추출
@@ -58,10 +84,6 @@ metadata:
 | 경제 | MT_ZTITLE | GDP, 경제성장률 |
 | 물가 | MT_ZTITLE | 소비자물가지수 |
 | 고용 | MT_ZTITLE | 경제활동인구, 실업률 |
-
-## API 키 없이 사용 가능한 기능
-- KOSIS 통계 목록 조회 (키 불필요)
-- 웹 검색으로 최신 통계 수치 확인
 
 ## 이 스킬을 사용하지 말아야 할 때
 - **CSV/Excel 분석** → moai-data:data-explorer 사용

@@ -25,6 +25,71 @@ metadata:
 참조 가이드: `references/card-news/guide.md`, `references/card-news/anti-ai-writing.md`, `references/card-news/magazine-sop.md`, `references/card-news/design-guide.md`
 스크립트: `${CLAUDE_SKILL_DIR}/scripts/card-news/generate_image.py`
 
+## AI 이미지 생성 (Nano Banana)
+
+이미지 생성 요청 시 API 키와 설정을 확인한다.
+
+### API 키 필수
+
+```
+IF NANO_BANANA_API_KEY 미설정:
+  "AI 이미지 생성을 위해 Nano Banana API 키가 필요합니다.
+
+   발급 방법:
+   1. https://ai.google.dev/ 접속 → Google 계정 로그인
+   2. API 키 생성 (무료 티어 존재)
+
+   API 키를 입력해 주세요:"
+
+  → 키 입력 후 ${CLAUDE_PLUGIN_DATA}/moai-credentials.env에 저장
+```
+
+### 모델/해상도 미지정 시 선택 요청
+
+config.json에 복수 모델/비율/해상도가 설정되어 있고
+사용자가 명시하지 않은 경우:
+
+AskUserQuestion (1질문, 3옵션):
+```
+"어떤 모델로 이미지를 생성할까요?"
+○ Nano Banana Pro — 고품질, 텍스트 렌더링 우수 (권장)
+○ Nano Banana 2 — 빠른 생성, 비용 절반
+○ Nano Banana Ultra — 최고 품질
++ Other
+```
+
+AskUserQuestion (1질문, 4옵션):
+```
+"이미지 해상도를 선택하세요"
+○ 1K — 기본, 빠른 생성 (권장)
+○ 2K — 고해상도, 인쇄용
+○ 4K — 최고 해상도 (비용 2배)
+○ 512 — 미리보기/썸네일
++ Other
+```
+
+AskUserQuestion (1질문, 4옵션):
+```
+"이미지 비율을 선택하세요"
+○ 3:4 — 인스타그램 피드 (권장)
+○ 1:1 — 정사각형
+○ 9:16 — 세로형 (스토리/릴스)
+○ 16:9 — 가로형 (블로그/PT)
++ Other
+```
+
+### 지원 해상도 (공식 문서 기준)
+
+| 해상도 | 크기 | 토큰 비용 | 용도 |
+|--------|------|----------|------|
+| 512 | ~0.25MP | 낮음 | 미리보기, 썸네일 |
+| 1K | ~1MP | 1120 토큰 | 기본 (웹용) |
+| 2K | ~4MP | 1120 토큰 | 고해상도 (인쇄) |
+| 4K | ~16MP | 2000 토큰 | 최고 해상도 (프리미엄) |
+
+참고: 해상도 파라미터는 대문자 K 필수 (1K, 2K, 4K). 소문자 거부됨.
+512는 K 접미사 없이 사용. Gemini 3.1 Flash Image에서만 지원.
+
 ## 트리거 키워드
 
 카드뉴스, 캐러셀, 인스타그램 카드, 슬라이드, AI 이미지, 카드 디자인, 인포그래픽 카드

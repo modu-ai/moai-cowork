@@ -309,20 +309,38 @@ Nano Banana API 키가 등록된 경우 (기존 또는 신규), 사용할 모델
 + Other ("건너뛰기 — 3:4만 사용")
 ```
 
+**이미지 해상도 선택** — AskUserQuestion (1질문, 4옵션) ✅
+
+```
+"이미지 생성 해상도를 선택하세요"
+
+○ 1K — 기본 해상도, 빠른 생성 (권장)
+○ 2K — 고해상도, 인쇄용
+○ 4K — 최고 해상도, 프리미엄 (비용 2배)
+○ 512 — 저해상도, 미리보기/썸네일용
++ Other ("1K만 사용")
+```
+
 **저장**: config.json의 nano_banana 필드에 기록:
 ```json
 "nano_banana": {
   "models": ["nano-banana-pro", "nano-banana-2"],
   "default_model": "nano-banana-pro",
   "ratios": ["3:4", "1:1", "9:16"],
-  "default_ratio": "3:4"
+  "default_ratio": "3:4",
+  "resolutions": ["1K", "2K"],
+  "default_resolution": "1K"
 }
 ```
 
 **실행 시 동작**:
-- 모델/비율이 **1개만 설정**: 자동 사용 (질문 없음)
-- 모델/비율이 **복수 설정** + 사용자 미지정: AskUserQuestion으로 선택 요청
+- 모델/비율/해상도가 **1개만 설정**: 자동 사용 (질문 없음)
+- **복수 설정** + 사용자 미지정: AskUserQuestion으로 선택 요청:
+  - "어떤 모델로 생성할까요?" (Pro/2/Ultra)
+  - "이미지 비율은?" (3:4/1:1/9:16/16:9)
+  - "해상도는?" (512/1K/2K/4K)
 - 사용자가 명시한 경우: 명시된 값 사용 (질문 없음)
+- **API 키 필수**: 키 없으면 생성 진행 안 됨 → 키 입력 안내
 
 ### 3-3. API 키 저장 (글로벌 공유)
 
@@ -444,7 +462,9 @@ ${CLAUDE_PLUGIN_DATA}/
     "models": ["nano-banana-pro", "nano-banana-2"],
     "default_model": "nano-banana-pro",
     "ratios": ["3:4", "1:1"],
-    "default_ratio": "3:4"
+    "default_ratio": "3:4",
+    "resolutions": ["1K", "2K"],
+    "default_resolution": "1K"
   },
   "evolution": {
     "cycle_count": 0,
@@ -547,6 +567,7 @@ execution-protocol.md: 컨텍스트 로드 시도
 | Phase 3-2 기존 키 | 조건부 | 2 | ✅ |
 | Phase 3-2.5 모델 | 조건부 | 3 (multiSelect) | ✅ |
 | Phase 3-2.5 비율 | 조건부 | 4 (multiSelect) | ✅ |
+| Phase 3-2.5 해상도 | 조건부 | 4 | ✅ |
 | 키 입력 | 텍스트 | N/A | ✅ (대화형) |
 
-**총 AskUserQuestion 호출: 최대 8회** (Nano Banana 설정 포함)
+**총 AskUserQuestion 호출: 최대 9회** (Nano Banana 설정 포함)

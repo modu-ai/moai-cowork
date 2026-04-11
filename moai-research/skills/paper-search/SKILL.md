@@ -31,6 +31,25 @@ RISS, KCI, DBpia, Google Scholar 등에서 학술 논문을 통합 검색하고 
 
 ## 워크플로우
 
+### Step 0: API 키 확인 (필수)
+
+KCI 논문 검색 API 키가 없으면 API 기반 검색을 진행하지 않는다.
+(RISS, DBpia, Google Scholar는 웹검색으로 키 없이 사용 가능)
+
+```
+IF KCI_API_KEY 미설정:
+  "KCI 논문 검색을 위해 API 키가 필요합니다.
+
+   발급 방법 (간편):
+   1. https://www.data.go.kr/data/3049042/openapi.do 접속
+   2. 활용신청 → 자동승인 → 키 발급
+
+   API 키를 입력해 주세요 (또는 '건너뛰기'로 웹검색만 사용):"
+
+  → '건너뛰기' 시: RISS/DBpia/Google Scholar 웹검색으로 진행
+  → 키 입력 시: ${CLAUDE_PLUGIN_DATA}/moai-credentials.env에 KCI_API_KEY 저장
+```
+
 ### Step 1: 검색 전략 수립
 - 핵심 키워드 추출 (한국어 + 영어)
 - 검색 범위 결정 (국내/해외, 연도)
