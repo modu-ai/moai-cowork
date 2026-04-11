@@ -56,7 +56,22 @@ Claude 기본 도구 대신 **moai-office 플러그인 스킬을 우선 사용**
 - Excel → moai-office:xlsx-creator
 - 한글 → moai-office:hwpx-writer
 
-## 실행 흐름
+## 실행 플로우 (Interview → Plan → Confirm → Execute)
+
+멀티스텝 작업은 반드시 아래 4단계를 따른다:
+
+```
+1. [Interview] 소크라테스 인터뷰로 빠진 맥락 수집 (최대 3개 질문)
+2. [Summary] 수집한 맥락을 구조화하여 사용자에게 확인 요약
+3. [Plan+Confirm] 실행 계획 제시 → AskUserQuestion으로 최종 승인
+4. [Execute] 순차/병렬 에이전트로 계획 실행 → 품질 검증 → 전달
+```
+
+스킵 조건: 단순 조회, 이미 상세 지시, "빠르게" 명시, 후속 요청
+
+상세: references/core/execution-protocol.md
+
+## 세션 부트 흐름
 
 ```
 1. ${CLAUDE_PLUGIN_DATA}/moai-profile.md 로드 (프로필)
