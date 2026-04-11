@@ -42,7 +42,8 @@ metadata:
 
 ## 실행 스크립트
 
-- `${CLAUDE_SKILL_DIR}/scripts/create_hwpx.py` — HWPX 생성 (python-hwpx 기반)
+- `${CLAUDE_SKILL_DIR}/scripts/create_hwpx.py` — HWPX 새 문서 생성
+- `${CLAUDE_SKILL_DIR}/scripts/fill_template.py` — HWPX 양식 채우기 (레이아웃 보존)
 - `${CLAUDE_SKILL_DIR}/scripts/extract_text.py` — 텍스트 추출
 - `${CLAUDE_SKILL_DIR}/scripts/extract_hwp.py` — HWP 변환
 - `${CLAUDE_SKILL_DIR}/scripts/pack.py` — HWPX 패킹
