@@ -29,3 +29,8 @@
 ## 설치
 
 Settings > Plugins > moai-cowork-plugins에서 `moai-lifestyle` 선택
+
+## 참고자료
+
+- [Anthropic 플러그인 가이드](https://code.claude.com/docs/en/plugins)
+- [MoAI 마켓플레이스](https://github.com/modu-ai/cowork-plugins)

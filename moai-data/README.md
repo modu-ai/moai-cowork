@@ -31,3 +31,12 @@
 ## 설치
 
 Settings > Plugins > moai-cowork-plugins에서 `moai-data` 선택
+
+## 참고자료
+
+| 항목 | URL | 용도 |
+|------|-----|------|
+| [공공데이터포털](https://www.data.go.kr/) | 공식 API | 공공데이터 조회 |
+| [KOSIS OpenAPI](https://kosis.kr/openapi/) | 공식 API | 통계청 데이터 |
+| [data-go-mcp-servers](https://github.com/Koomook/data-go-mcp-servers) | 오픈소스 | 공공데이터 MCP |
+| [KOSIS 개발가이드](https://kosis.kr/openapi/file/openApi_manual_v1.0.pdf) | 공식 문서 | API 사용법 |

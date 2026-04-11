@@ -44,3 +44,10 @@
 ## 설치
 
 Settings > Plugins > moai-cowork-plugins에서 `moai-legal` 선택
+
+## 참고자료
+
+| 항목 | URL | 용도 |
+|------|-----|------|
+| [korean-law-mcp](https://korean-law-mcp.fly.dev/) | MCP 서버 | 법령/판례 검색 |
+| [국가법령정보센터](https://www.law.go.kr/) | 공식 | 법령/판례 원문 |

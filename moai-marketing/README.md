@@ -39,3 +39,11 @@
 ## 설치
 
 Settings > Plugins > moai-cowork-plugins에서 `moai-marketing` 선택
+
+## 참고자료
+
+| 항목 | URL |
+|------|-----|
+| [네이버 서치어드바이저](https://searchadvisor.naver.com/) | 네이버 SEO |
+| [카카오 비즈니스](https://business.kakao.com/) | 카카오 채널 마케팅 |
+| [Google Search Console](https://search.google.com/search-console) | 구글 SEO |

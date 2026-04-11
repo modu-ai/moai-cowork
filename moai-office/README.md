@@ -46,3 +46,21 @@ KPI 대시보드 엑셀로 만들어줘. 차트랑 조건부 서식 포함.
 ## 설치
 
 Settings > Plugins > moai-cowork-plugins에서 `moai-office` 선택
+
+## 오픈소스 및 의존성
+
+| 패키지 | 용도 | 설치 | 라이센스 |
+|--------|------|------|---------|
+| [python-hwpx](https://github.com/airmang/python-hwpx) | HWPX 생성/편집/양식채우기 | `pip install python-hwpx` | Custom |
+| [openpyxl](https://openpyxl.readthedocs.io/) | Excel(XLSX) 생성 | `pip install openpyxl` | MIT |
+| [python-pptx](https://python-pptx.readthedocs.io/) | PPT 이미지 삽입 | `pip install python-pptx` | MIT |
+| [olefile](https://olefile.readthedocs.io/) | HWP 바이너리 추출 | `pip install olefile` | BSD |
+| [lxml](https://lxml.de/) | XML 파싱 (python-hwpx 의존) | 자동 설치 | BSD |
+| [pptxgenjs](https://gitbrent.github.io/PptxGenJS/) | PPT 슬라이드 생성 | npm/인라인 | MIT |
+| [Deno](https://deno.land/) | DOCX TypeScript 스크립트 | 별도 설치 | MIT |
+
+### 참고 문서
+- [한컴테크 HWPX 포맷 구조](https://tech.hancom.com/hwpxformat/)
+- [OWPML 스펙 (KS X 6101)](https://www.hancom.com/support/downloadCenter/hwpOwpml)
+- [python-hwpx GitHub](https://github.com/airmang/python-hwpx)
+- [hwpx-skill (양식 채우기)](https://github.com/airmang/hwpx-skill)

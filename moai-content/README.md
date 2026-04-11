@@ -48,3 +48,26 @@ SaaS 제품 랜딩 페이지 만들어줘. 히어로 섹션부터 CTA까지.
 ## 설치
 
 Settings > Plugins > moai-cowork-plugins에서 `moai-content` 선택
+
+## 오픈소스 및 참고자료
+
+### MCP 서버
+| 서버 | URL | 용도 |
+|------|-----|------|
+| WordPress | [mcp.wordpress.com](https://mcp.wordpress.com/mcp) | 블로그 발행 |
+| Post-Bridge | [post-bridge.com](https://app.post-bridge.com/mcp) | 멀티플랫폼 발행 |
+| Typefully | [typefully.com](https://api.typefully.com/mcp) | X/Twitter 스레드 |
+
+### AI 이미지 생성
+| 모델 | API | 문서 |
+|------|-----|------|
+| Nano Banana Pro | [ai.google.dev](https://ai.google.dev/gemini-api/docs/image-generation) | Imagen 4 고품질 |
+| Nano Banana 2 | 동일 | Imagen 4 Fast (빠른 생성) |
+| Nano Banana Ultra | 동일 | Imagen 4 Ultra (최고 품질) |
+
+### 영상 제작
+| 패키지 | URL | 용도 |
+|--------|-----|------|
+| [Remotion](https://www.remotion.dev/) | remotion.dev | React 기반 영상 프레임워크 |
+| [Three.js](https://threejs.org/) | threejs.org | 3D 그래픽 |
+| [ElevenLabs](https://elevenlabs.io/) | elevenlabs.io | AI 음성 합성 (TTS) |

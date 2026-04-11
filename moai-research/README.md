@@ -24,3 +24,14 @@
 ## 설치
 
 Settings > Plugins > moai-cowork-plugins에서 `moai-research` 선택
+
+## 참고자료
+
+| 항목 | URL | 용도 |
+|------|-----|------|
+| [KIPRIS Plus](https://plus.kipris.or.kr/) | 공식 API | 특허/실용신안 검색 |
+| [KIPRIS 개발가이드](https://plus.kipris.or.kr/portal/bbs/view.do?nttId=1060&bbsId=B0000001) | 공식 문서 | API 사용법 |
+| [KCI 논문정보 API](https://www.data.go.kr/data/3049042/openapi.do) | data.go.kr | 학술 논문 검색 |
+| [KCI Open API](https://www.kci.go.kr/kciportal/po/openapi/openApiConnView.kci) | 공식 | 논문 직접 검색 |
+| [RISS](https://www.riss.kr/) | 공식 | 학위논문/학술정보 |
+| [DBpia](https://www.dbpia.co.kr/) | 민간 | 학술지 논문 플랫폼 |

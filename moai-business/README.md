@@ -42,3 +42,11 @@
 ## 설치
 
 Settings > Plugins > moai-cowork-plugins에서 `moai-business` 선택
+
+## 참고자료
+
+| 항목 | URL | 용도 |
+|------|-----|------|
+| [DART-mcp-server](https://github.com/snaiws/DART-mcp-server) | 오픈소스 MCP | 전자공시 조회 |
+| [DART OpenAPI](https://opendart.fss.or.kr/) | 공식 API | 기업 공시/재무제표 |
+| [dartpoint-mcp](https://github.com/dartpointai/dartpoint-mcp) | 대안 MCP | 기업 분석 리포트 |

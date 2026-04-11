@@ -81,6 +81,50 @@ Claude Cowork에서 플러그인 설치:
 - 네이버 C-Rank, GEO, 카카오모먼트 등 플랫폼 알고리즘
 - K-IFRS 제1118호, 4대보험 요율, 최저임금 기준
 
+## 오픈소스 및 참고자료
+
+### Python 라이브러리
+| 패키지 | 용도 | 라이센스 | 플러그인 |
+|--------|------|---------|---------|
+| [python-hwpx](https://github.com/airmang/python-hwpx) | HWPX 문서 생성/편집 | Custom (비상업) | moai-office |
+| [openpyxl](https://openpyxl.readthedocs.io/) | Excel(XLSX) 생성/편집 | MIT | moai-office |
+| [python-docx](https://python-docx.readthedocs.io/) | Word(DOCX) 생성/편집 | MIT | moai-office |
+| [python-pptx](https://python-pptx.readthedocs.io/) | PPT(PPTX) 생성/편집 | MIT | moai-office |
+| [olefile](https://olefile.readthedocs.io/) | HWP 바이너리 추출 | BSD | moai-office |
+| [lxml](https://lxml.de/) | XML 파싱 | BSD | moai-office |
+
+### JavaScript/TypeScript
+| 패키지 | 용도 | 라이센스 | 플러그인 |
+|--------|------|---------|---------|
+| [pptxgenjs](https://gitbrent.github.io/PptxGenJS/) | PPT 슬라이드 생성 | MIT | moai-office |
+| [Remotion](https://www.remotion.dev/) | 영상 제작 프레임워크 | Business Source | moai-content |
+| [Deno](https://deno.land/) | TypeScript 런타임 | MIT | moai-office |
+
+### MCP 서버 (커스텀)
+| 서버 | 소스 | 용도 | 플러그인 |
+|------|------|------|---------|
+| [DART-mcp-server](https://github.com/snaiws/DART-mcp-server) | 오픈소스 | 기업 공시 조회 | moai-business |
+| [korean-law-mcp](https://korean-law-mcp.fly.dev/) | 커뮤니티 | 법령/판례 검색 | moai-legal |
+| [WordPress MCP](https://mcp.wordpress.com/) | 공식 | 블로그 발행 | moai-content |
+
+### 공공 API
+| API | URL | 용도 | 플러그인 |
+|-----|-----|------|---------|
+| DART OpenAPI | [opendart.fss.or.kr](https://opendart.fss.or.kr/) | 기업 공시/재무제표 | moai-business |
+| 공공데이터포털 | [data.go.kr](https://www.data.go.kr/) | 공공데이터 조회 | moai-data |
+| KOSIS | [kosis.kr](https://kosis.kr/) | 통계청 데이터 | moai-data |
+| KIPRIS Plus | [plus.kipris.or.kr](https://plus.kipris.or.kr/) | 특허 검색 | moai-research |
+| KCI | [kci.go.kr](https://www.kci.go.kr/) | 논문 검색 | moai-research |
+| 국가법령정보 | [law.go.kr](https://www.law.go.kr/) | 법령/판례 | moai-legal |
+| Nano Banana | [ai.google.dev](https://ai.google.dev/) | AI 이미지 생성 | moai-content |
+
+### 표준 및 규격
+| 표준 | 설명 |
+|------|------|
+| [OWPML (KS X 6101)](https://www.hancom.com/support/downloadCenter/hwpOwpml) | 개방형 워드프로세서 마크업 언어 (HWPX 기반) |
+| [OOXML (ISO/IEC 29500)](https://www.iso.org/standard/71691.html) | Office Open XML (DOCX/PPTX/XLSX 기반) |
+| [ODF](https://www.oasis-open.org/) | Open Document Format (HWPX manifest 기반) |
+
 ## 라이선스
 
 MIT

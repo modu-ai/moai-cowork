@@ -30,3 +30,10 @@ K-IFRS 기준으로 분기 재무제표 만들어줘
 ## 설치
 
 Settings > Plugins > moai-cowork-plugins에서 `moai-finance` 선택
+
+## 참고자료
+
+| 항목 | URL |
+|------|-----|
+| [홈택스](https://www.hometax.go.kr/) | 국세청 세금 신고/조회 |
+| [K-IFRS 공시](https://www.kasb.or.kr/) | 한국회계기준원 |
