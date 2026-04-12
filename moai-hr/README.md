@@ -13,12 +13,6 @@
 | [draft-offer](./skills/draft-offer/) | 채용 제안서, 연봉 구조 최적화, 4대보험 공제 계산, 스톡옵션 조항 | 0 | ✅ |
 | [performance-review](./skills/performance-review/) | MBO/OKR/KPI 체계, 360도 평가 설계, 인사 고과, 피드백 면담 스크립트 | 0 | ✅ |
 
-## 에이전트
-
-| 에이전트 | 모델 | 역할 |
-|---------|:----:|------|
-| korean-tone-reviewer | Haiku | 직급별 경어 사용 및 비즈니스 톤 적절성 검토. moai-support, moai-business 등에서 공유 호출 |
-
 ## 사용 예시
 
 ```

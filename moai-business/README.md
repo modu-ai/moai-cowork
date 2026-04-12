@@ -13,12 +13,6 @@
 | [investor-relations](./skills/investor-relations/) | IR 덱, 피칭 자료, 매출 예측, 손익분석, 현금흐름 모델 | 2 | ✅ |
 | [daily-briefing](./skills/daily-briefing/) | 업계 뉴스, 시장 동향, 경쟁사 모니터링, KPI 대시보드 브리핑 | 0 | ✅ |
 
-## 에이전트
-
-| 에이전트 | 모델 | 역할 |
-|---------|:----:|------|
-| market-researcher | Sonnet | DART/KOSIS/네이버 데이터랩 기반 시장 데이터 자율 수집. moai-product 등에서 공유 호출 |
-
 ## MCP 커넥터
 
 | 서버 | 용도 |

@@ -13,13 +13,6 @@ Pretendard+명조 기반 한국형 디자인과 OWPML 표준을 지원합니다.
 | [docx-generator](./skills/docx-generator/) | python-docx 기반 보고서, 계약서, 공문서, 제안서 DOCX 생성 | 0 | ✅ |
 | [xlsx-creator](./skills/xlsx-creator/) | openpyxl 기반 데이터 표, 차트, 수식, 조건부 서식 XLSX 생성 | 0 | ✅ |
 
-## 에이전트
-
-| 에이전트 | 모델 | 역할 |
-|---------|:----:|------|
-| document-generator | Sonnet | 500단어 이상 장문 비즈니스 문서 생성. moai-business, moai-legal 등에서 공유 호출 |
-| format-converter | Sonnet | HWPX/PPTX/DOCX/XLSX 파일 형식 변환, 템플릿 기반 생성. 전 플러그인에서 공유 호출 |
-
 ## 스크립트
 
 | 디렉토리 | 용도 |

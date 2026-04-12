@@ -32,7 +32,7 @@ Claude Cowork 도메인 전문가 AI 마켓플레이스.
 | 플러그인 | 16 |
 | 스킬 | 64 |
 | 레퍼런스 파일 | 167 |
-| 에이전트 | 7 |
+| 에이전트 | 0 |
 | MCP 서버 | 5 |
 | 스크립트 | 16 |
 | 템플릿 | 8 |
@@ -113,8 +113,6 @@ modu-ai/cowork-plugins
 
 - 소크라테스 인터뷰로 사용자 의도를 정확히 파악한 뒤 계획을 수립하고 실행합니다
 - 산출물 품질 검증 루프(파일 유효성 → 내용 완전성 → AI 슬롭 검수)를 자동 수행합니다
-- 공유 에이전트: `quality-evaluator` (전 플러그인에서 호출 가능)
-
 ---
 
 ### moai-business — 비즈니스 전략
@@ -295,19 +293,18 @@ Airtable/Google Sheets 커넥터로 데이터를 직접 분석합니다.
 
 ---
 
-## 에이전트 공유 호출
+## 스킬 간 공유 기능
 
-플러그인 간 에이전트를 공유 호출할 수 있습니다:
+각 스킬의 references에 전문 기능이 포함되어 있으며, CLAUDE.md 생성 시 순차/병렬 실행 지시가 자동으로 작성됩니다.
 
-| 에이전트 | 소속 | 공유 대상 |
-|---------|------|----------|
-| quality-evaluator | moai-core | 전 플러그인 |
-| market-researcher | moai-business | moai-product 등 |
-| content-creator | moai-marketing | moai-business 등 |
-| compliance-checker | moai-legal | moai-finance, moai-hr 등 |
-| korean-tone-reviewer | moai-hr | moai-support, moai-business 등 |
-| document-generator | moai-office | moai-business, moai-legal 등 |
-| format-converter | moai-office | 전 플러그인 |
+| 기능 | 소속 스킬 | 공유 대상 |
+|------|----------|----------|
+| 품질 검증 (PASS/FAIL) | moai-core/moai | 전 플러그인 |
+| 시장 데이터 수집 | moai-business/market-analyst | moai-product 등 |
+| 콘텐츠 생성 | moai-marketing/sns-content | moai-business 등 |
+| 컴플라이언스 체크 | moai-legal/compliance-check | moai-finance, moai-hr 등 |
+| 경어/톤 검토 | moai-hr/employment-manager | moai-support, moai-business 등 |
+| 문서 변환 | moai-office/hwpx-writer | 전 플러그인 |
 
 ## 기술 특징
 

@@ -106,21 +106,37 @@ moai-{installed_skill} → references/harness/{harness_id}.md
 | 세금 계산 | moai-finance | 3.3%, 부가세, 홈택스 |
 | 전략 분석 | moai-business | 시장조사, 재무모델, 경쟁분석 |
 
+## 실행 방식
+
+### 순차 실행 (기본)
+이전 단계 결과가 다음 단계 입력인 경우:
+1. 조사/분석 → 2. 초안 작성 → 3. 품질 검증 → 4. 최종 산출물
+
+### 병렬 실행
+독립적인 작업이 2개 이상인 경우 동시 진행:
+- 시장조사 + 경쟁사 분석 (동시) → 통합 보고서
+- 카드뉴스 텍스트 + 이미지 생성 (동시) → 합성
+
+### 복합 스킬 연계
+2개+ 스킬이 필요한 작업:
+- "사업계획서 PPT로 만들어줘" → moai-business (내용) → moai-office (PPT 변환)
+- "계약서 검토하고 한글로 저장" → moai-legal (검토) → moai-office (HWPX 저장)
+
+### 품질 검증 루프
+모든 산출물 생성 후 자동 검증:
+- Layer 1: 파일 유효성 (ZIP 구조, 필수 요소)
+- Layer 1.5: 마크다운 렌더링 버그 (볼드 별표 노출 등)
+- Layer 1.6: AI 슬롭 단어 검수 (혁신적, 패러다임 등)
+- Layer 2: 사용자 요청 대비 내용 완전성
+- FAIL 시: 수정 → 재검증 (최대 3회)
+
 ## 딥씽킹 모드
 복잡한 작업이나 --deepthink 키워드가 있으면
 Claude가 단계별 심층 분석을 수행합니다.
 
-**자동 트리거**: 다단계 분석, 법률/세무 판단, 2개+ 스킬 복합 작업
-
 ## 참조 경로
 - 프로필: Claude 메모리의 moai-profile.md
 - 설정: .moai/config.json
-- 맥락: .moai/context.md
-- 진화: .moai/evolution/
-
-## 자기 개선
-매 세션 종료 시 작업 품질을 반성하고
-.moai/evolution/reflections/에 기록합니다.
 ```
 
 ---

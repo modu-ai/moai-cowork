@@ -16,12 +16,6 @@
 | [email-sequence](./skills/email-sequence/) | 정보통신망법 준수 이메일 시퀀스, 드립 캠페인, 온보딩/재활성화 | 0 | ✅ |
 | [performance-report](./skills/performance-report/) | GA4/메타/네이버/카카오모먼트 채널별 ROAS 분석, KPI 대시보드 | 0 | ✅ |
 
-## 에이전트
-
-| 에이전트 | 모델 | 역할 |
-|---------|:----:|------|
-| content-creator | Sonnet | 채널별 최적화 마케팅 콘텐츠 생성. moai-business 등에서 공유 호출 |
-
 ## 사용 예시
 
 ```
