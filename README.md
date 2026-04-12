@@ -96,13 +96,13 @@ modu-ai/cowork-plugins
 약 3분 내 완료. 이후 자연어로 요청하면 자동 라우팅됩니다:
 
 ```
-"사업계획서 써줘"        → moai-business
-"PPT 만들어줘"           → moai-office
-"계약서 검토해줘"        → moai-legal
-"세금 계산해줘"          → moai-finance
-"카드뉴스 만들어줘"      → moai-content
-"데이터 분석해줘"        → moai-data
-"특허 찾아줘"            → moai-research
+"사업계획서 써줘"        → Skill(strategy-planner) 자동실행
+"PPT 만들어줘"           → Skill(pptx-designer) 자동실행
+"계약서 검토해줘"        → Skill(contract-review) 자동실행
+"세금 계산해줘"          → Skill(tax-helper) 자동실행
+"카드뉴스 만들어줘"      → Skill(card-news) 자동실행
+"데이터 분석해줘"        → Skill(data-explorer) 자동실행
+"특허 찾아줘"            → Skill(patent-search) 자동실행
 ```
 
 ## 플러그인 상세 소개
