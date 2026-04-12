@@ -74,7 +74,7 @@ Claude 기본 도구 대신 **moai-office 플러그인 스킬을 우선 사용**
 ## 세션 부트 흐름
 
 ```
-1. Claude 메모리에서 moai-profile.md 로드 (프로필)
+1. 글로벌 지침에서 [MoAI 프로필] 로드 (없으면 프로젝트 메모리)
 2. .moai/config.json 로드 (프로젝트 설정)
 3. 라우팅 → 해당 플러그인 스킬 트리거
 4. 스킬의 references/harness/ 로드 → 워크플로우 실행
@@ -82,8 +82,8 @@ Claude 기본 도구 대신 **moai-office 플러그인 스킬을 우선 사용**
 
 ## 프로필 저장
 
-- **글로벌 프로필**: Claude 메모리 `moai-profile.md` (프로젝트 메모리에 영구 저장)
-- **API 키**: Claude 메모리 `moai-credentials.env` (프로젝트 메모리에 영구 저장)
+- **글로벌 프로필**: Cowork 글로벌 지침 `[MoAI 프로필]` (모든 프로젝트 공유)
+- **API 키**: 프로젝트 메모리 `moai-credentials.env` (프로젝트별)
 - **프로젝트 설정**: `.moai/config.json` (프로젝트별)
 - **CLAUDE.md**: `./CLAUDE.md` (프로젝트별, ≤ 200라인)
 
