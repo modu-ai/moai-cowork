@@ -254,43 +254,31 @@ AskUserQuestion (1질문, 최대 4옵션, multiSelect) ✅
 
 선택된 플러그인 중 API 키가 필요한 것이 있으면, API 키 등록을 안내한다.
 
-**주의: 아래 목록에 있는 서비스만 안내한다. 네이버 API 등 목록에 없는 서비스는 안내하지 않는다.**
+**주의: 아래 4개 서비스만 안내한다. 네이버 API, 구글 검색 API 등 목록에 없는 서비스는 절대 안내하지 않는다.**
 
-**API 키 필요 플러그인 (이 목록만 해당):**
+**API 키 목록 (4개만 해당):**
 
-| 플러그인 | 서비스 | 환경변수 | 용도 | 발급처 |
-|---------|--------|---------|------|--------|
-| moai-content | Nano Banana | NANO_BANANA_API_KEY | AI 이미지 생성 | ai.google.dev |
-| moai-business | DART 전자공시 | DART_API_KEY | 기업 공시/재무제표 | opendart.fss.or.kr |
-| moai-legal | 국가법령정보 | KOREAN_LAW_OC | 법령/판례 검색 | law.go.kr |
-| moai-data | 공공데이터포털 | DATA_GO_KR_API_KEY | 공공데이터 조회 | data.go.kr |
-| moai-data | KOSIS 통계 | KOSIS_API_KEY | 통계청 데이터 | kosis.kr/openapi |
-| moai-research | KIPRIS Plus | KIPRIS_API_KEY | 특허 검색 | plus.kipris.or.kr |
-| moai-research | KCI 논문 | KCI_API_KEY | 논문 검색 | data.go.kr (KCI) |
+| # | 서비스 | 환경변수 | 용도 | 발급처 |
+|---|--------|---------|------|--------|
+| 1 | 공공데이터포털 | DATA_GO_KR_API_KEY | 공공데이터/KOSIS 통계/KCI 논문 조회 | data.go.kr |
+| 2 | KIPRIS Plus | KIPRIS_API_KEY | 특허/실용신안 검색 | plus.kipris.or.kr |
+| 3 | 국가법령정보 | KOREAN_LAW_OC | 법령/판례 검색 | law.go.kr |
+| 4 | Nano Banana | NANO_BANANA_API_KEY | AI 이미지 생성 | ai.google.dev |
 
-해당 서비스가 **2개 이상**이면 AskUserQuestion:
+참고: 공공데이터포털 키 1개로 KOSIS 통계 + KCI 논문 API를 모두 사용 가능.
 
-AskUserQuestion (1질문, 최대 4옵션, multiSelect) ✅
+AskUserQuestion (1질문, 4옵션, multiSelect) ✅
 
 ```
-[설치된 플러그인에서 API 키 필요 서비스만 추출, 최대 4개씩 페이지네이션]
+[4개 서비스 한 번에 표시 — 페이지네이션 불필요]
 
-"API 키를 등록할 서비스를 선택하세요 (나중에 등록 가능)"
+"API 키를 등록할 서비스를 선택하세요 (복수 선택 가능, 나중에 등록 가능)"
 
-[페이지 1 — 4개]
-☐ DART 전자공시 — 기업 공시, 재무제표 (opendart.fss.or.kr)
-☐ 공공데이터포털 — 공공 API 조회 (data.go.kr)
-☐ KOSIS 통계 — 통계청 데이터 (kosis.kr)
-☐ KIPRIS Plus — 특허 검색 (plus.kipris.or.kr)
-+ Other ("더 보기 / 건너뛰기")
-
-[페이지 2 — 나머지]
-☐ KCI 논문 — 학술 논문 검색 (data.go.kr 경유)
-☐ 법령 정보 — 법령/판례 검색 (law.go.kr)
+☐ 공공데이터포털 — 공공데이터/KOSIS 통계/KCI 논문 (data.go.kr)
+☐ KIPRIS Plus — 특허/실용신안 검색 (plus.kipris.or.kr)
+☐ 국가법령정보 — 법령/판례 검색 (law.go.kr)
 ☐ Nano Banana — AI 이미지 생성 (ai.google.dev)
 + Other ("건너뛰기 — 나중에 /moai apikey로 등록")
-
-※ 설치되지 않은 플러그인의 서비스는 표시하지 않는다
 ```
 
 해당 서비스가 **1개만**이면 AskUserQuestion으로 직접 안내:
@@ -564,15 +552,25 @@ Phase 0 (프로필 감지) → Phase 2-3 스킵 → Phase 4 (CLAUDE.md 생성)
 /moai apikey
 ```
 
-기존 등록된 API 키를 조회/변경/추가한다.
+4개 API 키를 조회/변경/추가한다.
 
 ```
 AskUserQuestion (1질문, 4옵션):
+"어떤 API 키를 관리하시겠습니까?"
+
+○ 공공데이터포털 — 공공데이터/KOSIS/KCI (data.go.kr)
+○ KIPRIS Plus — 특허/실용신안 (plus.kipris.or.kr)
+○ 국가법령정보 — 법령/판례 (law.go.kr)
+○ Nano Banana — AI 이미지 생성 (ai.google.dev)
++ Other
+
+→ 선택 후:
+AskUserQuestion (1질문, 3옵션):
 "어떤 작업을 하시겠습니까?"
 
-○ 등록된 키 조회 — 현재 설정된 API 키 목록
-○ 키 추가/변경 — 새 API 키 입력 또는 기존 변경
-○ 키 삭제 — 등록된 API 키 제거
+○ 키 조회 — 현재 등록된 키 확인 (마스킹 표시)
+○ 키 변경 — 새 API 키로 교체
+○ 키 삭제 — 등록된 키 제거
 + Other
 ```
 
