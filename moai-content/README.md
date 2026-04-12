@@ -47,7 +47,7 @@ SaaS 제품 랜딩 페이지 만들어줘. 히어로 섹션부터 CTA까지.
 
 ## 설치
 
-Settings > Plugins > moai-cowork-plugins에서 `moai-content` 선택
+Settings > Plugins > cowork-plugins에서 `moai-content` 선택
 
 ## 오픈소스 및 참고자료
 

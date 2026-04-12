@@ -28,7 +28,7 @@ IT 장비 구매 SOP 작성해줘. 100만원 이상은 팀장 결재, 500만원 
 
 ## 설치
 
-Settings > Plugins > moai-cowork-plugins에서 `moai-operations` 선택
+Settings > Plugins > cowork-plugins에서 `moai-operations` 선택
 
 ## 참고자료
 

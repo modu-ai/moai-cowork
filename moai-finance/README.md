@@ -29,7 +29,7 @@ K-IFRS 기준으로 분기 재무제표 만들어줘
 
 ## 설치
 
-Settings > Plugins > moai-cowork-plugins에서 `moai-finance` 선택
+Settings > Plugins > cowork-plugins에서 `moai-finance` 선택
 
 ## 참고자료
 

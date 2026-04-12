@@ -1,4 +1,4 @@
-# Contributing to moai-cowork-plugins
+# Contributing to cowork-plugins
 
 ## 새 플러그인 추가
 

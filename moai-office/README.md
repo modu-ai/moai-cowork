@@ -45,7 +45,7 @@ KPI 대시보드 엑셀로 만들어줘. 차트랑 조건부 서식 포함.
 
 ## 설치
 
-Settings > Plugins > moai-cowork-plugins에서 `moai-office` 선택
+Settings > Plugins > cowork-plugins에서 `moai-office` 선택
 
 ## 오픈소스 및 의존성
 

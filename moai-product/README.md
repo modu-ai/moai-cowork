@@ -28,7 +28,7 @@ R&D 과제 신청서 초안 작성해줘. AI 기반 문서 자동화 기술.
 
 ## 설치
 
-Settings > Plugins > moai-cowork-plugins에서 `moai-product` 선택
+Settings > Plugins > cowork-plugins에서 `moai-product` 선택
 
 ## 참고자료
 

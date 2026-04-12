@@ -35,7 +35,7 @@ MoAI 코어 플러그인 — 도메인 AI 라우터, 초기화, 자가학습 엔
 
 ## 설치
 
-Settings > Plugins > moai-cowork-plugins에서 `moai-core` 선택
+Settings > Plugins > cowork-plugins에서 `moai-core` 선택
 
 ## 참고자료
 

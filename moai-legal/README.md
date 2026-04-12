@@ -43,7 +43,7 @@
 
 ## 설치
 
-Settings > Plugins > moai-cowork-plugins에서 `moai-legal` 선택
+Settings > Plugins > cowork-plugins에서 `moai-legal` 선택
 
 ## 참고자료
 

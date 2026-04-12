@@ -1,4 +1,4 @@
-# moai-cowork-plugins
+# cowork-plugins
 
 Claude Cowork 도메인 전문가 AI 마켓플레이스.
 
