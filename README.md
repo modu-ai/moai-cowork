@@ -363,6 +363,15 @@ Airtable/Google Sheets 커넥터로 데이터를 직접 분석합니다.
 | 국가법령정보 | [law.go.kr](https://www.law.go.kr/) | 법령/판례 | moai-legal |
 | Nano Banana | [ai.google.dev](https://ai.google.dev/) | AI 이미지 생성 | moai-content |
 
+### 영감 및 원작
+
+본 프로젝트는 아래 프로젝트에서 영감을 받아 제작되었습니다.
+
+| 프로젝트 | 작성자 | 설명 |
+|---------|--------|------|
+| [harness-100](https://github.com/revfactory/harness-100) | 황민호(Minho Hwang) | Claude Cowork용 하네스 100개 오픈소스. 본 프로젝트의 하네스 설계 패턴과 구조에 핵심 참고자료로 활용 |
+| [knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins) | Anthropic | 공식 15개 지식 노동 플러그인. 플러그인 구조와 스킬 포맷 표준 참고 |
+
 ### 표준 및 규격
 | 표준 | 설명 |
 |------|------|
