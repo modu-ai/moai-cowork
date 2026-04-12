@@ -87,18 +87,20 @@ AskUserQuestion (1질문, 4옵션) ✅
 + Other (직접 입력)
 ```
 
-### 1-2. 이름/회사 수집 (텍스트 대화)
+### 1-2. 이름/회사 수집
+
+AskUserQuestion (1질문, 자유입력) ✅
 
 ```
 "이름(또는 닉네임)과 회사명을 알려주세요.
  예: '홍길동, 테크스타트업' 또는 '길동'만 입력해도 됩니다.
  사업자등록증을 첨부하시면 자동으로 정보를 추출합니다."
++ Other (자유 입력)
 ```
 
 사업자등록증 첨부 시:
 - 이미지에서 사업자번호, 회사명, 대표자명, 업종을 자동 추출
-- 추출 결과를 확인 후 프로필에 반영
-- 미첨부 시 텍스트 입력으로 진행
+- 추출 결과를 AskUserQuestion으로 확인 후 프로필에 반영
 
 → 프로젝트 메모리에 moai-profile.md 저장
 → 추가 정보(산업, 경력, 호칭 등)는 하네스 사용 중 메모리에 자연스럽게 축적
@@ -289,12 +291,15 @@ AskUserQuestion (1질문, 최대 4옵션, multiSelect) ✅
 ※ 설치되지 않은 플러그인의 서비스는 표시하지 않는다
 ```
 
-해당 서비스가 **1개만**이면 텍스트 대화로 직접 안내:
+해당 서비스가 **1개만**이면 AskUserQuestion으로 직접 안내:
 
 ```
 [예: moai-content만 설치 시]
-"Nano Banana API 키를 등록하시겠습니까? (AI 이미지 생성)
- 입력하시거나, '건너뛰기'로 나중에 등록할 수 있습니다."
+AskUserQuestion (1질문, 2옵션):
+"Nano Banana API 키를 등록하시겠습니까? (AI 이미지 생성)"
+○ 키 입력 — ai.google.dev에서 발급
+○ 건너뛰기 — 나중에 /moai apikey로 등록
++ Other
 ```
 
 해당 서비스가 **0개**이면 Phase 3-2 전체를 건너뛴다.
@@ -303,7 +308,7 @@ AskUserQuestion (1질문, 최대 4옵션, multiSelect) ✅
 
 ```
 [각 서비스 공통 패턴]
-IF Claude 메모리의 moai-credentials.env에 해당 키 존재:
+IF 프로젝트 메모리의 moai-credentials.env에 해당 키 존재:
   AskUserQuestion (1질문, 2옵션):
   "{서비스명} API 키가 이미 등록되어 있습니다."
   ○ 기존 키 사용 (권장)
@@ -311,45 +316,25 @@ IF Claude 메모리의 moai-credentials.env에 해당 키 존재:
   + Other
 
   "기존 키 사용" → 기존 값 유지, 다음 서비스로
-  "새 키로 변경" → 텍스트 입력으로 진행
+  "새 키로 변경" → AskUserQuestion으로 키 입력
 
 ELSE:
-  텍스트 대화로 키 입력
+  AskUserQuestion으로 키 입력
 
-[DART 선택 시]
-"DART OpenAPI 키를 입력해 주세요.
- 아직 없다면 https://opendart.fss.or.kr/ 에서 무료 발급 가능합니다.
- (건너뛰려면 '건너뛰기' 입력)"
+[각 서비스별 AskUserQuestion]
 
-[법령 정보 선택 시]
-"법령 정보 인증코드를 입력해 주세요.
- 아직 없다면 https://www.law.go.kr/ Open API에서 발급 가능합니다.
- (건너뛰려면 '건너뛰기' 입력)"
+AskUserQuestion (자유입력):
+"{서비스명} API 키를 입력해 주세요. {발급처 URL}에서 발급 가능합니다."
++ Other ("건너뛰기")
 
-[Nano Banana 선택 시]
-"Nano Banana API 키를 입력해 주세요.
- Google AI Studio(ai.google.dev)에서 Gemini API 키로 발급 가능합니다.
- (건너뛰려면 '건너뛰기' 입력)"
-
-[공공데이터포털 선택 시]
-"공공데이터포털 API 키를 입력해 주세요.
- https://www.data.go.kr/ 에서 회원가입 후 활용신청하면 즉시 발급됩니다.
- (건너뛰려면 '건너뛰기' 입력)"
-
-[KOSIS 선택 시]
-"KOSIS 통계 API 키를 입력해 주세요.
- https://kosis.kr/openapi/ 에서 회원가입 후 자동승인됩니다.
- (건너뛰려면 '건너뛰기' 입력)"
-
-[KIPRIS Plus 선택 시]
-"KIPRIS Plus 특허 API 키를 입력해 주세요.
- https://plus.kipris.or.kr/ 에서 회원가입 후 발급 가능합니다.
- (건너뛰려면 '건너뛰기' 입력)"
-
-[KCI 선택 시]
-"KCI 논문 API 키를 입력해 주세요.
- https://www.data.go.kr/data/3049042/openapi.do 에서 활용신청하면 즉시 발급됩니다.
- (건너뛰려면 '건너뛰기' 입력)"
+서비스별 발급처:
+- DART: opendart.fss.or.kr
+- 법령: law.go.kr
+- Nano Banana: ai.google.dev
+- 공공데이터: data.go.kr
+- KOSIS: kosis.kr/openapi
+- KIPRIS: plus.kipris.or.kr
+- KCI: data.go.kr/data/3049042
 ```
 
 ### 3-2.5. Nano Banana 모델 + 사이즈 설정
