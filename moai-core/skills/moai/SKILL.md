@@ -4,7 +4,12 @@ description: >
   비즈니스 도메인 전문가 시스템. 사용자 요청을 자동 감지하여 16개 전문 플러그인으로 라우팅합니다.
   '사업계획서 써줘', '계약서 검토해줘', '세금 계산해줘', '특허 찾아줘',
   '/moai init', '/moai catalog'으로 시작하세요.
-keywords: "MoAI, 모아이, 전문가, init, catalog, status, 사업, 마케팅, 법률, 세무, 인사, 콘텐츠, 특허, 논문, 데이터"
+user-invocable: true
+metadata:
+  version: "1.0.0"
+  status: "active"
+  updated: "2026-04-14"
+  tags: "moai,router,init,catalog,status,business,marketing,legal,tax,hr,content,patent,research,data"
 ---
 
 # MoAI — 도메인 전문가 AI 팀
