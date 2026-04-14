@@ -2,7 +2,7 @@
 
 > AI 미디어 스튜디오 — 이미지·영상·음성 통합 생성 플러그인
 
-[![버전](https://img.shields.io/badge/version-1.1.0-blue)](../CHANGELOG.md)
+[![버전](https://img.shields.io/badge/version-1.1.1-blue)](../CHANGELOG.md)
 [![라이선스](https://img.shields.io/badge/license-MIT-green)](../LICENSE)
 
 ## 개요
@@ -15,9 +15,9 @@
 
 | 스킬 | 한글명 | 백엔드 | 용도 |
 |---|---|---|---|
-| [`google-media`](skills/google-media/SKILL.md) | 구글 미디어 | Gemini 3 Image Preview + Veo 3.1 | **나노바나나 Pro 이미지 + Veo 영상** (단일 Gemini 키) |
+| [`nano-banana`](skills/nano-banana/SKILL.md) | 나노바나나 | Gemini 3 Image Preview | **이미지 전용** (Nano Banana Pro/2/원조) |
 | [`ideogram`](skills/ideogram/SKILL.md) | 아이디오그램 | Ideogram 3.0 via fal.ai | 한국어 타이포 특화 이미지 |
-| [`kling`](skills/kling/SKILL.md) | 클링 | Kling 3.0 via fal.ai | 숏폼 영상 (릴스·쇼츠·틱톡) |
+| [`kling`](skills/kling/SKILL.md) | 클링 | Kling 3.0 via fal.ai | **영상 전용** (숏폼·광고·립싱크 모두) |
 | [`elevenlabs`](skills/elevenlabs/SKILL.md) | 일레븐랩스 | ElevenLabs 공식 MCP | AI 음성·TTS·다국어 더빙 |
 | [`fal-gateway`](skills/fal-gateway/SKILL.md) | 팔게이트웨이 | fal.ai MCP | Flux·Recraft·Hailuo·Luma·Pika·MiniMax Music 통합 |
 
@@ -27,19 +27,19 @@
 
 | 상황 | 우선 스킬 |
 |---|---|
-| 범용 고품질 이미지 (텍스트 포함도 SOTA) | **`google-media`** (Nano Banana Pro) |
+| 범용 고품질 이미지 (텍스트 포함도 SOTA) | **`nano-banana`** (Nano Banana Pro) |
 | 한국어 대형 타이포그래피가 핵심 | `ideogram` |
 | 로고·벡터·브랜드 일관 컬러 | `fal-gateway` (Recraft V3) |
 | 오픈소스 Flux 선호 | `fal-gateway` (Flux 1.1 Pro) |
 
-### 영상
+### 영상 (모두 `kling` 통일)
 
-| 상황 | 우선 스킬 |
+| 상황 | 스킬 |
 |---|---|
-| 프리미엄 브랜드 광고 (1080p + 오디오) | **`google-media`** (Veo 3.1) |
-| 인스타 릴스·유튜브 쇼츠·틱톡 (가성비) | `kling` |
-| 립싱크 캐릭터 숏폼 | `kling` |
-| 저가 시안·대량 A/B 테스트 | `fal-gateway` (Hailuo 2.3) |
+| 인스타 릴스·유튜브 쇼츠·틱톡 | **`kling`** |
+| 브랜드 광고·제품 영상 | **`kling`** (Pro 모드 + 립싱크) |
+| 립싱크 캐릭터 숏폼 | **`kling`** |
+| 초저가 시안 대량 생성 | `fal-gateway` (Hailuo 2.3, 보조용) |
 
 ### 음성·음악
 
@@ -52,7 +52,7 @@
 
 | 키 | 발급처 | 공유 대상 스킬 |
 |---|---|---|
-| `GEMINI_API_KEY` | [ai.google.dev](https://ai.google.dev/) | `google-media` (이미지 + 영상 모두) |
+| `GEMINI_API_KEY` | [ai.google.dev](https://ai.google.dev/) | `nano-banana` (이미지 전용) |
 | `FAL_KEY` | [fal.ai/dashboard/keys](https://fal.ai/dashboard/keys) | `ideogram`, `kling`, `fal-gateway` |
 | `ELEVENLABS_API_KEY` | [elevenlabs.io](https://elevenlabs.io/app/settings/api-keys) | `elevenlabs` |
 
@@ -69,7 +69,7 @@
 1. **fal-ai** (hosted MCP): `https://mcp.fal.ai/mcp`
 2. **elevenlabs** (local MCP): `uvx elevenlabs-mcp`
 
-플러그인 설치 시 자동 활성화. `google-media`는 MCP 불필요 (REST/Python SDK 직접 호출).
+플러그인 설치 시 자동 활성화. `nano-banana`는 MCP 불필요 (REST/Python SDK 직접 호출).
 
 ## 월 예상 비용 (한국 크리에이터 기준)
 
@@ -77,7 +77,7 @@
 |---|---|---|
 | 입문 (포트폴리오 1~2편/주) | **$10~15** | Nano Banana 2 위주, 영상 시안 소량 |
 | 중급 (브랜드 3개, 주 3편) | **$45~60** | 이미지 500장 + Kling 영상 20편 + TTS 30분 |
-| 고급 (에이전시 수준) | **$200+** | Veo 3.1 Standard 활용, 일 10편 다채널 배포 |
+| 고급 (에이전시 수준) | **$200+** | Kling Pro 영상 일 3~5편 + 4K 이미지 마스터 + 다채널 배포 |
 
 ## 관련 플러그인
 
@@ -89,7 +89,7 @@
 
 - **신규 플러그인**: `moai-media`를 독립 플러그인으로 분리
 - **Google Nano Banana 재정의 반영**: Imagen 4 → **Gemini 3 Image Preview** (모델 ID, 엔드포인트, 파라미터 스키마 전면 마이그레이션)
-- **이미지 + 영상 통합**: Nano Banana Pro와 Veo 3.1을 `google-media` 단일 스킬로 묶음
+- **스킬 역할 분리**: 이미지는 `nano-banana` (Gemini 3 Image Preview), 영상은 `kling` 단일화 (Veo 제거)
 - **스크립트 이관**: `moai-content/scripts/card-news/generate_image.py` → `moai-media/scripts/generate_image.py` (v3.0 → v4.0 마이그레이션 포함)
 
 자세한 변경 내역: [CHANGELOG.md](../CHANGELOG.md)

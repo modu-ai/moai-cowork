@@ -6,7 +6,7 @@ description: >
   전체 구성, 디자인 원칙 적용, 카피 작성을 지원합니다.
 user-invocable: true
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   status: "stable"
   updated: "2026-04-09"
 ---

@@ -51,6 +51,68 @@
 
 ---
 
+## [1.1.1] - 2026-04-14
+
+### Changed
+
+- **`moai-media` 스킬 구조 개편** (Google 공식 문서 재확인 반영)
+  - `google-media` 스킬 → **`nano-banana`**로 개명 및 **이미지 전용**으로 스코프 축소
+  - 영상 생성은 **`kling` 스킬로 단일화** — Veo 3.1 참조 모두 제거
+  - 결과: 이미지는 `nano-banana` (Gemini) / `ideogram` (fal.ai), 영상은 `kling` 단독
+- **Gemini 이미지 모델 카탈로그 공식화** (공식 문서 `ai.google.dev/gemini-api/docs/image-generation` 기준)
+  - `gemini-2.5-flash-image` 모델 신규 추가 — 원조 Nano Banana, 최저가 **$0.039/img**
+  - `nano-banana` 별칭 매핑: → `gemini-2.5-flash-image`
+  - 모델 별 기본 해상도 자동 선택: Pro=2K, 2=1K, 원조=디폴트, Ultra=4K
+- **공식 화면비 14종 리스트 재정의**
+  - 구 리스트 (잘못됨): `9:21`, `3:5`, `2:1`, `1:2` 포함
+  - 신 리스트 (공식): `1:1`, `2:3`, `3:2`, `3:4`, `4:3`, `4:5`, `5:4`, `9:16`, `16:9`, `21:9`, `1:4`, `4:1`, `1:8`, `8:1`
+- **REST API 페이로드 정합화**
+  - camelCase로 통일 (`responseModalities`, `imageConfig`, `aspectRatio`, `imageSize`) — 공식 REST 스펙 준수
+  - 응답 파싱은 `inlineData` 우선, `inline_data` 폴백
+  - `imageSize` 지원 값 공식화: `"512"`, `"1K"`, `"2K"`, `"4K"` (이전에 `"512"` 누락)
+- **`generate_image.py` v4.0 → v4.1**
+  - 위 변경사항 반영, MODEL_MAP에 `"nano-banana"` / `"cheap"` 별칭 추가
+  - `gemini-2.5-flash-image`는 `image_size` 미지원 → 페이로드에서 생략 처리 로직 추가
+
+### Fixed
+
+- **공식 문서 불일치 수정** — 기존 v1.1.0에서 파생 지식 기반으로 작성한 화면비 리스트가 공식 스펙과 달랐음. WebFetch로 공식 문서 재확인 후 전면 정정.
+- `moai-core/init-protocol.md`의 "moai-media/google-media 스킬" 참조를 `nano-banana`로 수정
+
+### Removed
+
+- `moai-media/skills/google-media/` 스킬 디렉토리 전체 (→ `nano-banana`로 개명)
+- Veo 3.1 관련 모든 참조:
+  - README.md 스킬 카탈로그·영상 선택 가이드
+  - CONNECTORS.md API 설명
+  - plugin.json keywords (`"veo"` 제거)
+  - marketplace.json 플러그인 description
+  - 기타 SKILL.md 크로스 레퍼런스
+- `plugin.json` keywords에서 `"veo"` 제외
+
+### Migration
+
+v1.1.0에서 방금 설치한 사용자도 즉시 업데이트 필요:
+
+```
+/plugin marketplace update cowork-plugins
+```
+
+기존 `google-media` 호출 코드가 있다면 **`nano-banana`**로 경로 변경:
+- 스킬 호출: `/moai-media google-media` → `/moai-media nano-banana`
+- SKILL.md 참조: `moai-media/skills/google-media/` → `moai-media/skills/nano-banana/`
+
+영상 생성이 필요하면 **`kling` 스킬** 사용:
+- 숏폼·릴스·쇼츠: `fal-ai/kling-video/v3/text-to-video`
+- 립싱크 프리미엄: Kling Pro 모드
+
+### Breaking
+
+- **스킬 경로 변경**: `moai-media/skills/google-media/` → `moai-media/skills/nano-banana/`
+- **Veo 사용 불가**: v1.1.0에서 `veo-3.1-generate-preview` 호출하던 워크플로우는 `kling` 또는 외부 Veo 직접 호출로 마이그레이션 필요
+
+---
+
 ## [1.1.0] - 2026-04-14
 
 ### Added

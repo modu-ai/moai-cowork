@@ -6,7 +6,7 @@ description: >
   특허 동향 분석, 선행기술 보고서, FTO(Freedom-to-Operate) 분석, 출원서 초안을 작성합니다.
 user-invocable: true
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   category: "domain"
   status: "active"
   updated: "2026-04-10"

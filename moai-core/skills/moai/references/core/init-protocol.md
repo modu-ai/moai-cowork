@@ -266,13 +266,13 @@ AskUserQuestion (1질문, 최대 4옵션, multiSelect) ✅
 | 1 | 공공데이터포털 | DATA_GO_KR_API_KEY | 공공데이터/KOSIS 통계/KCI 논문 조회 | data.go.kr |
 | 2 | KIPRIS Plus | KIPRIS_API_KEY | 특허/실용신안 검색 | plus.kipris.or.kr |
 | 3 | 국가법령정보 | KOREAN_LAW_OC | 법령/판례 검색 | law.go.kr |
-| 4 | Google Gemini | GEMINI_API_KEY (구: NANO_BANANA_API_KEY) | Nano Banana Pro 이미지 + Veo 3.1 영상 | ai.google.dev |
+| 4 | Google Gemini | GEMINI_API_KEY (구: NANO_BANANA_API_KEY) | Nano Banana 이미지 생성 (Pro/2/원조) | ai.google.dev |
 | 5 | fal.ai | FAL_KEY | Ideogram/Kling/Flux/Recraft/Hailuo 등 1000+ 모델 게이트웨이 | fal.ai |
 | 6 | ElevenLabs | ELEVENLABS_API_KEY | AI 음성·TTS·다국어 더빙 | elevenlabs.io |
 
 참고:
 - 공공데이터포털 키 1개로 KOSIS 통계 + KCI 논문 API 모두 사용 가능
-- Gemini 키 1개로 Nano Banana Pro (`gemini-3-pro-image-preview`) 이미지와 Veo 3.1 영상 모두 호출 (moai-media/google-media 스킬)
+- Gemini 키 1개로 Nano Banana 계열(`gemini-3-pro-image-preview`, `gemini-3.1-flash-image-preview`, `gemini-2.5-flash-image`) 이미지 모두 호출 (moai-media/nano-banana 스킬). 영상 생성은 `kling` 스킬(fal.ai)이 담당.
 - `NANO_BANANA_API_KEY` 환경변수는 `GEMINI_API_KEY`의 레거시 별칭으로 계속 인식됨
 - fal.ai 키 1개로 moai-media의 ideogram/kling/fal-gateway 스킬 공유
 
@@ -285,7 +285,7 @@ AskUserQuestion (1질문, 최대 4옵션씩, multiSelect) ✅
 ☐ 공공데이터포털 — 공공데이터/KOSIS 통계/KCI 논문 (data.go.kr)
 ☐ KIPRIS Plus — 특허/실용신안 검색 (plus.kipris.or.kr)
 ☐ 국가법령정보 — 법령/판례 검색 (law.go.kr)
-☐ Google Gemini — Nano Banana 이미지 + Veo 영상 (ai.google.dev)
+☐ Google Gemini — Nano Banana 이미지 생성 (ai.google.dev)
 
 페이지 2 (미디어 전용, moai-media 설치 시):
 ☐ fal.ai — Ideogram/Kling/Flux 통합 게이트웨이 (fal.ai)

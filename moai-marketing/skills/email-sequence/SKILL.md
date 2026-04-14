@@ -7,7 +7,7 @@ description: >
   법적 컴플라이언스 체크, 시퀀스 플로우, 이메일 본문 초안을 제공합니다.
 user-invocable: true
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   status: "active"
   updated: "2026-04-09"
   tags: "email,drip,campaign,newsletter,정보통신망법,수신동의,automation"

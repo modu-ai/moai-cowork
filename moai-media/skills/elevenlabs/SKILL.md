@@ -8,7 +8,7 @@ description: >
   '/moai-media elevenlabs'로 호출하세요.
 user-invocable: true
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   status: "stable"
   updated: "2026-04-14"
   tags: "voice,tts,elevenlabs,narration,dubbing,podcast,voice-cloning"
@@ -16,7 +16,7 @@ metadata:
 
 # ElevenLabs — AI 음성/TTS 생성
 
-> moai-media v1.1.0 | 공식 MCP 서버 (`uvx elevenlabs-mcp`)
+> moai-media v1.1.1 | 공식 MCP 서버 (`uvx elevenlabs-mcp`)
 
 ## 개요
 
@@ -34,7 +34,7 @@ Claude에서 별도 코드 없이 즉시 호출 가능합니다.
 | 용도 | 활용 |
 |---|---|
 | **카드뉴스 보이스오버** | 인스타 릴스·쇼츠용 내레이션 |
-| **숏폼 영상 내레이션** | Kling/Veo 영상에 음성 합성 |
+| **숏폼 영상 내레이션** | Kling 영상에 음성 합성 |
 | **팟캐스트·오디오북** | 장문 TTS |
 | **다국어 더빙** | 한국 콘텐츠의 글로벌 확장 |
 | **브랜드 보이스** | 일관된 브랜드 음성 에셋 |
@@ -104,7 +104,6 @@ MCP 호출 시 지정 가능:
 ## 연계 스킬
 
 - `kling` (moai-media) — 영상 생성 → ElevenLabs 내레이션 합성
-- `veo` (moai-media) — Veo 내장 오디오 대신 ElevenLabs로 고품질 대체
 - `card-news` (moai-content) — 카드뉴스 10장 + 각 슬라이드 보이스오버
 - `nano-banana` (moai-media) — 이미지 + 음성 조합 인스타 릴스 생성
 

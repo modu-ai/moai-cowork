@@ -6,7 +6,7 @@ description: >
   유형별 대비, 모의 면접 루프(질문-답변-피드백), 기업별 면접 전략을 지원합니다.
 user-invocable: true
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   status: "active"
   updated: "2026-04-09"
 ---

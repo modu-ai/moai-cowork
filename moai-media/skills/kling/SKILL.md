@@ -2,12 +2,13 @@
 name: kling
 description: >
   Kling 3.0으로 숏폼 영상(릴스/쇼츠/틱톡)을 AI 생성합니다. 텍스트→영상, 이미지→영상 지원.
-  다국어 립싱크, 최대 15초 클립, Veo 대비 1/5 가격으로 SNS 캠페인 ROI 최강.
+  다국어 립싱크, 최대 15초 클립, SNS 캠페인 ROI 최강.
+  **moai-media 플러그인의 유일한 영상 생성 스킬** (Veo는 v1.1.1에서 제거됨, Kling 단일화).
   '숏폼 영상 만들어줘', '이미지 움직여줘', '릴스 영상 생성', '립싱크 영상',
   '/moai-media kling'으로 호출하세요. fal.ai MCP 경유.
 user-invocable: true
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   status: "stable"
   updated: "2026-04-14"
   tags: "video,kling,short-form,reels,tiktok,lip-sync,fal"
@@ -15,7 +16,7 @@ metadata:
 
 # Kling 3.0 — 숏폼 영상 생성
 
-> moai-media v1.1.0 | fal.ai MCP 경유
+> moai-media v1.1.1 | fal.ai MCP 경유
 
 ## 개요
 
@@ -24,14 +25,14 @@ metadata:
 - 최대 **15초** 클립 (5초 / 10초 / 15초 선택)
 - **다국어 립싱크** 지원 (한국어 포함)
 - Text-to-Video, Image-to-Video, Video Extension 모두 지원
-- Veo 3.1 대비 **약 1/5 가격**
+- 외부 프리미엄 모델 대비 **약 1/5 가격**
 
 ## 언제 이 스킬을 쓰나?
 
 | 용도 | 권장 스킬 |
 |---|---|
 | **인스타 릴스 / 유튜브 쇼츠 / 틱톡** | **kling** ⭐ |
-| 프리미엄 광고 영상 (1080p + 오디오) | `veo` (더 비쌈, 품질 우위) |
+| 프리미엄 광고 영상 (1080p + 립싱크) | **kling Pro 모드** |
 | 스틸 이미지를 움직이게 | **kling** (Image-to-Video) |
 | 립싱크 캐릭터 영상 | **kling** ⭐ |
 

@@ -10,7 +10,7 @@ description: >
   광고 캠페인 기획은 campaign-planner 스킬을 사용하세요.
 user-invocable: true
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   status: "stable"
   updated: "2026-04-10"
 ---

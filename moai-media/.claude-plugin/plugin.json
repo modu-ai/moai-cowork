@@ -1,13 +1,13 @@
 {
   "name": "moai-media",
-  "version": "1.1.0",
-  "description": "AI 미디어 스튜디오 — 이미지·영상·음성 통합 생성 (Nano Banana, Ideogram, Kling, Veo 3.1, ElevenLabs)",
+  "version": "1.1.1",
+  "description": "AI 미디어 스튜디오 — 이미지·영상·음성 통합 생성 (Nano Banana, Ideogram, Kling, ElevenLabs, fal.ai Gateway)",
   "author": {
     "name": "모두의AI"
   },
   "keywords": [
     "미디어", "이미지", "영상", "음성", "카드뉴스", "숏폼", "TTS",
-    "nano-banana", "ideogram", "kling", "veo", "elevenlabs", "fal"
+    "nano-banana", "ideogram", "kling", "elevenlabs", "fal"
   ],
   "license": "MIT"
 }

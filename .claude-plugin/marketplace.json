@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "모두의 AI's Claude Cowork 플러그인 마켓플레이스",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "language": "ko"
   },
   "plugins": [
@@ -26,6 +26,6 @@
     {"name": "moai-career", "source": "./moai-career", "description": "커리어 준비 — 자기소개서, 이력서, 면접 코칭, 채용공고 분석, 포트폴리오"},
     {"name": "moai-data", "source": "./moai-data", "description": "데이터 분석 — CSV/Excel 탐색, 공공데이터 조회, 시각화, 대시보드"},
     {"name": "moai-research", "source": "./moai-research", "description": "연구/특허 — 논문 검색, 학술 논문 작성, 특허 분석/출원, 연구비 신청"},
-    {"name": "moai-media", "source": "./moai-media", "description": "AI 미디어 스튜디오 — Nano Banana Pro 이미지(Gemini 3), Veo 3.1 영상, Ideogram 한국어 타이포, Kling 숏폼, ElevenLabs 음성, fal.ai 게이트웨이"}
+    {"name": "moai-media", "source": "./moai-media", "description": "AI 미디어 스튜디오 — Nano Banana 이미지(Gemini 3), Kling 영상, Ideogram 한국어 타이포, ElevenLabs 음성, fal.ai 게이트웨이"}
   ]
 }

@@ -8,7 +8,7 @@ description: >
   '/moai-media fal-gateway'로 호출하세요.
 user-invocable: true
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   status: "stable"
   updated: "2026-04-14"
   tags: "fal,gateway,flux,recraft,hailuo,luma,pika,music,multi-model"
@@ -16,7 +16,7 @@ metadata:
 
 # fal.ai Gateway — 통합 미디어 모델 접근
 
-> moai-media v1.1.0 | hosted MCP (`https://mcp.fal.ai/mcp`)
+> moai-media v1.1.1 | hosted MCP (`https://mcp.fal.ai/mcp`)
 
 ## 개요
 
@@ -31,7 +31,6 @@ metadata:
 | Ideogram 3.0 | `ideogram` (전용, 한국어 팁 포함) |
 | Kling 3.0 | `kling` (전용, 립싱크·숏폼 가이드) |
 | Imagen 4 (Nano Banana) | `nano-banana` (전용) |
-| Veo 3.1 | `veo` (전용, Gemini 직접 호출) |
 | **Flux 1.1 Pro** | **fal-gateway** |
 | **Recraft V3** (벡터·로고) | **fal-gateway** |
 | **Hailuo 2.3** (저가 영상) | **fal-gateway** |
@@ -115,7 +114,7 @@ Claude에게 자연어로 요청하면 MCP가 자동으로 모델 선택·파라
 
 ## 연계 스킬
 
-- `ideogram`, `kling`, `nano-banana`, `veo`, `elevenlabs` (모두 moai-media)
+- `ideogram`, `kling`, `nano-banana`, `elevenlabs` (모두 moai-media)
 - 크리에이티브 캠페인 스킬 (`campaign-planner` in moai-marketing)
 
 ## 참고

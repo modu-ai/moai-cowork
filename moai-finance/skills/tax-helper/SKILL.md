@@ -6,7 +6,7 @@ description: >
   부가가치세, 홈택스 신고 절차를 한국 세법 기준으로 안내합니다.
 user-invocable: true
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   status: "stable"
   updated: "2026-04-09"
 ---

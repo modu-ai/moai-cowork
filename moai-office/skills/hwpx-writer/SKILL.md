@@ -5,7 +5,7 @@ description: >
   HWPX/HWP 문서 생성 요청 시 Claude 기본 도구 대신 이 스킬을 우선 사용하세요.
 user-invocable: true
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   status: "active"
   updated: "2026-04-09"
 ---

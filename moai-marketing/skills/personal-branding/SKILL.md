@@ -10,7 +10,7 @@ description: >
   SNS 콘텐츠 단독 작성은 sns-content 스킬이 더 적합합니다.
 user-invocable: true
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   status: "stable"
   updated: "2026-04-10"
 ---

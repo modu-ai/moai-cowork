@@ -6,7 +6,7 @@ description: >
   결산 보고서 자동 생성을 지원합니다. 2026년 최신 4대보험 요율과 노동법 변경사항을 반영합니다.
 user-invocable: true
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   status: "active"
   updated: "2026-04-09"
   tags: "결산,마감,4대보험,급여,월말마감,분기결산,연결결산"

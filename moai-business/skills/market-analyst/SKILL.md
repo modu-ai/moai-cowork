@@ -7,7 +7,7 @@ description: >
   시장 조사 보고서, 경쟁 매핑, 고객 세그멘테이션, 가격 모델을 생성합니다.
 user-invocable: true
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   status: "stable"
   updated: "2026-04-09"
 ---

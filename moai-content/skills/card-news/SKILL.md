@@ -6,7 +6,7 @@ description: >
   잡지 SOP 적용, 디자인 가이드, AI 글쓰기 방지 기법을 지원합니다.
 user-invocable: true
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   status: "stable"
   updated: "2026-04-09"
 ---
@@ -39,7 +39,7 @@ IF GEMINI_API_KEY (또는 레거시 NANO_BANANA_API_KEY) 미설정:
 
    발급 방법:
    1. https://ai.google.dev/ 접속 → Google 계정 로그인
-   2. API 키 생성 (Nano Banana Pro/2 및 Veo 3.1은 Pay-as-you-go 유료 플랜 필수)
+   2. API 키 생성 (Nano Banana 계열 이미지 모델은 Pay-as-you-go 유료 플랜 필수)
 
    API 키를 입력해 주세요:"
 

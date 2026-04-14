@@ -6,7 +6,7 @@ description: >
   광고 캠페인 전략, 비주얼 스토리텔링을 지원합니다.
 user-invocable: true
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   status: "stable"
   updated: "2026-04-09"
 ---

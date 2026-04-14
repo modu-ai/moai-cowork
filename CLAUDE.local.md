@@ -136,6 +136,7 @@ metadata:
 
 ## 6. 태그 히스토리
 
+- **v1.1.1** (2026-04-14): `moai-media` 스킬 재편 — `google-media` → `nano-banana`(이미지 전용). Veo 3.1 제거, 영상은 `kling` 단일화. Gemini 이미지 스펙 공식 문서 기준 정정(화면비 14종, `gemini-2.5-flash-image` 추가, camelCase 정합).
 - **v1.1.0** (2026-04-14): `moai-media` 신규 플러그인. Google Nano Banana 재정의(Imagen 4 → Gemini 3 Image Preview) 반영. MCP 번들 정책 도입.
 - **v1.0.3** (2026-04-14): `/moai` 자동완성 수정 + 전체 버전 통일 + 태그 정책 확립
 - 이전 로컬 태그(구 v1.1.0/v1.2.0/v1.3.0)는 marketplace 버전과 불일치하여 v1.0.3 시점에 정리·삭제함 (현재 v1.1.0은 재부여됨, 의미가 다름)
