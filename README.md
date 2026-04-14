@@ -2,17 +2,22 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Claude Cowork](https://img.shields.io/badge/Claude-Cowork-blueviolet)](https://claude.ai)
-[![Version](https://img.shields.io/badge/Version-1.2.0-blue)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/Version-1.3.0-blue)](CHANGELOG.md)
 [![Plugins](https://img.shields.io/badge/Plugins-17-blue)](.claude-plugin/marketplace.json)
-[![Skills](https://img.shields.io/badge/Skills-70-green)](.claude-plugin/marketplace.json)
+[![Skills](https://img.shields.io/badge/Skills-71-green)](.claude-plugin/marketplace.json)
 
 **Claude Cowork 도메인 전문가 AI 마켓플레이스**
 
-자연어 한 줄이면 사업계획서, 계약서 검토, 세금 계산, PPT 제작, 데이터 분석, 특허 검색, **AI 이미지·영상·음성 생성**까지 — 17개 독립 플러그인과 70개 전문 스킬이 업무를 대신합니다.
+자연어 한 줄이면 사업계획서, 계약서 검토, 세금 계산, PPT 제작, 데이터 분석, 특허 검색, **AI 이미지·영상·음성 생성**까지 — 17개 독립 플러그인과 71개 전문 스킬이 업무를 대신합니다. 모든 텍스트 산출물은 **`ai-slop-reviewer`가 AI 패턴을 검수**하여 사람이 쓴 것처럼 자연스럽게 다듬어 드립니다.
 
-> *Domain expert AI marketplace for [Claude Cowork](https://claude.ai). 17 plugins · 70 skills covering business strategy, marketing, legal, finance, HR, content, operations, education, lifestyle, product, support, document generation, data analysis, research/patents, and **AI media production (image/video/voice)**.*
+> *Domain expert AI marketplace for [Claude Cowork](https://claude.ai). 17 plugins · 71 skills covering business strategy, marketing, legal, finance, HR, content, operations, education, lifestyle, product, support, document generation, data analysis, research/patents, **AI media production (image/video/voice)**, and automatic AI-slop detection for every text deliverable.*
 
-**🆕 v1.2.0 하이라이트**: `moai-media` 신규 플러그인 — Google Nano Banana(Gemini 3 Image Preview), Kling 숏폼 영상, ElevenLabs AI 음성, fal.ai 통합 게이트웨이.
+**🆕 v1.3.0 하이라이트**
+- `/moai` → **`/project`** 커맨드 전환 (Claude Code 내부 스킬과의 shadowing 충돌 해소, Tab 자동완성 복구)
+- **`ai-slop-reviewer` 스킬 신규** — 모든 텍스트 산출물 체인의 필수 마지막 단계. AI 특유의 기계적 패턴 진단 → 인간적인 톤으로 수정
+- **스킬 체이닝 기반 `/project init`** — 업무 인터뷰 → 산출물별 스킬 체인 설계(40+ 프리셋) → 확인 → CLAUDE.md 자동 생성
+- **글로벌 프로필 시스템 제거** — 프로젝트마다 이름·회사·역할 재질문하지 않음
+- **SKILL.md 포맷 정리** — `metadata` 블록 전면 삭제, 버전은 `plugin.json` 단일 소스
 
 ---
 
@@ -33,7 +38,7 @@
 
 | 플러그인 | 설명 | 스킬 수 |
 |---------|------|:-------:|
-| [moai-core](./moai-core/) | 도메인 AI 라우터, 초기화, 자가학습 엔진, 피드백 | 2 |
+| [moai-core](./moai-core/) | 프로젝트 초기화(`/project init`) + 스킬 체이닝 라우터 + AI 슬롭 검수 + 피드백 | 3 |
 | [moai-business](./moai-business/) | 사업계획서, 시장조사, 재무모델, 투자제안서 | 4 |
 | [moai-marketing](./moai-marketing/) | 기업/개인 브랜딩, SEO, SNS, 캠페인, 이메일 시퀀스, 퍼포먼스 | 7 |
 | [moai-legal](./moai-legal/) | 계약서 검토, 컴플라이언스, NDA, 지적재산권 | 4 |
@@ -56,7 +61,7 @@
 | 항목 | 수량 |
 |------|:----:|
 | 플러그인 | 17 |
-| 스킬 | 70 |
+| 스킬 | 71 |
 | 레퍼런스 파일 | 167 |
 | 에이전트 | 0 |
 | MCP 서버 | 7 (`fal-ai`, `elevenlabs` 추가) |
@@ -133,13 +138,20 @@ modu-ai/cowork-plugins
 
 ## 플러그인 상세 소개
 
-### moai-core — 오케스트레이터
+### moai-core — 오케스트레이터 + 검수 엔진
 
-자연어 요청을 분석하여 16개 도메인 플러그인 중 적합한 스킬로 자동 라우팅합니다. `/project init`으로 프로젝트를 초기화하고, `/project catalog`으로 설치된 스킬 목록을 조회합니다.
+자연어 요청을 분석하여 16개 도메인 플러그인 중 적합한 스킬로 자동 라우팅합니다. `/project init`으로 워크플로우를 인터뷰하여 **스킬 체인 기반 CLAUDE.md**를 생성하고, `/project catalog`로 설치된 스킬 목록을 조회합니다.
 
-- 소크라테스 인터뷰로 사용자 의도를 정확히 파악한 뒤 계획을 수립하고 실행합니다
-- 산출물 품질 검증 루프(파일 유효성 → 내용 완전성 → AI 슬롭 검수)를 자동 수행합니다
-- `/project feedback`으로 버그/기능 요청을 GitHub Issues에 자동 등록합니다
+| 스킬 | 한글명 | 기능 |
+|------|--------|------|
+| project | 프로젝트 초기화 | `/project init` — 워크플로우 인터뷰 → 스킬 체인 설계 → CLAUDE.md 생성, `/project catalog/status/apikey/feedback` |
+| ai-slop-reviewer | AI 슬롭 검수 | Claude가 생성한 텍스트의 기계적 패턴(금지어, 획일적 문장 길이, AI식 도입/결말, 수동태 남용)을 진단·수정. **모든 텍스트 산출물 체인의 필수 마지막 단계** |
+| feedback | 피드백 | 버그/기능 요청을 GitHub Issues에 자동 등록 (`/project feedback`) |
+
+- 소크라테스 인터뷰로 사용자 의도를 정확히 파악한 뒤 스킬 체인 계획을 수립·확인·실행합니다
+- 산출물 품질 검증 루프(파일 유효성 → 내용 완전성 → **AI 슬롭 검수**)를 자동 수행합니다
+- CLAUDE.md에 "문서 생성 우선순위(moai-office/content 우선)" + "AI 슬롭 후처리" HARD 규칙을 고정 주입합니다
+
 ---
 
 ### moai-business — 비즈니스 전략
@@ -349,7 +361,7 @@ Airtable/Google Sheets 커넥터로 데이터를 직접 분석합니다.
 ## 기술 특징
 
 **Anthropic 공식 스킬 가이드 준수**
-- 모든 70개 스킬에 [What]+[When]+[Triggers] 구조의 description 적용
+- 모든 71개 스킬에 [What]+[When]+[Triggers] 구조의 description 적용
 - Negative triggers로 불필요한 스킬 로딩 방지
 - 인라인 폴백과 에러 핸들링 내장
 

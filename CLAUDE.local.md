@@ -167,7 +167,61 @@ v1.3.0 기준 `/project init`은 **이름·회사·역할을 재질문하지 않
 
 ---
 
-## 4. 릴리스 후 사용자 안내
+## 4. 푸시 전 문서 검수 정책 (HARD, v1.3.1 신규)
+
+커밋/태그를 푸시하기 **이전에** 다음 문서들의 갱신 필요 여부를 반드시 점검한다. 코드·스킬 변경 대비 문서가 뒤처지는 경우가 많아, 릴리스 시점의 단일 체크포인트로 운영한다.
+
+### 4-1. 점검 대상 문서 (필수)
+
+| 문서 | 점검 항목 |
+|---|---|
+| 루트 `README.md` | 버전 배지, 플러그인/스킬 수 배지, `v{X}.{Y}.{Z} 하이라이트` 섹션, 플러그인 카탈로그 테이블의 스킬 수, 총 산출물 수, 플러그인 상세 소개 섹션의 스킬 테이블 |
+| `.claude-plugin/marketplace.json` | `metadata.version` bump, `plugins[]` 배열의 신규/이름 변경 반영, 각 플러그인 `description` 최신화 |
+| 루트 `CHANGELOG.md` | `## [X.Y.Z]` 섹션 존재, Added/Changed/Fixed/Removed/Migration 분류, 동기화 지점 표기 |
+| `CLAUDE.local.md` | 태그 히스토리(§8) 업데이트, 버저닝 정책 테이블 |
+| `<plugin>/README.md` × 17 | 플러그인 설명·스킬 수·신규 스킬 소개 최신화, `v{X}.{Y}.{Z}` 언급 일관성 |
+| `<plugin>/CONNECTORS.md` (있는 경우) | MCP 서버 등록 절차, 환경변수 목록, API 키 발급처 |
+| `moai-core/skills/project/references/core/INDEX.md` | 프로토콜 파일 목록, 플러그인 카운트, 변경 요약 |
+| `moai-core/skills/project/references/templates/CLAUDE.md.tmpl` | 변수 슬롯, HARD 규칙 블록, 스킬 체인 포맷 |
+
+### 4-2. [HARD] 푸시 전 체크리스트
+
+```bash
+# 1. 루트 README.md 버전/카운트 일관성
+grep -E "Version-[0-9]+\.[0-9]+\.[0-9]+|Skills-[0-9]+|Plugins-[0-9]+" README.md
+# 2. CHANGELOG.md 최신 섹션 존재 확인
+head -5 CHANGELOG.md | grep -E "^## \[[0-9]+\.[0-9]+\.[0-9]+\]"
+# 3. marketplace.json 버전과 plugin.json 전체 버전 일치 (한 줄만 출력되어야 통과)
+{ grep -h '"version"' .claude-plugin/marketplace.json moai-*/.claude-plugin/plugin.json \
+  | grep -oE '[0-9]+\.[0-9]+\.[0-9]+'; } | sort -u
+# 4. marketplace.json plugins[] 개수 == plugin.json 파일 개수
+python3 -c "import json; print(len(json.load(open('.claude-plugin/marketplace.json'))['plugins']))"
+find . -path '*/.claude-plugin/plugin.json' -not -path '*/.git/*' | wc -l
+# 5. 모든 플러그인 README 존재 (기대: 18 = 루트 + 17 플러그인)
+find . -maxdepth 2 -name README.md -not -path "*/.git/*" | wc -l
+# 6. 스킬 수 실측 vs README 선언 일치
+find . -name SKILL.md -not -path "*/.git/*" | wc -l
+# 7. v{X}.{Y}.{Z} 하이라이트가 최신인지
+grep -n "하이라이트" README.md
+```
+
+### 4-3. [HARD] 금지 사항
+
+- 플러그인·스킬 신규 추가 후 **README / marketplace.json 미갱신** 상태로 푸시
+- 카탈로그 테이블의 스킬 수가 실제 `<plugin>/skills/*` 개수와 불일치한 채 푸시
+- `v{X-1}.{Y}.{Z} 하이라이트`가 최신 버전에도 그대로 노출된 채 푸시
+- 신규 스킬(예: `ai-slop-reviewer`) 추가 후 해당 플러그인 README의 스킬 테이블에 누락된 채 푸시
+- `marketplace.json`의 `plugins[]` 배열이 신규 플러그인 추가·이름 변경·description 변경을 반영하지 않은 채 푸시
+- `marketplace.json`의 플러그인 개수와 실제 `plugin.json` 개수 불일치 상태로 푸시
+
+### 4-4. 검수 트리거 시점
+
+- **MINOR 이상 릴리스**: 반드시 실행 (전체 체크리스트 1~7)
+- **PATCH 릴리스**: 스킬·플러그인 변경이 있으면 실행 (선택적)
+- **핫픽스 커밋**: 영향받은 문서만 선택적으로 실행
+- **신규 플러그인 추가**: marketplace.json `plugins[]` 배열 업데이트 + 루트 README 카탈로그 테이블 추가 필수
+
+## 5. 릴리스 후 사용자 안내
 
 신버전 배포 후 사용자 측 캐시 갱신 필요:
 ```
@@ -177,7 +231,7 @@ v1.3.0 기준 `/project init`은 **이름·회사·역할을 재질문하지 않
 
 ---
 
-## 5. MCP 서버 통합 정책 (HARD)
+## 6. MCP 서버 통합 정책 (HARD)
 
 플러그인이 MCP 서버를 번들하려면 다음 규칙을 따릅니다:
 
@@ -190,7 +244,7 @@ v1.3.0 기준 `/project init`은 **이름·회사·역할을 재질문하지 않
 현재 MCP 번들 플러그인:
 - `moai-media`: `fal-ai` (hosted), `elevenlabs` (local stdio via uvx)
 
-## 6. 외부 API 모델 ID 업데이트 정책
+## 7. 외부 API 모델 ID 업데이트 정책
 
 외부 API(Google, OpenAI, Anthropic 등)가 모델 이름·엔드포인트를 변경하면:
 
@@ -200,7 +254,7 @@ v1.3.0 기준 `/project init`은 **이름·회사·역할을 재질문하지 않
 4. 응답 스키마가 바뀌면 스크립트 v번호 메이저 bump (예: `generate_image.py v3 → v4`)
 5. CHANGELOG Migration 섹션에 사용자 조치 사항 명시
 
-## 7. GitHub Release 정책 (HARD)
+## 8. GitHub Release 정책 (HARD)
 
 태그를 푸시할 때마다 **반드시 같은 태그 이름의 GitHub Release를 생성**합니다. 릴리스 노트는 CHANGELOG.md의 해당 버전 섹션을 그대로 사용합니다.
 
@@ -236,7 +290,7 @@ gh release create "v$NEW" \
 
 ---
 
-## 8. 태그 히스토리
+## 9. 태그 히스토리
 
 - **v1.3.0** (2026-04-14): 공식 MINOR. `/moai` → `/project` 커맨드 이름 전환 (Claude Code 프로젝트 레벨 스킬과의 shadowing 충돌 해소). `ai-slop-reviewer` 스킬 신규 도입 (모든 텍스트 산출물 후처리 검수). **스킬 체이닝 기반 CLAUDE.md 생성** — `/project init`이 산출물별 스킬 체인을 설계하고 확인 후 CLAUDE.md에 기록. SKILL.md `metadata:` 블록 전면 제거 (단일 버전 소스: plugin.json). 글로벌 프로필 시스템(`moai-profile.md`, `[MoAI 프로필]`) 전면 제거. CLAUDE.md 템플릿 외부 파일화(`templates/CLAUDE.md.tmpl`). office/web 스킬 우선 + AI 슬롭 후처리 HARD 규칙 고정 포함.
 - **v1.2.0** (2026-04-14): 공식 MINOR. `moai-media` 신규 플러그인, Nano Banana Pro + 2 체제 확정(Imagen 4 → Gemini 3 Image Preview), Kling 영상 단일화, ElevenLabs·fal.ai MCP 번들, 전 저장소 17 플러그인/70 스킬로 확장.
