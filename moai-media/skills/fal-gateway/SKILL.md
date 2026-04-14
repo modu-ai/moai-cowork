@@ -8,7 +8,7 @@ description: >
   '/moai-media fal-gateway'로 호출하세요.
 user-invocable: true
 metadata:
-  version: "1.1.3"
+  version: "1.2.0"
   status: "stable"
   updated: "2026-04-14"
   tags: "fal,gateway,flux,recraft,hailuo,luma,pika,music,multi-model"
@@ -16,7 +16,7 @@ metadata:
 
 # fal.ai Gateway — 통합 미디어 모델 접근
 
-> moai-media v1.1.1 | hosted MCP (`https://mcp.fal.ai/mcp`)
+> moai-media v1.2.0 | hosted MCP (`https://mcp.fal.ai/mcp`)
 
 ## 개요
 

@@ -6,7 +6,7 @@ description: >
   KIPRIS Plus API로 특허/실용신안/디자인/상표를 검색하고 서지정보를 정리합니다.
 user-invocable: true
 metadata:
-  version: "1.1.3"
+  version: "1.2.0"
   category: "domain"
   status: "active"
   updated: "2026-04-10"

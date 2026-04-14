@@ -6,7 +6,7 @@ description: >
   잡지 SOP 적용, 디자인 가이드, AI 글쓰기 방지 기법을 지원합니다.
 user-invocable: true
 metadata:
-  version: "1.1.3"
+  version: "1.2.0"
   status: "stable"
   updated: "2026-04-09"
 ---

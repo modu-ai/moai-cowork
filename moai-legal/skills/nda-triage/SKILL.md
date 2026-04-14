@@ -7,7 +7,7 @@ description: >
   한국 민법·영업비밀보호법 기준 조항별 위험도 평가, 수정 권고안을 제공합니다.
 user-invocable: true
 metadata:
-  version: "1.1.3"
+  version: "1.2.0"
   status: "active"
   updated: "2026-04-09"
   tags: "NDA,비밀유지계약,계약검토,legal,risk,한국법"

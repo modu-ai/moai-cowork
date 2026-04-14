@@ -6,7 +6,7 @@ description: >
   영문 CV, LinkedIn 프로필 최적화, 글자수별 전략(500/1000/1500자)을 지원합니다.
 user-invocable: true
 metadata:
-  version: "1.1.3"
+  version: "1.2.0"
   status: "active"
   updated: "2026-04-09"
 ---

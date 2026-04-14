@@ -8,7 +8,7 @@ description: >
   '/moai-media kling'으로 호출하세요. fal.ai MCP 경유.
 user-invocable: true
 metadata:
-  version: "1.1.3"
+  version: "1.2.0"
   status: "stable"
   updated: "2026-04-14"
   tags: "video,kling,short-form,reels,tiktok,lip-sync,fal"
@@ -16,7 +16,7 @@ metadata:
 
 # Kling 3.0 — 숏폼 영상 생성
 
-> moai-media v1.1.1 | fal.ai MCP 경유
+> moai-media v1.2.0 | fal.ai MCP 경유
 
 ## 개요
 

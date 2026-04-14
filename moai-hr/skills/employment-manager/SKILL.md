@@ -6,7 +6,7 @@ description: >
   평가 기준 수립, 온보딩 체크리스트, 멘토링 프로그램 설계를 지원합니다.
 user-invocable: true
 metadata:
-  version: "1.1.3"
+  version: "1.2.0"
   status: "active"
   updated: "2026-04-09"
 ---

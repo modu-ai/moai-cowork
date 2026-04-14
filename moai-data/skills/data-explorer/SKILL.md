@@ -6,7 +6,7 @@ description: >
   컬럼 요약, 결측값/이상값 탐지, 상관관계 분석, 데이터 품질 보고서를 생성합니다.
 user-invocable: true
 metadata:
-  version: "1.1.3"
+  version: "1.2.0"
   category: "domain"
   status: "active"
   updated: "2026-04-10"

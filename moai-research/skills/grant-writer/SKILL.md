@@ -6,7 +6,7 @@ description: >
   한국연구재단(NRF), IITP, KIAT, 중소벤처기업부 등 주요 연구비 양식에 맞춘 신청서를 작성합니다.
 user-invocable: true
 metadata:
-  version: "1.1.3"
+  version: "1.2.0"
   category: "domain"
   status: "active"
   updated: "2026-04-10"

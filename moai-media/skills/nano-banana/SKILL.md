@@ -9,7 +9,7 @@ description: >
   '/moai-media nano-banana'로 호출하세요.
 user-invocable: true
 metadata:
-  version: "1.1.3"
+  version: "1.2.0"
   status: "stable"
   updated: "2026-04-14"
   tags: "image,nano-banana,gemini,google,card-news,instagram,korean"
@@ -17,7 +17,7 @@ metadata:
 
 # Nano Banana — Google Gemini AI 이미지 생성
 
-> moai-media v1.1.1 | Gemini 3 Image Preview 공식 모델
+> moai-media v1.2.0 | Gemini 3 Image Preview 공식 모델
 
 ## 개요
 

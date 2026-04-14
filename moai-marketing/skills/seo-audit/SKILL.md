@@ -7,7 +7,7 @@ description: >
   온페이지·기술 SEO, 키워드 전략, AI 검색 최적화 보고서를 생성합니다.
 user-invocable: true
 metadata:
-  version: "1.1.3"
+  version: "1.2.0"
   status: "active"
   updated: "2026-04-09"
   tags: "seo,naver,google,c-rank,dia,geo,audit,keywords"

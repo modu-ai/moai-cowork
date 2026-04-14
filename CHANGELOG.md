@@ -51,6 +51,100 @@
 
 ---
 
+## [1.2.0] - 2026-04-14
+
+공식 MINOR 릴리스. v1.1.0~v1.1.3의 점진적 변경을 안정 버전으로 집약하여 배포.
+
+### Highlights
+
+- **신규 플러그인 `moai-media`** — AI 미디어 스튜디오 (이미지·영상·음성 통합)
+- **Google Nano Banana 공식 전환** — Imagen 4 → Gemini 3 Image Preview (Pro + 2 체제)
+- **영상은 Kling 단일화** — fal.ai 기반 숏폼·립싱크 커버
+- **음성은 ElevenLabs 공식 MCP** — TTS, 32개 언어 더빙, ConvAI
+- **fal.ai 게이트웨이** — Flux·Recraft·Hailuo·Luma·Pika·MiniMax Music 1000+ 모델 단일 접점
+- **전 저장소 버전 통일 88 지점** → **1.2.0**
+
+### Added
+
+- 플러그인 `moai-media` (5 스킬)
+  - [`nano-banana`](moai-media/skills/nano-banana/SKILL.md): Google Gemini 3 Image Preview 공식 2종 (`gemini-3-pro-image-preview`, `gemini-3.1-flash-image-preview`)
+  - [`ideogram`](moai-media/skills/ideogram/SKILL.md): Ideogram 3.0 한국어 타이포 (fal.ai)
+  - [`kling`](moai-media/skills/kling/SKILL.md): Kling 3.0 숏폼 영상 (fal.ai, 립싱크·다국어)
+  - [`elevenlabs`](moai-media/skills/elevenlabs/SKILL.md): ElevenLabs 공식 MCP (TTS·음성복제·더빙·ConvAI)
+  - [`fal-gateway`](moai-media/skills/fal-gateway/SKILL.md): fal.ai 1000+ 모델 통합 게이트웨이
+- 번들 MCP 서버 2종 (`moai-media/.mcp.json`)
+  - `fal-ai` (hosted HTTP MCP at `https://mcp.fal.ai/mcp`)
+  - `elevenlabs` (local stdio via `uvx elevenlabs-mcp`)
+- API 키 3종 통합 지원
+  - `GEMINI_API_KEY` (nano-banana 전용 + 레거시 `NANO_BANANA_API_KEY` 호환)
+  - `FAL_KEY` (ideogram / kling / fal-gateway 공유)
+  - `ELEVENLABS_API_KEY` (elevenlabs)
+- `moai-media/scripts/generate_image.py` v4.3 — Python 3.13+ 타입힌트, REST camelCase 준수, 서로게이트 sanitize
+- 문서: `CLAUDE.local.md` § 4 MCP 번들 정책, § 5 외부 API 모델 ID 업데이트 정책
+- 루트 `README.md` 전면 갱신 (17 플러그인 / 70 스킬 / moai-media 상세 섹션)
+
+### Changed
+
+- **공식 Nano Banana 2종 체제 확정**
+  - `nano-banana-pro` → `gemini-3-pro-image-preview` (2K 기본, 텍스트 SOTA)
+  - `nano-banana-2` → `gemini-3.1-flash-image-preview` (1K 기본, 비용 효율)
+  - Ultra·cheap·2.5-flash 등 부가 별칭은 제거 → Pro/2로 자동 승격 (코드 무수정 호환)
+- **API 호출 스펙** (공식 문서 `ai.google.dev/gemini-api/docs/image-generation` 100% 정합)
+  - 엔드포인트 `:predict` → `:generateContent`
+  - 페이로드 `numberOfImages` + top-level `aspectRatio` → `imageConfig.aspectRatio` + `imageSize`
+  - REST 응답 `predictions[].bytesBase64Encoded` → `candidates[].content.parts[].inlineData.data`
+  - 화면비 공식 14종 (`1:1`, `2:3`, `3:2`, `3:4`, `4:3`, `4:5`, `5:4`, `9:16`, `16:9`, `21:9`, `1:4`, `4:1`, `1:8`, `8:1`)
+  - 해상도 `"512"` / `"1K"` / `"2K"` / `"4K"`
+- `generate_image.py` 이관: `moai-content/scripts/card-news/` → `moai-media/scripts/`
+  (v3.0 Imagen 4 → v4.3 Gemini 3 Image Preview)
+- `moai-content/skills/card-news/SKILL.md`: 이미지 생성을 `moai-media/nano-banana` 위임 구조로 전환
+- `moai-core/skills/moai/references/core/init-protocol.md`: API 키 테이블 4개 → 6개 확장
+- `.claude-plugin/marketplace.json`: `moai-media` 엔트리 추가
+
+### Removed
+
+- Veo 3.1 관련 참조 (영상은 Kling 단일화)
+- `gemini-2.5-flash-image` 모델 매핑
+- `nano-banana-ultra` 별칭 및 `ULTRA_ALIASES` 상수
+- `moai-content/scripts/card-news/` 디렉토리 (moai-media로 이관)
+- v1.0.x 잔존 로컬 태그 (v1.1.0~v1.3.0) — marketplace 버전 체계와 불일치하여 정리
+
+### Migration
+
+v1.0.x 사용자 조치 3단계:
+
+1. **마켓플레이스 새로고침**
+   ```
+   /plugin marketplace update cowork-plugins
+   /plugin install moai-media@cowork-plugins
+   ```
+
+2. **Gemini API 업그레이드**
+   - Pay-as-you-go 결제 활성화 필수 (Nano Banana Pro/2 Free Tier 불가)
+   - `NANO_BANANA_API_KEY` 그대로 사용 가능 (자동 인식), 혹은 `GEMINI_API_KEY`로 재명명 권장
+
+3. **신규 API 키 (선택, moai-media 전체 사용 시)**
+   - `FAL_KEY` — [fal.ai/dashboard/keys](https://fal.ai/dashboard/keys) ($5 무료 크레딧)
+   - `ELEVENLABS_API_KEY` — [elevenlabs.io/app/settings/api-keys](https://elevenlabs.io/app/settings/api-keys) (무료 10K char)
+   - `uv` 설치 (ElevenLabs MCP용): `curl -LsSf https://astral.sh/uv/install.sh | sh`
+
+### Breaking
+
+- **이미지 모델 ID 변경**: 기존 `imagen-4.0-*` 하드코딩은 Pro/2로 자동 승격되나, 장기적으로 `gemini-3-pro-image-preview` / `gemini-3.1-flash-image-preview` 직접 사용 권장
+- **엔드포인트 변경**: 자체 스크립트를 복사·수정하여 사용하던 사용자는 `:predict` → `:generateContent` 및 페이로드 스키마 업데이트 필요 (참고: `moai-media/scripts/generate_image.py` v4.3)
+- **무료 티어 불가**: Gemini 무료 키로 Nano Banana 호출하던 워크플로우는 Pay-as-you-go 전환 필요
+- **`google-media` 스킬 경로 없음**: v1.1.0 잠깐 존재했던 `moai-media/skills/google-media/` 경로는 `nano-banana`로 개명됨 (v1.1.0 직후 설치한 극소수 사용자만 해당)
+
+### 변경 이력 (v1.1.x 누적)
+
+v1.2.0에 집약된 중간 릴리스:
+- v1.1.0: moai-media 초기 릴리스 (6 스킬, google-media 포함)
+- v1.1.1: google-media → nano-banana 개명, Veo 제거, 화면비 공식 14종 정정
+- v1.1.2: Pro + 2 체제로 축약 (gemini-2.5-flash-image 제거)
+- v1.1.3: nano-banana-ultra 제거, Ultra 별칭 자동 승격
+
+---
+
 ## [1.1.3] - 2026-04-14
 
 ### Removed

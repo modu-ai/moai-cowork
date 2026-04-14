@@ -2,14 +2,17 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Claude Cowork](https://img.shields.io/badge/Claude-Cowork-blueviolet)](https://claude.ai)
-[![Plugins](https://img.shields.io/badge/Plugins-16-blue)](.claude-plugin/marketplace.json)
-[![Skills](https://img.shields.io/badge/Skills-65-green)](.claude-plugin/marketplace.json)
+[![Version](https://img.shields.io/badge/Version-1.2.0-blue)](CHANGELOG.md)
+[![Plugins](https://img.shields.io/badge/Plugins-17-blue)](.claude-plugin/marketplace.json)
+[![Skills](https://img.shields.io/badge/Skills-70-green)](.claude-plugin/marketplace.json)
 
 **Claude Cowork 도메인 전문가 AI 마켓플레이스**
 
-자연어 한 줄이면 사업계획서, 계약서 검토, 세금 계산, PPT 제작, 데이터 분석, 특허 검색까지 — 16개 독립 플러그인과 65개 전문 스킬이 업무를 대신합니다.
+자연어 한 줄이면 사업계획서, 계약서 검토, 세금 계산, PPT 제작, 데이터 분석, 특허 검색, **AI 이미지·영상·음성 생성**까지 — 17개 독립 플러그인과 70개 전문 스킬이 업무를 대신합니다.
 
-> *Domain expert AI marketplace for [Claude Cowork](https://claude.ai). 16 plugins · 65 skills covering business strategy, marketing, legal, finance, HR, content, operations, education, lifestyle, product, support, document generation, data analysis, and research/patents.*
+> *Domain expert AI marketplace for [Claude Cowork](https://claude.ai). 17 plugins · 70 skills covering business strategy, marketing, legal, finance, HR, content, operations, education, lifestyle, product, support, document generation, data analysis, research/patents, and **AI media production (image/video/voice)**.*
+
+**🆕 v1.2.0 하이라이트**: `moai-media` 신규 플러그인 — Google Nano Banana(Gemini 3 Image Preview), Kling 숏폼 영상, ElevenLabs AI 음성, fal.ai 통합 게이트웨이.
 
 ---
 
@@ -46,16 +49,17 @@
 | [moai-career](./moai-career/) | 커리어 준비 — 자기소개서, 이력서, 면접 코칭, 채용공고 분석 | 4 |
 | [moai-data](./moai-data/) | 데이터 분석 — CSV/Excel 탐색, 공공데이터, 시각화 | 3 |
 | [moai-research](./moai-research/) | 연구/특허 — 논문 검색, 특허 분석/출원, 연구비 신청 | 5 |
+| [moai-media](./moai-media/) 🆕 | AI 미디어 스튜디오 — Nano Banana 이미지, Kling 영상, ElevenLabs 음성, fal.ai 게이트웨이 | 5 |
 
 ## 총 산출물
 
 | 항목 | 수량 |
 |------|:----:|
-| 플러그인 | 16 |
-| 스킬 | 65 |
+| 플러그인 | 17 |
+| 스킬 | 70 |
 | 레퍼런스 파일 | 167 |
 | 에이전트 | 0 |
-| MCP 서버 | 5 |
+| MCP 서버 | 7 (`fal-ai`, `elevenlabs` 추가) |
 | 스크립트 | 16 |
 | 템플릿 | 8 |
 
@@ -313,6 +317,19 @@ Airtable/Google Sheets 커넥터로 데이터를 직접 분석합니다.
 | patent-search | 특허 검색 | KIPRIS Plus 특허/실용신안/디자인/상표 검색 |
 | patent-analyzer | 특허 분석 | 특허 맵, 선행기술 조사, FTO 분석, 출원서 초안 |
 | grant-writer | 연구비 신청 | NRF/IITP/KIAT 연구비 신청서 작성 |
+
+### moai-media 🆕 — AI 미디어 스튜디오
+
+| 스킬 | 한글명 | 기능 |
+|------|--------|------|
+| nano-banana | 나노바나나 | Google Gemini Nano Banana Pro + 2 이미지 생성 (한국어 텍스트 SOTA) |
+| ideogram | 아이디오그램 | Ideogram 3.0 한국어 타이포그래피 특화 이미지 (fal.ai) |
+| kling | 클링 | Kling 3.0 숏폼 영상 (릴스·쇼츠·틱톡·립싱크, fal.ai) |
+| elevenlabs | 일레븐랩스 | AI 음성·TTS·32개 언어 더빙 (공식 MCP) |
+| fal-gateway | 팔게이트웨이 | Flux·Recraft·Hailuo·Luma·Pika·MiniMax Music 1000+ 모델 통합 (fal.ai) |
+
+**사용 API 키 3종**: `GEMINI_API_KEY`(Nano Banana), `FAL_KEY`(fal.ai), `ELEVENLABS_API_KEY`.
+**번들 MCP 2종**: `fal-ai`(hosted HTTP), `elevenlabs`(local stdio via `uvx`).
 
 ---
 

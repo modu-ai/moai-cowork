@@ -6,7 +6,7 @@ description: >
   내 경험과 매칭하여 자소서 소재를 발굴하며, 기업 문화와 성장성을 분석합니다.
 user-invocable: true
 metadata:
-  version: "1.1.3"
+  version: "1.2.0"
   status: "active"
   updated: "2026-04-09"
 ---

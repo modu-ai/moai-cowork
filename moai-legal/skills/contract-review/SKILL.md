@@ -7,7 +7,7 @@ description: >
   한국 민법·상법 기반 10대 리스크 패턴 분석, 수정 권고안을 제공합니다.
 user-invocable: true
 metadata:
-  version: "1.1.3"
+  version: "1.2.0"
   status: "stable"
   updated: "2026-04-09"
 ---

@@ -2,7 +2,7 @@
 
 > AI 미디어 스튜디오 — 이미지·영상·음성 통합 생성 플러그인
 
-[![버전](https://img.shields.io/badge/version-1.1.1-blue)](../CHANGELOG.md)
+[![버전](https://img.shields.io/badge/version-1.2.0-blue)](../CHANGELOG.md)
 [![라이선스](https://img.shields.io/badge/license-MIT-green)](../LICENSE)
 
 ## 개요

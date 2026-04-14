@@ -6,7 +6,7 @@ description: >
   Mermaid 다이어그램, Chart.js HTML 차트, 인터랙티브 대시보드를 생성하고 moai-office로 PPT/Word 변환합니다.
 user-invocable: true
 metadata:
-  version: "1.1.3"
+  version: "1.2.0"
   category: "domain"
   status: "active"
   updated: "2026-04-10"
