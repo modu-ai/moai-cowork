@@ -6,7 +6,7 @@ description: >
   서론-선행연구-방법론-결과-논의-결론 구조로 논문을 작성하고 APA/KCI/IEEE 참고문헌을 자동 생성합니다.
 user-invocable: true
 metadata:
-  version: "1.1.1"
+  version: "1.1.2"
   category: "domain"
   status: "active"
   updated: "2026-04-10"

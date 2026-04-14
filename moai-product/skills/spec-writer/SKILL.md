@@ -4,7 +4,7 @@ description: >
   제품 기획 문서와 AI 전략, 정부 지원금 신청서를 작성합니다. "PRD 작성해줘", "기능 명세서 만들어줘", "AI 도입 전략 보고서 써줘", "R&D 과제 신청서 작성해줘"라고 요청할 때 사용하세요. 프로덕트 매니저 문서, AI/ML 전략, 정부 지원 사업 기획서를 지원합니다.
 user-invocable: true
 metadata:
-  version: "1.1.1"
+  version: "1.1.2"
   status: "stable"
   updated: "2026-04-09"
 ---

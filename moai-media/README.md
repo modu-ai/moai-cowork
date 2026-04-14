@@ -15,7 +15,7 @@
 
 | 스킬 | 한글명 | 백엔드 | 용도 |
 |---|---|---|---|
-| [`nano-banana`](skills/nano-banana/SKILL.md) | 나노바나나 | Gemini 3 Image Preview | **이미지 전용** (Nano Banana Pro/2/원조) |
+| [`nano-banana`](skills/nano-banana/SKILL.md) | 나노바나나 | Gemini 3 Image Preview | **이미지 전용** (Nano Banana Pro + 2, 2종만) |
 | [`ideogram`](skills/ideogram/SKILL.md) | 아이디오그램 | Ideogram 3.0 via fal.ai | 한국어 타이포 특화 이미지 |
 | [`kling`](skills/kling/SKILL.md) | 클링 | Kling 3.0 via fal.ai | **영상 전용** (숏폼·광고·립싱크 모두) |
 | [`elevenlabs`](skills/elevenlabs/SKILL.md) | 일레븐랩스 | ElevenLabs 공식 MCP | AI 음성·TTS·다국어 더빙 |

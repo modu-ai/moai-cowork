@@ -4,7 +4,7 @@ description: >
   사용자 경험을 연구하고 고객 피드백을 분석합니다. "사용자 인터뷰 질문지 만들어줘", "VOC 분석해줘", "페르소나 설계해줘", "NPS 결과 해석해줘"라고 요청할 때 사용하세요. UX 리서치 계획 수립, 페르소나 설계, 유저빌리티 테스트, 고객 피드백·VOC·NPS 분석을 지원합니다.
 user-invocable: true
 metadata:
-  version: "1.1.1"
+  version: "1.1.2"
   status: "stable"
   updated: "2026-04-09"
 ---

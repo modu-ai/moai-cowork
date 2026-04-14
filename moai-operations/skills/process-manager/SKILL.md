@@ -4,7 +4,7 @@ description: >
   업무 프로세스를 문서화하고 표준화합니다. "SOP 만들어줘", "구매 요청서 써줘", "회의록 정리해줘", "운영 매뉴얼 작성해줘"라고 요청할 때 사용하세요. 운영 매뉴얼, SOP(표준 운영 절차), 조달 문서(구매 요청서·발주서), 회의록 작성 및 안건 관리를 지원합니다.
 user-invocable: true
 metadata:
-  version: "1.1.1"
+  version: "1.1.2"
   status: "active"
   updated: "2026-04-09"
 ---

@@ -6,7 +6,7 @@ description: >
   data.go.kr API와 KOSIS OpenAPI로 실시간 데이터를 조회하고 분석합니다.
 user-invocable: true
 metadata:
-  version: "1.1.1"
+  version: "1.1.2"
   category: "domain"
   status: "active"
   updated: "2026-04-10"

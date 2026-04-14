@@ -51,6 +51,32 @@
 
 ---
 
+## [1.1.2] - 2026-04-14
+
+### Changed
+
+- **`nano-banana` 스킬 공식 모델 2종 체제로 단순화**
+  - 공식 라인업: `nano-banana-pro` (`gemini-3-pro-image-preview`) + `nano-banana-2` (`gemini-3.1-flash-image-preview`) **두 가지만**
+  - `nano-banana-ultra`는 Pro의 4K 프리셋 (별도 모델 아님)
+  - v1.1.1에서 도입한 `gemini-2.5-flash-image` (원조 Nano Banana) 제거 — 사용자 혼선 방지
+- **레거시 별칭 자동 승격**
+  - `"nano-banana"` 별칭 → `gemini-3-pro-image-preview` (v1.1.1에서는 `gemini-2.5-flash-image`)
+  - `"cheap"` 별칭 → `gemini-3.1-flash-image-preview` (v1.1.1에서는 `gemini-2.5-flash-image`)
+  - 사용자 코드 무수정 작동 보장
+- **`image_size` 필수 적용** — 모든 요청에 `imageConfig.imageSize` 포함 (2.5-flash 미지원 케이스 삭제)
+- **`generate_image.py` v4.1 → v4.2** — MODEL_MAP 정리, is_ultra 로직 단순화
+
+### Fixed
+
+- README 스킬 설명 "Pro/2/원조" → "Pro + 2, 2종만"으로 정확화
+- SKILL.md 모델 카탈로그 표를 Pro/2/Ultra 3행으로 축소
+
+### Migration
+
+기존 사용자 조치 없음. `nano-banana` / `cheap` 별칭을 쓰던 코드는 그대로 작동 (자동 승격).
+
+---
+
 ## [1.1.1] - 2026-04-14
 
 ### Changed

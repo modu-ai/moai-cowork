@@ -7,7 +7,7 @@ description: >
   BMC, Blue Ocean, Porter's 5 Forces, OKR 등 검증된 전략 프레임워크를 활용합니다.
 user-invocable: true
 metadata:
-  version: "1.1.1"
+  version: "1.1.2"
   status: "stable"
   updated: "2026-04-09"
 ---

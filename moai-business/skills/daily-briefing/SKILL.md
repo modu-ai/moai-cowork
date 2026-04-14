@@ -7,7 +7,7 @@ description: >
   국내외 업계 뉴스, 규제·정책 변화, 오늘의 액션 아이템을 하나의 리포트로 통합합니다.
 user-invocable: true
 metadata:
-  version: "1.1.1"
+  version: "1.1.2"
   status: "active"
   updated: "2026-04-09"
   tags: "briefing,news,market,daily,dashboard"

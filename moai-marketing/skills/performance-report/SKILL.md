@@ -7,7 +7,7 @@ description: >
   경영진용 요약과 실무팀용 상세 분석, 다음 기간 액션 플랜을 함께 제공합니다.
 user-invocable: true
 metadata:
-  version: "1.1.1"
+  version: "1.1.2"
   status: "active"
   updated: "2026-04-09"
   tags: "performance,report,KPI,ROAS,GA4,naver,meta,analytics"

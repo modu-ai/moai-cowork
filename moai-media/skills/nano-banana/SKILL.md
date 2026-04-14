@@ -1,15 +1,15 @@
 ---
 name: nano-banana
 description: >
-  Google Gemini API 기반 AI 이미지 생성 스킬. Nano Banana Pro(gemini-3-pro-image-preview),
-  Nano Banana 2(gemini-3.1-flash-image-preview), 원조 Nano Banana(gemini-2.5-flash-image)를
-  단일 GEMINI_API_KEY로 사용. 카드뉴스·인스타 피드·썸네일·포스터에 최적.
-  한국어 텍스트 렌더링 SOTA, 최대 4K 해상도, 14종 화면비 지원.
+  Google Gemini API 기반 AI 이미지 생성 스킬. Nano Banana Pro(gemini-3-pro-image-preview)와
+  Nano Banana 2(gemini-3.1-flash-image-preview) 두 가지 공식 모델을 단일 GEMINI_API_KEY로 사용.
+  카드뉴스·인스타 피드·썸네일·포스터에 최적. 한국어 텍스트 렌더링 SOTA,
+  최대 4K 해상도(Ultra 프리셋), 14종 화면비 지원.
   '나노바나나 이미지', '구글 이미지 생성', '카드뉴스 이미지', '인스타 썸네일',
   '/moai-media nano-banana'로 호출하세요.
 user-invocable: true
 metadata:
-  version: "1.1.1"
+  version: "1.1.2"
   status: "stable"
   updated: "2026-04-14"
   tags: "image,nano-banana,gemini,google,card-news,instagram,korean,4k"
@@ -24,18 +24,21 @@ metadata:
 Google의 공식 AI 이미지 브랜드 **"Nano Banana"**는 2026년 Q1에 Imagen 4 계열에서 **Gemini 3 Image Preview 계열로 재정의**되었습니다.
 본 스킬은 공식 문서(`ai.google.dev/gemini-api/docs/image-generation`) 스펙 기준 최신 모델 ID를 사용합니다.
 
-## 모델 카탈로그 (공식)
+## 모델 카탈로그 (공식 2종 + Ultra 프리셋)
 
 | Alias | 공식 모델 ID | 용도 | 출력 해상도 | 이미지당 비용 |
 |---|---|---|---|---|
 | `nano-banana-pro` (기본) | `gemini-3-pro-image-preview` | 카드뉴스·포스터·광고, 텍스트 렌더링 SOTA | 1K/2K/4K | $0.134 (1K/2K), $0.24 (4K) |
 | `nano-banana-2` | `gemini-3.1-flash-image-preview` | 초안·대량 A/B, 비용 효율 | 512/1K | $0.045 (0.5K), $0.067 (1K) |
-| `nano-banana` | `gemini-2.5-flash-image` | 원조 버전, 최저가 | 기본 | **$0.039** |
-| `nano-banana-ultra` | `gemini-3-pro-image-preview` + `image_size="4K"` | 대형 인쇄·광고 마스터 | 4K | $0.24 |
+| `nano-banana-ultra` (프리셋) | `gemini-3-pro-image-preview` + `image_size="4K"` | 대형 인쇄·광고 마스터 | 4K | $0.24 |
 
-**레거시 Imagen 4 별칭** (`imagen-4.0-*`)은 자동으로 Gemini 3 계열로 전환됩니다 (스크립트 MODEL_MAP).
+**공식 모델은 Pro와 2 두 가지뿐입니다.** Ultra는 Pro를 4K 해상도로 호출하는 프리셋일 뿐 별도 모델이 아닙니다.
 
-⚠️ **무료 티어 불가**: 세 모델 모두 Free Tier에서 호출 불가, Pay-as-you-go 유료 플랜 필수 (공식 문서 명시).
+**레거시 별칭**:
+- `imagen-4.0-*`, `imagen-3.0-*`: Pro 또는 2로 자동 전환 (MODEL_MAP)
+- v1.1.1에서 사용된 `nano-banana` (`gemini-2.5-flash-image`) 별칭: v1.1.2부터 **Pro로 자동 승격** (원조 모델은 공식 라인업에서 제외)
+
+⚠️ **무료 티어 불가**: 두 모델 모두 Free Tier에서 호출 불가, Pay-as-you-go 유료 플랜 필수 (공식 문서 명시).
 
 ## 영상은 `kling` 스킬 사용
 

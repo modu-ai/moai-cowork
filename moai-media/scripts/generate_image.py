@@ -5,13 +5,16 @@ Google Nano Banana Image Generator (v4.1.0 - 공식 문서 정합)
 Google Gemini API (Gemini 3 Image Preview 계열)로 이미지를 생성합니다.
 공식 문서(ai.google.dev/gemini-api/docs/image-generation) 스펙 100% 정합.
 
-[v4.1.0 변경사항 — 2026-04-14]
-- 모델 추가: gemini-2.5-flash-image (원조 Nano Banana, 최저가 $0.039/img)
+[v4.2.0 변경사항 — 2026-04-14]
+- 공식 모델 2종만 사용: Nano Banana Pro + Nano Banana 2
+- gemini-2.5-flash-image 제거: v1.1.1의 nano-banana 별칭은 Pro로 자동 승격
+- image_size 필수화 (always set): 모델별 자동 기본값
+
+[v4.1.0 — 2026-04-14]
 - 화면비 리스트 수정: 공식 14종 (1:4, 4:1, 1:8, 8:1 추가)
 - REST API 페이로드 camelCase 정리 (공식 REST 스펙 준수)
 - 응답 파싱 inlineData(camelCase) 우선 (REST 기본값)
 - image_size 지원 목록 공식화: "512", "1K", "2K", "4K"
-- gemini-2.5-flash-image는 image_size 미지원 → 생략 처리
 
 [v4.0.0 — 2026-04-14]
 - 모델 전환: imagen-4.0-* → gemini-3-pro-image-preview / gemini-3.1-flash-image-preview
@@ -42,11 +45,10 @@ aspect_ratio (공식 14종):
   2:3, 3:2, 4:3, 4:5, 5:4 → 기타 표준 비율
   1:4, 4:1, 1:8, 8:1 → 배너·띠 형식
 
-model:
+model (공식 2종):
   nano-banana-pro   → gemini-3-pro-image-preview     (기본, 2K, SOTA 텍스트)
   nano-banana-2     → gemini-3.1-flash-image-preview (빠름, 저비용, 1K)
-  nano-banana       → gemini-2.5-flash-image         (원조, 최저가 $0.039)
-  nano-banana-ultra → gemini-3-pro-image-preview + image_size=4K
+  nano-banana-ultra → gemini-3-pro-image-preview + image_size=4K (Pro의 4K 프리셋)
 """
 from __future__ import annotations
 
@@ -69,19 +71,18 @@ BASE_URL = (
 
 DEFAULT_TIMEOUT = 90  # 초
 
-# 모델 별칭 매핑 (v4.1: 공식 Gemini Image 모델)
+# 모델 별칭 매핑 (v4.2: Pro + 2 두 가지만 공식 지원)
 # 참고: https://ai.google.dev/gemini-api/docs/image-generation
 MODEL_MAP: dict[str, str] = {
-    # 공식 Nano Banana 계열
-    "nano-banana-pro":   "gemini-3-pro-image-preview",      # SOTA 2K/4K
-    "nano-banana-2":     "gemini-3.1-flash-image-preview",  # 비용 효율 512/1K
-    "nano-banana":       "gemini-2.5-flash-image",          # 원조 (최저가 $0.039)
-    "nano-banana-ultra": "gemini-3-pro-image-preview",      # Pro + image_size=4K
+    # 공식 Nano Banana 2종
+    "nano-banana-pro": "gemini-3-pro-image-preview",      # SOTA 2K/4K, 권장 기본
+    "nano-banana-2":   "gemini-3.1-flash-image-preview",  # 비용 효율 512/1K
     # 단축 별칭
-    "pro":   "gemini-3-pro-image-preview",
-    "fast":  "gemini-3.1-flash-image-preview",
-    "cheap": "gemini-2.5-flash-image",
-    "ultra": "gemini-3-pro-image-preview",
+    "pro":  "gemini-3-pro-image-preview",
+    "fast": "gemini-3.1-flash-image-preview",
+    # Ultra는 Pro + image_size=4K로 구현
+    "nano-banana-ultra": "gemini-3-pro-image-preview",
+    "ultra":             "gemini-3-pro-image-preview",
     # 레거시 Imagen 4 (v1.0.x) → Gemini 3 자동 전환
     "imagen-4.0-generate-001":       "gemini-3-pro-image-preview",
     "imagen-4.0-fast-generate-001":  "gemini-3.1-flash-image-preview",
@@ -89,6 +90,9 @@ MODEL_MAP: dict[str, str] = {
     # 레거시 Imagen 3 하위호환
     "imagen-3.0-generate-002":       "gemini-3-pro-image-preview",
     "imagen-3.0-fast-generate-001":  "gemini-3.1-flash-image-preview",
+    # v1.1.1의 gemini-2.5-flash-image 별칭은 v1.1.2에서 Pro로 자동 승격
+    "nano-banana": "gemini-3-pro-image-preview",
+    "cheap":       "gemini-3.1-flash-image-preview",
 }
 
 # ULTRA 별칭 (4K 출력 강제)
@@ -236,9 +240,6 @@ def generate_image(
     # 해상도 기본값 자동 선택 (공식 문서 권장치)
     if is_ultra:
         image_size = "4K"
-    elif model_id == "gemini-2.5-flash-image":
-        # 원조 Nano Banana는 image_size 지원 안 함 — 빈 값 사용
-        image_size = ""
     elif model_id == "gemini-3.1-flash-image-preview":
         image_size = "1K"
     else:
@@ -246,9 +247,10 @@ def generate_image(
 
     # REST API는 camelCase 사용 (Python SDK는 snake_case)
     # 참고: https://ai.google.dev/gemini-api/docs/image-generation
-    image_config: dict[str, str] = {"aspectRatio": aspect_ratio}
-    if image_size:
-        image_config["imageSize"] = image_size
+    image_config: dict[str, str] = {
+        "aspectRatio": aspect_ratio,
+        "imageSize": image_size,
+    }
 
     payload: dict[str, object] = {
         "contents": [

@@ -7,7 +7,7 @@ description: >
   쿠팡·스마트스토어 상세페이지, AI 이미지 생성, 퍼포먼스 마케팅 전략을 제공합니다.
 user-invocable: true
 metadata:
-  version: "1.1.1"
+  version: "1.1.2"
   status: "stable"
   updated: "2026-04-09"
 ---

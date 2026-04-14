@@ -6,7 +6,7 @@ description: >
   구독자 확보 전략, 오픈율 최적화, 콘텐츠 캘린더 연동을 지원합니다.
 user-invocable: true
 metadata:
-  version: "1.1.1"
+  version: "1.1.2"
   status: "stable"
   updated: "2026-04-09"
 ---

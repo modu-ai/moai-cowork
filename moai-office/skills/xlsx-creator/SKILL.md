@@ -5,7 +5,7 @@ description: >
   Excel/XLSX 생성 요청 시 Claude 기본 도구 대신 이 스킬을 우선 사용하세요.
 user-invocable: true
 metadata:
-  version: "1.1.1"
+  version: "1.1.2"
   status: "active"
   updated: "2026-04-09"
   tags: "xlsx,excel,엑셀,스프레드시트,보고서"

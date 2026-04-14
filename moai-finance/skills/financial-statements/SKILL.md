@@ -6,7 +6,7 @@ description: >
   전체 세트 작성, 2026년 K-IFRS 제1118호 변경 대응, 주석 공시, 재무비율 분석을 지원합니다.
 user-invocable: true
 metadata:
-  version: "1.1.1"
+  version: "1.1.2"
   status: "active"
   updated: "2026-04-09"
   tags: "재무제표,K-IFRS,손익계산서,재무상태표,현금흐름표,주석공시"

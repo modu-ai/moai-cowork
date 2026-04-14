@@ -6,7 +6,7 @@ description: >
   RISS, KCI, DBpia, Google Scholar에서 논문을 검색하고 인용 정보를 정리합니다.
 user-invocable: true
 metadata:
-  version: "1.1.1"
+  version: "1.1.2"
   category: "domain"
   status: "active"
   updated: "2026-04-10"

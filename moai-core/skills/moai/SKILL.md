@@ -6,7 +6,7 @@ description: >
   '/moai init', '/moai catalog'으로 시작하세요.
 user-invocable: true
 metadata:
-  version: "1.1.1"
+  version: "1.1.2"
   status: "active"
   updated: "2026-04-14"
   tags: "moai,router,init,catalog,status,business,marketing,legal,tax,hr,content,patent,research,data"
