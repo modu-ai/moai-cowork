@@ -8,7 +8,7 @@ description: >
   Imagen 대비 한국어 글자 렌더링이 우수합니다. fal.ai MCP 경유.
 user-invocable: true
 metadata:
-  version: "1.1.2"
+  version: "1.1.3"
   status: "stable"
   updated: "2026-04-14"
   tags: "image,ideogram,typography,korean-text,card-news,poster,thumbnail"

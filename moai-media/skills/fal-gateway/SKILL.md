@@ -8,7 +8,7 @@ description: >
   '/moai-media fal-gateway'로 호출하세요.
 user-invocable: true
 metadata:
-  version: "1.1.2"
+  version: "1.1.3"
   status: "stable"
   updated: "2026-04-14"
   tags: "fal,gateway,flux,recraft,hailuo,luma,pika,music,multi-model"

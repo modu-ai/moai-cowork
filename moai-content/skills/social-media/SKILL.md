@@ -6,7 +6,7 @@ description: >
   7개 플랫폼 2026년 알고리즘 최적화 콘텐츠 제작을 지원합니다.
 user-invocable: true
 metadata:
-  version: "1.1.2"
+  version: "1.1.3"
   status: "active"
   updated: "2026-04-09"
   tags: "소셜미디어,인스타그램,릴스,유튜브쇼츠,링크드인,스레드,카카오,X,SNS"

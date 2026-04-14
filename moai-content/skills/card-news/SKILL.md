@@ -6,7 +6,7 @@ description: >
   잡지 SOP 적용, 디자인 가이드, AI 글쓰기 방지 기법을 지원합니다.
 user-invocable: true
 metadata:
-  version: "1.1.2"
+  version: "1.1.3"
   status: "stable"
   updated: "2026-04-09"
 ---
@@ -56,7 +56,6 @@ AskUserQuestion (1질문, 3옵션):
 "어떤 모델로 이미지를 생성할까요?"
 ○ Nano Banana Pro — gemini-3-pro-image-preview (2K, 텍스트 렌더링 SOTA, 권장)
 ○ Nano Banana 2 — gemini-3.1-flash-image-preview (1K, 빠름, 저비용)
-○ Nano Banana Ultra — gemini-3-pro-image-preview + 4K (대형 인쇄·광고)
 + Other
 ```
 

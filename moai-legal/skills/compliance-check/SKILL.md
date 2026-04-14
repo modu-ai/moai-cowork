@@ -7,7 +7,7 @@ description: >
   한국 주요 규제 기준 적용, 갭 분석, 시정 계획, ESG 지표 보고서를 제공합니다.
 user-invocable: true
 metadata:
-  version: "1.1.2"
+  version: "1.1.3"
   status: "stable"
   updated: "2026-04-09"
 ---

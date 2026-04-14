@@ -51,6 +51,30 @@
 
 ---
 
+## [1.1.3] - 2026-04-14
+
+### Removed
+
+- **`nano-banana-ultra` 별칭 제거** — 공식 라인업을 Pro + 2 **단 두 가지**로 최종 확정
+- `ULTRA_ALIASES` 상수 및 `is_ultra` 분기 로직 삭제 (`scripts/generate_image.py`)
+- 4K 해상도 자동 선택 로직 제거 — 필요 시 스크립트에서 `imageSize` 직접 지정
+- `moai-content/skills/card-news/SKILL.md`의 Ultra 옵션 제거
+
+### Changed
+
+- **자동 승격 테이블 확장** (무수정 호환)
+  - `"nano-banana-ultra"`, `"ultra"` → `gemini-3-pro-image-preview` (Pro로 승격)
+  - `"nano-banana"`, `"cheap"` → Pro / 2로 승격 (v1.1.2 동일)
+- 경고 메시지 개선: 제거된 별칭 사용 시 자동 전환 사실을 stderr로 명시
+- `generate_image.py` v4.2 → v4.3 — MODEL_MAP·해상도 선택 로직 단순화
+- `nano-banana` SKILL.md 비용 표 Pro/2 기준으로 재작성
+
+### Migration
+
+기존 `nano-banana-ultra` 호출 코드는 **무수정 작동** — 자동으로 Pro 2K로 처리되며 경고 출력. 4K가 필요하면 스크립트에서 `imageSize` 필드를 직접 `"4K"`로 수정.
+
+---
+
 ## [1.1.2] - 2026-04-14
 
 ### Changed

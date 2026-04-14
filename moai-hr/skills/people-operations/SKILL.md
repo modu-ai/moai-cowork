@@ -6,7 +6,7 @@ description: >
   협업 도구 선정 기준, 생산성 관리 프레임워크, 직원 경험 설계를 지원합니다.
 user-invocable: true
 metadata:
-  version: "1.1.2"
+  version: "1.1.3"
   status: "active"
   updated: "2026-04-09"
 ---

@@ -6,7 +6,7 @@ description: >
   GitHub/Behance/Notion 포트폴리오 최적화, 프로젝트 기술서 작성을 지원합니다.
 user-invocable: true
 metadata:
-  version: "1.1.2"
+  version: "1.1.3"
   status: "active"
   updated: "2026-04-09"
 ---

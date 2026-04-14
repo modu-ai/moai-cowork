@@ -6,7 +6,7 @@ description: >
   연봉 구조 최적화, 4대보험 공제 계산, 스톡옵션 조항 작성을 지원합니다. 2026년 기준 반영.
 user-invocable: true
 metadata:
-  version: "1.1.2"
+  version: "1.1.3"
   status: "active"
   updated: "2026-04-09"
   tags: "오퍼레터,채용제안서,근로계약서,연봉협상,근로기준법,입사제안"

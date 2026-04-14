@@ -6,7 +6,7 @@ description: >
   360도 평가 설계, 인사 고과 가이드, 피드백 면담 스크립트 작성을 지원합니다.
 user-invocable: true
 metadata:
-  version: "1.1.2"
+  version: "1.1.3"
   status: "active"
   updated: "2026-04-09"
   tags: "성과평가,OKR,MBO,KPI,인사고과,360도평가,피드백,성과관리"

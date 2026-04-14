@@ -7,7 +7,7 @@ description: >
   판례·법령 리서치, IP 포트폴리오, 리스크 매트릭스, 대응 액션 플랜을 제공합니다.
 user-invocable: true
 metadata:
-  version: "1.1.2"
+  version: "1.1.3"
   status: "active"
   updated: "2026-04-09"
   tags: "legal,risk,판례,지적재산,특허,상표,저작권,IP,컴플라이언스"
