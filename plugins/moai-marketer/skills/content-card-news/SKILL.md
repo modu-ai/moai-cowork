@@ -10,7 +10,7 @@ description: |
   - "스타트업 시드 라운드 체크리스트 카드뉴스 써줘"
   - "프롬프트 엔지니어링 FAQ 카드뉴스 기획해줘"
   주제에 맞는 구성 패턴을 자동으로 골라 4장을 채우고, 이미지 생성은 moai-coworker 이미지 스킬로, 한국어 자연화는 moai-writer:korean-humanize으로 이어집니다.
-version: "1.1.0"
+version: "1.1.1"
 ---
 
 # 카드뉴스 (Card News)
@@ -93,10 +93,10 @@ version: "1.1.0"
 
 | 위임 스킬 | 모델 | 추천 시점 |
 |---|---|---|
-| **`moai-media:media-higgsfield-image`** | **GPT Image 2** (1순위) | **텍스트가 정확히 들어가는 카드뉴스 ★ 권장** — MCP 자동 호출 |
+| **`moai-media:media-higgsfield-image`** | **GPT Image 2.5** (1순위) | **텍스트가 정확히 들어가는 카드뉴스 ★ 권장** — MCP 자동 호출 |
 | `moai-media:media-higgsfield-image` | Nano Banana Pro | 보조·fallback |
 | `moai-media:media-higgsfield-image` | Soul Cinema | 시네마틱 카드 (글자 비중 낮을 때) |
-| `moai-media:media-gpt-image-2-prompt` | OpenAI GPT-image-2 | ChatGPT 외부 도구로 복붙 (MCP 미사용 환경) |
+| `moai-media:media-gpt-image-prompt` | OpenAI GPT Image 2.5 | ChatGPT 외부 도구로 복붙 (MCP 미사용 환경) |
 | `moai-media:media-gemini-3-image-prompt` | Google Gemini 3 Image | Google AI Studio 외부 도구로 복붙 |
 | `moai-media:media-midjourney-v8-prompt` | Midjourney v8.1 | Discord MJ 사용 (비주얼 임팩트) |
 
@@ -257,8 +257,8 @@ CTA: [저장/공유/팔로우/링크/댓글/DM 중 1개]
 
 | 스킬 | 사용 시점 |
 |---|---|
-| `moai-media:media-higgsfield-image` | 텍스트 정확 렌더링 카드뉴스 (★ 권장) — GPT Image 2, MCP 자동 호출 |
-| `moai-media:media-gpt-image-2-prompt` | 일러스트·캐릭터 강조 |
+| `moai-media:media-higgsfield-image` | 텍스트 정확 렌더링 카드뉴스 (★ 권장) — GPT Image 2.5, MCP 자동 호출 |
+| `moai-media:media-gpt-image-prompt` | 일러스트·캐릭터 강조 |
 | `moai-media:media-gemini-3-image-prompt` | Google Gemini 3 Image 외부 도구 복붙 |
 | `moai-media:media-midjourney-v8-prompt` | 비주얼 임팩트 중심 |
 | `moai-media:media-audio-gen` | 카드뉴스 영상화 시 보이스오버 |

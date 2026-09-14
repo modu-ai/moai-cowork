@@ -1,7 +1,7 @@
 ---
 name: doc-html-slide
 description: |
-  발표용 슬라이드 덱을 브라우저에서 바로 열리는 단일 파일·자체 완결형(self-contained) HTML로 만들어 드립니다. 인포그래픽(차트·다이어그램·KPI)은 한국어 숫자·라벨이 100% 정확한 인라인 SVG로 직접 렌더링하고, 실사 히어로·일러스트 이미지는 Higgsfield MCP 또는 codex(gpt-image-2)로 생성합니다. 필요 시 doc-pptx 체이닝으로 PowerPoint에서 편집 가능한 .pptx까지 병행 산출합니다.
+  발표용 슬라이드 덱을 브라우저에서 바로 열리는 단일 파일·자체 완결형(self-contained) HTML로 만들어 드립니다. 인포그래픽(차트·다이어그램·KPI)은 한국어 숫자·라벨이 100% 정확한 인라인 SVG로 직접 렌더링하고, 실사 히어로·일러스트 이미지는 Higgsfield MCP(GPT Image 2.5 등) 또는 codex(GPT Image)로 생성합니다. 필요 시 doc-pptx 체이닝으로 PowerPoint에서 편집 가능한 .pptx까지 병행 산출합니다.
   다음과 같은 요청 시 사용하세요:
   - "발표 슬라이드 HTML로 만들어줘"
   - "키노트 덱 단일 HTML 파일로 렌더해줘"
@@ -13,7 +13,7 @@ description: |
   design-system-library 75개 브랜드 토큰 중 테마를 골라 적용하고, 각 토큰별 getdesign.md 상세 페이지 링크로 미리보기를 제공합니다.
   PDF 배포본이 필요하면 브라우저 `?print-pdf` 인쇄 모드를 쓰거나, 생성한 HTML을 moai-officer:doc-pdf로 넘겨 변환하세요 (weasyprint를 직접 설치·호출하지 말 것).
   [책임 경계] vs moai-officer:doc-pptx: 이 스킬=브라우저에서 바로 열리는 단일 .html 슬라이드 덱(편집 가능 .pptx는 doc-pptx 체이닝으로 산출). vs moai-media:media-notebooklm-slide-prompt: 저 스킬=NotebookLM 입력용 프롬프트(파일 생성 없음). vs moai-officer:doc-html-report: 저 스킬=연속 스크롤 문서/보고서(슬라이드 덱이 아님).
-version: "1.2.0"
+version: "1.2.1"
 ---
 
 # doc-html-slide — 단일 파일 HTML 슬라이드 덱 생성기
@@ -25,7 +25,7 @@ version: "1.2.0"
 **핵심 원칙**:
 - 단일 `.html` 파일 — 외부 빌드 단계·런타임 SPA 의존 없이 `file://`로 즉시 오픈
 - 인포그래픽은 LLM이 인라인 SVG로 직접 저작 — 한국어 숫자·라벨 100% 정확, 확대 선명, 재현 가능
-- 실사·일러스트 이미지는 Higgsfield MCP 또는 codex(gpt-image-2)로 생성 — 허용 백엔드만 사용 (`references/image-backend-policy.md`)
+- 실사·일러스트 이미지는 Higgsfield MCP 또는 codex(GPT Image)로 생성 — 허용 백엔드만 사용 (`references/image-backend-policy.md`)
 - design-system-library 75개 브랜드 토큰 적용 — 각 토큰별 getdesign.md 상세 페이지 링크 제공
 - 편집 가능 PPTX 산출은 `doc-pptx`(moai-coworker) 체이닝으로 위임 — 자체 구현하지 않음(중복·책임 모호화 방지)
 
@@ -42,7 +42,7 @@ version: "1.2.0"
 | `slide_count` / 발표 시간 | — | 주제에서 추천 | 3분=5-7장 · 10분=10-15장 · 30분=20-30장 |
 | `aspect_ratio` | — | `16:9` | `16:9`(프로젝터 표준) \| `1:1`(소셜/카드뉴스) |
 | `locale` | — | `ko` | `ko` \| `en` — 헤드라인·카피 언어 |
-| `image_backend` | — | `higgsfield` | `higgsfield`(Higgsfield MCP, 기본) \| `codex`(gpt-image-2, ChatGPT 구독 한도) \| `svg-only`(이미지 없이 SVG 장식만) |
+| `image_backend` | — | `higgsfield` | `higgsfield`(Higgsfield MCP, 기본) \| `codex`(GPT Image, ChatGPT 구독 한도) \| `svg-only`(이미지 없이 SVG 장식만) |
 | `export_pptx` | — | `false` | `true` 시 doc-pptx 체이닝으로 편집 가능 .pptx 병행 산출 |
 | `output_path` | — | `<cwd>/reports/<slug>-slides-<YYYYMMDD>.html` | 출력 경로 |
 
@@ -74,14 +74,14 @@ version: "1.2.0"
 
 | 백엔드 | 모델 | 인증 | 권장 용도 |
 |--------|------|------|-----------|
-| **`higgsfield`** (기본) | GPT Image 2·Nano Banana Pro·Soul 등 11종 | Higgsfield MCP(API 키) | 프로덕션·멱등·CI 무인 |
-| **`codex`** (공식 추가 2026-06-17) | gpt-image-2 | codex CLI + ChatGPT OAuth(구독 한도, API 키 불필요) | 로컬·개발자·구독 한도 재사용 |
+| **`higgsfield`** (기본) | GPT Image 2.5·Nano Banana Pro·Soul 등 여러 모델 | Higgsfield MCP(API 키) | 프로덕션·멱등·CI 무인 |
+| **`codex`** (공식 추가 2026-06-17) | GPT Image (버전은 서비스 측 결정) | codex CLI + ChatGPT OAuth(구독 한도, API 키 불필요) | 로컬·개발자·구독 한도 재사용 |
 | `antigravity` | Imagen·Nano Banana (agy -p) | Google OAuth 브라우저 + 구독 quota | ⚠️ 비권장 — OAuth/quota/CI 무인 불가, 로컬 단발 프로토타입 only |
 | `svg-only` | (이미지 없음) | — | 오프라인·비용 민감·빠른 폴백 |
 
 > 위 4개 백엔드만 허용됩니다. 그 외 외부 이미지 백엔드(MCP·API·게이트웨이)는 사용하지 않습니다 — [`references/image-backend-policy.md`](references/image-backend-policy.md).
 
-한국어 텍스트가 이미지에 들어가면 `moai-media:media-gpt-image-2-prompt`(6-Block 프롬프트 빌더)로 verbatim 지시 후 선택 백엔드로 생성합니다.
+한국어 텍스트가 이미지에 들어가면 `moai-media:media-gpt-image-prompt`(GPT Image 2.5 프롬프트 빌더)로 따옴표·등장 횟수·추가 텍스트 금지를 지시한 뒤 선택 백엔드로 생성합니다.
 
 ### 5. design-system-library 토큰 적용
 design_system 지정 시 `systems/<name>.md` 토큰 → Tailwind Play CDN config + shadcn vanilla 컴포넌트로 렌더. 미지정 시 0의존 기본 템플릿. doc-html-report와 동일 계약 재사용. 사용자가 getdesign.md 링크로 토큰을 미리 확인한 뒤 선택할 수 있습니다.
@@ -205,7 +205,7 @@ design_system 지정 시 `systems/<name>.md` 토큰 → Tailwind Play CDN config
 이미지 필요 시 분기:
 ```
 doc-html-slide → moai-media:media-higgsfield-image (Higgsfield MCP, 기본)
-           → moai-media:media-gpt-image-2-prompt (한국어 verbatim 프롬프트 빌더) → media-higgsfield-image
+           → moai-media:media-gpt-image-prompt (GPT Image 2.5 프롬프트 빌더) → media-higgsfield-image
            → codex exec "$imagegen ..." (image_backend: codex 시, 로컬)
 ```
 
@@ -273,7 +273,7 @@ AI 슬라이드 스킬 스타트업 사업계획서 10장 슬라이드로 만들
 - `moai-officer:doc-design-library` — 75개 브랜드 토큰 SSOT
 - `moai-officer:doc-pptx` — 편집 가능 .pptx 생성 (체이닝)
 - `moai-media:media-higgsfield-image` — Higgsfield MCP 이미지 (기본 백엔드)
-- `moai-media:media-gpt-image-2-prompt` — 한국어 verbatim 이미지 프롬프트 빌더
+- `moai-media:media-gpt-image-prompt` — GPT Image 2.5 이미지 프롬프트 빌더 (한국어 문구 규칙 포함)
 - `moai-coworker:ai-slop-reviewer` → `moai-writer:korean-humanize` — 의무 후처리 체인
 
 ## 자체 검수
