@@ -1,6 +1,6 @@
 # 미디어 크리에이터 (moai-media)
 
-미디어 생성 전담 AI 코워커입니다. 이미지·영상·오디오 생성(media-* 13종) 스킬과 Higgsfield 이미지·영상·3D·설명영상·제품촬영·캐릭터 일관성, ElevenLabs TTS/보이스클로닝 MCP 연동, GPT-image-2·Gemini 3·Midjourney v8 프롬프트 빌더를 하나의 플러그인으로 제공합니다. 슬래시 명령을 외울 필요 없이 자연어로 요청하면 매칭되는 스킬이 자동 호출됩니다.
+미디어 생성 전담 AI 코워커입니다. 이미지·영상·오디오 생성(media-* 13종) 스킬과 Higgsfield 이미지·영상·3D·설명영상·제품촬영·캐릭터 일관성, ElevenLabs TTS/보이스클로닝 MCP 연동, GPT Image 2.5·Gemini 3·Midjourney v8 프롬프트 빌더를 하나의 플러그인으로 제공합니다. 슬래시 명령을 외울 필요 없이 자연어로 요청하면 매칭되는 스킬이 자동 호출됩니다.
 
 > **분리 안내**: 본 플러그인의 미디어 생성 스킬들은 `moai-marketer`에서 분리되었습니다(카피·캠페인·콘텐츠 스킬은 moai-marketer에 잔류). 신규 호출은 `moai-media:<스킬명>` 네임스페이스를 사용하세요.
 
@@ -47,10 +47,10 @@ codex plugin add moai-media@moai-cowork
 | 스킬 | 역할 |
 |------|------|
 | `media-audio-gen` | ElevenLabs MCP 기반 TTS(32개국어)·보이스 클로닝·더빙·효과음 |
-| `media-gpt-image-2-prompt` | OpenAI GPT-image-2 전용 6-Block 이미지 프롬프트 빌더 |
+| `media-gpt-image-prompt` | OpenAI GPT Image 2.5(Flare·Sunburst) 공식 가이드 기반 이미지 프롬프트 빌더 |
 | `media-gemini-3-image-prompt` | Gemini 3 Pro Image(Nano Banana Pro) 전용 5-component 프롬프트 빌더 |
 | `media-midjourney-v8-prompt` | Midjourney v8.1 전용 키워드+파라미터 프롬프트 빌더 |
-| `media-codex-image` | codex CLI 내장 image_gen으로 gpt-image-2 생성(API 키 불필요) |
+| `media-codex-image` | codex CLI 내장 이미지 도구로 생성(API 키 불필요, 모델은 서비스 측이 결정) |
 | `media-notebooklm-slide-prompt` | 강연 마크다운 → NotebookLM 슬라이드 데크 + 슬라이드별 이미지 프롬프트 |
 | `media-asset-production` | (구명칭 호환 스텁 — 종수 미포함) 두 개의 스킬로 분리됨 — 신규 호출은 분리 스킬 사용 |
 

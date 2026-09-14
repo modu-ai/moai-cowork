@@ -50,12 +50,15 @@
 
 ## 모델별 어조 변환 가이드
 
-### GPT-image-2 (자연어 단락)
+### GPT Image 2.5 (서술형 단락 — 공식 가이드 원칙)
 ```
-<Q1>, <Q2>, <Q3>, in <Q4>, eye-level medium shot, 85mm lens,
-shallow depth of field, soft directional light, editorial
-portrait photography, natural film grain.
+Create a photorealistic editorial portrait of <Q1>, <Q2>, <Q3>, in <Q4>.
+Eye-level medium shot with an 85mm lens look, shallow depth of field.
+<Framing and action: e.g. looking down at the laptop, hands resting on the table>.
+Soft directional light, natural skin texture, subtle film grain, natural color balance.
+No heavy retouching, no extra text, no watermark.
 ```
+권장: `model=gpt-image-2.5-flare`(얼굴·정체성 보존이 까다로운 편집이면 `gpt-image-2.5-sunburst` 비교), `quality=medium`.
 
 ### Gemini 3 Pro Image (5-component)
 ```
@@ -75,7 +78,7 @@ DOF, natural light, editorial photography, film grain
 
 - 실존 인물·연예인 모방은 정책 위반 가능. 가상 페르소나로 한정.
 - Midjourney `--oref` 사용 시 본인 또는 권한 있는 인물 사진만.
-- GPT-image-2는 정책상 identity replication을 제한적으로 처리.
+- GPT Image 2.5로 실제 인물 사진을 편집할 때는 본인 또는 권한 있는 인물 사진만 쓰고, 지킬 정체성 항목(face, facial features, skin tone, proportions, identity)을 모두 적습니다.
 
 ## 자주 쓰이는 보조 키워드
 

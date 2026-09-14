@@ -1,7 +1,7 @@
 ---
 name: media-midjourney-v8-prompt
 description: |
-  Midjourney v8.1 (2026.03 Alpha) 전용 이미지 프롬프트 빌더. 사용자 자연어 한 줄 + AskUserQuestion 프리셋·미세조정으로 컨텍스트를 수집해 Midjourney 공식 Parameter List 기반 키워드+`--파라미터` 형식으로 변환합니다. Discord `/imagine` 또는 alpha.midjourney.com에 그대로 복붙 가능. `--sref`/`--oref`/`--cw`/`--p`/`--hd`/`--q 4`/`--style raw`/`--no`/`--c`/`--s` 모두 지원. 보너스로 GPT-image-2(6-Block) · Gemini 3 Pro Image(5-component) 프롬프트도 동시 출력합니다.
+  Midjourney v8.1 (2026.03 Alpha) 전용 이미지 프롬프트 빌더. 사용자 자연어 한 줄 + AskUserQuestion 프리셋·미세조정으로 컨텍스트를 수집해 Midjourney 공식 Parameter List 기반 키워드+`--파라미터` 형식으로 변환합니다. Discord `/imagine` 또는 alpha.midjourney.com에 그대로 복붙 가능. `--sref`/`--oref`/`--cw`/`--p`/`--hd`/`--q 4`/`--style raw`/`--no`/`--c`/`--s` 모두 지원. 보너스로 GPT Image 2.5(공식 가이드 원칙) · Gemini 3 Pro Image(5-component) 프롬프트도 동시 출력합니다.
 
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
   - "미드저니 프롬프트 만들어줘", "MJ 프롬프트"
@@ -11,7 +11,7 @@ description: |
   - "/media-midjourney-v8-prompt" (직접 호출)
 
   Midjourney는 공식 API 자동화가 제한적이므로 본 스킬은 프롬프트 텍스트만 산출하고, 실제 생성은 사용자가 Discord 또는 web alpha에서 직접 실행합니다.
-version: "1.1.0"
+version: "1.1.1"
 ---
 
 # Midjourney v8.1 Prompt Builder — 키워드+파라미터 + 3-모델 동시 출력
@@ -31,7 +31,7 @@ Midjourney v8 Alpha (2026.03.17 출시) 및 v8.1 (2026.03.21 announce)은 5배 �
 
 특히 본 스킬은:
 
-- **3개 모델 동시 출력**: Midjourney 메인 + GPT-image-2(6-Block) + Gemini 3 Pro Image(5-component)
+- **3개 모델 동시 출력**: Midjourney 메인 + GPT Image 2.5(공식 가이드 원칙) + Gemini 3 Pro Image(5-component)
 - **프리셋 + 미세조정**: 4 프리셋 × 4 슬롯
 - **함정 경고 자동화**: `--cw 100` 기본값 함정, `--hd` + `--q 4` + `--sref` = 4x cost, `--cref` deprecated
 - **Personalization 통합**: `--p PROFILE_ID` 또는 `--profile PROFILE_ID` 안내
@@ -54,7 +54,7 @@ Midjourney v8 Alpha (2026.03.17 출시) 및 v8.1 (2026.03.21 announce)은 5배 �
     ↓
 [내부] 슬롯 → 키워드 콤마 + --파라미터 매핑
     ↓
-[내부] 같은 슬롯 → GPT 6-Block + Gemini 5-component 변환
+[내부] 같은 슬롯 → GPT Image 2.5 공식 원칙 + Gemini 5-component 변환
     ↓
 [내부] 함정 검사 (--cw 100·4x cost·v8 비호환 옵션)
     ↓
@@ -65,16 +65,16 @@ Midjourney v8 Alpha (2026.03.17 출시) 및 v8.1 (2026.03.21 announce)은 5배 �
 
 ### Round 1 — 프리셋 선택 (필수)
 
-4개 프리셋 (제품샷·인물·일러스트·풍경) 중 선택. 프리셋 슬롯 정의는 3개 이미지 프롬프트 빌더(gpt-image-2·gemini·midjourney)가 공유하는 단일 원본을 사용하며, 원본은 `media-gpt-image-2-prompt` 스킬에 있습니다:
+4개 프리셋 (제품샷·인물·일러스트·풍경) 중 선택. 프리셋 슬롯 정의는 3개 이미지 프롬프트 빌더(gpt-image·gemini·midjourney)가 공유하는 단일 원본을 사용하며, 원본은 `media-gpt-image-prompt` 스킬에 있습니다:
 
-- 제품샷 — `${CLAUDE_PLUGIN_ROOT}/skills/media-gpt-image-2-prompt/presets/product-shot.md`
-- 인물·캐릭터 — `${CLAUDE_PLUGIN_ROOT}/skills/media-gpt-image-2-prompt/presets/portrait.md`
-- 일러스트·아트 — `${CLAUDE_PLUGIN_ROOT}/skills/media-gpt-image-2-prompt/presets/illustration.md`
-- 풍경·환경 — `${CLAUDE_PLUGIN_ROOT}/skills/media-gpt-image-2-prompt/presets/landscape.md`
+- 제품샷 — `${CLAUDE_PLUGIN_ROOT}/skills/media-gpt-image-prompt/presets/product-shot.md`
+- 인물·캐릭터 — `${CLAUDE_PLUGIN_ROOT}/skills/media-gpt-image-prompt/presets/portrait.md`
+- 일러스트·아트 — `${CLAUDE_PLUGIN_ROOT}/skills/media-gpt-image-prompt/presets/illustration.md`
+- 풍경·환경 — `${CLAUDE_PLUGIN_ROOT}/skills/media-gpt-image-prompt/presets/landscape.md`
 
 ### Round 2 — 프리셋별 미세조정 (3-4 질문)
 
-위 공유 슬롯 원본(`${CLAUDE_PLUGIN_ROOT}/skills/media-gpt-image-2-prompt/presets/<name>.md`)의 슬롯 정의를 따릅니다. 각 프리셋 파일에는 GPT·Gemini·Midjourney 세 모델의 어조 변환 가이드가 모두 들어 있으며, 본 스킬은 Midjourney 키워드+파라미터 어조 섹션을 적용합니다.
+위 공유 슬롯 원본(`${CLAUDE_PLUGIN_ROOT}/skills/media-gpt-image-prompt/presets/<name>.md`)의 슬롯 정의를 따릅니다. 각 프리셋 파일에는 GPT·Gemini·Midjourney 세 모델의 어조 변환 가이드가 모두 들어 있으며, 본 스킬은 Midjourney 키워드+파라미터 어조 섹션을 적용합니다.
 
 ### Round 3 — 화면비 + 텍스트 + 고급 옵션
 
@@ -156,9 +156,9 @@ Midjourney v8은 텍스트 렌더링이 V6/V7보다 개선됐지만 GPT/Gemini�
 **비용 추정**: `--hd` 4x × `--q 4` 4x = 16x GPU 시간 (relax 모드 권장)
 **Personalization 활용**: `--p YOUR_PROFILE_ID` 추가 시 일관된 스타일
 
-### 2) GPT-image-2 — OpenAI ChatGPT / API
+### 2) GPT Image 2.5 — OpenAI API / ChatGPT
 ```
-<6-Block 자연어 단락>
+<공식 원칙 프롬프트 (단락 또는 라벨 섹션)>
 ```
 **권장 파라미터**: `quality=medium`, `size=1024x1024`
 
@@ -174,7 +174,7 @@ Midjourney v8은 텍스트 렌더링이 V6/V7보다 개선됐지만 GPT/Gemini�
 - `--cw 100` 함정: reference 이미지의 조명·스타일까지 상속됨
 
 ### 🔗 페어 스킬
-- `media-gpt-image-2-prompt` — GPT 어조 (sibling)
+- `media-gpt-image-prompt` — GPT 어조 (sibling)
 - `media-gemini-3-image-prompt` — Gemini 어조 (sibling)
 - Midjourney 실행은 Discord `/imagine` 또는 alpha.midjourney.com에서 직접
 ```
@@ -201,7 +201,7 @@ Midjourney v8은 텍스트 렌더링이 V6/V7보다 개선됐지만 GPT/Gemini�
 | 산출물 | 형식 | 설명 |
 |---|---|---|
 | Midjourney v8.1 프롬프트 | 키워드 콤마 + `--파라미터` 한 줄 | Discord `/imagine` 또는 alpha.midjourney.com 입력 |
-| GPT-image-2 프롬프트 | 영문 6-Block 자연어 단락 | ChatGPT / API 복붙 |
+| GPT Image 2.5 프롬프트 | 영문 단락 또는 라벨 섹션 | ChatGPT / API 복붙 |
 | Gemini 3 Pro Image 프롬프트 | 영문 5-component 단락 | Google AI Studio / Vertex AI 복붙 |
 | 비용 추정 | 멀티플라이어 (예: 16x) | --hd·--q·--sref·--oref 조합 |
 | 한국어 해설 | 마크다운 | 함정·--cw·--sv·-personalization |
@@ -222,7 +222,7 @@ Midjourney v8은 텍스트 렌더링이 V6/V7보다 개선됐지만 GPT/Gemini�
 
 | 스킬 | 관계 | 설명 |
 |---|---|---|
-| media-gpt-image-2-prompt | sibling | 동일 입력으로 GPT 6-Block 어조 프롬프트 |
+| media-gpt-image-prompt | sibling | 동일 입력으로 GPT Image 2.5 공식 원칙 프롬프트 |
 | media-gemini-3-image-prompt | sibling | 동일 입력으로 Gemini 5-component 어조 프롬프트 |
 | Higgsfield MCP (Soul) | alternative | API 자동 생성 (시네마틱 이미지·캐릭터 단일 통합, MJ는 미포함) |
 

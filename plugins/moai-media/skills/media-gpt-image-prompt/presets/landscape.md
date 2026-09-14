@@ -42,12 +42,14 @@
 
 ## 모델별 어조 변환 가이드
 
-### GPT-image-2 (자연어 단락)
+### GPT Image 2.5 (서술형 단락 — 공식 가이드 원칙)
 ```
-<Q1> <Q2>, <Q3 composition>, <Q4>, 24mm wide-angle lens, deep
-depth of field, cinematic landscape photography, natural film
-grain.
+Create a photorealistic landscape photograph of <Q1> for <use>.
+<Q2 time and weather described through scale, atmosphere, and color — not mood words alone>.
+<Q3 composition>, 24mm wide-angle lens look, deep depth of field.
+<Q4>, natural color balance, subtle film grain. No text, no watermark.
 ```
+권장: `model=gpt-image-2.5-flare`, `quality=medium`. 와이드·저조도·비·네온 장면은 규모·대기·색을 구체적으로 적습니다.
 
 ### Gemini 3 Pro Image (5-component)
 ```

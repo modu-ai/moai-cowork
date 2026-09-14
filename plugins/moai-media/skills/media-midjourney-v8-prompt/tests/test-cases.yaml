@@ -8,7 +8,7 @@ tests:
       format: markdown
       contains:
         - "### 1) Midjourney v8.1"
-        - "### 2) GPT-image-2"
+        - "### 2) GPT Image 2.5"
         - "### 3) Gemini 3 Pro Image"
         - "--ar 1:1"
         - "--hd"

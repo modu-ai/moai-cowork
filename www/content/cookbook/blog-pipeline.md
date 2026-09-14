@@ -5,7 +5,7 @@ description: "키워드 한 줄에서 시작해 네이버·티스토리·브런�
 geekdocBreadcrumb: true
 tags: [cookbook, content]
 date: 2026-08-07T00:00:00+09:00
-lastmod: 2026-08-22T00:00:00+09:00
+lastmod: 2026-09-13T17:30:00+09:00
 ---
 > **목표** — 키워드 한 줄에서 시작해 네이버·티스토리·브런치에 바로 올릴 수 있는 2500자 블로그 글까지, 한 번의 지시로 완성합니다.
 
@@ -49,7 +49,7 @@ flowchart TD
 ## 사전 준비
 
 - 플러그인: `moai-marketer`, `moai-coworker:ai-slop-reviewer`
-- (선택) 이미지 — `moai-media`의 `media-higgsfield-image` (한국어 타이포 SOTA). 다른 스타일이 필요하면 `media-gpt-image-2-prompt`·`media-gemini-3-image-prompt`·`media-midjourney-v8-prompt` 프롬프트 스킬 활용
+- (선택) 이미지 — `moai-media`의 `media-higgsfield-image` (한국어 타이포 SOTA). 다른 스타일이 필요하면 `media-gpt-image-prompt`·`media-gemini-3-image-prompt`·`media-midjourney-v8-prompt` 프롬프트 스킬 활용
 - 입력: **타깃 키워드**, **플랫폼**(네이버·티스토리·브런치 등), **대상 독자**
 
 ## 스킬 체인

@@ -39,7 +39,7 @@ Higgsfield MCP는 이미지·영상 모델 어디에도 `negative_prompt` 필드
 Google·OpenAI·Black Forest Labs·Recraft에서 독립 확인. Google 공식 예시(verbatim):
 > *"For the top line, the word 'GLOW' in a flowing, elegant Brush Script font. For the middle line, the text '10% OFF' in a heavy, blocky Impact font."*
 
-**적용**: 리터럴 텍스트는 반드시 큰따옴표 + 명시적 font/weight/placement로 지정한다. 텍스트 렌더링 모델(`gpt_image_2`, `openai_hazel`, `nano_banana_pro`)에서 단일 최고 레버리지 규칙이다.
+**적용**: 리터럴 텍스트는 반드시 큰따옴표 + 명시적 font/weight/placement로 지정한다. 텍스트 렌더링 모델(`gpt_image_2_5`, `gpt_image_2`, `openai_hazel`, `nano_banana_pro`)에서 단일 최고 레버리지 규칙이다.
 출처: https://ai.google.dev
 
 **R4 — 편집 프롬프트는 바꿀 것과 반드시 보존할 것을 함께 명시한다.**

@@ -1,4 +1,4 @@
-# media-gpt-image-2-prompt — 테스트 케이스
+# media-gpt-image-prompt — 테스트 케이스 (GPT Image 2.5)
 # 사용: meta-skill-tester가 본 YAML을 읽어 A/B 또는 회귀 테스트를 실행합니다.
 
 tests:
@@ -8,11 +8,12 @@ tests:
     expected_output:
       format: markdown
       contains:
-        - "### 1) GPT-image-2"
+        - "### 1) GPT Image 2.5"
         - "### 2) Gemini 3 Pro Image"
         - "### 3) Midjourney v8.1"
         - '"MONDAY"'           # verbatim 따옴표 유지
         - "--ar 1:1"            # MJ 화면비
+        - "gpt-image-2.5-flare" # 모델 권장 (새 작업 기본)
         - "quality"             # GPT 권장 파라미터
         - "aspect_ratio"        # Gemini 권장 파라미터
       not_contains:
@@ -21,7 +22,7 @@ tests:
         - "<placeholder>"       # 슬롯 미치환 금지
       assertion:
         - 3개 모델 모두 코드블록 출력
-        - GPT 프롬프트가 6-Block 단락 어조 (Subject·Action·Scene·Composition·Lighting·Style)
+        - GPT 프롬프트가 공식 원칙 준수 (첫 문장에 산출물·용도, 텍스트 따옴표+exactly once, 제외 조건)
         - Gemini 프롬프트가 5-component 마침표 구분
         - MJ 프롬프트가 키워드 콤마 + --파라미터
 
@@ -44,15 +45,15 @@ tests:
         - 화면비 일관
 
   - name: edit-mode-2-column-logic
-    description: 편집 모드 → Change/Preserve/Constraints 3블록 출력
-    prompt: "기존 머그 이미지에서 머그 색만 빨강으로 바꾸는 GPT-image-2 프롬프트"
+    description: 편집 모드 → Change only/Preserve/Constraints 3블록 출력
+    prompt: "기존 머그 이미지에서 머그 색만 빨강으로 바꾸는 GPT Image 2.5 프롬프트"
     expected_output:
       format: markdown
       contains:
-        - "Change:"
+        - "Change only:"
         - "Preserve:"
         - "Constraints:"
-        - "no logo drift"       # 표준 금지 절
+        - "watermark"           # 표준 제외 조건
       not_contains:
         - "Gemini"              # 편집 모드는 GPT만 출력 (Gemini·MJ 편집 메커니즘 다름)
         - "Midjourney"
@@ -68,12 +69,39 @@ tests:
       contains:
         - '"신선한 시작"'        # 한글 verbatim
         - "verbatim"             # verbatim 지시어
-        - "Hangul"               # 한글 렌더링 가이드 인용
+        - "exactly once"         # 횟수 지정
       not_contains:
         - "신선한시작"           # 띄어쓰기 누락 금지
       assertion:
         - 한글 텍스트 따옴표 + verbatim 명시
         - 폰트 무게·정렬·색 중 ≥ 2개 명시
+
+  - name: slide-recipe-high-quality
+    description: 슬라이드·차트 용도 → 레시피 적용 + 숫자 직접 기입 + high 품질
+    prompt: "투자 피치덱 시장규모 슬라이드 이미지 프롬프트. TAM 42B, SAM 8.7B, SOM 340M, 16:9"
+    expected_output:
+      format: markdown
+      contains:
+        - "$42B"
+        - "1536x864"
+        - "quality=high"
+      assertion:
+        - workflow-recipes.md 슬라이드 레시피 구조(산출물 사양서형 목록)
+        - 예시 수치는 검증된 데이터로 교체하라는 안내
+
+  - name: transparent-logo
+    description: 투명 로고 → background=transparent + png + 알파 검수
+    prompt: "빵집 로고 GPT 이미지 프롬프트, 배경 투명하게"
+    expected_output:
+      format: markdown
+      contains:
+        - "background=transparent"
+        - "png"
+        - "non-infringing"
+      not_contains:
+        - "투명 배경 미지원"
+      assertion:
+        - 결과 검수에 알파 채널 확인 항목 포함
 
   - name: edge-case-ambiguous-input
     description: 모호한 한 줄 입력 → AskUserQuestion 라운드 진입
@@ -87,7 +115,7 @@ tests:
 
 # 루브릭 anchor (meta-skill-tester의 §스코어링 루브릭 참조)
 rubric_targets:
-  correctness: 0.80   # 6-Block / 5-component / 키워드+파라미터 구조 준수
+  correctness: 0.80   # 공식 원칙 / 5-component / 키워드+파라미터 구조 준수
   completeness: 0.75  # 3개 모델 모두 출력 + 화면비 매핑 + 텍스트 verbatim
   clarity: 0.75       # 한국어 해설 + 페어 스킬 안내
   efficiency: 0.70    # 라운드 수 ≤ 3, 질문 ≤ 7, 토큰 효율
@@ -95,10 +123,11 @@ rubric_targets:
 
 # 회귀 테스트 (Mode 2)
 regression:
-  baseline_version: "2.9.0"
+  baseline_version: "1.1.0"
   changed_files:
     - SKILL.md
-    - references/prompt-blocks.md
+    - references/prompting-fundamentals.md
+    - references/workflow-recipes.md
     - references/parameter-cheatsheet.md
     - references/editing-patterns.md
     - references/text-rendering.md
@@ -106,4 +135,4 @@ regression:
     - presets/portrait.md
     - presets/illustration.md
     - presets/landscape.md
-  expected_diff: "신규 스킬 — 회귀 베이스라인 없음 (initial release)"
+  expected_diff: "GPT Image 2.5 공식 가이드 반영 — 6-Block → 8원칙, 모델·quality·size·background 파라미터 갱신, 스킬 이름 변경"

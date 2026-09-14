@@ -83,7 +83,7 @@ the top-right corner.
 - 같은 인물을 여러 장에 등장시킬 때 첫 장의 frontal portrait를 reference 1번 슬롯에 고정.
 - 프롬프트에 "preserve the face, hair, expression, and outfit from Image 1" 명시.
 - 의상이 다를 경우 "same person, different outfit: <new outfit>" 형식.
-- Gemini는 GPT-image-2의 Preserve list 어조를 그대로 이해합니다.
+- Gemini는 GPT Image 2.5의 Preserve list 어조를 그대로 이해합니다.
 
 ## 한계와 회피 방법
 

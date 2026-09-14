@@ -1,37 +1,37 @@
 ---
 name: media-codex-image
 description: |
-  codex CLI의 내장 image_gen 도구로 **gpt-image-2** 이미지를 생성합니다 — ChatGPT OAuth 인증으로 **API 키 불필요**, ChatGPT Plus/Team/Enterprise 구독 한도로 동작합니다.
+  codex CLI의 내장 image_gen 도구로 OpenAI GPT Image 이미지를 생성합니다 — ChatGPT OAuth 인증으로 **API 키 불필요**, ChatGPT Plus/Team/Enterprise 구독 한도로 동작합니다. 어떤 GPT Image 버전을 쓸지는 codex·ChatGPT 서비스가 정하며, 이 스킬에서 모델을 지정할 수 없습니다.
 
   다음과 같은 요청 시 사용하세요:
   - "codex로 이미지 만들어줘", "codex 이미지 생성", "codex image"
-  - "gpt-image-2로 이미지 만들어줘", "GPT Image 2 생성"
+  - "GPT 이미지로 만들어줘", "GPT Image로 생성"
   - "API 키 없이 이미지 생성해줘"
   - "로컬에서 이미지 생성", "ChatGPT 구독 한도로 이미지"
   - "/media-codex-image" (직접 호출)
 
-  프롬프트가 복잡하거나 한국어 텍스트가 들어가면 `moai-media:media-gpt-image-2-prompt`(6-Block 프롬프트 빌더)로 먼저 프롬프트를 빌드한 뒤 이 스킬로 생성하세요. Higgsfield MCP가 연결돼 있지 않거나 로컬 개발·ChatGPT 구독 한도 재사용이 목적이면 이 스킬을 사용합니다 (프로덕션·CI·멱등은 `media-higgsfield-image` 권장).
-version: "1.1.0"
+  프롬프트가 복잡하거나 한국어 텍스트가 들어가면 `moai-media:media-gpt-image-prompt`(GPT Image 2.5 공식 가이드 기반 프롬프트 빌더)로 먼저 프롬프트를 만든 뒤 이 스킬로 생성하세요. Higgsfield MCP가 연결돼 있지 않거나 로컬 개발·ChatGPT 구독 한도 재사용이 목적이면 이 스킬을 사용합니다. 모델(Flare·Sunburst)·품질 단계·투명 배경을 확실히 지정해야 하면 `media-higgsfield-image`의 `gpt_image_2_5` 경로를 권장합니다.
+version: "1.2.0"
 ---
 
-# media-codex-image — codex CLI(gpt-image-2) 이미지 생성기
+# media-codex-image — codex CLI(GPT Image) 이미지 생성기
 
 > moai-coworker | 로컬 이미지 생성 (codex CLI OAuth, API 키 불필요)
 
 ## 개요
 
-`codex CLI`의 내장 `image_gen` 도구를 호출해 **gpt-image-2** 모델로 이미지를 생성합니다. 핵심은 **OpenAI REST API를 직접 호출하지 않고 `codex exec` 브릿지를 경유**한다는 점 — ChatGPT OAuth 세션 토큰(`~/.codex/auth.json`)을 이미지 생성 서비스로 라우팅해 **API 키(`sk-*`) 없이 ChatGPT 구독 한도**로 동작합니다.
+`codex CLI`의 내장 `image_gen` 도구를 호출해 OpenAI GPT Image 모델로 이미지를 생성합니다. **모델 버전은 서비스 측이 결정**하며 codex 명령에 모델을 지정하는 옵션은 없습니다. 핵심은 **OpenAI REST API를 직접 호출하지 않고 `codex exec` 브릿지를 경유**한다는 점 — ChatGPT OAuth 세션 토큰(`~/.codex/auth.json`)을 이미지 생성 서비스로 라우팅해 **API 키(`sk-*`) 없이 ChatGPT 구독 한도**로 동작합니다.
 
 특히 본 스킬은:
 
 - **API 키 불필요** — `codex login` 1회 OAuth로 ChatGPT 구독(Plus/Team/Enterprise) 한도 사용. `OPENAI_API_KEY` 관리 부담 없음.
-- **6-Block 프롬프트 연동** — `media-gpt-image-2-prompt`가 빌드한 OpenAI Cookbook 6-Block 프롬프트(Subject·Action·Scene·Composition·Lighting·Style&Text)를 그대로 codex에 전달.
-- **한국어 verbatim 보장** — 이미지 내 한글 텍스트는 따옴표·ALL CAPS·verbatim 지시로 gpt-image-2의 95%+ 텍스트 렌더링 정확도 활용.
-- **media-higgsfield-image 대체 경로** — 같은 gpt-image-2를 Higgsfield MCP 경로(`media-higgsfield-image`)로도 호출 가능. 백엔드 선택은 환경·비용 선호에 따라.
+- **프롬프트 빌더 연동** — `media-gpt-image-prompt`가 OpenAI 공식 이미지 프롬프팅 가이드 원칙(산출물·용도 먼저, 보이는 디테일, 따옴표 텍스트, 제외 조건)으로 만든 프롬프트를 그대로 codex에 전달.
+- **한국어 문구 정확도** — 이미지 안 한글은 따옴표 + 위치·서체 + "exactly once" + 추가 텍스트 금지로 지시하고, 결과를 음절 단위로 확인.
+- **media-higgsfield-image 대체 경로** — 모델을 명시해야 하면 Higgsfield MCP의 `gpt_image_2_5`(variant `flare`/`sunburst`)로 생성. 백엔드 선택은 환경·비용·제어 필요성에 따라.
 
 ## 트리거 키워드
 
-codex 이미지 codex image gpt-image-2 생성 GPT Image 2 API 키 없이 이미지 로컬 이미지 생성 ChatGPT 구독 한도 이미지 codex exec image_gen
+codex 이미지 codex image GPT Image 생성 API 키 없이 이미지 로컬 이미지 생성 ChatGPT 구독 한도 이미지 codex exec image_gen
 
 ## 핵심 인사이트 — OAuth 브릿지 (왜 codex exec인가)
 
@@ -48,7 +48,7 @@ codex login (최초 1회)
   → OAuth 토큰이 ~/.codex/auth.json에 저장
     → codex exec가 토큰을 자동 읽기
       → 내장 image_gen 도구가 OAuth로 인증
-        → gpt-image-2가 이미지 생성
+        → 서비스 측 GPT Image 모델이 이미지 생성
           → 프로젝트 디렉토리에 저장
 ```
 
@@ -73,11 +73,11 @@ codex login status       # "Logged in using ChatGPT"
 
 ```
 1. 컨텍스트 수집 — 주제·화면비·품질·출력 경로·장수
-   (복잡한 프롬프트/한국어 텍스트 → media-gpt-image-2-prompt로 6-Block 프롬프트 빌드 선행)
+   (복잡한 프롬프트/한국어 텍스트 → media-gpt-image-prompt로 프롬프트 작성 선행)
     ↓
 2. 인자 조립 — --size · --quality · --out · -n + 프롬프트
     ↓
-3. codex exec 호출 — image_gen 도구가 gpt-image-2로 생성
+3. codex exec 호출 — image_gen 도구가 GPT Image로 생성
     ↓
 4. 이미지 수집 — ~/.codex/generated_images/<session>/ → --out 디렉토리로 복사
     ↓
@@ -92,6 +92,8 @@ codex login status       # "Logged in using ChatGPT"
 | `--quality` | `low` · `medium` · `high` · `auto` | `auto` | 생성 품질 (높을수록 느리고 비쌈) |
 | `--out` | 디렉토리 경로 | 프로젝트 루트 | 저장 위치 |
 | `-n` | 1–10 | `1` | 생성 장수 |
+
+> 위 값은 codex 프롬프트에 자연어로 넣는 힌트입니다. GPT Image 2.5의 `xhigh`·`max` 품질, 자유 해상도(`WIDTHxHEIGHT`), `background=transparent`가 codex 도구에서 그대로 적용되는지는 확인되지 않았습니다. 이 설정이 결과에 꼭 필요하면 Higgsfield `gpt_image_2_5` 경로를 쓰세요.
 
 ## 호출 패턴
 
@@ -121,41 +123,42 @@ codex exec --json --output-last-message ./last.txt \
   "Generate a 1536x1024 productivity-visual hero, save under output/imagegen/hero.png"
 ```
 
-### 한국어 텍스트 이미지 (verbatim 보장) ★
+### 한국어 텍스트 이미지 ★
 
-gpt-image-2의 한국어 렌더링 정확도를 극대화하려면 **따옴표 + verbatim 지시 + 폰트 무게·색·위치** 명시:
+이미지 안 한글 문구는 **따옴표 + 위치·서체 + 등장 횟수 + 추가 텍스트 금지**를 명시하고, 결과를 음절 단위로 확인합니다:
 
 ```bash
-codex exec "Use \$imagegen. Text (verbatim, 한글): '2026년 분기 실적'. Typography: bold sans 한글, 검정, 상단 중앙. Require verbatim rendering, no extra characters. quality high, size 1536x1024, save to ./slide-q1.png"
+codex exec "Use \$imagegen. Text (verbatim, 한글): '2026년 분기 실적'. Typography: bold sans 한글, 검정, 상단 중앙. Render the text exactly once, verbatim, no extra text. quality high, size 1536x1024, save to ./slide-q1.png"
 ```
 
-> 한국어 텍스트 정확도 규칙은 `moai-media:media-gpt-image-2-prompt`의 `references/text-rendering.md`와 동일한 원칙을 따릅니다.
+> 텍스트 규칙은 `moai-media:media-gpt-image-prompt`의 `references/text-rendering.md`와 같은 원칙을 따릅니다.
 
-## 6-Block 프롬프트 체이닝 (권장)
+## 프롬프트 빌더 체이닝 (권장)
 
-복잡한 장면이나 에디토리얼 품질이 필요하면 `media-gpt-image-2-prompt`로 먼저 프롬프트를 빌드하세요:
+복잡한 장면이나 에디토리얼 품질이 필요하면 `media-gpt-image-prompt`로 먼저 프롬프트를 만드세요:
 
 ```
-사용자 자연어 → moai-media:media-gpt-image-2-prompt (6-Block 프롬프트 빌드)
-                    ↓ 산출: 6-Block 자연어 단락
-              moai-media:media-codex-image (해당 프롬프트로 codex exec 호출 → gpt-image-2 생성)
+사용자 자연어 → moai-media:media-gpt-image-prompt (공식 가이드 원칙으로 프롬프트 작성)
+                    ↓ 산출: 단락 또는 라벨 섹션 프롬프트
+              moai-media:media-codex-image (해당 프롬프트로 codex exec 호출 → GPT Image 생성)
 ```
 
-이 흐름은 `media-higgsfield-image` 경로와 동일한 프롬프트 SSOT를 공유합니다 — 같은 프롬프트로 Higgsfield(GPT Image 2) 또는 codex(gpt-image-2) 백엔드를 선택해 생성할 수 있습니다.
+이 흐름은 `media-higgsfield-image` 경로와 동일한 프롬프트 SSOT를 공유합니다 — 같은 프롬프트로 Higgsfield(`gpt_image_2_5`) 또는 codex 백엔드를 선택해 생성할 수 있습니다.
 
 ## 백엔드 선택 — higgsfield vs codex
 
-같은 gpt-image-2·Nano Banana Pro 모델을两条 경로로 호출 가능. 환경·비용·목적에 따라 선택:
+GPT Image 계열은 두 경로 모두로 생성할 수 있습니다. 환경·비용·제어 필요성에 따라 선택:
 
 | 기준 | `media-higgsfield-image` (Higgsfield MCP) | `media-codex-image` (codex CLI) |
 |---|---|---|
 | 인증 | Higgsfield API 키 (MCP) | ChatGPT OAuth (API 키 불필요) |
 | 비용 | Higgsfield 크레딧 | ChatGPT 구독 한도 |
 | 적합 | 프로덕션·CI·멱등·무인 자동화 | 로컬 개발·구독 한도 재사용·API 키 회피 |
-| 모델 범위 | 11종(Soul·Nano Banana Pro·GPT Image 2·Seedream 등) | gpt-image-2 단일 |
+| 모델 범위 | 여러 계열(Soul·Nano Banana Pro·GPT Image 2.5·Seedream 등) | GPT Image 단일 (버전 지정 불가) |
+| 모델·품질·투명 배경 지정 | 가능 (`variant`·`quality`·`background`) | 프롬프트 힌트만 |
 | MCP 의존 | 필요 (`moai-coworker/.mcp.json`) | 불필요 (codex CLI 별도 설치) |
 
-상세 백엔드 정책은 [`moai-officer:doc-html-slide` references/image-backend-policy.md](../../../moai-coworker/skills/doc-html-slide/references/image-backend-policy.md) 참조.
+상세 백엔드 정책은 [`moai-officer:doc-html-slide` references/image-backend-policy.md](../../../moai-officer/skills/doc-html-slide/references/image-backend-policy.md) 참조.
 
 ## 출력
 
@@ -171,22 +174,22 @@ codex-image-20260619-143052-2.png      # 복수: 두 번째
 
 ## 프롬프트 팁
 
-gpt-image-2는 reasoning-driven 모델로 **art-director 어조의 자연어 단락**이 키워드 나열보다 우수합니다 (OpenAI Cookbook 권장).
+OpenAI 공식 이미지 프롬프팅 가이드의 원칙을 따릅니다.
 
-- **구조**: Scene/backdrop → Subject → Details → Constraints
-- **조명 구체화**: "warm golden hour side light" > "good lighting"
-- **카메라 언어**: "shallow depth of field", "aerial view", "close-up macro"
-- **스타일 명시**: "photorealistic", "oil painting style", "3D render", "concept art"
-- **무드/품질**: "serene", "8K detail", "ultra detailed"
-- **네거티브 프롬프트 미지원** — gpt-image-2는 부정 지시 대신 긍정 묘사로 회피
+- **결과부터**: 첫 문장에 산출물 종류와 용도(제품 사진·광고·인포그래픽), 구도·배치 제약
+- **복잡하면 라벨 섹션**: Scene → Subject → Details → Constraints
+- **보이는 디테일**: 재질·조명·색·매체. 사진이면 "photorealistic" 명시. 카메라 사양은 외형 단서일 뿐
+- **분위기 단어만 쓰지 않기**: 규모·대기·색을 구체적으로
+- **제외 조건은 명시**: "No extra text, no watermark, no unrelated logos"
+- **한 번에 하나씩**: 결과를 보고 한 가지만 바꿔 다시 요청
 
-상세 6-Block 구조는 `media-gpt-image-2-prompt`의 `references/prompt-blocks.md` 참조.
+상세는 `media-gpt-image-prompt`의 `references/prompting-fundamentals.md` 참조.
 
 ## 주의사항
 
 - **Bash 의존** — codex CLI는 터미널 도구. Claude Code 메인 세션 또는 Bash 허용 환경에서만 동작. Bash 제한 Cowork에서는 codex 명령어 안내만 하고 수동 실행 유도.
 - **구독 한도 소모** — 이미지 생성 턴은 일반 턴 대비 한도를 3~5배 빨리 소모 (OpenAI 공식). 대량 생성 시 주의.
-- **투명 배경 미지원** — gpt-image-2는 투명 PNG 불가. 투명 필요 시 크로마키 폴백.
+- **투명 배경** — GPT Image 2.5 모델은 투명 배경을 지원하지만, codex 도구가 `background=transparent`를 넘기는지는 확인되지 않았습니다. 투명 PNG가 필요하면 Higgsfield `gpt_image_2_5` + `background=transparent`를 쓰고, 결과 파일에 실제 알파 채널이 있는지 확인하세요.
 - **승인 정책** — `--dangerously-bapprovals-and-sandbox`는 CI/샌드박스만. 로컬은 `-s workspace-write`로 범위 제한 권장.
 - **텍스트/레이아웃 중심 슬라이드** — HTML/CSS 코드 경로 우선 (imagegen "When not to use" 권고). 인포그래픽 숫자·라벨은 인라인 SVG가 정확.
 
@@ -194,13 +197,7 @@ gpt-image-2는 reasoning-driven 모델로 **art-director 어조의 자연어 단
 
 이미지 생성 비용은 ChatGPT 구독(Plus/Team/Enterprise) 한도로 청구:
 
-| 크기 | 품질 | 대략적 비용 |
-|---|---|---|
-| `1024x1024` | `low` | ~$0.02 |
-| `1024x1024` | `high` | ~$0.04 |
-| `1024x1536` | `high` | ~$0.06 |
-
-> 현재 gpt-image-2 요금은 OpenAI 프라이싱 페이지 확인.
+구독 한도에서 차감되는 양은 요금제·크기·품질에 따라 다르며 OpenAI가 공지하는 기준을 따릅니다. API로 직접 생성할 때의 요금은 [OpenAI 이미지 생성 요금표](https://developers.openai.com/api/docs/pricing#image-generation)에서 확인하세요. 빠른 모델이 더 싸다고 가정하지 않습니다.
 
 ## 보안
 
@@ -224,15 +221,15 @@ gpt-image-2는 reasoning-driven 모델로 **art-director 어조의 자연어 단
 
 | 스킬 | 관계 | 설명 |
 |---|---|---|
-| media-gpt-image-2-prompt | before | 6-Block 프롬프트 빌더 — 복잡한 장면·한국어 텍스트 시 선행 |
-| media-higgsfield-image | alternative | Higgsfield MCP 경로 (API 키, 프로덕션/CI). 같은 gpt-image-2·Nano Banana Pro 모델 |
+| media-gpt-image-prompt | before | GPT Image 2.5 프롬프트 빌더 — 복잡한 장면·한국어 텍스트 시 선행 |
+| media-higgsfield-image | alternative | Higgsfield MCP 경로 (프로덕션/CI). `gpt_image_2_5` Flare·Sunburst 지정 가능 |
 | media-gemini-3-image-prompt | sibling | Gemini 어조 프롬프트 (Nano Banana Pro) |
 
 ## 출처
 
 1차 (공식):
 - [OpenAI Codex CLI — GitHub](https://github.com/openai/codex) — codex CLI 공식, `image_gen` 내장 도구
-- [OpenAI Cookbook — GPT Image Generation Models Prompting Guide](https://developers.openai.com/cookbook/examples/multimodal/image-gen-models-prompting-guide) — 6-Block 프롬프트 구조
+- [OpenAI — Image prompting (GPT Image 2.5 prompting guide)](https://developers.openai.com/api/docs/guides/image-prompting) — 프롬프팅 원칙·파라미터 (2026-09-13 확인)
 
 참고 스킬 (MIT):
-- [wjb127/codex-image](https://github.com/wjb127/codex-image) — Claude Code 스킬, OAuth 브릿지 패턴·옵션·출력 파일명 규약 참고. 본 스킬은 wjb127의 핵심 인사이트(OAuth→REST 401, codex exec 브릿지)를 채택하고 moai-coworker 정책(6-Block 체이닝·한국어 verbatim·higgsfield 백엔드 선택)으로 확장했습니다.
+- [wjb127/codex-image](https://github.com/wjb127/codex-image) — Claude Code 스킬, OAuth 브릿지 패턴·옵션·출력 파일명 규약 참고. 본 스킬은 wjb127의 핵심 인사이트(OAuth→REST 401, codex exec 브릿지)를 채택하고 moai-media 정책(프롬프트 빌더 체이닝·한국어 문구 규칙·higgsfield 백엔드 선택)으로 확장했습니다.

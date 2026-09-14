@@ -42,12 +42,15 @@
 
 ## 모델별 어조 변환 가이드
 
-### GPT-image-2 (자연어 단락)
+### GPT Image 2.5 (라벨 섹션 — 공식 가이드 원칙)
 ```
-<Q2> of <Q1>, <Q4 composition>, <Q3 palette>, soft natural
-lighting integrated into the illustration style, no photographic
-elements.
+Create a <Q2> illustration of <Q1> for <use>.
+Subject: <character or object details, expression, action>.
+Style: <Q2 medium details: e.g. hand-painted watercolor look, soft outlines>, <Q3 palette>.
+Composition: <Q4 composition>.
+Constraints: original artwork, illustrated not photographic, no text, no watermark.
 ```
+권장: `model=gpt-image-2.5-flare`, `quality=medium`.
 
 ### Gemini 3 Pro Image (5-component)
 ```
@@ -78,6 +81,6 @@ illustration not photograph --ar [Round 3] --style raw --s 400
 
 여러 장에 같은 캐릭터를 등장시킬 때:
 
-- GPT-image-2: 첫 장을 reference로 업로드 후 편집 모드 (Image 1: character reference) 사용. Preserve에 "character's face, body proportions, outfit, color scheme" 명시.
+- GPT Image 2.5: 1장에서 `Character:` `Style:` `Constraints:` 섹션으로 캐릭터를 정의하고 단순한 배경으로 만든 뒤, 2장부터 그 이미지를 입력으로 넣고 `Character Consistency:` 섹션에 의상·얼굴·비율·팔레트를 다시 적습니다. 제약에 `Do not redesign the character`. (`references/editing-patterns.md` §캐릭터 일관성)
 - Gemini 3 Pro Image: reference 이미지 첨부 가능 (최대 14장). "Maintain the exact character design from the reference."
 - Midjourney v8.1: `--oref <URL>` + `--cw 30~60` (얼굴 위주, 의상까지 따라가려면 `--cw 100`).

@@ -4,7 +4,7 @@ weight: 23
 description: "퍼포먼스 마케터를 위한 메타·쿠팡 광고 진단·최적화 풀세트. moai-marketer 21스킬 + moai-media 광고 영상으로 광고 리포트 분석부터 픽셀·랜딩 진단까지 한 줄 요청."
 geekdocBreadcrumb: true
 date: 2026-08-07T00:00:00+09:00
-lastmod: 2026-08-13T00:00:00+09:00
+lastmod: 2026-09-13T17:30:00+09:00
 ---
 
 > **대상**: 메타·구글·쿠팡 광고 운영자, 퍼포먼스 마케터, 광고 대행사
@@ -27,7 +27,7 @@ flowchart TB
    subgraph 콘텐츠["3. 광고 크리에이티브"]
        C1["media-higgsfield-image<br/>광고 이미지 11 모델"]
        C2["media-higgsfield-video<br/>광고 영상 11 모델 + 6 프리셋"]
-       C3["media-gpt-image-2-prompt<br/>외부 도구 프롬프트 빌더"]
+       C3["media-gpt-image-prompt<br/>외부 도구 프롬프트 빌더"]
    end
    subgraph 채널["4. 채널 카피·검수"]
        Pkg["content-sns-content<br/>9채널 매트릭스 카피"]

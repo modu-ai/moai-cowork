@@ -1,7 +1,7 @@
 ---
 name: media-gemini-3-image-prompt
 description: |
-  Google Gemini 3 Pro Image (a.k.a. Nano Banana Pro) 전용 이미지 프롬프트 빌더. 사용자 자연어 한 줄 + AskUserQuestion 프리셋·미세조정으로 컨텍스트를 수집해 Google AI Developers 공식 가이드의 5-component 구조([Subject+Adj] doing [Action] in [Location]. [Composition]. [Lighting]. [Style]. [Constraint/Text])로 변환합니다. Google AI Studio · Vertex AI · Gemini 앱에 그대로 복붙 가능. 보너스로 GPT-image-2(6-Block) · Midjourney v8.1(키워드+파라미터) 프롬프트도 동시 출력해 모델 간 비교·이식이 가능합니다.
+  Google Gemini 3 Pro Image (a.k.a. Nano Banana Pro) 전용 이미지 프롬프트 빌더. 사용자 자연어 한 줄 + AskUserQuestion 프리셋·미세조정으로 컨텍스트를 수집해 Google AI Developers 공식 가이드의 5-component 구조([Subject+Adj] doing [Action] in [Location]. [Composition]. [Lighting]. [Style]. [Constraint/Text])로 변환합니다. Google AI Studio · Vertex AI · Gemini 앱에 그대로 복붙 가능. 보너스로 GPT Image 2.5(공식 가이드 원칙) · Midjourney v8.1(키워드+파라미터) 프롬프트도 동시 출력해 모델 간 비교·이식이 가능합니다.
 
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
   - "Gemini 이미지 프롬프트 만들어줘", "나노바나나 프롬프트"
@@ -10,7 +10,7 @@ description: |
   - "/media-gemini-3-image-prompt" (직접 호출)
 
   이미지 자동 생성은 페어 스킬 media-higgsfield-image(Higgsfield MCP, Nano Banana Pro 포함)를 사용하세요. 본 스킬은 프롬프트 텍스트 산출 전용입니다.
-version: "1.1.0"
+version: "1.1.1"
 ---
 
 # Gemini 3 Pro Image Prompt Builder — 5-Component + 3-모델 동시 출력
@@ -33,7 +33,7 @@ Gemini 3 Pro Image (Nano Banana Pro)는 Google DeepMind의 reasoning-driven 이�
 
 특히 본 스킬은:
 
-- **3개 모델 동시 출력**: Gemini 5-component 메인 + GPT-image-2(6-Block) + Midjourney v8.1(키워드+파라미터)
+- **3개 모델 동시 출력**: Gemini 5-component 메인 + GPT Image 2.5(공식 가이드 원칙) + Midjourney v8.1(키워드+파라미터)
 - **프리셋 + 미세조정**: 4개 프리셋(제품샷·인물·일러스트·풍경) × 4 슬롯
 - **Thinking vs Fast 모드 안내**: 복잡 구도·텍스트는 Thinking, 빠른 탐색은 Fast (Gemini 3.1 Flash Image)
 - **카메라 하드웨어 지정**: GoPro · Fujifilm · disposable · iPhone 등 시각적 DNA를 결정하는 하드웨어 지시
@@ -57,7 +57,7 @@ Gemini 이미지 프롬프트 나노바나나 프롬프트 Nano Banana Pro 프�
     ↓
 [내부] 슬롯 → 5-component 매핑
     ↓
-[내부] 같은 슬롯 → GPT 6-Block + MJ 키워드+파라미터 변환
+[내부] 같은 슬롯 → GPT Image 2.5 공식 원칙 + MJ 키워드+파라미터 변환
     ↓
 출력: 3개 모델 프롬프트 코드블록 + 권장 파라미터 + 한국어 해설
 ```
@@ -68,18 +68,18 @@ Gemini 이미지 프롬프트 나노바나나 프롬프트 Nano Banana Pro 프�
 
 `AskUserQuestion`을 호출해 4개 프리셋 중 1개를 선택받습니다.
 
-프리셋 슬롯 정의는 3개 이미지 프롬프트 빌더(gpt-image-2·gemini·midjourney)가 **공유하는 단일 원본**을 사용합니다. 원본은 `media-gpt-image-2-prompt` 스킬에 있으며, 각 프리셋 파일 안에 GPT·Gemini·Midjourney 세 모델의 어조 변환 가이드가 모두 포함되어 있습니다.
+프리셋 슬롯 정의는 3개 이미지 프롬프트 빌더(gpt-image·gemini·midjourney)가 **공유하는 단일 원본**을 사용합니다. 원본은 `media-gpt-image-prompt` 스킬에 있으며, 각 프리셋 파일 안에 GPT·Gemini·Midjourney 세 모델의 어조 변환 가이드가 모두 포함되어 있습니다.
 
 | 프리셋 | 적용 케이스 | 공유 슬롯 원본 |
 |---|---|---|
-| 제품샷 (권장) | 커머스 상품, 패키지 컷, 보석·시계 클로즈업 | `${CLAUDE_PLUGIN_ROOT}/skills/media-gpt-image-2-prompt/presets/product-shot.md` |
-| 인물·캐릭터 | 인물 포트레이트, 페르소나, 광고 모델 | `${CLAUDE_PLUGIN_ROOT}/skills/media-gpt-image-2-prompt/presets/portrait.md` |
-| 일러스트·아트 | 카드뉴스 일러스트, 책 표지, 컨셉 아트 | `${CLAUDE_PLUGIN_ROOT}/skills/media-gpt-image-2-prompt/presets/illustration.md` |
-| 풍경·환경 | 배경 이미지, 시네마틱 배경, 여행 컷 | `${CLAUDE_PLUGIN_ROOT}/skills/media-gpt-image-2-prompt/presets/landscape.md` |
+| 제품샷 (권장) | 커머스 상품, 패키지 컷, 보석·시계 클로즈업 | `${CLAUDE_PLUGIN_ROOT}/skills/media-gpt-image-prompt/presets/product-shot.md` |
+| 인물·캐릭터 | 인물 포트레이트, 페르소나, 광고 모델 | `${CLAUDE_PLUGIN_ROOT}/skills/media-gpt-image-prompt/presets/portrait.md` |
+| 일러스트·아트 | 카드뉴스 일러스트, 책 표지, 컨셉 아트 | `${CLAUDE_PLUGIN_ROOT}/skills/media-gpt-image-prompt/presets/illustration.md` |
+| 풍경·환경 | 배경 이미지, 시네마틱 배경, 여행 컷 | `${CLAUDE_PLUGIN_ROOT}/skills/media-gpt-image-prompt/presets/landscape.md` |
 
 ### Round 2 — 프리셋별 미세조정 (3-4 질문)
 
-위 공유 슬롯 원본(`${CLAUDE_PLUGIN_ROOT}/skills/media-gpt-image-2-prompt/presets/<name>.md`)의 슬롯 정의를 따릅니다. 슬롯 데이터는 세 모델이 동일하게 사용하며, 본 스킬은 그중 Gemini Creative Director 어조 변환 가이드 섹션을 적용합니다.
+위 공유 슬롯 원본(`${CLAUDE_PLUGIN_ROOT}/skills/media-gpt-image-prompt/presets/<name>.md`)의 슬롯 정의를 따릅니다. 슬롯 데이터는 세 모델이 동일하게 사용하며, 본 스킬은 그중 Gemini Creative Director 어조 변환 가이드 섹션을 적용합니다.
 
 ### Round 3 — 화면비 + 텍스트 + 카메라 하드웨어(선택)
 
@@ -115,9 +115,9 @@ Component 5 — [Specific Constraint/Text]
 
 각 component는 영문 문장 1-2개. 마침표로 구분. 상세 규칙은 `references/prompt-blocks.md`.
 
-### 내부 처리 — GPT 6-Block + MJ 변환
+### 내부 처리 — GPT Image 2.5 + MJ 변환
 
-페어 스킬 media-gpt-image-2-prompt / media-midjourney-v8-prompt와 동일 로직.
+페어 스킬 media-gpt-image-prompt / media-midjourney-v8-prompt와 동일 로직.
 
 ### 출력 — 3개 모델 코드블록
 
@@ -132,9 +132,9 @@ Component 5 — [Specific Constraint/Text]
 **Reference 이미지**: 최대 14개 첨부 가능 (`references/reference-images.md`)
 **Search Grounding**: 데이터 시각화·지도·통계 그래프는 활성화 권장
 
-### 2) GPT-image-2 — OpenAI ChatGPT / API
+### 2) GPT Image 2.5 — OpenAI API / ChatGPT
 ```
-<6-Block 자연어 단락>
+<공식 원칙 프롬프트 (단락 또는 라벨 섹션)>
 ```
 **권장 파라미터**: `quality=medium`, `size=1024x1024`, `moderation=auto`
 
@@ -150,7 +150,7 @@ Component 5 — [Specific Constraint/Text]
 
 ### 🔗 페어 스킬 (실제 이미지 생성)
 - `media-higgsfield-image` — Higgsfield MCP 직접 호출 (Nano Banana Pro 포함, 실제 이미지 생성)
-- `media-gpt-image-2-prompt` — GPT 어조 프롬프트 빌더 (sibling)
+- `media-gpt-image-prompt` — GPT 어조 프롬프트 빌더 (sibling)
 - `media-midjourney-v8-prompt` — MJ 어조 프롬프트 빌더 (sibling)
 ```
 
@@ -185,7 +185,7 @@ Component 5 — [Specific Constraint/Text]
 | 산출물 | 형식 | 설명 |
 |---|---|---|
 | Gemini 3 Pro Image 프롬프트 | 영문 5-component 단락 | Google AI Studio / Vertex AI / Gemini 앱 복붙 |
-| GPT-image-2 프롬프트 | 영문 6-Block 자연어 단락 | ChatGPT / API 복붙 |
+| GPT Image 2.5 프롬프트 | 영문 단락 또는 라벨 섹션 | ChatGPT / API 복붙 |
 | Midjourney v8.1 프롬프트 | 키워드 + `--파라미터` | Discord `/imagine` 또는 alpha.midjourney.com |
 | 권장 파라미터 | 모델별 aspect/quality/mode | API/UI 설정 시 함께 입력 |
 | 한국어 해설 | 마크다운 | 어조 차이·Thinking 모드·SynthID·비용 주의 |
@@ -204,7 +204,7 @@ Component 5 — [Specific Constraint/Text]
 
 | 스킬 | 관계 | 설명 |
 |---|---|---|
-| media-gpt-image-2-prompt | sibling | 동일 입력으로 GPT 6-Block 어조 프롬프트 |
+| media-gpt-image-prompt | sibling | 동일 입력으로 GPT Image 2.5 공식 원칙 프롬프트 |
 | media-midjourney-v8-prompt | sibling | 동일 입력으로 MJ 키워드+파라미터 프롬프트 |
 | media-higgsfield-image | after | Higgsfield MCP 직접 호출로 실제 이미지 생성 (Nano Banana Pro 포함) |
 

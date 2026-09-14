@@ -14,7 +14,7 @@ description: |
   Soul·Nano Banana·GPT Image·Seedream·FLUX·Recraft·Marketing Studio 등 계열의 프롬프트 크래프트는
   references/prompt-craft/*.md에 출처와 함께 큐레이션돼 있고, 실제 파라미터(모델 id·해상도·비율·비용)는
   런타임에 라이브 조회합니다. 프롬프트만 필요하면 moai-coworker의 *-prompt 스킬을 사용하세요.
-version: "1.2.0"
+version: "1.2.1"
 ---
 
 # Higgsfield 이미지 생성 (media-higgsfield-image)
@@ -125,7 +125,7 @@ Higgsfield 이미지, Soul, Nano Banana, Nano Banana Pro, GPT Image, Seedream, F
 | `moai-media:media-higgsfield-core` | 코어: 호출 계약·라이브 조회·공통 규칙 |
 | `moai-media:media-higgsfield-video` | 후속: 이미지를 영상으로 |
 | `moai-media:media-gemini-3-image-prompt` | 대안: 프롬프트만 산출 (외부 도구) |
-| `moai-media:media-gpt-image-2-prompt` | 대안: 외부 ChatGPT 사용 |
+| `moai-media:media-gpt-image-prompt` | GPT Image 2.5 프롬프트 설계 (Higgsfield `gpt_image_2_5` 또는 외부 ChatGPT) |
 | `moai-marketer:content-card-news` | 후속: 이미지를 카드뉴스에 배치 |
 
 ## 출처

@@ -50,12 +50,16 @@
 
 ## 모델별 어조 변환 가이드
 
-### GPT-image-2 (자연어 단락)
+### GPT Image 2.5 (라벨 섹션 — 공식 가이드 원칙)
 ```
-A <Q1> <product>, <Q4 동작>, <Q2 배경>, in a <scene>,
-<Q4 composition>, <Q3 lighting>, editorial product
-photography, natural film grain. [Round 3 텍스트]
+Create a photorealistic product photograph of a <Q1> <product> for <use>.
+Scene: <Q2 background>, <scene/time>.
+Subject: <product form, material, distinctive details>.
+Details: <Q4 composition and lens look>, <Q3 lighting>, editorial product photography, subtle film grain.
+[Text (verbatim): "<Round 3 text>" — <position, typography>, rendered exactly once]
+Constraints: no extra text, no watermark, no unrelated logos.
 ```
+권장: `model=gpt-image-2.5-flare`, `quality=medium`. 투명 누끼가 필요하면 `background=transparent` + PNG.
 
 ### Gemini 3 Pro Image (5-component 영문 문장)
 ```
