@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "'MoAI-Cowork, 모두의 코워크' AI 코워커 패밀리 — 코워커(범용 실무·라이프스타일)·작가(출판)·스토리(웹툰/웹소설/IP)·마케터(캠페인/콘텐츠)·미디어(이미지/영상/오디오 생성)·셀러·사무관(오피스 문서)·데이터 애널리스트(공공데이터/시각화)·법무·재무세무·인사채용·CS매니저·컨설턴트·커리어코치·튜터(전문가)·디자이너(브랜드 디자인 시스템)·PM(진입 허브). 각 AI 코워커는 슬래시 명령 없이 자연어 요청만으로 동작하며, PM의 /project 단일 명령이 진입을 라우팅합니다(update·evolve·doctor 하위 모드 지원). Claude Code에서 `claude plugin marketplace add modu-ai/moai-cowork`로 한 번에 등록하세요.",
-    "version": "1.2.5",
+    "version": "1.2.6",
     "language": "ko",
     "license": "Apache-2.0",
     "displayName": "MoAI-Coworker"
