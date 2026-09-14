@@ -1,6 +1,6 @@
 # 법무 담당 (moai-lawyer)
 
-법무 전담 AI 코워커입니다. 계약 검토·NDA 트리아지·컴플라이언스 점검·법령/판례 리서치·특허 검색/분석·식약처 안전 기준 등 법무 실무 스킬 10종과 국가법령정보 MCP(korean-law) 연동을 하나의 플러그인으로 제공합니다. 슬래시 명령을 외울 필요 없이 자연어로 요청하면 매칭되는 스킬이 자동 호출됩니다.
+법무 전담 AI 코워커입니다. 계약 검토·NDA 트리아지·컴플라이언스 점검·법령/판례 리서치·특허 검색/분석·식약처 안전 기준 ·국내외 특허/상표 선행조사 등 법무 실무 스킬과 국가법령정보 MCP(korean-law)·특허/상표 공식 데이터 MCP(moai-mcp-ip) 연동을 하나의 플러그인으로 제공합니다. 슬래시 명령을 외울 필요 없이 자연어로 요청하면 매칭되는 스킬이 자동 호출됩니다.
 
 **이런 분께 추천**: 1인 사업자 · 스타트업 운영자 · 법무 담당자 없는 소규모 팀
 
@@ -26,7 +26,7 @@ codex plugin add moai-lawyer@moai-cowork
 
 > 앱별 정확한 클릭 경로와 잘 안 될 때 대처법은 [플러그인 설치와 관리](https://cowork.mo.ai.kr/plugins/install/)에 정리해 두었습니다.
 
-## 스킬 10종
+## 스킬
 
 호출 형식: `/moai-lawyer:legal-<스킬명>` — 예: `/moai-lawyer:legal-contract-review`. 자연어 요청("이 계약서 검토해줘")으로도 자동 매칭됩니다.
 
@@ -50,11 +50,12 @@ codex plugin add moai-lawyer@moai-cowork
 |------|------|
 | `legal-law-research` | 법령·판례·행정규칙·조약·해석례 원문 조회 + 인용 검증(환각방지)·판례 생사 확인·행위시법 판단 (korean-law MCP) |
 
-### 특허 (2종)
+### 특허·상표
 
 | 스킬 | 역할 |
 |------|------|
-| `legal-patent-search` | KIPRIS Plus 특허·실용신안·디자인·상표 검색 + 출원 현황 정리 |
+| `legal-ip-search-report` | 한국·미국·일본·유럽 공식 DB로 상표 선행검색·특허 선행기술/권리상태 조사 → 검색 로그·위험 평가·출원 전략 보고서. API 키 확인이 먼저, 없으면 등록 안내 |
+| `legal-patent-search` | KIPRIS Plus 한국 특허·실용신안·상표 검색 + 출원 현황 정리 (moai-mcp-ip) |
 | `legal-patent-analyzer` | 특허 동향 보고서·선행기술 조사·FTO(침해 가능성) 분석·출원서 초안 |
 
 ### 행정·안전 기준 (2종)
@@ -73,6 +74,20 @@ codex plugin add moai-lawyer@moai-cowork
 | `korean-law` | 법제처 42개 API → 9개 도구 (hosted, `mcp.gomdori.app/law`) | `KOREAN_LAW_OC` | 법제처 Open API OC 키 — 사용자마다 발급 필수 |
 
 **OC 키 발급**: [law.go.kr](https://www.law.go.kr) 국가법령정보 Open API에서 무료로 발급합니다 (회원가입 → Open API 신청 → OC 값 확인). 발급받은 값을 환경변수 `KOREAN_LAW_OC`로 설정하세요 — 파일에 키를 적지 않습니다.
+
+## MCP 연동: moai-mcp-ip (특허·상표 공식 데이터)
+
+특허청·USPTO·일본 특허청·EPO 모두 공식 MCP를 제공하지 않아 직접 만든 서버입니다(`mcp-servers/moai-mcp-ip`). 조사 전에 `ip_check_access`로 기관별 자격증명을 확인하며, 키 값은 어떤 응답·로그에도 남기지 않습니다.
+
+| 소스 | 할 수 있는 것 | 자격증명 |
+|------|---------------|----------|
+| KIPRIS Plus (한국) | 특허·실용신안·상표 검색과 상세 | `KIPRIS_API_KEY` |
+| USPTO ODP (미국) | 특허 출원 검색·메타데이터 | `USPTO_ODP_API_KEY` |
+| USPTO TSDR (미국) | 상표 사건 상태 (문자 검색 API는 USPTO가 제공하지 않음) | `USPTO_TSDR_API_KEY` |
+| JPO (일본) | 출원번호 기반 특허·상표 경과·등록 정보 | `JPO_API_USER` + `JPO_API_PASSWORD` |
+| EPO OPS (유럽·국제) | 특허 검색·서지·패밀리·법적 상태 | `EPO_OPS_KEY` + `EPO_OPS_SECRET` |
+
+필요한 기관만 등록하면 됩니다. 키는 채팅에 붙여 넣지 말고 Claude 앱은 플러그인 설정 화면에, Codex 앱은 자격증명 파일(macOS `~/.moai/mcp/ip.json`, Windows `C:\Users\<사용자>\.moai\mcp\ip.json`)에 넣습니다. 기관별 가입 절차는 [CONNECTORS.md](mcp-servers/moai-mcp-ip/CONNECTORS.md)에 있습니다.
 
 ## 에이전트 2종
 

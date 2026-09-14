@@ -10,8 +10,8 @@ description: |
   - "특허 맵 그려줘. 출원인별 점유율도 보여줘"
   - "이 청구항 대비 침해 가능성 판단해줘"
   - "회피 설계 방향 제안해줘"
-  특허 데이터가 없으면 moai-lawyer:legal-patent-search로 먼저 검색한 뒤 분석하며, 보고서 본문은 ai-slop 검수 체인으로 마무리합니다.
-version: "1.1.1"
+  특허 데이터가 없으면 moai-lawyer:legal-patent-search(한국) 또는 moai-lawyer:legal-ip-search-report(미국·일본·유럽 포함)로 먼저 검색한 뒤 분석하며, 보고서 본문은 ai-slop 검수 체인으로 마무리합니다.
+version: "1.1.2"
 ---
 
 # 특허 분석 (Patent Analyzer)
@@ -43,10 +43,11 @@ AskUserQuestion으로 분석 목적을 선택받습니다:
 
 ### 2단계: 특허 데이터 수집 (필요시)
 
-분석 대상 특허 데이터가 없는 경우 moai-lawyer:legal-patent-search 스킬을 연계하여 검색합니다:
-- 검색 키워드 및 IPC 분류코드
-- 검색 범위 (국내/해외, 연도, 상태)
-- 데이터 수집 목적 (동향/선행기술/FTO)
+분석 대상 특허 데이터가 없는 경우 검색 스킬을 연계합니다:
+- 한국 특허만: moai-lawyer:legal-patent-search (`kipris_patent_search`)
+- 미국·일본·유럽 포함, 패밀리·법적 상태 확인: moai-lawyer:legal-ip-search-report (`uspto_patent_search` · `epo_search` · `epo_family` · `jpo_patent_progress`)
+- 넘겨줄 것: 검색 키워드 및 IPC/CPC 분류코드, 검색 범위(국가·연도·상태), 데이터 수집 목적(동향/선행기술/FTO)
+- 두 스킬 모두 `ip_check_access`로 API 자격증명을 먼저 확인하고, 없으면 등록 방법부터 안내합니다. 키 부재·인증 오류는 검색 결과 0건이 아닙니다.
 
 ### 3단계: 분석 수행
 
@@ -187,7 +188,8 @@ AskUserQuestion으로 분석 목적을 선택받습니다:
 
 ## 관련 스킬
 
-- **moai-lawyer:legal-patent-search** - 특허 검색 및 서지정보 수집
+- **moai-lawyer:legal-patent-search** - 한국 특허 검색 및 서지정보 수집
+- **moai-lawyer:legal-ip-search-report** - 국내외 특허·상표 선행조사와 패밀리·법적 상태 확인
 - **moai-analyst:data-visualizer** - 특허 동향 시각화 (연도별 추이, IPC 분포 차트)
 - **moai-tutor:education-grant-writer** - 연구비 신청서 선행기술 섹션 작성
 

@@ -4,7 +4,7 @@ weight: 15
 description: "외부 서비스 연동에 필요한 API 키를 넣는 두 가지 방법 — 앱 입력창과 자격증명 파일. 네 실행 환경 어디에서든 같게 동작합니다."
 geekdocBreadcrumb: true
 date: 2026-09-03T00:00:00+09:00
-lastmod: 2026-09-03T00:00:00+09:00
+lastmod: 2026-09-13T18:00:00+09:00
 ---
 
 스마트스토어·카페24·DART처럼 **외부 서비스에 직접 접속하는 코워커**는 그 서비스의 API 키가 있어야 실제로 일합니다. 이 페이지는 그 키를 넣는 방법을 다룹니다.
@@ -62,8 +62,9 @@ Windows에서는 `C:\Users\사용자이름\.moai\mcp\<서비스이름>.json`입�
 | `moai-seller` (아임웹) | `imweb` | `IMWEB_CLIENT_ID` · `IMWEB_CLIENT_SECRET` · `IMWEB_ACCESS_TOKEN` · `IMWEB_REFRESH_TOKEN` · `IMWEB_UNIT_CODE` |
 | `moai-seller` (카페24) | `cafe24` | `CAFE24_MALL_ID` · `CAFE24_CLIENT_ID` · `CAFE24_CLIENT_SECRET` · `CAFE24_ACCESS_TOKEN` · `CAFE24_REFRESH_TOKEN` |
 | `moai-threads-poster` | `threads` | `THREADS_ACCESS_TOKEN` · `THREADS_USER_ID` · `IG_ACCESS_TOKEN` · `IG_USER_ID` |
+| `moai-lawyer` (특허·상표) | `ip` | `KIPRIS_API_KEY` · `USPTO_ODP_API_KEY` · `USPTO_TSDR_API_KEY` · `JPO_API_USER` · `JPO_API_PASSWORD` · `EPO_OPS_KEY` · `EPO_OPS_SECRET` (쓰는 기관만) |
 
-`moai-lawyer`(국가법령정보)는 방법 1만 지원합니다 — 키가 접속 주소 안에 들어가는 구조라 파일로는 대신할 수 없습니다.
+`moai-lawyer`의 국가법령정보(korean-law)는 방법 1만 지원합니다 — 키가 접속 주소 안에 들어가는 구조라 파일로는 대신할 수 없습니다.
 
 Higgsfield·Meta Ads·Slack·WordPress·Typefully처럼 **로그인 방식(OAuth)** 인 서비스는 이 페이지와 무관합니다. 처음 쓸 때 브라우저 로그인 창이 뜨고, 키를 적을 일이 없습니다.
 

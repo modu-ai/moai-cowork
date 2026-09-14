@@ -4,6 +4,25 @@
       "$comment": "국가법령정보 MCP (chrisryugj/korean-law-mcp v4.4, MIT) — 법제처 42개 API → 9개 도구. 법령·판례·행정규칙·자치법규·조약·해석례(국세청 포함) + LLM 환각방지 인용검증(legal_analysis verify_citations) + 판례 생사 확인(cite_check) + 행위시법 판단(applicable_law) + 조문 영향그래프(impact_map). 최신 hosted 엔드포인트 https://mcp.gomdori.app/law (구 korean-law-mcp.fly.dev/mcp 도 하위호환 유지). 인증: 법제처 Open API OC 키 — 사용자마다 발급 필수(law.go.kr 무료), URL ?oc= 에 보간. 공용키 모덜 아님(stats/archhub와 상이).",
       "type": "http",
       "url": "https://mcp.gomdori.app/law?oc=${user_config.KOREAN_LAW_OC}"
+    },
+    "moai-mcp-ip": {
+      "$comment": "특허·상표 공식 데이터 MCP(자체 제작) — KIPRIS Plus(한국 특허·상표)·USPTO ODP(미국 특허)·TSDR(미국 상표 상태)·JPO 特許情報取得API(일본, 번호 기반)·EPO OPS(유럽·국제 특허 검색·패밀리·법적상태). 공식 기관 MCP가 없어 직접 만들었다. ip_check_access 로 소스별 자격증명을 먼저 확인한다(값은 응답에 싣지 않음). 자격증명: 환경변수 → ~/.moai/mcp/ip.json. 사전 설치: uv. 등록 절차는 mcp-servers/moai-mcp-ip/CONNECTORS.md.",
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "${CLAUDE_PLUGIN_ROOT}/mcp-servers/moai-mcp-ip",
+        "moai-mcp-ip"
+      ],
+      "env": {
+        "KIPRIS_API_KEY": "${user_config.KIPRIS_API_KEY}",
+        "USPTO_ODP_API_KEY": "${user_config.USPTO_ODP_API_KEY}",
+        "USPTO_TSDR_API_KEY": "${user_config.USPTO_TSDR_API_KEY}",
+        "JPO_API_USER": "${user_config.JPO_API_USER}",
+        "JPO_API_PASSWORD": "${user_config.JPO_API_PASSWORD}",
+        "EPO_OPS_KEY": "${user_config.EPO_OPS_KEY}",
+        "EPO_OPS_SECRET": "${user_config.EPO_OPS_SECRET}"
+      }
     }
   }
 }

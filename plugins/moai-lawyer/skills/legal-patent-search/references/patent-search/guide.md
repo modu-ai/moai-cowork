@@ -1,12 +1,17 @@
 # 특허 검색 가이드
 
-## KIPRIS Plus REST API 호출
+## KIPRIS Plus 호출 — MCP 도구로
 
-```
-GET http://plus.kipris.or.kr/openapi/rest/patUtiModInfoSearchSevice/freeSearchInfo
-  ?word={검색어}
-  &ServiceKey={KIPRIS_API_KEY}
-```
+직접 URL을 조립하지 않고 `moai-mcp-ip` 도구를 씁니다. 서버가 `ServiceKey` 인증, XML 해석, HTTP 200으로 오는 오류 판정을 처리합니다.
+
+| 도구 | 공식 오퍼레이션 (2026-09-13 확인) | 주요 인자 |
+|---|---|---|
+| `kipris_patent_search` | `patUtiModInfoSearchSevice/getAdvancedSearch` | `word` · `invention_title` · `abstract` · `claim` · `ipc_number` · `applicant` · `inventors` · `status` · `sort_spec` · `page_no` · `num_of_rows`(최대 500) · `extra_params` |
+| `kipris_patent_detail` | `patUtiModInfoSearchSevice/getBibliographyDetailInfoSearch` | `application_number` |
+| `kipris_trademark_search` | `trademarkInfoSearchService/getAdvancedSearch` | `trademark_name` · `classification` · `similarity_code` · `applicant_name` · `statuses` 등 |
+| `kipris_trademark_detail` | `trademarkInfoSearchService/getBibliographyDetailInfoSearch` | `application_number` |
+
+`getWordSearch`는 공식 명세에 "폐기 예정"으로 표시되어 있어 쓰지 않습니다.
 
 ## IPC 주요 분류코드
 
