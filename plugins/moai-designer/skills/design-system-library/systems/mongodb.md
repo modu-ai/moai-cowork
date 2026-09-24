@@ -752,7 +752,7 @@ Marketing surfaces give content generous breathing room — `{spacing.hero}` (12
 
 1. Focus on ONE component at a time
 2. Reference component names and tokens directly
-3. Run `npx @google/design.md lint DESIGN.md` after edits
+3. Run `npx -p "@google/design.md" designmd lint DESIGN.md` after edits
 4. Add new variants as separate `components:` entries
 5. Default to `{typography.body-md}` for body
 6. Keep `{colors.brand-green}` as the primary CTA across all surfaces

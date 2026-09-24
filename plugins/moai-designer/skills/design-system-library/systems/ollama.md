@@ -524,7 +524,7 @@ The only image asset is the llama mascot (raster PNG at multiple resolutions: 16
 
 1. Focus on ONE component at a time. Pull its YAML entry from the front matter and verify every property resolves.
 2. Reference component names and tokens directly (`{colors.primary}`, `{component.button-primary-active}`, `{rounded.full}`) — do not paraphrase.
-3. Run `npx @google/design.md lint DESIGN.md` after edits — `broken-ref`, `contrast-ratio`, and `orphaned-tokens` warnings flag issues automatically.
+3. Run `npx -p "@google/design.md" designmd lint DESIGN.md` after edits — `broken-ref`, `contrast-ratio`, and `orphaned-tokens` warnings flag issues automatically.
 4. Add new variants as separate component entries (`-active`, `-disabled`, `-focused`) — do not bury them inside prose.
 5. Default body to `{typography.body-md}`; reach for `{typography.body-sm}` for footer/utility text; reserve `{typography.display-xl}` strictly for the page-top headline.
 6. Keep `{colors.primary}` scarce per viewport — there should be at most one black pill per fold (counting nav, hero CTA, and pricing-card CTA together). The design's restraint is the design.

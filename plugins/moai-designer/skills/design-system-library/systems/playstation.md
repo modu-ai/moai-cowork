@@ -645,7 +645,7 @@ All interactive elements meet WCAG AAA (≥ 44×44px). `{component.button-primar
 
 1. Focus on ONE component at a time. Pull its YAML entry and verify every property resolves.
 2. Reference component names and tokens directly (`{colors.primary}`, `{component.button-primary-pressed}`, `{rounded.full}`) — do not paraphrase.
-3. Run `npx @google/design.md lint DESIGN.md` after edits — `broken-ref`, `contrast-ratio`, and `orphaned-tokens` warnings flag issues automatically.
+3. Run `npx -p "@google/design.md" designmd lint DESIGN.md` after edits — `broken-ref`, `contrast-ratio`, and `orphaned-tokens` warnings flag issues automatically.
 4. Add new variants as separate component entries (`-pressed`, `-disabled`) — do not bury them inside prose.
 5. Default body to `{typography.body-md}` (18px / 400 / 1.5); reach for `{typography.display-xl}` strictly for the page-top hero headline; use `{typography.body-strong}` for primary nav links.
 6. Keep `{colors.primary}` scarce per viewport — at most one full-bleed PlayStation Blue band per page.

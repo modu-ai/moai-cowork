@@ -442,7 +442,7 @@ Hero portrait uses `srcset` with desktop / mobile crops — desktop favors the f
 
 1. Focus on ONE component at a time.
 2. Reference component names and tokens directly.
-3. Run `npx @google/design.md lint DESIGN.md` after edits.
+3. Run `npx -p "@google/design.md" designmd lint DESIGN.md` after edits.
 4. Default body to `{typography.body-md}`; reserve `{typography.body-lg}` for marketing leads.
 5. Keep the three-canvas rhythm (indigo / white / teal) — adding a fourth canvas color breaks the system.
 6. The closing teal band is non-negotiable — every marketing page resolves there.

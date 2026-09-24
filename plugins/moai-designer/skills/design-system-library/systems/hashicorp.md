@@ -561,7 +561,7 @@ The product chromatic level isn't a "modal lift" — it's an identity device. A 
 1. Focus on ONE component at a time and reference it by its `components:` token name.
 2. When introducing a new section, decide first whether it's a generic feature (surface-1) or a product-identity section (product-* color).
 3. Default body to `{typography.body}` at 500 weight; reach for `{typography.subhead}` only inside CTA banners and feature cards.
-4. Run `npx @google/design.md lint DESIGN.md` after edits.
+4. Run `npx -p "@google/design.md" designmd lint DESIGN.md` after edits.
 5. Add new product variants as separate component entries (`product-card-nomad`, `button-product-consul`, etc.).
 6. Treat the per-product palette as identity tokens, not decoration. If you reach for a product color outside its product context, the brand is drifting.
 7. Eyebrow type is mandatory above every section — skipping it makes sections read as floating.

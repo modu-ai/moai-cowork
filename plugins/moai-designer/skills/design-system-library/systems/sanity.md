@@ -655,7 +655,7 @@ The system avoids heavy drop shadows. Depth is delivered primarily by tonal surf
 
 1. Focus on ONE component at a time. Start with `{hero-display}`, `{button-primary}`, and `{nav-bar-dark}` — they appear on every dark-mode page and anchor the brand voice.
 2. Reference component names and tokens directly (`{colors.brand}`, `{button-primary-on-light}`, `{rounded.full}`) — do not paraphrase or substitute hex values.
-3. Run `npx @google/design.md lint DESIGN.md` after edits.
+3. Run `npx -p "@google/design.md" designmd lint DESIGN.md` after edits.
 4. Add new variants as separate `components:` entries (`-dark`, `-on-light`, `-featured`). Never bury them inside prose.
 5. Default body copy to `{typography.body}`. Reserve `{typography.mono-eyebrow}` and `{typography.mono-caps}` for IBM Plex Mono labels only; never use mono for headlines.
 6. Keep `{colors.brand}` scarce — at most one brand-coloured CTA or surface per viewport. If a section already has a `{button-brand}` action, secondary actions step down to `{button-secondary-dark}`.

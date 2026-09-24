@@ -509,7 +509,7 @@ Photography uses responsive `srcset` with art-direction crops at major breakpoin
 
 1. Focus on ONE component at a time.
 2. Reference component names and tokens directly (`{colors.aloe-10}`, `{button-primary-pill}-pressed`, `{rounded.pill}`).
-3. Run `npx @google/design.md lint DESIGN.md` after edits.
+3. Run `npx -p "@google/design.md" designmd lint DESIGN.md` after edits.
 4. Add new variants as separate entries.
 5. Default body to `{typography.body-md}`; reserve `{typography.body-lg}` for marketing leads.
 6. Keep the two canvas tracks separated — when designing a new page, choose cinematic OR transactional, not both.

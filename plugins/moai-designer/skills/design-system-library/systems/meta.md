@@ -669,7 +669,7 @@ The system runs predominantly flat. Elevation is reserved for two interaction la
 
 1. Focus on ONE component at a time. The system has high internal consistency — small precision wins compound.
 2. Reference component names and tokens directly (`{colors.primary}`, `{component-name}-pressed`, `{rounded.full}`) — do not paraphrase.
-3. Run `npx @google/design.md lint DESIGN.md` after edits to catch broken refs, contrast issues, orphaned tokens.
+3. Run `npx -p "@google/design.md" designmd lint DESIGN.md` after edits to catch broken refs, contrast issues, orphaned tokens.
 4. Add new variants as separate `components:` entries (`-pressed`, `-disabled`, `-focused`) — do not bury them inside prose.
 5. Default to `{typography.body-md}` for body and `{typography.subtitle-lg}` for emphasis. Headlines step down through `hero-display → display-lg → heading-lg → heading-md → heading-sm`.
 6. Keep `{colors.primary}` (cobalt) scarce. If it appears outside the buy-now flow on a viewport, ask whether the surface really needs to look like a checkout panel.

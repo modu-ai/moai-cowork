@@ -2,7 +2,7 @@
 name: design-system-library
 description: |
   글로벌 브랜드 디자인 시스템 참고 자료(Claude · ClickHouse · Clay 포함)의 색·타이포·간격·컴포넌트 구조를 읽고, 사용자 브랜드에 맞는 HTML 디자인 토큰을 설계합니다. Tailwind Play CDN 예시는 개발용이며 최종 산출물은 대상 환경에서 렌더·대비를 검증합니다.
-  doc-html-report · 랜딩 페이지 · 각종 문서 생성 시 design_system을 지정하면 해당 브랜드 무드가 즉시 적용됩니다. Claude Design 핸드오프 시에는 DESIGN.md 지침 소스로 제공됩니다.
+  별도로 설치된 moai-officer:doc-html-report에서 design_system을 지정하면 토큰 참고 자료로 쓸 수 있습니다. Claude Design 핸드오프 시에는 DESIGN.md 지침 소스로 제공됩니다.
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
   - "Claude 스타일로 HTML 보고서 만들어줘"
   - "ClickHouse 다크 테마로 랜딩 만들어줘"
@@ -11,7 +11,7 @@ description: |
   - "Notion / Linear / Stripe 스타일로 리포트"
   - "어두운 테마 / 따뜻한 화이트 테마로"
   - "Claude Design에 올릴 디자인 시스템 자료 정리"
-version: "1.1.3"
+version: "1.1.4"
 ---
 
 # design-system-library — 75개 브랜드 디자인 시스템 SSOT
@@ -21,7 +21,7 @@ version: "1.1.3"
 글로벌 브랜드 75종(56개 풍부 분석 + 19개 경량 토큰)의 디자인 시스템(token 기반 분석 결과)을 단일 진실 원천(single source of truth)으로 보관하고, HTML 산출물에 적용 가능한 형태로 제공합니다.
 
 **두 가지 소비 경로**:
-1. **doc-html-report / HTML 문서 렌더** — `design_system` 파라미터로 시스템 선택 → Tailwind Play CDN config + shadcn vanilla 컴포넌트로 단일 파일 HTML 렌더
+1. **doc-html-report / HTML 문서 렌더** — 별도 `moai-officer`가 설치되고 해당 스킬을 사용할 수 있을 때 `design_system` 파라미터로 시스템 선택 → 토큰을 산출물 형식에 맞는 CSS와 HTML로 렌더
 2. **Claude Design 핸드오프** — `design-system-prep`가 본 라이브러리 시스템을 DESIGN.md 합성 소스로 사용 → `design-handoff`의 references/context에 지침 포함
 
 **핵심 원칙**:
@@ -114,9 +114,9 @@ version: "1.1.3"
 
 ## 소비자 연동
 
-### doc-html-report (moai-coworker)
+### doc-html-report (별도 moai-officer 플러그인)
 
-`moai-officer:doc-html-report`의 `design_system` 입력은 다음 의도로 쓰인다. 실제 렌더 결과는 소비자 스킬에서 확인한다:
+`moai-officer:doc-html-report`가 현재 앱에 설치·노출된 경우, `design_system` 입력은 다음 의도로 쓰인다. 설치되지 않았다면 디자인 토큰과 적용 지침을 제공하고 HTML 생성은 사용 가능한 도구 범위에서 별도로 수행한다. 실제 렌더 결과는 소비자 스킬에서 확인한다:
 - 미지정 → 기존 0의존 템플릿 (Anthropic 영감 ivory/slate/clay, 하위 호환)
 - `design_system: claude|clickhouse|clay|<카탈로그 항목>` → 이 라이브러리에서 토큰을 읽고 결과물 형식에 맞는 CSS와 HTML을 생성한다. 개발 미리보기에만 Play CDN을 쓴다.
 
@@ -138,6 +138,8 @@ version: "1.1.3"
 3. **토큰 매핑** — `mapping/tailwind.md` 규칙을 참고하고, CTA·배지의 배경과 글자색 대비를 실제 계산
 4. **shadcn vanilla 매핑** — 산출물 구조 카드/버튼/테이블을 `components/` 참조 마크업으로 치환
 5. **단일 파일 렌더** — 대상 환경에 필요한 CSS와 마크업을 포함해 출력하고 브라우저에서 확인. Play CDN은 개발 미리보기일 때만 사용
+
+디자인 시스템 파일을 수정해 `DESIGN.md` 형식을 점검할 때는 Node.js와 npm이 실제로 있는 환경에서 `npx -p "@google/design.md" designmd lint DESIGN.md`를 쓴다. [원저작자 안내](https://github.com/google-labs-code/design.md)는 Windows에서 점이 들어간 실행 이름이 마크다운 연결 프로그램으로 열릴 수 있어 `designmd` 별칭을 권한다. 이 명령은 macOS·Windows·Linux에서 같은 별칭을 사용한다. 앱에 실행 환경이 없으면 lint를 실행했다고 보고하지 않는다.
 
 ---
 
@@ -167,9 +169,9 @@ Claude Design에 올릴 디자인 시스템 자료를 Linear 스타일 기반으
 
 ## 하지 않는 것
 
-- 본 라이브러리는 렌더 로직을 소유하지 않습니다 — 렌더는 doc-html-report가 담당
+- 본 라이브러리는 렌더 로직을 소유하지 않습니다. 별도 설치된 `moai-officer:doc-html-report`·`doc-html-slide`가 현재 앱에 노출돼 있으면 해당 스킬에서 렌더합니다.
 - React / Vue / 빌드 단계를 도입하지 않습니다 — 단일 파일·CDN·vanilla 고수
-- 0의존 self-contained 출력을 요구하는 경우(이메일 첨부·오프라인·인쇄)는 기존 doc-html-report 템플릿을 사용하세요 (design_system 미지정)
+- 외부 의존이 없는 단일 파일 출력(이메일 첨부·오프라인·인쇄)이 필요하고 `moai-officer:doc-html-report`가 설치돼 있으면 해당 기본 템플릿을 사용합니다. 설치되지 않았다면 토큰과 적용 지침을 제공하고, 현재 앱에서 HTML을 만들 수 있는지 별도로 확인합니다.
 - 브랜드 저작권 — 각 시스템은 **분석·참고용 token**이며, 저장소 Apache-2.0 라이선스의 **적용 범위 밖**입니다.
   각 브랜드의 디자인·상표·서체 권리는 해당 소유자에게 있습니다. 상업적 산출물에 적용하기 전
   반드시 [`BRAND-NOTICE.md`](BRAND-NOTICE.md)의 사용 경계와 오픈 라이선스 대체 서체표를 확인하세요

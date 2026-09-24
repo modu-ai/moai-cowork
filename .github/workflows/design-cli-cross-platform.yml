@@ -1,0 +1,35 @@
+name: DESIGN.md CLI cross-platform smoke
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/design-cli-cross-platform.yml"
+      - "plugins/moai-designer/skills/design-system-library/**"
+  push:
+    paths:
+      - ".github/workflows/design-cli-cross-platform.yml"
+      - "plugins/moai-designer/skills/design-system-library/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lint-alias:
+    name: ${{ matrix.os }} / designmd alias
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: "22"
+      - name: Run the documented cross-platform alias
+        run: |
+          npx --yes -p "@google/design.md@0.4.0" designmd lint plugins/moai-designer/skills/design-system-library/systems/clay.md > design-cli-report.json
+          node -e "const r=require('./design-cli-report.json'); if (!r.summary || r.summary.errors !== 0 || !Array.isArray(r.findings)) process.exit(1); console.log('designmd executed; warnings:', r.summary.warnings)"

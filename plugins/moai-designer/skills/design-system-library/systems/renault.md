@@ -576,7 +576,7 @@ and used on floating elements like the configurator's sticky summary bar.
 
 1. Focus on ONE component at a time. Most components share `{rounded.xs}`, `{colors.canvas}` / `{colors.surface-dark}`, and NouvelR — only the role-specific tokens (`{colors.primary}`, `{component.promo-tile-yellow}`) shift between variants.
 2. Reference component names and tokens directly (`{colors.primary}`, `{component.button-primary-pressed}`, `{rounded.pill}`) — do not paraphrase.
-3. Run `npx @google/design.md lint DESIGN.md` after edits; the orphaned-tokens warning will catch unused entries before they ship.
+3. Run `npx -p "@google/design.md" designmd lint DESIGN.md` after edits; the orphaned-tokens warning will catch unused entries before they ship.
 4. Add new variants as separate entries (`-pressed`, `-disabled`, `-outline`) — do not bury them in prose.
 5. Default body type to `{typography.body-md}`; reach for `{typography.subtitle}` only on hero subtitles and lead paragraphs.
 6. Keep `{colors.primary}` scarce — if more than one yellow element appears per viewport, ask whether one of them should drop to `{colors.surface-dark}` or `{colors.canvas}` instead.
