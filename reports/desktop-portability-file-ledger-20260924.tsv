@@ -542,9 +542,9 @@ plugins/moai-media/skills/media-higgsfield-core/references/job-lifecycle.md		sta
 plugins/moai-media/skills/media-higgsfield-core/references/universal-rules.md	higgsfield_key	static_read
 plugins/moai-media/skills/media-higgsfield-explainer/SKILL.md	claude_only_tool	partial
 plugins/moai-media/skills/media-higgsfield-explainer/references/prompts.md		partial
-plugins/moai-media/skills/media-higgsfield-identity/SKILL.md	claude_only_tool	partial
-plugins/moai-media/skills/media-higgsfield-identity/references/soul-vs-elements.md		partial
-plugins/moai-media/skills/media-higgsfield-identity/references/training-photo-guide.md		partial
+plugins/moai-media/skills/media-higgsfield-identity/SKILL.md		static_read
+plugins/moai-media/skills/media-higgsfield-identity/references/soul-vs-elements.md		static_read
+plugins/moai-media/skills/media-higgsfield-identity/references/training-photo-guide.md		static_read
 plugins/moai-media/skills/media-higgsfield-image/SKILL.md		static_read
 plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/flux.md		static_read
 plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/marketing-studio.md		static_read
@@ -553,9 +553,9 @@ plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/openai.
 plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/recraft.md		static_read
 plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/seedream.md		static_read
 plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/soul.md		static_read
-plugins/moai-media/skills/media-higgsfield-product/SKILL.md		partial
-plugins/moai-media/skills/media-higgsfield-product/references/interview.md	claude_only_tool	partial
-plugins/moai-media/skills/media-higgsfield-product/references/modes.md		partial
+plugins/moai-media/skills/media-higgsfield-product/SKILL.md		static_read
+plugins/moai-media/skills/media-higgsfield-product/references/interview.md		static_read
+plugins/moai-media/skills/media-higgsfield-product/references/modes.md		static_read
 plugins/moai-media/skills/media-higgsfield-video/SKILL.md		static_read
 plugins/moai-media/skills/media-higgsfield-video/references/dop-motions.md		static_read
 plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/cinema-studio.md	higgsfield_key	static_read

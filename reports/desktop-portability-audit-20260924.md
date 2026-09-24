@@ -21,7 +21,7 @@
 | moai-designer | 17 | 0 | 11 | 0 | 1 | 대기 |
 | moai-lawyer | 11 | 2 | 19 | 17 | 1 | 대기 |
 | moai-marketer | 21 | 2 | 64 | 0 | 1 | 대기 |
-| moai-media | 14 | 2 | 43 | 1 | 1 | GPT Image·Higgsfield 이미지·영상 경로 41파일 정적 열람, 나머지 부분 검토 |
+| moai-media | 14 | 2 | 43 | 1 | 1 | GPT Image·Higgsfield 이미지·영상·정체성·제품 경로 47파일 정적 열람, 나머지 부분 검토 |
 | moai-officer | 13 | 2 | 54 | 0 | 1 | 대기 |
 | moai-pm | 1 | 0 | 14 | 0 | 0 | 대기 |
 | moai-recruiter | 6 | 2 | 11 | 0 | 0 | 대기 |
@@ -719,3 +719,11 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - ChatGPT 공식 Higgsfield 연결의 읽기 전용 `marketing_list_video_presets`는 이 세션에서 `formats` 26개·`presets` 26개를 반환했다. 영상 Marketing Studio 참조·카메라 참고 문서가 Claude MCP의 `show_marketing_studio`를 단독 필수 도구로 요구하지 않도록 연결별 목록 조회를 명시했다. 현재 목록 재조회, 사용자 모드 선택, 견적·잔액·승인은 생성 전에 유지한다. 저장소 `AGENTS.md`의 question-channel 바인딩에 따라 공통·이미지·영상 스킬의 누락 정보와 유료 생성 승인은 현재 앱의 질문 채널로만 요청하고, 채널이 없으면 직접 대화 중에도 필요한 입력을 적은 blocker를 반환하도록 고쳤다. 공통 스킬 `1.3.3`, 이미지 `1.3.5`, 영상 `1.3.2`, 미디어 플러그인 세 버전과 두 Higgsfield User-Agent는 `3.3.3`이다. 영상 생성·크레딧 차감은 실행하지 않았다.
 - `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges)`의 구조화 판정은 `inconclusive`였다. 요약이 제시한 `video/SKILL.md:54`의 question-channel 충돌, `:40`의 Wan 세대별 타이밍과 맞지 않는 요약, `:42`의 낡은 Grok 오디오 문구를 각각 수정하고 관련 공통·이미지 지침도 맞췄다. 이는 감사 PASS나 두 앱의 실제 유료 영상 생성 검증이 아니다.
 - 이 작업 트리에서 `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `python3 scripts/sync-mcp-core.py --check`는 복제 서버 여섯 곳 `[정합]`, `git diff --check`는 출력 없이 종료 코드 0이었다. JSON·YAML 파싱으로 미디어 플러그인 세 버전 `3.3.3`과 공통·이미지·영상 스킬 버전 `1.3.3`·`1.3.5`·`1.3.2`를 확인했다. 파일 장부는 1091행, 미디어 86행 중 `static_read` 41행·`partial` 45행이며 영상 참조 10행 모두 `static_read`다. 이 검사는 실제 데스크톱 앱 실행을 대신하지 않는다.
+
+### Higgsfield 정체성 참조·제품 촬영 경로 대조 (2026-09-25)
+
+- `media-higgsfield-identity` 본문·참조 2개와 `media-higgsfield-product` 본문·참조 2개를 각각 끝까지 읽었다. 장부의 여섯 행을 `static_read`로 바꿨다. 미디어 전체 86행 중 정적 열람은 47행, `partial`은 39행이다. 이 표시는 실제 얼굴 업로드·Soul 학습·제품 이미지 생성 결과가 아니다.
+- [Higgsfield Soul ID 웹 도움말](https://higgsfield.ai/creator-hub/help-center/ai-models/how-do-i-create-and-use-a-soul-id-character)은 학습된 캐릭터가 Elements에 나타나 Seedance에서 재사용될 수 있다고 설명한다. 기존 참고 문서의 “Soul과 Element는 교집합이 없다”는 단정을 `soul_id` 직접 전달과 Elements 재사용의 구분으로 고쳤다. 이 세션의 ChatGPT 공식 Higgsfield 플러그인 `show_reference_elements` 스키마는 `nano_banana_pro`와 `nano_banana_2`를 서로 다른 모델로 열거하므로, 기존 Nano Banana Pro 모델 ID 오기를 바로잡았다. Claude MCP `show_characters`와 ChatGPT 플러그인의 `show_reference_elements` 노출은 도구 스키마로 확인했지만, 이 계정에서 학습된 캐릭터가 Elements에 실제 나타나는지 조회하지 않았다.
+- [Higgsfield 공식 product-photoshoot 스킬](https://github.com/higgsfield-ai/skills/blob/main/higgsfield-product-photoshoot/SKILL.md)은 전용 백엔드가 프롬프트를 강화하고, 직접 이미지 모델을 부르는 경로는 그 강화기를 우회한다고 설명한다. 기존 스킬이 저술 시점 앱 목록에서 전용 기능을 찾지 못한 사실을 모든 현재 연결의 부재로 넓혀 말한 부분을 고쳤다. 전용 기능이 없을 때는 직접 조립의 품질 한계를 알리고, 제품 인터뷰는 저장소 `AGENTS.md`의 질문 채널 규칙에 맞춰 채널이 없으면 blocker로 반환하게 했다. 미디어 플러그인은 `3.3.4`, 정체성·제품 스킬은 각각 `1.3.3`·`1.3.2`로 올렸다.
+- `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges)`의 구조화 판정은 `inconclusive`였다. 요약의 `identity/SKILL.md:132` 지적대로 학습된 Soul을 다른 모델에서 쓰기 전에 기존 Elements 목록에서 해당 캐릭터를 찾아 재사용하고, 없을 때만 새 참조 생성 여부를 확인하게 했다. `product/SKILL.md:32` 지적대로 전용 촬영 기능이 노출된 연결은 그 도구·견적·승인 경로로 분기하고, 직접 프롬프트 조립은 전용 기능을 사용할 수 없을 때만 하게 했다. 이 감사는 실제 계정 생성이나 품질 비교를 검증하지 않았다.
+- 이 작업 트리에서 `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `python3 scripts/sync-mcp-core.py --check`는 복제 서버 여섯 곳 `[정합]`, `git diff --check`는 출력 없이 종료 코드 0이었다. JSON·YAML 파싱으로 미디어 플러그인 세 버전 `3.3.4`와 정체성·제품 스킬 버전 `1.3.3`·`1.3.2`를 확인했다. 장부는 1091행이고 미디어 86행 중 `static_read` 47행·`partial` 39행이다. 이 검사는 macOS·Windows·Linux의 두 데스크톱 앱에서 해당 기능이 실제 작동함을 입증하지 않는다.
