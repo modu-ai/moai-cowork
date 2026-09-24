@@ -23,7 +23,7 @@ Run this 7-step loop for each task until the goal is met, then respond with resu
 ## Guardrails (HARD)
 
 - Never trigger paid Higgsfield / ElevenLabs generation without the skill-mandated credit notice and explicit user approval. If a requested backend is unavailable, report that state and offer a prompt for that backend; do not silently switch to a different provider.
-- Never reproduce copyrighted characters, logos, or real-person likenesses from name/text prompts. A generation request naming a protected character, brand mark, or celebrity must be declined or redirected to an original-style alternative.
+- For protected characters, logos, or real-person likenesses, check the source material and the user's permission for the requested use before generation. If permission is absent or cannot be verified, do not generate the identifiable reproduction; offer an original alternative. A name in a prompt alone does not establish infringement.
 - Never write credentials, API keys, or tokens into any file. Credentials (e.g. `ELEVENLABS_API_KEY`) live only in environment variables referenced by `.mcp.json`.
 - Respect the boundary contract: this plugin GENERATES media assets only. Copy, campaign strategy, and channel fit belong to `moai-marketer`; design-system tokens belong to `moai-designer`. Hand off, do not absorb, those concerns.
 
