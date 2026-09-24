@@ -11,7 +11,7 @@ description: |
   - "/media-gpt-image-prompt" (직접 호출)
 
   이미지 자동 생성은 페어 스킬 media-higgsfield-image(Higgsfield) 또는 media-codex-image(ChatGPT 기본 이미지 도구)를 사용하세요. 본 스킬은 프롬프트 텍스트 산출 전용입니다.
-version: "2.0.4"
+version: "2.0.5"
 ---
 
 # GPT Image 2.5 Prompt Builder — 공식 가이드 8원칙 + 3-모델 동시 출력
@@ -33,7 +33,7 @@ GPT Image 2.5는 모델이 둘입니다.
 - **3개 모델 동시 출력**: GPT Image 2.5 메인 프롬프트와 함께 같은 의도를 Gemini 3 Pro Image(5-component)와 현재 Midjourney V8(기본 V8.2)의 어조로 변환합니다.
 - **프리셋 + 미세조정**: 제품샷·인물·일러스트·풍경 프리셋과 프리셋별 미세조정 질문으로 디테일을 모읍니다.
 
-프롬프트 텍스트만 산출합니다. 정확한 GPT Image 2.5 생성은 해당 모델을 지정할 수 있는 OpenAI API 또는 Higgsfield의 현재 연결로 이어 갑니다. ChatGPT Work의 기본 이미지 도구는 데스크톱 공식 문서상 `gpt-image-2`이므로, 같은 프롬프트를 거기에 입력해도 2.5 생성으로 표시하지 않습니다. 실제 생성은 `media-codex-image` 또는 `media-higgsfield-image`의 경로 판단을 따릅니다.
+프롬프트 텍스트만 산출합니다. [OpenAI는 ChatGPT Images 2.5의 데스크톱 배포를 안내합니다](https://openai.com/index/introducing-chatgpt-images-2-5/). ChatGPT Work에서 이미지를 직접 만들 때는 `media-codex-image`의 현재 세션 경로를 따릅니다. Flare·Sunburst의 정확한 API 모델 ID를 지정하려면 OpenAI API 또는 지원 모델이 확인된 Higgsfield 연결을 사용합니다. 실제 생성 도구의 모델을 확인하지 못했다면 결과에 특정 API 모델 ID를 붙이지 않습니다.
 
 ## 트리거 키워드
 
@@ -63,7 +63,7 @@ GPT 이미지 프롬프트 ChatGPT 이미지 프롬프트 GPT Image 2.5 프롬�
 
 ### Round 1 — 작업 유형과 프리셋 (필수)
 
-이미 주어진 요청에서 생성인지 편집인지, 어떤 프리셋이 맞는지 확인합니다. 결과를 바꾸는 필수 정보가 비어 있으면 현재 앱에서 제공하는 질문 수단을 사용합니다. 구조화 질문 도구가 없는 앱에서는 일반 대화로 필요한 정보만 묻습니다. 편집이면 Round 2 대신 [편집 워크플로우](#편집-워크플로우)로 갑니다.
+이미 주어진 요청에서 생성인지 편집인지, 어떤 프리셋이 맞는지 확인합니다. 결과를 바꾸는 필수 정보가 비어 있으면 현재 앱에서 제공하는 질문 채널을 사용합니다. 질문 채널이 없으면 필요한 입력을 명시한 차단 보고를 반환합니다. 편집이면 Round 2 대신 [편집 워크플로우](#편집-워크플로우)로 갑니다.
 
 | 프리셋 | 적용 케이스 | references |
 |---|---|---|
@@ -76,7 +76,7 @@ GPT 이미지 프롬프트 ChatGPT 이미지 프롬프트 GPT Image 2.5 프롬�
 
 ### Round 2 — 프리셋별 미세조정 (3-4 질문)
 
-선택된 프리셋의 `presets/<name>.md`에 정의된 슬롯 중 결과에 필요한 것만 확인합니다. 구조화 질문 도구가 있으면 그 도구의 선택지 형식을 쓰고, 없으면 짧은 일반 질문으로 묻습니다. 이미 받은 정보는 다시 묻지 않습니다.
+선택된 프리셋의 `presets/<name>.md`에 정의된 슬롯 중 결과에 필요한 것만 확인합니다. 질문 채널이 있으면 그 도구의 선택지 형식을 씁니다. 채널이 없고 필수 정보가 빠졌다면 차단 보고에 필요한 입력을 적습니다. 이미 받은 정보는 다시 묻지 않습니다.
 
 ### Round 3 — 화면비 · 텍스트 · 모델 (최대 3 질문)
 
@@ -92,7 +92,7 @@ GPT 이미지 프롬프트 ChatGPT 이미지 프롬프트 GPT Image 2.5 프롬�
 
 **텍스트** — 이미지 안에 글자가 들어가면 정확한 문자열을 따로 받습니다(한 글자도 바꾸지 않기 위해).
 
-**모델** — ChatGPT 기본 이미지 도구를 쓸 때는 Flare/Sunburst를 묻거나 선택됐다고 표시하지 않습니다. OpenAI API 또는 Higgsfield에서 모델을 직접 지정하는 경우에만 `gpt-image-2.5-flare`(속도)와 `gpt-image-2.5-sunburst`(품질)를 비교합니다. 사용자가 특정 모델을 지목했다면 그 선택을 유지합니다. 판단 흐름은 `references/parameter-cheatsheet.md` §모델 선택.
+**모델** — ChatGPT Images 2.5를 사용할 때는 Flare/Sunburst가 선택됐다고 표시하지 않습니다. OpenAI API 또는 Higgsfield에서 모델을 직접 지정하는 경우에만 `gpt-image-2.5-flare`(속도)와 `gpt-image-2.5-sunburst`(품질)를 비교합니다. 사용자가 특정 모델을 지목했다면 그 선택을 유지합니다. 판단 흐름은 `references/parameter-cheatsheet.md` §모델 선택.
 
 ### 내부 처리 — 프롬프트 작성 (공식 8원칙)
 
@@ -147,8 +147,8 @@ Midjourney 파라미터 상세는 페어 스킬 `media-midjourney-v8-prompt`를 
 ```text
 <공식 원칙에 맞춘 프롬프트 (단락 또는 라벨 섹션)>
 ```
-**OpenAI API에서 지정할 때의 권장 파라미터**: `model=gpt-image-2.5-flare`, `quality=medium`, `size=1024x1024` (투명 배경이면 `background=transparent`, `output_format=png`). ChatGPT Work 기본 이미지 도구에서는 이 값을 직접 설정할 수 없고, 데스크톱 공식 문서는 기본 모델을 `gpt-image-2`로 안내합니다.
-**Higgsfield로 생성 시**: `model=gpt_image_2_5`, `variant=flare`, `quality=medium`, `aspect_ratio=1:1`
+**OpenAI API에서 지정할 때의 권장 파라미터**: `model=<선택한 gpt-image-2.5-flare 또는 gpt-image-2.5-sunburst>`, `quality=medium`, `size=1024x1024` (투명 배경이면 `background=transparent`, `output_format=png`). 사용자가 Sunburst를 지목했다면 `model=gpt-image-2.5-sunburst`를 그대로 출력합니다. ChatGPT Work의 Images 도구에서 이 API 값을 직접 설정했다고 표시하지 않습니다. Images 2.5의 데스크톱 배포가 안내됐지만 실제 세션의 모델 ID는 별도로 확인해야 합니다.
+**Higgsfield로 생성 시**: `model=gpt_image_2_5`, `variant=<선택한 flare 또는 sunburst>`, `quality=medium`, `aspect_ratio=1:1` (Sunburst 지정 시 `variant=sunburst`)
 
 ### 2) Gemini 3 Pro Image — Nano Banana Pro
 ```text
@@ -211,7 +211,7 @@ Constraints: <no extra text, no logos, no watermark, do not restyle>
 
 | 산출물 | 형식 | 설명 |
 |---|---|---|
-| GPT Image 2.5 프롬프트 | 영문 단락 또는 라벨 섹션 | OpenAI API `prompt` / Higgsfield `prompt`. ChatGPT Work 기본 도구에 입력하면 2.5 모델 지정은 유지되지 않음 |
+| GPT Image 2.5 프롬프트 | 영문 단락 또는 라벨 섹션 | OpenAI API `prompt` / Higgsfield `prompt` / ChatGPT Work Images 입력. ChatGPT에서는 Flare·Sunburst API 모델 지정이 유지되지 않음 |
 | 권장 파라미터 | `model`·`quality`·`size`·`background` | API 호출 시 프롬프트와 **별도로** 설정 |
 | Gemini 3 Pro Image 프롬프트 | 영문 5-component 단락 | Google AI Studio / Vertex AI |
 | Midjourney V8 프롬프트 | 짧은 설명 + 지원되는 `--파라미터` | Discord `/imagine` 또는 웹 |
@@ -239,5 +239,6 @@ Constraints: <no extra text, no logos, no watermark, do not restyle>
 ## 출처
 
 - [OpenAI — Image prompting (GPT Image 2.5 prompting guide)](https://developers.openai.com/api/docs/guides/image-prompting) — 모델 선택, 파라미터, 프롬프팅 원칙, 생성·편집 예시, 이전 절차, 결과 확인 (2026-09-13 확인)
+- [OpenAI — Introducing ChatGPT Images 2.5](https://openai.com/index/introducing-chatgpt-images-2-5/) — ChatGPT Work·Codex 데스크톱 배포 안내 (2026-09-25 확인)
 - [OpenAI — Image generation guide](https://developers.openai.com/api/docs/guides/image-generation) — API 설정·마스크 편집
 - [openai-cookbook — image-gen-models-prompting-guide.ipynb (고정 커밋)](https://github.com/openai/openai-cookbook/blob/d310dfa05d20fb653caa9c1c4b89ac1a4aeeeae4/examples/multimodal/image-gen-models-prompting-guide.ipynb) — GPT Image 2 원본 예제

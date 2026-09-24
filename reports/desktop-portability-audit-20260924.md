@@ -21,7 +21,7 @@
 | moai-designer | 17 | 0 | 11 | 0 | 1 | 대기 |
 | moai-lawyer | 11 | 2 | 19 | 17 | 1 | 대기 |
 | moai-marketer | 21 | 2 | 64 | 0 | 1 | 대기 |
-| moai-media | 14 | 2 | 43 | 1 | 1 | GPT Image·Higgsfield 이미지·영상·정체성·제품·에셋·설명 영상 경로 53파일 정적 열람, 나머지 부분 검토 |
+| moai-media | 14 | 2 | 43 | 1 | 1 | GPT Image·Higgsfield 이미지·영상·정체성·제품·에셋·설명 영상 경로 64파일 정적 열람, 나머지 부분 검토 |
 | moai-officer | 13 | 2 | 54 | 0 | 1 | 대기 |
 | moai-pm | 1 | 0 | 14 | 0 | 0 | 대기 |
 | moai-recruiter | 6 | 2 | 11 | 0 | 0 | 대기 |
@@ -736,3 +736,11 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - [Higgsfield Virality Predictor 안내](https://higgsfield.ai/apps/virality-predictor)는 최대 15초 클립의 훅·주의·유지력을 모형 기반으로 추정한다고 설명한다. 이 세션 ChatGPT 플러그인의 장면별 `video_analysis_create`와 같은 점수로 취급하지 않도록 고쳤다. 3D 모델 상세 조회와 실제 제출 도구, 오디오 모델 목록과 실제 음악·효과음 생성 도구도 분리했다. 미디어 플러그인은 `3.3.5`, 에셋·설명 영상 스킬은 각각 `1.3.1`·`1.3.2`로 올렸다.
 - `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges)`의 구조화 판정은 `inconclusive`였다. 요약의 파일·줄 근거 네 건을 반영했다. 후처리도 해당 도구의 견적·입력 공개·명시적 승인·잡 확인을 거치게 했고, 설명 영상 프리셋의 계정 저장소 가져오기는 전체 승인 뒤로 옮겼다. 말속도·STYLE·NEGATIVE 등 승인한 값을 바꾸는 재생성은 재견적·재승인하도록 고쳤다. Claude·Codex 매니페스트와 마켓플레이스 설명의 3D·설명 영상 기능에는 현재 연결의 제출·조립 도구 조건을 붙였다. 이 감사도 두 앱의 실제 유료 호출이나 최종 MP4를 검증한 판정은 아니다.
 - 이 작업 트리에서 `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `python3 scripts/sync-mcp-core.py --check`는 복제 서버 여섯 곳 `[정합]`, `git diff --check`는 출력 없이 종료 코드 0이었다. JSON·YAML 파싱으로 미디어 플러그인 세 버전 `3.3.5`, 에셋·설명 영상 스킬 버전 `1.3.1`·`1.3.2`, 장부 1091행 중 미디어 `static_read` 53행·`partial` 33행을 확인했다. 이 정적 검사는 운영체제별 앱 실행이나 계정 과금을 검증하지 않는다.
+
+### GPT Image 2.5 프롬프트와 데스크톱 생성 경로 재대조 (2026-09-25)
+
+- GPT 이미지 프롬프트 스킬의 본문·프리셋 네 개·참조 다섯 개·테스트 YAML을 각각 끝까지 읽었다. 장부의 11행을 `static_read`로 바꿔 미디어 86행 중 64행 정적 열람, 22행 부분 검토가 됐다. 이는 파일별 열람 범위이며 이미지 생성 검증이 아니다.
+- [OpenAI의 ChatGPT Images 2.5 발표](https://openai.com/index/introducing-chatgpt-images-2-5/)는 ChatGPT Work·Codex 데스크톱 배포를 명시한다. 반면 [Codex 이미지 생성 문서](https://learn.chatgpt.com/docs/image-generation)는 내장 도구를 `gpt-image-2`로 표기한다. [GPT Image 2.5 프롬프팅 가이드](https://developers.openai.com/api/docs/guides/image-prompting)는 Flare·Sunburst의 정확한 API 모델 ID와 품질·크기 제약을 제시한다. 앞선 “데스크톱에 2.5를 표기하면 안 된다”는 단정은 최신 발표와 맞지 않아 정정했다. 브랜드 Images 2.5 요청과 정확한 Flare·Sunburst API 모델 지정 요청을 분리했다. 이 세션의 이미지 도구가 실제 2.5인지 메타데이터를 얻지 못하면 명시적인 2.5 요청을 확인 없이 이행한 것으로 보고하지 않는다. 생성 전용 OpenAI MCP에 원본 이미지 편집을 보내지도 않는다.
+- Media의 생성·프롬프트·에이전트·프로덕션 경로와 Designer·Seller의 호출 지침을 같은 분기로 맞췄다. GPT 프롬프트 출력의 모델·Higgsfield 변형 고정값도 사용자가 지목한 Sunburst를 보존하도록 고치고 회귀 사례를 추가했다. 질문 채널이 없는 직접·하위 실행에서는 누락 입력을 blocker로 보고하도록 맞췄다. 프롬프트 스킬 계열 11파일은 끝까지 읽었지만 이번에 실제 내용을 고친 것은 일부이며, 정적 열람을 모든 파일의 실행 성공으로 해석하지 않는다.
+- 필수 `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges)`를 두 번 실행했다. 구조화 판정은 두 번 모두 `inconclusive`였다. 첫 요약의 Media 에이전트·스킬 간 분기 충돌과 모델 미확인 생성, 두 번째 요약의 Sunburst 출력 고정값·2.5 편집의 생성 도구 오경로·직접 실행 질문 채널 충돌은 각각 파일·줄 근거를 확인하고 수정했다. 감사 요약의 자체 “FAIL” 문구를 구조화 판정 `inconclusive`의 PASS/FAIL로 바꿔 기록하지 않는다.
+- 이 작업 트리에서 `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `python3 scripts/sync-mcp-core.py --check`는 복제 서버 여섯 곳 `[정합]`, `git diff --check`는 출력 없이 종료 코드 0이었다. 수정된 스킬 10개의 YAML과 JSON을 파싱하고 Media `3.3.6`, Designer `1.4.24`, Seller `1.4.9`의 Claude·Codex·마켓플레이스 버전 일치를 확인했다. 현재 장부 1091행, 미디어 `static_read` 64행이다. 실제 ChatGPT Work·Claude Cowork 세션에서 Images 2.5 모델 노출, 유료 API 생성·편집, 세 운영체제의 플러그인 로드는 실행하지 않았다.

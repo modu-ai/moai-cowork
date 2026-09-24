@@ -93,7 +93,7 @@ GPT Image 2·2.5 경로에서는 **생략**합니다. 입력 이미지는 항상
 
 ## 생성 경로
 
-- ChatGPT Work에서 실제 이미지를 만들 때는 앱의 기본 Images 도구를 사용합니다. 이 프롬프트 스킬의 API 예시를 실행할 필요가 없습니다.
+- ChatGPT Work에서 Images 2.5를 요청할 때는 현재 세션의 이미지 도구를 사용합니다. OpenAI는 데스크톱 배포를 안내하지만, 계정별 제공 상태와 실제 도구 모델은 확인해야 합니다. Flare·Sunburst API 모델 ID는 이 경로에서 지정하지 않습니다.
 - 사용자가 Higgsfield를 지정하면 `media-higgsfield-image`에서 현재 모델·변형·크레딧을 확인합니다.
 - OpenAI API를 별도로 사용하는 개발자는 [공식 이미지 생성 가이드](https://developers.openai.com/api/docs/guides/image-generation)의 현행 요청 형식을 확인합니다.
 
@@ -120,4 +120,5 @@ GPT Image 2·2.5 경로에서는 **생략**합니다. 입력 이미지는 항상
 
 - [OpenAI — Image prompting: Choose a model / Model parameters / Migrate an existing workflow](https://developers.openai.com/api/docs/guides/image-prompting) (2026-09-13 확인)
 - [OpenAI — Image generation pricing](https://developers.openai.com/api/docs/pricing#image-generation)
+- [OpenAI — Introducing ChatGPT Images 2.5](https://openai.com/index/introducing-chatgpt-images-2-5/)
 - Higgsfield MCP `models_explore` 조회 결과 (`gpt_image_2_5`, 2026-09-13)

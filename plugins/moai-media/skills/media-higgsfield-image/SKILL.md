@@ -14,7 +14,7 @@ description: |
   references/prompt-craft/*.md에 출처와 함께 큐레이션돼 있고, 실제 파라미터(모델 id·해상도·비율·비용)는
   런타임에 라이브 조회합니다. 프롬프트만 필요하면 media-gpt-image-prompt 등 해당 모델의
   프롬프트 스킬을 사용하세요.
-version: "1.3.5"
+version: "1.3.6"
 ---
 
 # Higgsfield 이미지 생성 (media-higgsfield-image)
@@ -125,7 +125,7 @@ MCP는 `job_status`, ChatGPT 공식 플러그인은 `jobs_wait`로 완료를 확
 | `moai-media:media-higgsfield-core` | 코어: 호출 계약·라이브 조회·공통 규칙 |
 | `moai-media:media-higgsfield-video` | 후속: 이미지를 영상으로 |
 | `moai-media:media-gemini-3-image-prompt` | 대안: 프롬프트만 산출 (외부 도구) |
-| `moai-media:media-gpt-image-prompt` | GPT Image 2.5 프롬프트 설계 (Higgsfield `gpt_image_2_5` 지원 여부를 현재 연결에서 확인). ChatGPT Work 기본 도구는 데스크톱 공식 문서상 `gpt-image-2` |
+| `moai-media:media-gpt-image-prompt` | GPT Image 2.5 프롬프트 설계 (Higgsfield `gpt_image_2_5` 지원 여부를 현재 연결에서 확인). ChatGPT Work의 Images 2.5 배포와 별도 경로 |
 | `moai-marketer:content-card-news` | 후속: 이미지를 카드뉴스에 배치 |
 
 ## 출처

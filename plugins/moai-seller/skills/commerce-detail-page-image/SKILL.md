@@ -4,10 +4,10 @@ description: >
   한국 이커머스 상세페이지 13섹션 이미지를 자동 생성하고 1080×12720 단일 PNG로 합성하는 스킬입니다.
   "상세페이지 이미지 만들어줘", "13섹션 합성 이미지", "상폐 이미지", "1080 12720 합성"처럼 말하면 됩니다.
   commerce-detail-page-copy의 13섹션 카피와 사용자 상품 사진을 받아 섹션별 이미지 프롬프트를 작성하고,
-  ChatGPT에서는 사용 가능한 기본 이미지 도구를 우선 확인하고, 정확한 GPT Image 2.5 요청은 별도 API 경로를 확인합니다. 사용자가 Higgsfield를 지정하면 공식 Higgsfield MCP로 이미지를 생성한 뒤
+  ChatGPT에서는 사용 가능한 기본 이미지 도구를 우선 확인하고, Images 2.5 요청은 세션의 모델을 확인합니다. Flare·Sunburst API 모델 ID 지정 요청은 별도 API 경로를 확인합니다. 사용자가 Higgsfield를 지정하면 공식 Higgsfield MCP로 이미지를 생성한 뒤
   Pillow로 1080×12720 세로 합성 PNG를 직접 조립합니다(합성 로직은 이 문서에 인라인 코드로 포함).
   외부 패키지는 Pillow 하나만 필요합니다.
-version: "1.1.2"
+version: "1.1.3"
 ---
 
 # 상세페이지 이미지 합성 (Detail Page Image Composer)
@@ -29,7 +29,7 @@ combined.png, 상폐 합성본, 이커머스 이미지 합성
    - Python 3.10+ 환경
    - 다른 의존성 없음 (NumPy 불필요)
 
-2. **이미지 생성 도구 확인**: ChatGPT Work에서는 기본 이미지 도구를 확인한다. 정확한 GPT Image 2.5 요청은 `moai-media:media-codex-image`의 별도 API 경로를 확인한다. Higgsfield 지정 시 공식 Higgsfield MCP의 실제 노출 도구를 확인한다.
+2. **이미지 생성 도구 확인**: ChatGPT Work에서는 기본 이미지 도구를 확인한다. Images 2.5 요청은 `moai-media:media-codex-image`에서 세션의 모델을 확인하고, Flare·Sunburst API 모델 ID 지정 요청은 별도 API 경로를 따른다. Higgsfield 지정 시 공식 Higgsfield MCP의 실제 노출 도구를 확인한다.
    - 또는 사용자가 별도로 13장의 섹션 이미지를 준비해서 폴더 경로 제공
 
 3. **상품 사진 1-14장**: 실제 상품 레퍼런스 (옵션이지만 권장)
@@ -67,7 +67,7 @@ combined.png, 상폐 합성본, 이커머스 이미지 합성
 
 ### 3단계: 이미지 생성
 
-ChatGPT Work에서 모델을 지정하지 않았고 기본 이미지 생성 도구가 노출되면 그 도구로 진행합니다. 정확한 GPT Image 2.5 요청은 `moai-media:media-codex-image`의 별도 API 경로가 확인될 때만 해당 모델로 진행합니다. 사용자가 Higgsfield를 지정했다면 공식 Higgsfield MCP에서 현재 사용할 수 있는 모델·도구를 확인해 진행합니다. 어느 경로도 사용할 수 없으면 생성 불가 섹션을 보고하고 사용자가 준비한 이미지를 받습니다.
+ChatGPT Work에서 모델을 지정하지 않았고 기본 이미지 생성 도구가 노출되면 그 도구로 진행합니다. Images 2.5 요청은 `moai-media:media-codex-image`에서 세션의 모델을 확인한 뒤 진행하고, Flare·Sunburst API 모델 ID 지정 요청은 별도 API 경로가 확인될 때만 해당 모델로 진행합니다. 사용자가 Higgsfield를 지정했다면 공식 Higgsfield MCP에서 현재 사용할 수 있는 모델·도구를 확인해 진행합니다. 어느 경로도 사용할 수 없으면 생성 불가 섹션을 보고하고 사용자가 준비한 이미지를 받습니다.
 
 생성 전략:
 - 각 섹션 너비: **1080px**

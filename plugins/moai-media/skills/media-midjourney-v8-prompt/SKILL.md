@@ -11,7 +11,7 @@ description: |
   - "/media-midjourney-v8-prompt" (직접 호출)
 
   본 스킬은 프롬프트 텍스트만 산출합니다. 실제 생성은 사용자가 Midjourney 웹 또는 Discord에서 실행합니다.
-version: "2.0.1"
+version: "2.0.2"
 ---
 
 # Midjourney V8 Prompt Builder — 현재 버전의 파라미터 + 3개 모델 프롬프트
@@ -201,7 +201,7 @@ V8.1·V8.2에는 `--q` Quality 파라미터가 없습니다. GPU 시간은 작�
 | 산출물 | 형식 | 설명 |
 |---|---|---|
 | Midjourney V8 프롬프트 | 짧은 설명 + 지원되는 `--파라미터` | Midjourney 웹 또는 Discord 입력 |
-| GPT Image 2.5 프롬프트 | 영문 단락 또는 라벨 섹션 | 정확한 2.5 모델 지정은 OpenAI API 또는 확인된 Higgsfield 연결에서만 가능. ChatGPT Work 기본 도구는 데스크톱 공식 문서상 `gpt-image-2` |
+| GPT Image 2.5 프롬프트 | 영문 단락 또는 라벨 섹션 | Flare·Sunburst API 모델 지정은 OpenAI API 또는 확인된 Higgsfield 연결에서 가능. ChatGPT Work Images 2.5는 별도 배포 경로 |
 | Gemini 3 Pro Image 프롬프트 | 영문 5-component 단락 | Google AI Studio / Vertex AI 복붙 |
 | 비용 안내 | 공식 GPU 시간 표·계정 잔여 시간 | 고정 배수 계산 없이 확인 |
 | 한국어 해설 | 마크다운 | 지원 옵션·참조 이미지 경로·검수 항목 |
