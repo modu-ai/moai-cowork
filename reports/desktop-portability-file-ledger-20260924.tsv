@@ -1052,8 +1052,8 @@ plugins/moai-writer/skills/book-author-bio/SKILL.md	claude_only_tool	static_read
 plugins/moai-writer/skills/book-author-bio/tests/test-cases.yaml		static_read
 plugins/moai-writer/skills/book-chapter-writer/SKILL.md	claude_only_tool	static_read
 plugins/moai-writer/skills/book-chapter-writer/tests/test-cases.yaml		static_read
-plugins/moai-writer/skills/book-concept-planner/SKILL.md	claude_only_tool	partial
-plugins/moai-writer/skills/book-concept-planner/tests/test-cases.yaml		partial
+plugins/moai-writer/skills/book-concept-planner/SKILL.md	claude_only_tool	static_read
+plugins/moai-writer/skills/book-concept-planner/tests/test-cases.yaml		static_read
 plugins/moai-writer/skills/book-manuscript-audit/SKILL.md	new_chatgpt_agent_mapping	static_read
 plugins/moai-writer/skills/book-outline-designer/SKILL.md		partial
 plugins/moai-writer/skills/book-outline-designer/tests/test-cases.yaml		partial
