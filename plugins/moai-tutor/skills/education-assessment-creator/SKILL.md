@@ -13,7 +13,7 @@ description: |
   - "자격증 시험 대비 퀴즈랑 해설 같이 만들어줘"
   난이도 배분과 정답·해설을 갖춘 평가 문항을 만들고, 오답 분석표로 보충 학습 방향까지 짚어 드립니다.
   [책임 경계] vs moai-tutor:education-curriculum-designer: 이 스킬=시험 문제 출제와 채점, 저 스킬=강의 커리큘럼과 학습 목표 설계.
-version: "1.1.1"
+version: "1.1.2"
 ---
 
 # 평가 도구 제작 (Assessment Creator)
@@ -156,8 +156,8 @@ version: "1.1.1"
 
 - **moai-tutor:education-curriculum-designer**: 커리큘럼 설계, 학습 목표 정의
 - **moai-tutor:education-research-assistant**: 학술 논문 작성, 데이터 분석
-- `moai-coworker:ai-slop-reviewer` — 최종 산출물 AI 슬롭 검수 (Post-검수, 필수)
-- `moai-writer:korean-humanize` — 한국어 AI 티 제거 (슬롭 검수 다음 필수)
+
+문항을 전달하기 전에 이 스킬에서 학습 목표와 문항의 대응, 정답·해설의 독립 재풀이, 실제 자료와의 인용·숫자 대조를 수행합니다. 별도 설치된 `ai-slop-reviewer`나 `korean-humanize`가 현재 앱에 노출될 때만 문체를 추가 검토하고, 수정 뒤 문제의 의미와 정답이 유지됐는지 다시 확인합니다. 문체 검수를 정답 검증으로 표시하지 않습니다.
 
 ## 이 스킬을 사용하지 말아야 할 때
 

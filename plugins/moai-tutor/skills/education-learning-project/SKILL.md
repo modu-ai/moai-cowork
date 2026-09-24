@@ -4,7 +4,7 @@ description: |
   학습자가 자기 목표를 관리할 프로젝트 폴더와 로드맵·진도 기록을 만듭니다.
   요청 예: "파이썬 입문 학습 프로젝트", "영어 회화 진도 추적", "기존 공부 계획 정리".
   Claude Cowork·ChatGPT Work에서 같은 AGENTS.md 지침을 사용합니다.
-version: "1.1.1"
+version: "1.1.2"
 ---
 
 # 자기주도 학습 프로젝트
@@ -17,7 +17,7 @@ version: "1.1.1"
 
 1. 사용자가 원하는 폴더 위치를 확인한다. 기존 파일을 읽고 충돌 여부를 확인한 뒤 새 파일만 만든다.
 2. 목표를 관찰 가능한 행동과 산출물로 적고, 선수 지식 순서로 학습 단계를 배치한다. 단계 수를 고정하지 않는다.
-3. `AGENTS.md`에 학습 맥락과 작업 방법을 적는다. Claude용 `CLAUDE.md`가 필요하면 내용은 `@AGENTS.md` 한 줄만 둔다.
+3. `AGENTS.md`에 학습 맥락과 작업 방법을 적는다. Claude용 `CLAUDE.md`가 필요하면 내용은 `@AGENTS.md` 한 줄만 둔다. 필요하지 않으면 `CLAUDE.md`를 만들지 않는다.
 4. `roadmap.md`에는 단계별 목표·자료·완료 기준을, `progress.md`에는 현재 상태·학습 기록·다음 행동을 적는다.
 5. 사용자가 자료 파일을 원할 때만 `materials/`를 만들고, `education-tutor-research`와 `education-learning-material`의 실제 사용 결과를 넣는다.
 6. 생성한 각 파일을 다시 읽어 경로·내용을 확인하고, 아직 조사하거나 공부하지 않은 단계를 완료로 표시하지 않는다.
@@ -27,7 +27,7 @@ version: "1.1.1"
 ```text
 <학습주제>-학습/
   AGENTS.md
-  CLAUDE.md
+  CLAUDE.md  # Claude에서 지침 가져오기가 필요할 때만
   roadmap.md
   progress.md
   materials/  # 자료 파일을 요청한 경우

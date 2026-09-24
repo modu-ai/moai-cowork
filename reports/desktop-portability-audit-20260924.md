@@ -28,7 +28,7 @@
 | moai-seller | 31 | 2 | 45 | 97 | 1 | 대기 |
 | moai-story | 18 | 2 | 42 | 0 | 1 | 대기 |
 | moai-threads-poster | 5 | 0 | 2 | 16 | 1 | 대기 |
-| moai-tutor | 11 | 2 | 11 | 0 | 0 | 대기 |
+| moai-tutor | 11 | 2 | 11 | 0 | 0 | 29/29파일 정적 열람, 앱 실행·자료 검증 대기 |
 | moai-writer | 10 | 2 | 17 | 0 | 1 | 48/48파일 정적 열람, 앱 실행 검증 대기 |
 
 ## 공식 문서와 확인한 개선점
@@ -969,3 +969,12 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - `hr-job-analysis`는 매니페스트의 “고용주 편” 설명과 달리 본문·예시가 구직자 경험 매칭과 지원 전략을 주로 다룬다. 이 소속·라우팅은 별도 제품 판단이 필요해 이번 이식성 수정에서는 유지했다. 근로계약, 최저임금, 4대보험, 유연근무 관련 수치와 법령 링크는 각 기관의 현재 원문과 항목별 대조하지 않았다. 실제 지원서 처리, 법률 검토, Claude Cowork·ChatGPT Work 단독 설치 및 macOS·Windows·Linux 동작도 아직 실행하지 않았다.
 - `mcp__moai__codex_audit`의 구조화 판정은 `inconclusive`, `findings: []`였으나 요약에서 `hr-draft-offer/SKILL.md:26`과 `hr-employment/SKILL.md:21`의 개인정보 처리 목적·권한 확인 누락을 구체적으로 지적했다. 두 위치에 처리 목적·권한 확인, 공유용 초안 식별자 마스킹, 주민등록번호의 법령상 근거·필요성 확인을 추가했다. [개인정보 포털의 고유식별정보 안내](https://www.privacy.go.kr/front/per/chk/examInfoViewImproveCOMQ6_1.do)는 주민등록번호 처리가 원칙적으로 금지되고 다른 법령 등에 근거가 필요하다고 안내한다. 감사 요약의 `FAIL` 문구를 구조화 판정으로 바꾸지 않는다.
 - 이 작업 트리의 `python3 scripts/check-plugin-runtimes.py` 출력은 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `git diff --check`는 출력 없이 종료 코드 0이었다. 장부 파싱은 `recruiter 25 static_read 25`였고, 다섯 스킬의 버전은 순서대로 `1.1.3`, `1.1.4`, `1.1.4`, `1.1.3`, `1.1.2`, 플러그인 세 버전은 모두 `2.0.8`이었다. 직전 작가 수정 `c9fdd276`의 [원격 CI](https://github.com/modu-ai/moai-cowork/actions/runs/36070291368)는 `completed/success`였고 이번 인사 플러그인 수정의 CI 결과는 아니다.
+
+### 튜터 플러그인 정적 열람과 평가 검수 경로 (2026-09-25)
+
+- 배포 파일 29개를 개별 열람하고 장부를 `static_read`로 기록했다. `education-assessment-creator`는 다른 플러그인의 두 윤문 스킬을 필수 후처리로 요구했다. 단독 설치에서도 목표·문항 대응, 정답·해설 재풀이와 인용·숫자 대조를 직접 수행하도록 하고, 다른 스킬이 현재 앱에 노출된 경우에만 문체를 추가 검토하게 했다.
+- 학습 프로젝트 생성의 정본은 `AGENTS.md`이며 `CLAUDE.md`는 Claude에서 가져오기가 필요할 때만 `@AGENTS.md` 한 줄로 만든다고 명시했다. README의 고정 후기 요청 횟수·기간과 학습 지침 파일 설명, Codex 매니페스트의 고정 스킬 수 표기를 현재 스킬 동작에 맞췄다. 평가 문항·학습 프로젝트 스킬의 PATCH 버전을 올리고 튜터 플러그인의 세 버전을 `1.3.4`로 동기화했다.
+- 문항을 실제로 생성·재풀이하거나 학습 프로젝트를 두 앱에서 만든 결과는 아니다. 인용 학술 자료의 실존, 외부 CDN의 현재 동작, 공모·시험 공고와 저작권·제출 규정의 현행성은 항목별로 확인하지 않았다. macOS·Windows·Linux의 실제 파일 생성과 앱 내 스킬 발견도 미검증이다.
+- `mcp__moai__codex_audit`의 구조화 판정은 `inconclusive`, `findings: []`였지만 요약은 `www/content/moai-agents/tutor.md:40`의 자동 독립 검수 암시와 `www/data/agent_teams.json:1328`의 낡은 카탈로그를 구체적으로 지적했다. 웹 문서에서 검수 실행·재풀이 근거가 있을 때만 완료로 표시하고, Claude의 별도 에이전트와 ChatGPT의 검수 스킬을 구별했다. 카탈로그는 `python3 www/scripts/gen-agent-teams.py`로 마켓플레이스와 frontmatter에서 재생성했다. 출력은 `18 employees, 249 skills, 28 agents`, 튜터 항목은 버전 `1.3.4`와 스킬 13개이며 `education-workflow`·`education-assessment-audit`가 포함됐다. 이 생성 파일은 다른 플러그인의 누적 변경도 반영하므로 튜터만의 변경으로 해석하지 않는다. 감사 요약의 `FAIL`을 구조화 판정으로 바꾸지 않는다.
+- `python3 scripts/check-plugin-runtimes.py` 출력은 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `git diff --check`는 출력 없이 종료 코드 0이었다. `hugo --gc --minify --logLevel warn`은 종료 코드 0으로 209페이지를 빌드했고, `npx --yes markdownlint-cli2 'www/content/moai-agents/tutor.md'`는 `Summary: 0 issues in 0 files`였다. 빌드된 `www/public/moai-agents/tutor/index.html`에는 `최종 업데이트 2026.09.25`가 표시되고 남은 `**` 문자열을 찾지 못했다. 이는 웹 렌더링·정적 검증이며 두 앱의 검수 실행 증거는 아니다.
+- 전체 문서 `npx --yes markdownlint-cli2 'www/content/**/*.md'`는 종료 코드 1로 실패했다. 148개 파일에서 기존 인라인 HTML·긴 줄·표 형식 등 다수의 위반을 출력했고, 변경한 `tutor.md`만 대상으로 한 검사는 0건이었다. 전체 문서의 Markdown 정리는 이번 튜터 이식성 수정 범위를 벗어나며 전체 lint PASS를 주장하지 않는다. 직전 인사 수정 `80af1ecc`의 [원격 CI](https://github.com/modu-ai/moai-cowork/actions/runs/36070839819)는 `completed/success`였고 이번 튜터 수정의 CI는 아직 없다.

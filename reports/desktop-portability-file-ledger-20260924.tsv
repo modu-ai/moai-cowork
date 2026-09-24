@@ -1013,35 +1013,35 @@ plugins/moai-threads-poster/skills/threads-post-draft/SKILL.md	claude_only_tool	
 plugins/moai-threads-poster/skills/threads-post-draft/references/threads-spec.md		partial
 plugins/moai-threads-poster/skills/threads-style-learn/SKILL.md		partial
 plugins/moai-threads-poster/skills/threads-style-learn/references/style-profile-template.md		partial
-plugins/moai-tutor/.claude-plugin/plugin.json		partial
-plugins/moai-tutor/.codex-plugin/plugin.json		partial
-plugins/moai-tutor/README.md		partial
-plugins/moai-tutor/agents/assessment-auditor.md	claude_only_tool	partial
-plugins/moai-tutor/agents/curriculum-designer.md		partial
-plugins/moai-tutor/skills/education-assessment-audit/SKILL.md	new_chatgpt_agent_mapping	partial
-plugins/moai-tutor/skills/education-assessment-creator/SKILL.md		partial
-plugins/moai-tutor/skills/education-assessment-creator/references/exam-prep.md		partial
-plugins/moai-tutor/skills/education-course-followup-sequence/SKILL.md		partial
-plugins/moai-tutor/skills/education-course-operations-manual/SKILL.md		partial
-plugins/moai-tutor/skills/education-curriculum-designer/SKILL.md		partial
-plugins/moai-tutor/skills/education-curriculum-designer/references/competency-modeler.md		partial
-plugins/moai-tutor/skills/education-curriculum-designer/references/course-builder.md		partial
-plugins/moai-tutor/skills/education-curriculum-designer/references/language-tutor.md		partial
-plugins/moai-tutor/skills/education-grant-writer/SKILL.md	claude_only_tool	partial
-plugins/moai-tutor/skills/education-grant-writer/references/grant-writer/guide.md		partial
-plugins/moai-tutor/skills/education-learning-material/SKILL.md		partial
-plugins/moai-tutor/skills/education-learning-material/references/cdn-libraries.md		partial
-plugins/moai-tutor/skills/education-learning-project/SKILL.md	claude_only_tool	partial
-plugins/moai-tutor/skills/education-paper-search/SKILL.md		partial
-plugins/moai-tutor/skills/education-paper-search/references/paper-search/guide.md		partial
-plugins/moai-tutor/skills/education-paper-writer/SKILL.md	claude_only_tool	partial
-plugins/moai-tutor/skills/education-paper-writer/references/paper-writer/guide.md		partial
-plugins/moai-tutor/skills/education-research-assistant/SKILL.md		partial
-plugins/moai-tutor/skills/education-research-assistant/references/academic-paper.md		partial
-plugins/moai-tutor/skills/education-research-assistant/references/research-assistant.md		partial
-plugins/moai-tutor/skills/education-research-assistant/references/thesis-advisor.md		partial
-plugins/moai-tutor/skills/education-tutor-research/SKILL.md	claude_only_tool	partial
-plugins/moai-tutor/skills/education-workflow/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-tutor/.claude-plugin/plugin.json		static_read
+plugins/moai-tutor/.codex-plugin/plugin.json		static_read
+plugins/moai-tutor/README.md		static_read
+plugins/moai-tutor/agents/assessment-auditor.md	claude_only_tool	static_read
+plugins/moai-tutor/agents/curriculum-designer.md		static_read
+plugins/moai-tutor/skills/education-assessment-audit/SKILL.md	new_chatgpt_agent_mapping	static_read
+plugins/moai-tutor/skills/education-assessment-creator/SKILL.md		static_read
+plugins/moai-tutor/skills/education-assessment-creator/references/exam-prep.md		static_read
+plugins/moai-tutor/skills/education-course-followup-sequence/SKILL.md		static_read
+plugins/moai-tutor/skills/education-course-operations-manual/SKILL.md		static_read
+plugins/moai-tutor/skills/education-curriculum-designer/SKILL.md		static_read
+plugins/moai-tutor/skills/education-curriculum-designer/references/competency-modeler.md		static_read
+plugins/moai-tutor/skills/education-curriculum-designer/references/course-builder.md		static_read
+plugins/moai-tutor/skills/education-curriculum-designer/references/language-tutor.md		static_read
+plugins/moai-tutor/skills/education-grant-writer/SKILL.md	claude_only_tool	static_read
+plugins/moai-tutor/skills/education-grant-writer/references/grant-writer/guide.md		static_read
+plugins/moai-tutor/skills/education-learning-material/SKILL.md		static_read
+plugins/moai-tutor/skills/education-learning-material/references/cdn-libraries.md		static_read
+plugins/moai-tutor/skills/education-learning-project/SKILL.md	claude_only_tool	static_read
+plugins/moai-tutor/skills/education-paper-search/SKILL.md		static_read
+plugins/moai-tutor/skills/education-paper-search/references/paper-search/guide.md		static_read
+plugins/moai-tutor/skills/education-paper-writer/SKILL.md	claude_only_tool	static_read
+plugins/moai-tutor/skills/education-paper-writer/references/paper-writer/guide.md		static_read
+plugins/moai-tutor/skills/education-research-assistant/SKILL.md		static_read
+plugins/moai-tutor/skills/education-research-assistant/references/academic-paper.md		static_read
+plugins/moai-tutor/skills/education-research-assistant/references/research-assistant.md		static_read
+plugins/moai-tutor/skills/education-research-assistant/references/thesis-advisor.md		static_read
+plugins/moai-tutor/skills/education-tutor-research/SKILL.md	claude_only_tool	static_read
+plugins/moai-tutor/skills/education-workflow/SKILL.md	new_chatgpt_agent_mapping	static_read
 plugins/moai-writer/.claude-plugin/plugin.json		static_read
 plugins/moai-writer/.codex-plugin/plugin.json		static_read
 plugins/moai-writer/.mcp.json		static_read

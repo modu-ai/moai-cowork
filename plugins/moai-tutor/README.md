@@ -27,8 +27,8 @@ Claude Cowork와 ChatGPT Work는 마켓플레이스 등록 권한과 경로가 �
 | `education-learning-material` | 도식·차트·수식·코드가 들어간 단일 HTML 학습자료 제작 |
 | `education-assessment-creator` | 정답·해설 포함 시험 문제지·모의고사·오답 분석표 |
 | `education-course-operations-manual` | 강의·연수·워크숍 운영 매뉴얼 (시간표·체크리스트·Plan B) |
-| `education-course-followup-sequence` | 강의 후 30일 수강생 후기 요청 카피 5종 (D+1~D+30) |
-| `education-learning-project` | 독학용 학습 프로젝트 셋업 (로드맵·진도 추적·학습 CLAUDE.md) |
+| `education-course-followup-sequence` | 강의 후 감사·피드백·후기 요청 문구와 운영자가 정한 발송 계획 |
+| `education-learning-project` | 독학용 학습 프로젝트 셋업 (로드맵·진도 추적·공통 AGENTS.md) |
 
 ### 학술·연구
 
