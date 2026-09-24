@@ -5,7 +5,7 @@ description: >
   "자소서 써줘", "이력서 만들어줘", "경력기술서 정리해줘", "1page 셀링 시트 만들어줘"처럼
   말하면 됩니다. KKK-STAR 자소서, USP+CAR 이력서, ATS·블라인드·NCS 모드, 사실성
   검토, 500/1000/1500자 분량 자동, 영문 CV·LinkedIn 헤드라인을 지원합니다.
-version: "1.1.2"
+version: "1.1.3"
 ---
 
 # 이력서/자소서 빌더 (career-resume)
@@ -70,7 +70,7 @@ CAR (Challenge - Action - Result)
 
 ### 5. AI 생성 티 제거 — 후처리 체인 위임
 
-자소서·이력서·경력기술서 초안을 완성한 뒤 다음 체인으로 진부한 표현을 점검합니다. 어느 도구를 쓰든 지원자 경험의 사실성과 고유한 표현은 최종적으로 원자료와 대조합니다.
+자소서·이력서·경력기술서 초안을 완성한 뒤 진부한 표현을 점검합니다. 아래 외부 스킬은 각각 현재 앱에 설치·노출된 경우에만 해당 단계를 연결합니다. 사용할 수 없는 단계는 이 스킬의 §사실성과 문체 점검 기준으로 직접 검수합니다. 어느 경로든 지원자 경험의 사실성과 고유한 표현은 최종적으로 원자료와 대조합니다.
 
 ```
 career-resume → moai-coworker:ai-slop-reviewer → moai-writer:korean-humanize → 최종 검수
@@ -202,7 +202,7 @@ career-resume → moai-coworker:ai-slop-reviewer → moai-writer:korean-humanize
 
 ## 관련 스킬 / 후처리 체인
 
-자소서·이력서·경력기술서·CV·LinkedIn 텍스트는 모두 사람이 읽는 산출물입니다. 초안 완성 후 다음 체인을 반드시 거쳐 AI 패턴을 제거하고 자연스러운 한국어로 다듬습니다.
+자소서·이력서·경력기술서·CV·LinkedIn 텍스트는 모두 사람이 읽는 산출물입니다. 초안 완성 후 AI 패턴과 문장을 검수합니다. 다음 체인의 각 외부 스킬은 실제로 노출된 경우에만 사용하고, 사용할 수 없는 단계는 §사실성과 문체 점검 및 §독립 실행 워크플로우의 검토 단계로 수행합니다.
 
 ```
 moai-career:career-resume → moai-coworker:ai-slop-reviewer → moai-writer:korean-humanize → 최종 검수
