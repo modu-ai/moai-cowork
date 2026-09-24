@@ -1,8 +1,8 @@
 # 마케터 (moai-marketer)
 
-마케팅 전담 AI 코워커입니다. 캠페인 기획·퍼포먼스 분석(marketing-* 11종), 블로그·뉴스레터·SNS 콘텐츠(content-* 7종) 스킬 18종과 Meta Ads·게시 채널 MCP 연동을 하나의 플러그인으로 제공합니다. 슬래시 명령을 외울 필요 없이 자연어로 요청하면 매칭되는 스킬이 자동 호출됩니다.
+마케팅 전담 AI 코워커입니다. 캠페인 기획·퍼포먼스 분석(marketing-*), 블로그·뉴스레터·SNS 콘텐츠(content-*) 스킬과 Meta Ads·게시 채널 MCP 연동을 하나의 플러그인으로 제공합니다. 슬래시 명령을 외울 필요 없이 자연어로 요청하면 매칭되는 스킬이 자동 호출됩니다.
 
-> **미디어 생성 분리 안내**: 이미지·오디오·영상 미디어 생성(media-* 9종)은 `moai-media` 플러그인으로 분리되었습니다. 미디어 생성 요청은 moai-media을 설치해 사용하세요.
+> **미디어 생성 분리 안내**: 이미지·오디오·영상 미디어 생성(media-*)은 `moai-media` 플러그인으로 분리되었습니다. 미디어 생성 요청은 moai-media를 설치해 사용하세요.
 
 **이런 분께 추천**: 마케터 · 콘텐츠 크리에이터 · 1인 브랜드
 
@@ -10,27 +10,15 @@
 
 `modu-ai/moai-cowork` 마켓플레이스 하나에서 설치합니다. **Claude Cowork**와 **ChatGPT Work** 두 데스크톱 앱 모두 같은 방식입니다.
 
-**가장 쉬운 방법** — 설정(Settings) 또는 플러그인(Plugins) 메뉴 → 마켓플레이스(Marketplace)에서 주소 `modu-ai/moai-cowork`를 추가한 뒤, 플러그인 목록에서 `moai-marketer`를 찾아 **Install**을 누르세요.
-
-**터미널에 익숙하다면 (대안)**
-
-```bash
-# Claude Cowork CLI
-claude plugin marketplace add modu-ai/moai-cowork
-claude plugin install moai-marketer@moai-cowork
-
-# ChatGPT Work CLI
-codex plugin marketplace add modu-ai/moai-cowork
-codex plugin add moai-marketer@moai-cowork
-```
+Claude Cowork·ChatGPT Work 데스크톱 앱에서 **Settings(또는 Plugins) → Marketplace → +**를 열어 `modu-ai/moai-cowork`를 추가하세요. 그다음 Plugins 화면에서 **moai-marketer**를 선택하고 **+** 또는 **Install**을 누르세요.
 
 > 앱별 정확한 클릭 경로와 잘 안 될 때 대처법은 [플러그인 설치와 관리](https://cowork.mo.ai.kr/plugins/install/)에 정리해 두었습니다.
 
-## 스킬 18종
+## 스킬
 
 호출 형식: `/moai-marketer:marketing-<스킬명>` — 예: `/moai-marketer:marketing-campaign-planner`. 자연어 요청("이번 달 인스타 광고 캠페인 기획해줘")으로도 자동 매칭됩니다.
 
-### 마케팅 (11종)
+### 마케팅
 
 | 스킬 | 역할 |
 |------|------|
@@ -46,7 +34,7 @@ codex plugin add moai-marketer@moai-cowork
 | `marketing-personal-branding` | 개인 브랜드 포지셔닝·콘텐츠·채널 전략 문서 |
 | `marketing-youtube-podcast-planner` | 유튜브·팟캐스트 기획·대본·쇼노트 구성 |
 
-### 콘텐츠 (7종)
+### 콘텐츠
 
 | 스킬 | 역할 |
 |------|------|
@@ -57,8 +45,10 @@ codex plugin add moai-marketer@moai-cowork
 | `content-card-news` | 인스타·스레드·카카오 채널용 카드뉴스 4장(카피·디자인 가이드·이미지 프롬프트) |
 | `content-copywriting` | 헤드라인·CTA·슬로건·광고 카피 후보 다중 생성 |
 | `content-editorial-calendar` | 콘텐츠 발행 캘린더·채널별 게시 일정 기획 |
+| `marketing-workflow` | 복합 마케팅 요청의 목표 확인과 전담 스킬 연결 |
+| `marketing-evidence-audit` | 예산·성과 수치·카피 주장을 자료와 대조 |
 
-## MCP 연동 4종
+## MCP 연동
 
 플러그인 루트 `.mcp.json`에 MCP 서버가 선언되어 있습니다. 자격증명은 **환경변수 또는 OAuth 로그인으로만** 설정하세요(파일에 키를 적지 않습니다).
 
@@ -68,7 +58,9 @@ codex plugin add moai-marketer@moai-cowork
 | `typefully` | X·스레드 게시글 작성·예약 발행 | 원격 HTTP MCP — Typefully 계정 OAuth 인증 |
 | `wordpress` | WordPress.com 블로그 게시 | 원격 HTTP MCP — WordPress.com 계정 인증 |
 
-## 에이전트 2종
+## Claude 에이전트
+
+ChatGPT Work에서는 복합 캠페인 작업과 근거 검수를 `marketing-workflow`·`marketing-evidence-audit` 스킬로 제공합니다.
 
 | 에이전트 | 등급 | 역할 |
 |----------|------|------|

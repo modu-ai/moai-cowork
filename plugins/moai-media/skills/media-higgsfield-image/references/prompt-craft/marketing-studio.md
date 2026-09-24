@@ -25,7 +25,6 @@
 ## 선택 파라미터 (엄격히 opt-in, 절대 추론 금지)
 
 - `brand_kit_id`: `status: completed`여야 함. 실제 웹사이트 URL을 가져와 생성(이름·로고·히어로 이미지·색·폰트·톤·제품 캡처, 30–90초; 실패 kit는 terminal).
-- `product_ids`: ≤4.
-- `medias`: ≤14.
+- `product_ids`와 `medias`: 허용 개수는 호출 시점의 모델 상세·도구 스키마에서 확인.
 
 이 값들은 사용자가 명시적으로 줄 때만 넣는다. 실제 허용 값·개수는 `models_explore`로 확인한다.

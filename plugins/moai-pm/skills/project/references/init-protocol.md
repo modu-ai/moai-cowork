@@ -230,8 +230,7 @@ for each skill in chain_skills:
 ```
 1. 누락 플러그인별 설치 안내 (데스크톱 앱 — /plugin 슬래시 명령은 Claude Code 전용이라 안내하지 않음):
    - 앱 UI: Plugins 메뉴 → 해당 플러그인 Install
-   - 터미널: claude plugin install <플러그인>@moai-cowork (Claude Cowork) / codex plugin add <플러그인>@moai-cowork (ChatGPT Work)
-   (최초 1회 마켓 등록: Marketplace에서 modu-ai/moai-cowork 추가, 또는 claude/codex plugin marketplace add modu-ai/moai-cowork)
+   - 최초 1회 마켓 등록: 앱의 Settings(또는 Plugins) → Marketplace → +에서 modu-ai/moai-cowork 추가
 
 2. .moai/cache/init-progress.json 저장
 
@@ -341,5 +340,5 @@ Phase 2에서 선택된 플러그인이 API 키를 요구하면 등록 안내.
 - 정상 경로(맥락 충분): **총 2회 호출** — S1 + Phase 5 확인.
 - 최대 경로: S1 + S2 반복 + Gap + 확인 + API 키. S2 반복이 2회를 넘으면 종료 선택지를 함께 제시한다.
 - **[HARD] ChatGPT Work에서는 라운드가 늘어난다.** 한 화면에 4질문을 담을 수 없으므로 같은 커버리지를 채우려면 호출 수가 더 필요하다. **이것을 이유로 질문을 줄이지 않는다** — 커버리지가 종료 조건이지 호출 수가 아니다.
-- **[HARD] ChatGPT Work는 Plan 모드에서만 이 도구를 쓸 수 있다.** Default 모드면 런타임이 거부한다. 도구가 없으면 사용자에게 알리고 모드를 바꿀지 글로 물을지 고르게 한다 — 임의로 가정하고 진행하지 않는다. 근거와 절차는 `../SKILL.md` §ChatGPT Work — `request_user_input`.
+- **[HARD] 현재 세션의 질문 도구를 먼저 확인한다.** `request_user_input_async`가 노출된 세션은 Default 모드에서도 질문할 수 있다. 응답은 후속 사용자 메시지로 오며, 도구 호출 직후의 반환값을 답으로 해석하지 않는다. 질문 도구가 전혀 없으면 필요한 입력을 명시한 blocker를 반환한다. 절차는 `../SKILL.md` §ChatGPT Work 참조.
 - 모든 질문은 **런타임의 구조화 질문 도구**만 사용한다(Claude `AskUserQuestion` · ChatGPT Work `request_user_input`). 자유 서술 질문·텍스트 대화형 심화 인터뷰는 사용하지 않는다(`Other` 옵션이 자유입력을 흡수한다).

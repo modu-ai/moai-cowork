@@ -2,9 +2,9 @@
 name: project
 description: |
   AI 코워커 플러그인 패밀리('MoAI-Cowork, 모두의 코워크')의 **프로젝트 초기화 단일 진입점**.
-  `/project <자연어 지시>`로 진입한다 — Claude Cowork(Desktop) 작업을 담당하는
+  `/project <자연어 지시>`로 진입한다 — Claude Cowork·ChatGPT Work 데스크톱 작업을 담당하는
   Desktop 슈퍼 오케스트레이터/어드바이저다. 소크라테스 인터뷰로 맥락을 파악하고, 설치된 플러그인 인벤토리를 스캔한 뒤,
-  **프로젝트 전용 커스텀 에이전트와 스킬 체인**을 설계해 `AGENTS.md`(폴더 지침 정본, ≤500라인)와 이를 `@AGENTS.md`로 불러오는 `CLAUDE.md`·`.claude/agents/`·`.moai/` 스캐폴드를 생성한다.
+  **프로젝트 전용 커스텀 에이전트와 스킬 체인**을 설계해 `AGENTS.md`(폴더 지침 정본, ≤500라인)와 이를 `@AGENTS.md`로 불러오는 `CLAUDE.md`·호스트별 에이전트 파일·`.moai/` 스캐폴드를 생성한다.
   이후 사용 중 신호를 감지하면 스스로 개선한다(재귀적 자가 개선). 개발 프로젝트 초기화는 이 마켓플레이스의 범위 밖이다.
 
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
@@ -15,7 +15,7 @@ description: |
   - 사업·콘텐츠·디자인·커머스·법무·재무·인사 등 비개발 자연어 요청을 적합한 AI 코워커 플러그인으로 라우팅해야 할 때
 
   이 스킬은 **이름·회사 같은 글로벌 프로필을 재질문하지 않는다.** 프로젝트마다 "이번에 뭘 할 건지"만 인터뷰한다.
-version: "1.6.0"
+version: "1.6.2"
 ---
 <!-- moai-pm project · 플러그인 패밀리 · 프로젝트 초기화 단일 진입점 -->
 
@@ -25,7 +25,7 @@ version: "1.6.0"
 
 ## 개요
 
-이 스킬은 **모든 Claude Cowork(Desktop) 프로젝트**의 슈퍼 오케스트레이터/어드바이저다. `conversation_language`로 사용자와 대화하며, 모든 사용자 확인은 `AskUserQuestion`로만 수행한다(자유 서술형 질문 금지). 이 스킬이 생성하는 하위 에이전트는 사용자에게 직접 질문하지 않고 blocker report만 반환한다(subagent 경계 원칙).
+이 스킬은 **Claude Cowork·ChatGPT Work 데스크톱 프로젝트**의 오케스트레이터다. `conversation_language`로 사용자와 대화하며, 사용자 확인은 현재 세션에 노출된 질문 채널로 수행한다. 생성된 하위 에이전트는 사용자에게 직접 질문하지 않고 blocker report만 반환한다(subagent 경계 원칙).
 
 **커버리지**: 코워커·작가·스토리·마케터·미디어·셀러·사무관·데이터 애널리스트·법무·재무·인사·CS·컨설턴트·커리어·튜터·디자이너 — 전 코워커. 개발 프로젝트 초기화는 이 마켓플레이스의 범위 밖이며, 개발 요청이 들어오면 §개발 요청 처리를 따른다.
 
@@ -51,12 +51,12 @@ version: "1.6.0"
 |---|---|---|---|
 | **Claude Code** | `AskUserQuestion` | 1~4질문 × 각 2~4옵션 | [Tools reference](https://code.claude.com/docs/en/tools-reference) · [Agent SDK](https://code.claude.com/docs/en/agent-sdk/user-input) |
 | **Claude Cowork(Desktop)** | `AskUserQuestion` | 동일 | 같은 SDK 위에서 돈다. 다만 **렌더링 버그가 열려 있다**(아래) |
-| **ChatGPT Work(Codex)** | **`request_user_input`** | **1질문 권장·3 초과 금지 × 각 2~3옵션** | [request_user_input_spec.rs](https://github.com/openai/codex/blob/main/codex-rs/core/src/tools/handlers/request_user_input_spec.rs) |
+| **ChatGPT Work(Codex)** | 노출된 `request_user_input` 또는 `request_user_input_async` | 도구 스키마에 맞춤 | 현재 세션의 도구 정의를 먼저 확인 |
 | **서브에이전트** | **없음** | — | 공식: *"AskUserQuestion is not currently available in subagents spawned via the Agent tool"* |
 
-#### ChatGPT Work — `request_user_input`
+#### ChatGPT Work — 현재 세션의 질문 도구
 
-Codex의 질문 도구다. 사용자에게는 선택지 카드(picker)로 뜬다. **`AskUserQuestion`과 스키마가 다르므로 그대로 옮겨 쓰면 거부된다.**
+Codex의 질문 도구는 사용자에게 선택지 카드로 뜬다. **`AskUserQuestion`과 스키마가 다르므로 그대로 옮겨 쓰면 거부된다.** 아래 예시는 `request_user_input`이 노출된 세션에만 적용한다.
 
 ```json
 {
@@ -87,15 +87,9 @@ Codex의 질문 도구다. 사용자에게는 선택지 카드(picker)로 뜬다
 | 권장 표기 | 첫 옵션 라벨 끝에 `(권장)` — Claude와 같다 |
 | 빈 옵션 | **거부된다.** 모든 질문에 옵션이 최소 1개 있어야 한다 |
 
-**[HARD] Plan 모드가 아니면 이 도구는 쓸 수 없다.** `allows_request_user_input()` 이 `Plan` 에만 `true` 다([config_types.rs:699](https://github.com/openai/codex/blob/main/codex-rs/protocol/src/config_types.rs)). Default 모드에서는 실험 플래그(`DefaultModeRequestUserInput`)가 켜져 있지 않으면 런타임이 `request_user_input is unavailable in Default mode` 로 거부한다([#24750](https://github.com/openai/codex/issues/24750)).
+**[HARD] 모드만 보고 질문 가능 여부를 단정하지 않는다.** 현재 세션에 `request_user_input_async`가 노출되면 Default 모드에서도 질문을 보낼 수 있다. 이 도구는 `questions: [{title, options?: string[]}]` 형태이며 즉시 반환한다. 첫 선택지가 미리 선택돼 보이더라도 **사용자가 제출한 답으로 취급하지 않는다**. 실제 답이 다음 사용자 메시지로 도착할 때까지 해당 판단에 의존하는 작업을 멈춘다. `request_user_input`만 노출된 세션에서는 그 도구의 현재 모드 허용 여부와 스키마를 확인한다.
 
-Codex 공식 Default 모드 지침 원문: *"In Default mode, strongly prefer making reasonable assumptions and executing the user's request rather than stopping to ask questions."* 즉 **Default 모드는 애초에 인터뷰를 하지 말라는 모드다.**
-
-그래서 `/project` 의 deep interview 는 이렇게 다룬다:
-
-1. **도구가 노출돼 있으면 그대로 쓴다** — 위 스키마로, 라운드를 나눠 커버리지를 채운다.
-2. **노출돼 있지 않으면(Default 모드) 사용자에게 알리고 고르게 한다.** "지금 모드에서는 선택지 카드를 띄울 수 없습니다. Plan 모드로 바꾸시면 카드로 여쭙고, 아니면 글로 여쭙겠습니다." — 임의로 가정하고 진행하지 않는다. 프로젝트 셋업은 그 얕음이 이후 모든 산출물에 복제되는 자리다.
-3. **글로 묻게 되면 번호 매긴 선택지를 응답 본문에 낸다.** Codex 지침이 금지하는 것은 *도구를 쓸 수 있는데도* 텍스트로 객관식을 내는 것이다. 도구가 없어 글로 묻는 것은 그 금지 대상이 아니다.
+`/project` 인터뷰는 노출된 질문 도구로 라운드를 나눠 커버리지를 채운다. 질문 도구가 전혀 없으면 누락된 입력을 명시한 blocker를 반환한다. 도구가 없는 상태를 사용자 승인이나 거절로 해석하지 않는다.
 
 **[HARD] 라운드 설계는 상한이 작은 쪽에 맞춘다.** 같은 인터뷰를 두 런타임에서 돌리려면 **1질문 × 3옵션**을 공통 단위로 잡는다. Claude에서만 4질문을 채우고 Codex에서 잘라내면, 잘려 나간 질문이 어느 쪽에서는 물어지고 어느 쪽에서는 안 물어진다 — 같은 프로젝트가 런타임에 따라 다른 깊이로 세워진다.
 
@@ -104,8 +98,8 @@ Codex 공식 Default 모드 지침 원문: *"In Default mode, strongly prefer ma
 그래서 이렇게 다룬다.
 
 - 응답이 **비었거나 deny/dismissed로 돌아오면** 그것을 사용자의 결정으로 취급하지 않는다
-- 같은 질문을 **응답 본문에 번호 매긴 선택지로 다시 낸다** — "선택지가 화면에 안 뜨셨을 수 있어 글로 다시 여쭙니다"라고 밝히고
-- **서브에이전트에 인터뷰를 위임하지 않는다.** 하위 에이전트는 질문할 수 없으므로 blocker report만 반환한다(이 저장소의 에이전트 26개가 이미 이 경계를 지킨다)
+- 현재 세션의 질문 채널로 다시 묻는다. 질문 채널이 없으면 누락된 입력을 명시한 blocker를 반환한다
+- **서브에이전트에 인터뷰를 위임하지 않는다.** 하위 에이전트는 질문할 수 없으므로 blocker report만 반환한다
 - 민감도(H 렌즈)가 이 경로로 유실되면 `unknown`이며, `unknown`은 외부 전송을 **하지 않는** 쪽으로 처리한다
 
 ### 축은 고정 목록이 아니라 프로젝트에서 도출한다
@@ -175,20 +169,9 @@ Codex 공식 Default 모드 지침 원문: *"In Default mode, strongly prefer ma
 
 ## Plugin Inventory Scan
 
-에이전트/스킬 체인을 설계하기 **전에** 반드시 `~/.claude/plugins/`(Claude)와 `~/.codex/plugins/`+`.codex/agents/`(Codex)를 모두 스캔해 실제 설치된 AI 코워커 플러그인을 확인한다. 카탈로그(플러그인 목록·스킬 수)는 **하드코딩하지 않는다** — `.claude-plugin/marketplace.json`이 패밀리 로스터의 유일한 정본이다.
+에이전트/스킬 체인을 설계하기 **전에** 배포 로스터 정본 `.claude-plugin/marketplace.json`과 현재 호스트에 설치·노출된 스킬을 대조한다. 설치 경로는 호스트별로 확인하고, 파일 존재와 실제 호출 가능 여부를 구분한다. 카탈로그(플러그인 목록·스킬 수)는 하드코딩하지 않는다.
 
-```bash
-# 소스 A: 디렉터리 스캔 — Claude(~/.claude/plugins/) + Codex(~/.codex/plugins/cache/) 양쪽, moai-* 글롭
-for dir in ~/.claude/plugins/moai-* ~/.codex/plugins/cache/*/moai-*; do
-  [ -d "$dir" ] && { [ -f "$dir/.claude-plugin/plugin.json" ] || [ -f "$dir/.codex-plugin/plugin.json" ]; } && basename "$dir"
-done
-# Codex 프로젝트/전역 커스텀 에이전트(.codex/agents/*.toml)도 인벤토리에 포함
-for f in ./.codex/agents/*.toml ~/.codex/agents/*.toml; do [ -f "$f" ] && basename "$f" .toml; done 2>/dev/null
-
-# 소스 B: 현재 세션 system reminder의 "user-invocable skills" 목록 파싱(moai-* 접두 스킬만)
-```
-
-두 소스를 교차 검증해 `plugins_installed` + `skills_available` 인벤토리를 구성한다(신뢰도 HIGH/MEDIUM). 결과는 `.moai/config.json`에 스냅샷으로 저장한다. **Gap Detection**: 설계된 체인의 스킬이 인벤토리에 없으면 `AskUserQuestion` 4옵션(설치 안내+재개 권장 / 제외하고 진행 / 대체 스킬 / 중단)을 제시한다. 재개는 사용자가 "설치 완료"·"이어서 진행"으로 말하면 감지해 같은 흐름으로 이어 진행한다.
+각 플러그인의 매니페스트·`skills/*/SKILL.md`·MCP 선언을 조사하고 현재 세션의 스킬·도구 노출 상태와 교차 검증한다. 확인한 범위를 `plugins_installed`와 `skills_available` 스냅샷에 기록한다. 설계된 체인의 스킬이 호출 가능하지 않으면 현재 호스트에서 설치 안내, 제외, 대체 중 가능한 경로를 제시한다. 질문 형식은 노출된 도구 스키마를 따른다. 사용자가 "설치 완료"·"이어서 진행"이라고 하면 상태를 다시 확인한 뒤 같은 흐름을 재개한다.
 
 ---
 
@@ -201,14 +184,14 @@ for f in ./.codex/agents/*.toml ~/.codex/agents/*.toml; do [ -f "$f" ] && basena
 2. **[HARD] 관련 스킬을 전수 탐색한 뒤 설계한다.** 설치된 플러그인의 `skills/*/SKILL.md` **description을 전부 읽고** 이 프로젝트 산출물에 쓸 수 있는 것을 남김없이 후보에 올린다. 기억이나 프리셋에 있는 것만 쓰지 않는다 — 프리셋(`references/cowork-setup.md` §3)은 **출발점이지 목록이 아니다.** 후보에서 제외한 스킬이 있으면 왜 뺐는지 설계 근거에 한 줄로 적는다.
 3. 산출물별 스킬 체인을 **프로젝트 목적에 맞게** 설계한다: `[기획/분석] → [생성] → [포맷 변환/미디어] → ⟨한국어 감사 3단⟩`. 프리셋을 그대로 베끼지 말고, S1·S2에서 받은 실패 조건·검토 주체·주기에 맞춰 단계를 더하거나 뺀다.
 4. **[HARD] 한국어 텍스트 체인은 `moai-writer:korean-humanize`로 끝난다.** 순서는 `ai-slop-reviewer` → `korean-spell-check`(민감 문서는 생략) → `korean-humanize`(윤문 + Phase 6 최종 검수)다. Phase 6가 의미 보존을 판정한 **바로 그 산출물**이 전달되어야 하므로, 검수 뒤에 문장을 고치는 단계를 두지 않는다. 판정이 `hold_and_report`면 전달하지 않는다. 비텍스트(차트·숫자·미디어)는 감사 단계를 생략한다. 정본: `references/cowork-setup.md` §3.
-3. **반복될 작업 유형별 에이전트 1개**를 생성한다(과잉 생성 금지 — 근거 없는 에이전트는 만들지 않는다). 본문은 아래 7-step 루프 + 프로젝트 맥락(톤·산출물 규격·금지 사항)을 내장한다.
+3. **반복될 작업 유형별 에이전트 1개**를 생성한다(과잉 생성 금지 — 근거 없는 에이전트는 만들지 않는다). 본문은 아래 실행 루프 + 프로젝트 맥락(톤·산출물 규격·금지 사항)을 내장한다.
 4. 각 에이전트/체인을 `AGENTS.md` §워크플로우 표에 기록해, 실행 시점에 자연어 요청이 표를 따라 에이전트/스킬 호출로 라우팅되게 배선한다.
 
-**7-step 에이전트 루프** (모든 생성 에이전트 공통 본문 구조): ① 요청 평가(대화/스킬/파일 3단) → ② 소크라테스 인터뷰(빠진 맥락) → ③ 맥락 요약 확인 → ④ 체인 실행 계획 + 완료 기준 제시 → ⑤ `AskUserQuestion` 승인 → ⑥ 체인 순차 실행(단계별 요약 보고) → ⑦ `moai-coworker:ai-slop-reviewer` 검수 → (한국어 텍스트면) `moai-writer:korean-humanize` 윤문 → **최종 검수** → 「확인 필요 항목」 명시 후 전달. **검수를 건너뛰었다면 그 사실과 이유를 결과에 적는다.**
+**에이전트 실행 루프**: 요청 평가 → 부족한 맥락 확인 → 완료 기준 정리 → 체인 순차 실행 → 산출물 검증 → 확인 필요 항목과 함께 전달. 이미 승인된 요청에는 같은 확인을 반복하지 않는다. 한국어 텍스트는 `moai-coworker:ai-slop-reviewer`와 프로젝트의 한국어 검수 체인을 적용하고, 최종 산출물을 원문·근거와 다시 대조한다. 검수를 건너뛰었다면 그 사실과 이유를 결과에 적는다.
 
 **frontmatter 최소 권한**: `name`(kebab-case) · `description`(호출 트리거 명시) · `tools`(작업에 필요한 최소 목록만 — `Agent` 툴은 포함하지 않아 중첩 스폰을 차단한다). 생성된 에이전트는 subagent 경계를 지킨다: 사용자에게 직접 질문하지 않고, 부족한 입력이 있으면 blocker report를 반환한다.
 
-**검증 깊이(위험 비례)**: QUICK(단순 조회 — Layer 1만) / NORMAL(일반 산출물 — 근거 게이트 활성, 기본값) / DEEP(법률·세무·재무·정부지원·계약·의료 또는 2개+ 코워커 체인 — 전체 검증 + 전달 전 확인). 상세는 `references/execution-protocol.md` §검증 깊이 사다리 참조.
+**검증 깊이(위험 비례)**: QUICK(단순 조회) / NORMAL(일반 산출물) / DEEP(법률·세무·재무·정부지원·계약·의료·외부 발송 등). 복합 체인은 각 산출물의 위험을 따로 판단한다. 상세는 `references/execution-protocol.md` §검증 깊이 참조.
 
 ---
 
@@ -216,8 +199,8 @@ for f in ./.codex/agents/*.toml ~/.codex/agents/*.toml; do [ -f "$f" ] && basena
 
 Phase 5 확인 이후 이 스킬은 다음을 생성한다:
 
-1. **`AGENTS.md`(정본) + `CLAUDE.md`(포인터)** (프로젝트 루트) — 폴더 지침의 **정본은 `AGENTS.md` 한 파일**이다(≤500라인). `CLAUDE.md`는 그 정본을 `@AGENTS.md` 한 줄로 불러오는 포인터(≈11라인)다. **두 파일에 같은 본문을 복제하지 않는다** — 복제는 한쪽만 고쳤을 때 조용히 어긋난다. Codex(ChatGPT Work)는 `AGENTS.md`를 직접 읽고, Claude(Cowork/Code)는 `CLAUDE.md`의 임포트를 세션 시작 시 펼쳐 같은 정본을 읽으므로 둘은 기능 동등(상호 운용)이다. Desktop 변형 템플릿(`references/templates/AGENTS.md.tmpl`)을 치환해 `AGENTS.md`를 만들고, `references/templates/CLAUDE.md.tmpl`을 치환 없이 복사해 포인터를 만든다. 소스 템플릿의 **8개 `## N. … (HARD)` 블록을 전부 보존**한다(§Desktop Parity Constraints 아래 표 참조). 라인 예산 초과 시 축소 대상은 스킬 체인 나열뿐이며 HARD 블록은 절대 축소·삭제하지 않는다. 임포트 줄을 백틱으로 감싸면 조용히 실패하므로 금지한다(상세: `references/agentsmd-generator.md` §2.4).
-2. **`.claude/agents/*.md` + `.codex/agents/*.toml`** — 반복 작업 유형별 1개씩 양쪽 생성. Claude용은 markdown+YAML frontmatter(`name`·`description`·`tools`), Codex용은 TOML(`name`·`description`·`developer_instructions`, `model`·`sandbox_mode` 선택). 둘 다 7-step 루프 + 프로젝트 맥락을 동일 내장. Codex `.codex/agents/`는 프로젝트 로컬 git 커밋 가능.
+1. **`AGENTS.md` 정본 + `CLAUDE.md` 포인터** — `AGENTS.md`에 지침을 한 번만 쓰고 `CLAUDE.md`는 `@AGENTS.md` 한 줄로 생성한다. 500줄 상한과 템플릿의 8개 HARD 블록을 확인한다. 두 파일에 본문을 복제하지 않는다(`references/agentsmd-generator.md`).
+2. **`.claude/agents/*.md` + `.codex/agents/*.toml`** — 반복 작업별 대응 파일을 생성하고, 같은 목적·체인·안전 조건이 두 형식에 반영됐는지 검사한다. 실제 호스트의 에이전트 발견·호출 여부는 별도 확인한다.
 3. **`.moai/` 스캐폴드** — `config.json`(프로젝트 메타 + 언어 + 설치 플러그인 스냅샷) · `context.md`(인터뷰 요약) · `credentials.env`(GUIDANCE 전용 — 안내 문구만, 실제 값은 절대 기록하지 않음) · `cache/`(빈 디렉터리) · `evolution/`(자가 개선 진단 기록).
 
 ---
@@ -241,13 +224,13 @@ Phase 5 확인 이후 이 스킬은 다음을 생성한다:
 
 **개선 이력 큐레이션**: 이력 정본은 `.moai/evolution/log.md` 한 곳이며 최신순으로 누적한다. `AGENTS.md`에는 이력을 적지 않는다 — 생성 시 HTML 주석이 제거되므로 거기 적은 이력은 남지 않는다. 자가 개선 diff 적용 후에도 `AGENTS.md`가 500라인 이내인지 재검증한다(`references/agentsmd-generator.md` §5 길이 검증은 생성 시뿐 아니라 개선 시에도 적용).
 
-**가드레일 (HARD)**: 자가 개선은 **`AGENTS.md`와 `.claude/agents/` 파일만** 수정한다(`.moai/evolution/`의 신호·진단·이관 기록 파일은 예외). 스킬 본문·플러그인 파일은 건드리지 않는다. 개선 1회당 수정 파일은 **최대 3개**까지다(evolution 기록 파일은 카운트 제외).
+**가드레일 (HARD)**: 자가 개선은 프로젝트의 `AGENTS.md`와 `.claude/agents/`·`.codex/agents/`의 대응 파일을 함께 다룬다(`.moai/evolution/` 기록과 `.moai/config.json` 스냅샷 갱신은 예외). 스킬 본문·플러그인 파일은 건드리지 않는다. 변경 범위를 사전에 파악하고 전부 검증할 수 없으면 완료로 표시하지 않는다.
 
 ---
 
 ## Plugin Update Synchronization (`update`)
 
-`/project update`는 **외부에서 플러그인이 업데이트된 직후** 프로젝트를 최신 인벤토리에 동기화하는 수동 스위치다. §Recursive Self-Improvement의 `inventory drift` 트리거를 "감지 대기"가 아니라 **즉시·전수조사로 강제 실행**하는 모드다. 자가 개선 가드레일(수정 대상·3파일 상한·파괴적 변경 사전 확인)을 그대로 계승한다.
+`/project update`는 **외부에서 플러그인이 업데이트된 직후** 프로젝트를 현재 인벤토리와 대조하는 수동 요청이다. §Recursive Self-Improvement의 `inventory drift` 트리거를 기다리지 않고 전수조사를 수행한다. 사용자 문서 보존·충돌 확인·변경 후 검증 규칙을 따른다.
 
 **`evolve` vs `update` (발동 조건으로 구분)**:
 
@@ -258,11 +241,11 @@ Phase 5 확인 이후 이 스킬은 다음을 생성한다:
 
 **`update` 실행 절차 (5단계)** — 상세 정본은 `references/update-protocol.md`:
 
-1. **전수조사(Full Census)** — `~/.claude/plugins/moai-*` 전체를 스캔해 각 플러그인의 `plugin.json` + `skills/` + MCP 정의를 조사. 기존 `.moai/config.json` 스냅샷과 비교해 **새 스킬·새 MCP·변경된 스킬**의 diff를 도출한다.
-2. **세션 신호 분석** — `.moai/evolution/signals.md`(누적 교정·체인 실패 신호) + `.moai/context.md`(프로젝트 맥락)를 읽어, 업데이트된 스킬이 기존 신호를 해소할 수 있는지 교차 확인한다(이게 "기존 대화 세션 분석 + 재귀적 자가 학습"의 실체다).
-3. **AGENTS.md·에이전트 동기화** — diff에 맞춰 `AGENTS.md` §워크플로우 표와 `.claude/agents/*.md`의 스킬 체인을 최소 diff로 갱신. 500라인 예산·8개 HARD 블록 보존 정책은 `references/agentsmd-generator.md`를 그대로 따른다. 레거시 복제 프로젝트(전체 지침을 담은 `CLAUDE.md`)를 만나면 같은 문서 §7.1 마이그레이션을 먼저 적용한다.
-4. **스냅샷 갱신** — `.moai/config.json`의 `plugins_installed` + `skills_available` 스냅샷을 새 인벤토리로 갱신(`inventory drift`를 0으로 리셋). `.moai/evolution/log.md`에 1줄 기록(트리거 토큰 `inventory drift` + 동기화 요지).
-5. **검증 + 롤백** — 동일한 `inventory drift` 신호가 다시 발동하면 실패한 동기화로 판정해 `.moai/evolution/` 원문 조각으로 롤백(§Recursive Self-Improvement의 검증·롤백 메커니즘 재사용).
+1. **전수조사** — 배포 로스터와 현재 호스트의 설치·노출 상태를 조사하고 이전 스냅샷과 스킬·MCP·템플릿 차이를 구분한다.
+2. **누적 신호 확인** — 존재하는 `.moai/evolution/signals.md`와 `.moai/context.md`를 읽고 변경된 스킬과 실제 교정·실패 기록을 대조한다.
+3. **지침·에이전트 동기화** — 사용자 구획을 보존하면서 `AGENTS.md`, `.claude/agents/*.md`, `.codex/agents/*.toml`의 대응 체인을 갱신한다. 레거시 `CLAUDE.md`는 이관 절차를 따른다.
+4. **스냅샷 갱신** — 변경한 파일과 체인을 검증한 뒤 `.moai/config.json`을 새 기준선으로 갱신하고 `.moai/evolution/log.md`에 실제 변경을 기록한다.
+5. **검증 + 복구** — 파일 구조, 참조, 양쪽 호스트의 확인 가능 범위를 검사한다. 실패한 변경은 보존한 원문으로 되돌리고 결과를 다시 확인한다.
 
 **미설치 프로젝트 (HARD)**: `AGENTS.md`·`CLAUDE.md`·`.moai/`가 모두 없으면 `update`는 동기화 대상이 없다 — `AskUserQuestion`으로 `/project`(최초 셋업)로 안내한다. 침묵 생성 금지.
 
@@ -270,7 +253,7 @@ Phase 5 확인 이후 이 스킬은 다음을 생성한다:
 
 ## Desktop Parity Constraints
 
-이 스킬이 생성하는 프로젝트는 **Claude Cowork(Desktop)** 런타임을 전제하되, 산출물(`AGENTS.md`+`CLAUDE.md` 포인터, `.claude/agents/`+`.codex/agents/`)을 Claude와 Codex(ChatGPT Work) 양쪽으로 내놓아 어느 런타임에서도 작동한다. `AGENTS.md`는 Codex가 직접, Claude는 `CLAUDE.md`의 `@AGENTS.md` 임포트를 통해 같은 정본을 로드하며 기능 동등이다. 심볼릭 링크(`ln -s`)는 Windows에서 관리자 권한을 요구하므로 4조합 동일 동작 원칙에 어긋나 쓰지 않는다 — 임포트 방식만 쓴다(상세: `references/agentsmd-generator.md` §2.4). 다음 세 클래스는 Desktop/Codex 런타임에서 동작하지 않으므로 어떤 생성 경로에서도 이를 만들지 않는다:
+이 스킬의 프로젝트 산출물은 Claude Cowork와 ChatGPT Work 데스크톱에서 같은 목적을 수행하도록 만든다. macOS·Windows·Linux의 현재 호스트에서 실제 지원되는 기능을 확인하고, 호스트에 없는 기능은 명시한다. `AGENTS.md`는 Codex가 직접 읽고 Claude는 `CLAUDE.md`의 `@AGENTS.md` 임포트로 읽는다. 심볼릭 링크 대신 포인터 파일을 사용한다. 다음 세 산출물 클래스는 이 프로젝트의 데스크톱 생성 경로에서 만들지 않는다:
 
 - **hooks** — 훅 배선을 생성하지 않는다.
 - **LSP** — LSP 설정을 생성하지 않는다.
@@ -297,7 +280,7 @@ Desktop `AGENTS.md.tmpl`이 보존하는 8개 `## N. … (HARD)` 블록(소스 �
 
 ## 플러그인 패밀리
 
-마켓플레이스 **'MoAI-Cowork, 모두의 코워크'** (`modu-ai/moai-cowork`) 소속. **로스터(플러그인 목록·한글명·역할)는 하드코딩하지 않는다** — 실측 정본은 `.claude-plugin/marketplace.json`이며, 이 스킬은 §Plugin Inventory Scan에서 런타임에 동적으로 읽는다. 역할별 라우팅 매핑(키워드 → 코워커 플러그인)은 `references/router.md`가 단일 진실 원천이다.
+마켓플레이스 **'MoAI-Cowork, 모두의 코워크'** (`modu-ai/moai-cowork`) 소속. **로스터(플러그인 목록·한글명·역할)는 하드코딩하지 않는다** — 배포 정본은 `.claude-plugin/marketplace.json`이며, 실제 사용 가능 여부는 현재 호스트에서 확인한다. 라우팅 절차는 `references/router.md`를 따른다.
 
 ---
 
@@ -313,7 +296,7 @@ Desktop `AGENTS.md.tmpl`이 보존하는 8개 `## N. … (HARD)` 블록(소스 �
 
 ### 코워커(플러그인) 키워드 매핑 (요약)
 
-키워드 매칭 결과 후보가 1개면 해당 코워커 중심으로 체인을 설계한다. 상세 키워드 테이블·모호성 해소·복합 요청 처리는 `references/router.md` 참조. 후보가 2개 이상이면: (a) 산출물 유형이 명시되면 해당 산출물을 만드는 코워커 우선(자동 해소), (b) 자동 해소가 어려우면 `AskUserQuestion`(후보 최대 4 + Other). 디자이너 중심이면 `references/designer-setup.md` 서브 프로토콜을 호출한다.
+설치·노출된 스킬의 설명과 산출물을 확인해 후보를 고른다. 모호성 해소와 복합 요청은 `references/router.md`를 따른다. 자동 해소가 어려우면 현재 호스트에 노출된 질문 도구의 스키마를 확인해 묻는다. 디자이너 중심이면 `references/designer-setup.md` 서브 프로토콜을 호출한다.
 
 ---
 
@@ -357,7 +340,7 @@ Phase 1 인터뷰 → Phase 2 인벤토리 → Phase 3 체인 설계 → Phase 4
 
 | 파일 | 역할 |
 |------|------|
-| `router.md` | 자연어 → 코워커(플러그인) 키워드 매핑·모호성 해소·복합 요청·검증 깊이 연동 |
+| `router.md` | 산출물과 노출된 스킬을 대조하는 라우팅·모호성 해소·복합 요청·검증 깊이 연동 |
 | `cowork-setup.md` | 코워커·작가 8-Phase 정본(역할 자동 감지·체인 프리셋·커스텀 에이전트 생성·인용 가드) |
 | `designer-setup.md` | 디자인 자산 5-Phase 서브 프로토콜 |
 | `init-protocol.md` | 인터뷰 질문 스키마·인벤토리 스캔·Gap Detection·재개(Re-entry) 상세 |
@@ -384,4 +367,4 @@ Phase 1 인터뷰 → Phase 2 인벤토리 → Phase 3 체인 설계 → Phase 4
 
 1. **글로벌 프로필 질문 금지** — 이름·회사·역할을 재질문하지 않는다. 모든 사용자 정보는 `AGENTS.md` 한 곳에만 기록한다.
 2. **project 스킬은 구현하지 않는다** — 라우팅·셋업·자가 개선 배선만 담당한다. 실무 체인·디자인 합성 로직은 각 코워커 플러그인의 스킬에 위임한다.
-3. **단일 마켓플레이스 정합** — 스킬 참조는 설치된 플러그인의 `moai-*:` 접두어를 사용하며, 로스터는 `marketplace.json`에서 런타임 도출한다(하드코딩 금지). `router.md`의 매핑이 단일 진실 원천이다.
+3. **단일 마켓플레이스 정합** — 스킬 참조는 설치된 플러그인의 `moai-*:` 접두어를 사용하며, 로스터는 `marketplace.json`에서 런타임 도출한다(하드코딩 금지). `router.md`의 절차로 현재 노출 상태를 함께 확인한다.

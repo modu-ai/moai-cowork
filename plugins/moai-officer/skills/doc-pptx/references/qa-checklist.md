@@ -1,212 +1,27 @@
-# PPTX QA Checklist — 자동·시각 검수
+# PPTX 검수표
 
-PPTX 출력 직전 다음을 점검합니다.
+이 파일은 수동 검수 기준이다. 이 플러그인에는 자동 QA 실행기나 PPTX 렌더러가 포함돼 있지 않다. 검사 항목이 존재한다고 PASS가 된 것은 아니다.
 
-> **정량 6카테고리 루브릭 (공유)**: 아래 pptx 네이티브 검수(EMU 좌표·python-pptx 기준)와 별개로, 슬라이드 품질의 6카테고리 가중합 + hard-fail 티어(구조/타이포/컬러/정렬/데이터시각화/신뢰성)는 [`doc-html-slide/references/deck-quality-rubric.md`](../../doc-html-slide/references/deck-quality-rubric.md)에 정본이 있습니다. 그쪽은 HTML/DOM 렌더 대상 재해석본이고 본 파일은 pptx 렌더 대상 검수본으로, 두 스킬이 같은 원칙(폰트 하한·출처 라인·명도대비·오버플로)을 공유합니다.
+## 원본 대조
 
-## 자동 검수 (코드 레벨)
+- [ ] 발표 목적·청중·요청한 형식과 슬라이드 수가 맞는가
+- [ ] 숫자·비율·기간·인용·이미지 출처가 원본과 일치하는가
+- [ ] 고객 사례, 조직명, 성과, 연락처, 로고를 임의로 만들지 않았는가
+- [ ] 빈 플레이스홀더가 남아 있지 않은가
 
-### 1. 빈 플레이스홀더 잔존
+## 파일 검사
 
-```javascript
-import PptxGenJS from "pptxgenjs";
-import fs from "fs";
+- [ ] PPTX 파일이 실제로 생성됐고 다시 열리는가
+- [ ] 각 슬라이드의 텍스트·표·차트·이미지 개수가 예상과 맞는가
+- [ ] 표 합계와 차트 계열의 값·단위·범례를 원본에 대조했는가
+- [ ] 파일에 외부 링크나 원본 경로가 있다면 접근 가능하고 적절한가
 
-const placeholderPattern = /\{[^}]+\}/g;
-slides.forEach((slide, i) => {
-  slide.objects.forEach(obj => {
-    if (obj.text && placeholderPattern.test(obj.text)) {
-      console.warn(`⚠️ Slide ${i+1}: 미치환 플레이스홀더 ${obj.text}`);
-    }
-  });
-});
-```
+## 시각 검사
 
-### 2. 텍스트 overflow (슬라이드 영역 초과)
+- [ ] 대상 발표 앱에서 모든 슬라이드의 글자 잘림·겹침·여백을 확인했는가
+- [ ] 한국어·영문·기호의 대체 글꼴과 줄바꿈을 확인했는가
+- [ ] 실제 배경 위 글자 대비를 확인했는가. 작은 일반 텍스트에는 WCAG AA 4.5:1을 참고하되, 법적 접근성 판정이나 프로젝터 품질을 수치 하나로 보장하지 않는다.
+- [ ] 표·차트가 의미를 읽을 수 있는 크기인가
+- [ ] 필요할 때 PDF·이미지 미리보기를 비교했는가
 
-기준: 16:9 (1920×1080 = 13.33×7.5 inch)
-
-```javascript
-// 텍스트 박스 좌표·크기 검증
-slides.forEach((slide, i) => {
-  slide.objects.forEach(obj => {
-    if (obj.options && obj.options.text) {
-      const x = obj.options.x;
-      const y = obj.options.y;
-      const w = obj.options.w;
-      const h = obj.options.h;
-      if (x + w > 13.33 || y + h > 7.5) {
-        console.warn(`⚠️ Slide ${i+1}: 텍스트 박스가 슬라이드 영역 초과`);
-      }
-    }
-  });
-});
-```
-
-### 3. 색 대비 4.5:1 이상
-
-| 조합 | 대비 비율 | 통과 |
-|---|---|---|
-| Dark `#141413` on Beige `#faf9f5` | 13.5:1 | ✅ |
-| Dark `#141413` on White `#ffffff` | 18.4:1 | ✅ |
-| Orange `#d97757` on Beige | 3.0:1 | ❌ 본문 NG (헤딩 large text는 OK) |
-| Orange on White | 3.7:1 | ⚠️ 24pt 이상만 |
-| Mid Gray `#b0aea5` on White | 2.3:1 | ❌ 본문 NG (캡션 회피) |
-| Crail `#c15f3c` on Pampas `#f4f3ee` | 4.1:1 | ⚠️ 큰 텍스트만 |
-
-본문(20pt 미만) 텍스트는 반드시 Ink Dark 사용. 강조색은 헤딩(24pt+)에만.
-
-### 4. 폰트 화이트리스트
-
-```javascript
-const ALLOWED_FONTS = [
-  'Pretendard', '맑은 고딕', 'Inter', 'Lora',
-  '구름 산스 코드', 'JetBrains Mono', 'Poppins', 'Georgia'
-];
-
-slides.forEach((slide, i) => {
-  slide.objects.forEach(obj => {
-    if (obj.options && obj.options.fontFace) {
-      if (!ALLOWED_FONTS.includes(obj.options.fontFace)) {
-        console.warn(`⚠️ Slide ${i+1}: 비표준 폰트 ${obj.options.fontFace}`);
-      }
-    }
-  });
-});
-```
-
-### 5. 슬라이드 마스터 일관 적용
-
-- 모든 슬라이드가 `masterName` 지정
-- 페이지 번호·로고·푸터 동일 위치
-- 배경색 일관
-
----
-
-## 시각 검수 (PDF/JPEG 변환 후)
-
-### 6. LibreOffice CLI로 변환
-
-```bash
-# PPTX → PDF
-libreoffice --headless --convert-to pdf output.pptx
-
-# PPTX → JPEG (각 슬라이드)
-libreoffice --headless --convert-to jpg output.pptx
-
-# 또는 모든 슬라이드를 한 PDF로
-unoconv -f pdf output.pptx
-```
-
-### 7. 시각 검수 항목
-
-| 항목 | 확인 |
-|---|---|
-| 색 일관성 | 모든 슬라이드가 같은 팔레트 |
-| 텍스트 정렬 | 헤딩·본문·캡션 정렬 통일 |
-| 여백 일관 | 슬라이드 간 여백 동일 |
-| 페이지 번호 | 모든 슬라이드에 |
-| 아이콘 일관 | Outline vs Filled 통일 |
-| 사진 비율 | 정사각·정원 통일 |
-| 한국 폰트 | 한국 본문에 영문 폰트 단독 X |
-| 차트 색 | 팔레트 색만 사용 |
-| 표·그리드 | 칸 정렬 정확 |
-| 다크/라이트 | 사용한 팔레트 톤과 일치 |
-
-### 8. AI 슬롭 카피 검출
-
-`moai-designer:design-slop-check` 또는 `moai-writer:korean-humanize` 체이닝.
-
-영문 Tier 1 슬롭 — 발견 시 수정 권장:
-- "Reimagine your X"
-- "Unleash your X"
-- "Empower your team"
-- "Transform the way you X"
-
-한국어 Tier 1 슬롭:
-- "혁신적인 X"
-- "차세대 X"
-- "재정의하는 X"
-- "한 차원 높은 X"
-
-### 9. 청중·톤 적합성 (사람 검수)
-
-- 임원 발표에 캐주얼 톤 사용 X
-- 격식 공문서에 강조색 남발 X
-- 마케팅에 흑백만 사용 X
-- 청중 연령·전문성에 맞는 폰트 사이즈 (50대 청중은 본문 24pt+)
-
-### 10. 발표 환경 시뮬레이션
-
-- 프로젝터 색 출력 (저채도화 가능)
-- 회의실 거리 (32-40 ft) 가독성 — 본문 18pt+
-- 영상 회의(Zoom·Meet) 화면 캡처 화질
-- 인쇄 출력 (필요 시 — 검은색 본문 권장)
-
----
-
-## 자동 검수 통합 스크립트
-
-```javascript
-// qa-runner.js
-import PptxGenJS from "pptxgenjs";
-
-function qaPPTX(slides) {
-  const report = { passed: [], warnings: [], errors: [] };
-
-  // 1. 플레이스홀더
-  // 2. 텍스트 overflow
-  // 3. 색 대비
-  // 4. 폰트 화이트리스트
-  // 5. 마스터 일관
-
-  return report;
-}
-
-// 사용
-const slides = pptx.slides;
-const report = qaPPTX(slides);
-console.log(`✅ Passed: ${report.passed.length}`);
-console.log(`⚠️ Warnings: ${report.warnings.length}`);
-console.log(`❌ Errors: ${report.errors.length}`);
-```
-
-## 통과 기준
-
-| 항목 | 통과 |
-|---|---|
-| 1. 플레이스홀더 | 0건 (필수) |
-| 2. Overflow | 0건 (필수) |
-| 3. 색 대비 | 4.5:1 이상 (필수) |
-| 4. 폰트 | 화이트리스트 내 (권장) |
-| 5. 마스터 일관 | 100% (필수) |
-| 6. 시각 검수 (PDF) | 사람 OK (필수) |
-| 7. 시각 검수 (항목) | 9/10 이상 (권장) |
-| 8. AI 슬롭 | 0건 또는 의도된 사용 (권장) |
-| 9. 청중·톤 | 사람 OK (필수) |
-| 10. 발표 환경 | 시뮬레이션 OK (권장) |
-
-**필수 5개 모두 통과 시 출력**. 권장 5개 중 1개 이상 실패 시 사용자 확인.
-
----
-
-## 시각 검수 도구
-
-| 도구 | 용도 |
-|---|---|
-| LibreOffice CLI | PPTX → PDF/JPEG 변환 |
-| ImageMagick | 슬라이드 이미지 색·대비 분석 |
-| 색 대비 계산기 | https://webaim.org/resources/contrastchecker/ |
-| WCAG 색 시뮬레이터 | 색맹·약시 시각 시뮬레이션 |
-| Claude Code subagent | 슬라이드 이미지 LLM 검수 (Anthropic 공식 패턴) |
-
-Claude Code subagent 검수 예시:
-
-```
-이미지를 Claude에게 첨부하고:
-"이 슬라이드를 검수해 줘. 다음을 확인:
-1. 텍스트가 슬라이드 밖으로 잘리지 않았는가
-2. 색 대비가 충분한가
-3. 텍스트 정렬이 어긋나지 않았는가
-4. AI 슬롭 표현이 없는가"
-```
+검사하지 못한 발표 앱·OS·폰트 환경은 미실행으로 기록한다. PPTX 압축파일의 구조가 정상이어도 PowerPoint·Keynote·LibreOffice에서 같은 모양으로 열리는 것은 아니다.

@@ -20,7 +20,7 @@ description: |
   v1.4.0 신규 카테고리 N — **영어 수사 구조 직역**. 어휘·문법은 완벽한 한국어인데 글의 골격이 영어 마케팅 문서인 층입니다("A가 아니라 B입니다" 대조 공식, `이런 분에게`처럼 조사로 끝나는 헤딩, `손에 남는 것`, `무엇이 다른가`, `이유는 하나입니다"). 기존 A~M 카테고리가 보지 못하던 자리이며, 실측에서 사람이 쓴 원문 0건 대 AI 생성물 58건으로 갈렸습니다.
 
   한국 번역학계 8유형 번역투 계보를 통합한 10대 카테고리 분류 + 신규 패턴 A-16/A-18/A-19/E-7 + post-editese 14메트릭 기반 한국어 정밀 윤문 스킬입니다.
-version: "1.4.0"
+version: "1.4.1"
 ---
 
 # Humanize Korean: 한국어 AI 티 제거 (Fast 모드)
@@ -88,10 +88,14 @@ korean-humanize — fast 모드 / run_id: {YYYY-MM-DD-NNN}
 | `${CLAUDE_PLUGIN_ROOT}` | `$env:CLAUDE_PLUGIN_ROOT` — `${...}`는 PowerShell 변수 문법이 아니다 |
 | 줄 끝 `\` (줄 잇기) | 백틱 `` ` `` — `\`는 PowerShell에서 줄 잇기가 아니다 |
 
-**권장 실행 경로 (Windows)**: Git Bash에서 예시를 **그대로** 실행합니다. Claude Cowork·ChatGPT Work의
-Windows 설치에는 Git Bash가 함께 오므로 별도 준비가 필요 없고, `python3`만 `python`으로 바꾸면 됩니다.
+**Windows 실행 경로**: Git Bash가 실제로 설치돼 있으면 Bash 예시를 사용할 수 있습니다.
+Git Bash 설치를 데스크톱 앱의 기본 제공 기능으로 가정하지 않습니다. PowerShell에서는 아래처럼
+한 줄 명령과 PowerShell 변수 문법을 사용합니다.
 
 PowerShell에서 실행해야 한다면 한 줄로 펴고 변수 문법을 바꿉니다.
+
+`${CLAUDE_PLUGIN_ROOT}`가 제공되지 않는 호스트에서는 이 변수를 그대로 실행하지 말고,
+현재 설치된 스킬 디렉터리의 실제 경로를 확인해 스크립트 경로로 사용합니다.
 
 ```powershell
 python "$env:CLAUDE_PLUGIN_ROOT/skills/korean-humanize/references/metrics.py" --input "_workspace/{run_id}/01_input.txt" --genre 칼럼 --output "_workspace/{run_id}/00_metrics.json"

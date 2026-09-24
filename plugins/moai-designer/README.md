@@ -73,16 +73,6 @@
 
 **② 이 코워커 추가** — 플러그인(Plugins) 메뉴에서 `moai-designer`를 찾아 **Install**을 누르세요.
 
-**터미널에 익숙하다면 (대안)**
-
-    # Claude Cowork CLI
-    claude plugin marketplace add modu-ai/moai-cowork
-    claude plugin install moai-designer@moai-cowork
-
-    # ChatGPT Work CLI
-    codex plugin marketplace add modu-ai/moai-cowork
-    codex plugin add moai-designer@moai-cowork
-
 > 브랜드·디자인 시스템 작업이 필요할 때 설치하세요.
 
 > 앱별 정확한 클릭 경로와 잘 안 될 때 대처법은 [플러그인 설치와 관리](https://cowork.mo.ai.kr/plugins/install/)에 정리해 두었습니다.
@@ -107,7 +97,7 @@
 - **GAN 품질 루프** — Design Quality(30%)·Originality(25%)·Completeness(25%)·Functionality(20%) 4차원 회의적 채점 + `config/design.yaml`의 `max_iterations`/`pass_threshold`/`escalation_after`로 반복 제어
 - **파이프라인** — `manager-spec`(BRIEF) → 카피·비주얼 토큰 병렬 생성 → frontend 구현 → `sync-auditor`(GAN 루프)
 - **스킬 15종** — 도메인/워크플로우 5종(`design-brand-system`, `design-copywriting`, `design-workflow`, `design-iteration-loop`, `design-handoff`) + Claude Design 전처리·라이브러리 6종(`design-brief`, `design-system-prep`, `design-prompt-builder`, `design-handoff-reader`, `design-slop-check`, `design-system-library`) + 토큰·업로드 2종(`design-tokens-transformer`, `design-sync-upload`) + 비주얼·로고·모션 3종(`design-brand-visual`, `design-logo`, `design-landing-motion`)
-- **MCP 연동 1종** — `higgsfield`(mcp.higgsfield.ai). `design-brand-visual`·`design-logo`가 사용하며, 생성 실행·모델 선택·크레딧 사전 고지 계약은 `moai-media:media-higgsfield-core`에 위임한다. 인증은 Higgsfield 계정 토큰(파일에 키를 적지 않음)
+- **MCP 연동** — `higgsfield`(mcp.higgsfield.ai). `design-brand-visual`·`design-logo`가 사용하며, 생성 실행·모델 선택·크레딧 사전 고지 계약은 `moai-media:media-higgsfield-core`에 위임한다. 인증은 Higgsfield 계정 로그인/OAuth 승인으로 진행한다.
 - **에이전트 3종** — `manager-spec`(BRIEF), `sync-auditor`(GAN 4차원 평가), `builder-harness`(Path B 동적 생성). 조사는 Anthropic 내장 `Explore`
 - **anti-slop 정본** — 디자인 카피 AI 슬롭 사전(영문·한국어 Tier 1/2)은 `design-copywriting`이 정본, `design-slop-check`는 다운스트림 QA 게이트
 - **디자인 헌법** — `rules/moai/design/constitution.md` (파이프라인 순서·5 안전 계층·GAN 루프 계약·평가자 관대성 방지, FROZEN)

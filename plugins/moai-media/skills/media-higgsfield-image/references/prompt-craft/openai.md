@@ -14,7 +14,7 @@
 | `gpt_image_2_5` + `variant=sunburst` | `gpt-image-2.5-sunburst` | 품질 우선. GPT Image 2보다 높은 화질 |
 | `gpt_image_2` | `gpt-image-2` | 이미 검증된 기존 워크플로 유지 시 |
 
-`gpt_image_2_5` 파라미터: `quality` `low`·`medium`·`high`·`xhigh`·`max`(기본 `low` — 결과물이면 `medium` 이상 명시), `resolution` `1k`·`2k`·`4k`, `background` `auto`·`opaque`·`transparent`, `aspect_ratio` 다수. 프롬프트 작성 규칙 전체는 `moai-media:media-gpt-image-prompt`를 따른다.
+Higgsfield의 `gpt_image_2_5` 옵션은 호출 직전 `models_explore`로 확인한다. 이 연결에서 보이는 `quality`·`resolution`·`aspect_ratio` 값은 **Higgsfield 스키마**이며 ChatGPT 자체 이미지 도구나 OpenAI API의 인자로 복사하지 않는다. [OpenAI의 GPT Image 2.5 API 문서](https://developers.openai.com/api/docs/guides/image-generation)는 `quality=auto`를 기본값으로 안내한다. 프롬프트 작성 규칙 전체는 `moai-media:media-gpt-image-prompt`를 따른다.
 
 ---
 
@@ -22,7 +22,7 @@
 
 `background/scene → subject → key details → constraints`. 의도한 용도(ad / UI mock / infographic)를 앞에 밝혀 완성도 수준을 설정한다. 복잡한 요청은 하나의 빽빽한 단락 대신 라벨 붙인 세그먼트나 줄바꿈으로 나눈다.
 
-**길이**: 32,000자 하드캡. 권장 길이 없음. 공식 조언: *"Long prompts can work well, but debugging is easier when you start with a clean base prompt and refine with small, single-change follow-ups."*
+**길이**: OpenAI의 현재 프롬프트 가이드에서 이 모델의 32,000자 하드캡은 확인되지 않았다. 현재 연결의 입력 제한을 확인한다. 공식 조언: *"Long prompts can work well, but debugging is easier when you start with a clean base prompt and refine with small, single-change follow-ups."*
 
 ## 텍스트 렌더링 (1차, R3)
 

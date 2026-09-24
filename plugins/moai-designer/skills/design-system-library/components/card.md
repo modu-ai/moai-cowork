@@ -19,8 +19,8 @@ shadcn `Card` / `CardHeader` / `CardContent`를 React 없이 **vanilla HTML + Ta
 ```html
 <div class="rounded-lg border border-hairline bg-canvas p-8 ring-1 ring-primary/20">
   <h3 class="font-display text-2xl tracking-tight text-ink">Upgrade plan</h3>
-  <p class="mt-2 text-body">더 많은 한도과 고급 분석이 필요하다면.</p>
-  <button class="mt-5 inline-flex h-10 items-center rounded-md bg-primary px-5 text-sm font-medium text-white hover:bg-primary-active">지금 업그레이드</button>
+  <p class="mt-2 text-body">요금제별 한도를 확인하세요.</p>
+  <button class="mt-5 inline-flex h-10 items-center rounded-md bg-primary px-5 text-sm font-medium text-on-primary hover:bg-primary-active hover:text-on-primary-active focus-visible:ring-2 focus-visible:ring-primary">요금제 보기</button>
 </div>
 ```
 

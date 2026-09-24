@@ -1,7 +1,7 @@
 ---
 name: media-higgsfield-identity
 description: |
-  Higgsfield MCP에서 재사용 가능한 인물·사물 일관성 참조를 만듭니다. Soul Character(학습형 identity 모델)와
+  Higgsfield 연결에서 재사용 가능한 인물·사물 일관성 참조를 만듭니다. Soul Character(학습형 identity 모델)와
   Reference Element(즉시 생성형 참조) 중 어느 쪽을 써야 하는지 판정하고, 선택된 경로로 생성·조회합니다.
   다음과 같은 요청 시 사용하세요:
   - "내 얼굴로 Soul 만들어줘", "디지털 트윈 학습시켜줘"
@@ -12,7 +12,7 @@ description: |
   Soul은 한 사람의 identity에 충실하지만 한 생성에 1개만·soul 계열 모델 전용이고, Element는 즉시 만들어지며
   한 프롬프트에 여러 개를 배치할 수 있고 사람이 아닌 대상도 됩니다. 이 분기를 잘못 고르면 되돌릴 수 없는
   학습 비용이 발생하므로, 경로가 불명확하면 생성하지 않고 blocker를 반환합니다.
-version: "1.3.0"
+version: "1.3.2"
 ---
 
 # Higgsfield 일관성 참조 (media-higgsfield-identity)
@@ -22,6 +22,8 @@ version: "1.3.0"
 ## 개요
 
 "같은 인물·같은 캐릭터·같은 제품이 여러 컷에 일관되게 나오게" 하는 두 가지 수단을 다룬다. 두 수단은 **대체재가 아니라 서로 다른 제약을 가진 별개 경로**이며, 잘못 고르면 학습 시간과 크레딧을 버린다.
+
+**현재 세션의 기능 확인:** ChatGPT 공식 Higgsfield 플러그인에는 `show_reference_elements`가 노출된 것을 확인했으나, 같은 세션에서 `show_characters`는 확인되지 않았다. Soul 경로는 `show_characters`가 실제로 노출된 연결에서만 실행한다. 없으면 학습을 제출할 수 없다고 알리고 Element가 사용자의 목적에 맞는지 별도로 판정한다. 도구 이름이 다른 연결에서는 실제 스키마를 먼저 확인하며, 없는 기능을 있는 것으로 가정하지 않는다.
 
 호출 계약·namespace 런타임 해석·비용 프리플라이트는 코어를 따른다:
 - 호출 계약: `../media-higgsfield-core/references/call-schema.md`
@@ -36,7 +38,7 @@ Soul, Soul ID, 소울, 디지털 트윈, 캐릭터 학습, 얼굴 학습, identi
 
 | 축 | Soul Character | Reference Element |
 |---|---|---|
-| 만드는 방법 | 5~20장 학습 (약 10분, 비차단) | 이미지 1장으로 즉시 생성 (동기) |
+| 만드는 방법 | 여러 사진으로 학습 (장수는 연결별 제한 확인, 비차단) | 이미지 1장으로 즉시 생성 (동기) |
 | 한 생성에 몇 개 | **1개만** | **여러 개** (`<<<id>>>` 다중 배치) |
 | 대상 | 사람 1인 | 사람·환경·소품 모두 |
 | 사용 가능 모델 | `soul_2`, `soul_cinematic` **전용** | Nano Banana 계열·GPT Image 2·Seedream·Cinema Studio·Seedance·Kling 등 |
@@ -68,13 +70,13 @@ Element 경로라고 위험이 줄지 않는다. 학습은 없지만 **그 사�
 **Element로 확정되는 신호 (하나라도 걸리면 Element):**
 - 한 컷에 인물/대상이 **2명 이상** ("나랑 친구", "두 사람이")
 - 대상이 사람이 아님 (제품·소품·배경·로고)
-- 가진 이미지가 **1장뿐**
+- 가진 이미지가 **1장뿐** (현재 연결의 Soul 최소 수량보다 적음)
 - Nano Banana·Seedream·Kling·Cinema Studio 등 **soul 계열이 아닌 모델**을 지목
 - "지금 바로", "빨리" 등 즉시성 요구
 
 **Soul로 확정되는 신호:**
 - "학습", "훈련", "디지털 트윈", "내 identity" 등 명시적 표현
-- 같은 사람 사진 **5장 이상**을 제공했고 단독 컷이 목적
+- 같은 사람 사진을 **현재 연결의 Soul 최소 수량 이상** 제공했고 단독 컷이 목적
 
 **양쪽 다 아니면 → blocker.** 애매한 상태로 Soul 학습을 시작하는 것이 이 스킬이 막으려는 실패다.
 
@@ -122,7 +124,7 @@ Element 경로라고 위험이 줄지 않는다. 학습은 없지만 **그 사�
 #### 승인 뒤 실행 절차
 
 1. **이미지 준비.** 로컬 경로는 받지 않는다. `media_upload` → 바이트 PUT → `media_confirm` 순서로 올려 `media_id` UUID를 얻는다. 완료된 이미지 잡 ID나 https URL도 허용된다.
-2. **품질 점검.** 5~20장, 권장 8~12장. 각도·조명·표정·거리가 다양할수록 좋다. 상세 기준은 `references/training-photo-guide.md`. 기준 미달이면 학습을 제출하기 전에 사용자에게 알린다.
+2. **품질 점검.** 학습 도구의 라이브 스키마나 해당 연결의 공식 안내에서 최소·최대 장수를 확인한다. 공식 CLI 스킬은 5~20장, 웹 도움말은 20~80장으로 서로 다르다. 현재 연결의 제한을 확인하지 못했다면 수량을 추정해 업로드·학습하지 않는다. 각도·조명·표정·거리가 다양할수록 좋다. 상세 기준은 `references/training-photo-guide.md`. 기준 미달이면 학습을 제출하기 전에 사용자에게 알린다.
 3. **타입 선택.** 다운스트림 용도로 정한다 — 정지 이미지는 `soul_2`, 시네마틱은 `soul_cinematic`.
 4. **학습 제출.** `show_characters(action:'train', name, medias[])`. 비차단이며 약 10분 소요.
 5. **상태 확인.** `show_characters(action:'status', soul_id)`. 폴링은 조용히 — 진행 상황을 반복 보고하지 않는다.
@@ -144,7 +146,7 @@ Element 경로라고 위험이 줄지 않는다. 학습은 없지만 **그 사�
 ## 비용·계정 전제
 
 - Soul 학습은 **유료 플랜(Basic 이상)**을 요구한다. 무료 플랜이면 제출 전에 알린다.
-- 학습 자체와 이후 생성은 별개 비용이다. 실제 생성 직전 `get_cost: true` 프리플라이트는 코어 규칙을 그대로 따른다.
+- 학습 자체와 이후 생성은 별개 비용이다. 실제 생성 직전 연결 프로필에 맞는 비용 조회는 코어 규칙을 따른다.
 - Element 생성은 학습이 없어 비용 부담이 작다.
 
 ## 출력 형식
@@ -195,7 +197,7 @@ Element 경로라고 위험이 줄지 않는다. 학습은 없지만 **그 사�
 
 **[HARD] 세 경로가 모두 불가능한 무인 실행에서는 실행하지 않는다(fail-closed).** 물을 수단이 없다는 것은 승인을 받았다는 뜻이 아니다. 이때는 "승인 수단이 없어 진행하지 못했다"고 기록하고 멈춘다 — 조용히 진행하지 않는다. 반대로 **대화가 가능한데 도구가 없다는 이유로 멈추는 것도 잘못**이다. 2번 경로를 쓴다.
 
-> 이 계약은 `CLAUDE.local.md` §범용성 원칙(OS 2종 × 런타임 2종에서 동일 동작)의 게이트 쪽 적용이다. 한 런타임에서만 도는 게이트는 미완성으로 본다.
+> 이 게이트는 연결된 데스크톱 앱과 운영체제에 관계없이 동일하게 적용한다.
 
 ---
 
@@ -212,5 +214,6 @@ Element 경로라고 위험이 줄지 않는다. 학습은 없지만 **그 사�
 ## 출처
 
 - [Higgsfield Skills (공식 agent 문서)](https://github.com/higgsfield-ai/skills) — `higgsfield-soul-id` 스킬 v0.12.0 (MIT). 학습 사진 기준·실패 원인은 이 문서 기반.
+- [Higgsfield Soul ID 웹 도움말](https://higgsfield.ai/creator-hub/help-center/ai-models/how-do-i-create-and-use-a-soul-id-character) — 웹 학습은 20~80장으로 안내한다. CLI 스킬의 5~20장 제한을 웹·MCP에 그대로 적용하지 않는다.
 - 라이브 MCP 도구 스키마 관측 (`show_characters` / `show_reference_elements`) — Soul/Element 분기 규칙·지원 모델 목록·업로드 제약의 근거. **Evidence tier: 1차.**
 - 공식 CLI 스킬에는 Element 경로와 분기 규칙이 없다. 그 부분은 MCP 스키마 관측이 유일 출처다.

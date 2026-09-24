@@ -1,6 +1,6 @@
 # Modern Design System — Claude Brand Theme
 
-Anthropic 공식 브랜드 톤을 기반으로 한 한국 비즈니스 문서용 모던 디자인 시스템입니다.
+Claude 스타일을 사용자가 요청할 때 참고할 수 있는 문서용 팔레트입니다. 일반 문서에는 사용자의 브랜드 지침과 기존 양식을 우선합니다.
 
 ## 1. 색 팔레트
 
@@ -15,7 +15,7 @@ Anthropic 공식 브랜드 톤을 기반으로 한 한국 비즈니스 문서용
 | `--cm-bg` | Light Beige | `#faf9f5` | 본문 배경 (대신 #ffffff도 가능) |
 | `--cm-surface` | White | `#ffffff` | 표·코드 블록 배경 |
 | `--cm-ink` | Dark | `#141413` | 본문 텍스트 (#000 대체) |
-| `--cm-mid` | Mid Gray | `#b0aea5` | 캡션·메타 정보 |
+| `--cm-mid` | Mid Gray | `#b0aea5` | 장식용 보조색. 작은 캡션 본문에는 대비를 확인한 더 진한 색 사용 |
 | `--cm-border` | Light Gray | `#e8e6dc` | 표 보더·구분선 |
 | `--cm-pampas` | Pampas | `#f4f3ee` | 보조 배경 (sidebar·callout) |
 
@@ -33,7 +33,7 @@ Anthropic 공식 브랜드 톤을 기반으로 한 한국 비즈니스 문서용
 - 한 문서에 **Primary + Secondary + Background = 3색** + Dark/Light 무채색만
 - Primary Orange는 **강조에만** — 본문 전체 도배 금지
 - 격식 공문서·계약서는 **Mono Strict** (Dark + White만)
-- 명암 대비 **4.5:1 이상** 필수 (본문 Dark on Light Beige = 13.5:1)
+- 본문 텍스트는 배경과의 명암 대비를 실제 색 조합으로 계산해 WCAG AA 기준을 확인한다.
 - 의미 있는 색만 — 장식 X
 
 ## 2. 타이포그래피
@@ -57,7 +57,7 @@ Anthropic 공식 브랜드 톤을 기반으로 한 한국 비즈니스 문서용
 ### 2-2. 한국 폰트 우선순위
 
 1. **Pretendard** (오픈소스, 한·영 통일) — 권장 1순위
-2. **맑은 고딕** (Windows 기본) — fallback
+2. **맑은 고딕** (설치 여부 확인) — 대체 후보
 3. **굴림** (공문서 전통) — 한국 공문서에서만
 4. **본문 한글 Serif가 필요할 때**: Noto Serif KR
 
@@ -175,7 +175,7 @@ Pull Quote (Lora Italic 16pt, Dark) + Blue 좌측 보더 4pt
 }
 ```
 
-`doc-docx`에 `--tokens design.json` 옵션으로 전달하면 토큰을 일괄 적용합니다.
+위 JSON은 토큰 구조 예시다. `doc-docx`에 구현된 CLI는 없으므로 `--tokens` 옵션을 실행 지침으로 사용하지 않는다. 현재 사용 가능한 문서 도구에서 색·서체·여백을 직접 매핑한다.
 
 ---
 

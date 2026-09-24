@@ -1,6 +1,6 @@
 # 셀러 (moai-seller)
 
-이커머스 셀러 전담 AI 코워커입니다. 스마트스토어·아임웹·카페24 MCP 연동과 상세페이지·마켓플레이스·광고·CRM 등 커머스 실무 스킬 31종을 하나의 플러그인으로 제공합니다. 슬래시 명령을 외울 필요 없이 자연어로 요청하면 매칭되는 스킬이 자동 호출됩니다. VOC 분류(`cs-voc-triage`)와 채널 메시지(`cs-channel-message`)는 `moai-cs`(CS매니저)로 이관되었습니다.
+이커머스 셀러 전담 AI 코워커입니다. 스마트스토어·아임웹·카페24 MCP 연동과 상세페이지·마켓플레이스·광고·CRM 등 커머스 실무 스킬을 하나의 플러그인으로 제공합니다. 슬래시 명령을 외울 필요 없이 자연어로 요청하면 매칭되는 스킬이 자동 호출됩니다. VOC 분류(`cs-voc-triage`)와 채널 메시지(`cs-channel-message`)는 `moai-cs`(CS매니저)로 이관되었습니다.
 
 **이런 분께 추천**: 온라인 셀러 · 이커머스 운영자 · 1인 브랜드 대표
 
@@ -8,27 +8,15 @@
 
 `modu-ai/moai-cowork` 마켓플레이스 하나에서 설치합니다. **Claude Cowork**와 **ChatGPT Work** 두 데스크톱 앱 모두 같은 방식입니다.
 
-**가장 쉬운 방법** — 설정(Settings) 또는 플러그인(Plugins) 메뉴 → 마켓플레이스(Marketplace)에서 주소 `modu-ai/moai-cowork`를 추가한 뒤, 플러그인 목록에서 `moai-seller`를 찾아 **Install**을 누르세요.
-
-**터미널에 익숙하다면 (대안)**
-
-```bash
-# Claude Cowork CLI
-claude plugin marketplace add modu-ai/moai-cowork
-claude plugin install moai-seller@moai-cowork
-
-# ChatGPT Work CLI
-codex plugin marketplace add modu-ai/moai-cowork
-codex plugin add moai-seller@moai-cowork
-```
+Claude Cowork·ChatGPT Work 데스크톱 앱에서 **Settings(또는 Plugins) → Marketplace → +**를 열어 `modu-ai/moai-cowork`를 추가하세요. 그다음 Plugins 화면에서 **moai-seller**를 선택하고 **+** 또는 **Install**을 누르세요.
 
 > 앱별 정확한 클릭 경로와 잘 안 될 때 대처법은 [플러그인 설치와 관리](https://cowork.mo.ai.kr/plugins/install/)에 정리해 두었습니다.
 
-## 스킬 31종
+## 스킬
 
 호출 형식: `/moai-seller:commerce-<스킬명>` — 예: `/moai-seller:commerce-detail-page-planner`. 자연어 요청("우리 제품 상세페이지 기획해줘")으로도 자동 매칭됩니다.
 
-### 상세페이지 (7종)
+### 상세페이지
 
 | 스킬 | 역할 |
 |------|------|
@@ -40,7 +28,7 @@ codex plugin add moai-seller@moai-cowork
 | `commerce-product-image-pipeline` | 상품 이미지 제작 파이프라인 |
 | `commerce-product-photo-brief` | 상품 촬영 브리프 작성 |
 
-### 마켓플레이스 (5종)
+### 마켓플레이스
 
 | 스킬 | 역할 |
 |------|------|
@@ -50,7 +38,7 @@ codex plugin add moai-seller@moai-cowork
 | `commerce-marketplace-curation` | 큐레이션 커머스(카카오 등) 입점 |
 | `commerce-marketplace-d2c` | 자사몰(D2C) 구축·운영 전략 |
 
-### 광고·프로모션 (8종)
+### 광고·프로모션
 
 | 스킬 | 역할 |
 |------|------|
@@ -63,7 +51,7 @@ codex plugin add moai-seller@moai-cowork
 | `commerce-early-fan-builder` | 초기 팬덤 구축 |
 | `commerce-season-calendar` | 시즌·이벤트 캘린더 운영 |
 
-### CRM·구독 (2종)
+### CRM·구독
 
 | 스킬 | 역할 |
 |------|------|
@@ -72,7 +60,7 @@ codex plugin add moai-seller@moai-cowork
 
 > 채널 메시지(`cs-channel-message`)·VOC 분류(`cs-voc-triage`)는 `moai-cs`(CS매니저)로 이관되었습니다.
 
-### 전략·분석 (9종)
+### 전략·분석
 
 | 스킬 | 역할 |
 |------|------|
@@ -85,22 +73,26 @@ codex plugin add moai-seller@moai-cowork
 | `commerce-automation-audit` | 운영 자동화 진단 |
 | `commerce-message-compliance-kr` | 정통망법 메시지 발송 규제(스팸) 게이트 |
 | `commerce-ad-claim-compliance-kr` | 표시광고법·식약처·전상법 광고 문구 검증 게이트 |
+| `commerce-workflow` | 상품·채널 자료 확인과 복합 판매 작업 연결 |
+| `commerce-margin-audit` | 비용·할인·마진·채널 제약 재검산 |
 
-## MCP 연동 3종
+## MCP 연동
 
 플러그인 루트 `.mcp.json`에 3개 커머스 MCP 서버가 선언되어 있습니다. 자격증명은 **환경변수로만** 설정하세요(파일에 키를 적지 않습니다).
 
 | 서버 | 플랫폼 | 필요 환경변수 | 상태 |
 |------|--------|---------------|------|
-| `moai-smartstore` | 네이버 스마트스토어 (9 영역 90 도구) | `NAVER_COMMERCE_CLIENT_ID`, `NAVER_COMMERCE_CLIENT_SECRET`, `NAVER_COMMERCE_ACCOUNT_ID`, `NAVER_COMMERCE_TYPE` | ⚠️ 소스 복원 대기 — 선언은 유지되어 있으나 `mcp-servers/moai-mcp-smartstore` 소스 디렉토리 복원 전까지 기동 불가 |
-| `moai-imweb` | 아임웹 OPEN API v3 (136 엔드포인트 → 8 카테고리 도구) | `IMWEB_CLIENT_ID`, `IMWEB_CLIENT_SECRET`, `IMWEB_ACCESS_TOKEN`, `IMWEB_REFRESH_TOKEN`, `IMWEB_UNIT_CODE` | 정상 (vendored) |
-| `moai-cafe24` | 카페24 Admin API 19 도메인 + Analytics | `CAFE24_MALL_ID`, `CAFE24_CLIENT_ID`, `CAFE24_CLIENT_SECRET`, `CAFE24_ACCESS_TOKEN`, `CAFE24_REFRESH_TOKEN` | 정상 (vendored) |
+| `moai-mcp-smartstore` | 네이버 스마트스토어 | `NAVER_COMMERCE_CLIENT_ID`, `NAVER_COMMERCE_CLIENT_SECRET`, `NAVER_COMMERCE_ACCOUNT_ID`, `NAVER_COMMERCE_TYPE` | 소스 포함, 앱 연결은 미검증 |
+| `moai-mcp-imweb` | 아임웹 OPEN API v3 | `IMWEB_CLIENT_ID`, `IMWEB_CLIENT_SECRET`, `IMWEB_ACCESS_TOKEN`, `IMWEB_REFRESH_TOKEN`, `IMWEB_UNIT_CODE` | 소스 포함, 앱 연결은 미검증 |
+| `moai-mcp-cafe24` | 카페24 Admin API + Analytics | `CAFE24_MALL_ID`, `CAFE24_CLIENT_ID`, `CAFE24_CLIENT_SECRET`, `CAFE24_ACCESS_TOKEN`, `CAFE24_REFRESH_TOKEN` | 소스 포함, 앱 연결은 미검증 |
 
-- 사전 설치: `uv` (`curl -LsSf https://astral.sh/uv/install.sh | sh`)
+- MCP 실행에는 `uv`가 필요합니다. 실제 앱 설치·인증·기동은 운영체제별로 확인해야 합니다.
 - 자격증명 발급 절차: 각 서버 디렉토리의 `CONNECTORS.md` / `README.md` 참고
 - 경로는 `${CLAUDE_PLUGIN_ROOT}` 기준이므로 marketplace 설치(캐시 복사) 환경에서도 동작합니다
 
-## 에이전트 2종
+## Claude 에이전트
+
+ChatGPT Work에서는 복합 상품 운영과 수익성 검수를 `commerce-workflow`·`commerce-margin-audit` 스킬로 제공합니다.
 
 | 에이전트 | 등급 | 역할 |
 |----------|------|------|

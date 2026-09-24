@@ -72,7 +72,7 @@ FTO와 특허성 조사를 혼동하지 않습니다. 오래된 문헌은 특허
 
 ### 일본 — J-PlatPat + JPO API
 
-- 키워드 검색은 J-PlatPat 웹 화면(FI·F-term 검색 포함)이나 EPO 검색으로 하고, J-PlatPat 부분은 `LIMITED`로 기록합니다.
+- 키워드 검색은 J-PlatPat 웹 화면(FI·F-term 검색 포함)이나 EPO 검색으로 하고, 사용한 화면·검색식·열람 범위를 기록합니다.
 - 찾은 출원번호로 `jpo_patent_progress`(경과·우선권·분할 정보)와 `jpo_patent_registration`(등록·존속)을 확인합니다.
 - 공개·등록번호만 알면 `jpo_case_number_reference(right="patent", kind="publication", number=...)`로 출원번호를 찾습니다.
 - 조회마다 일일 상한이 있습니다. 응답의 `remain_access_count`를 증거대장 한계 칸에 적습니다.

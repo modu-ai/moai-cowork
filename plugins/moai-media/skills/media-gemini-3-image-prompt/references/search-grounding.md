@@ -6,11 +6,11 @@ Gemini 3 Pro Image의 차별 기능 중 하나. 이미지 생성 도중 Google S
 
 | 사용 케이스 | Search Grounding 효과 |
 |---|---|
-| 통계 인포그래픽 | "한국 2026 SNS 사용자 수" → 실시간 검색 결과 반영 |
-| 지도·지리 다이어그램 | "서울 지하철 2호선 노선도" → 정확한 역 순서 |
-| 시사 일러스트 | "2026년 4월 한국 경제 지표 시각화" → 최신 데이터 |
-| 차트·그래프 | "2026 글로벌 AI 시장 규모 도넛 차트" → 출처 검증된 수치 |
-| 다이어그램 (역사·과학) | "광합성 과정" → 과학 정확성 |
+| 통계 인포그래픽 | 최신 자료를 검색할 수 있으나 수치와 기준 시점은 별도 대조 |
+| 지도·지리 다이어그램 | 노선·역 순서를 공식 자료와 별도 대조 |
+| 시사 일러스트 | 기준 날짜와 출처를 확인한 뒤 시각화 |
+| 차트·그래프 | 검색 결과의 원자료와 그림 속 수치를 별도 대조 |
+| 다이어그램 (역사·과학) | 공식·학술 자료와 개념을 별도 대조 |
 
 ## 언제 사용하지 않나
 
@@ -27,17 +27,9 @@ Gemini 3 Pro Image의 차별 기능 중 하나. 이미지 생성 도중 Google S
 - Tools 패널에서 "Use Google Search" 체크박스 활성화.
 - "Use Thinking Mode" 도 함께 활성화 권장 (정확도 시너지).
 
-### Vertex AI (API)
-```python
-from vertexai.preview.generative_models import GenerativeModel, Tool, grounding
+### API
 
-model = GenerativeModel("gemini-3-pro-image-preview")
-response = model.generate_content(
-    "<5-component 프롬프트>",
-    tools=[Tool.from_google_search_retrieval(grounding.GoogleSearchRetrieval())],
-    generation_config={"aspect_ratio": "16:9"},
-)
-```
+API 도구와 필드 이름은 [Google의 현재 이미지 생성 가이드](https://ai.google.dev/gemini-api/docs/image-generation)에서 확인합니다. 이 프롬프트 전용 스킬에서는 오래된 SDK 호출 예시를 실행 지침으로 제공하지 않습니다.
 
 ### Gemini App (consumer)
 - 일부 버전에서 "Search context" 토글 제공. 기능 위치는 앱 업데이트에 따라 변동.
@@ -74,8 +66,7 @@ finalizing the visualization.
 
 - Search 결과는 **항상 별도 검증** 필요. 모델이 wiki·블로그 등 신뢰도 낮은 출처를 가져올 수 있음.
 - 한국어 검색 결과는 영어보다 품질 편차 큼. 중요 데이터는 영어 키워드로 추가 검증.
-- Search Grounding은 reasoning latency를 늘림 (기본 대비 30-60% 증가).
-- 비용: 추가 reasoning 토큰 + Search API 호출. 비용 민감한 워크플로우에서는 사전 가격 확인.
+- 검색 사용은 응답 시간과 비용에 영향을 줄 수 있으므로 현재 서비스의 가격·사용량을 확인합니다.
 
 ## 완성 프롬프트 예
 
@@ -105,6 +96,6 @@ distinction.
 
 ## 출처
 
-- [Google AI for Developers — Gemini 3 Pro Image Preview (Grounding)](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview)
+- [Google AI for Developers — Gemini image generation](https://ai.google.dev/gemini-api/docs/image-generation)
 - [Vertex AI — Grounding with Google Search](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-pro-image)
 - [Google Cloud Blog — Nano Banana prompting guide](https://cloud.google.com/blog/products/ai-machine-learning/ultimate-prompting-guide-for-nano-banana)

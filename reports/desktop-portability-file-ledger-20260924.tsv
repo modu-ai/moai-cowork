@@ -1,0 +1,1078 @@
+path	flags	content_review
+plugins/_shared/mcp-launch/mcp_launch.py	platform_path	partial
+plugins/_shared/mcp-launch/test_mcp_launch.py		partial
+plugins/_shared/moai-mcp-core/README.md		partial
+plugins/_shared/moai-mcp-core/moai_mcp_core/__init__.py		partial
+plugins/_shared/moai-mcp-core/moai_mcp_core/auth.py		partial
+plugins/_shared/moai-mcp-core/moai_mcp_core/cache.py		partial
+plugins/_shared/moai-mcp-core/moai_mcp_core/credentials.py		partial
+plugins/_shared/moai-mcp-core/moai_mcp_core/errors.py		partial
+plugins/_shared/moai-mcp-core/moai_mcp_core/http.py		partial
+plugins/_shared/moai-mcp-core/moai_mcp_core/tokenstore.py	platform_path	partial
+plugins/_shared/moai-mcp-core/pyproject.toml		partial
+plugins/_shared/moai-mcp-core/tests/test_auth.py		partial
+plugins/_shared/moai-mcp-core/tests/test_cache_errors.py		partial
+plugins/_shared/moai-mcp-core/tests/test_credentials.py		partial
+plugins/_shared/moai-mcp-core/tests/test_http.py		partial
+plugins/_shared/moai-mcp-core/tests/test_tokenstore.py		partial
+plugins/_shared/moai-mcp-core/uv.lock		partial
+plugins/moai-accountant/.claude-plugin/plugin.json		partial
+plugins/moai-accountant/.codex-plugin/plugin.json		partial
+plugins/moai-accountant/.mcp.json		partial
+plugins/moai-accountant/README.md		partial
+plugins/moai-accountant/agents/close-auditor.md	claude_only_tool	partial
+plugins/moai-accountant/agents/finance-analyst.md		partial
+plugins/moai-accountant/mcp-launch/mcp_launch.py	platform_path	partial
+plugins/moai-accountant/skills/finance-audit/SKILL.md		partial
+plugins/moai-accountant/skills/finance-close-management/SKILL.md		partial
+plugins/moai-accountant/skills/finance-close-management/references/edi-tax-invoice.md		partial
+plugins/moai-accountant/skills/finance-econ-literacy/SKILL.md		partial
+plugins/moai-accountant/skills/finance-financial-statements/SKILL.md		partial
+plugins/moai-accountant/skills/finance-financial-statements/references/invoice-mgmt.md		partial
+plugins/moai-accountant/skills/finance-household-budget/SKILL.md		partial
+plugins/moai-accountant/skills/finance-insurance-fit/SKILL.md		partial
+plugins/moai-accountant/skills/finance-invest-primer/SKILL.md		partial
+plugins/moai-accountant/skills/finance-investor-relations/SKILL.md		partial
+plugins/moai-accountant/skills/finance-investor-relations/references/financial-modeler.md		partial
+plugins/moai-accountant/skills/finance-investor-relations/references/investor-report.md		partial
+plugins/moai-accountant/skills/finance-personal-tax-saver/SKILL.md		partial
+plugins/moai-accountant/skills/finance-tax-helper/SKILL.md		partial
+plugins/moai-accountant/skills/finance-tax-helper/references/2026-rates.md		partial
+plugins/moai-accountant/skills/finance-tax-helper/references/kr-payroll-basics.md		partial
+plugins/moai-accountant/skills/finance-tax-helper/references/tax/guide.md		partial
+plugins/moai-accountant/skills/finance-variance-analysis/SKILL.md		partial
+plugins/moai-accountant/skills/finance-wealth-roadmap/SKILL.md		partial
+plugins/moai-accountant/skills/finance-workflow/SKILL.md		partial
+plugins/moai-analyst/.claude-plugin/plugin.json		partial
+plugins/moai-analyst/.codex-plugin/plugin.json		partial
+plugins/moai-analyst/.mcp.json		partial
+plugins/moai-analyst/README.md		partial
+plugins/moai-analyst/agents/data-analyst.md	claude_only_tool	partial
+plugins/moai-analyst/agents/data-provenance-auditor.md	claude_only_tool	partial
+plugins/moai-analyst/mcp-launch/mcp_launch.py	platform_path	partial
+plugins/moai-analyst/skills/data-building-ledger/SKILL.md		partial
+plugins/moai-analyst/skills/data-court-auction/SKILL.md		partial
+plugins/moai-analyst/skills/data-explorer/SKILL.md	claude_only_tool	partial
+plugins/moai-analyst/skills/data-explorer/references/data-explorer/guide.md		partial
+plugins/moai-analyst/skills/data-provenance-audit/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-analyst/skills/data-public/SKILL.md	claude_only_tool	partial
+plugins/moai-analyst/skills/data-public/references/public-data/guide.md		partial
+plugins/moai-analyst/skills/data-realestate/SKILL.md		partial
+plugins/moai-analyst/skills/data-stock/SKILL.md		partial
+plugins/moai-analyst/skills/data-visualizer/SKILL.md	claude_only_tool	partial
+plugins/moai-analyst/skills/data-visualizer/references/data-visualizer/guide.md		partial
+plugins/moai-analyst/skills/data-workflow/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-career/.claude-plugin/plugin.json		partial
+plugins/moai-career/.codex-plugin/plugin.json		partial
+plugins/moai-career/README.md		partial
+plugins/moai-career/agents/career-coach.md	claude_only_tool	partial
+plugins/moai-career/agents/resume-auditor.md	claude_only_tool	partial
+plugins/moai-career/skills/career-claim-audit/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-career/skills/career-interview/SKILL.md		partial
+plugins/moai-career/skills/career-interview/references/common-questions.md		partial
+plugins/moai-career/skills/career-interview/references/interview-types.md		partial
+plugins/moai-career/skills/career-junior-onboarding/SKILL.md		partial
+plugins/moai-career/skills/career-portfolio/SKILL.md		partial
+plugins/moai-career/skills/career-portfolio/references/portfolio-by-field.md		partial
+plugins/moai-career/skills/career-resume/SKILL.md		partial
+plugins/moai-career/skills/career-resume/references/cover-letter-guide.md		partial
+plugins/moai-career/skills/career-resume/references/korean-resume.md		partial
+plugins/moai-career/skills/career-transition/SKILL.md		partial
+plugins/moai-career/skills/career-transition/references/kr-resignation-benefits.md		partial
+plugins/moai-career/skills/career-workflow/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-consultant/.claude-plugin/plugin.json		partial
+plugins/moai-consultant/.codex-plugin/plugin.json		partial
+plugins/moai-consultant/README.md		partial
+plugins/moai-consultant/agents/feasibility-auditor.md	claude_only_tool	partial
+plugins/moai-consultant/agents/strategy-consultant.md	claude_only_tool	partial
+plugins/moai-consultant/skills/consult-brief/SKILL.md		partial
+plugins/moai-consultant/skills/consult-brief/tests/test-cases.yaml		partial
+plugins/moai-consultant/skills/consult-feasibility-audit/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-consultant/skills/consult-gov-grant/SKILL.md		partial
+plugins/moai-consultant/skills/consult-gov-grant/references/grant-writer.md		partial
+plugins/moai-consultant/skills/consult-gov-grant/references/programs.md		partial
+plugins/moai-consultant/skills/consult-market/SKILL.md		partial
+plugins/moai-consultant/skills/consult-market/references/competitive-analysis.md		partial
+plugins/moai-consultant/skills/consult-market/references/market-research.md		partial
+plugins/moai-consultant/skills/consult-market/references/market-researcher.md		partial
+plugins/moai-consultant/skills/consult-market/references/pricing-strategy.md		partial
+plugins/moai-consultant/skills/consult-sbiz365/SKILL.md		partial
+plugins/moai-consultant/skills/consult-sbiz365/references/analysis-guide.md		partial
+plugins/moai-consultant/skills/consult-sbiz365/references/data-fields.md		partial
+plugins/moai-consultant/skills/consult-sbiz365/references/feasibility-scoring.md		partial
+plugins/moai-consultant/skills/consult-sbiz365/references/report-template.md		partial
+plugins/moai-consultant/skills/consult-startup/SKILL.md		partial
+plugins/moai-consultant/skills/consult-startup/tests/test-cases.yaml		partial
+plugins/moai-consultant/skills/consult-strategy/SKILL.md		partial
+plugins/moai-consultant/skills/consult-strategy/references/business-model-canvas.md		partial
+plugins/moai-consultant/skills/consult-strategy/references/market-entry-strategy.md		partial
+plugins/moai-consultant/skills/consult-strategy/references/nonprofit-management.md		partial
+plugins/moai-consultant/skills/consult-strategy/references/scenario-planner.md		partial
+plugins/moai-consultant/skills/consult-strategy/references/startup-launcher.md		partial
+plugins/moai-consultant/skills/consult-strategy/references/strategy-framework.md		partial
+plugins/moai-consultant/skills/consult-workflow/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-coworker/.claude-plugin/plugin.json		partial
+plugins/moai-coworker/.codex-plugin/plugin.json		partial
+plugins/moai-coworker/.mcp.json		partial
+plugins/moai-coworker/CHANGELOG.md	cli_install	partial
+plugins/moai-coworker/README.md		partial
+plugins/moai-coworker/mcp-launch/mcp_launch.py	platform_path	partial
+plugins/moai-coworker/skills/ai-diagnostic/SKILL.md		partial
+plugins/moai-coworker/skills/ai-diagnostic/tests/test-cases.yaml		partial
+plugins/moai-coworker/skills/ai-prompting-basics/SKILL.md		partial
+plugins/moai-coworker/skills/ai-slop-reviewer/SKILL.md		partial
+plugins/moai-coworker/skills/ai-slop-reviewer/references/kr-pii-masking.md		partial
+plugins/moai-coworker/skills/collab-brand-identity/SKILL.md		partial
+plugins/moai-coworker/skills/collab-brand-identity/references/brand-identity/archetype-framework.md		partial
+plugins/moai-coworker/skills/collab-brand-identity/references/brand-identity/brand-guide-template.md		partial
+plugins/moai-coworker/skills/collab-brand-identity/references/brand-identity/color-psychology.md		partial
+plugins/moai-coworker/skills/collab-brand-identity/references/brand-identity/naming-methodology.md		partial
+plugins/moai-coworker/skills/collab-conflict/SKILL.md		partial
+plugins/moai-coworker/skills/collab-exec-summary/SKILL.md		partial
+plugins/moai-coworker/skills/collab-exec-summary/tests/test-cases.yaml		partial
+plugins/moai-coworker/skills/collab-feedback-loop/SKILL.md		partial
+plugins/moai-coworker/skills/collab-meeting/SKILL.md		partial
+plugins/moai-coworker/skills/collab-negotiation/SKILL.md		partial
+plugins/moai-coworker/skills/collab-pm-report/SKILL.md		partial
+plugins/moai-coworker/skills/collab-pm-report/tests/test-cases.yaml		partial
+plugins/moai-coworker/skills/collab-process/SKILL.md		partial
+plugins/moai-coworker/skills/collab-process/references/meeting-strategist.md		partial
+plugins/moai-coworker/skills/collab-process/references/operations-manual.md		partial
+plugins/moai-coworker/skills/collab-process/references/procurement-docs.md		partial
+plugins/moai-coworker/skills/collab-process/references/sop-writer.md		partial
+plugins/moai-coworker/skills/collab-productivity-report/SKILL.md		partial
+plugins/moai-coworker/skills/collab-proposal/SKILL.md		partial
+plugins/moai-coworker/skills/collab-proposal/references/nara-jangteo.md		partial
+plugins/moai-coworker/skills/collab-proposal/tests/test-cases.yaml	claude_only_tool	partial
+plugins/moai-coworker/skills/collab-report-speak/SKILL.md		partial
+plugins/moai-coworker/skills/collab-report-speak/references/kr-honorific-tone.md		partial
+plugins/moai-coworker/skills/collab-roadmap/SKILL.md		partial
+plugins/moai-coworker/skills/collab-roadmap/references/diversity-inclusion.md		partial
+plugins/moai-coworker/skills/collab-roadmap/references/partnership-development.md		partial
+plugins/moai-coworker/skills/collab-roadmap/references/project-tracker.md		partial
+plugins/moai-coworker/skills/collab-roadmap/references/sustainability-audit.md		partial
+plugins/moai-coworker/skills/collab-sales-playbook/SKILL.md		partial
+plugins/moai-coworker/skills/collab-sales-playbook/tests/test-cases.yaml		partial
+plugins/moai-coworker/skills/collab-spec/SKILL.md		partial
+plugins/moai-coworker/skills/collab-spec/references/ai-strategy.md		partial
+plugins/moai-coworker/skills/collab-spec/references/product-manager.md		partial
+plugins/moai-coworker/skills/collab-status-report/SKILL.md		partial
+plugins/moai-coworker/skills/collab-status-report/references/kpi-dashboard.md		partial
+plugins/moai-coworker/skills/collab-status-report/references/reporting-standards.md		partial
+plugins/moai-coworker/skills/collab-ux-design/SKILL.md		partial
+plugins/moai-coworker/skills/collab-ux-design/tests/test-cases.yaml		partial
+plugins/moai-coworker/skills/collab-ux-research/SKILL.md		partial
+plugins/moai-coworker/skills/collab-ux-research/references/user-feedback-analysis.md		partial
+plugins/moai-coworker/skills/collab-ux-research/references/ux-research.md		partial
+plugins/moai-coworker/skills/collab-vendor/SKILL.md		partial
+plugins/moai-coworker/skills/collab-vendor/references/contract-management.md		partial
+plugins/moai-coworker/skills/collab-vendor/references/import-export.md		partial
+plugins/moai-coworker/skills/collab-vendor/references/risk-register.md		partial
+plugins/moai-coworker/skills/collab-vendor/references/supply-chain.md		partial
+plugins/moai-coworker/skills/meta-feedback/SKILL.md	claude_only_tool	partial
+plugins/moai-coworker/skills/meta-skill-builder/SKILL.md	claude_only_tool	partial
+plugins/moai-coworker/skills/meta-skill-template/SKILL.md	claude_only_tool	partial
+plugins/moai-coworker/skills/meta-skill-tester/SKILL.md	claude_only_tool	partial
+plugins/moai-coworker/skills/personal-event/SKILL.md		partial
+plugins/moai-coworker/skills/personal-event/references/event-organizer.md		partial
+plugins/moai-coworker/skills/personal-event/references/wedding-planner.md		partial
+plugins/moai-coworker/skills/personal-self-care/SKILL.md		partial
+plugins/moai-coworker/skills/personal-travel/SKILL.md		partial
+plugins/moai-coworker/skills/personal-travel/references/travel-planner.md		partial
+plugins/moai-coworker/skills/personal-wellness/SKILL.md		partial
+plugins/moai-coworker/skills/personal-wellness/references/elderly-care-planning.md		partial
+plugins/moai-coworker/skills/personal-wellness/references/fitness-program.md		partial
+plugins/moai-coworker/skills/personal-wellness/references/meal-planner.md		partial
+plugins/moai-coworker/skills/personal-wellness/references/parenting-guide.md		partial
+plugins/moai-coworker/skills/productivity-goal/SKILL.md		partial
+plugins/moai-coworker/skills/productivity-habit/SKILL.md		partial
+plugins/moai-coworker/skills/productivity-retro/SKILL.md		partial
+plugins/moai-cs/.claude-plugin/plugin.json		partial
+plugins/moai-cs/.codex-plugin/plugin.json		partial
+plugins/moai-cs/README.md		partial
+plugins/moai-cs/agents/cs-responder.md	claude_only_tool	partial
+plugins/moai-cs/agents/voc-auditor.md	claude_only_tool	partial
+plugins/moai-cs/skills/cs-channel-message/SKILL.md		partial
+plugins/moai-cs/skills/cs-channel-message/references/ad-copy.md		partial
+plugins/moai-cs/skills/cs-channel-message/references/email-sequence.md		partial
+plugins/moai-cs/skills/cs-channel-message/references/push-copy.md		partial
+plugins/moai-cs/skills/cs-channel-message/references/push-planning.md		partial
+plugins/moai-cs/skills/cs-channel-message/references/talk-copy.md		partial
+plugins/moai-cs/skills/cs-draft-response/SKILL.md		partial
+plugins/moai-cs/skills/cs-draft-response/references/kr-ecommerce-cs-law.md		partial
+plugins/moai-cs/skills/cs-draft-response/references/response-templates.md		partial
+plugins/moai-cs/skills/cs-draft-response/references/tone-guide.md		partial
+plugins/moai-cs/skills/cs-escalation/SKILL.md		partial
+plugins/moai-cs/skills/cs-escalation/references/feedback-analyzer.md		partial
+plugins/moai-cs/skills/cs-kb-article/SKILL.md		partial
+plugins/moai-cs/skills/cs-kb-article/references/writing-standards.md		partial
+plugins/moai-cs/skills/cs-quality-audit/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-cs/skills/cs-ticket-triage/SKILL.md		partial
+plugins/moai-cs/skills/cs-ticket-triage/references/customer-support.md		partial
+plugins/moai-cs/skills/cs-voc-triage/SKILL.md		partial
+plugins/moai-cs/skills/cs-workflow/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-designer/.claude-plugin/plugin.json		partial
+plugins/moai-designer/.codex-plugin/plugin.json		partial
+plugins/moai-designer/.mcp.json		partial
+plugins/moai-designer/README.md		partial
+plugins/moai-designer/config/design.yaml		partial
+plugins/moai-designer/rules/moai/design/constitution.md	claude_only_tool	partial
+plugins/moai-designer/skills/design-brand-system/SKILL.md		partial
+plugins/moai-designer/skills/design-brand-visual/SKILL.md		partial
+plugins/moai-designer/skills/design-brief/SKILL.md	claude_only_tool	partial
+plugins/moai-designer/skills/design-copywriting/SKILL.md		partial
+plugins/moai-designer/skills/design-gui-guide/SKILL.md		partial
+plugins/moai-designer/skills/design-handoff-reader/SKILL.md		partial
+plugins/moai-designer/skills/design-handoff/SKILL.md	claude_only_tool	partial
+plugins/moai-designer/skills/design-handoff/references/prompt-template.md		partial
+plugins/moai-designer/skills/design-handoff/references/supporting-files.md		partial
+plugins/moai-designer/skills/design-iteration-loop/SKILL.md	claude_only_tool	partial
+plugins/moai-designer/skills/design-landing-motion/SKILL.md		partial
+plugins/moai-designer/skills/design-landing-motion/references/asset-kit.md		partial
+plugins/moai-designer/skills/design-landing-motion/references/effects-catalog.md		partial
+plugins/moai-designer/skills/design-landing-motion/references/motion-craft.md		partial
+plugins/moai-designer/skills/design-landing-motion/references/quality-gate.md		partial
+plugins/moai-designer/skills/design-landing-motion/references/threejs-patterns.md		partial
+plugins/moai-designer/skills/design-logo/SKILL.md		partial
+plugins/moai-designer/skills/design-logo/references/logo-craft.md		partial
+plugins/moai-designer/skills/design-logo/references/logo-principles.md		partial
+plugins/moai-designer/skills/design-logo/references/logo-types.md		partial
+plugins/moai-designer/skills/design-prompt-builder/SKILL.md	claude_only_tool	partial
+plugins/moai-designer/skills/design-slop-check/SKILL.md	claude_only_tool	partial
+plugins/moai-designer/skills/design-sync-upload/SKILL.md	claude_only_tool	partial
+plugins/moai-designer/skills/design-system-library/BRAND-NOTICE.md		partial
+plugins/moai-designer/skills/design-system-library/SKILL.md		partial
+plugins/moai-designer/skills/design-system-library/components/README.md		partial
+plugins/moai-designer/skills/design-system-library/components/alert.md		partial
+plugins/moai-designer/skills/design-system-library/components/badge.md		partial
+plugins/moai-designer/skills/design-system-library/components/button.md		partial
+plugins/moai-designer/skills/design-system-library/components/card.md		partial
+plugins/moai-designer/skills/design-system-library/components/table.md		partial
+plugins/moai-designer/skills/design-system-library/components/tabs.md		partial
+plugins/moai-designer/skills/design-system-library/mapping/tailwind.md		partial
+plugins/moai-designer/skills/design-system-library/references/korean-design-systems.md		partial
+plugins/moai-designer/skills/design-system-library/samples/status-claude.html		partial
+plugins/moai-designer/skills/design-system-library/samples/status-clay.html		partial
+plugins/moai-designer/skills/design-system-library/samples/status-clickhouse.html		partial
+plugins/moai-designer/skills/design-system-library/systems/airbnb.md		partial
+plugins/moai-designer/skills/design-system-library/systems/airtable.md		partial
+plugins/moai-designer/skills/design-system-library/systems/anthropic-claude.md		partial
+plugins/moai-designer/skills/design-system-library/systems/apple.md		partial
+plugins/moai-designer/skills/design-system-library/systems/binance.md		partial
+plugins/moai-designer/skills/design-system-library/systems/bmw-m.md		partial
+plugins/moai-designer/skills/design-system-library/systems/bmw.md		partial
+plugins/moai-designer/skills/design-system-library/systems/bugatti.md		partial
+plugins/moai-designer/skills/design-system-library/systems/cal.md		partial
+plugins/moai-designer/skills/design-system-library/systems/clay.md		partial
+plugins/moai-designer/skills/design-system-library/systems/clickhouse.md		partial
+plugins/moai-designer/skills/design-system-library/systems/cohere.md		partial
+plugins/moai-designer/skills/design-system-library/systems/coinbase.md		partial
+plugins/moai-designer/skills/design-system-library/systems/composio.md		partial
+plugins/moai-designer/skills/design-system-library/systems/cursor.md		partial
+plugins/moai-designer/skills/design-system-library/systems/dell-1996.md		partial
+plugins/moai-designer/skills/design-system-library/systems/discord.md		partial
+plugins/moai-designer/skills/design-system-library/systems/elevenlabs.md		partial
+plugins/moai-designer/skills/design-system-library/systems/expo.md		partial
+plugins/moai-designer/skills/design-system-library/systems/ferrari.md		partial
+plugins/moai-designer/skills/design-system-library/systems/figma.md		partial
+plugins/moai-designer/skills/design-system-library/systems/framer.md		partial
+plugins/moai-designer/skills/design-system-library/systems/hashicorp.md		partial
+plugins/moai-designer/skills/design-system-library/systems/hp.md		partial
+plugins/moai-designer/skills/design-system-library/systems/ibm.md		partial
+plugins/moai-designer/skills/design-system-library/systems/intercom.md		partial
+plugins/moai-designer/skills/design-system-library/systems/keynote-editorial-dark.md		partial
+plugins/moai-designer/skills/design-system-library/systems/kraken.md		partial
+plugins/moai-designer/skills/design-system-library/systems/lamborghini.md		partial
+plugins/moai-designer/skills/design-system-library/systems/linear.app.md		partial
+plugins/moai-designer/skills/design-system-library/systems/lovable.md		partial
+plugins/moai-designer/skills/design-system-library/systems/mastercard.md		partial
+plugins/moai-designer/skills/design-system-library/systems/meta.md		partial
+plugins/moai-designer/skills/design-system-library/systems/minimax.md		partial
+plugins/moai-designer/skills/design-system-library/systems/mintlify.md		partial
+plugins/moai-designer/skills/design-system-library/systems/miro.md		partial
+plugins/moai-designer/skills/design-system-library/systems/mistral.ai.md		partial
+plugins/moai-designer/skills/design-system-library/systems/mongodb.md		partial
+plugins/moai-designer/skills/design-system-library/systems/nike.md		partial
+plugins/moai-designer/skills/design-system-library/systems/nintendo-2001.md		partial
+plugins/moai-designer/skills/design-system-library/systems/notion.md		partial
+plugins/moai-designer/skills/design-system-library/systems/nvidia.md		partial
+plugins/moai-designer/skills/design-system-library/systems/ollama.md		partial
+plugins/moai-designer/skills/design-system-library/systems/opencode.ai.md		partial
+plugins/moai-designer/skills/design-system-library/systems/pinterest.md		partial
+plugins/moai-designer/skills/design-system-library/systems/playstation.md		partial
+plugins/moai-designer/skills/design-system-library/systems/posthog.md		partial
+plugins/moai-designer/skills/design-system-library/systems/raycast.md		partial
+plugins/moai-designer/skills/design-system-library/systems/registry.md		partial
+plugins/moai-designer/skills/design-system-library/systems/renault.md		partial
+plugins/moai-designer/skills/design-system-library/systems/replicate.md		partial
+plugins/moai-designer/skills/design-system-library/systems/resend.md		partial
+plugins/moai-designer/skills/design-system-library/systems/revolut.md		partial
+plugins/moai-designer/skills/design-system-library/systems/runwayml.md		partial
+plugins/moai-designer/skills/design-system-library/systems/sanity.md		partial
+plugins/moai-designer/skills/design-system-library/systems/sentry.md		partial
+plugins/moai-designer/skills/design-system-library/systems/shopify.md		partial
+plugins/moai-designer/skills/design-system-library/systems/slack.md		partial
+plugins/moai-designer/skills/design-system-library/systems/spacex.md		partial
+plugins/moai-designer/skills/design-system-library/systems/spotify.md		partial
+plugins/moai-designer/skills/design-system-library/systems/starbucks.md		partial
+plugins/moai-designer/skills/design-system-library/systems/stripe.md		partial
+plugins/moai-designer/skills/design-system-library/systems/supabase.md		partial
+plugins/moai-designer/skills/design-system-library/systems/superhuman.md		partial
+plugins/moai-designer/skills/design-system-library/systems/tesla.md		partial
+plugins/moai-designer/skills/design-system-library/systems/theverge.md		partial
+plugins/moai-designer/skills/design-system-library/systems/together.ai.md		partial
+plugins/moai-designer/skills/design-system-library/systems/uber.md		partial
+plugins/moai-designer/skills/design-system-library/systems/vercel.md		partial
+plugins/moai-designer/skills/design-system-library/systems/vodafone.md		partial
+plugins/moai-designer/skills/design-system-library/systems/voltagent.md		partial
+plugins/moai-designer/skills/design-system-library/systems/warp.md		partial
+plugins/moai-designer/skills/design-system-library/systems/webflow.md		partial
+plugins/moai-designer/skills/design-system-library/systems/wired.md		partial
+plugins/moai-designer/skills/design-system-library/systems/wise.md		partial
+plugins/moai-designer/skills/design-system-library/systems/x.ai.md		partial
+plugins/moai-designer/skills/design-system-library/systems/zapier.md		partial
+plugins/moai-designer/skills/design-system-prep/SKILL.md	claude_only_tool	partial
+plugins/moai-designer/skills/design-tokens-transformer/SKILL.md		partial
+plugins/moai-designer/skills/design-workflow/SKILL.md	claude_only_tool	partial
+plugins/moai-lawyer/.claude-plugin/plugin.json		partial
+plugins/moai-lawyer/.codex-plugin/plugin.json		partial
+plugins/moai-lawyer/.mcp.json		partial
+plugins/moai-lawyer/README.md		partial
+plugins/moai-lawyer/agents/legal-researcher.md	claude_only_tool	partial
+plugins/moai-lawyer/agents/risk-auditor.md	claude_only_tool	partial
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/.gitignore		partial
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/CONNECTORS.md		partial
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/README.md		partial
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/pyproject.toml		partial
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_core/__init__.py		partial
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_core/auth.py		partial
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_core/cache.py		partial
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_core/credentials.py		partial
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_core/errors.py		partial
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_core/http.py		partial
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_core/tokenstore.py	platform_path	partial
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/__init__.py		partial
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/access.py		partial
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/epo.py		partial
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/jpo.py		partial
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/kipris.py		partial
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/redact.py		partial
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/server.py		partial
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/uspto.py		partial
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/xmlutil.py		partial
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/tests/test_server.py		partial
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/uv.lock		partial
+plugins/moai-lawyer/skills/legal-compliance-check/SKILL.md		partial
+plugins/moai-lawyer/skills/legal-compliance-check/references/2026-law-changes.md		partial
+plugins/moai-lawyer/skills/legal-compliance-check/references/audit-report.md		partial
+plugins/moai-lawyer/skills/legal-compliance-check/references/compliance-checker.md		partial
+plugins/moai-lawyer/skills/legal-compliance-check/references/esg-reporting.md		partial
+plugins/moai-lawyer/skills/legal-compliance-check/references/ftc-standard-terms.md		partial
+plugins/moai-lawyer/skills/legal-compliance-check/references/regulatory-filing.md		partial
+plugins/moai-lawyer/skills/legal-contract-review/SKILL.md		partial
+plugins/moai-lawyer/skills/legal-contract-review/references/contract/guide.md		partial
+plugins/moai-lawyer/skills/legal-contract-review/references/service-legal-docs.md		partial
+plugins/moai-lawyer/skills/legal-evidence-audit/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-lawyer/skills/legal-ip-search-report/SKILL.md	claude_only_tool	partial
+plugins/moai-lawyer/skills/legal-ip-search-report/references/api-access.md		partial
+plugins/moai-lawyer/skills/legal-ip-search-report/references/patent-workflow.md		partial
+plugins/moai-lawyer/skills/legal-ip-search-report/references/report-schema.md		partial
+plugins/moai-lawyer/skills/legal-ip-search-report/references/trademark-workflow.md		partial
+plugins/moai-lawyer/skills/legal-iros-registry-automation/SKILL.md		partial
+plugins/moai-lawyer/skills/legal-law-research/SKILL.md		partial
+plugins/moai-lawyer/skills/legal-legal-risk/SKILL.md		partial
+plugins/moai-lawyer/skills/legal-legal-risk/references/ip-portfolio.md		partial
+plugins/moai-lawyer/skills/legal-legal-risk/references/legal-research.md		partial
+plugins/moai-lawyer/skills/legal-mfds-safety/SKILL.md		partial
+plugins/moai-lawyer/skills/legal-nda-triage/SKILL.md		partial
+plugins/moai-lawyer/skills/legal-patent-analyzer/SKILL.md	claude_only_tool	partial
+plugins/moai-lawyer/skills/legal-patent-analyzer/references/patent-analyzer/guide.md		partial
+plugins/moai-lawyer/skills/legal-patent-search/SKILL.md		partial
+plugins/moai-lawyer/skills/legal-patent-search/references/patent-search/guide.md		partial
+plugins/moai-lawyer/skills/legal-service-launch-checklist/SKILL.md		partial
+plugins/moai-lawyer/skills/legal-service-launch-checklist/references/ai-act-user-vs-provider.md		partial
+plugins/moai-lawyer/skills/legal-service-launch-checklist/references/launch-checklist-2026.md		partial
+plugins/moai-lawyer/skills/legal-service-launch-checklist/references/service-risk-matrix.md		partial
+plugins/moai-lawyer/skills/legal-workflow/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-marketer/.claude-plugin/plugin.json		partial
+plugins/moai-marketer/.codex-plugin/plugin.json		partial
+plugins/moai-marketer/.mcp.json		partial
+plugins/moai-marketer/README.md		partial
+plugins/moai-marketer/agents/campaign-strategist.md	claude_only_tool	partial
+plugins/moai-marketer/agents/performance-auditor.md	claude_only_tool	partial
+plugins/moai-marketer/skills/content-blog/SKILL.md		partial
+plugins/moai-marketer/skills/content-blog/references/brunch.md		partial
+plugins/moai-marketer/skills/content-blog/references/ghost.md		partial
+plugins/moai-marketer/skills/content-blog/references/naver-blog.md		partial
+plugins/moai-marketer/skills/content-blog/references/seo-geo.md		partial
+plugins/moai-marketer/skills/content-blog/references/tistory.md		partial
+plugins/moai-marketer/skills/content-blog/references/wordpress.md		partial
+plugins/moai-marketer/skills/content-card-news/SKILL.md	claude_only_tool	partial
+plugins/moai-marketer/skills/content-card-news/references/card-news/anti-ai-writing.md		partial
+plugins/moai-marketer/skills/content-card-news/references/card-news/design-guide.md		partial
+plugins/moai-marketer/skills/content-card-news/references/card-news/guide.md		partial
+plugins/moai-marketer/skills/content-card-news/references/card-news/magazine-sop.md		partial
+plugins/moai-marketer/skills/content-card-news/references/prompt-templates.md		partial
+plugins/moai-marketer/skills/content-copywriting/SKILL.md		partial
+plugins/moai-marketer/skills/content-copywriting/references/advertising-campaign.md		partial
+plugins/moai-marketer/skills/content-copywriting/references/ai-tell-ko-copy-spec.md		partial
+plugins/moai-marketer/skills/content-copywriting/references/copywriting.md		partial
+plugins/moai-marketer/skills/content-copywriting/references/visual-storytelling.md		partial
+plugins/moai-marketer/skills/content-editorial-calendar/SKILL.md		partial
+plugins/moai-marketer/skills/content-editorial-calendar/references/content-calendar.md		partial
+plugins/moai-marketer/skills/content-email-sequence/SKILL.md		partial
+plugins/moai-marketer/skills/content-newsletter/SKILL.md		partial
+plugins/moai-marketer/skills/content-newsletter/references/newsletter-engine.md		partial
+plugins/moai-marketer/skills/content-sns-content/SKILL.md		partial
+plugins/moai-marketer/skills/content-sns-content/references/brand-identity.md		partial
+plugins/moai-marketer/skills/content-sns-content/references/brand-voice-guide.md		partial
+plugins/moai-marketer/skills/content-sns-content/references/content-creator.md		partial
+plugins/moai-marketer/skills/content-sns-content/references/content-repurposer.md		partial
+plugins/moai-marketer/skills/content-sns-content/references/facebook.md		partial
+plugins/moai-marketer/skills/content-sns-content/references/instagram.md		partial
+plugins/moai-marketer/skills/content-sns-content/references/kakao.md		partial
+plugins/moai-marketer/skills/content-sns-content/references/linkedin.md		partial
+plugins/moai-marketer/skills/content-sns-content/references/personal-branding.md		partial
+plugins/moai-marketer/skills/content-sns-content/references/platform-specs.md		partial
+plugins/moai-marketer/skills/content-sns-content/references/sns-content/guide.md		partial
+plugins/moai-marketer/skills/content-sns-content/references/threads.md		partial
+plugins/moai-marketer/skills/content-sns-content/references/x-twitter.md		partial
+plugins/moai-marketer/skills/content-sns-content/references/youtube-shorts.md		partial
+plugins/moai-marketer/skills/marketing-campaign-planner/SKILL.md		partial
+plugins/moai-marketer/skills/marketing-campaign-planner/references/ab-testing.md		partial
+plugins/moai-marketer/skills/marketing-campaign-planner/references/crm-strategy.md		partial
+plugins/moai-marketer/skills/marketing-campaign-planner/references/customer-journey-map.md		partial
+plugins/moai-marketer/skills/marketing-campaign-planner/references/growth-hacking.md		partial
+plugins/moai-marketer/skills/marketing-campaign-planner/references/imagegen/guide.md		partial
+plugins/moai-marketer/skills/marketing-campaign-planner/references/influencer-strategy.md		partial
+plugins/moai-marketer/skills/marketing-campaign-planner/references/product-detail/guide.md		partial
+plugins/moai-marketer/skills/marketing-campaign-planner/references/sales-enablement.md		partial
+plugins/moai-marketer/skills/marketing-evidence-audit/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-marketer/skills/marketing-growth-experiment/SKILL.md		partial
+plugins/moai-marketer/skills/marketing-keyword-research/SKILL.md		partial
+plugins/moai-marketer/skills/marketing-landing-page-conversion-audit/SKILL.md		partial
+plugins/moai-marketer/skills/marketing-landing-page/SKILL.md		partial
+plugins/moai-marketer/skills/marketing-landing-page/references/landing-page/ab-testing-guide.md		partial
+plugins/moai-marketer/skills/marketing-landing-page/references/landing-page/brand-context-template.md		partial
+plugins/moai-marketer/skills/marketing-landing-page/references/landing-page/copywriting-rules.md		partial
+plugins/moai-marketer/skills/marketing-landing-page/references/landing-page/design-principles.md		partial
+plugins/moai-marketer/skills/marketing-landing-page/references/landing-page/evaluation-checklist.md		partial
+plugins/moai-marketer/skills/marketing-landing-page/references/landing-page/guide.md		partial
+plugins/moai-marketer/skills/marketing-landing-page/references/landing-page/shadcn-theme-interview.md		partial
+plugins/moai-marketer/skills/marketing-meta-ads-analyzer/SKILL.md		partial
+plugins/moai-marketer/skills/marketing-meta-ads-analyzer/references/A.md		partial
+plugins/moai-marketer/skills/marketing-meta-ads-analyzer/references/B.md		partial
+plugins/moai-marketer/skills/marketing-meta-ads-analyzer/references/C.md		partial
+plugins/moai-marketer/skills/marketing-meta-ads-analyzer/references/D.md		partial
+plugins/moai-marketer/skills/marketing-meta-ads-analyzer/references/E.md		partial
+plugins/moai-marketer/skills/marketing-meta-ads-analyzer/references/F.md		partial
+plugins/moai-marketer/skills/marketing-meta-ads-analyzer/references/G.md		partial
+plugins/moai-marketer/skills/marketing-meta-ads-analyzer/references/H.md		partial
+plugins/moai-marketer/skills/marketing-meta-ads-analyzer/references/I.md		partial
+plugins/moai-marketer/skills/marketing-meta-ads-analyzer/references/J.md		partial
+plugins/moai-marketer/skills/marketing-meta-ads-analyzer/references/K.md		partial
+plugins/moai-marketer/skills/marketing-meta-ads-manager/SKILL.md		partial
+plugins/moai-marketer/skills/marketing-performance-report/SKILL.md		partial
+plugins/moai-marketer/skills/marketing-personal-branding/SKILL.md		partial
+plugins/moai-marketer/skills/marketing-personal-branding/references/personal-branding/channel-guide.md		partial
+plugins/moai-marketer/skills/marketing-personal-branding/references/personal-branding/content-strategy.md		partial
+plugins/moai-marketer/skills/marketing-personal-branding/references/personal-branding/self-assessment-framework.md		partial
+plugins/moai-marketer/skills/marketing-pixel-audit/SKILL.md		partial
+plugins/moai-marketer/skills/marketing-retention/SKILL.md		partial
+plugins/moai-marketer/skills/marketing-seo-audit/SKILL.md		partial
+plugins/moai-marketer/skills/marketing-seo-audit/references/naver-place.md		partial
+plugins/moai-marketer/skills/marketing-target-script/SKILL.md		partial
+plugins/moai-marketer/skills/marketing-target-script/tests/test-cases.yaml		partial
+plugins/moai-marketer/skills/marketing-workflow/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-marketer/skills/marketing-youtube-podcast-planner/SKILL.md		partial
+plugins/moai-marketer/skills/marketing-youtube-podcast-planner/references/book-publishing.md		partial
+plugins/moai-marketer/skills/marketing-youtube-podcast-planner/references/podcast-studio.md		partial
+plugins/moai-marketer/skills/marketing-youtube-podcast-planner/references/youtube-production.md		partial
+plugins/moai-media/.claude-plugin/plugin.json		partial
+plugins/moai-media/.codex-plugin/plugin.json		partial
+plugins/moai-media/.mcp.json	platform_path	partial
+plugins/moai-media/README.md		partial
+plugins/moai-media/agents/media-brand-auditor.md	claude_only_tool	partial
+plugins/moai-media/agents/media-producer.md	claude_only_tool	partial
+plugins/moai-media/mcp-launch/mcp_launch.py	platform_path	partial
+plugins/moai-media/skills/media-asset-production/SKILL.md		partial
+plugins/moai-media/skills/media-audio-gen/SKILL.md	claude_only_tool	partial
+plugins/moai-media/skills/media-brand-audit/SKILL.md		partial
+plugins/moai-media/skills/media-codex-image/SKILL.md	codex_exec	partial
+plugins/moai-media/skills/media-gemini-3-image-prompt/SKILL.md	claude_only_tool	partial
+plugins/moai-media/skills/media-gemini-3-image-prompt/references/parameter-cheatsheet.md		partial
+plugins/moai-media/skills/media-gemini-3-image-prompt/references/prompt-blocks.md		partial
+plugins/moai-media/skills/media-gemini-3-image-prompt/references/reference-images.md		partial
+plugins/moai-media/skills/media-gemini-3-image-prompt/references/search-grounding.md		partial
+plugins/moai-media/skills/media-gemini-3-image-prompt/tests/test-cases.yaml		partial
+plugins/moai-media/skills/media-gpt-image-prompt/SKILL.md		partial
+plugins/moai-media/skills/media-gpt-image-prompt/presets/illustration.md		partial
+plugins/moai-media/skills/media-gpt-image-prompt/presets/landscape.md		partial
+plugins/moai-media/skills/media-gpt-image-prompt/presets/portrait.md		partial
+plugins/moai-media/skills/media-gpt-image-prompt/presets/product-shot.md	claude_only_tool	partial
+plugins/moai-media/skills/media-gpt-image-prompt/references/editing-patterns.md		partial
+plugins/moai-media/skills/media-gpt-image-prompt/references/parameter-cheatsheet.md		partial
+plugins/moai-media/skills/media-gpt-image-prompt/references/prompting-fundamentals.md		partial
+plugins/moai-media/skills/media-gpt-image-prompt/references/text-rendering.md		partial
+plugins/moai-media/skills/media-gpt-image-prompt/references/workflow-recipes.md		partial
+plugins/moai-media/skills/media-gpt-image-prompt/tests/test-cases.yaml		partial
+plugins/moai-media/skills/media-higgsfield-assets/SKILL.md		partial
+plugins/moai-media/skills/media-higgsfield-assets/references/3d.md		partial
+plugins/moai-media/skills/media-higgsfield-assets/references/analysis.md		partial
+plugins/moai-media/skills/media-higgsfield-assets/references/audio.md		partial
+plugins/moai-media/skills/media-higgsfield-core/SKILL.md	claude_only_tool	partial
+plugins/moai-media/skills/media-higgsfield-core/references/call-schema.md		partial
+plugins/moai-media/skills/media-higgsfield-core/references/catalog-protocol.md		partial
+plugins/moai-media/skills/media-higgsfield-core/references/interview-schema.md	claude_only_tool	partial
+plugins/moai-media/skills/media-higgsfield-core/references/job-lifecycle.md		partial
+plugins/moai-media/skills/media-higgsfield-core/references/universal-rules.md	higgsfield_key	partial
+plugins/moai-media/skills/media-higgsfield-explainer/SKILL.md	claude_only_tool	partial
+plugins/moai-media/skills/media-higgsfield-explainer/references/prompts.md		partial
+plugins/moai-media/skills/media-higgsfield-identity/SKILL.md	claude_only_tool	partial
+plugins/moai-media/skills/media-higgsfield-identity/references/soul-vs-elements.md		partial
+plugins/moai-media/skills/media-higgsfield-identity/references/training-photo-guide.md		partial
+plugins/moai-media/skills/media-higgsfield-image/SKILL.md		partial
+plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/flux.md		partial
+plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/marketing-studio.md		partial
+plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/nano-banana.md		partial
+plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/openai.md		partial
+plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/recraft.md		partial
+plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/seedream.md		partial
+plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/soul.md		partial
+plugins/moai-media/skills/media-higgsfield-product/SKILL.md		partial
+plugins/moai-media/skills/media-higgsfield-product/references/interview.md	claude_only_tool	partial
+plugins/moai-media/skills/media-higgsfield-product/references/modes.md		partial
+plugins/moai-media/skills/media-higgsfield-video/SKILL.md		partial
+plugins/moai-media/skills/media-higgsfield-video/references/dop-motions.md		partial
+plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/cinema-studio.md	higgsfield_key	partial
+plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/gemini-omni.md		partial
+plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/grok.md		partial
+plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/kling.md		partial
+plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/marketing-studio.md		partial
+plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/seedance.md		partial
+plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/veo.md		partial
+plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/wan.md		partial
+plugins/moai-media/skills/media-midjourney-v8-prompt/SKILL.md	claude_only_tool	partial
+plugins/moai-media/skills/media-midjourney-v8-prompt/references/cost-traps.md		partial
+plugins/moai-media/skills/media-midjourney-v8-prompt/references/parameter-cheatsheet.md		partial
+plugins/moai-media/skills/media-midjourney-v8-prompt/references/prompt-blocks.md		partial
+plugins/moai-media/skills/media-midjourney-v8-prompt/references/style-references.md		partial
+plugins/moai-media/skills/media-midjourney-v8-prompt/tests/test-cases.yaml		partial
+plugins/moai-media/skills/media-notebooklm-slide-prompt/SKILL.md	claude_only_tool	partial
+plugins/moai-media/skills/media-notebooklm-slide-prompt/references/slide-style-library.md	claude_only_tool	partial
+plugins/moai-media/skills/media-production/SKILL.md		partial
+plugins/moai-officer/.claude-plugin/plugin.json		partial
+plugins/moai-officer/.codex-plugin/plugin.json		partial
+plugins/moai-officer/.mcp.json		partial
+plugins/moai-officer/README.md		partial
+plugins/moai-officer/agents/data-auditor.md	claude_only_tool	partial
+plugins/moai-officer/agents/doc-producer.md	claude_only_tool	partial
+plugins/moai-officer/skills/doc-data-audit/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-officer/skills/doc-design-library/SKILL.md		partial
+plugins/moai-officer/skills/doc-docx/SKILL.md		partial
+plugins/moai-officer/skills/doc-docx/references/document-generator.md		partial
+plugins/moai-officer/skills/doc-docx/references/modern-design-system.md		partial
+plugins/moai-officer/skills/doc-docx/references/modern-templates.md		partial
+plugins/moai-officer/skills/doc-docx/references/qa-checklist.md		partial
+plugins/moai-officer/skills/doc-docx/references/templates/korean-proposal.md		partial
+plugins/moai-officer/skills/doc-docx/references/templates/korean-report.md		partial
+plugins/moai-officer/skills/doc-html-report/SKILL.md		partial
+plugins/moai-officer/skills/doc-html-report/references/design-tokens.md		partial
+plugins/moai-officer/skills/doc-html-report/references/fonts.md		partial
+plugins/moai-officer/skills/doc-html-report/references/integration-tests/COMPATIBILITY.md		partial
+plugins/moai-officer/skills/doc-html-report/references/integration-tests/daily-briefing-input.md		partial
+plugins/moai-officer/skills/doc-html-report/references/integration-tests/daily-briefing-rendered.html		partial
+plugins/moai-officer/skills/doc-html-report/references/integration-tests/executive-summary-input.md		partial
+plugins/moai-officer/skills/doc-html-report/references/integration-tests/executive-summary-rendered.html		partial
+plugins/moai-officer/skills/doc-html-report/references/integration-tests/financial-statements-input.md		partial
+plugins/moai-officer/skills/doc-html-report/references/integration-tests/financial-statements-rendered.html		partial
+plugins/moai-officer/skills/doc-html-report/references/integration-tests/sbiz365-analyst-input.md		partial
+plugins/moai-officer/skills/doc-html-report/references/integration-tests/sbiz365-analyst-rendered.html		partial
+plugins/moai-officer/skills/doc-html-report/references/samples/explainer-sample.html		partial
+plugins/moai-officer/skills/doc-html-report/references/samples/financial-sample.html		partial
+plugins/moai-officer/skills/doc-html-report/references/samples/incident-sample.html		partial
+plugins/moai-officer/skills/doc-html-report/references/samples/plan-sample.html		partial
+plugins/moai-officer/skills/doc-html-report/references/samples/pr-sample.html		partial
+plugins/moai-officer/skills/doc-html-report/references/samples/status-sample.html		partial
+plugins/moai-officer/skills/doc-html-report/references/templates/explainer.html.tmpl		partial
+plugins/moai-officer/skills/doc-html-report/references/templates/financial.html.tmpl		partial
+plugins/moai-officer/skills/doc-html-report/references/templates/incident.html.tmpl		partial
+plugins/moai-officer/skills/doc-html-report/references/templates/plan.html.tmpl		partial
+plugins/moai-officer/skills/doc-html-report/references/templates/pr.html.tmpl		partial
+plugins/moai-officer/skills/doc-html-report/references/templates/status.html.tmpl		partial
+plugins/moai-officer/skills/doc-html-slide/SKILL.md	claude_only_tool	partial
+plugins/moai-officer/skills/doc-html-slide/references/deck-manuscript-schema.md		partial
+plugins/moai-officer/skills/doc-html-slide/references/deck-quality-rubric.md		partial
+plugins/moai-officer/skills/doc-html-slide/references/design-system-links.md		partial
+plugins/moai-officer/skills/doc-html-slide/references/editorial-deck-doctrine.md		partial
+plugins/moai-officer/skills/doc-html-slide/references/html-runtime.md		partial
+plugins/moai-officer/skills/doc-html-slide/references/image-backend-policy.md		partial
+plugins/moai-officer/skills/doc-html-slide/references/inline-svg-infographics.md		partial
+plugins/moai-officer/skills/doc-html-slide/references/pptx-chaining.md		partial
+plugins/moai-officer/skills/doc-html-slide/samples/deck-sample.html		partial
+plugins/moai-officer/skills/doc-html-slide/samples/deck-sample.json		partial
+plugins/moai-officer/skills/doc-hwp/SKILL.md	hwpx_documentation_review	partial
+plugins/moai-officer/skills/doc-hwp/references/format-converter.md	hwpx_documentation_review	partial
+plugins/moai-officer/skills/doc-hwp/references/guide.md	hwpx_documentation_review	partial
+plugins/moai-officer/skills/doc-hwp/references/kr-official-forms.md	hwpx_documentation_review	partial
+plugins/moai-officer/skills/doc-hwp/references/owpml-spec.md	hwpx_documentation_review	partial
+plugins/moai-officer/skills/doc-hwp/references/templates/base.md	hwpx_documentation_review	partial
+plugins/moai-officer/skills/doc-hwp/references/templates/gonmun.md	hwpx_documentation_review	partial
+plugins/moai-officer/skills/doc-hwp/references/templates/minutes.md	hwpx_documentation_review	partial
+plugins/moai-officer/skills/doc-hwp/references/templates/proposal.md	hwpx_documentation_review	partial
+plugins/moai-officer/skills/doc-hwp/references/templates/report.md	hwpx_documentation_review	partial
+plugins/moai-officer/skills/doc-notion-template/SKILL.md	officer_document_review	partial
+plugins/moai-officer/skills/doc-pdf/SKILL.md	officer_document_review	partial
+plugins/moai-officer/skills/doc-pdf/assets/fonts/LICENSE.txt	officer_document_review	partial
+plugins/moai-officer/skills/doc-pdf/assets/fonts/README.md	officer_document_review	partial
+plugins/moai-officer/skills/doc-pdf/tests/test-cases.yaml	officer_document_review	partial
+plugins/moai-officer/skills/doc-pptx/SKILL.md	claude_only_tool	partial
+plugins/moai-officer/skills/doc-pptx/references/curated-palettes.md	pptx_file_review	partial
+plugins/moai-officer/skills/doc-pptx/references/guide.md	pptx_file_review	partial
+plugins/moai-officer/skills/doc-pptx/references/pptxgen-code-patterns.md	pptx_file_review	partial
+plugins/moai-officer/skills/doc-pptx/references/qa-checklist.md	pptx_file_review	partial
+plugins/moai-officer/skills/doc-pptx/references/report-generator.md	pptx_file_review	partial
+plugins/moai-officer/skills/doc-pptx/references/slide-archetypes.md	pptx_file_review	partial
+plugins/moai-officer/skills/doc-pptx/references/templates/minimal-business.md	pptx_file_review	partial
+plugins/moai-officer/skills/doc-pptx/references/typography-pairings.md	pptx_file_review	partial
+plugins/moai-officer/skills/doc-reader/SKILL.md	officer_skill_review	partial
+plugins/moai-officer/skills/doc-workflow/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-officer/skills/doc-xlsx/SKILL.md	officer_skill_review	partial
+plugins/moai-officer/skills/productivity-briefing/SKILL.md	officer_skill_review	partial
+plugins/moai-officer/skills/productivity-time/SKILL.md	officer_skill_review	partial
+plugins/moai-officer/skills/setup-mcp-connector/SKILL.md	higgsfield_key	partial
+plugins/moai-pm/.claude-plugin/plugin.json		partial
+plugins/moai-pm/.codex-plugin/plugin.json		partial
+plugins/moai-pm/README.md		partial
+plugins/moai-pm/commands/project.md	claude_only_tool	partial
+plugins/moai-pm/skills/project/SKILL.md	claude_only_tool	partial
+plugins/moai-pm/skills/project/references/INDEX.md	claude_only_tool	partial
+plugins/moai-pm/skills/project/references/agentsmd-generator.md	claude_only_tool	partial
+plugins/moai-pm/skills/project/references/context-collector.md	claude_only_tool	partial
+plugins/moai-pm/skills/project/references/cowork-setup.md	claude_only_tool	partial
+plugins/moai-pm/skills/project/references/designer-setup.md		partial
+plugins/moai-pm/skills/project/references/diagnostic-protocol.md		partial
+plugins/moai-pm/skills/project/references/evaluation-protocol.md		partial
+plugins/moai-pm/skills/project/references/execution-protocol.md	claude_only_tool	partial
+plugins/moai-pm/skills/project/references/init-protocol.md	claude_only_tool	partial
+plugins/moai-pm/skills/project/references/quality-evaluator.md		partial
+plugins/moai-pm/skills/project/references/router.md	claude_only_tool	partial
+plugins/moai-pm/skills/project/references/templates/AGENTS.md.tmpl	claude_only_tool	partial
+plugins/moai-pm/skills/project/references/templates/CLAUDE.md.tmpl		partial
+plugins/moai-pm/skills/project/references/update-protocol.md	claude_only_tool	partial
+plugins/moai-recruiter/.claude-plugin/plugin.json		partial
+plugins/moai-recruiter/.codex-plugin/plugin.json		partial
+plugins/moai-recruiter/README.md		partial
+plugins/moai-recruiter/agents/recruiter.md	claude_only_tool	partial
+plugins/moai-recruiter/agents/screening-auditor.md	claude_only_tool	partial
+plugins/moai-recruiter/skills/hr-draft-offer/SKILL.md		partial
+plugins/moai-recruiter/skills/hr-employment/SKILL.md		partial
+plugins/moai-recruiter/skills/hr-employment/references/hiring-pipeline.md		partial
+plugins/moai-recruiter/skills/hr-employment/references/insurance-lifecycle.md		partial
+plugins/moai-recruiter/skills/hr-employment/references/korean-tone-reviewer.md		partial
+plugins/moai-recruiter/skills/hr-employment/references/onboarding-system.md		partial
+plugins/moai-recruiter/skills/hr-job-analysis/SKILL.md		partial
+plugins/moai-recruiter/skills/hr-job-analysis/references/jd-analysis-guide.md		partial
+plugins/moai-recruiter/skills/hr-operations/SKILL.md		partial
+plugins/moai-recruiter/skills/hr-operations/references/hybrid-work-policy.md		partial
+plugins/moai-recruiter/skills/hr-operations/references/kr-flexible-work-law.md		partial
+plugins/moai-recruiter/skills/hr-operations/references/remote-work-ops.md		partial
+plugins/moai-recruiter/skills/hr-operations/references/team-culture.md		partial
+plugins/moai-recruiter/skills/hr-performance-review/SKILL.md		partial
+plugins/moai-recruiter/skills/hr-performance-review/references/feedback-templates.md		partial
+plugins/moai-recruiter/skills/hr-performance-review/references/okr-guide.md		partial
+plugins/moai-recruiter/skills/hr-resume-screener/SKILL.md		partial
+plugins/moai-recruiter/skills/hr-resume-screener/tests/test-cases.yaml		partial
+plugins/moai-recruiter/skills/hr-screening-audit/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-recruiter/skills/hr-workflow/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-seller/.claude-plugin/plugin.json		partial
+plugins/moai-seller/.codex-plugin/plugin.json		partial
+plugins/moai-seller/.mcp.json		partial
+plugins/moai-seller/README.md		partial
+plugins/moai-seller/agents/listing-builder.md	claude_only_tool	partial
+plugins/moai-seller/agents/margin-auditor.md	claude_only_tool	partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/README.md		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/pyproject.toml		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/__init__.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/_app.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/_base.py	platform_path	partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/auth.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/client.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/registry.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/server.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/__init__.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/_dispatch.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/analytics_admin.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/analytics_data.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/application.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/category.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/collection.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/community.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/customer.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/design.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/mileage.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/notification.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/order.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/personal.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/privacy.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/product.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/promotion.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/salesreport.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/shipping.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/store.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/supply.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/translation.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_core/__init__.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_core/auth.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_core/cache.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_core/credentials.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_core/errors.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_core/http.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_core/tokenstore.py	platform_path	partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/tests/conftest.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/tests/test_auth.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/uv.lock		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/.gitignore		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/CONNECTORS.md		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/README.md		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/pyproject.toml		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_core/__init__.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_core/auth.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_core/cache.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_core/credentials.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_core/errors.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_core/http.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_core/tokenstore.py	platform_path	partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/__init__.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/__main__.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/_app.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/_base.py	platform_path	partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/auth.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/client.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/server.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/__init__.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/community.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/member_info.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/order.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/payment.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/product.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/promotion.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/script.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/site_info.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/tests/conftest.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/tests/test_auth.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/tests/test_client.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/tests/test_gen.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/tests/test_tools.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/tools/_generator.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/tools/openapi.json		partial
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/uv.lock		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/.env.example		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/.gitignore		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/CONNECTORS.md		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/NOTICE.md		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/README.md		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/pyproject.toml		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/scripts/check_auth.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_core/__init__.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_core/auth.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_core/cache.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_core/credentials.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_core/errors.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_core/http.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_core/tokenstore.py	platform_path	partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/__init__.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/__main__.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/auth.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/client.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/config.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/errors.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/server.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/__init__.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/_common.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/auth.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/inquiries.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/logistics.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/orders.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/seller.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/settlement.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/solutions.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/stats.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/tests/test_auth.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/tests/test_client.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/tests/test_server.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/tests/test_tools.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/uv.lock		partial
+plugins/moai-seller/skills/commerce-ad-claim-compliance-kr/SKILL.md		partial
+plugins/moai-seller/skills/commerce-automation-audit/SKILL.md		partial
+plugins/moai-seller/skills/commerce-coupang-ad-optimizer/SKILL.md	seller_skill_review	partial
+plugins/moai-seller/skills/commerce-detail-page-copy/SKILL.md	claude_only_tool	partial
+plugins/moai-seller/skills/commerce-detail-page-copy/references/13-sections.md		partial
+plugins/moai-seller/skills/commerce-detail-page-copy/references/category-briefs.md		partial
+plugins/moai-seller/skills/commerce-detail-page-copy/tests/test-cases.yaml		partial
+plugins/moai-seller/skills/commerce-detail-page-image/SKILL.md		partial
+plugins/moai-seller/skills/commerce-detail-page-image/references/image-prompts.md		partial
+plugins/moai-seller/skills/commerce-detail-page-image/references/sections-spec.md		partial
+plugins/moai-seller/skills/commerce-detail-page-image/tests/test-cases.yaml		partial
+plugins/moai-seller/skills/commerce-detail-page-planner/SKILL.md	claude_only_tool	partial
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-b2b-saas.md		partial
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-baby-kids.md		partial
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-beauty.md		partial
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-digital-content.md		partial
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-fashion.md		partial
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-food.md		partial
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-luxury.md		partial
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-pet.md		partial
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-sports-leisure.md		partial
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-subscription.md		partial
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-travel.md		partial
+plugins/moai-seller/skills/commerce-detail-page-planner/references/copy-patterns.md		partial
+plugins/moai-seller/skills/commerce-detail-page-planner/references/photo-checklist.md		partial
+plugins/moai-seller/skills/commerce-detail-page-planner/tests/test-cases.yaml	claude_only_tool	partial
+plugins/moai-seller/skills/commerce-early-fan-builder/SKILL.md	seller_skill_review	partial
+plugins/moai-seller/skills/commerce-influencer-collab/SKILL.md	seller_skill_review	partial
+plugins/moai-seller/skills/commerce-integrated-strategy/SKILL.md		partial
+plugins/moai-seller/skills/commerce-integrated-strategy/references/channel-mix.md		partial
+plugins/moai-seller/skills/commerce-integrated-strategy/references/ecommerce-launcher.md		partial
+plugins/moai-seller/skills/commerce-integrated-strategy/references/kpi.md		partial
+plugins/moai-seller/skills/commerce-integrated-strategy/references/pricing.md		partial
+plugins/moai-seller/skills/commerce-integrated-strategy/references/promotion.md		partial
+plugins/moai-seller/skills/commerce-integrated-strategy/references/retention.md		partial
+plugins/moai-seller/skills/commerce-jtbd-persona/SKILL.md		partial
+plugins/moai-seller/skills/commerce-live-commerce/SKILL.md		partial
+plugins/moai-seller/skills/commerce-live-commerce/references/coupang-live.md		partial
+plugins/moai-seller/skills/commerce-live-commerce/references/grip.md		partial
+plugins/moai-seller/skills/commerce-live-commerce/references/kakao-shoppinglive.md		partial
+plugins/moai-seller/skills/commerce-live-commerce/references/live-script.md		partial
+plugins/moai-seller/skills/commerce-live-commerce/references/naver-shoppinglive.md		partial
+plugins/moai-seller/skills/commerce-live-commerce/tests/test-cases.yaml		partial
+plugins/moai-seller/skills/commerce-ltv-cac-architect/SKILL.md	seller_finance_review	partial
+plugins/moai-seller/skills/commerce-margin-audit/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-seller/skills/commerce-margin-calculator/SKILL.md	seller_finance_review	partial
+plugins/moai-seller/skills/commerce-margin-calculator/references/end-roas.md	seller_finance_review	partial
+plugins/moai-seller/skills/commerce-market-research/SKILL.md		partial
+plugins/moai-seller/skills/commerce-marketplace-coupang-ads/SKILL.md		partial
+plugins/moai-seller/skills/commerce-marketplace-coupang/SKILL.md		partial
+plugins/moai-seller/skills/commerce-marketplace-coupang/references/coupang-guidelines.md		partial
+plugins/moai-seller/skills/commerce-marketplace-coupang/tests/test-cases.yaml		partial
+plugins/moai-seller/skills/commerce-marketplace-crowdfunding/SKILL.md		partial
+plugins/moai-seller/skills/commerce-marketplace-crowdfunding/references/tumblbug.md		partial
+plugins/moai-seller/skills/commerce-marketplace-crowdfunding/references/wadiz.md		partial
+plugins/moai-seller/skills/commerce-marketplace-crowdfunding/tests/test-cases.yaml		partial
+plugins/moai-seller/skills/commerce-marketplace-curation/SKILL.md		partial
+plugins/moai-seller/skills/commerce-marketplace-curation/references/29cm.md		partial
+plugins/moai-seller/skills/commerce-marketplace-curation/references/kakao-makers.md		partial
+plugins/moai-seller/skills/commerce-marketplace-curation/references/musinsa.md		partial
+plugins/moai-seller/skills/commerce-marketplace-curation/tests/test-cases.yaml		partial
+plugins/moai-seller/skills/commerce-marketplace-d2c/SKILL.md		partial
+plugins/moai-seller/skills/commerce-marketplace-d2c/references/cafe24.md		partial
+plugins/moai-seller/skills/commerce-marketplace-d2c/references/d2c-strategy.md		partial
+plugins/moai-seller/skills/commerce-marketplace-d2c/references/imweb.md		partial
+plugins/moai-seller/skills/commerce-marketplace-d2c/tests/test-cases.yaml		partial
+plugins/moai-seller/skills/commerce-marketplace-naver-ads/SKILL.md		partial
+plugins/moai-seller/skills/commerce-marketplace-naver/SKILL.md		partial
+plugins/moai-seller/skills/commerce-marketplace-naver/references/naver-smartstore.md		partial
+plugins/moai-seller/skills/commerce-marketplace-naver/references/openmarket-common.md		partial
+plugins/moai-seller/skills/commerce-marketplace-naver/tests/test-cases.yaml		partial
+plugins/moai-seller/skills/commerce-message-compliance-kr/SKILL.md		partial
+plugins/moai-seller/skills/commerce-morning-brief/SKILL.md	seller_skill_review	partial
+plugins/moai-seller/skills/commerce-product-detail/SKILL.md		partial
+plugins/moai-seller/skills/commerce-product-detail/references/product-detail/conversion-formulas.md		partial
+plugins/moai-seller/skills/commerce-product-detail/references/product-detail/platform-specs.md		partial
+plugins/moai-seller/skills/commerce-product-detail/references/product-detail/section-templates.md		partial
+plugins/moai-seller/skills/commerce-product-detail/references/product-detail/structure-guide.md		partial
+plugins/moai-seller/skills/commerce-product-image-pipeline/SKILL.md		partial
+plugins/moai-seller/skills/commerce-product-naming/SKILL.md		partial
+plugins/moai-seller/skills/commerce-product-photo-brief/SKILL.md		partial
+plugins/moai-seller/skills/commerce-product-photo-brief/references/photo-checklist.md		partial
+plugins/moai-seller/skills/commerce-product-photo-brief/tests/test-cases.yaml		partial
+plugins/moai-seller/skills/commerce-promotion-planner/SKILL.md		partial
+plugins/moai-seller/skills/commerce-repurchase-timer/SKILL.md	seller_skill_review	partial
+plugins/moai-seller/skills/commerce-season-calendar/SKILL.md	seller_skill_review	partial
+plugins/moai-seller/skills/commerce-subscription-strategist/SKILL.md	seller_skill_review	partial
+plugins/moai-seller/skills/commerce-workflow/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-story/.claude-plugin/plugin.json		partial
+plugins/moai-story/.codex-plugin/plugin.json		partial
+plugins/moai-story/.mcp.json		partial
+plugins/moai-story/README.md		partial
+plugins/moai-story/agents/story-continuity-auditor.md	claude_only_tool	partial
+plugins/moai-story/agents/story-director.md	claude_only_tool	partial
+plugins/moai-story/skills/story-ad-conti/SKILL.md		partial
+plugins/moai-story/skills/story-character-sheet/SKILL.md		partial
+plugins/moai-story/skills/story-character-sheet/references/neutral-base-rule.md		partial
+plugins/moai-story/skills/story-character-sheet/references/visual-sheet-tables.md		partial
+plugins/moai-story/skills/story-conti/SKILL.md		partial
+plugins/moai-story/skills/story-conti/references/ad-conti-preset.md		partial
+plugins/moai-story/skills/story-conti/references/shot-grammar.md		partial
+plugins/moai-story/skills/story-continuity-audit/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-story/skills/story-cover-art/SKILL.md		partial
+plugins/moai-story/skills/story-cover-art/references/cover-composition.md		partial
+plugins/moai-story/skills/story-ip-pitch/SKILL.md		partial
+plugins/moai-story/skills/story-ip-pitch/references/expansion-paths.md		partial
+plugins/moai-story/skills/story-ip-pitch/references/ip-contract-kr.md		partial
+plugins/moai-story/skills/story-previz/SKILL.md		partial
+plugins/moai-story/skills/story-previz/references/camera-move-grammar.md		partial
+plugins/moai-story/skills/story-project/SKILL.md		partial
+plugins/moai-story/skills/story-screenplay/SKILL.md		partial
+plugins/moai-story/skills/story-screenplay/references/kr-screenplay-format.md		partial
+plugins/moai-story/skills/story-screenplay/references/transition-vocabulary.md		partial
+plugins/moai-story/skills/story-series-bible/SKILL.md		partial
+plugins/moai-story/skills/story-series-bible/references/bible-template.md		partial
+plugins/moai-story/skills/story-series-bible/references/filename-convention.md		partial
+plugins/moai-story/skills/story-series-bible/references/recall-design.md		partial
+plugins/moai-story/skills/story-synopsis/SKILL.md		partial
+plugins/moai-story/skills/story-synopsis/references/kr-broadcast-format.md		partial
+plugins/moai-story/skills/story-synopsis/references/kr-submission.md		partial
+plugins/moai-story/skills/story-synopsis/references/logline-patterns.md		partial
+plugins/moai-story/skills/story-webnovel-planner/SKILL.md		partial
+plugins/moai-story/skills/story-webnovel-planner/references/serialization-contract.md		partial
+plugins/moai-story/skills/story-webnovel-planner/references/webnovel-platforms.md		partial
+plugins/moai-story/skills/story-webnovel-writer/SKILL.md		partial
+plugins/moai-story/skills/story-webnovel-writer/references/cliffhanger-grades.md		partial
+plugins/moai-story/skills/story-webnovel-writer/references/genre-craft.md		partial
+plugins/moai-story/skills/story-webtoon-art/SKILL.md		partial
+plugins/moai-story/skills/story-webtoon-art/references/context-budget.md		partial
+plugins/moai-story/skills/story-webtoon-art/references/reference-ordinal.md		partial
+plugins/moai-story/skills/story-webtoon-art/references/style-anchor.md		partial
+plugins/moai-story/skills/story-webtoon-episode/SKILL.md		partial
+plugins/moai-story/skills/story-webtoon-episode/references/cut-grammar.md		partial
+plugins/moai-story/skills/story-webtoon-episode/references/episode-template.md		partial
+plugins/moai-story/skills/story-webtoon-episode/references/hook-taxonomy.md		partial
+plugins/moai-story/skills/story-webtoon-episode/references/panel-direction.md		partial
+plugins/moai-story/skills/story-webtoon-lettering/SKILL.md		partial
+plugins/moai-story/skills/story-webtoon-lettering/references/balloon-dictionary.md		partial
+plugins/moai-story/skills/story-webtoon-lettering/references/dialogue-memo.md		partial
+plugins/moai-story/skills/story-webtoon-lettering/references/korean-lettering.md		partial
+plugins/moai-story/skills/story-webtoon-lettering/references/sfx-dictionary.md		partial
+plugins/moai-story/skills/story-webtoon-lettering/references/two-pass-overlay.md		partial
+plugins/moai-story/skills/story-webtoon-planner/SKILL.md		partial
+plugins/moai-story/skills/story-webtoon-planner/references/genre-presets.md		partial
+plugins/moai-story/skills/story-webtoon-qc/SKILL.md		partial
+plugins/moai-story/skills/story-webtoon-qc/references/defect-checklist.md		partial
+plugins/moai-story/skills/story-webtoon-qc/references/qc-method.md		partial
+plugins/moai-story/skills/story-webtoon-qc/references/rubric-bridge.md		partial
+plugins/moai-story/skills/story-webtoon-spec/SKILL.md		partial
+plugins/moai-story/skills/story-webtoon-spec/references/episode-volume.md		partial
+plugins/moai-story/skills/story-webtoon-spec/references/manuscript-specs.md		partial
+plugins/moai-story/skills/story-webtoon-spec/references/monetization-hooks.md		partial
+plugins/moai-story/skills/story-webtoon-spec/references/platform-debut-paths.md		partial
+plugins/moai-story/skills/story-webtoon-spec/references/thumbnail-cover-specs.md		partial
+plugins/moai-story/skills/story-webtoon-spec/references/webtoon-glossary.md		partial
+plugins/moai-threads-poster/.claude-plugin/plugin.json		partial
+plugins/moai-threads-poster/.codex-plugin/plugin.json		partial
+plugins/moai-threads-poster/.mcp.json		partial
+plugins/moai-threads-poster/.moai/reports/plan-audit/SPEC-THREADS-POSTER-INSTAGRAM-001-run-gate-2026-08-05.md		partial
+plugins/moai-threads-poster/.moai/specs/SPEC-THREADS-POSTER-INSTAGRAM-001/acceptance.md		partial
+plugins/moai-threads-poster/.moai/specs/SPEC-THREADS-POSTER-INSTAGRAM-001/plan.md	claude_only_tool	partial
+plugins/moai-threads-poster/.moai/specs/SPEC-THREADS-POSTER-INSTAGRAM-001/progress.md	claude_only_tool	partial
+plugins/moai-threads-poster/.moai/specs/SPEC-THREADS-POSTER-INSTAGRAM-001/spec.md		partial
+plugins/moai-threads-poster/README.md		partial
+plugins/moai-threads-poster/config/threads.yaml		partial
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/.gitignore		partial
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/CONNECTORS.md		partial
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/README.md		partial
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/pyproject.toml		partial
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_core/__init__.py		partial
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_core/auth.py		partial
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_core/cache.py		partial
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_core/credentials.py		partial
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_core/errors.py		partial
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_core/http.py		partial
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_core/tokenstore.py	platform_path	partial
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/__init__.py		partial
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/instagram_api.py		partial
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/server.py		partial
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/threads_api.py		partial
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/tests/__init__.py		partial
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/tests/test_instagram_api.py		partial
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/tests/test_multichannel.py		partial
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/tests/test_server.py	platform_path	partial
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/tests/test_threads_api.py		partial
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/uv.lock		partial
+plugins/moai-threads-poster/skills/README.md		partial
+plugins/moai-threads-poster/skills/instagram-comments/SKILL.md	claude_only_tool	partial
+plugins/moai-threads-poster/skills/instagram-post/SKILL.md		partial
+plugins/moai-threads-poster/skills/threads-multichannel/SKILL.md	claude_only_tool	partial
+plugins/moai-threads-poster/skills/threads-post-draft/SKILL.md	claude_only_tool	partial
+plugins/moai-threads-poster/skills/threads-post-draft/references/threads-spec.md		partial
+plugins/moai-threads-poster/skills/threads-style-learn/SKILL.md		partial
+plugins/moai-threads-poster/skills/threads-style-learn/references/style-profile-template.md		partial
+plugins/moai-tutor/.claude-plugin/plugin.json		partial
+plugins/moai-tutor/.codex-plugin/plugin.json		partial
+plugins/moai-tutor/README.md		partial
+plugins/moai-tutor/agents/assessment-auditor.md	claude_only_tool	partial
+plugins/moai-tutor/agents/curriculum-designer.md		partial
+plugins/moai-tutor/skills/education-assessment-audit/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-tutor/skills/education-assessment-creator/SKILL.md		partial
+plugins/moai-tutor/skills/education-assessment-creator/references/exam-prep.md		partial
+plugins/moai-tutor/skills/education-course-followup-sequence/SKILL.md		partial
+plugins/moai-tutor/skills/education-course-operations-manual/SKILL.md		partial
+plugins/moai-tutor/skills/education-curriculum-designer/SKILL.md		partial
+plugins/moai-tutor/skills/education-curriculum-designer/references/competency-modeler.md		partial
+plugins/moai-tutor/skills/education-curriculum-designer/references/course-builder.md		partial
+plugins/moai-tutor/skills/education-curriculum-designer/references/language-tutor.md		partial
+plugins/moai-tutor/skills/education-grant-writer/SKILL.md	claude_only_tool	partial
+plugins/moai-tutor/skills/education-grant-writer/references/grant-writer/guide.md		partial
+plugins/moai-tutor/skills/education-learning-material/SKILL.md		partial
+plugins/moai-tutor/skills/education-learning-material/references/cdn-libraries.md		partial
+plugins/moai-tutor/skills/education-learning-project/SKILL.md	claude_only_tool	partial
+plugins/moai-tutor/skills/education-paper-search/SKILL.md		partial
+plugins/moai-tutor/skills/education-paper-search/references/paper-search/guide.md		partial
+plugins/moai-tutor/skills/education-paper-writer/SKILL.md	claude_only_tool	partial
+plugins/moai-tutor/skills/education-paper-writer/references/paper-writer/guide.md		partial
+plugins/moai-tutor/skills/education-research-assistant/SKILL.md		partial
+plugins/moai-tutor/skills/education-research-assistant/references/academic-paper.md		partial
+plugins/moai-tutor/skills/education-research-assistant/references/research-assistant.md		partial
+plugins/moai-tutor/skills/education-research-assistant/references/thesis-advisor.md		partial
+plugins/moai-tutor/skills/education-tutor-research/SKILL.md	claude_only_tool	partial
+plugins/moai-tutor/skills/education-workflow/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-writer/.claude-plugin/plugin.json		partial
+plugins/moai-writer/.codex-plugin/plugin.json		partial
+plugins/moai-writer/.mcp.json		partial
+plugins/moai-writer/README.md		partial
+plugins/moai-writer/agents/manuscript-auditor.md	claude_only_tool	partial
+plugins/moai-writer/agents/writer-director.md	claude_only_tool	partial
+plugins/moai-writer/skills/book-author-bio/SKILL.md	claude_only_tool	partial
+plugins/moai-writer/skills/book-author-bio/tests/test-cases.yaml		partial
+plugins/moai-writer/skills/book-chapter-writer/SKILL.md	claude_only_tool	partial
+plugins/moai-writer/skills/book-chapter-writer/tests/test-cases.yaml		partial
+plugins/moai-writer/skills/book-concept-planner/SKILL.md	claude_only_tool	partial
+plugins/moai-writer/skills/book-concept-planner/tests/test-cases.yaml		partial
+plugins/moai-writer/skills/book-manuscript-audit/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-writer/skills/book-outline-designer/SKILL.md		partial
+plugins/moai-writer/skills/book-outline-designer/tests/test-cases.yaml		partial
+plugins/moai-writer/skills/book-proposal-writer/SKILL.md		partial
+plugins/moai-writer/skills/book-proposal-writer/tests/test-cases.yaml		partial
+plugins/moai-writer/skills/book-publisher-matcher/SKILL.md	claude_only_tool	partial
+plugins/moai-writer/skills/book-publisher-matcher/tests/test-cases.yaml		partial
+plugins/moai-writer/skills/book-revision-coach/SKILL.md		partial
+plugins/moai-writer/skills/book-revision-coach/tests/test-cases.yaml		partial
+plugins/moai-writer/skills/book-target-reader/SKILL.md		partial
+plugins/moai-writer/skills/book-target-reader/tests/test-cases.yaml		partial
+plugins/moai-writer/skills/book-workflow/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-writer/skills/korean-humanize/SKILL.md		partial
+plugins/moai-writer/skills/korean-humanize/references/ai-tell-taxonomy.md		partial
+plugins/moai-writer/skills/korean-humanize/references/baseline.json		partial
+plugins/moai-writer/skills/korean-humanize/references/baseline_v2.json		partial
+plugins/moai-writer/skills/korean-humanize/references/checks.py		partial
+plugins/moai-writer/skills/korean-humanize/references/contextual-review.md		partial
+plugins/moai-writer/skills/korean-humanize/references/empirical-validation.md		partial
+plugins/moai-writer/skills/korean-humanize/references/final-review.md		partial
+plugins/moai-writer/skills/korean-humanize/references/humanize_html.py		partial
+plugins/moai-writer/skills/korean-humanize/references/metrics.py		partial
+plugins/moai-writer/skills/korean-humanize/references/metrics_v2.py		partial
+plugins/moai-writer/skills/korean-humanize/references/quick-rules.md		partial
+plugins/moai-writer/skills/korean-humanize/references/rewriting-playbook.md		partial
+plugins/moai-writer/skills/korean-humanize/references/sanitize_text.py		partial
+plugins/moai-writer/skills/korean-humanize/references/scholarship.md		partial
+plugins/moai-writer/skills/korean-humanize/references/strict-pipeline-spec.md		partial
+plugins/moai-writer/skills/korean-humanize/references/verify_gates.py		partial
+plugins/moai-writer/skills/korean-humanize/references/web-service-spec.md		partial
+plugins/moai-writer/skills/korean-humanize/tests/test_audit_regressions.py		partial
+plugins/moai-writer/skills/korean-humanize/tests/test_gates.py		partial
+plugins/moai-writer/skills/korean-humanize/tests/test_humanize_html.py		partial
+plugins/moai-writer/skills/korean-humanize/tests/test_metrics.py		partial
+plugins/moai-writer/skills/korean-humanize/tests/test_rhythm_gate.py		partial
+plugins/moai-writer/skills/korean-spell-check/SKILL.md		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/tests/test_client_paths.py	new_test	partial

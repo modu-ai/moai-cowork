@@ -12,7 +12,7 @@
   (b) ``threads_format_multi_channel`` 도구
       - free tier: 600자 → ≥3 트윗, 각 ≤280
       - premium tier: 단일 문자열
-      - threads 출력 ≤500 바이트 (한글 문자열로 바이트 계산 exercise)
+      - threads 출력 ≤500자 (한글·이모지 문자 수 확인)
       - facebook 출력은 문자열
       - 잘못된 x_tier → error dict
       - 빈 text 처리
@@ -190,16 +190,23 @@ def test_premium_x_returns_single_string():
     assert len(x) <= 25000
 
 
-def test_threads_output_under_500_bytes_with_korean():
-    # 한글 200글자 = 600 UTF-8 바이트 → 500 바이트 이하로 잘려야 한다.
-    text = "안녕" * 100  # 200글자, 600바이트
+def test_threads_output_preserves_korean_under_500_characters():
+    text = "안녕" * 100
     out = threads_format_multi_channel(text)
     threads = out["threads"]
     assert isinstance(threads, dict)
-    assert threads["bytes"] <= 500
-    assert threads["max_bytes"] == 500
-    # 실제로 인코딩해 봐도 500 이하
-    assert len(threads["text"].encode("utf-8")) <= 500
+    assert threads["text"] == text
+    assert threads["chars"] == 200
+    assert threads["max_chars"] == 500
+    assert threads["truncated"] is False
+
+
+def test_threads_output_truncates_only_above_500_characters():
+    out = threads_format_multi_channel("가" * 501)
+    threads = out["threads"]
+    assert threads["truncated"] is True
+    assert threads["chars"] <= 500
+    assert threads["text"].endswith("…")
 
 
 def test_threads_short_text_passes_through_unchanged():
@@ -207,7 +214,8 @@ def test_threads_short_text_passes_through_unchanged():
     out = threads_format_multi_channel(text)
     threads = out["threads"]
     assert threads["text"] == text
-    assert threads["bytes"] == len(text.encode("utf-8"))
+    assert threads["chars"] == len(text)
+    assert threads["truncated"] is False
 
 
 def test_facebook_returns_string():
@@ -239,9 +247,9 @@ def test_non_string_text_returns_error():
 
 def test_empty_text_handled():
     out = threads_format_multi_channel("", x_tier="free")
-    # threads: 빈 문자열, 0바이트
+    # threads: 빈 문자열, 0자
     assert out["threads"]["text"] == ""
-    assert out["threads"]["bytes"] == 0
+    assert out["threads"]["chars"] == 0
     # facebook: 빈 문자열
     assert out["facebook"] == ""
     # x free: 빈 리스트
@@ -288,9 +296,9 @@ def test_note_states_facebook_x_are_copy_paste_only():
     assert "발행하지 않" in out["note"]
 
 
-def test_threads_emoji_byte_count_exercised():
-    # 이모지는 4바이트 — 500 바이트 예산을 빨리 소비.
-    text = "🎉" * 200  # 800바이트
+def test_threads_emoji_character_count_exercised():
+    text = "🎉" * 200
     out = threads_format_multi_channel(text)
-    assert out["threads"]["bytes"] <= 500
-    assert len(out["threads"]["text"].encode("utf-8")) <= 500
+    assert out["threads"]["text"] == text
+    assert out["threads"]["chars"] == 200
+    assert out["threads"]["truncated"] is False

@@ -58,7 +58,7 @@
 
 ### 미국 — 웹 화면 + TSDR (부분 API)
 
-- USPTO는 상표 문자 검색 API를 제공하지 않습니다. 후보는 [USPTO Trademark Search](https://tmsearch.uspto.gov/)에서 찾고 이 부분을 `LIMITED`로 기록합니다.
+- 현재 `moai-mcp-ip` 서버에는 미국 상표 문자 검색 도구가 없습니다. 후보는 [USPTO Trademark Search](https://tmsearch.uspto.gov/)에서 찾고 웹 화면 검색식·열람 범위를 기록합니다.
 - 찾은 일련번호마다 `uspto_trademark_status(number="97123456", number_type="sn")`로 상태·소유자·식별 문안·절차 기록을 확인합니다.
 - 정확 표장과 변형 표장, 관련 상품·서비스의 실제 거래 관계를 검토합니다.
 - 연방 등록과 별도로 주 등록·회사명·도메인·웹·마켓플레이스 사용(커먼로 위험)을 확인합니다.
@@ -67,7 +67,7 @@
 
 ### 일본 — J-PlatPat + JPO API (부분 API)
 
-- 키워드 검색은 [J-PlatPat](https://www.j-platpat.inpit.go.jp/)에서 하고 `LIMITED`로 기록합니다. 라틴 문자·가타카나 예상 음역·장음·촉음·분절 변형을 모두 넣습니다.
+- 현재 `moai-mcp-ip` 서버의 JPO 도구는 번호 조회용입니다. 키워드 검색은 [J-PlatPat](https://www.j-platpat.inpit.go.jp/)에서 하고 웹 화면 검색식·열람 범위를 기록합니다. 라틴 문자·가타카나 예상 음역·장음·촉음·분절 변형을 검토합니다.
 - 찾은 출원번호(서기 4자리 + 6자리)는 `jpo_trademark_progress`로 표시용 상표·음역·지정상품·권리자를, `jpo_trademark_registration`으로 등록 정보를 확인합니다.
 - 등록번호만 알면 `jpo_case_number_reference(right="trademark", kind="registration", number=...)`로 출원번호를 찾습니다.
 - 핵심 류뿐 아니라 유사군 코드가 겹치는 인접 류를 확인합니다.
@@ -75,7 +75,7 @@
 
 ### 유럽연합·국제(마드리드) — 웹 화면
 
-- EUIPO eSearch, WIPO Madrid Monitor로 확인하고 `LIMITED`로 기록합니다. WIPO Global Brand Database는 자동 조회가 약관상 금지이므로 사람이 직접 조회합니다.
+- EUIPO와 WIPO의 현재 공식 검색 화면을 확인하고 사용한 화면·검색식·열람 범위를 기록합니다. 자동 조회는 각 서비스의 현재 이용 조건을 확인하기 전에는 하지 않습니다.
 
 ## 5. 핵심 사건을 열람한다
 

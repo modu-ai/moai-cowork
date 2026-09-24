@@ -9,7 +9,7 @@ tests:
       contains:
         - "### 1) Gemini 3 Pro Image"
         - "### 2) GPT Image 2.5"
-        - "### 3) Midjourney v8.1"
+        - "### 3) Midjourney V8.2"
         - '"MONDAY"'
         - "aspect_ratio"
         - "Thinking"               # mode 권장 표시
@@ -24,18 +24,18 @@ tests:
         - SynthID 워터마크 한국어 해설 포함
 
   - name: happy-path-portrait-21-9
-    description: 인물 프리셋 + 21:9 → Gemini 전용 비율 안내
+    description: 인물 프리셋 + 21:9 → 세 모델의 화면비 설정을 구분
     prompt: "Gemini 3 Pro Image 시네마틱 인물 프롬프트, 21:9 울트라와이드"
     expected_output:
       format: markdown
       contains:
         - "21:9"
-        - "Gemini"                  # Gemini만 21:9 지원 명시
+        - "Gemini"
       not_contains:
         - "metadata:"
       assertion:
-        - 21:9가 Gemini 전용임을 한국어 해설에 명시
-        - MJ는 21:9 미지원이거나 다른 비율로 fallback 표시
+        - Gemini에는 21:9 화면비를 유지
+        - GPT Image 2.5 API와 Midjourney에도 21:9 설정이 가능하다고 설명하되 ChatGPT 기본 이미지 도구에서 크기 파라미터를 직접 지정한다고 주장하지 않음
 
   - name: search-grounding-infographic
     description: 인포그래픽 → Search Grounding 활성화 권장
@@ -66,17 +66,15 @@ tests:
         - "preserve"                 # 일관성 키워드
       assertion:
         - reference 이미지 슬롯 전략 안내
-        - "Image N" 라벨링 패턴 출력
+        - '"Image N" 라벨링 패턴 출력'
 
   - name: edge-case-ambiguous-input
-    description: 모호한 입력 → AskUserQuestion 라운드 진입
+    description: 모호한 입력 → 현재 앱의 질문 경로로 프리셋 선택
     prompt: "Gemini 이미지 프롬프트 만들어줘"
     expected_output:
-      format: askuserquestion
       assertion:
-        - AskUserQuestion 호출 (Round 1 프리셋 선택)
-        - 4 옵션 + Other
-        - 첫 옵션 "(권장)" 라벨
+        - 현재 노출된 질문 도구로 프리셋을 묻고, 도구가 없으면 필요한 선택을 blocker로 반환
+        - 비동기 질문 도구의 즉시 반환을 사용자 답변으로 간주하지 않음
 
 rubric_targets:
   correctness: 0.80

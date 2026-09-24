@@ -1,6 +1,6 @@
 # GPT Image 2.5 — 파라미터 · 모델 선택 · 이전 절차
 
-API 파라미터는 **프롬프트와 따로** 설정합니다. ChatGPT 웹 화면에서는 일부가 자동으로 정해지고, OpenAI API(`images.generate`, `images.edit`)와 Higgsfield에서는 직접 지정합니다.
+API 파라미터는 **프롬프트와 따로** 설정합니다. ChatGPT Work의 기본 Images 도구는 API의 정확한 모델 ID·품질 값을 사용자가 직접 고르는 인터페이스로 간주하지 않습니다. Higgsfield를 명시한 요청은 현재 연결의 모델 목록과 입력 스키마를 확인합니다.
 
 ## 모델 선택
 
@@ -79,7 +79,7 @@ GPT Image 2·2.5 경로에서는 **생략**합니다. 입력 이미지는 항상
 
 ## Higgsfield MCP 매핑 (`media-higgsfield-image`)
 
-Higgsfield 모델 ID는 `gpt_image_2_5`입니다 (2026-09-13 모델 목록 조회 기준).
+2026-09-13 조회에서는 Higgsfield 모델 ID가 `gpt_image_2_5`였습니다. 실행 시점에 현재 연결의 모델 목록과 파라미터 스키마를 다시 확인합니다.
 
 | OpenAI API | Higgsfield 파라미터 |
 |---|---|
@@ -89,48 +89,13 @@ Higgsfield 모델 ID는 `gpt_image_2_5`입니다 (2026-09-13 모델 목록 조�
 | `background` | `background`: `auto`·`opaque`·`transparent` |
 | `images.edit`의 입력 이미지 | `medias` (역할 `image_references`) |
 
-Higgsfield 기본 품질이 `low`이므로 결과물 용도면 `medium` 이상을 명시합니다.
+기본 품질과 크레딧 비용은 현재 연결에서 확인합니다. 요구한 결과물 품질을 명시하고 비용을 확인한 뒤 생성합니다.
 
-## API 호출 예 (Python)
+## 생성 경로
 
-```python
-from openai import OpenAI
-
-client = OpenAI()
-
-result = client.images.generate(
-    model="gpt-image-2.5-flare",
-    prompt=prompt,
-    size="1024x1024",
-    quality="medium",
-)
-```
-
-투명 로고:
-
-```python
-result = client.images.generate(
-    model="gpt-image-2.5-flare",
-    prompt=logo_prompt,
-    size="1024x1024",
-    quality="medium",
-    background="transparent",
-    output_format="png",
-    n=4,
-)
-```
-
-편집 (여러 레퍼런스):
-
-```python
-result = client.images.edit(
-    model="gpt-image-2.5-sunburst",
-    image=[open("person.png", "rb"), open("jacket.png", "rb")],
-    prompt=edit_prompt,
-    size="1024x1536",
-    quality="medium",
-)
-```
+- ChatGPT Work에서 실제 이미지를 만들 때는 앱의 기본 Images 도구를 사용합니다. 이 프롬프트 스킬의 API 예시를 실행할 필요가 없습니다.
+- 사용자가 Higgsfield를 지정하면 `media-higgsfield-image`에서 현재 모델·변형·크레딧을 확인합니다.
+- OpenAI API를 별도로 사용하는 개발자는 [공식 이미지 생성 가이드](https://developers.openai.com/api/docs/guides/image-generation)의 현행 요청 형식을 확인합니다.
 
 ## 이전 절차 (기존 워크플로 → 2.5)
 

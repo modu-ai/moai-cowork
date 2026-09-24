@@ -141,6 +141,8 @@ class OAuth2Refresher:
             payload: dict[str, Any] = response.json()
         except ValueError as exc:
             raise AuthError("토큰 갱신 응답을 해석할 수 없습니다.") from exc
+        if not isinstance(payload, dict):
+            raise AuthError("토큰 갱신 응답을 해석할 수 없습니다.")
 
         # 응답 키는 관대하게 읽는다 — 같은 서비스가 문서와 실제 응답에서
         # 다른 표기를 쓰는 경우가 있어, 둘 다 받아들이는 편이 안전하다.

@@ -4,7 +4,7 @@ from __future__ import annotations
 from typing import Any
 
 from ..server import mcp
-from ._common import call
+from ._common import call, segment
 
 
 @mcp.tool()
@@ -28,7 +28,7 @@ def addressbook_list(params: dict[str, Any] | None = None) -> dict:
 @mcp.tool()
 def addressbook_get(address_book_no: str) -> dict:
     """주소록 1건 조회. GET /v1/seller/addressbooks/{addressBookNo}"""
-    return call("GET", f"/v1/seller/addressbooks/{address_book_no}")
+    return call("GET", f"/v1/seller/addressbooks/{segment(address_book_no)}")
 
 
 @mcp.tool()

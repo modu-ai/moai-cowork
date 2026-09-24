@@ -73,6 +73,19 @@ def test_paginate_routes_to_list_all_pages(monkeypatch):
     assert fake.calls == []
 
 
+def test_paginate_preserves_path_parameter(monkeypatch):
+    import moai_mcp_imweb.tools.product as p
+
+    fake = _patch(monkeypatch, p)
+    result = p.imweb_product(
+        action="read_all_shop_product_options_by_prod_no",
+        params={"prodNo": 123}, paginate=True,
+    )
+    assert result["path"] == "/products/{prodNo}/options"
+    assert result["path_params"] == {"prodNo": 123}
+    assert fake.calls == []
+
+
 def test_path_plus_body_dispatch(monkeypatch):
     import moai_mcp_imweb.tools.product as p
 

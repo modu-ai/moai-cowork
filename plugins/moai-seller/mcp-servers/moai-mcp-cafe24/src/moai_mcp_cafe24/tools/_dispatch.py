@@ -6,7 +6,7 @@ category, dispatching its many actions through a single ``action`` enum.
 Implementation note — why we render real ``def`` functions via ``exec`` rather
 than hand-building an ``inspect.Signature``: FastMCP lifts per-parameter
 descriptions from ``Annotated[type, Field(description=...)]`` annotations on a
-*real* function definition (the path that ``@mcp.tool()`` / ``add_tool`` takes
+ *real* function definition (the path that ``add_tool`` takes
 through ``inspect.signature(fn)``). A hand-built ``inspect.Signature`` with the
 same annotations is NOT read the same way — the Field descriptions silently
 disappear from the tool inputSchema. Rendering each category as a real ``def``
@@ -228,7 +228,8 @@ def cafe24_{category}(
         _json_body = {{_body_key: body}} if _body_key else body
     if _is_list and paginate:
         return _client.list_paginated(
-            _path, surface=_surface, params=_query or None, max_pages=max_pages
+            _path, surface=_surface, path_params=_path_params or None,
+            params=_query or None, max_pages=max_pages
         )
     return _client.request(
         _method,
@@ -245,8 +246,8 @@ def cafe24_{category}(
 def _compile_category(category: str, endpoints: list[Endpoint]) -> Any:
     """Render + exec one category tool, returning the registered function.
 
-    The exec'd source uses ``@mcp.tool()`` so the tool self-registers; this
-    function returns the function object for parity/testing. The real-function
+    The exec'd source defines the function; register_all adds it to FastMCP.
+    This function returns the function object for parity/testing. The real-function
     path is what lets FastMCP lift the Annotated Field descriptions into the
     tool inputSchema (per-parameter descriptions).
     """
@@ -274,11 +275,8 @@ def _tool_meta(category: str, endpoints: list[Endpoint]) -> dict[str, Any]:
 def register_all() -> int:
     """Register one category-dispatch tool per Cafe24 API category.
 
-    The exec'd source already self-registers via ``@mcp.tool()``; this function
-    additionally sets the per-tool ``_meta`` (maxResultSizeChars for list-bearing
-    categories) by re-adding with meta. Returns the number of tools registered.
-
-    Idempotent guard prevents duplicate registration across re-imports.
+    Adds each compiled function with its per-tool ``_meta``. Returns the
+    number of category tools selected for registration.
     """
     by_cat: dict[str, list[Endpoint]] = defaultdict(list)
     for ep in REGISTRY.all():
@@ -287,18 +285,12 @@ def register_all() -> int:
     count = 0
     for category, eps in sorted(by_cat.items()):
         fn = _compile_category(category, eps)
-        try:
-            # Re-add with meta so list-bearing categories get the raised ceiling.
-            # FastMCP treats a re-add of an existing name as upsert (or raises,
-            # which we treat as already-registered-without-meta and skip).
-            mcp.add_tool(
-                fn,
-                name=f"cafe24_{category}",
-                description=fn.__doc__,
-                meta=_tool_meta(category, eps),
-            )
-        except Exception:
-            # Already registered by @mcp.tool(); meta upgrade is best-effort.
-            pass
+        # Registration errors must not be reported as successful tool counts.
+        mcp.add_tool(
+            fn,
+            name=f"cafe24_{category}",
+            description=fn.__doc__,
+            meta=_tool_meta(category, eps),
+        )
         count += 1
     return count

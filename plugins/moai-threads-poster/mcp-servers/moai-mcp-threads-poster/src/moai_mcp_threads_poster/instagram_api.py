@@ -8,7 +8,7 @@ Threads 클라이언트(threads_api.py) 와 같은 2단계 발행 모델을 따�
   2. :meth:`InstagramClient.publish`          → 컨테이너 발행       (``POST /{ig_user_id}/media_publish``)
 
 Threads 와의 주요 차이 (key differences vs Threads):
-  - 호스트 (host): ``graph.facebook.com`` (Facebook Login for Business) — ``graph.threads.com`` 아님.
+  - 호스트 (host): ``graph.facebook.com`` (Facebook Login for Business) — ``graph.threads.net`` 아님.
   - 이미지 (images): **JPEG-only**. Threads 와 달리 PNG 를 허용하지 않는다 (빠른 실패 휴리스틱).
   - 미디어 타입: ``IMAGE`` | ``VIDEO`` | ``REELS``. **TEXT-only 게시 없음** (캡션은 미디어에 붙음).
   - REELS: ``share_to_feed`` 플래그 지원.

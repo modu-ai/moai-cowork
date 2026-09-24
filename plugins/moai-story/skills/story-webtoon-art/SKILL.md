@@ -8,7 +8,7 @@ description: |
   - "화풍 통일", "스타일 앵커", "참조 이미지 첨부 순서"
   - "캐릭터 일관성 프롬프트", "첨부 서수 매핑"
   - "멀티 컷 세션", "여러 컷 연속 생성"
-version: "1.1.0"
+version: "1.1.1"
 ---
 
 # story-webtoon-art: 작화 프롬프트 조립
@@ -21,15 +21,15 @@ version: "1.1.0"
 
 ## 2. 이 스킬이 하지 않는 것
 
-- **이미지 생성·크레딧 고지·모델 선택 안 함** — `moai-media:media-higgsfield-core` 계약에 위임(§4-생성 실행).
+- **이미지 생성 안 함** — 선택한 `moai-media` 이미지 경로에 위임(§4-생성 실행).
 - **검수(QC) 안 함** — 산출 이미지의 결함 판정·일관성 위반 검수는 `story-webtoon-qc` 소관.
 - **말풍선·서체·SFX 스니펫 안 만듦** — `story-webtoon-lettering`이 소유. 이 스킬은 그 스니펫을 프롬프트에 삽입만 한다.
 - **모델 프롬프트 문법 안 소유** — 미드저니 sref·모델 파라미터, Gemini, GPT-image 등 벤더별 문법은 `moai-media`가 소유한다. 이 스킬은 가져오지 않는다(포팅 시 media 계열과 충돌).
 
 ## 3. 사전 확인
 
-- `${CLAUDE_PLUGIN_ROOT}/skills/story-webtoon-spec/references/manuscript-specs.md` — 세로 스크롤 캔버스 규격·색공간(sRGB). 프롬프트에 원고 규격을 반영할 때 참조.
-- `${CLAUDE_PLUGIN_ROOT}/skills/story-webtoon-lettering/references/balloon-dictionary.md` — 대사 포함 분기면 컷별 말풍선 스니펫을 여기서 가져와 삽입.
+- `../story-webtoon-spec/references/manuscript-specs.md` — 세로 스크롤 캔버스 참고값. 제출 전 현재 플랫폼 규격을 확인한다.
+- `../story-webtoon-lettering/references/balloon-dictionary.md` — 대사 포함 분기면 컷별 말풍선 스니펫을 여기서 가져와 삽입.
 
 ## 4. 워크플로우
 
@@ -65,9 +65,9 @@ version: "1.1.0"
 
 ### Step 4-생성 실행 — moai-media 위임
 
-조립된 프롬프트의 실제 생성·비용 프리플라이트·모델 선택은 `moai-media:media-higgsfield-core` 계약(`models_explore` 라이브 조회 + `get_cost` 사전 고지)에 위임한다.
+조립된 프롬프트의 이미지 생성은 ChatGPT Work의 기본 경로인 `moai-media:media-codex-image`에 위임한다. 사용자가 Higgsfield를 지정하면 `moai-media:media-higgsfield-image`에서 실제 연결과 비용을 확인한다.
 
-> moai-media 미설치 시: 완성된 컷 프롬프트를 텍스트로 출력하고 Higgsfield 웹(https://higgsfield.ai)에서 직접 생성하도록 안내한다(첨부 순서 배너 포함).
+> 이미지 생성 도구가 없으면 컷 프롬프트와 필요한 첨부 목록을 제공하고 이미지를 만들었다고 표시하지 않는다.
 
 ## 5. 출력 형식
 
@@ -89,12 +89,12 @@ and IGNORE its subject matter — faces, houses, landscapes, animals. Do NOT cop
 - Palette / Technique / Linework / Color fill / Texture / Mood: [7토큰]
 ```
 
-→ 생성 실행: `moai-media:media-higgsfield-core` 위임.
+→ 생성 실행: 현재 호스트의 기본 이미지 경로 또는 사용자가 지정한 Higgsfield 경로로 위임.
 
 ## 6. 주의사항
 
 - **AI 생성물 표시 의무 확인** — AI 생성 이미지를 상업 플랫폼에 제출·게시할 때 AI 생성물 표시 의무를 확인한다(상세는 `moai-lawyer`의 AI 관련 체크리스트 참조).
-- **내용물 가드 절대 생략 금지** — STYLE 블록의 `IGNORE its subject matter` 문구가 빠지면 스타일 참조 속 피사체가 베껴진다.
+- **스타일과 피사체를 구분** — 스타일 참조의 피사체를 가져오지 않도록 지시하고 생성 결과를 확인한다.
 - **첨부 서수는 매번 계산.** 인물이 늘면 뒤 서수가 밀린다 — 고정 서수 하드코딩 금지.
 - **색·외형은 매 컷 반복 명시.** 참조에만 있고 프롬프트에 없으면 컷마다 색이 바뀐다.
 - **크레딧·모델을 지어내지 않는다** — moai-media가 조회한다.
@@ -112,7 +112,8 @@ and IGNORE its subject matter — faces, houses, landscapes, animals. Do NOT cop
 - `story-series-bible` — 완성 회차 상태 갱신
 
 ### 위임
-- `moai-media:media-higgsfield-core` — 생성 실행·비용 프리플라이트·모델 선택
+- `moai-media:media-codex-image` — ChatGPT 기본 이미지 생성
+- `moai-media:media-higgsfield-image` — 사용자가 Higgsfield를 지정한 경우
 
 ## 8. References
 
@@ -127,6 +128,6 @@ and IGNORE its subject matter — faces, houses, landscapes, animals. Do NOT cop
 ## 9. 출처
 
 - 스타일 7토큰·내용물 가드·첨부 서수 매핑·멀티 이미지 세션 관리: aitoon-comic(내부 자산 이식).
-- 생성·비용·모델: `moai-media:media-higgsfield-core` 라이브 계약.
+- 생성·비용·모델: 선택한 이미지 경로의 실제 도구와 응답으로 확인.
 - 벤더 프롬프트 문법: `moai-media` 소유(이 스킬은 참조만).
 - 원작 카피라이터: **조남경** (https://www.facebook.com/Bmisty)

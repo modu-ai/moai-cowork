@@ -2,6 +2,8 @@
 
 shadcn `Alert`를 React 없이 **vanilla HTML + Tailwind token class**로 재현합니다. 보고서·문서에서 주의·안내·경고를 전달합니다. 토큰 규칙은 [`../mapping/tailwind.md`](../mapping/tailwind.md) §1·§3 참조.
 
+아래 시각·장애율·서비스 상태는 마크업 예시다. 실제 산출물에는 확인된 값만 넣는다.
+
 ## 변형
 
 ### info / default

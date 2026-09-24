@@ -12,19 +12,7 @@
 
 `modu-ai/moai-cowork` 마켓플레이스 하나에서 설치합니다. **Claude Cowork**와 **ChatGPT Work** 두 데스크톱 앱 모두 같은 방식입니다.
 
-**가장 쉬운 방법** — 설정(Settings) 또는 플러그인(Plugins) 메뉴 → 마켓플레이스(Marketplace)에서 주소 `modu-ai/moai-cowork`를 추가한 뒤, 플러그인 목록에서 `moai-accountant`를 찾아 **Install**을 누르세요.
-
-**터미널에 익숙하다면 (대안)**
-
-```bash
-# Claude Cowork CLI
-claude plugin marketplace add modu-ai/moai-cowork
-claude plugin install moai-accountant@moai-cowork
-
-# ChatGPT Work CLI
-codex plugin marketplace add modu-ai/moai-cowork
-codex plugin add moai-accountant@moai-cowork
-```
+Claude Cowork·ChatGPT Work 데스크톱 앱에서 **Settings(또는 Plugins) → Marketplace → +**를 열어 `modu-ai/moai-cowork`를 추가하세요. 그다음 Plugins 화면에서 **moai-accountant**를 선택하고 **+** 또는 **Install**을 누르세요.
 
 > 앱별 정확한 클릭 경로와 잘 안 될 때 대처법은 [플러그인 설치와 관리](https://cowork.mo.ai.kr/plugins/install/)에 정리해 두었습니다.
 
@@ -32,17 +20,19 @@ codex plugin add moai-accountant@moai-cowork
 
 호출 형식: `/moai-accountant:finance-<스킬명>` — 예: `/moai-accountant:finance-tax-helper`. 자연어 요청("연말정산 환급 늘리는 법 알려줘")으로도 자동 매칭됩니다.
 
-### 사업 재무 (5종)
+### 사업 재무
 
 | 스킬 | 역할 |
 |------|------|
+| `finance-workflow` | 여러 재무·세무 산출물이 섞인 요청을 해당 스킬로 연결 |
+| `finance-audit` | 중요한 숫자와 출처를 읽기 전용으로 대조 |
 | `finance-financial-statements` | 재무상태표·손익계산서·현금흐름표 작성 (K-IFRS 대응) |
 | `finance-close-management` | 월말·분기·연간 결산 체크리스트 + 급여·4대보험 정산 |
 | `finance-variance-analysis` | 예산 대비 실적 차이 분석 + 수익성 개선 권고 |
 | `finance-investor-relations` | IR 피치덱 + 3개년 재무 모델·밸류에이션 |
 | `finance-tax-helper` | 종합소득세·부가세·3.3% 원천징수 등 한국 세법 안내 |
 
-### 개인 재무 (6종)
+### 개인 재무
 
 | 스킬 | 역할 |
 |------|------|
@@ -53,7 +43,7 @@ codex plugin add moai-accountant@moai-cowork
 | `finance-insurance-fit` | 필요 보험 진단 + 과보험·중복 리모델링 |
 | `finance-econ-literacy` | 금리·환율·물가 등 경제지표를 '내 돈' 관점으로 해설 |
 
-## MCP 연동 1종
+## MCP 연동
 
 플러그인 루트 `.mcp.json`에 OpenDART 전자공시 MCP 서버가 선언되어 있습니다. 자격증명은 **환경변수로만** 설정하세요(파일에 키를 적지 않습니다).
 
@@ -61,7 +51,9 @@ codex plugin add moai-accountant@moai-cowork
 |------|--------|---------------|------|
 | `dart` | OpenDART 전자공시 (83 API → 15 도구, XBRL 계산 검증 포함) | `DART_API_KEY` | 키 발급: opendart.fss.or.kr 회원가입 → 인증키 신청(무료, 일 20,000건). 사전 설치: Node.js 20.19+ |
 
-## 에이전트 2종
+## Claude 에이전트
+
+Claude의 에이전트 실행 환경에서는 아래 역할을 사용할 수 있습니다. ChatGPT 플러그인에서는 `finance-workflow`·`finance-audit` 스킬이 같은 목적의 진입점입니다.
 
 | 에이전트 | 등급 | 역할 |
 |----------|------|------|

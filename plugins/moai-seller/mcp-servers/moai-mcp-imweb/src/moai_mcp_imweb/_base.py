@@ -84,14 +84,10 @@ def load_config() -> ImwebConfig:
     token_file_str = creds.get("IMWEB_TOKEN_FILE")
     token_file = Path(token_file_str).expanduser() if token_file_str else DEFAULT_TOKEN_FILE
 
-    access = creds.get("IMWEB_ACCESS_TOKEN")
-    refresh = creds.get("IMWEB_REFRESH_TOKEN")
-
-    # Prefer the most-recent persisted token when the env value is absent.
-    if not access or not refresh:
-        p_access, p_refresh = _load_persisted_tokens(token_file)
-        access = access or p_access or ""
-        refresh = refresh or p_refresh or ""
+    # 갱신 시 받은 토큰이 정적 환경변수보다 최신일 수 있다.
+    p_access, p_refresh = _load_persisted_tokens(token_file)
+    access = p_access or creds.get("IMWEB_ACCESS_TOKEN")
+    refresh = p_refresh or creds.get("IMWEB_REFRESH_TOKEN")
 
     timeout = _float_setting(creds, "IMWEB_TIMEOUT", DEFAULT_TIMEOUT)
     request_delay = _float_setting(creds, "IMWEB_REQUEST_DELAY", 0.0)

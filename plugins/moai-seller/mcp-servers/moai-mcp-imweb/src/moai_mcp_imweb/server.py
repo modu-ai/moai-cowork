@@ -1,7 +1,7 @@
 """moai-imweb MCP server — entry point.
 
 Importing :mod:`moai_mcp_imweb.tools` triggers decorator-based registration of all
-138 generated tools onto the shared :data:`moai_mcp_imweb._app.mcp` instance. This
+8 generated category tools onto the shared :data:`moai_mcp_imweb._app.mcp` instance. This
 module then runs the server over stdio (the transport Claude Code expects for a
 ``command:`` MCP server).
 """

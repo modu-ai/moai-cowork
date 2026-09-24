@@ -1,192 +1,38 @@
 ---
 name: marketing-pixel-audit
 description: |
-  메타·구글 광고 추적 픽셀이 제대로 설치됐는지 점검하고, 광고비를 새게 만드는 설정 실수와 고객 데이터 활용도를 진단한 리포트를 만들어 드립니다.
-  다음과 같은 요청 시 사용하세요:
-  - "픽셀 설치 제대로 됐는지 점검해줘"
-  - "메타 픽셀이랑 구글 픽셀 검증해줘"
-  - "CAPI(전환 API) 설치 확인해줘"
-  - "iOS 업데이트 이후 전환이 적게 잡히는 것 같아"
-  - "Lookalike 씨앗 품질 봐줘", "VIP 구매자로 유사 타겟 만들어도 되나"
-  - "이메일 리스트 광고에 잘 쓰고 있는지 진단해줘"
-  - "광고비 새는 픽셀 실수 있는지 찾아줘"
-  자주 하는 픽셀 실수(구매자 미제외·이벤트 정보 누락·CAPI 미설치)와 고객 데이터·유사 타겟 활용도를 점수화해 개선 우선순위를 제시합니다. 진단 보고서 서술 부분은 moai-coworker:ai-slop-reviewer → moai-writer:korean-humanize으로 다듬습니다.
-  [책임 경계] vs moai-marketer:marketing-performance-report: 이 스킬=픽셀·데이터 인프라 검증, 저 스킬=광고 성과(ROAS) 분석.
-version: "1.1.0"
+  Meta Pixel·Conversions API와 Google 태그·전환 측정의 설치 및 이벤트 흐름을 실제 증거로 점검합니다.
+  사이트 화면만으로 서버 이벤트나 광고 계정 설정을 검증했다고 말하지 않습니다.
+version: "1.1.1"
 ---
 
-# 픽셀·1st Party 데이터 진단 (Pixel Audit)
+# 광고 전환 측정 점검
 
-## 개요
+사이트와 광고 계정의 전환 측정이 목표 행동을 정확히 기록하는지 확인합니다. 광고 성과 해석은 marketing-performance-report와 marketing-meta-ads-analyzer로 연결합니다.
 
-3rd party 쿠키 종료 시대(애플 ATT + 구글 쿠키 종료)에 1st party 데이터를 가진 브랜드 vs 없는 브랜드의 광고 효율 차이가 점점 벌어집니다. 본 스킬은 그 격차를 측정·진단합니다.
+## 접근 범위 확인
 
-**책임 한 줄**: 메타·구글 픽셀 설치 상태 + 1st Party 데이터 + Lookalike 씨앗 품질 진단 → 개선 우선순위 자동 생성.
+- 사이트 URL, 운영 국가, 광고 채널, 주요 전환 행동과 확인할 테스트 주문 또는 신청 흐름
+- 브라우저·태그 관리자·Meta Events Manager·Google Ads/GA4 중 실제로 접근 가능한 화면
+- 쿠키·광고 데이터 수집 동의와 개인정보 처리 방식
 
-## 픽셀 설계에서 가장 많이 하는 실수 3종
+접근할 수 없는 계정 설정·서버 이벤트·고객 목록은 미검증으로 둡니다. 공개 사이트에서 스크립트가 보인다는 사실만으로 전환값·중복 제거·CAPI 작동을 확정하지 않습니다.
 
-### 실수 1: 구매자 미제외
-이미 산 사람에게 "아직 구매 안 하셨나요?" 광고를 계속 보내는 것.
+## 점검 순서
 
-**진단**: 메타 광고 관리자 → 광고 세트 → 오디언스 제외에 **Purchase 이벤트 30일 트리거** 추가 여부.
-- ❌ 미설정 → 광고비 누수 (구매자도 광고 노출)
-- ✅ 설정 → 신규 구매 후보에만 노출
+1. 브라우저에서 실제 동의 상태별로 페이지·상품·장바구니·구매 등 필요한 행동을 수행하고 태그 요청·이벤트 이름·값·통화를 기록합니다. 테스트 주문은 실제 결제에 영향을 줄 수 있으므로 사용자가 제공한 안전한 테스트 경로를 사용합니다.
+2. Meta Events Manager에 접근할 수 있으면 실제 이벤트 수신·진단, 브라우저와 서버 이벤트의 중복 제거 설정, 구매 가치와 상품 ID의 일치를 확인합니다. CAPI가 없다는 사실만으로 측정 손실률을 추정하지 않습니다.
+3. Google Ads·GA4에 접근할 수 있으면 전환 행동 정의, 중복 집계, 링크 설정, 태그 진단과 동의 상태를 확인합니다. Google의 [향상된 전환 안내](https://support.google.com/google-ads/answer/13258081?hl=en)는 사용 조건과 고객 데이터 정책 검토를 요구합니다.
+4. 동의 배너가 있으면 선택이 태그 동작에 반영되는지 검사합니다. [Google 동의 모드 안내](https://developers.google.com/tag-platform/security/concepts/consent-mode)에 따라 실제 선택과 태그 신호를 대조합니다.
+5. Meta·Google·CRM에 이메일이나 전화번호를 업로드하라는 권고는 수집 목적·동의·플랫폼 정책·계정 권한을 확인한 경우에만 합니다. 기존 구매자 제외나 유사 타겟은 캠페인 목적에 따라 판단합니다.
 
-### 실수 2: 이벤트 파라미터 미설정
-ViewContent·AddToCart에 **상품 ID와 가격 파라미터**를 붙여야 동적 광고(DPA)가 작동.
+## 판정
 
-**진단 코드**:
-```javascript
-// ❌ 잘못된 예
-fbq('track', 'ViewContent');
+| 항목 | 확인한 증거 | 결과 | 다음 확인 |
+|---|---|---|---|
+| 이벤트 발화·값·통화 | 테스트 행동과 요청 로그 | 확인/오류/미검증 | 계정 진단 등 |
+| 서버 이벤트·중복 제거 | Events Manager 기록 | 확인/오류/미검증 | event ID 등 |
+| Google 전환 행동 | Ads/GA4 설정과 진단 | 확인/오류/미검증 | 정의·기여 설정 |
+| 동의 반영 | 실제 동의 상태별 검사 | 확인/오류/미검증 | 개인정보 검토 |
 
-// ✅ 올바른 예
-fbq('track', 'ViewContent', {
-  content_ids: ['SKU123'],
-  content_type: 'product',
-  value: 19800,
-  currency: 'KRW'
-});
-```
-
-### 실수 3: 전환 API 미설치 (CAPI)
-픽셀만으로는 iOS 사용자의 전환 추적이 불완전. **서버 사이드 전환 API(CAPI)를 같이 설치 필수**.
-
-iOS 14.5+ 이후:
-- pixel-only: 실제 전환의 50-70%만 추적
-- pixel + CAPI: 90%+ 추적 가능
-
-## 1st Party 데이터 3종
-
-| 데이터 | 활용 강도 | 활용 방법 |
-|--------|----------|----------|
-| **이메일·전화번호** | 가장 강력 | 뉴스레터·구매·이벤트로 수집 → 메타·구글 업로드 → 커스텀 오디언스 + Lookalike 씨앗 |
-| **픽셀 이벤트 데이터** | 강함 | PageView → ViewContent → AddToCart → InitiateCheckout → Purchase 5단계 |
-| **구매·CRM 데이터** | 매우 강함 | 재구매 주기 예측, VIP 세그먼트, 휴면 고객 재활성 |
-
-## Lookalike — 씨앗 품질이 전부
-
-Lookalike의 품질 한계 = 씨앗 데이터의 품질 한계.
-
-| 씨앗 데이터 | Lookalike 품질 |
-|------------|---------------|
-| 전체 방문자 | 낮음 (구매 의도 없는 사람 포함) |
-| 장바구니 추가자 | 중 |
-| 구매자 전체 | 높음 |
-| **VIP 구매자 (상위 20%)** | **최고** ⭐ |
-
-### 실전 권장 사항
-
-```
-1. VIP 구매자(상위 20%) 데이터 추출 (LTV·구매 횟수·평균 객단가 상위)
-2. 메타에 커스텀 오디언스 업로드
-3. Lookalike 생성 (유사도 1~3%부터 시작 → 포화되면 확장)
-4. 기존 고객 반드시 제외
-5. 월 1회 이상 씨앗 데이터 최신 상태 업데이트
-```
-
-## 워크플로우 — 진단 체크리스트
-
-```
-[Step 1] 사이트 URL + 광고 채널 사용 여부 입력
-   ↓
-[Step 2] A. 메타 픽셀 / B. 구글 픽셀 / C. 1st Party / D. Lookalike 4영역 점검
-   ↓
-[Step 3] 영역별 점수 산출 (100점 만점)
-   ↓
-[Step 4] Phase 1 (즉시) / Phase 2 (단계적) / Phase 3 (최적화) 우선순위 자동 분류
-   ↓
-[Step 5] 진단 보고서 출력 + (선택) moai-marketer:marketing-campaign-planner·moai-seller:commerce-marketplace-coupang-ads 체이닝
-```
-
-### A. 메타 픽셀
-- [ ] 픽셀 설치 (Facebook Pixel Helper로 확인)
-- [ ] PageView 이벤트 작동
-- [ ] ViewContent 이벤트 + content_ids/value/currency 파라미터
-- [ ] AddToCart 이벤트 + 파라미터
-- [ ] Purchase 이벤트 + 파라미터
-- [ ] CAPI (서버 사이드 전환 API) 설치
-- [ ] 광고 세트 오디언스 제외에 Purchase 30일 추가
-- [ ] Aggregated Event Measurement (AEM) 8개 이벤트 설정
-
-### B. 구글 픽셀 (GA4 + Ads)
-- [ ] GA4 설치
-- [ ] Enhanced Conversions 활성화
-- [ ] 전환 이벤트 정의 (구매, 회원가입, 장바구니)
-- [ ] Google Ads 연동
-- [ ] 부정 키워드 등록 ('무료', 'DIY', '방법')
-
-### C. 1st Party 데이터
-- [ ] 이메일·전화번호 수집 채널 (뉴스레터·구매·이벤트)
-- [ ] 메타 커스텀 오디언스 업로드 (월 1회+)
-- [ ] CRM 시스템 (Customer Lifecycle 추적)
-- [ ] VIP 구매자 상위 20% 자동 추출 가능
-
-### D. Lookalike
-- [ ] VIP 씨앗 데이터 사용
-- [ ] 유사도 1-3% 시작
-- [ ] 기존 고객 제외
-- [ ] 월 1회 이상 씨앗 업데이트
-
-## 트리거 키워드
-
-픽셀, 메타 픽셀, 구글 픽셀, 페이스북 픽셀, CAPI, 전환 API, Lookalike, 유사 타겟, 1st Party 데이터, VIP 구매자, 이메일 리스트, 커스텀 오디언스, iOS 전환 손실, AEM, Aggregated Event
-
-## 입력·출력
-
-### 입력 슬롯
-
-| 항목 | 필수 | 예시 |
-|------|------|------|
-| 사이트 URL | 필수 | https://example.com |
-| 메타 광고 사용 여부 | 필수 | Yes/No |
-| 구글 광고 사용 여부 | 필수 | Yes/No |
-| 이메일 리스트 보유 | 권장 | 5,000개 |
-| 현재 사용 중인 픽셀·도구 | 권장 | 메타 픽셀·GA4·CAPI 등 |
-
-### 출력 (진단 보고서)
-
-```markdown
-## 픽셀·1st Party 데이터 진단 결과
-
-### 📊 점수
-- 메타 픽셀: 60/100
-- 구글 GA4: 70/100
-- 1st Party 데이터: 30/100 ⚠️
-- Lookalike: 미구축 ⚠️
-- **종합 점수: 53/100 (C)**
-
-### 🔴 즉시 수정 (Phase 1, 1주)
-1. CAPI 미설치 → iOS 전환 30% 손실 추정
-2. VIP 씨앗 Lookalike 미구축 → Cold 광고비 효율 손실
-3. 이메일 리스트 메타 업로드 미시행
-
-### 🟡 단계적 개선 (Phase 2, 1개월)
-4. ViewContent 이벤트 파라미터 보강
-5. Enhanced Conversions 활성화
-
-### 🟢 최적화 (Phase 3, 분기)
-6. 코호트 분석 + LTV/CAC 측정 자동화
-```
-
-## 체이닝
-
-```
-marketing-pixel-audit (본 스킬, 픽셀·1st Party 인프라 진단)
-       ↓ Phase 1 즉시 수정 후
-moai-marketer:marketing-campaign-planner (인프라 기반 캠페인 기획 + 9 인지 편향 적용)
-       ↓ 메타·구글 광고 운영 시
-moai-marketer:content-sns-content (채널별 심리 상태 매트릭스 + CAPI 검증)
-       ↓ 쿠팡 광고는 별도로
-moai-seller:commerce-marketplace-coupang-ads (메타·구글 픽셀 아닌 쿠팡 전용 자동규칙)
-```
-
-> 진단 보고서의 서술형 텍스트는 발행 전 `moai-coworker:ai-slop-reviewer → moai-writer:korean-humanize`으로 후처리합니다. 점수·체크리스트 표는 대상이 아닙니다.
-
-## 페어 분리
-
-| 페어 스킬 | 차이 |
-|----------|------|
-| `moai-marketer:marketing-performance-report` | GA4·메타·네이버 ROAS 종합 분석 (본 스킬은 픽셀·데이터 인프라 검증) |
-| `moai-marketer:marketing-campaign-planner` | 캠페인 기획·운영 (본 스킬은 데이터 인프라 진단) |
-| `moai-seller:commerce-marketplace-coupang-ads` | 쿠팡 광고 (본 스킬은 메타·구글 픽셀) |
+임의의 100점 점수, 고정 추적률, 고정 Lookalike 비율·갱신 주기, CAPI 필수 여부를 보편 기준으로 제시하지 않습니다. 문제의 원인과 예상 손실액은 실제 측정 자료가 있을 때만 계산합니다. 개선을 실행하지 않았다면 점검과 수정 완료를 구분합니다. 서술 검수 스킬이 설치돼 있으면 활용하고 사실·수치를 원본과 대조합니다.

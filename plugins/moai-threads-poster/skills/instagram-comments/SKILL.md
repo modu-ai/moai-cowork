@@ -9,7 +9,7 @@ description: |
   - "최근 포스트 댓글 정리해줘"
   - "특정 댓글 숨김 처리해줘"
   [책임 경계] vs 형제 스킬: Instagram 댓글 *조회/답글/숨김* 만 담당합니다. 포스트 발행은 instagram-post 스킬, 인사이트 조회는 instagram_insights 도구를 직접 사용하세요.
-version: "1.3.0"
+version: "1.3.1"
 ---
 
 # Instagram 댓글 관리 (instagram-comments)
@@ -134,7 +134,7 @@ instagram_comments_hide(comment_id="<댓글 ID>")
 
 **[HARD] 세 경로가 모두 불가능한 무인 실행에서는 실행하지 않는다(fail-closed).** 물을 수단이 없다는 것은 승인을 받았다는 뜻이 아니다. 이때는 "승인 수단이 없어 진행하지 못했다"고 기록하고 멈춘다 — 조용히 진행하지 않는다. 반대로 **대화가 가능한데 도구가 없다는 이유로 멈추는 것도 잘못**이다. 2번 경로를 쓴다.
 
-> 이 계약은 `CLAUDE.local.md` §범용성 원칙(OS 2종 × 런타임 2종에서 동일 동작)의 게이트 쪽 적용이다. 한 런타임에서만 도는 게이트는 미완성으로 본다.
+> 이 승인 계약은 Claude와 ChatGPT 데스크톱 앱 모두에 적용한다. 한 앱에서만 동작하는 게이트는 미완성으로 본다.
 
 ---
 
@@ -143,7 +143,7 @@ instagram_comments_hide(comment_id="<댓글 ID>")
 | 상황 | 대응 |
 |------|------|
 | `manage_comments` 권한 없음 | Meta 앱 검수(App Review) 로 권한 추가 필요 |
-| `setup_required` 에러 | `IG_ACCESS_TOKEN` / `IG_USER_ID` 환경변수 설정 |
+| `setup_required` 에러 | 앱 설정 또는 사용자 자격증명 파일에서 `IG_ACCESS_TOKEN` / `IG_USER_ID` 확인 |
 | Personal 계정 | Graph API 미지원 — Professional 계정 필요 |
 | 엔드포인트 미검증 | comments 엔드포인트 경로는 run-phase 검증 대상(@MX:TODO) — 최초 사용 시 공식 문서로 경로 재확인 권장 |
 | 감사 3단에서 `hold_and_report` 판정 | 답글을 발행하지 않음. 사유를 그대로 보여주고 2단계로 복귀 |
@@ -167,7 +167,7 @@ instagram_comments_hide(comment_id="<댓글 ID>")
 
 ## 발행 전 설정 (최초 1회)
 
-Threads 와 동일한 Instagram 자격증명(`IG_ACCESS_TOKEN` / `IG_USER_ID`) 에 추가로 Meta 앱에 `manage_comments` 권한이 부여되어야 한다. 발급 절차는 `mcp-servers/moai-mcp-threads-poster/CONNECTORS.md` 의 Instagram 섹션 참조.
+Threads 발행 자격증명과 별개로 Instagram용 `IG_ACCESS_TOKEN` / `IG_USER_ID`가 필요하며, Meta 앱에 `manage_comments` 권한도 부여되어야 한다. 발급 절차는 `mcp-servers/moai-mcp-threads-poster/CONNECTORS.md`의 Instagram 섹션을 따른다.
 
 ## 관련 스킬
 

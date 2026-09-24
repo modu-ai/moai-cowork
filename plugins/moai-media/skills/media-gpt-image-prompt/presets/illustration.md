@@ -20,7 +20,7 @@
 | 수채화 (권장) | "hand-drawn watercolor illustration, soft washes, visible paper texture" |
 | 플랫 디지털 | "flat vector illustration, clean shapes, minimal shading, modern editorial style" |
 | 펜&잉크 | "pen and ink line drawing, crosshatched shading, vintage book plate aesthetic" |
-| 디지털 페인팅 | "digital painting, painterly brushstrokes, Studio Ghibli-inspired warm tones" |
+| 디지털 페인팅 | "digital painting, painterly brushstrokes, warm hand-painted animation palette" |
 
 ### Q3 — 색감·무드
 
@@ -58,13 +58,13 @@ Constraints: original artwork, illustrated not photographic, no text, no waterma
 Illustrated, not photographic.
 ```
 
-### Midjourney v8.1 (키워드+파라미터)
+### Midjourney V8 (기본 V8.2)
 ```
 <Q2 매체 키워드>, <Q1 키워드>, <Q4 키워드>, <Q3 팔레트 키워드>,
-illustration not photograph --ar [Round 3] --style raw --s 400
+illustration not photograph --ar [Round 3] --s 400
 ```
 
-(MJ는 일러스트 스타일에서 `--style raw`를 빼고 default style을 쓰는 게 더 자유로운 결과를 내기도 합니다. 사용자 선택.)
+(일러스트의 기본 스타일이 과할 때만 `--raw`를 사용자가 선택합니다.)
 
 ## 자주 쓰이는 보조 키워드
 
@@ -72,7 +72,7 @@ illustration not photograph --ar [Round 3] --style raw --s 400
 - watercolor: paper texture · wet-on-wet · soft edges · visible brushstrokes
 - vector: clean shapes · solid fills · minimal gradients · editorial flat
 - ink: crosshatch · stippling · vintage plate · woodcut feel
-- digital paint: painterly · Studio Ghibli · Pixar · Klimt-inspired
+- digital paint: painterly · warm hand-painted animation · expressive digital painting
 
 분위기:
 - whimsical · serene · melancholic · dreamy · bold · playful
@@ -83,4 +83,4 @@ illustration not photograph --ar [Round 3] --style raw --s 400
 
 - GPT Image 2.5: 1장에서 `Character:` `Style:` `Constraints:` 섹션으로 캐릭터를 정의하고 단순한 배경으로 만든 뒤, 2장부터 그 이미지를 입력으로 넣고 `Character Consistency:` 섹션에 의상·얼굴·비율·팔레트를 다시 적습니다. 제약에 `Do not redesign the character`. (`references/editing-patterns.md` §캐릭터 일관성)
 - Gemini 3 Pro Image: reference 이미지 첨부 가능 (최대 14장). "Maintain the exact character design from the reference."
-- Midjourney v8.1: `--oref <URL>` + `--cw 30~60` (얼굴 위주, 의상까지 따라가려면 `--cw 100`).
+- Midjourney V8: Edit Model에 참조 이미지를 첨부하고 유지할 얼굴·의상·색을 프롬프트에 적습니다. 웹은 Attach to prompt, Discord는 `--edit IMAGE_URL`을 사용합니다.

@@ -154,6 +154,16 @@ def test_access_token_이_없는_응답은_auth_error(tmp_path):
         ref.refresh()
 
 
+def test_토큰_응답이_객체가_아니면_auth_error(tmp_path):
+    ref = OAuth2Refresher(
+        _config(),
+        TokenStore("svc", path=tmp_path / "t.json"),
+        transport=httpx.MockTransport(lambda r: httpx.Response(200, json=["invalid"])),
+    )
+    with pytest.raises(AuthError, match="해석할 수 없습니다"):
+        ref.refresh()
+
+
 def test_camelCase_키를_요구하는_서비스_지원(tmp_path):
     """아임웹은 grantType/refreshToken/clientId/clientSecret 표기를 쓴다."""
     seen: dict = {}

@@ -1,6 +1,6 @@
 # 튜터 (moai-tutor)
 
-교육 전담 AI 코워커입니다. 커리큘럼 설계·학습 자료·평가 문항 제작·강좌 운영 같은 강사 실무와 논문 검색·작성·연구 보조 같은 학술 워크플로우까지 스킬 11종을 하나의 플러그인으로 제공합니다. 강사와 학습자 양쪽을 모두 지원하며, 슬래시 명령을 외울 필요 없이 자연어로 요청하면 매칭되는 스킬이 자동 호출됩니다.
+교육 전담 AI 코워커입니다. 커리큘럼 설계·학습 자료·평가 문항 제작·강좌 운영 같은 강사 실무와 논문 검색·작성·연구 보조 같은 학술 워크플로우까지 스킬을 하나의 플러그인으로 제공합니다. 강사와 학습자 양쪽을 모두 지원하며, 슬래시 명령을 외울 필요 없이 자연어로 요청하면 매칭되는 스킬이 자동 호출됩니다.
 
 > 이 플러그인의 스킬들은 moai-coworker에서 이관되었습니다.
 
@@ -10,27 +10,15 @@
 
 `modu-ai/moai-cowork` 마켓플레이스 하나에서 설치합니다. **Claude Cowork**와 **ChatGPT Work** 두 데스크톱 앱 모두 같은 방식입니다.
 
-**가장 쉬운 방법** — 설정(Settings) 또는 플러그인(Plugins) 메뉴 → 마켓플레이스(Marketplace)에서 주소 `modu-ai/moai-cowork`를 추가한 뒤, 플러그인 목록에서 `moai-tutor`를 찾아 **Install**을 누르세요.
-
-**터미널에 익숙하다면 (대안)**
-
-```bash
-# Claude Cowork CLI
-claude plugin marketplace add modu-ai/moai-cowork
-claude plugin install moai-tutor@moai-cowork
-
-# ChatGPT Work CLI
-codex plugin marketplace add modu-ai/moai-cowork
-codex plugin add moai-tutor@moai-cowork
-```
+Claude Cowork·ChatGPT Work 데스크톱 앱에서 **Settings(또는 Plugins) → Marketplace → +**를 열어 `modu-ai/moai-cowork`를 추가하세요. 그다음 Plugins 화면에서 **moai-tutor**를 선택하고 **+** 또는 **Install**을 누르세요.
 
 > 앱별 정확한 클릭 경로와 잘 안 될 때 대처법은 [플러그인 설치와 관리](https://cowork.mo.ai.kr/plugins/install/)에 정리해 두었습니다.
 
-## 스킬 11종
+## 스킬
 
 호출 형식: `/moai-tutor:education-<스킬명>` — 예: `/moai-tutor:education-curriculum-designer`. 자연어 요청("Python 입문 8주 커리큘럼 짜줘")으로도 자동 매칭됩니다.
 
-### 교육 설계·운영 (6종)
+### 교육 설계·운영
 
 | 스킬 | 역할 |
 |------|------|
@@ -41,7 +29,7 @@ codex plugin add moai-tutor@moai-cowork
 | `education-course-followup-sequence` | 강의 후 30일 수강생 후기 요청 카피 5종 (D+1~D+30) |
 | `education-learning-project` | 독학용 학습 프로젝트 셋업 (로드맵·진도 추적·학습 CLAUDE.md) |
 
-### 학술·연구 (5종)
+### 학술·연구
 
 | 스킬 | 역할 |
 |------|------|
@@ -50,8 +38,12 @@ codex plugin add moai-tutor@moai-cowork
 | `education-research-assistant` | 문헌 검토 보고서·연구 계획서·참고문헌 목록 |
 | `education-grant-writer` | NRF·IITP·KIAT 등 정부 연구비 신청서 초안 |
 | `education-tutor-research` | 학습 질문에 대한 병렬 웹 조사 + 출처 검증 학습 근거 종합 |
+| `education-workflow` | 학습 목표·평가·수업 순서 확인과 작업 연결 |
+| `education-assessment-audit` | 목표·문항 정렬, 정답 재풀이와 인용 검수 |
 
-## 에이전트 2종
+## Claude 에이전트
+
+ChatGPT Work에서는 복합 교육 작업과 평가 근거 검수를 `education-workflow`·`education-assessment-audit` 스킬로 제공합니다.
 
 | 에이전트 | 등급 | 역할 |
 |----------|------|------|

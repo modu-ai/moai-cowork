@@ -1,6 +1,6 @@
 # 데이터 애널리스트 (moai-analyst)
 
-데이터·공공데이터 분석 전담 AI 코워커입니다. 데이터 프로파일링·시각화, 공공데이터 조회(부동산·경매·주식·KOSIS 통계·건축물대장·DART 전자공시) 스킬 7종과 KOSIS 통계·건축HUB·DART MCP 연동을 하나의 플러그인으로 제공합니다. 슬래시 명령을 외울 필요 없이 자연어로 요청하면 매칭되는 스킬이 자동 호출됩니다.
+데이터·공공데이터 분석 전담 AI 코워커입니다. 데이터 프로파일링·시각화, 공공데이터 조회(부동산·경매·주식·KOSIS 통계·건축물대장·DART 전자공시) 스킬과 KOSIS 통계·건축HUB·DART MCP 연동을 하나의 플러그인으로 제공합니다. 슬래시 명령을 외울 필요 없이 자연어로 요청하면 매칭되는 스킬이 자동 호출됩니다.
 
 > **분리 안내**: 본 플러그인의 데이터·공공데이터 스킬들은 `moai-officer`에서 분리되었습니다(오피스 문서 생성 스킬은 moai-officer에 잔류). 신규 호출은 `moai-analyst:<스킬명>` 네임스페이스를 사용하세요.
 
@@ -10,27 +10,15 @@
 
 `modu-ai/moai-cowork` 마켓플레이스 하나에서 설치합니다. **Claude Cowork**와 **ChatGPT Work** 두 데스크톱 앱 모두 같은 방식입니다.
 
-**가장 쉬운 방법** — 설정(Settings) 또는 플러그인(Plugins) 메뉴 → 마켓플레이스(Marketplace)에서 주소 `modu-ai/moai-cowork`를 추가한 뒤, 플러그인 목록에서 `moai-analyst`를 찾아 **Install**을 누르세요.
-
-**터미널에 익숙하다면 (대안)**
-
-```bash
-# Claude Cowork CLI
-claude plugin marketplace add modu-ai/moai-cowork
-claude plugin install moai-analyst@moai-cowork
-
-# ChatGPT Work CLI
-codex plugin marketplace add modu-ai/moai-cowork
-codex plugin add moai-analyst@moai-cowork
-```
+Claude Cowork·ChatGPT Work 데스크톱 앱에서 **Settings(또는 Plugins) → Marketplace → +**를 열어 `modu-ai/moai-cowork`를 추가하세요. 그다음 Plugins 화면에서 **moai-analyst**를 선택하고 **+** 또는 **Install**을 누르세요.
 
 > 앱별 정확한 클릭 경로와 잘 안 될 때 대처법은 [플러그인 설치와 관리](https://cowork.mo.ai.kr/plugins/install/)에 정리해 두었습니다.
 
-## 스킬 7종
+## 스킬
 
 호출 형식: `/moai-analyst:<스킬명>` — 예: `/moai-analyst:data-public`. 자연어 요청("지역별 인구통계 조회해줘", "이 CSV 분석해줘")으로도 자동 매칭됩니다.
 
-### 공공데이터 조회 (5종)
+### 공공데이터 조회
 
 | 스킬 | 역할 |
 |------|------|
@@ -40,12 +28,14 @@ codex plugin add moai-analyst@moai-cowork
 | `data-stock` | KRX 상장 종목 검색·기본정보·일별 시세 조회 |
 | `data-building-ledger` | 건축물대장·건축인허가·공시가격·노후도 조회 — archhub MCP |
 
-### 데이터 분석·시각화 (2종)
+### 데이터 분석·시각화
 
 | 스킬 | 역할 |
 |------|------|
 | `data-explorer` | CSV·Excel 데이터 프로파일링·품질 보고서 |
 | `data-visualizer` | 인터랙티브 차트·대시보드(HTML) 생성 |
+| `data-workflow` | 공공데이터·자체 데이터셋이 섞인 요청의 작업 경로 선택 |
+| `data-provenance-audit` | 공개 수치·차트·계산의 출처를 읽기 전용으로 대조 |
 
 ## MCP 연동 3종
 
@@ -57,7 +47,9 @@ codex plugin add moai-analyst@moai-cowork
 | `archhub` | 국토교통부 건축HUB — 건축물대장·인허가·공시가격·노후도 (11도구) | 불필요 (공용키 hosted) | hosted 장애 시 로컬 대체: `uvx --from git+https://github.com/chrisryugj/archhub-mcp archhub-mcp` + `ARCHHUB_SERVICE_KEY`(data.go.kr 건축HUB 활용신청) |
 | `dart` | OpenDART 전자공시 — 공시·재무·지권·XBRL·HWP/PDF 첨부 마크다운화 (15도구) | 필요: [opendart.fss.or.kr](https://opendart.fss.or.kr) 회원가입 → 인증키 신청(이메일 즉시, 일 20,000건 무료) → `DART_API_KEY` 환경변수 | Node.js 20.19+ 권장 |
 
-## 에이전트 2종
+## Claude 에이전트
+
+Claude의 에이전트 실행 환경에서는 아래 역할을 사용할 수 있습니다. ChatGPT 플러그인에서는 `data-workflow`·`data-provenance-audit` 스킬이 같은 목적의 진입점입니다.
 
 | 에이전트 | 등급 | 역할 |
 |----------|------|------|

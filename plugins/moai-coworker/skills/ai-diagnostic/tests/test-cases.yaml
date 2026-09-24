@@ -40,8 +40,8 @@ test_cases:
         - "근본 원인"
         - "5 Whys"
       has_hypotheses_with_priority: true
-      has_solutions_with_timeframe: true
-      has_root_cause_analysis: true
+      has_solutions_with_priority: true
+      distinguishes_hypotheses_from_verified_causes: true
 
   - id: TC-002
     name: edge-case
@@ -66,14 +66,14 @@ test_cases:
 
   - id: TC-003
     name: complex-input
-    description: "복합적 다차원 문제 상황에서的高级 진단 (Supervisor 패턴 완전 활용)"
+    description: "복합적 문제에서 근거와 가설을 구분하는 진단"
     input:
       problem_description: |
         (1) 배송 시간이 2일에서 5일로 지연 (고객 불만 급증)
         (2) 재고 부족으로 주문 취소율 15% (이전 3%)
         (3) 창고 직원 이탈률 40% (번아웃)
         (4) IT 시스템 다운타임 10시간/월 (이전 2시간)
-        (5) 물류 비용이 매출의 25% (업계 평균 18%)
+        (5) 물류 비용이 매출의 25% (외부 비교 기준은 미확인)
       context:
         system_type: "이커머스 물류 시스템 (WMS + OMS)"
         recent_changes: |
@@ -93,7 +93,7 @@ test_cases:
         - "주문 취소율 15% (이전 3%)"
         - "창고 직원 이탈률 40%"
         - "시스템 다운타임 10시간/월"
-        - "물류 비용 25% (업평 18%)"
+        - "물류 비용 25% (비교 기준 미확인)"
     expected_output:
       contains_sections:
         - "증상 요약"
@@ -124,14 +124,13 @@ test_cases:
       has_hypotheses_with_priority: true
       has_cross_dimensional_analysis: true
       has_risk_assessment: true
-      has_30_60_90_day_plan: true
-      supervisor_pattern_evident: true  # 4차원 조율과 결과 통합 명시
-      root_cause_identified: true
-      has_quantitative_impact_analysis: true  # 정량적 영향 분석
+      has_prioritized_actions_without_invented_deadlines: true
+      distinguishes_hypotheses_from_verified_causes: true
+      does_not_invent_impact_metrics: true
 
 # TC-003의 복잡성 특성:
 # - 5개의 서로 다른 증상 (기술, 프로세스, 사람, 비즈니스 모두 포함)
 # - 3개의 최근 변경사항 (창고 이전, WMS 도입, 세제 혜택 종료)
 # - 정량적 비즈니스 영향 (NPS, 재고 회전율, 매출)
-# - Supervisor 패턴의 4차원 병렬 진단과 결과 통합 필요
-# - 차원 간 상관관계 분석 (예: WMS 도입 → 시스템 불안정 → 배송 지연 → 고객 불만 → 매출 감소)
+# - 여러 관점을 검토하되 근거 없는 차원은 미확인으로 남겨야 함
+# - 차원 간 연관성은 확인 전까지 가설로 표시 (예: WMS 도입과 배송 지연의 관계)

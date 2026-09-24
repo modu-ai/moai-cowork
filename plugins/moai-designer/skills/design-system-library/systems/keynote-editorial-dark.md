@@ -135,7 +135,7 @@ spacing:
 
 **시그니처 (다른 다크 시스템과 구별되는 지점):**
 - **채운 박스 금지** — 채운 회색 카드 금지. 배경은 surface 래더, 구분은 알파화이트 hairline. 그림자·스포트라이트·대기그라디언트 없음.
-- **거대숫자 value>label>context 3단** — Label(11px muted) > Value(140~160px, weight 600, tnum) > context(한 문장). 스탯 숫자 렌더높이 ≥120px, 출처각주 없음.
+- **거대숫자 value>label>context 3단** — Label(11px muted) > Value(140~160px, weight 600, tnum) > context(한 문장). 실제 수치를 쓰면 본문이나 각주에 출처·기준 기간을 붙인다.
 - **4모서리 크롬** — 좌상 브랜드, 우상 파트/날짜, 좌하 저자, 우하 페이지(`05 / 12`). 전 슬라이드 공통.
 - **슬라이드당 accent 1곳** — 시그널 색 `{colors.accent}`을 eyebrow·metric·rule 중 딱 한 곳에만. 다색 칩 남발이 가장 촌스럽다.
 - **surface 래더 + 알파화이트 hairline** — 다크에서 유일한 테두리는 hairline. 카드 배경은 래더에서 한 단 올린 것.
@@ -195,7 +195,7 @@ body에 `word-break: keep-all; overflow-wrap: normal; line-break: strict;` 필�
 - 모든 슬라이드를 near-black `{colors.canvas}` 위에 앉힌다. 순흑이 아니라 near-black.
 - 구분은 알파화이트 hairline으로만. 카드가 필요하면 surface 래더에서 한 단 올린다.
 - accent `{colors.accent}`는 슬라이드당 1곳(eyebrow·metric·rule 중 하나).
-- 스탯은 거대숫자 3단(value>label>context), 렌더높이 ≥120px, 출처각주 없음.
+- 스탯은 거대숫자 3단(value>label>context)으로 표현하되, 실제 수치에는 출처·기준 기간을 연결한다.
 - 위계는 크기·트래킹으로. 애매하면 굵기 대신 크기를 키운다.
 
 ### Don't

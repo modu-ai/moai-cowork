@@ -1,5 +1,5 @@
 """
-uvx 진입점 — `uvx moai-mcp-smartstore` 명령으로 stdio MCP 서버 실행.
+패키지 진입점 — 플러그인의 `uv run --directory ...` 명령으로 stdio MCP 서버 실행.
 
 --version 플래그로 설치/버전 검증 가능하다.
 """

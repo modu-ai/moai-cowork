@@ -97,6 +97,6 @@ the top-right corner.
 
 ## 출처
 
-- [Google AI for Developers — Gemini 3 Pro Image Preview (Reference Images)](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview)
+- [Google AI for Developers — Gemini image generation](https://ai.google.dev/gemini-api/docs/image-generation)
 - [Google Cloud Blog — Ultimate Prompting Guide for Nano Banana](https://cloud.google.com/blog/products/ai-machine-learning/ultimate-prompting-guide-for-nano-banana)
 - [Atlabs AI — Ultimate Nano Banana Pro Prompting Guide](https://www.atlabs.ai/blog/the-ultimate-nano-banana-pro-prompting-guide-mastering-gemini-3-pro-image)

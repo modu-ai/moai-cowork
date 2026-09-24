@@ -10,19 +10,7 @@
 
 `modu-ai/moai-cowork` 마켓플레이스 하나에서 설치합니다. **Claude Cowork**와 **ChatGPT Work** 두 데스크톱 앱 모두 같은 방식입니다.
 
-**가장 쉬운 방법** — 설정(Settings) 또는 플러그인(Plugins) 메뉴 → 마켓플레이스(Marketplace)에서 주소 `modu-ai/moai-cowork`를 추가한 뒤, 플러그인 목록에서 `moai-lawyer`를 찾아 **Install**을 누르세요.
-
-**터미널에 익숙하다면 (대안)**
-
-```bash
-# Claude Cowork CLI
-claude plugin marketplace add modu-ai/moai-cowork
-claude plugin install moai-lawyer@moai-cowork
-
-# ChatGPT Work CLI
-codex plugin marketplace add modu-ai/moai-cowork
-codex plugin add moai-lawyer@moai-cowork
-```
+Claude Cowork·ChatGPT Work 데스크톱 앱에서 **Settings(또는 Plugins) → Marketplace → +**를 열어 `modu-ai/moai-cowork`를 추가하세요. 그다음 Plugins 화면에서 **moai-lawyer**를 선택하고 **+** 또는 **Install**을 누르세요.
 
 > 앱별 정확한 클릭 경로와 잘 안 될 때 대처법은 [플러그인 설치와 관리](https://cowork.mo.ai.kr/plugins/install/)에 정리해 두었습니다.
 
@@ -89,7 +77,14 @@ codex plugin add moai-lawyer@moai-cowork
 
 필요한 기관만 등록하면 됩니다. 키는 채팅에 붙여 넣지 말고 Claude 앱은 플러그인 설정 화면에, Codex 앱은 자격증명 파일(macOS `~/.moai/mcp/ip.json`, Windows `C:\Users\<사용자>\.moai\mcp\ip.json`)에 넣습니다. 기관별 가입 절차는 [CONNECTORS.md](mcp-servers/moai-mcp-ip/CONNECTORS.md)에 있습니다.
 
-## 에이전트 2종
+## Claude 에이전트
+
+ChatGPT Work에서는 복합 법무 조사와 근거 검수를 `legal-workflow`·`legal-evidence-audit` 스킬로 제공합니다. 법령·판례 도구가 연결되지 않으면 검증되지 않은 인용을 확정하지 않습니다.
+
+| ChatGPT 스킬 | 역할 |
+|-------------|------|
+| `legal-workflow` | 문서·관할·적용 시점을 확인하고 전담 법무 스킬을 연결 |
+| `legal-evidence-audit` | 인용 기록·적용 법령·위험 등급을 원자료와 대조 |
 
 | 에이전트 | 등급 | 역할 |
 |----------|------|------|

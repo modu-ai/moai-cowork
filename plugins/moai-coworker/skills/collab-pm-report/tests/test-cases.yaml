@@ -1,7 +1,7 @@
 # weekly-report test cases
-skill: weekly-report
-plugin: moai-pm
-version: 1.6.0  # release target (synced bump)
+skill: collab-pm-report
+plugin: moai-coworker
+version: 1.1.2
 
 rubric:
   correctness: 0.30
@@ -12,7 +12,7 @@ pass_threshold: 0.70
 
 cases:
   - id: T01
-    name: "6섹션 표준 구조 (KPI/Done/InProgress/Plan/Risks/Decisions)"
+    name: "제공된 자료를 6섹션으로 정리"
     input: "이번 주 결제 v2 머지, 로그인 버그 잡았어, 알림 70% 진행중. KPI MAU 12k(+3.8%)."
     assertions:
       - has_section: "이번 주 핵심"
@@ -23,36 +23,34 @@ cases:
       - has_section: "의사결정 요청"
 
   - id: T02
-    name: "임원 1pager 별도 생성 (≤250 단어)"
+    name: "자료가 없을 때 임원 보고 수치를 만들지 않음"
     input: "주간 보고를 임원용으로도 만들어줘"
     assertions:
-      - has_executive_brief: true
-      - executive_word_count: { max: 250 }
+      - requests_missing_source: true
+      - does_not_invent_metrics: true
 
   - id: T03
-    name: "톤 자동 매핑 (임원=격식체, 팀=해요체)"
+    name: "팀 대상에 맞는 문체"
     input: "팀 슬랙용으로 정리해줘"
     assertions:
-      - sentence_endings: ["~했어요", "~할 예정이에요"]
-      - no_formal_endings_in_team_version: true
+      - readable_team_tone: true
 
   - id: T04
-    name: "시간 추정 자동 변환 (priority labels)"
+    name: "사용자가 준 일정 보존"
     input: "다음 주 화요일까지 결제 모듈 보안 감사 대응"
     assertions:
-      - converts_time_to_priority: true
-      - uses_p0_p1_p2: true
-      - no_explicit_dates_in_plan: true
+      - preserves_user_deadline: true
+      - does_not_invent_priority: true
 
   - id: T05
-    name: "수치 출처 또는 [추정] 태그 강제"
+    name: "수치 출처의 신뢰 범위 표시"
     input: "MAU 12,450, 가입 320 (Notion DB 인용)"
     assertions:
-      - cites_source_inline: true
-      - estimated_tag_when_no_source: "[추정]"
+      - attributes_number_to_user_input: true
+      - does_not_claim_notion_was_queried: true
 
   - id: T06
-    name: "데이터 소스 3-tier fallback"
+    name: "자유 텍스트 입력"
     input: "이번 주 한 일 정리해줘 (자유 텍스트만 있음)"
     assertions:
       - parses_free_text: true
@@ -60,12 +58,12 @@ cases:
 
 chain_tests:
   - id: C01
-    name: "Happy: standup-summarizer → weekly-report → collab-exec-summary"
-    expected: "스탠드업 누적 → 주간 6섹션 → C-level 1pager"
+    name: "실제 스탠드업 메모 → collab-pm-report → collab-exec-summary"
+    expected: "제공된 메모를 주간보고로 정리하고 요청 시 경영진 요약"
 
 anti_patterns:
-  - "Time estimates ('1주 후', '3일 내')"
+  - "사용자가 제시한 일정을 임의 우선순위로 바꿈"
   - "Mixed formal/casual tone"
   - "Personal blame in body"
-  - "Numbers without source or [추정] tag"
-  - "Skipping Decisions section"
+  - "자료에 없는 수치·성과를 만들어 냄"
+  - "조회하지 않은 연결 자료를 조회했다고 주장함"

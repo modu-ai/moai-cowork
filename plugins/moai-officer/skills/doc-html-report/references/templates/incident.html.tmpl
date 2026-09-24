@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
   <style>
     /* ============================================================
@@ -59,7 +59,7 @@
       background: var(--ivory);
       color: var(--slate);
       font-family: var(--sans);
-      font-size: 15px;
+      font-size: 16px;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
@@ -77,7 +77,7 @@
     .inc-id {
       font-family: var(--mono);
       font-size: 13px;
-      color: var(--g500);
+      color: var(--g700);
       letter-spacing: 0.02em;
       margin-bottom: 8px;
     }
@@ -115,11 +115,11 @@
     .pill .k { font-weight: 400; opacity: 0.75; }
 
     .pill.sev-1 { background: var(--sev1); color: var(--paper); }
-    .pill.sev-2 { background: var(--sev2); color: var(--paper); }
-    .pill.sev-3 { background: var(--sev3); color: var(--paper); }
+    .pill.sev-2 { background: var(--sev2); color: var(--slate); }
+    .pill.sev-3 { background: var(--sev3); color: var(--slate); }
 
-    .pill.resolved { background: var(--olive); color: var(--paper); }
-    .pill.active   { background: var(--clay);  color: var(--paper); }
+    .pill.resolved { background: var(--olive); color: var(--slate); }
+    .pill.active   { background: var(--clay);  color: var(--slate); }
 
     .pill.neutral {
       background: var(--g100);
@@ -269,7 +269,7 @@
       cursor: pointer;
       font-family: var(--mono);
       font-size: 12px;
-      color: var(--g500);
+      color: var(--g700);
     }
 
     .tl-log summary::-webkit-details-marker { display: none; }
@@ -309,7 +309,7 @@
     }
 
     .code-panel .path {
-      color: var(--g500);
+      color: var(--g300);
       font-size: 12px;
       margin-bottom: 10px;
       display: block;
@@ -348,7 +348,7 @@
 
     table.impact th {
       font-weight: 400;
-      color: var(--g500);
+      color: var(--g700);
       width: 55%;
     }
 
@@ -407,7 +407,7 @@
     }
 
     .ai-row.done .ai-desc {
-      color: var(--g500);
+      color: var(--g700);
       text-decoration: line-through;
       text-decoration-color: var(--g300);
     }
@@ -432,7 +432,7 @@
     .ai-due {
       font-family: var(--mono);
       font-size: 12px;
-      color: var(--g500);
+      color: var(--g700);
       text-align: right;
     }
 
@@ -458,7 +458,7 @@
       border-top: 1px solid var(--g300);
       font-family: var(--mono);
       font-size: 12px;
-      color: var(--g500);
+      color: var(--g700);
     }
 
     /* ============================================================
@@ -528,7 +528,7 @@
 
     <!-- ========================================================
          TL;DR 배너
-         tldr_html: 인라인 HTML 가능 (<code> 등)
+         tldr_html: 변수명은 유지하되 HTML로 해석하지 않는 일반 텍스트
     ======================================================== -->
     <div class="tldr">
       <div class="tldr-label">TL;DR</div>
@@ -541,7 +541,7 @@
            {
              time: "14:02",
              dot_class: "" | "impact" | "mitigated",
-             body_html: "...",
+             body_html: 일반 텍스트,
              log_excerpt: "" | "로그 텍스트"
            }
          ]
@@ -568,7 +568,7 @@
 
     <!-- ========================================================
          근본 원인
-         root_cause_html: 서술 HTML
+         root_cause_html: 일반 텍스트
          diff_path: 파일 경로 (선택)
          diff_lines: [{cls: "ctx|del|add", text: "..."}] (선택)
     ======================================================== -->
@@ -610,7 +610,7 @@
              done: true|false,
              initials: "AB",
              assignee: "이름",
-             desc_html: "...",
+             desc_html: 일반 텍스트,
              deadline: "4월 28일"
            }
          ]

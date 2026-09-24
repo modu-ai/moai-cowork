@@ -10,8 +10,8 @@ from .._base import get_client
 
 # action -> (method, path, path_params, query_params, has_body)
 _OPS: dict[str, tuple] = {
-    'read_member_info_list': ('GET', '/member-info/members', [], ['page', 'limit', 'joinTimeRangeType', 'joinTimeRangeValue', 'lastLoginTimeRangeType', 'lastLoginTimeRangeValue', 'unitCode', 'memberCode', 'memberUid', 'smsAgree', 'emailAgree', 'thirdPartyAgree', 'callnum'], False),
-    'read_member_info_list_by_cursor': ('GET', '/member-info/members/cursor', [], ['joinTimeRangeType', 'joinTimeRangeValue', 'lastLoginTimeRangeType', 'lastLoginTimeRangeValue', 'cursor', 'direction', 'limit', 'unitCode', 'smsAgree', 'emailAgree', 'thirdPartyAgree', 'callnum', 'editTimeRangeType', 'editTimeRangeValue'], False),
+    'read_member_info_list': ('GET', '/member-info/members', [], ['page', 'limit', 'recommendCode', 'joinTimeRangeType', 'joinTimeRangeValue', 'lastLoginTimeRangeType', 'lastLoginTimeRangeValue', 'unitCode', 'memberCode', 'memberUid', 'memberCodes', 'memberUids', 'smsAgree', 'emailAgree', 'thirdPartyAgree', 'callnum', 'callnums'], False),
+    'read_member_info_list_by_cursor': ('GET', '/member-info/members/cursor', [], ['recommendCode', 'joinTimeRangeType', 'joinTimeRangeValue', 'lastLoginTimeRangeType', 'lastLoginTimeRangeValue', 'cursor', 'direction', 'limit', 'unitCode', 'smsAgree', 'emailAgree', 'thirdPartyAgree', 'callnum', 'editTimeRangeType', 'editTimeRangeValue'], False),
     'read_all_shop_prod_wish_by_prod_no': ('GET', '/member-info/members/product/wish-list', [], ['page', 'limit', 'prodNo'], False),
     'read_all_shop_order_cart_by_prod_no': ('GET', '/member-info/members/product/carts', [], ['page', 'limit', 'prodNo', 'unitCode'], False),
     'read_one_member_info_by_unit_code_and_member_uid': ('GET', '/member-info/members/{memberUid}', ['memberUid'], ['unitCode'], False),
@@ -91,8 +91,8 @@ Returns: API JSON."""
     _pp_val = {k: _params[k] for k in _pp if k in _params}
     _qp_val = {k: _params[k] for k in _qp if k in _params}
     _client = get_client()
-    if paginate and _method == "GET":
-        return _client.list_all_pages(_path, params=_qp_val or None)
+    if paginate and _method == "GET" and "page" in _qp and "limit" in _qp:
+        return _client.list_all_pages(_path, path_params=_pp_val or None, params=_qp_val or None)
     _kw = {}
     if _pp_val:
         _kw["path_params"] = _pp_val

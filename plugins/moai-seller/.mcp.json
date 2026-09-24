@@ -17,7 +17,7 @@
       }
     },
     "moai-mcp-imweb": {
-      "$comment": "아임웹(Imweb) OPEN API v3 MCP — 쇼핑몰 운영 전 도메인 136 엔드포인트를 8 카테고리 도구로 (order·product·member·community·promotion·site·script·payment). OAuth2 authorizationCode + JWT access token(자동 갱신). 사전 설치: uv (curl -LsSf https://astral.sh/uv/install.sh | sh). 소스를 플러그인에 자체 vendor(mcp-servers/moai-mcp-imweb) — PyPI 불필요, 설치 즉시 작동. 도구는 OpenAPI 스펙에서 자동 생성(tools/_generator.py + tools/openapi.json). 자격증명 발급·인증 절차는 mcp-servers/moai-mcp-imweb/CONNECTORS.md.",
+      "$comment": "아임웹 OPEN API 판매자 서버. 공식 명세에서 생성한 작업 138개를 카테고리 도구 8개로 제공합니다. 앱 등록·인가·필요 권한은 mcp-servers/moai-mcp-imweb/CONNECTORS.md와 공식 명세를 확인하세요.",
       "command": "uv",
       "args": [
         "run",
@@ -34,7 +34,7 @@
       }
     },
     "moai-mcp-cafe24": {
-      "$comment": "카페24(Cafe24) 쇼핑몰 API MCP — Admin API(19 도메인) + Analytics API(cafe24data) 전 엔드포인트를 선언적 레지스트리 기반 도구로 제공. OAuth2 access(2h)/refresh(2w, 회전) 자동 갱신, Leaky Bucket + Usage 이중 레이트리밋 준수, X-Cafe24-Api-Version 2025-09-01. 사전 설치: uv (curl -LsSf https://astral.sh/uv/install.sh | sh). 소스를 플러그인에 자체 vendor(mcp-servers/moai-mcp-cafe24) — PyPI 불필요, 설치 즉시 작동. 자격증명 발급·인증 절차는 mcp-servers/moai-mcp-cafe24/README.md.",
+      "$comment": "카페24 판매자 Admin API와 Analytics API용 자체 서버. 20개 카테고리 도구에 526개 작업 정의가 있으며, 계정 권한·현행 API 정합성은 작업별 확인이 필요합니다. 첫 OAuth 인가 절차는 mcp-servers/moai-mcp-cafe24/README.md를 참고하세요.",
       "command": "uv",
       "args": [
         "run",
@@ -49,6 +49,11 @@
         "CAFE24_ACCESS_TOKEN": "${user_config.CAFE24_ACCESS_TOKEN}",
         "CAFE24_REFRESH_TOKEN": "${user_config.CAFE24_REFRESH_TOKEN}"
       }
+    },
+    "cafe24-catalog-mcp": {
+      "$comment": "카페24 공식 Global Catalog MCP. 상품 검색 등 제공 기능은 현재 tools/list로 확인합니다. 판매자 Admin API와는 용도가 다릅니다.",
+      "command": "npx",
+      "args": ["mcp-remote", "https://mcp-catalog.cafe24.com/api/mcp"]
     }
   }
 }

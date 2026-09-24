@@ -6,8 +6,8 @@ Google AI Studio / Vertex AI / Gemini API에서 사용하는 파라미터.
 
 | 모델 ID | 별명 | 용도 |
 |---|---|---|
-| `gemini-3-pro-image-preview` (권장) | Nano Banana Pro | 최종 납품, 고품질, 4K, 복잡 구도 |
-| `gemini-3.1-flash-image-preview` | Nano Banana 2 | 초안, A/B, 비용 효율, 1K-2K |
+| `gemini-3-pro-image` | Nano Banana Pro | 복잡한 이미지 작업, 최대 4K |
+| `gemini-3.1-flash-image` | Nano Banana 2 | 일반 이미지 작업, 최대 4K |
 
 ## aspect_ratio
 
@@ -73,24 +73,9 @@ Google AI Studio / Vertex AI / Gemini API에서 사용하는 파라미터.
 
 긴 텍스트 + 다중 reference 이미지를 함께 사용할 때 토큰 budget 주의.
 
-## API 호출 예 (Python · Vertex AI)
+## API 호출
 
-```python
-from vertexai.preview.generative_models import GenerativeModel, Part
-
-model = GenerativeModel("gemini-3-pro-image-preview")
-response = model.generate_content(
-    [
-        "<5-component 프롬프트>",
-        Part.from_uri("gs://bucket/ref1.png", mime_type="image/png"),
-        Part.from_uri("gs://bucket/ref2.png", mime_type="image/png"),
-    ],
-    generation_config={
-        "aspect_ratio": "1:1",
-        "resolution": "2K",
-    },
-)
-```
+이 스킬은 프롬프트 텍스트만 만듭니다. API 호출 코드를 이 문서에서 복사하지 말고 [Google의 현재 이미지 생성 가이드](https://ai.google.dev/gemini-api/docs/image-generation)에서 모델 ID와 요청 형식을 확인하세요. 앱 UI의 설정 이름과 API 필드 이름은 같다고 가정하지 않습니다.
 
 ## SynthID 워터마크
 
@@ -99,15 +84,12 @@ response = model.generate_content(
 - SynthID 검증 도구로 "Gemini로 생성·편집됐는지" 판별 가능.
 - 상업적 사용 가능 (유료 사용자).
 
-## 비용 (Vertex AI 기준, 2026.04)
+## 비용
 
-상세 가격은 공식 가격 페이지 확인. 일반적으로:
-- Flash: Pro 대비 약 절반 비용
-- Thinking Mode: 추가 reasoning 토큰 비용 발생
-- Reference 이미지: 입력 토큰에 포함
+모델·해상도·입력 이미지·서비스에 따라 현재 가격이 달라집니다. 생성 전에 해당 계정의 공식 가격 화면에서 확인합니다.
 
 ## 출처
 
-- [Google AI for Developers — Gemini 3 Pro Image Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview)
+- [Google AI for Developers — Gemini image generation](https://ai.google.dev/gemini-api/docs/image-generation)
 - [Google Cloud Documentation — Gemini 3 Pro Image (Vertex AI)](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-pro-image)
 - [Google AI Studio — Gemini 3 Pro Image](https://aistudio.google.com/models/gemini-3-pro-image)

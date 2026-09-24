@@ -57,10 +57,10 @@ Create a photorealistic landscape photograph of <Q1> for <use>.
 photography. <Q4>.
 ```
 
-### Midjourney v8.1 (키워드+파라미터)
+### Midjourney V8 (기본 V8.2)
 ```
 <Q1 키워드>, <Q2 키워드>, <Q3 키워드>, <Q4 키워드>, 24mm wide-angle,
-deep DOF, cinematic landscape --ar [Round 3] --style raw --hd --q 4 --s 300
+deep DOF, cinematic landscape --ar [Round 3] --raw --s 300
 ```
 
 ## 화면비 권장
@@ -68,7 +68,7 @@ deep DOF, cinematic landscape --ar [Round 3] --style raw --hd --q 4 --s 300
 | 화면비 | 추천 시나리오 |
 |---|---|
 | 16:9 | 시네마틱 와이드, 유튜브 썸네일, 노트북 배경 |
-| 21:9 (Gemini만) | 울트라와이드 영화 어조 |
+| 21:9 | 울트라와이드 영화 어조. GPT Image 2.5 API에서는 크기 제한을 충족하는 사용자 지정 해상도를 쓰고, ChatGPT 기본 이미지 도구에서는 화면비를 프롬프트에 설명 |
 | 9:16 | 모바일 락스크린, 릴스 배경 |
 | 1:1 | SNS 정사각 |
 
@@ -81,5 +81,5 @@ deep DOF, cinematic landscape --ar [Round 3] --style raw --hd --q 4 --s 300
 - volumetric light · god rays · backlight · sidelight · rim light · ambient
 
 스타일 어조:
-- cinematic · documentary · National Geographic · Wes Anderson · Studio Ghibli
+- cinematic · documentary photography · centered symmetry · warm hand-painted scenery
 - 4K nature · landscape masterpiece · award-winning photography

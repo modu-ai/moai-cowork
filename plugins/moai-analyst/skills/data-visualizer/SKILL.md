@@ -8,7 +8,7 @@ description: |
   - "시각화해줘"
   - "대시보드 만들어줘"
   Mermaid·Recharts·Chart.js·Tremor·ECharts 중 적합한 스택으로 인터랙티브 대시보드를 제작하고, moai-officer:doc-pptx / moai-officer:doc-docx로 PPT·Word 변환까지 이어집니다.
-version: "1.1.0"
+version: "1.1.1"
 ---
 
 # 데이터 시각화 (Data Visualizer)
@@ -21,7 +21,7 @@ version: "1.1.0"
 
 ### 방식 1: Mermaid 다이어그램 (간단 차트)
 - pie chart, xychart-beta(막대/선), flowchart, gantt
-- Cowork Artifacts에서 직접 렌더링
+- 현재 앱이 Mermaid 렌더링을 지원하면 대화에 표시하고, 지원하지 않으면 코드 블록이나 파일로 전달
 - 빠르고 가벼움, 별도 파일 불필요
 - 테마 인터뷰 **생략 가능** (Mermaid 기본 스타일 사용)
 
@@ -30,7 +30,7 @@ version: "1.1.0"
 - 단일 HTML 파일 모드: Tailwind CDN + shadcn CSS 변수 인라인 + Chart.js
 - KPI 카드, 라인/막대/파이/도넛/레이더/버블 차트
 - 필터, 호버 툴팁, 줌, 다크 모드 자동 지원
-- Cowork Artifacts에서 렌더링 가능
+- 앱의 미리보기 기능이 지원되면 표시하고, 그렇지 않으면 HTML 파일로 전달
 - **테마 인터뷰 필수**
 
 ### 방식 3: 마크다운 테이블 (텍스트 기반)
@@ -42,7 +42,7 @@ version: "1.1.0"
 
 ## [HARD] HTML 대시보드 생성 시 shadcn 테마 인터뷰
 
-HTML·React 대시보드(방식 2)를 산출할 때는 **코드 생성 직전에** MoAI 오케스트레이터가 `AskUserQuestion`으로 다음 4개 질문을 제시합니다.
+HTML·React 대시보드(방식 2)를 산출할 때는 **코드 생성 직전에** 현재 앱의 구조화 질문 기능 또는 대화로 다음 4개 선택을 확인합니다.
 
 1. **Q1 베이스 팔레트** — Neutral(기본) / Zinc / Stone / Slate
 2. **Q2 컬러 모드** — System+Toggle(기본) / Light / Dark / Auto
@@ -51,7 +51,7 @@ HTML·React 대시보드(방식 2)를 산출할 때는 **코드 생성 직전에
 
 > 대시보드 스킬은 Q4 옵션 자체가 차트 스택이므로 랜딩/상세와 달리 multiSelect를 사용하지 않습니다.
 
-상세 질문 payload·Fallback 기본값은 `../../../moai-coworker/skills/marketing-landing-page/references/marketing-landing-page/shadcn-theme-interview.md` (공용 레퍼런스) 참조.
+테마 선택의 상세 설명은 `../../../moai-marketer/skills/marketing-landing-page/references/landing-page/shadcn-theme-interview.md`를 참조합니다. 그 문서의 Claude 전용 질문 도구 호출 형식은 현재 앱의 기능에 맞게 바꿔 사용합니다.
 
 Fallback(인터뷰 생략) 기본값: `Neutral + System+Toggle + 0.5rem + Recharts`. 적용 시 응답 상단에 고지합니다.
 

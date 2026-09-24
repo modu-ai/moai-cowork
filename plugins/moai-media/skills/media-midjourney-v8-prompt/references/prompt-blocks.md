@@ -1,14 +1,14 @@
-# Midjourney v8.1 — Keyword + Parameter Structure
+# Midjourney V8 — 짧은 설명과 지원되는 파라미터
 
-Midjourney는 키워드 콤마 + `--파라미터` 구조에 최적화. 자연어 문장도 동작하지만 키워드형이 더 일관된 결과를 냅니다.
+[공식 Prompt Basics](https://docs.midjourney.com/hc/en-us/articles/32023408776205-Prompt-Basics)는 짧고 구체적인 문구를 권합니다. 피사체·장면·구도·빛·매체 중 결과에 필요한 단서만 골라 쓰고 파라미터는 끝에 붙입니다.
 
 ## 표준 구조
 
 ```
 [subject], [scene/setting], [composition], [lighting], [style/medium]
---ar W:H [--style raw] [--hd] [--q 4] [--s 0~1000]
-[--sref CODE_or_URL --sw 0~1000 --sv 7]
-[--oref URL --cw 0~100]
+--ar W:H [--raw] [--hd] [--s 0~1000]
+[--sref CODE_or_URL --sw 0~1000]
+[--edit IMAGE_URL]
 [--p PROFILE_ID]
 [--no NEGATIVE_LIST]
 [--c 0~100]
@@ -52,24 +52,23 @@ Midjourney는 키워드 콤마 + `--파라미터` 구조에 최적화. 자연어
 
 ## Block 5 — Style / Medium
 
-매체·장르·photographer reference.
+매체·장르·시각적 특징.
 
 예:
 - `editorial product photography, film grain`
-- `Annie Leibovitz portrait, cinematic`
-- `Studio Ghibli illustration, hand-painted backgrounds`
+- `editorial portrait, soft side light, cinematic framing`
+- `warm hand-painted illustration, layered natural backgrounds`
 - `anime cel-shading, thick lines, flat colors`
 
 ## 파라미터 순서 (관례)
 
 ```
 --ar [필수]
---style raw [선택, photographic용]
---hd [선택, 2K 필요 시, 4x cost]
---q 4 [선택, coherence 필요 시, 4x cost]
+--raw [선택, 자동 스타일을 줄이고 싶을 때]
+--hd [선택, 2K 필요 시]
 --s [선택, default 100, 0~1000]
---sref [선택, 4x cost, --sw·--sv 동반]
---oref [선택, 2x cost, --cw 동반]
+--sref [선택, 스타일 참조. --sw로 영향력 조절]
+--edit [선택, Discord에서 이미지 참조·편집]
 --p [선택, profile 사용 시]
 --no [선택, 제외 요소]
 --c [선택, 시안 다양성]
@@ -83,10 +82,10 @@ Midjourney는 키워드 콤마 + `--파라미터` 구조에 최적화. 자연어
 matte black ceramic coffee mug, ridge texture, "MONDAY" text,
 wet slate countertop, Scandinavian kitchen, sunrise window
 light, three-quarter angle, 50mm, shallow DOF, editorial product
-photography, film grain --ar 1:1 --style raw --hd --q 4 --s 250
+photography, film grain --ar 1:1 --raw --s 250
 ```
 
-비용: 4x (--hd) × 4x (--q 4) = **16x GPU 시간**
+고해상도가 필요하면 `--hd`를 추가하고 현재 계정의 GPU 시간을 확인합니다.
 
 ### 예 2 — 인물 9:16 캐릭터 일관성
 
@@ -94,11 +93,11 @@ photography, film grain --ar 1:1 --style raw --hd --q 4 --s 250
 30-year-old Korean woman, beige trench coat, gold earrings,
 reading laptop, brick-walled Seoul cafe, late afternoon, warm
 window light, eye-level, 85mm portrait, shallow DOF, editorial
-candid --ar 9:16 --style raw --oref https://example.com/ref.jpg
---cw 40 --s 200
+candid, preserve the reference subject's face and coat --ar 9:16
+--raw --edit https://example.com/ref.jpg --s 200
 ```
 
-비용: 2x (--oref). `--cw 40`으로 얼굴만 따라가고 의상·배경은 새로.
+웹에서는 같은 이미지를 Attach to prompt에 넣습니다. 참조에서 지킬 얼굴·의상과 바꿀 배경을 문장으로 구분합니다.
 
 ### 예 3 — 일러스트 + Style Reference
 
@@ -108,20 +107,20 @@ washes, paper texture, warm autumn palette, centered close-up
 --ar 4:5 --sref 1234567890 --sw 300 --s 500
 ```
 
-비용: 4x (--sref). `--sv 7` default 적용.
+스타일 참조의 색·매체가 과하게 반영되면 `--sw`를 낮춥니다.
 
-## v8 권장 베이스라인
+## V8 권장 시작점
 
 | 케이스 | 권장 기본 |
 |---|---|
-| 제품샷 사진 | `--style raw --hd --q 4 --s 250` |
-| 인물 사진 | `--style raw --s 200` (또는 --hd 추가) |
+| 제품샷 사진 | `--raw --s 250` (고해상도 요청이면 `--hd` 추가) |
+| 인물 사진 | `--raw --s 200` (고해상도 요청이면 `--hd` 추가) |
 | 일러스트 | `--s 500` (raw 없이) |
-| 풍경·시네마틱 | `--style raw --hd --q 4 --s 300` |
+| 풍경·시네마틱 | `--raw --s 300` (고해상도 요청이면 `--hd` 추가) |
 | 빠른 탐색 | 기본만 (--ar만) |
 
 ## 출처
 
 - [Midjourney Documentation — Parameter List](https://docs.midjourney.com/hc/en-us/articles/32859204029709-Parameter-List)
-- [Blake Crosley — Midjourney V8.1 + V7 Reference](https://blakecrosley.com/guides/midjourney)
-- [ArtPromptHQ — Ultimate Midjourney Prompt Packs Guide](https://www.artprompthq.com/blog/ultimate-midjourney-prompt-packs-parameters-settings/)
+- [Midjourney Documentation — Prompt Basics](https://docs.midjourney.com/hc/en-us/articles/32023408776205-Prompt-Basics)
+- [Midjourney Documentation — Edit Model](https://docs.midjourney.com/hc/en-us/articles/48495453462797-Edit-Model)

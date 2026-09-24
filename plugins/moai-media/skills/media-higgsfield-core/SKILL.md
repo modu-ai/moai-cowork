@@ -3,13 +3,14 @@ name: media-higgsfield-core
 description: |
   Higgsfield MCP 이미지·영상 생성의 공유 코어. media-higgsfield-image / media-higgsfield-video가
   로드하는 SSOT(single source of truth)로, 호출 스키마·라이브 카탈로그 조회 프로토콜·공통 크래프트
-  규칙(R1–R5)·인터뷰 슬롯·잡 수명주기를 정의합니다.
+  규칙(R1–R5)·인터뷰 슬롯·잡 수명주기를 정의합니다. Claude의 MCP 연결과 ChatGPT의
+  공식 Higgsfield 플러그인에서 다른 도구 이름을 런타임에 구분합니다.
   다음과 같은 상황에서 로드됩니다:
   - media-higgsfield-image 또는 media-higgsfield-video가 호출 계약을 참조할 때
   - Higgsfield 모델의 파라미터를 하드코딩하지 않고 런타임 조회해야 할 때
-  - namespace(mcp__higgsfield__ vs mcp__claude_ai_higgsfield__)를 런타임 해석해야 할 때
+  - 현재 앱의 Higgsfield 도구 이름과 입력 스키마를 런타임에 확인해야 할 때
   이 스킬은 단독 실행 스킬이 아니라 두 소비 스킬이 참조하는 공유 코어입니다.
-version: "1.2.1"
+version: "1.3.2"
 ---
 
 # Higgsfield 코어 (media-higgsfield-core)
@@ -18,42 +19,42 @@ version: "1.2.1"
 
 ## 개요
 
-이 스킬은 `media-higgsfield-image`와 `media-higgsfield-video`가 공통으로 참조하는 코어다. 두 소비 스킬은 호출 계약·조회 순서·공통 규칙을 여기서 가져온다. **핵심 설계 원칙: 파라미터(모델 id·enum·aspect·duration·media role·비용)는 절대 하드코딩하지 않고 런타임에 `models_explore`로 조회한다. 프롬프트 크래프트만 정적으로 큐레이션하고 출처를 단다.**
+이 스킬은 `media-higgsfield-image`와 `media-higgsfield-video`가 공통으로 참조하는 코어다. 두 소비 스킬은 호출 계약·조회 순서·공통 규칙을 여기서 가져온다. **핵심 설계 원칙: 파라미터(모델 id·enum·aspect·duration·media role·비용)는 하드코딩하지 않고 현재 연결의 라이브 도구로 조회한다. 프롬프트 크래프트만 정적으로 큐레이션하고 출처를 단다.**
 
 이 설계가 필요한 이유는 두 축이 서로 다른 진실원을 갖기 때문이다:
 
 | 축 | 진실원 | 스킬이 얻는 방법 |
 |---|---|---|
-| 파라미터 | 라이브 MCP | `models_explore` / `show_marketing_studio` / `presets_show` / `get_cost` (호출 시점) |
+| 파라미터 | 현재 연결의 라이브 도구 | MCP의 `models_explore` 또는 ChatGPT 공식 플러그인의 `models_get` 등 (호출 시점) |
 | 프롬프트 크래프트 | 모델 벤더 공식 문서 | 계열별 `prompt-craft/*.md` (저술 시점 고정, 출처·Evidence tier 표기) |
 
 ## 코어 참조 파일
 
 | 파일 | 역할 |
 |---|---|
-| `references/call-schema.md` | 중첩 `params{}` 형태 계약, `medias[].role/.value` 규칙, namespace 런타임 해석, 존재하지 않는 파라미터 안티패턴 |
-| `references/catalog-protocol.md` | `models_explore` 등 라이브 조회 도구와 표준 순서(REQ-010), 범위 밖 모델 폴백 |
+| `references/call-schema.md` | 중첩 `params{}` 형태 계약, 연결별 `medias[].role/.value` 규칙, 도구 이름 런타임 해석, 존재하지 않는 파라미터 안티패턴 |
+| `references/catalog-protocol.md` | MCP·ChatGPT 공식 플러그인의 라이브 조회·견적·생성 도구 대응표와 표준 순서(REQ-010) |
 | `references/universal-rules.md` | R1–R5 벤더 교차 공통 규칙 |
 | `references/interview-schema.md` | 크래프트 파일이 소비하는 수집 슬롯 |
-| `references/job-lifecycle.md` | `get_cost` 프리플라이트, `credits` 규칙, `adjustments` 리드백, 폴링·오류 분류, 잔액 정지 |
+| `references/job-lifecycle.md` | 연결별 견적, `credits` 규칙, `adjustments` 리드백, 폴링·오류 분류, 잔액 정지 |
 
 ## 오케스트레이션 계약 (REQ-010 흐름)
 
 소비 스킬은 다음 순서를 따른다:
 
 1. **의도 → 후보 좁히기** — 사용자 요청에서 계열 후보를 추린다(크래프트 노트 참조). 후보를 좁힐 뿐 파라미터를 단정하지 않는다.
-2. **라이브 조회** — `models_explore(action:'get')`로 실제 제약을 가져온다. Marketing Studio 계열이면 `show_marketing_studio`.
-3. **비용 프리플라이트** — `get_cost: true`로 `credits` 확인(크레딧 0). `adjustments` 확보.
+2. **라이브 조회** — 현재 연결에서 사용 가능한 모델 상세 도구로 실제 제약을 가져온다. Marketing Studio 계열이면 연결에 맞는 스타일 목록 도구도 확인한다.
+3. **비용 프리플라이트** — MCP에서는 `get_cost: true`, ChatGPT 공식 플러그인에서는 `estimate_image_cost`로 청구 크레딧과 `adjustments`를 확인한다. HTTPS 참조의 계정 업로드가 필요하면 그 전에 허용을 받는다.
 4. **승인 게이트** — 크레딧이 나가기 전 마지막 정지선. 아래 §유료 생성 승인 게이트.
 5. **생성** — 승인된 값으로만 호출.
-6. **폴링·리드백** — `job_status`로 `completed`까지, `adjustments`를 사용자에게 보고.
+6. **폴링·리드백** — MCP에서는 `job_status`, ChatGPT 공식 플러그인에서는 `jobs_wait`로 완료까지 확인하고 `adjustments`를 사용자에게 보고.
 
 ## 유료 생성 승인 게이트
 
 3단계에서 비용을 확인해놓고 곧바로 4단계로 넘어가면, 사용자는 **얼마가 나갔는지 청구된 뒤에 안다.** 프리플라이트는 비용을 *조회*할 뿐 승인을 받지 않는다. 이 게이트가 그 사이를 메운다.
 
-- **[HARD] 크레딧이 소진되는 호출 전에는 반드시 승인을 받는다.** 프리플라이트(`get_cost: true`, 크레딧 0)와 조회 계열 도구는 게이트 대상이 아니다 — 돈이 나가는 호출만이다.
-- **[HARD] 승인은 §승인 요청 계약의 경로로 받는다.** 이 스킬과 소비 스킬은 사용자에게 직접 묻지 않으므로(§인터뷰 경계), 게이트에 도달하면 blocker로 반환하고 **오케스트레이터가 대신 묻는다.** 슬롯 수집과 같은 경로다.
+- **[HARD] 크레딧이 소진되는 호출 전에는 반드시 승인을 받는다.** MCP의 `get_cost: true`와 공식 플러그인의 `estimate_image_cost`·`estimate_video_cost`는 생성 JOB을 제출하지 않는다. 다만 공식 플러그인에 HTTPS 참조를 넘기면 견적 중에도 계정 미디어 업로드가 일어날 수 있으므로, 외부 전송 허용은 견적 전에 확인한다.
+- **[HARD] 승인은 §승인 요청 계약의 경로로 받는다.** 사용자와 직접 대화 중이면 현재 앱의 질문 기능 또는 대화로 승인서를 제시한다. 하위 실행이라 사용자에게 물을 수 없으면 승인서 전체를 blocker로 반환해 상위가 묻게 한다.
 - **[HARD] 요약하지 말고 실제로 넘어가는 것을 그대로 보여준다:**
 
 | 보여줄 것 | 왜 필요한가 |
@@ -64,7 +65,7 @@ version: "1.2.1"
 | 조회로 확정된 옵션 (비율·해상도·길이 등) | 하드코딩이 아니라 조회값임을 확인 |
 | 생성 개수 | 개수가 곧 배수 비용이다 |
 | `adjustments` — 서버가 조용히 바꾼 값 | 사용자가 요청한 것과 실제 실행될 것의 차이 |
-| `get_cost`가 돌려준 **견적 크레딧**과 현재 잔액 | 얼마가 나가고 얼마가 남는지 |
+| 현재 연결의 견적 도구가 돌려준 **견적 크레딧**과 현재 잔액 | 얼마가 나가고 얼마가 남는지 |
 
 승인 선택지는 이렇게 구성한다:
 
@@ -75,16 +76,16 @@ version: "1.2.1"
 | 취소 | 호출하지 않고 종료. 크레딧 소진 없음 |
 
 - **[HARD] `adjustments`는 승인 전에 보여준다.** 생성이 끝난 뒤 리드백으로 보고하는 것(6단계)은 그 자체로 옳지만, 서버가 요청을 바꿨다는 사실은 **돈이 나가기 전에** 알아야 취소할 수 있다. 6단계 보고가 있다고 해서 이 항목을 생략하지 않는다.
-- **[HARD] 실패해도 새 잡을 만들지 않는다.** 생성 호출이 애매하게 실패하면(타임아웃·응답 없음) 재호출하지 않는다. 성공 신호가 없다는 것은 잡이 만들어지지 않았다는 증거가 아니며, 블라인드 재시도는 크레딧을 두 번 쓴다. 반환된 job/request ID가 있으면 `job_status`로 그 잡의 상태를 먼저 확인하고, ID조차 없으면 **생성 이력을 조회할 도구가 실제로 노출돼 있는지 먼저 확인한다** — 코어 `catalog-protocol.md`가 계약으로 두는 것은 `job_status`·`job_display`뿐이고, 이력 조회 도구는 그 목록에 없다. 노출돼 있으면 그것으로 확인하고, **없으면 사용자에게 Higgsfield 대시보드에서 직접 확인해 달라고 요청한다.** **재시도는 언제나 기존 잡 ID에 묶인다** — 없다는 것이 확인된 뒤에만 새로 만든다.
+- **[HARD] 실패해도 새 잡을 만들지 않는다.** 생성 호출이 애매하게 실패하면(타임아웃·응답 없음) 재호출하지 않는다. 성공 신호가 없다는 것은 잡이 만들어지지 않았다는 증거가 아니며, 블라인드 재시도는 크레딧을 두 번 쓴다. 반환된 job/request ID가 있으면 현재 연결의 상태 조회 도구로 먼저 확인한다. ID조차 없으면 실제 노출된 생성 이력 도구로 확인하고, 없다면 사용자에게 Higgsfield 대시보드 확인을 요청한다. **재시도는 기존 작업이 없거나 실패했다는 확인 뒤에만** 수행한다.
 - **[HARD] 대량 배치는 배치 단위로 승인한다.** 한 요청이 여러 잡을 만들면(다중 변형·블록 조립 등) 잡마다 묻지 않고 **전체 계획 + 최대 총 크레딧**을 한 번에 승인받는다. 승인된 계획을 넘는 추가 생성은 새 승인을 받는다.
 
-## namespace 런타임 해석
+## 도구 프로필 런타임 해석
 
-Higgsfield 도구의 namespace 접두사는 등록 방식에 따라 `mcp__higgsfield__` 또는 `mcp__claude_ai_higgsfield__`다. 스킬은 호출 직전 실제 노출된 namespace를 런타임에 확인하고 그 접두사를 쓴다. 어느 하나를 유일 정답으로 하드코딩하지 않는다. 상세는 `references/call-schema.md` §3.
+Higgsfield 도구는 Claude MCP 연결과 ChatGPT 공식 플러그인에서 이름과 입력 스키마가 다를 수 있다. 호출 직전 실제 노출된 **도구 이름과 스키마**를 확인하고, 조회·견적·생성·폴링을 같은 프로필로 맞춘다. 상세는 `references/call-schema.md` §3과 `references/catalog-protocol.md` §1.
 
 ## 인터뷰 경계
 
-이 스킬(및 서브에이전트)은 사용자에게 직접 질문하지 않는다. 수집할 슬롯을 문서화할 뿐이며, 실제 질문은 오케스트레이터가 진행한다. 슬롯이 비면 구조화된 blocker 보고를 반환한다. 상세는 `references/interview-schema.md`.
+이 파일은 수집할 슬롯을 정의한다. 소비 스킬이 사용자와 직접 대화 중이면 현재 앱의 질문 기능 또는 대화로 빠진 슬롯을 확인한다. 사용자에게 물을 수 없는 하위 실행이면 누락 슬롯과 선택지를 구조화된 blocker로 상위에 반환한다. 상세는 `references/interview-schema.md`.
 
 ## 승인 요청 계약 (런타임 중립)
 
@@ -113,7 +114,7 @@ Higgsfield 도구의 namespace 접두사는 등록 방식에 따라 `mcp__higgsf
 
 **[HARD] 세 경로가 모두 불가능한 무인 실행에서는 실행하지 않는다(fail-closed).** 물을 수단이 없다는 것은 승인을 받았다는 뜻이 아니다. 이때는 "승인 수단이 없어 진행하지 못했다"고 기록하고 멈춘다 — 조용히 진행하지 않는다. 반대로 **대화가 가능한데 도구가 없다는 이유로 멈추는 것도 잘못**이다. 2번 경로를 쓴다.
 
-> 이 계약은 `CLAUDE.local.md` §범용성 원칙(OS 2종 × 런타임 2종에서 동일 동작)의 게이트 쪽 적용이다. 한 런타임에서만 도는 게이트는 미완성으로 본다.
+> 이 계약은 질문 도구의 이름과 관계없이 사용자에게 같은 승인 정보를 보여주기 위한 공통 규칙이다.
 
 ---
 
@@ -134,4 +135,4 @@ Higgsfield 도구의 namespace 접두사는 등록 방식에 따라 `mcp__higgsf
 
 - [Higgsfield Skills (공식 agent 문서)](https://github.com/higgsfield-ai/skills)
 - [Higgsfield MCP](https://higgsfield.ai/mcp)
-- 라이브 카탈로그 스냅샷: `.moai/specs/SPEC-MOC-HIGGSFIELD-PROMPT-001/mcp-catalog-snapshot.md` (plan 단계 증거 기준선, 런타임 계약 아님)
+- 모델·파라미터의 런타임 근거는 현재 연결의 라이브 카탈로그 응답이다. 개발 중 만든 스냅샷은 배포 계약에 포함하지 않는다.

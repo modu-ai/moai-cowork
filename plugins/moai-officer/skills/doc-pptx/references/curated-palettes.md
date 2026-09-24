@@ -1,24 +1,26 @@
-# 10 큐레이션 팔레트 — Claude 브랜드 톤
+# 발표자료용 색상 팔레트 예시
 
-AI 슬롭 디자인을 회피하기 위해 큐레이션된 10가지 팔레트. 각 팔레트는 Anthropic 공식 브랜드 톤을 기준으로 한국 비즈니스 환경에 맞춰 변형됐습니다.
+다음 색 조합은 사용자 브랜드가 없을 때 검토하는 예시다. 특정 회사의 공식 브랜드 가이드가 아니며, 최종 색상은 실제 배경·글자 대비와 사용자 자료에 맞춘다.
 
 ## 사용 규칙 (모든 팔레트 공통)
 
 - 한 덱에 1개 팔레트만
-- Primary는 헤딩·강조에만 (본문 도배 금지)
+- Primary는 도형·강조에 쓸 수 있다. 글자색으로 쓸 때는 실제 배경과 대비를 계산한다.
 - 각 슬라이드 최대 3색 (Primary + Secondary + Neutral)
-- 색 대비 4.5:1 이상 (본문·헤딩 모두)
+- 일반 글자는 실제 배경과 4.5:1 이상인지 확인한다. 아래 Primary 색을 배경 위 글자색으로 바로 쓰지 않는다.
+
+이 문서의 색값으로 계산한 Primary/Background 대비는 Warm Classic 2.96:1, Warm Coral 3.80:1, Blue Calm 2.78:1, Green Earth 3.46:1, Korean Sage 3.65:1이다. 이 조합의 일반 글자는 Ink 색을 쓰거나 글자색을 다시 정한다.
 
 ---
 
-## 1. Claude Classic — 일반 비즈니스·신뢰
+## 1. Warm Classic — 일반 비즈니스·신뢰
 
-Anthropic 공식 톤 그대로. 가장 안정적·범용.
+밝은 배경과 짙은 본문을 조합한 예시.
 
 | 역할 | 색 | hex |
 |---|---|---|
-| Primary | Anthropic Orange | `#d97757` |
-| Secondary | Anthropic Blue | `#6a9bcc` |
+| Primary | Warm Orange | `#d97757` |
+| Secondary | Muted Blue | `#6a9bcc` |
 | Background | Light Beige | `#faf9f5` |
 | Surface | White | `#ffffff` |
 | Ink | Dark | `#141413` |
@@ -28,9 +30,9 @@ Anthropic 공식 톤 그대로. 가장 안정적·범용.
 **적합**: B2B 일반·분기 보고서·내부 임원 발표
 **부적합**: 헬스케어·교육 (Sage 권장)·격식 공문서 (Mono 권장)
 
-## 2. Claude Coral — 적극적 마케팅·캠페인
+## 2. Warm Coral — 적극적 마케팅·캠페인
 
-Claude Product UI 톤. 따뜻하고 적극적.
+따뜻한 강조색을 사용하는 예시.
 
 | 역할 | 색 | hex |
 |---|---|---|
@@ -44,7 +46,7 @@ Claude Product UI 톤. 따뜻하고 적극적.
 **적합**: 마케팅 캠페인·이벤트·CTA 중심·신제품 출시
 **부적합**: 격식·법적 자료
 
-## 3. Claude Mono — 격식·논문·법적
+## 3. Neutral Mono — 격식·논문·법적
 
 색 자체를 최소화한 모노톤. 격식 발표·기록·법적 자료.
 
@@ -60,13 +62,13 @@ Claude Product UI 톤. 따뜻하고 적극적.
 **적합**: 공문서·계약·법적 발표·논문·임원 보고 (보수적)
 **부적합**: 마케팅·이벤트
 
-## 4. Claude Blue Calm — 데이터·금융·차분한
+## 4. Blue Calm — 데이터·금융·차분한
 
 차분하고 신뢰감 있는 톤.
 
 | 역할 | 색 | hex |
 |---|---|---|
-| Primary | Anthropic Blue | `#6a9bcc` |
+| Primary | Muted Blue | `#6a9bcc` |
 | Secondary | Deep Blue | `#3a6a9c` |
 | Background | Light Beige | `#faf9f5` |
 | Surface | White | `#ffffff` |
@@ -76,13 +78,13 @@ Claude Product UI 톤. 따뜻하고 적극적.
 **적합**: 금융·핀테크·데이터 분석·헬스 데이터·교육 연구
 **부적합**: 이벤트·캠페인 (Coral 권장)
 
-## 5. Claude Green Earth — 지속가능·헬스케어
+## 5. Green Earth — 지속가능·헬스케어
 
 자연·웰빙·지속가능성.
 
 | 역할 | 색 | hex |
 |---|---|---|
-| Primary | Anthropic Green | `#788c5d` |
+| Primary | Earth Green | `#788c5d` |
 | Secondary | Olive | `#a8b888` |
 | Background | Cream | `#faf8f0` |
 | Surface | White | `#ffffff` |
@@ -178,20 +180,20 @@ Claude Product UI 톤. 따뜻하고 적극적.
 
 | 청중·맥락 | 추천 팔레트 |
 |---|---|
-| 신뢰감 있는 B2B 발표 | 1. Claude Classic |
-| 마케팅·캠페인·CTA | 2. Claude Coral · 10. High Contrast Bold |
-| 격식·논문·법적 | 3. Claude Mono |
-| 금융·데이터·핀테크 | 4. Claude Blue Calm |
-| ESG·헬스·웰빙 | 5. Claude Green Earth · 8. Korean Sage |
+| 신뢰감 있는 B2B 발표 | 1. Warm Classic |
+| 마케팅·캠페인·CTA | 2. Warm Coral · 10. High Contrast Bold |
+| 격식·논문·법적 | 3. Neutral Mono |
+| 금융·데이터·핀테크 | 4. Blue Calm |
+| ESG·헬스·웰빙 | 5. Green Earth · 8. Korean Sage |
 | 한국 중견기업 B2B | 6. Korean Brick |
-| 임원 보고·이사회 | 7. Korean Navy · 3. Claude Mono |
-| 헬스·교육·아동 | 8. Korean Sage · 5. Claude Green Earth |
+| 임원 보고·이사회 | 7. Korean Navy · 3. Neutral Mono |
+| 헬스·교육·아동 | 8. Korean Sage · 5. Green Earth |
 | 테크 컨퍼런스 | 9. Dark Editorial |
 | 임팩트·이벤트 | 10. High Contrast Bold |
 
-## 팔레트 외 색 사용 금지
+## 색상 사용 전 확인
 
-다음 색은 모든 팔레트에서 사용 금지 (AI 슬롭의 흔한 특징):
+다음 조합은 실제 발표 화면에서 대비와 사용 목적을 확인한다:
 
 - 흰 배경의 보라색 그라데이션 (`#A855F7` → `#EC4899` 같은)
 - 천편일률 #2196F3 Material Blue
@@ -201,9 +203,6 @@ Claude Product UI 톤. 따뜻하고 적극적.
 
 ---
 
-## Sources
+## 출처와 한계
 
-- Anthropic 공식 브랜드 가이드라인
-- Mobbin Claude UI 색 분석
-- 한국 비즈니스 디자인 컨벤션
-- Pasquale Pillitteri 시니어 UX 디자이너 프롬프트 (모던 디자인 시스템)
+이 팔레트는 문서 안의 시각 예시이며 공식 브랜드 색상을 대표하지 않는다. 사용자 조직의 브랜드 가이드와 실제 슬라이드의 글자 대비를 우선한다.

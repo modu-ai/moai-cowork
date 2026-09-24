@@ -20,6 +20,8 @@ _OPS: dict[str, tuple] = {
     'read_shop_product_options_by_prod_no': ('GET', '/products/{prodNo}/options/{optionCode}', ['prodNo', 'optionCode'], ['unitCode'], False),
     'update_product_options': ('PATCH', '/products/{prodNo}/options/{optionCode}', ['prodNo', 'optionCode'], [], True),
     'read_shop_product_options_by_prod_nos': ('GET', '/products/options', [], ['unitCode', 'prodNos'], False),
+    'read_product_custom_attribute_definitions': ('GET', '/products/custom-attribute-definitions', [], [], False),
+    'read_product_custom_attribute_values': ('GET', '/products/custom-attribute-values', [], ['prodNos'], False),
     'read_one_shop_products_by_prod_no': ('GET', '/products/{prodNo}', ['prodNo'], ['unitCode'], False),
     'update_product_info_by_prod_no': ('PATCH', '/products/{prodNo}', ['prodNo'], [], True),
     'read_all_shop_product_option_details_by_prod_no': ('GET', '/products/{prodNo}/option-details', ['prodNo'], ['page', 'limit', 'unitCode'], False),
@@ -248,11 +250,11 @@ class CreateProductImagesBody(BaseModel):
 Body = Union[CreateProductBody, UpdateMultipleProductStatusBody, UpdateProductOptionsBody, UpdateProductInfoByProdNoBody, UpdateProductOptionDetailsBody, UpdateProductRelativeInfoBody, UpdateProductSeoInfoBody, UpdateProductShippingSettingsByProdNoBody, UpdateProductStockInfoByProdNoBody, UpdateProductPriceByProdNoBody, UpdateProductDiscountInfoByProdNoBody, UpdateProductDisplayInfoByProdNoBody, UpdateProductClassificationBody, UpdateProductStatusBody, UpdateProductExternalIntegrationInfoBody, UpdateProductAdditionalInfoBody, UpdateProductEtcInfoBody, UpdateProductExhibitionsBody, CreateProductImagesBody]
 
 @mcp.tool()
-def imweb_product(action: Literal["read_all_shop_products_by_filter", "create_product", "read_all_shop_categories_by_site_code_and_unit_code", "read_all_shop_showcases_by_site_code", "read_all_shop_naver_categories", "update_multiple_product_status", "read_all_shop_product_options_by_prod_no", "read_shop_product_options_by_prod_no", "update_product_options", "read_shop_product_options_by_prod_nos", "read_one_shop_products_by_prod_no", "update_product_info_by_prod_no", "read_all_shop_product_option_details_by_prod_no", "read_shop_product_option_details_by_prod_no", "update_product_option_details", "read_shipping_service_settings", "update_product_relative_info", "update_product_seo_info", "read_all_shop_product_shipping_settings_by_prod_no", "update_product_shipping_settings_by_prod_no", "update_product_stock_info_by_prod_no", "update_product_price_by_prod_no", "update_product_discount_info_by_prod_no", "update_product_display_info_by_prod_no", "update_product_classification", "update_product_status", "update_product_external_integration_info", "update_product_additional_info", "update_product_etc_info", "update_product_exhibitions", "create_product_images"], params: dict | None = None, body: Body | None = None, paginate: bool = False) -> dict:
-    r"""상품 도구 — 31개 action 을 디스패치합니다.
+def imweb_product(action: Literal["read_all_shop_products_by_filter", "create_product", "read_all_shop_categories_by_site_code_and_unit_code", "read_all_shop_showcases_by_site_code", "read_all_shop_naver_categories", "update_multiple_product_status", "read_all_shop_product_options_by_prod_no", "read_shop_product_options_by_prod_no", "update_product_options", "read_shop_product_options_by_prod_nos", "read_product_custom_attribute_definitions", "read_product_custom_attribute_values", "read_one_shop_products_by_prod_no", "update_product_info_by_prod_no", "read_all_shop_product_option_details_by_prod_no", "read_shop_product_option_details_by_prod_no", "update_product_option_details", "read_shipping_service_settings", "update_product_relative_info", "update_product_seo_info", "read_all_shop_product_shipping_settings_by_prod_no", "update_product_shipping_settings_by_prod_no", "update_product_stock_info_by_prod_no", "update_product_price_by_prod_no", "update_product_discount_info_by_prod_no", "update_product_display_info_by_prod_no", "update_product_classification", "update_product_status", "update_product_external_integration_info", "update_product_additional_info", "update_product_etc_info", "update_product_exhibitions", "create_product_images"], params: dict | None = None, body: Body | None = None, paginate: bool = False) -> dict:
+    r"""상품 도구 — 33개 action 을 디스패치합니다.
 
 Args:
-    action: 수행 작업 키 (inputSchema enum 으로 31개 전체 공개).
+    action: 수행 작업 키 (inputSchema enum 으로 33개 전체 공개).
     params: path + query 파라미터 딕셔너리. 예: {"orderNo": "ORD123", "page": 1}.
     body: POST/PATCH/PUT 본문. action 별 Body 모델(inputSchema anyOf) 중 해당 action 의 필드만 채움 (모델명 = action 의 PascalCase + Body).
     paginate: list 계열 GET 에서 전체 페이지 자동 집계 (기본 False = 단일 페이지).
@@ -263,8 +265,8 @@ Returns: API JSON."""
     _pp_val = {k: _params[k] for k in _pp if k in _params}
     _qp_val = {k: _params[k] for k in _qp if k in _params}
     _client = get_client()
-    if paginate and _method == "GET":
-        return _client.list_all_pages(_path, params=_qp_val or None)
+    if paginate and _method == "GET" and "page" in _qp and "limit" in _qp:
+        return _client.list_all_pages(_path, path_params=_pp_val or None, params=_qp_val or None)
     _kw = {}
     if _pp_val:
         _kw["path_params"] = _pp_val

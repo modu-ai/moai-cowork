@@ -13,7 +13,7 @@ shadcn `Badge`를 React 없이 **vanilla HTML + Tailwind token class**로 재현
 ### primary (강조)
 
 ```html
-<span class="inline-flex items-center rounded-full bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white">New</span>
+<span class="inline-flex items-center rounded-full bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-wider text-on-primary">New</span>
 ```
 
 ### success / warning / error (시맨틱)
@@ -32,5 +32,5 @@ shadcn `Badge`를 React 없이 **vanilla HTML + Tailwind token class**로 재현
 
 ## 토큰 메모
 
-- 시맨틱 배지는 `bg-<semantic>/15`(15% alpha) + `text-<semantic>` 조합으로 부드러운 틴트. `success` / `warning` / `error` 토큰이 없는 시스템은 `primary` 또는 `accent-*`로 대체.
+- 시맨틱 배지는 `bg-<semantic>/15`(15% alpha) + `text-<semantic>` 조합의 예시다. 실제 합성 배경과 글자의 대비를 측정한다. `success` / `warning` / `error` 토큰이 없는 시스템은 별도 의미색과 대비를 정한다.
 - 다크 테마 시스템에서 neutral 배지는 `bg-surface-card`(다크 카드 색) + `text-on-dark`로 자동 어울림.

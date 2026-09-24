@@ -7,7 +7,7 @@ description: |
   - "책 표지", "단행본 표지", "웹툰 썸네일", "타이틀 카드", "웹소설 표지"
   - "표지 구도", "표지 시안", "커버 아트"
   - "썸네일 가독성", "모바일 표지"
-version: "1.1.0"
+version: "1.1.1"
 ---
 
 # story-cover-art: 표지·썸네일
@@ -20,7 +20,7 @@ version: "1.1.0"
 
 ## 2. 이 스킬이 하지 않는 것
 
-- **이미지 생성·크레딧 고지·모델 선택 안 함** — `moai-media:media-higgsfield-core` 계약에 위임(§4-생성 실행).
+- **이미지 생성 안 함** — 선택한 `moai-media` 이미지 경로에 위임(§4-생성 실행).
 - **폰트 라이선스 판정 안 함** — 무료 상업용 한글 폰트 판정은 `moai-designer` 소유. 참조만 한다.
 - **규격 수치 단정 안 함** — 썸네일·표지 비율·최소 크기는 `story-webtoon-spec` 허브 참조.
 - **타이포그래피 조판 안 함** — 제목 자리만 잡고, 실제 폰트·조판은 편집·디자인 단계(`moai-designer`).
@@ -28,7 +28,7 @@ version: "1.1.0"
 ## 3. 사전 확인
 
 - `references/cover-composition.md` — 구도·시선 유도·대비·제목 자리·모바일 축소 가독 우선순위.
-- `${CLAUDE_PLUGIN_ROOT}/skills/story-webtoon-spec/references/thumbnail-cover-specs.md` — 썸네일·타이틀 카드·표지 비율·최소 크기.
+- `../story-webtoon-spec/references/thumbnail-cover-specs.md` — 썸네일·타이틀 카드·표지 비율의 참고값. 제출 전 현재 플랫폼 규격을 확인한다.
 - `moai-designer:design-system-library/references/korean-design-systems.md` — 무료 상업용 한글 폰트 판정(제목 폰트 선택 시).
 
 ## 4. 워크플로우
@@ -53,9 +53,9 @@ version: "1.1.0"
 
 ### Step 4-생성 실행 — moai-media 위임
 
-표지 프롬프트의 실제 생성·업스케일·비용 프리플라이트·모델 선택은 `moai-media:media-higgsfield-core` 계약(`models_explore` 라이브 조회 + `get_cost` 사전 고지)에 위임한다.
+표지 프롬프트의 이미지 생성은 ChatGPT Work의 기본 경로인 `moai-media:media-codex-image`에 위임한다. 사용자가 Higgsfield를 지정하면 `moai-media:media-higgsfield-image`로 넘기고 그 서비스의 실제 비용과 기능을 확인한다.
 
-> moai-media 미설치 시: 완성 표지 프롬프트를 텍스트로 출력하고 Higgsfield 웹(https://higgsfield.ai)에서 직접 생성하도록 안내한다.
+> 이미지 생성 도구가 없으면 표지 프롬프트를 텍스트로 제공하고 생성했다고 표시하지 않는다.
 
 ### Step 5 — 제목 자리 가이드 인계
 
@@ -77,12 +77,12 @@ version: "1.1.0"
 ### 생성 프롬프트
 [복붙 프롬프트 — 내용물 가드 포함]
 ```
-→ 생성 실행: `moai-media:media-higgsfield-core` 위임.
+→ 생성 실행: 현재 호스트의 기본 이미지 경로 또는 사용자가 지정한 Higgsfield 경로로 위임.
 
 ## 6. 주의사항
 
 - **AI 생성물 표시 의무 확인** — AI 생성 이미지·표지를 상업 플랫폼에 제출·게시할 때 AI 생성물 표시 의무를 확인한다(상세는 `moai-lawyer`의 AI 관련 체크리스트 참조).
-- **생성 전 비용 고지·승인.** `moai-media`의 `get_cost` 결과를 사용자에게 고지하고 승인받은 뒤 생성한다.
+- **외부 서비스 비용 확인.** Higgsfield를 선택한 경우 실제 비용 정보를 확인한다.
 - **용도별 최우선 다름** — 썸네일은 모바일 축소 가독, 단행본은 인쇄 해상도·여백.
 - **제목 자리 미리 확보** — 인물·소품이 제목 영역을 침범하지 않게.
 - **스타일 참조 시 내용물 가드** — 스타일만 참조하고 피사체를 베끼지 않도록 `story-webtoon-art/references/style-anchor.md`의 가드 문구를 재사용.
@@ -98,7 +98,8 @@ version: "1.1.0"
 - `story-webnovel-writer` / `story-webtoon-episode` — 본편(표지는 부가 산출)
 
 ### 위임
-- `moai-media:media-higgsfield-core` — 생성 실행·업스케일·비용·모델
+- `moai-media:media-codex-image` — ChatGPT 기본 이미지 생성
+- `moai-media:media-higgsfield-image` — 사용자가 Higgsfield를 지정한 경우
 - `moai-designer:design-system-library` — 무료 상업용 폰트 판정
 - `moai-lawyer` — AI 생성물 표시 의무 체크리스트
 
@@ -115,4 +116,4 @@ version: "1.1.0"
 
 - 구도·시선 유도·모바일 가독 우선순위: 표지 디자인 실무 관행(references에 정리).
 - 규격 수치: `story-webtoon-spec` 허브. 폰트 라이선스: `moai-designer`.
-- 생성·비용·모델: `moai-media:media-higgsfield-core` 라이브 계약.
+- 생성·비용·모델: 선택한 이미지 경로의 실제 도구와 응답으로 확인.

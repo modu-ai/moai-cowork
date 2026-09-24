@@ -20,10 +20,10 @@ deck.json 원고 ─┬─→ HTML 렌더 (doc-html-slide)
 ## 의존성 안내 (중요)
 
 doc-pptx는 `moai-coworker` 플러그인에 있습니다. **doc-html-slide 단독 설치 사용자가 `export_pptx: true`를 요청하면**:
-- moai-coworker 미설치 시 → PPTX 산출은 **blocker**로 보고, 설치 안내 (Plugins 메뉴에서 `moai-coworker` Install, 또는 `claude plugin install moai-coworker@moai-cowork`·`codex plugin add moai-coworker@moai-cowork`)
+- moai-coworker 미설치 시 → PPTX 산출은 **blocker**로 보고, 앱의 Plugins 화면에서 `moai-coworker`를 찾아 Install 하도록 안내
 - doc-html-slide는 HTML만 산출하고 PPTX는 차후 안내
 
-SKILL.md "입력" 섹션의 `export_pptx` 설명과 1단계 AskUserQuestion에서 이 의존성을 사전 안내합니다.
+SKILL.md "입력" 섹션의 `export_pptx` 설명과 1단계의 질문 경로에서 이 의존성을 사전 안내합니다.
 
 ## design_system 승계 매핑
 

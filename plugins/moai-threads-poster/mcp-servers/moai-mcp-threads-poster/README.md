@@ -1,13 +1,13 @@
 # moai-threads-poster MCP
 
-Threads(Meta) Graph API 자동 포스팅 MCP 서버. Claude Code 의 stdio MCP 서버로 실행되며,
+Threads(Meta) Graph API 포스팅 MCP 서버. Claude Cowork·ChatGPT Work의 stdio MCP 서버로 실행되며,
 텍스트·이미지·비디오 2단계 발행(`create container` → `publish`)을 도구로 노출한다.
 
 ## 도구 (5)
 
 | 도구 | 설명 |
 |---|---|
-| `threads_publish_text` | 텍스트 스레드 발행 (500 UTF-8 바이트 제한) |
+| `threads_publish_text` | 텍스트 스레드 발행 (500자 제한) |
 | `threads_publish_image` | 이미지(JPEG/PNG, ≤8MB) 발행 |
 | `threads_publish_video` | 비디오(MOV/MP4, ≤1GB, ≤5분) 발행 |
 | `threads_get_profile` | 프로필 조회 — health check / who-am-I |

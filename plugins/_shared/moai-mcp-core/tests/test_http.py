@@ -126,6 +126,20 @@ def test_5xx가_중간에_회복되면_성공한다():
         assert c.get_json("/v1/x") == {"ok": True}
 
 
+def test_재시도해도_호출자가_지정한_헤더를_보존한다():
+    headers = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        headers.append(request.headers.get("X-Request-ID"))
+        if len(headers) == 1:
+            return httpx.Response(503)
+        return httpx.Response(200, json={"ok": True})
+
+    with _client(handler) as c:
+        assert c.get_json("/v1/x", headers={"X-Request-ID": "req-1"}) == {"ok": True}
+    assert headers == ["req-1", "req-1"]
+
+
 def test_400은_재시도하지_않는다():
     """같은 요청은 같은 결과를 낸다 — 재시도가 무의미하다."""
     calls = {"n": 0}

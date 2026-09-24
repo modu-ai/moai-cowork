@@ -1,140 +1,27 @@
 ---
 name: legal-mfds-safety
 description: |
-  식품의약품안전처(MFDS) 공식 OpenAPI를 k-skill-proxy 경유로 조회해 의약품과 식품의
-  공식 안전 정보를 확인합니다. 의약품(e약은요·안전상비의약품)과 식품(건강기능식품 원료
-  인정현황·개별인정형·품목제조 신고·검사부적합·회수·판매중지)을 통합 조회합니다.
-
-  사용자가 증상·복용/섭취 상황을 말하면 절대 단정하지 않고 인터뷰로 먼저 되묻습니다.
-  red flag 발견 시 119·응급실·의료진 안내가 우선합니다.
-
-  다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
-  - "타이레놀이랑 판콜 같이 먹어도 돼?", "이 약 부작용 알려줘"
-  - "임산부 감기약", "아이 해열제 복용량", "고령자 복용 주의사항"
-  - "이 김밥 회수 이력 있어?", "차전자피 먹어도 되나"
-  - "건강기능식품 1일 섭취량", "MFDS 공식 정보", "식약처 부적합"
-  - "의약품 안전 체크", "식품 안전 체크", "회수·판매중지 식품 검색"
-  - 헬스/F&B 커머스에서 상품 안전성 확인 시
-version: "1.1.0"
+  의약품·건강기능식품·식품 회수 정보를 식약처 공식 자료에서 확인하고,
+  제품 일치 여부와 의료진에게 확인할 사항을 정리합니다.
+version: "1.1.1"
 ---
 
-# MFDS 의약품·식품 안전 체크 (통합)
+# 식약처 의약품·식품 정보 확인
 
-식품의약품안전처(MFDS) 공식 OpenAPI를 통해 의약품과 식품의 안전 정보를 확인합니다. 헬스·F&B 커머스 상품 검수, 소비자 안전 안내, 회수·부적합 이력 확인에 사용합니다.
+진단·처방·복용 지시를 하지 않는다. 약물 상호작용, 임신·소아·고령자의 복용, 증상 악화는 약사 또는 의료진의 개별 판단이 필요하다. 호흡 곤란, 의식 저하, 심한 알레르기 반응 등 응급 상황이 의심되면 자료 조회보다 119 또는 응급 의료기관 안내를 우선한다.
 
-> 본 스킬은 NomaDamas k-skill의 `mfds-drug-safety` + `mfds-food-safety` (MIT)를 통합 정리했습니다.
+## 확인 순서
 
-## Mandatory interview first — red flag 우선
+1. 질문이 **일반 정보 조회**인지 **실제 복용·섭취 상황**인지 구분한다. 일반적인 제품 정보만 물었다면 불필요한 건강 정보부터 요구하지 않는다. 개인 상황을 판단해야 한다면 제품명·성분·함량, 누가 얼마나 언제 복용했는지, 현재 증상과 함께 먹은 약, 알레르기 등 필요한 사실만 묻는다.
+2. 현재 호스트에서 식약처 공식 연결 도구가 실제로 사용 가능한지 확인한다. 없으면 [의약품안전나라](https://nedrug.mfds.go.kr/)와 [식품안전나라](https://www.foodsafetykorea.go.kr/)의 공식 검색 화면을 사용한다. 제3자 프록시의 샘플 응답을 실제 식약처 조회 결과로 쓰지 않는다.
+3. 의약품은 제품명만이 아니라 제조사·성분·함량·제형을 맞춰 공식 효능·용법·주의사항을 확인한다. 공식 자료에 병용 정보가 없다는 사실은 병용 안전의 증거가 아니다.
+4. 식품·건강기능식품은 제품명·업체명·제조일자·소비기한·포장과 공식 [회수·판매중지 정보](https://www.foodsafetykorea.go.kr/main.do)를 대조한다. 이름이 비슷한 다른 제품이나 공개 회수 결과 0건으로 섭취 안전을 확정하지 않는다.
+5. 답변에는 조회한 공식 페이지·조회 시각·일치한 식별값·확인한 문구·미확인 사항을 적는다. 제품을 특정하지 못했으면 추가 확인이 필요한 정보를 먼저 제시한다.
 
-증상·복용/섭취 상황이 언급되면 결론을 말하기 전에 **반드시 먼저 되묻습니다**.
+## 정보 출처
 
-권장 첫 질문:
-- 누가 (본인/아이/임산부/고령자), 무엇을 언제 얼마나, 같이 먹은 음식·술·약, 현재 증상, 기저질환·알레르기
-- **red flag**: `호흡곤란`, `의식저하`, `입술·혀 붓기`, `심한 발진`, `혈변`, `심한 탈수`, `심한 복통/고열`, `지속되는 구토/흉통`
+- [의약품안전나라](https://nedrug.mfds.go.kr/): 의약품 허가·안전 정보
+- [식품안전나라](https://www.foodsafetykorea.go.kr/): 제품·원료·회수 정보
+- [식품안전나라 회수 정보 API 안내](https://www.foodsafetykorea.go.kr/api/openApiInfo.do?menu_grp=MENU_GRP31&menu_no=661&show_cnt=10&start_idx=1&svc_no=I0490&svc_type_cd=API_TYPE06): 공식 API를 실제로 연결할 때 신청·응답 범위 확인
 
-red flag 가 하나라도 있으면 **API 조회보다 즉시 119·응급실·의료진 연결**을 우선 안내합니다.
-
-## When to use
-
-**의약품**:
-- "이 약이랑 이 약 같이 먹어도 되니?"
-- "타이레놀 먹는 중인데 판콜 같이 먹어도 돼?"
-- "두드러기가 있는데 이 약 계속 먹어도 되나?"
-- 식약처 공식 약 정보로 효능·주의사항 확인
-
-**식품**:
-- "이 음식 먹어도 괜찮니?" → 건강기능식품 원료 인정현황 + 검사부적합
-- "차전자피 1일 섭취량 알려줘" → 기능성 원료 인정현황
-- "이 김밥 먹고 배 아픈데 회수 이력 있어?" → 회수·부적합 목록
-- 헬스/F&B 커머스에서 신상품 안전성 확인
-
-## When not to use
-
-- 진단·처방·복용 지시
-- 식중독 진단, 섭취 허가/금지 최종 판정
-- red flag 또는 고위험군의 응급 상황 (의료진 우선)
-
-## Prerequisites
-
-사용자 측 필수 시크릿 **없음**. 인터넷 연결만 있으면 동작합니다.
-
-- `KSKILL_PROXY_BASE_URL` (선택): self-host 프록시 사용 시. 비우면 기본 hosted `https://k-skill-proxy.nomadamas.org` 사용.
-- 운영 측: `DATA_GO_KR_API_KEY` (의약품 + 부적합), `FOODSAFETYKOREA_API_KEY` (건강기능식품 + 회수 live) — 프록시 서버에만 둡니다
-- `FOODSAFETYKOREA_API_KEY` 발급: `https://www.foodsafetykorea.go.kr` 회원가입 → OpenAPI 이용신청. 키 1개로 I-0040, I-0050, I0030, I0490, I2620 모두 사용
-
-## Workflow
-
-### A. 의약품 안전 체크
-
-1. 증상/복용 상황이 있으면 **인터뷰 먼저**.
-2. red flag 하나라도 있으면 **즉시 응급 안내로 전환**.
-3. 약 이름이 확인되면 `/v1/mfds/drug-safety/lookup` 으로 e약은요·안전상비의약품 조회.
-4. 효능·사용법·주의사항·상호작용·이상반응·보관법을 짧게 정리.
-5. "같이 먹어도 되나?"는 **공식 상호작용 문구만** 근거. 최종 판단은 약사·의료진.
-
-### B. 식품 안전 체크
-
-1. 증상/섭취 상황이 있으면 **인터뷰 먼저**.
-2. red flag → **즉시 응급 안내**.
-3. "이거 먹어도 되나?" 흐름:
-   - `/v1/mfds/food-safety/product-report` → 건강기능식품 품목제조 신고사항(원재료·기능성·섭취 주의·기준규격, 고시형 원료 포함)
-   - `/v1/mfds/food-safety/health-food-ingredient` → 기능성 원료 인정현황(개별인정형 1일 섭취량·주의사항)
-   - `/v1/mfds/food-safety/inspection-fail` → 국내 검사부적합 이력
-   - `/v1/mfds/food-safety/search` → 회수·부적합 공개 목록
-4. 제품명·업체명·기능성·섭취량·주의사항·부적합 사유를 짧게 정리. **먹어도 되는지 단정하지 않습니다**.
-5. 프록시가 `FOODSAFETYKOREA_API_KEY` 없이 동작하면 결과가 sample feed 기반일 수 있음을 warnings로 확인.
-
-## Endpoints
-
-| 카테고리 | Endpoint |
-|---|---|
-| 의약품 통합 | `GET /v1/mfds/drug-safety/lookup` |
-| 식품 회수·부적합 | `GET /v1/mfds/food-safety/search` |
-| 건강기능식품 원료 | `GET /v1/mfds/food-safety/health-food-ingredient` |
-| 건강기능식품 품목제조 | `GET /v1/mfds/food-safety/product-report` |
-| 검사부적합 | `GET /v1/mfds/food-safety/inspection-fail` |
-
-## 실행 예시 (curl)
-
-base URL은 `KSKILL_PROXY_BASE_URL`이 설정돼 있으면 그 값을, 없으면 기본 hosted `https://k-skill-proxy.nomadamas.org`를 사용합니다.
-
-```bash
-# 1) 의약품 통합 조회 — 제품명으로 e약은요·안전상비의약품 확인
-curl -s "https://k-skill-proxy.nomadamas.org/v1/mfds/drug-safety/lookup?q=타이레놀"
-
-# 2) 건강기능식품 기능성 원료 인정현황 — 원료명으로 1일 섭취량·주의사항 확인
-curl -s "https://k-skill-proxy.nomadamas.org/v1/mfds/food-safety/health-food-ingredient?q=차전자피"
-
-# 3) 식품 회수·부적합 공개 목록 검색 — 제품명/업체명으로 회수 이력 확인
-curl -s "https://k-skill-proxy.nomadamas.org/v1/mfds/food-safety/search?q=김밥"
-```
-
-응답은 JSON이며, 프록시가 `FOODSAFETYKOREA_API_KEY` 없이 동작하는 경우 결과가 sample feed 기반일 수 있습니다(`warnings` 필드 확인).
-
-## Official surfaces
-
-- e약은요: `https://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList`
-- 안전상비의약품: `https://apis.data.go.kr/1471000/SafeStadDrugService/getSafeStadDrugInq`
-- 식품안전나라 (I-0040/I-0050/I0030/I0490/I2620): `https://www.foodsafetykorea.go.kr/api/openApiInfo.do`
-- 부적합 식품: `https://apis.data.go.kr/1471000/PrsecImproptFoodInfoService03/getPrsecImproptFoodList01`
-
-## Response policy
-
-- 본 스킬은 **진단·처방·복용 지시**를 하지 않습니다.
-- 공식 문서에 있는 효능·주의·상호작용·기능성 문구만 근거로 요약합니다.
-- 상호작용 문구가 모호하거나 red flag 가 있으면 약사·의사 상담으로 넘깁니다.
-- 증상이 있는 질문은 **인터뷰 없이 바로 답하지 않습니다**.
-- 회수·부적합 결과가 sample feed면 그 사실을 명시합니다.
-
-## 관련 스킬 체이닝
-
-- **before**: `moai-seller:commerce-integrated-strategy` — 헬스/F&B 신상품 기획 시 안전성 검토
-- **after**: `moai-seller:commerce-detail-page-copy` — 안전 정보 반영한 상세페이지 카피
-- **after**: `moai-seller:commerce-product-detail` — 안전성 안내 콘텐츠 작성
-
-## Done when
-
-- 증상 또는 복용/섭취 상황을 먼저 되물었다.
-- red flag 여부를 확인했다.
-- 프록시 route를 통해 공식 endpoint 조회 결과를 JSON으로 정리했다.
-- 의약품: 제품명·업체명·효능·주의·상호작용 요약 / 식품: 제품명·업체명·기능성·섭취량·주의·부적합 사유 요약을 제공했다.
+이 스킬은 [NomaDamas k-skill](https://github.com/NomaDamas/k-skill)의 두 안전 조회 흐름을 참고했다. 현재 배포본에 제3자 `k-skill-proxy` 연결이 있는지 확인되지 않았으므로 기본 조회 경로로 가정하지 않는다. 응급 안내나 약사의 판단이 필요한 상황을 `조회 완료`로 끝내지 않는다.

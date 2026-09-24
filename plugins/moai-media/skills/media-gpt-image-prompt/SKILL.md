@@ -1,17 +1,17 @@
 ---
 name: media-gpt-image-prompt
 description: |
-  OpenAI GPT Image 2.5(Flare·Sunburst) 전용 이미지 프롬프트 텍스트 빌더. 사용자 자연어 한 줄 + AskUserQuestion 프리셋·미세조정 라운드로 컨텍스트를 수집하고, OpenAI 공식 이미지 프롬프팅 가이드의 8가지 원칙(결과 정의·가시적 디테일·인물과 동작·정확한 텍스트·변경과 제약 분리·레퍼런스 역할·한 번에 하나씩 반복)에 맞춰 ChatGPT·OpenAI API·Higgsfield에 그대로 넣을 수 있는 프롬프트와 권장 파라미터(model·quality·size·background)를 출력합니다. 같은 입력으로 Gemini 3 Pro Image · Midjourney v8.1 프롬프트도 함께 만들어 모델 간 비교가 바로 가능합니다. 기존 GPT Image 2 워크플로의 이전(마이그레이션) 안내도 포함합니다.
+  OpenAI GPT Image 2.5(Flare·Sunburst) 전용 이미지 프롬프트 텍스트 빌더. 사용자 자연어 요청에서 필요한 맥락을 수집하고, OpenAI 공식 이미지 프롬프팅 가이드의 8가지 원칙에 맞춰 ChatGPT·OpenAI API·Higgsfield에서 쓸 프롬프트를 출력합니다. 모델·품질·크기·배경 파라미터는 API나 Higgsfield에서 지정할 때만 별도로 표시합니다. 같은 입력으로 Gemini 3 Pro Image · Midjourney V8 프롬프트도 만들 수 있습니다.
 
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
   - "GPT 이미지 프롬프트 만들어줘", "ChatGPT 이미지 프롬프트"
   - "GPT Image 2.5 프롬프트", "gpt-image-2.5 프롬프트 작성", "Flare·Sunburst용 프롬프트"
-  - "GPT-image-2 프롬프트"(구 모델 요청도 2.5 기준으로 작성하고 차이를 안내)
+  - "GPT-image-2 프롬프트"(사용자가 지목한 모델을 유지하고 2.5 이전은 선택지로 안내)
   - "OpenAI 이미지 프롬프트", "GPT용 이미지 편집 프롬프트"
   - "/media-gpt-image-prompt" (직접 호출)
 
-  이미지 자동 생성은 페어 스킬 media-higgsfield-image(Higgsfield MCP) 또는 media-codex-image(codex CLI)를 사용하세요. 본 스킬은 프롬프트 텍스트 산출 전용입니다.
-version: "2.0.0"
+  이미지 자동 생성은 페어 스킬 media-higgsfield-image(Higgsfield) 또는 media-codex-image(ChatGPT 기본 이미지 도구)를 사용하세요. 본 스킬은 프롬프트 텍스트 산출 전용입니다.
+version: "2.0.3"
 ---
 
 # GPT Image 2.5 Prompt Builder — 공식 가이드 8원칙 + 3-모델 동시 출력
@@ -30,10 +30,10 @@ GPT Image 2.5는 모델이 둘입니다.
 두 모델 모두 생성·편집·투명 배경을 지원하고, 정밀 편집과 피사체 보존이 좋아졌습니다. 본 스킬은 사용자 한 줄 요청을 OpenAI 공식 가이드의 프롬프팅 원칙에 맞춰 풀어 쓰고, 모델 선택과 파라미터까지 함께 권합니다.
 
 - **공식 원칙 기반**: 결과물의 용도·구도를 먼저 정하고, 보이는 디테일을 적고, 텍스트는 따옴표로 정확히, 편집은 "바꿀 것"과 "지킬 것"을 분리합니다.
-- **3개 모델 동시 출력**: GPT Image 2.5 메인 프롬프트와 함께 같은 의도를 Gemini 3 Pro Image(5-component)와 Midjourney v8.1(키워드+`--파라미터`) 어조로 변환합니다.
+- **3개 모델 동시 출력**: GPT Image 2.5 메인 프롬프트와 함께 같은 의도를 Gemini 3 Pro Image(5-component)와 현재 Midjourney V8(기본 V8.2)의 어조로 변환합니다.
 - **프리셋 + 미세조정**: 제품샷·인물·일러스트·풍경 프리셋과 프리셋별 미세조정 질문으로 디테일을 모읍니다.
 
-프롬프트 텍스트만 산출합니다. 실제 생성은 ChatGPT·OpenAI API에 붙여 넣거나 페어 스킬(`media-higgsfield-image`, `media-codex-image`)로 이어 갑니다.
+프롬프트 텍스트만 산출합니다. 실제 생성은 ChatGPT의 기본 이미지 도구나 페어 스킬(`media-higgsfield-image`, `media-codex-image`)로 이어 갑니다. ChatGPT 기본 도구의 내부 모델 ID는 이 스킬에서 지정하거나 확인할 수 없으므로 API 모델 파라미터를 앱 설정처럼 안내하지 않습니다.
 
 ## 트리거 키워드
 
@@ -44,11 +44,11 @@ GPT 이미지 프롬프트 ChatGPT 이미지 프롬프트 GPT Image 2.5 프롬�
 ```
 사용자 자연어 한 줄
     ↓
-[Round 1] AskUserQuestion — 작업 유형(생성/편집) + 프리셋 선택
+[Round 1] 사용 가능한 질문 경로 — 작업 유형(생성/편집) + 프리셋 선택
     ↓
-[Round 2] AskUserQuestion — 프리셋별 미세조정 (3~4 슬롯)
+[Round 2] 사용 가능한 질문 경로 — 프리셋별 미세조정 (필요한 슬롯만)
     ↓
-[Round 3] AskUserQuestion — 화면비 · 이미지 내 텍스트 · 모델(Flare/Sunburst)
+[Round 3] 사용 가능한 질문 경로 — 화면비 · 이미지 내 텍스트 · API 모델(필요할 때만)
     ↓
 [내부] 슬롯 → 공식 원칙에 맞춘 프롬프트 (짧은 단락 또는 라벨 섹션)
     ↓
@@ -63,7 +63,7 @@ GPT 이미지 프롬프트 ChatGPT 이미지 프롬프트 GPT Image 2.5 프롬�
 
 ### Round 1 — 작업 유형과 프리셋 (필수)
 
-`AskUserQuestion`으로 생성인지 편집인지, 그리고 프리셋을 고릅니다. 편집이면 Round 2 대신 [편집 워크플로우](#편집-워크플로우)로 갑니다.
+이미 주어진 요청에서 생성인지 편집인지, 어떤 프리셋이 맞는지 확인합니다. 결과를 바꾸는 필수 정보가 비어 있으면 현재 앱에서 제공하는 질문 수단을 사용합니다. 구조화 질문 도구가 없는 앱에서는 일반 대화로 필요한 정보만 묻습니다. 편집이면 Round 2 대신 [편집 워크플로우](#편집-워크플로우)로 갑니다.
 
 | 프리셋 | 적용 케이스 | references |
 |---|---|---|
@@ -76,7 +76,7 @@ GPT 이미지 프롬프트 ChatGPT 이미지 프롬프트 GPT Image 2.5 프롬�
 
 ### Round 2 — 프리셋별 미세조정 (3-4 질문)
 
-선택된 프리셋의 `presets/<name>.md`에 정의된 질문 세트를 `AskUserQuestion`으로 순회합니다. 각 질문은 4 옵션 + Other이며, 첫 번째 옵션에 `(권장)` 라벨을 표시합니다.
+선택된 프리셋의 `presets/<name>.md`에 정의된 슬롯 중 결과에 필요한 것만 확인합니다. 구조화 질문 도구가 있으면 그 도구의 선택지 형식을 쓰고, 없으면 짧은 일반 질문으로 묻습니다. 이미 받은 정보는 다시 묻지 않습니다.
 
 ### Round 3 — 화면비 · 텍스트 · 모델 (최대 3 질문)
 
@@ -92,7 +92,7 @@ GPT 이미지 프롬프트 ChatGPT 이미지 프롬프트 GPT Image 2.5 프롬�
 
 **텍스트** — 이미지 안에 글자가 들어가면 정확한 문자열을 따로 받습니다(한 글자도 바꾸지 않기 위해).
 
-**모델** — 새 작업은 `gpt-image-2.5-flare`(권장, 속도)부터, 품질 요구가 까다로우면 `gpt-image-2.5-sunburst`. 판단 흐름은 `references/parameter-cheatsheet.md` §모델 선택.
+**모델** — ChatGPT 기본 이미지 도구를 쓸 때는 Flare/Sunburst를 묻거나 선택됐다고 표시하지 않습니다. OpenAI API 또는 Higgsfield에서 모델을 직접 지정하는 경우에만 `gpt-image-2.5-flare`(속도)와 `gpt-image-2.5-sunburst`(품질)를 비교합니다. 사용자가 특정 모델을 지목했다면 그 선택을 유지합니다. 판단 흐름은 `references/parameter-cheatsheet.md` §모델 선택.
 
 ### 내부 처리 — 프롬프트 작성 (공식 8원칙)
 
@@ -133,21 +133,21 @@ Constraints: <what must not appear: no extra text, no watermark, no unrelated lo
 동일 슬롯을 콤마 구분 키워드 + `--파라미터` 형식으로 변환합니다.
 
 ```
-[subject], [scene keywords], [composition], [lighting], [style] --ar W:H --style raw --hd --q 4 --s 0~1000 [--sref CODE|URL --sw N] [--oref URL --cw 0~100] [--p PROFILE] [--no NEGATIVE]
+[subject], [scene keywords], [composition], [lighting], [style] --ar W:H [--raw] [--hd] [--s 0~1000] [--sref CODE|URL --sw N] [--edit IMAGE_URL] [--p PROFILE] [--no NEGATIVE]
 ```
 
-Midjourney 파라미터 상세는 페어 스킬 `media-midjourney-v8-prompt`를 따릅니다. `--cw 100`(기본값) 함정과 `--hd --q 4`의 비용 증가는 사용자에게 고지합니다.
+Midjourney 파라미터 상세는 페어 스킬 `media-midjourney-v8-prompt`를 따릅니다. 현재 V8에는 `--q` Quality 파라미터와 `--oref`·`--cw`가 없으므로 출력하지 않습니다. 이미지 참조는 Edit Model 경로를 안내합니다.
 
 ### 출력 — 3개 모델 코드블록 + 권장 파라미터 + 검수 + 해설
 
 ````markdown
 ## 생성된 프롬프트 (3개 모델)
 
-### 1) GPT Image 2.5 — OpenAI API / ChatGPT
+### 1) GPT Image 2.5 — ChatGPT 기본 이미지 도구 또는 OpenAI API
 ```text
 <공식 원칙에 맞춘 프롬프트 (단락 또는 라벨 섹션)>
 ```
-**권장 파라미터**: `model=gpt-image-2.5-flare`, `quality=medium`, `size=1024x1024` (투명 배경이면 `background=transparent`, `output_format=png`)
+**OpenAI API에서 지정할 때의 권장 파라미터**: `model=gpt-image-2.5-flare`, `quality=medium`, `size=1024x1024` (투명 배경이면 `background=transparent`, `output_format=png`). ChatGPT 기본 이미지 도구에서는 내부 모델 ID를 확인하거나 이 값을 직접 설정할 수 없습니다.
 **Higgsfield로 생성 시**: `model=gpt_image_2_5`, `variant=flare`, `quality=medium`, `aspect_ratio=1:1`
 
 ### 2) Gemini 3 Pro Image — Nano Banana Pro
@@ -156,9 +156,9 @@ Midjourney 파라미터 상세는 페어 스킬 `media-midjourney-v8-prompt`를 
 ```
 **권장 파라미터**: `aspect_ratio=1:1`, `resolution=2K`
 
-### 3) Midjourney v8.1
+### 3) Midjourney V8.2 (사용자가 V8.1을 지정했다면 V8.1)
 ```text
-<키워드, 키워드, ... --ar 1:1 --style raw --s 300>
+<키워드, 키워드, ... --ar 1:1 --raw --s 300>
 ```
 
 ### 결과 검수 체크리스트
@@ -188,14 +188,14 @@ Constraints: <no extra text, no logos, no watermark, do not restyle>
 
 ### 구 모델 요청 처리
 
-"GPT-image-2 프롬프트"처럼 이전 모델을 지목하면 프롬프트 원칙은 같게 쓰되 파라미터 차이를 알립니다: `gpt-image-2`는 `quality`가 `low/medium/high/auto`까지이고 `input_fidelity`는 생략합니다. `gpt-image-1.5`는 2026-12-01, `gpt-image-1`은 2026-10-23 종료 예정이므로 이전을 권합니다. 이전 절차는 `references/parameter-cheatsheet.md` §이전 절차.
+"GPT-image-2 프롬프트"처럼 이전 모델을 지목하면 요청 모델을 유지해 작성하고 파라미터 차이를 알립니다: `gpt-image-2`는 `quality`가 `low/medium/high/auto`까지이고 `input_fidelity`는 생략합니다. 2.5 이전은 별도 선택지로 제안합니다. 이전 절차는 `references/parameter-cheatsheet.md` §이전 절차.
 
 ## 사용 예시
 
 **예시 1: 제품샷 한 줄 요청**
 > "GPT 이미지 프롬프트 만들어줘. 매트 블랙 머그 'MONDAY' 글자 들어간 제품샷"
 
-→ Round 1: 생성·제품샷 → Round 2: 머그/슬레이트 카운터/창문 조명/3-4분 앵글 → Round 3: 1:1 + "MONDAY" + Flare → 3개 모델 프롬프트 출력.
+→ Round 1: 생성·제품샷 → Round 2: 머그/슬레이트 카운터/창문 조명/3-4분 앵글 → Round 3: 1:1 + "MONDAY" → 3개 모델 프롬프트 출력. API로 만들 때만 Flare/Sunburst를 고릅니다.
 
 **예시 2: 발표 슬라이드용 차트**
 > "시장 규모 TAM/SAM/SOM 슬라이드 이미지 프롬프트, 16:9"
@@ -214,7 +214,7 @@ Constraints: <no extra text, no logos, no watermark, do not restyle>
 | GPT Image 2.5 프롬프트 | 영문 단락 또는 라벨 섹션 | ChatGPT / API `prompt` / Higgsfield `prompt` |
 | 권장 파라미터 | `model`·`quality`·`size`·`background` | API 호출 시 프롬프트와 **별도로** 설정 |
 | Gemini 3 Pro Image 프롬프트 | 영문 5-component 단락 | Google AI Studio / Vertex AI |
-| Midjourney v8.1 프롬프트 | 키워드 + `--파라미터` | Discord `/imagine` 또는 웹 |
+| Midjourney V8 프롬프트 | 짧은 설명 + 지원되는 `--파라미터` | Discord `/imagine` 또는 웹 |
 | 결과 검수 체크리스트 | 마크다운 | 공식 가이드의 결과 확인 항목 |
 
 ## 주의사항
@@ -234,7 +234,7 @@ Constraints: <no extra text, no logos, no watermark, do not restyle>
 | media-gemini-3-image-prompt | sibling | 동일 입력으로 Gemini 어조 최적화 프롬프트 산출 |
 | media-midjourney-v8-prompt | sibling | 동일 입력으로 MJ 키워드+파라미터 프롬프트 산출 |
 | media-higgsfield-image | after | Higgsfield MCP로 생성 — `gpt_image_2_5`(Flare/Sunburst) 모델 지원 |
-| media-codex-image | after | codex CLI 내장 이미지 도구로 생성 (API 키 불필요, 모델은 서비스 측이 결정) |
+| media-codex-image | after | ChatGPT Work 기본 이미지 도구로 직접 생성·편집 (앱에서 API 모델 ID 지정 불가) |
 
 ## 출처
 

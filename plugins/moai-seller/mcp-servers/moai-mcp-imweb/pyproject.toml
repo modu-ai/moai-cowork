@@ -1,7 +1,7 @@
 [project]
 name = "moai-mcp-imweb"
 version = "0.1.0"
-description = "아임웹(Imweb) OPEN API v3 MCP — 쇼핑몰 운영 전 도메인 136개 액션을 8 카테고리 도구로 제공 (주문·상품·회원·커뮤니티·프로모션·결제·사이트정보·스크립트). OAuth2 authorizationCode + JWT access token(자동 갱신)."
+description = "아임웹(Imweb) OPEN API v3 MCP — 명세에서 생성한 138개 작업을 8개 카테고리 도구로 제공. OAuth2 토큰 갱신 지원."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "Apache-2.0" }

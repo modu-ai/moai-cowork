@@ -3,12 +3,13 @@ description: "Design System Constitution — MoAI design pipeline FROZEN/EVOLVAB
 paths: ".moai/design/**,.moai/specs/SPEC-*-DESIGN-*/**,.moai/project/brand/**,.claude/skills/moai/**/design*.md,.claude/skills/moai/**/brand*.md"
 ---
 
-> ⚠️ **개발 런타임 전용** — 이 규약은 MoAI-ADK(Claude Code) 환경을 전제한다. Claude Cowork(Desktop)에서는 `.moai/config`·`.moai/design` 의존으로 동작하지 않을 수 있다. Desktop 사용자는 `moai-designer:cd-*` 체인을 사용한다.
+> **MoAI-ADK 파이프라인 규약** — 아래 `.moai/config`·`.moai/design` 경로와 에이전트 계약은 해당 프로젝트에 파이프라인이 설치된 경우에 적용된다. Claude Cowork·ChatGPT Work 데스크톱 앱에서 이 경로가 없다면 `moai-designer:design-brand-system` 등 요청에 맞는 스킬을 사용자 제공 자료로 실행한다. 데스크톱 경로를 ADK의 감사·승인 단계가 실행된 것으로 보고하지 않는다.
 
 # Design System Constitution v3.2
 
 ## HISTORY
 
+- 2026-09-24: 데스크톱 안내의 배포되지 않은 `cd-*` 체인을 실제 스킬 경로로 교체하고 ADK 파이프라인의 적용 범위를 명시했다. FROZEN 조항은 변경하지 않았다. Version 3.5.0 → 3.5.1.
 - 2026-05-20: §3.2 + §4 Pencil MCP (Path B2) row removed — Pencil MCP server no longer registered in `.mcp.json.tmpl`, dead reference cleanup as part of v2.20.0-rc1 release-readiness consolidation. Path B1 (figma-extractor) preserved. Version 3.4.0 → 3.5.0.
 - 2026-04-26: §4 Phase Contracts table extended with Path B1 (figma-extractor) and Path B2 (pencil-mcp) rows. Version 3.3.1 → 3.4.0.
 - 2026-04-26: §3.2 footnote 추가 — Reserved name violation은 `moai update` (update path)에서 warning + skip, `moai init` (scaffold path)에서 hard error. v3.3.0 → 3.3.1.
@@ -413,9 +414,9 @@ If a graduated learning causes regression:
 
 ---
 
-Version: 3.5.0
+Version: 3.5.1
 Classification: FROZEN_AMENDMENT
 Original Source: v2.x `agency/constitution.md` v3.2.0 (retired per the design-system absorption policy)
-Last Updated: 2026-04-26
+Last Updated: 2026-09-24
 Relocated: 2026-04-20
 REQ coverage: REQ-CONST-001, REQ-CONST-002, REQ-CONST-003, REQ-CONST-004

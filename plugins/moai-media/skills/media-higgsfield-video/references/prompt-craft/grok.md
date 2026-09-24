@@ -3,22 +3,15 @@
 > 대상 모델(라이브 카탈로그 기준): `grok_video`, `grok_video_v15`, `grok_image`
 > 파라미터·aspect·duration·media role은 `models_explore(action:'get')`로 라이브 조회.
 
-**Evidence tier:** 1차 — an evidenced absence, directly verified (docs.x.ai 직접 fetch).
-출처: https://docs.x.ai
+**Evidence tier:** 1차 ([xAI 영상 생성 문서](https://docs.x.ai/developers/model-capabilities/video/generation), 2026-09-24 재확인). Higgsfield 노출 범위는 별도 라이브 조회 필요.
 
 ---
 
-## 증거로 확인된 부재 — 이 계열의 헤드라인 발견 (No Official Formula)
+## 공식 영상 API와 Higgsfield 연결의 경계
 
-`docs.x.ai`(video generation, reference-to-video, image generation)를 직접 fetch한 결과:
-- **프롬프트 구조 공식 없음** (공식 프롬프트 공식이 존재하지 않는다)
-- **길이 권장 없음**("a prompt that is too long"만 오류 조건으로 언급, 숫자 없음)
-- **negative-prompt 필드/컨벤션 없음**
-- **no audio documentation** — 오디오·대사·사운드 디자인에 대한 언급이 어디에도 없다
+xAI의 현재 영상 생성 문서는 `grok-imagine-video-1.5`에서 영상에 오디오 트랙이 기본 포함되며 `generate_audio=false`로 끌 수 있다고 명시한다. 참조 영상은 `reference_audios`의 프리셋 `voice_id`와 `<AUDIO_0>` 같은 인덱스 표기도 지원한다. 따라서 과거의 "공식 오디오 문서 없음" 주장은 폐기한다.
 
-마지막 지점은 MCP 카탈로그가 `grok_video_v15`를 *"native audio direction"* 보유로 태깅한 것과 **정면 모순**된다. xAI 공개 문서에는 오디오에 대한 no audio documentation — 아무 내용도 없다. Grok 오디오 프롬프팅 기법이라며 도는 모든 주장은 **서드파티 가이드 전용**(xAI 아님)이다.
-
-**스킬은 Grok 오디오 컨벤션을 지어내지 않는다.** R1–R5(core `universal-rules.md`) + 관측된 공식 예시로 폴백한다.
+이 기능이 Higgsfield의 `grok_video_v15`에 그대로 노출되는지는 별개다. `models_explore`의 실제 입력 스키마에 없는 `generate_audio`·`reference_audios`·`voice_id`를 Higgsfield 호출에 넣지 않는다. 오디오 연출은 현재 연결에서 확인된 프롬프트·옵션 범위에서만 안내한다.
 
 ## 공식 예시 (verbatim, docs.x.ai — 라벨 없는 평이한 단문)
 
@@ -28,4 +21,4 @@
 
 ## 참조 문법 주의
 
-xAI는 자체 `reference_images` 배열에 묶인 `<IMAGE_2>` 플레이스홀더를 쓴다. **Higgsfield는 단일 `start_image` role만 노출** — 번호 플레이스홀더 컨벤션은 깔끔히 매핑되지 않으며 동작을 가정하지 않는다. 실제 role·param은 `models_explore`로 확인한다.
+xAI의 자체 API에는 `reference_images`와 `reference_audios`가 있다. Higgsfield가 제공하는 참조 role은 별도 스키마이므로 번호 플레이스홀더가 그대로 매핑된다고 가정하지 않는다. 실제 role·param은 `models_explore`로 확인한다.

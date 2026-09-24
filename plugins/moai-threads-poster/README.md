@@ -1,21 +1,21 @@
 # 🧵 moai-threads-poster
 
-Threads(Meta) · Instagram 자동 포스팅 전담 플러그인 — Claude Code 에서 MCP 도구로 텍스트·이미지·비디오를 발행합니다.
+Threads(Meta) · Instagram 포스팅 전담 플러그인 — 연결된 앱에서 MCP 도구로 텍스트·이미지·비디오를 발행합니다.
 
-> **현재 상태**: MCP 서버 + Threads/Instagram API 클라이언트 + 5개 스킬(초안 작성·문체 학습·멀티 채널·Instagram 발행·댓글 관리). 세션 안에서 **직접 발행** (draft → 승인 → 즉시 게시). 예약·정기 발행은 Claude Cowork 이 담당합니다.
+> **현재 상태**: MCP 서버 + Threads/Instagram API 클라이언트 + 초안 작성·문체 학습·멀티 채널·Instagram 발행·댓글 관리 스킬. 세션 안에서 **직접 발행** (초안 → 승인 → 즉시 게시). 예약·정기 발행은 사용 중인 앱의 지원 여부를 확인합니다.
 
 ## 범위
 
 - **MCP 서버** (`mcp-servers/moai-mcp-threads-poster/`) — stdio 트랜스포트, 17개 도구 노출 (Threads 직접 발행·조회 5종 + Instagram 발행·조회·댓글·인사이트 8종 + 문체 프로필 2종 + 멀티 채널 포맷 1종 + IG 토큰 갱신 1종).
 - **Threads API 클라이언트** — `ThreadsClient` (2단계 발행: container 생성 → publish).
 - **Instagram API 클라이언트** — `InstagramClient` (Facebook Login for Business, JPEG-only, VIDEO/REELS 컨테이너 폴링).
-- **스킬 5종** — 초안 작성(문체 적용) · 문체 학습 · 멀티 채널 포맷 · Instagram 포스트 발행 · Instagram 댓글 관리.
+- **스킬** — 초안 작성(문체 적용) · 문체 학습 · 멀티 채널 포맷 · Instagram 포스트 발행 · Instagram 댓글 관리.
 - **문체 학습** — 과거 포스팅으로 문체 프로필을 분석해 저장, 초안 작성에 자동 적용.
 - **멀티 채널 배포** — `threads_format_multi_channel` 로 하나의 텍스트를 Threads/Facebook/X 용으로 각각 포맷.
 
 ## 설치 (플러그인 등록)
 
-`.claude-plugin/marketplace.json` entry 가 플러그인을 가리킨다. 데스크톱 앱(Claude Cowork·ChatGPT Work)에서는 설정(Settings) 또는 플러그인(Plugins) 메뉴 → 마켓플레이스(Marketplace)에 `modu-ai/moai-cowork`를 추가한 뒤 목록에서 **Install**로 활성화한다. 터미널을 쓴다면 `claude plugin install moai-threads-poster@moai-cowork`(Claude Cowork CLI) 또는 `codex plugin add moai-threads-poster@moai-cowork`(ChatGPT Work CLI). 자격증명(토큰) 발급 절차는 **[`mcp-servers/moai-mcp-threads-poster/CONNECTORS.md`](mcp-servers/moai-mcp-threads-poster/CONNECTORS.md)** 참조.
+Claude Cowork·ChatGPT Work에서 **Settings(또는 Plugins) → Marketplace → +**를 열어 `modu-ai/moai-cowork`를 추가하세요. Plugins 화면에서 **moai-threads-poster**를 선택하고 **+** 또는 **Install**을 누르세요. 자격증명(토큰) 발급 절차는 **[`mcp-servers/moai-mcp-threads-poster/CONNECTORS.md`](mcp-servers/moai-mcp-threads-poster/CONNECTORS.md)**를 참조하세요.
 
 ## 환경변수
 
@@ -78,7 +78,7 @@ Instagram 도 같은 모델이다 — `instagram-post` 스킬이 초안을 작�
 
 ### 1. 문체 학습 (`threads-style-learn` 스킬)
 
-과거 Facebook/Threads 포스팅 3-10개를 붙여넣으면 말투·문장 길이·오프닝·클로징·이모지 빈도·시그니처 구절 등을 분석해 **문체 프로필** 을 저장합니다(`threads_style_save`). 저장된 프로필은 이후 `threads-post-draft` 스킬이 초안 작성 시 자동으로 불러와(`threads_style_load`) 적용합니다. 프로필은 `.data/style-profile.md` (gitignored) 에 저장됩니다. **Threads 자격증명 불필요** — 로컬 파일 I/O 만 합니다.
+과거 Facebook/Threads 포스팅 3-10개를 붙여넣으면 말투·문장 길이·오프닝·클로징·이모지 빈도·시그니처 구절 등을 분석해 **문체 프로필** 을 저장합니다(`threads_style_save`). 저장된 프로필은 이후 `threads-post-draft` 스킬이 초안 작성 시 자동으로 불러와(`threads_style_load`) 적용합니다. 프로필은 사용자 홈의 `.moai/mcp/threads-style-profile.md`에 저장되며, 기존 플러그인 내부 프로필도 읽을 수 있습니다. **Threads 자격증명 불필요** — 로컬 파일 I/O 만 합니다.
 
 ### 2. 초안 작성 (문체 자동 적용)
 
@@ -94,7 +94,7 @@ threads_format_multi_channel(
     x_tier="free",  # 무료=280자 분할 / "premium"=25,000자 단일
 )
 # → {
-#     "threads": {"text": "오늘 점심에 ...", "bytes": 412, "max_bytes": 500},
+#     "threads": {"text": "오늘 점심에 ...", "chars": 412, "max_chars": 500, "truncated": False},
 #     "facebook": "오늘 점심에 ...",                       # 복붙용 문자열
 #     "x": ["1/ 오늘 점심에 ...", "2/ ...", "3/ ..."],    # free → 분할 리스트
 #     "note": "Threads 출력은 threads_publish_text 로 직접 발행하세요. FB·X 출력은 *복붙용*...",

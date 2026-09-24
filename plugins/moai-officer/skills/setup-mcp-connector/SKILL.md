@@ -3,8 +3,8 @@ name: setup-mcp-connector
 description: |
   [책임 경계] Drive·Notion·Higgsfield 3커넥터 인증·환경변수·트러블슈팅 가이드 전담. 페어 moai-seller:commerce-morning-brief(MCP 매장 데이터 호출)와 명확히 구분 — 본 스킬은 커넥터 설치·인증 단계, 페어는 인증 이후 실제 MCP 호출 결과물.
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
-  "MCP 커넥터 연결", "Drive 인증 방법", "Notion Integration Token 어디서", "Higgsfield 키 발급", "Windows MAX_PATH 오류", "한글 파일명 30자 오류", "computer:// 링크 안 열려요", "커넥터 3개 연결 방법", "MCP 3커넥터 인증", "커넥터 오류 해결".
-version: "1.1.1"
+  "MCP 커넥터 연결", "Drive 인증 방법", "Notion Integration Token 어디서", "Higgsfield 연결", "Windows MAX_PATH 오류", "한글 파일명 30자 오류", "computer:// 링크 안 열려요", "커넥터 3개 연결 방법", "MCP 3커넥터 인증", "커넥터 오류 해결".
+version: "1.1.2"
 ---
 
 # MCP 커넥터 셋업 가이드
@@ -25,7 +25,7 @@ Drive·Notion·Higgsfield 3커넥터 + 한국 공공데이터·문서·법령 **
 
 ## 트리거 키워드
 
-MCP 커넥터 연결, Drive 인증, Notion Integration Token, Higgsfield API 키, 3커넥터 설치, computer:// 링크, MAX_PATH 오류, 한글 파일명 오류, OAuth redirect URI
+MCP 커넥터 연결, Drive 인증, Notion Integration Token, Higgsfield 계정 연결, 3커넥터 설치, computer:// 링크, MAX_PATH 오류, 한글 파일명 오류, OAuth redirect URI
 
 ---
 
@@ -36,9 +36,9 @@ MCP 커넥터 연결, Drive 인증, Notion Integration Token, Higgsfield API 키
 커넥터 연결 전에 아래 계정을 미리 생성해 두세요:
 - Google 계정 (Drive)
 - Notion 계정
-- Higgsfield 계정 + 워크스페이스 크레딧 충전
+- Higgsfield 계정 (생성할 때는 크레딧 잔액도 확인)
 
-> **[HARD] API 키 보안 수칙**: API 키는 본인이 직접 발급·보관합니다. 채팅 대화나 공유 문서에 키 원문을 붙여넣지 말고, 커넥터 설정 화면의 API Key 필드에만 입력하세요.
+> **[HARD] 인증 정보 보안 수칙**: 다른 커넥터가 API 키를 요구하더라도 키 원문을 채팅이나 공유 문서에 붙여넣지 마세요. 해당 커넥터가 지정한 인증 화면이나 비밀 값 설정 경로로만 입력하세요. Higgsfield 공식 연결은 계정 로그인과 OAuth 승인으로 진행합니다.
 
 ---
 
@@ -82,7 +82,7 @@ MCP 커넥터 연결, Drive 인증, Notion Integration Token, Higgsfield API 키
 
 **목적**: 광고 영상 생성 등 미디어 작업 (이미지·영상 생성 모델 호출)
 
-**인증 방법**: API 키 방식 (OAuth 아님)
+**인증 방법**: 공식 연결의 계정 로그인 및 OAuth 승인. ChatGPT Work에서는 공식 Higgsfield 플러그인, Claude Cowork에서는 공식 Higgsfield MCP 연결을 현재 앱 UI에서 선택한다.
 
 **사전 확인 사항**
 - Higgsfield 워크스페이스 크레딧 충전 여부 확인 (잔액 부족 시 인증은 성공해도 생성 호출이 실패할 수 있음)
@@ -90,9 +90,9 @@ MCP 커넥터 연결, Drive 인증, Notion Integration Token, Higgsfield API 키
 - 비용 한도: 워크스페이스 설정에서 사용 한도를 지정해 예상 외 과금 방지
 
 **인증 단계**
-1. Cowork 앱 → 설정 → MCP 커넥터 → Higgsfield 선택
-2. API Key 필드에 발급받은 키 입력 (발급처: higgsfield.ai → API Keys)
-3. 연결 완료 후 모델 list 1회 호출로 검증
+1. 현재 앱의 Plugins 또는 Connectors 화면에서 공식 Higgsfield 연결을 선택한다.
+2. 표시되는 Higgsfield 로그인·권한 승인 절차를 완료한다. 채팅에 토큰이나 API 키를 붙여넣지 않는다.
+3. 연결 완료 후 현재 세션에 노출된 모델 목록 조회 도구를 1회 호출해 검증한다.
 
 **1회 호출 검증**: 사용 가능한 모델 목록이 응답에 나타나면 성공
 
@@ -236,14 +236,13 @@ Cowork 플러그인은 한국 공공데이터·공문서·법령 처리를 위�
 
 ---
 
-### T4 — API 키 인증 실패 (Higgsfield)
+### T4 — Higgsfield 계정 연결 실패
 
-**증상**: "Invalid API key" 또는 "Unauthorized" 오류
+**증상**: 계정 연결이 완료되지 않거나 "Unauthorized" 오류
 
 **해결 방법**
-1. API 키 앞뒤 공백 없이 정확히 복사·붙여넣기 확인
-2. Higgsfield: 워크스페이스 충전 여부 확인 (잔액 부족 시 인증 실패)
-3. 키 재발급 후 재시도
+1. 현재 앱의 Higgsfield 연결 상태를 확인하고, 필요한 경우 계정 로그인·권한 승인을 다시 진행한다.
+2. 연결 뒤 모델 목록 조회가 되는지 확인한다. 크레딧 잔액은 별도로 확인한다. 잔액 부족을 인증 실패로 단정하지 않는다.
 
 ---
 
@@ -314,7 +313,7 @@ Cowork 플러그인은 한국 공공데이터·공문서·법령 처리를 위�
 |--------|-----------|---------------|
 | Google Drive | OAuth (drive.readonly, drive.file) | 폴더 list 응답 |
 | Notion | OAuth (워크스페이스 연결) | 공유 페이지 read 응답 |
-| Higgsfield | API Key | 모델 list 응답 |
+| Higgsfield | 공식 계정 연결/OAuth | 모델 list 응답 |
 | kordoc | 키 불필요 (Node.js 18+) | parse_document 마크다운 응답 |
 | dart (korean-dart-mcp) | OpenDART 키 (40자, 무료/일 20,000건) | resolve_corp_code 응답 |
 | korean-stats | 공용키 hosted (키 불필요) | quick_stats 통계 수치 응답 |

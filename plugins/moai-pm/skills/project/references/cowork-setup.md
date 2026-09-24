@@ -54,15 +54,15 @@ Phase 1 인터뷰 → Phase 2 인벤토리 → Phase 3 체인 설계 → Phase 4
 | Phase | 핵심 | 산출물 |
 |-------|------|--------|
 | **1 인터뷰** | 프로젝트 설명에서 8렌즈로 축을 도출해 채워질 때까지 반복. 라운드 수 제한 없음(한 호출 1~4질문은 SDK 상한). 해당 없는 렌즈는 버리고, 민감도만 공통 필수 | interview 답변 + coverage 표 |
-| **2 인벤토리** | `~/.claude/plugins/`에서 설치 여부 + 활성 스킬 스캔 | `.moai/config.json` 스냅샷 |
+| **2 인벤토리** | 배포 로스터와 현재 호스트의 설치·노출 스킬 대조 | `.moai/config.json` 스냅샷 |
 | **3 체인 설계** | 인터뷰 + 인벤토리 + 재진입 시 기존 맥락, 3종 입력을 종합해 산출물별 스킬 체인 설계(§3 프리셋). **한국어 텍스트 체인은 ⟨한국어 감사 3단⟩으로 종료** | chain_design + 설계 근거 |
 | **4 Gap Detection** | 체인 스킬 ↔ 인벤토리 대조 → 누락 시 설치 안내 + "이어서 진행" 재개 | 진행 상태 |
-| **5 확인** | 설계된 체인 `AskUserQuestion` 승인 — 요약에 설계 근거 표시 | 승인/수정/취소 |
+| **5 확인** | 설계된 체인을 요약하고 빠진 결정만 현재 호스트의 질문 도구로 확인 | 확인된 설계 |
 | **6 지침 생성** | `references/templates/AGENTS.md.tmpl` 치환, ≤500라인, HARD 블록 8종 고정 — 정본은 AGENTS.md 한 파일. `CLAUDE.md`는 `CLAUDE.md.tmpl` 그대로 복사한 `@AGENTS.md` 포인터 | `./AGENTS.md` + `./CLAUDE.md`(포인터) |
 | **7 커스텀 에이전트 생성** | 반복 작업 유형별 Claude `.claude/agents/*.md`(markdown+frontmatter) + Codex `.codex/agents/*.toml`(TOML) 양쪽 생성 | `.claude/agents/*.md` + `.codex/agents/*.toml` |
 | **8 API 키 + 첫 실행 안내** | 체인이 요구하는 키만 선택적 등록 안내 + 상위 체인 3개 예시 | 안내 메시지 |
 
-각 Phase의 `AskUserQuestion` 스키마·`.moai/config.json` 상세·재개(Re-entry) 흐름은 `references/init-protocol.md` 참조.
+각 Phase의 호스트별 질문 도구 스키마·`.moai/config.json` 상세·재개 흐름은 `references/init-protocol.md` 참조.
 
 ### 2-1. Phase 3 입력 — 수집 맥락 분석
 
@@ -121,17 +121,17 @@ Phase 3 체인 설계는 인터뷰 답변→프리셋 매칭으로 직행하지 
 | 웹툰 기획 | `moai-story:story-webtoon-planner` → `moai-story:story-character-sheet` → `moai-story:story-webtoon-episode` → `moai-story:story-webtoon-lettering` → `moai-story:story-webtoon-art` → `moai-story:story-webtoon-qc` |
 | 웹소설 연재 | `moai-story:story-webnovel-planner` → `moai-story:story-webnovel-writer` → ⟨감사:산문⟩ |
 | 드라마/영화 시놉 | `moai-story:story-synopsis` → `moai-story:story-screenplay` → ⟨감사:산문⟩ |
-| 캐릭터 시트 | `moai-story:story-character-sheet` (Higgsfield 생성) |
-| 표지·일러스트 | `moai-story:story-cover-art` (Higgsfield 생성) |
+| 캐릭터 시트 | `moai-story:story-character-sheet` (이미지 생성 경로는 현재 호스트와 사용자 선택 확인) |
+| 표지·일러스트 | `moai-story:story-cover-art` (이미지 생성 경로는 현재 호스트와 사용자 선택 확인) |
 | IP 사업화·판권 | `moai-story:story-ip-pitch` → ⟨감사:산문⟩ |
 
 스토리 분기의 진입 분류는 `moai-story` 플러그인의 `moai-story:story-project` 스킬이 담당한다. `AGENTS.md` 생성 시 `moai-story:story-project` 라우팅 규칙을 워크플로우 섹션에 명시하여, 실행 시점에 `moai-story:story-project`가 장르 파이프라인으로 자동 분기한다.
 
-### 3-3. 미디어 체인 (Higgsfield / ElevenLabs MCP)
+### 3-3. 미디어 체인
 
 | 산출물 | 스킬 | 비고 |
 |---|---|---|
-| 이미지 | `moai-media:media-higgsfield-image` | Higgsfield MCP — ai-slop 생략 |
+| 이미지 | ChatGPT 기본 이미지 생성 또는 `moai-media:media-higgsfield-image` | ChatGPT 사용자에게 기본 생성 경로를 제공하고, Higgsfield를 지정한 사용자는 공식 MCP 연결을 확인한다. 실제 생성 결과를 확인한다 |
 | 영상 | `moai-media:media-higgsfield-video` | Higgsfield MCP — ai-slop 생략 |
 | 음성·TTS·더빙 | `moai-media:media-audio-gen` | ElevenLabs MCP — ai-slop 생략 |
 
@@ -158,8 +158,8 @@ Phase 3 체인의 스킬이 인벤토리에 없으면 누락으로 간주한다.
 ```
 체인 스킬 중 인벤토리에 없는 것이 1개+
   → 누락 스킬 → 소속 플러그인 매핑
-  → AskUserQuestion 4옵션:
-      1. (권장) 설치 안내 + 완료 후 "이어서 진행" 재개
+  → 현재 호스트의 질문 도구에서 허용하는 선택지로 확인:
+      1. (권장) 현재 호스트의 앱 UI 설치 안내 + 완료 후 "이어서 진행" 재개
       2. 누락 스킬 제외하고 진행
       3. 대체 스킬로 변경
       4. 중단

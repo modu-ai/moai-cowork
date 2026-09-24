@@ -4,7 +4,7 @@ shadcn `Tabs` / `TabsList` / `TabsTrigger` / `TabsContent`를 React 없이 재�
 
 ## (A) `<details>` 폴백 — JS 불필요
 
-아코디언형. 단일 파일에서 가장 단순하고 접근성이 기본 보장됩니다.
+아코디언형 공개/접기 패턴이다. 탭과 동작이 다르므로 여러 패널 중 하나만 표시해야 하는 요구에는 쓰지 않는다.
 
 ```html
 <details class="rounded-lg border border-hairline bg-surface-card" open>
@@ -31,31 +31,45 @@ shadcn `Tabs` / `TabsList` / `TabsTrigger` / `TabsContent`를 React 없이 재�
 <div class="rounded-lg border border-hairline bg-surface-card">
   <div role="tablist" class="flex gap-1 border-b border-hairline p-1" aria-label="보고서 섹션">
     <button role="tab" id="tab-1" aria-selected="true" aria-controls="panel-1"
-            class="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white">요약</button>
+            class="rounded-md bg-primary px-4 py-2 text-sm font-medium text-on-primary">요약</button>
     <button role="tab" id="tab-2" aria-selected="false" aria-controls="panel-2" tabindex="-1"
             class="rounded-md px-4 py-2 text-sm font-medium text-muted hover:text-ink">지표</button>
   </div>
   <div role="tabpanel" id="panel-1" aria-labelledby="tab-1" class="p-5 text-body">
     요약 패널.
   </div>
-  <div role="tabpanel" id="panel-2" aria-labelledby="tab-2" class="hidden p-5 text-body">
+  <div role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden class="p-5 text-body">
     지표 패널.
   </div>
 </div>
 
 <script>
-  document.querySelectorAll('[role="tab"]').forEach((tab) => {
-    tab.addEventListener('click', () => {
-      const list = tab.closest('[role="tablist"]');
-      list.querySelectorAll('[role="tab"]').forEach((t) => {
-        const sel = t === tab;
-        t.setAttribute('aria-selected', sel);
-        t.classList.toggle('bg-primary', sel);
-        t.classList.toggle('text-white', sel);
-        t.classList.toggle('text-muted', !sel);
-        t.tabIndex = sel ? 0 : -1;
-        document.getElementById(t.getAttribute('aria-controls'))
-                .classList.toggle('hidden', !sel);
+  document.querySelectorAll('[role="tablist"]').forEach((list) => {
+    const tabs = [...list.querySelectorAll('[role="tab"]')];
+    const select = (tab, moveFocus = false) => {
+      tabs.forEach((item) => {
+        const active = item === tab;
+        item.setAttribute('aria-selected', String(active));
+        item.tabIndex = active ? 0 : -1;
+        item.classList.toggle('bg-primary', active);
+        item.classList.toggle('text-on-primary', active);
+        item.classList.toggle('text-muted', !active);
+        document.getElementById(item.getAttribute('aria-controls')).hidden = !active;
+      });
+      if (moveFocus) tab.focus();
+    };
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => select(tab));
+      tab.addEventListener('keydown', (event) => {
+        const next = {
+          ArrowRight: tabs[(index + 1) % tabs.length],
+          ArrowLeft: tabs[(index - 1 + tabs.length) % tabs.length],
+          Home: tabs[0],
+          End: tabs[tabs.length - 1],
+        }[event.key];
+        if (!next) return;
+        event.preventDefault();
+        select(next, true);
       });
     });
   });
@@ -64,6 +78,6 @@ shadcn `Tabs` / `TabsList` / `TabsTrigger` / `TabsContent`를 React 없이 재�
 
 ## 토큰 메모
 
-- 선택 탭은 `bg-primary text-white`, 비선택은 `text-muted` → `text-ink` hover.
+- 선택 탭은 `bg-primary text-on-primary`, 비선택은 `text-muted` → `text-ink` hover. 실제 대비를 확인한다.
 - `<details>` 패턴은 `0-JS` 산출물(doc-html-report 기본 템플릿)과 호환. ARIA 탭은 CDN 환경(doc-html-report design_system 지정 시)에서만.
-- 키보드 접근성: ARIA 탭은 좌우 화살표로 탭 전환 권장(WAI-ARIA Authoring Practices).
+- 키보드 접근성: 좌우 화살표·Home·End로 이동하고 선택한다([WAI-ARIA Tabs Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/)). 여러 탭 묶음을 쓴다면 `id`와 `aria-controls`를 묶음마다 고유하게 만든다.

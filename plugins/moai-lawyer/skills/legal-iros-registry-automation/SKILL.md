@@ -1,213 +1,27 @@
 ---
 name: legal-iros-registry-automation
 description: |
-  대법원 인터넷등기소(IROS, iros.go.kr)에서 법인·부동산 등기부등본(등기사항증명서)을
-  여러 건 일괄 발급할 때 안전한 작업 순서와 로컬 자동화 방법을 안내합니다.
-  로그인·인증·결제는 사용자가 브라우저에서 직접 처리하고, 본 스킬은 장바구니 담기·
-  결제 후 열람·저장·종합 리포트 생성을 보조합니다.
-
-  다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
-  - "법인등기부등본 100개 한번에 떼야 해", "회사 100개 등기부 정리해줘"
-  - "고객사 등기부등본 일괄 발급", "실사 대상 법인 등기 묶음 처리"
-  - "인터넷등기소 자동화", "iros.go.kr 일괄 발급", "법인등록번호로 등기 받기"
-  - "부동산 등기부등본 100건", "주소 목록으로 부동산 등기 한꺼번에"
-  - "TouchEn nxKey", "공동인증서 등기 발급", "법인 결제 페이지당 10건"
-  - 사업자등록번호 → 법인등기 매핑, 다운로드한 등기 PDF로 종합 리포트 만들기
-version: "1.1.2"
+  대법원 인터넷등기소에서 법인·부동산 등기사항증명서를 여러 건 확인할 때
+  사용자 직접 로그인·결제와 공식 화면 기반 자료 정리를 돕습니다.
+version: "1.1.3"
 ---
 
-# 인터넷등기소 등기부등본 자동화
+# 인터넷등기소 등기 자료 정리
 
-대법원 인터넷등기소(IROS)에서 **법인·부동산 등기부등본**을 묶음 단위로 발급해야 할 때, 사용자가 직접 로그인·결제하는 흐름 안에서 장바구니·열람·저장을 안전하게 보조합니다. 실사·법무 검토·법인 일괄 관리에 사용합니다.
+대법원 [인터넷등기소](https://www.iros.go.kr/)의 현재 화면에서 법인·부동산 대상과 발급 목적을 확인한다. 브라우저·운영체제 지원, 보안 프로그램, 일괄 처리 건수, 수수료와 저장 기능은 그날의 공식 화면에서 확인한다. 특정 OS에서 동작한다고 검증 없이 약속하지 않는다.
 
-> 본 스킬은 [`NomaDamas/k-skill`](https://github.com/NomaDamas/k-skill) (MIT) 경유 포팅이며, 원 저작자는 [`challengekim/iros-registry-automation`](https://github.com/challengekim/iros-registry-automation) (MIT) 참고 구현입니다. cowork 컨벤션을 입혀 정리한 가이드이며, 어트리뷰션은 저장소 루트 `NOTICE` §1.4·§1.5에 기록되어 있습니다.
+사용자가 로그인·인증·결제를 직접 한다. 비밀번호, 공동인증서, OTP, 카드 번호를 대화에서 받거나 대신 입력하지 않는다. 결제 완료나 발급 성공은 실제 영수증·내역·파일을 확인한 경우에만 보고한다.
 
-## Hard Limits — 사용자가 반드시 직접 수행
+## 흐름
 
-- **로그인은 사용자가 브라우저에서 직접 한다.** ID/PW, 공동인증서 비밀번호, 간편인증, OTP, 보안카드, 카드번호를 에이전트가 입력·저장하지 않습니다.
-- **결제는 사용자가 직접 한다.** 카드 승인, 결제 확인, 결제 실패 대응은 사람이 브라우저에서 처리합니다.
-- 법률 자문, 권리관계 해석, 발급 결과의 법적 유효성 보장은 하지 않습니다 — 참고용 자동화 가이드입니다.
-- IROS 보안 프로그램(TouchEn nxKey 등)이 요구되면 먼저 설치하고 브라우저/PC 재시작 후 다시 시작합니다.
-- **법인 결제는 페이지당 10건 단위 제약**이 있습니다. 그 이상은 10건 단위로 반복 결제합니다.
-- 부동산은 IROS가 로그인 상태에서 10만원 미만 일괄 결제와 일괄열람출력/일괄저장 UI를 제공하므로, v1에서는 **장바구니 반복 작업만 자동화**합니다.
+1. 대상 목록에서 법인등록번호 또는 부동산 주소·동호수, 원하는 증명서 종류, 목적과 중복을 확인한다. 목록은 사용자가 지정한 비공개 위치에 보관한다.
+2. 공식 화면에서 검색한 대상과 목록을 한 건씩 대조한다. 동명이인 법인, 주소가 비슷한 부동산, 말소·폐쇄 여부를 확인 없이 합치지 않는다.
+3. 사용자가 현재 UI의 결제 대상과 금액을 검토하고 직접 승인한다. 일괄 처리 한도가 보이면 그 화면에 따라 나눈다.
+4. 발급·열람 결과의 사건 식별자, 발급일, 파일명, 저장 여부를 기록한다. PDF가 없는 항목은 `미수령`으로 남긴다.
+5. 사용자가 원하면 받은 문서의 항목을 표로 정리한다. 등기만으로 권리의 법적 효력이나 거래 안전성을 보장하지 않는다. 해석이 필요한 경우 법률 전문가 확인 항목으로 둔다.
 
-## When to use / When not to use
+자료는 공개 저장소·PR·테스트 로그에 넣지 않는다. 파일 삭제·보관 정책은 사용자의 지시와 실제 파일 상태에 따른다.
 
-**사용**: 법인 30건 이상 일괄 등기 발급, 고객사 실사·KYC, 부동산 100건 단위 등기 정리, 사업자번호 기반 법인정보 매핑, 다운로드 PDF로 종합 리포트 작성.
+## 참고 구현
 
-**사용 금지**: 단건 등기(브라우저에서 직접 발급), 권리관계 분석·법률 의견, 등기 위조·변조, 발급 결과를 법적 효력으로 단정.
-
-## Prerequisites
-
-- Chrome/Chromium 실행 가능 환경, Python 3.10+, Playwright/Chromium 설치
-- IROS 로그인 수단 (아이디·공동인증서·간편인증 중 하나)
-- 결제 카드, TouchEn nxKey 사전 설치
-- upstream 참고 구현 clone 후 reviewed SHA로 고정
-
-**macOS / Linux** — 터미널에서:
-
-```bash
-git clone https://github.com/challengekim/iros-registry-automation.git
-cd iros-registry-automation
-git checkout 7c6924b2ff88d693a12556659188cb91041e5097
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-playwright install chromium
-cp config.json.example config.json
-```
-
-**Windows** — PowerShell에서 (가상환경 활성화 경로와 파이썬 명령 이름이 다릅니다):
-
-```powershell
-git clone https://github.com/challengekim/iros-registry-automation.git
-cd iros-registry-automation
-git checkout 7c6924b2ff88d693a12556659188cb91041e5097
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-playwright install chromium
-copy config.json.example config.json
-```
-
-> **왜 두 벌인가**: `source .venv/bin/activate`는 macOS/Linux 전용 경로이고, Windows는
-> `.venv\Scripts\Activate.ps1`입니다. 또 `python3` 명령은 Windows python.org 설치본에
-> 존재하지 않습니다(`python` 또는 `py -3`). 아래 워크플로우의 `python ...` 실행 예시도
-> macOS/Linux에서는 `python3`으로 읽으세요.
->
-> PowerShell이 스크립트 실행을 막으면 `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`를
-> 먼저 실행한 뒤 활성화합니다.
-
-업스트림 핀(SHA)을 변경할 때는 신뢰 경계가 바뀌므로 새 upstream diff를 검토하고 같은 PR에서 갱신합니다.
-
-> **스크립트 출처 주의**: 아래 워크플로우의 `iros_*.py`는 이 스킬(플러그인)에 번들된 파일이 **아니라**, 위에서 클론한
-> 업스트림 저장소(`iros-registry-automation`) 안의 스크립트입니다. 클론·핀 검토를 마친 경우에만 해당 디렉터리에서
-> 실행할 수 있으며, 클론하지 않았거나 자동화가 막히면 각 단계의 **IROS 웹 UI 수동 절차**로 대체합니다. 로그인·결제는
-> 어느 경로든 사용자가 브라우저에서 직접 처리합니다(원칙 C — 자동화 불가 구간은 수동 안내로 정직하게 처리).
-
-## Workflow
-
-### 1. 입력 파일을 저장소 밖 안전 폴더에 둔다
-
-법인등록번호·상호명·주소·동호수 등 민감 정보는 공개 저장소·PR·테스트 로그에 절대 넣지 않습니다.
-
-**macOS / Linux**:
-
-```bash
-workdir="$(mktemp -d "${TMPDIR:-/tmp}/iros-registry.XXXXXX")"
-chmod 700 "$workdir"
-mkdir -p "$workdir/downloads" "$workdir/logs" "$workdir/output" "$workdir/tmp-downloads"
-```
-
-**Windows** — PowerShell에서:
-
-```powershell
-$stamp = [guid]::NewGuid().ToString("N").Substring(0,8)
-$workdir = Join-Path $env:TEMP "iros-registry-$stamp"
-New-Item -ItemType Directory -Path $workdir | Out-Null
-foreach ($sub in "downloads","logs","output","tmp-downloads") {
-  New-Item -ItemType Directory -Path (Join-Path $workdir $sub) | Out-Null
-}
-$workdir
-```
-
-> Windows의 `%TEMP%`는 사용자 프로필 아래라 이미 해당 계정만 접근 가능합니다 — `chmod 700`에
-> 해당하는 별도 조치가 필요 없습니다. 이후 안내의 `$workdir/...` 경로는 PowerShell에서
-> `$workdir\...`로 읽으세요.
-
-법인 입력 예시 (`$workdir/corp-input.json`):
-
-```json
-{
-  "1101111234567": "예시 주식회사",
-  "1101117654321": "샘플 주식회사"
-}
-```
-
-`config.json`은 저장소에 커밋하지 않는 로컬 파일로 두고, 모든 민감 입력·로그·산출물 경로를 `$workdir` 아래로 돌립니다 (`corpnum_list`, `companies_list`, `realty_list`, `excel_path`, `save_dir`, `pdf_dir`, `report_output`, `cart_log`, `download_log` 등).
-
-### 2. TouchEn nxKey와 로그인 수단 확인
-
-1. 브라우저로 IROS 로그인 페이지를 직접 엽니다.
-2. TouchEn nxKey 설치 안내가 나오면 설치 후 브라우저/PC를 재시작합니다.
-3. 사용자가 선택한 방식(공동인증서/간편인증/아이디)으로 직접 로그인합니다.
-4. 카드 결제 가능 여부를 확인합니다.
-
-### 3. 법인 등기부등본 장바구니 담기
-
-**업스트림을 클론한 경우** — 클론 디렉터리에서 아래 스크립트로 장바구니 담기를 보조할 수 있습니다.
-법인등록번호가 있으면 정확도가 높은 `iros_cart_by_corpnum.py`를, 상호명만 있으면 `iros_cart.py`를 쓰되
-사명변경·특수문자 실패분은 법인등록번호로 재시도합니다.
-
-```bash
-# ↓ 클론한 iros-registry-automation 디렉터리 안에서 (플러그인 번들 파일 아님)
-python iros_cart_by_corpnum.py   # 또는 상호명 기반: python iros_cart.py
-```
-
-**클론하지 않았거나 자동화가 막힌 경우 (수동 절차)**: 브라우저에서 IROS 로그인 → 등기열람/발급 메뉴 →
-법인등록번호(또는 상호명)로 검색 → 발급 대상을 장바구니에 담기. 목록을 CSV/JSON으로 정리해 두면 순서 확인이 쉽습니다.
-
-어느 경로든, 브라우저에서 결제대상목록 → 페이지당 10건 단위로 사용자가 직접 결제 → 결제 완료 후 다음 단계로 진행합니다.
-
-### 4. 법인 결제 후 열람·저장
-
-**클론한 경우** — 클론 디렉터리에서 `iros_download.py`로 결제 완료분 열람·저장을 보조할 수 있습니다.
-
-```bash
-# ↓ 클론한 iros-registry-automation 디렉터리 안에서
-python iros_download.py
-```
-
-저장 경로는 `config.json`의 `save_dir = $workdir/downloads`. 실행 전 `companies_list`가
-`$workdir/companies-input.json`을 가리키는지 확인하면 `FileNotFoundError`를 예방합니다.
-
-**수동 절차**: 결제 완료 후 IROS 웹 UI의 열람/발급 내역에서 각 등기사항증명서를 직접 열람·저장(PDF)하고
-`$workdir/downloads`에 모아 둡니다.
-
-### 5. 부동산 등기부등본 장바구니 담기
-
-**클론한 경우** — 클론 디렉터리에서 `iros_cart_realty.py`로 부동산 장바구니 담기를 보조할 수 있습니다.
-
-```bash
-# ↓ 클론한 iros-registry-automation 디렉터리 안에서
-python iros_cart_realty.py
-```
-
-결제·열람·다운로드는 IROS 웹 UI의 일괄 결제·일괄열람출력·일괄저장이 보통 더 빠르고 안전하므로 **수동 UI를 우선**합니다.
-클론 디렉터리에 있는 `iros_download_realty.py`는 필요할 때만 보조로 검토합니다.
-
-### 6. 마법사 메뉴 (클론한 경우, 초보자 권장)
-
-업스트림을 클론했다면 대화형 메뉴 진입점 `iros_wizard.py`가 위 단계를 묶어 안내합니다.
-
-```bash
-# ↓ 클론한 iros-registry-automation 디렉터리 안에서
-python iros_wizard.py
-```
-
-메뉴: 법인 장바구니, 법인 결제 후 열람·저장, 부동산 장바구니, 부동산 결제 후 열람·저장, 사업자번호 → 법인정보 조회,
-PDF → 종합 리포트 엑셀 생성. 클론하지 않았다면 각 단계의 수동 절차(위 3~5단계)를 순서대로 따릅니다.
-
-## Response policy
-
-- 첫 응답에서 **"로그인과 결제는 사용자가 직접"**이라고 명시합니다.
-- 법인과 부동산 자동화 범위를 구분 설명합니다.
-- TouchEn nxKey 사전 설치와 브라우저 재시작 가능성을 안내합니다.
-- 발급 대상 목록·PDF·Excel·보고서에는 개인정보·민감정보가 있을 수 있으므로 **저장소 밖 비공개 폴더**를 사용하게 합니다.
-- 법률 자문·권리관계 해석으로 보일 수 있는 표현을 피하고, 발급 보조와 파일 정리까지만 돕습니다.
-- 원 저작자 링크를 답변에 남깁니다: `https://github.com/challengekim/iros-registry-automation`
-
-## 관련 스킬 체이닝
-
-- **before**: `moai-consultant:consult-brief` — 실사 대상 법인 목록 정리
-- **after**: `moai-lawyer:legal-legal-risk` — 발급된 등기부등본 기반 법적 리스크 분석
-- **after**: `moai-officer:doc-xlsx` — 종합 리포트 Excel화
-- **alternative**: 단건이면 IROS 웹에서 직접 발급
-
-## Done when
-
-- 법인/부동산 대상 유형과 입력 형식을 구분했다.
-- 로그인·인증·결제를 사람이 직접 처리한다는 안내가 명확하다.
-- TouchEn nxKey와 페이지당 10건 결제 제약을 안내했다.
-- 산출물 경로와 개인정보를 저장소 밖에 두도록 안내했다.
-- 원 저작자 `challengekim`과 참고 구현 링크를 포함했다.
+이전 지침은 [challengekim/iros-registry-automation](https://github.com/challengekim/iros-registry-automation)을 [NomaDamas/k-skill](https://github.com/NomaDamas/k-skill)을 통해 참고했다. 저작자 고지는 저장소 `NOTICE`에 있다. 이 플러그인은 해당 스크립트를 포함하지 않는다. 사용자가 별도 자동화를 요청하면 현재 저장소와 대상 OS·브라우저·인터넷등기소 화면의 호환성을 검증한 뒤 적용 범위를 정한다. 검증되지 않은 스크립트 설치·실행이나 고정 SHA를 비개발자에게 기본 절차로 안내하지 않는다.

@@ -10,6 +10,7 @@ from __future__ import annotations
 import json
 import sys
 from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 
@@ -103,24 +104,85 @@ def test_명령이_없으면_거부한다(monkeypatch, capsys):
 
 
 def test_끝까지_실행된다(creds_dir, monkeypatch, tmp_path):
-    """실제로 자식 명령까지 도달하는지 — execvpe 를 가로채 인자를 확인한다."""
+    """자격증명을 채우고 자식 명령까지 전달한다."""
     write(creds_dir, "dart", {"DART_API_KEY": "real-key"})
     seen = {}
 
-    def fake_exec(file, argv, env):
-        seen["file"] = file
+    def fake_launch(argv, env, *, windows):
         seen["argv"] = argv
         seen["key"] = env.get("DART_API_KEY")
-        raise OSError("stop")  # 실제 대체 실행은 막는다
+        return 0
 
-    monkeypatch.setattr(mcp_launch.os, "execvpe", fake_exec)
+    monkeypatch.setattr(mcp_launch, "launch_command", fake_launch)
     monkeypatch.setenv("DART_API_KEY", "${DART_API_KEY}")
     monkeypatch.setattr(
         sys,
         "argv",
         ["mcp_launch.py", "--service", "dart", "--keys", "DART_API_KEY", "--", "npx", "-y", "x"],
     )
-    assert mcp_launch.main() == 127
-    assert seen["file"] == "npx"
+    assert mcp_launch.main() == 0
     assert seen["argv"] == ["npx", "-y", "x"]
     assert seen["key"] == "real-key"
+
+
+def test_자식의_구분자는_보존한다(monkeypatch):
+    seen = {}
+
+    def fake_launch(argv, env, *, windows):
+        seen["argv"] = argv
+        return 0
+
+    monkeypatch.setattr(mcp_launch, "launch_command", fake_launch)
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        ["mcp_launch.py", "--service", "dart", "--keys", "DART_API_KEY", "--", "npx", "-y", "tool", "--", "--child-option"],
+    )
+    assert mcp_launch.main() == 0
+    assert seen["argv"] == ["npx", "-y", "tool", "--", "--child-option"]
+
+
+def test_posix_자식으로_대체한다(monkeypatch):
+    seen = {}
+
+    def fake_exec(file, argv, env):
+        seen["argv"] = argv
+        raise OSError("stop")
+
+    monkeypatch.setattr(mcp_launch.os, "execvpe", fake_exec)
+    assert mcp_launch.launch_command(["npx", "-y", "tool"], {}, windows=False) == 127
+    assert seen["argv"] == ["npx", "-y", "tool"]
+
+
+def test_windows_cmd_런처를_찾고_종료코드를_전달한다(monkeypatch):
+    seen = {}
+
+    def fake_which(name, *, path):
+        seen["which"] = (name, path)
+        return "C:\\tools\\npx.cmd"
+
+    def fake_run(argv, *, env, check):
+        seen["argv"] = argv
+        seen["env"] = env
+        return SimpleNamespace(returncode=7)
+
+    monkeypatch.setattr(mcp_launch.shutil, "which", fake_which)
+    monkeypatch.setattr(mcp_launch.subprocess, "run", fake_run)
+    env = {"PATH": "C:\\tools"}
+    assert mcp_launch.launch_command(["npx", "-y", "tool"], env, windows=True) == 7
+    assert seen == {"which": ("npx", "C:\\tools"), "argv": ["C:\\tools\\npx.cmd", "-y", "tool"], "env": env}
+
+
+def test_배포된_플러그인_런처가_공용본과_같다():
+    plugins = Path(__file__).resolve().parents[2]
+    source = (plugins / "_shared/mcp-launch/mcp_launch.py").read_bytes()
+    for name in ("moai-accountant", "moai-analyst", "moai-coworker", "moai-media"):
+        assert (plugins / name / "mcp-launch/mcp_launch.py").read_bytes() == source
+
+
+@pytest.mark.parametrize("service,keys", [("../secret", "K"), ("dart", "BAD.NAME"), ("dart", ",")])
+def test_잘못된_이름은_거부한다(monkeypatch, service, keys):
+    monkeypatch.setattr(sys, "argv", ["mcp_launch.py", "--service", service, "--keys", keys, "--", "npx"])
+    with pytest.raises(SystemExit) as error:
+        mcp_launch.main()
+    assert error.value.code == 2

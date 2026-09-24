@@ -1,99 +1,79 @@
-# media-midjourney-v8-prompt — 테스트 케이스
+# media-midjourney-v8-prompt — 현재 공식 V8 계약을 확인하는 테스트 케이스
 
 tests:
-  - name: happy-path-product-shot
-    description: 제품샷 프리셋 + 1:1 + --hd → MJ 메인 + GPT·Gemini 보조
-    prompt: "Midjourney 프롬프트, 매트 블랙 머그 'MONDAY' 글자 제품샷, 1:1, --hd"
+  - name: product-shot-hd
+    description: 제품샷 프리셋과 사용자가 요청한 HD
+    prompt: "Midjourney 프롬프트, 매트 블랙 머그에 \"MONDAY\" 글자, 1:1, --hd"
     expected_output:
       format: markdown
       contains:
-        - "### 1) Midjourney v8.1"
-        - "### 2) GPT Image 2.5"
-        - "### 3) Gemini 3 Pro Image"
+        - "Midjourney V8.2"
         - "--ar 1:1"
         - "--hd"
-        - "--style raw"
         - '"MONDAY"'
-        - "비용"                   # 4x cost 경고
-        - "16x"                    # --hd + --q 4 일 경우 또는 4x for --hd alone
-      not_contains:
-        - "metadata:"
-        - "--cref"                 # deprecated
-        - "TODO"
-        - "<placeholder>"
+        - "GPT Image 2.5"
+        - "Gemini"
       assertion:
-        - 키워드 콤마 + --파라미터 구조
-        - --hd 4x cost 경고 한국어 해설
-        - 출력 순서 MJ 메인 → GPT → Gemini
+        - Midjourney 프롬프트에는 --q Quality 파라미터를 넣지 않음
+        - 현재 공식 GPU 시간과 계정 사용량을 확인하도록 안내하고 임의의 비용 배수를 계산하지 않음
+        - ChatGPT 기본 이미지 도구의 내부 API 모델을 지정했다고 주장하지 않음
 
-  - name: oref-character-consistency
-    description: --oref + --cw → 캐릭터 일관성 패턴
-    prompt: "미드저니 프롬프트, --oref https://example.com/char.jpg --cw 50 1:1"
+  - name: legacy-omni-reference
+    description: 사용자가 구형 Omni Reference 옵션을 입력
+    prompt: "미드저니 V8.2 프롬프트, --oref https://example.com/char.jpg --cw 50, 같은 캐릭터를 눈 내리는 숲에"
     expected_output:
       format: markdown
       contains:
-        - "--oref"
-        - "--cw 50"
-        - "함정"                   # --cw 가이드
-        - "deprecated"             # --cref deprecation 안내
-      not_contains:
-        - "--cref"
-        - "Fast Mode"              # --oref와 비호환 모드 안내
+        - "Edit Model"
+        - "--edit"
       assertion:
-        - --oref + --cw 50 그대로 보존
-        - --cw 가이드 한국어 해설 포함
+        - V8 출력 프롬프트에 --oref 또는 --cw를 그대로 넣지 않음
+        - 웹 Attach to prompt와 Discord --edit 경로를 구분
+        - 참조 이미지에서 지킬 캐릭터 특징을 확인하거나 명시
 
-  - name: sref-style-reference
-    description: --sref 코드 + --sw → Style Reference 패턴
+  - name: style-reference
+    description: Style Reference 코드를 지정
     prompt: "MJ 프롬프트 --sref 1234567890 --sw 200 시네마틱 풍경"
     expected_output:
       format: markdown
       contains:
         - "--sref 1234567890"
         - "--sw 200"
-        - "--sv"                   # default --sv 7 안내
-        - "4x"                     # sref cost
       assertion:
-        - sref 코드 + sw 200 보존
-        - --sv 7 default 안내
+        - --sv 7을 V8 기본값이라고 단정하지 않음
+        - 근거 없는 Style Reference 비용 배수를 계산하지 않음
 
-  - name: cost-trap-hd-q4
-    description: --hd + --q 4 조합 → 16x 비용 경고
-    prompt: "미드저니 프롬프트로 인물 사진, --hd --q 4 9:16"
+  - name: unsupported-quality
+    description: 사용자가 V8에서 지원하지 않는 --q 4를 입력
+    prompt: "미드저니 V8.2 인물 사진 프롬프트, --hd --q 4, 9:16"
     expected_output:
       format: markdown
       contains:
         - "--hd"
-        - "--q 4"
-        - "16x"                    # 함정 경고
-        - "Relax"                  # Relax 모드 안내
+        - "--ar 9:16"
       assertion:
-        - 16x 비용 경고 한국어 해설
-        - 1차 탐색 시 --hd --q 4 제거 권장
+        - --q 4가 V8.2에서 지원되지 않는다고 설명
+        - 출력할 Midjourney 프롬프트에서는 --q 4를 제거
+        - --hd 비용을 4배 또는 --q와 16배로 계산하지 않음
 
-  - name: deprecated-cref
-    description: 사용자가 --cref 입력 → --oref로 자동 교체
-    prompt: "MJ 프롬프트, --cref https://example.com/face.jpg 인물 일관성"
+  - name: deprecated-character-reference
+    description: 사용자가 오래된 --cref를 입력
+    prompt: "MJ V8 프롬프트, --cref https://example.com/face.jpg 인물 일관성"
     expected_output:
       format: markdown
       contains:
-        - "--oref"                 # 자동 교체
-        - "deprecated"             # 한국어 해설
-      not_contains:
-        - "--cref"                 # 자동 제거됨
+        - "Edit Model"
       assertion:
-        - --cref → --oref 자동 변환
-        - deprecation 사실 한국어 해설
+        - --cref를 --oref로 자동 교체하지 않음
+        - 현재 V8의 Edit Model 참조 이미지 경로를 설명
 
-  - name: edge-case-ambiguous-input
-    description: 모호한 입력 → AskUserQuestion 라운드 진입
+  - name: ambiguous-input
+    description: 모호한 요청에서는 앱에서 가능한 질문 경로로 용도를 확인
     prompt: "미드저니 프롬프트 만들어줘"
     expected_output:
-      format: askuserquestion
       assertion:
-        - AskUserQuestion 호출 (Round 1 프리셋 선택)
-        - 4 옵션 + Other
-        - 첫 옵션 "(권장)" 라벨
+        - 구조화 질문 도구가 있으면 사용하고 없으면 일반 대화로 용도를 확인
+        - 답변 없이 프리셋과 이미지 생성 경로를 임의로 확정하지 않음
 
 rubric_targets:
   correctness: 0.80
@@ -103,15 +83,12 @@ rubric_targets:
   weighted_pass_threshold: 0.70
 
 regression:
-  baseline_version: "2.9.0"
+  baseline_version: "1.1.1"
   changed_files:
     - SKILL.md
-    - references/prompt-blocks.md
-    - references/parameter-cheatsheet.md
-    - references/style-references.md
     - references/cost-traps.md
-    - presets/product-shot.md
-    - presets/portrait.md
-    - presets/illustration.md
-    - presets/landscape.md
-  expected_diff: "신규 스킬 — 회귀 베이스라인 없음 (initial release)"
+    - references/parameter-cheatsheet.md
+    - references/prompt-blocks.md
+    - references/style-references.md
+    - tests/test-cases.yaml
+  expected_diff: "현재 V8.2 기본값과 Edit Model·GPU 시간·앱 공통 질문 경로로 갱신"

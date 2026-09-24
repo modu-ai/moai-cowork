@@ -4,7 +4,7 @@
 
 ## Round 2 슬롯 정의
 
-`AskUserQuestion` 4 라운드. 각 질문에 4 옵션 + Other.
+현재 앱에서 제공하는 질문 수단으로 필요한 슬롯만 확인합니다. 이미 받은 정보는 다시 묻지 않습니다.
 
 ### Q1 — 제품·소재
 
@@ -67,10 +67,10 @@ Constraints: no extra text, no watermark, no unrelated logos.
 <Q3 lighting>. Editorial product photography. [Round 3 텍스트]
 ```
 
-### Midjourney v8.1 (키워드+파라미터)
+### Midjourney V8 (기본 V8.2)
 ```
 <Q1>, <product>, <Q2>, <Q3>, <Q4 키워드>, editorial product
-photography, natural film grain --ar [Round 3] --style raw --hd --q 4 --s 250
+photography, natural film grain --ar [Round 3] --raw --s 250
 ```
 
 ## 자주 쓰이는 보조 키워드
@@ -82,4 +82,4 @@ photography, natural film grain --ar [Round 3] --style raw --hd --q 4 --s 250
 - film grain · natural · clean digital · matte finish · glossy
 
 브랜드 톤:
-- Apple-clean · Aesop-warm · Muji-neutral · Glossier-pastel
+- 절제된 화이트 스튜디오 · 따뜻한 내추럴 톤 · 무채색 미니멀 · 부드러운 파스텔

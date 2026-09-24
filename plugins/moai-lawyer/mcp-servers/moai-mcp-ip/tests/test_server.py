@@ -349,3 +349,17 @@ def test_named_params_are_redacted_even_without_configured_secret():
 
     out = redact_text("GET https://x/?word=a&ServiceKey=abc%2F%3D&pageNo=1 X-API-KEY: zzz", [])
     assert "abc%2F%3D" not in out and "zzz" not in out and "word=a" in out
+
+
+def test_short_reflected_key_is_redacted_without_changing_source_id(monkeypatch):
+    monkeypatch.setenv("KIPRIS_API_KEY", "abcde")
+    result = server._run(lambda: {"source": "kipris-plus", "echo": "key abcde"})
+    assert result == {"source": "kipris-plus", "echo": "key ***"}
+
+
+def test_reflected_basic_authorization_is_redacted():
+    from moai_mcp_ip.redact import redact_text
+
+    out = redact_text("upstream echoed Basic a2V5OnNlY3JldA==", ["key", "secret"])
+    assert "a2V5OnNlY3JldA==" not in out
+    assert out == "upstream echoed Basic ***"

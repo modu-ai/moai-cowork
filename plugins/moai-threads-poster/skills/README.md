@@ -52,8 +52,7 @@
          │  threads_style_save  (threads-style-learn · 자격증명 불필요)
          ▼
   ┌──────────────────┐
-  │ style-profile.md │  (.data/ 에 영구 저장 — gitignored)
-  │  (문체 프로필)   │
+  │ 문체 프로필      │  (사용자 홈 .moai/mcp/threads-style-profile.md)
   └────────┬─────────┘
            │ threads_style_load  (threads-post-draft 의 0단계가 자동 호출)
            ▼
@@ -70,14 +69,14 @@
    ▼       ▼       ▼
  ┌──────┐ ┌──────┐ ┌────────────┐
  │Threads│ │Facebook│ │X(free/prem)│
- │≤500B │ │복붙용 │ │ 분할/단일  │
+ │≤500자│ │복붙용 │ │ 분할/단일  │
  └──┬───┘ └──┬───┘ └─────┬─────┘
     │        │           │
  즉시 발행  사용자 복붙  사용자 복붙
  (Graph API) (API 발행 불가) (트윗 체인)
 ```
 
-> **핵심 분기**: Threads 는 *즉시 직접 발행* (승인 → publish). Facebook·X 는 *복붙용 텍스트만* (본 플러그인이 발행하지 않음 — `threads_format_multi_channel` 이 포맷만 제공). 예약·정기 발행은 Claude Cowork 이 담당합니다.
+> **핵심 분기**: Threads 는 *즉시 직접 발행* (승인 → publish). Facebook·X 는 *복붙용 텍스트만* (본 플러그인이 발행하지 않음 — `threads_format_multi_channel` 이 포맷만 제공). 예약·정기 발행은 사용 중인 앱의 지원 여부를 확인합니다.
 
 ## 각 단계별 MCP 도구
 
@@ -175,7 +174,7 @@ Instagram 발행에는 추가로 `IG_ACCESS_TOKEN` / `IG_USER_ID` 가 필요합�
 | 항목 | 내용 |
 |------|------|
 | **승인 없이 발행 금지** | 초안을 사용자에게 보여드리고 승인한 뒤에 발행합니다 ("자동 아닌 자율") |
-| **바이트 제한** | Threads 텍스트는 500 UTF-8 바이트 제한 (ASCII 1B, 한글 3B, 이모지 4B) |
+| **글자 수 제한** | Threads 일반 게시글은 최대 500자. 한글·이모지를 UTF-8 바이트 수로 환산하지 않음 |
 | **레이트 리밋** | Threads 24시간 250 포스트 제한 (초과 시 HTTP 613) |
 | **토큰 만료** | 장기 토큰(60일) 만료 시 `threads_refresh_token`으로 갱신 |
 | **예약·정기 발행** | 본 플러그인 범위 밖 — Claude Cowork 이 담당 |

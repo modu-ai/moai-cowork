@@ -45,7 +45,7 @@ test_cases:
         - chapter_completeness_focus: true
         - version_specification_in_copy: true  # "X 책 1권으로 Y까지" 패턴
       - korean_publisher_match: [한빛미디어, 인사이트]
-      -分량_적합성: 400~800매_범위_확인
+      - 분량_적합성: 400~800매_범위_확인
     pass_criteria:
       - tech_specific_usp_present: true
       - publisher_recommendation_includes_tech_houses: true

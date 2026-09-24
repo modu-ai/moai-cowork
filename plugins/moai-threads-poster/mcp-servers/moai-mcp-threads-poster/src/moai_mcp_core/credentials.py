@@ -141,7 +141,7 @@ class CredentialStore:
             return ""
         return (
             f"{self.service} 자격증명이 설정되지 않았습니다: {', '.join(absent)}. "
-            f"파일 {self.path} 에 적거나, Claude 에서는 플러그인 설정 화면에서 입력하세요."
+            f"사용 중인 앱의 MCP 연결 설정에 입력하거나 연결 설정을 요청하세요. 저장 파일: {self.path}"
         )
 
 

@@ -4,7 +4,7 @@ description: >
   채용 프로세스 전반을 관리해주는 스킬입니다. "JD 작성해줘", "면접 질문 만들어줘",
   "신입 온보딩 계획 짜줘"처럼 말하면 됩니다. 채용 공고 작성, 면접 설계,
   평가 기준 수립, 온보딩 체크리스트, 멘토링 프로그램 설계를 지원합니다.
-version: "1.1.1"
+version: "1.1.3"
 ---
 
 # 채용 관리자 (hr-employment)
@@ -76,8 +76,8 @@ version: "1.1.1"
 
 ### 3단계: 면접 설계
 - 서류 전형 → 1차 실무 면접 → 2차 팀/문화 면접 → 처우 협의 구성
-- 면접 질문: 직무 역량 (60%), 협업/문화 적합성 (30%), 성장 의지 (10%)
-- 평가 루브릭: 5점 척도 + 합격/보류/불합격 기준 명시
+- 면접 질문: 실제 직무 요건에 맞는 업무 사례·협업 상황 중심으로 설계. 보호 특성과 그 간접 단서는 배제
+- 평가 기준: 면접 전 직무 관련 근거와 질문을 정하고, 후보자마다 같은 기준을 적용. 최종 결정은 채용 담당자가 수행
 
 ### 4단계: 온보딩 계획
 ```
@@ -95,7 +95,7 @@ version: "1.1.1"
 
 1. 사용자 요청 수신 → 해당 영역 판별
 2. `references/{id}.md` 존재 시 로드 → 전략 가이드에 따라 실행
-3. `--deepthink` 또는 복잡 채용 설계 → sequential-thinking MCP가 설치돼 있으면 `mcp__sequential-thinking__sequentialthinking`를 활용, 없으면 `ultrathink` 키워드 기반 심층 추론 또는 일반 단계 추론으로 대체
+3. 복잡한 채용 설계는 현재 앱에서 제공하는 자료 확인·질문 기능으로 필요한 정보를 모으고 단계별 근거를 정리
 4. 결과물 생성 후 사용자 검토 요청
 
 ## 관련 스킬 (체인)
@@ -131,5 +131,7 @@ hr-employment → moai-coworker:ai-slop-reviewer → moai-writer:korean-humanize
 
 | 파일 | 로드 조건 |
 |------|-----------|
-| references/korean-tone-reviewer.md | JD·온보딩 안내문 등 채용 문서의 직급별 경어·비즈니스 톤 적절성을 검토하는 공유 에이전트가 필요할 때 |
+| references/hiring-pipeline.md | JD·면접·채용 파이프라인 설계가 필요할 때 |
+| references/onboarding-system.md | 신입 교육·멘토링·온보딩 설계가 필요할 때 |
+| references/korean-tone-reviewer.md | JD·온보딩 안내문 등의 경어·비즈니스 톤을 검토할 때 |
 | references/insurance-lifecycle.md | 4대보험 취득·상실 신고 절차, 이직확인서, 퇴직연금(DC/DB) 설정 의무가 필요할 때 |

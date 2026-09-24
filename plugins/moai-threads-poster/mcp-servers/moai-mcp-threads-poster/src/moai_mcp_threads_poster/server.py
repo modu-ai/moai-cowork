@@ -8,7 +8,7 @@ Instagram 발행·댓글 도구, 문체 프로필·멀티 채널 포맷 도구�
 직접 발행 모델 (direct-publish model):
   - 세션 안에서 초안을 작성해 사용자에게 보여주고, 승인하면 **즉시** Graph API 로
     발행한다. 큐·예약·승인 상태머신은 없다.
-  - 예약·정기 발행은 Claude Cowork 이 담당한다 (본 플러그인은 즉시 발행만).
+  - 예약·정기 발행은 사용 중인 앱의 지원 여부를 확인한다 (본 플러그인은 즉시 발행만).
 
 Threads 직접 발행 도구 (immediate-publish tools):
   - ``threads_publish_text``   : 텍스트 게시
@@ -37,6 +37,7 @@ from __future__ import annotations
 import os
 import re
 import time
+from pathlib import Path
 from typing import Any, Callable, Optional
 
 from moai_mcp_core import CredentialStore
@@ -85,7 +86,7 @@ def _setup_required_error() -> dict[str, Any]:
             "Threads 자격증명이 설정되지 않았습니다 "
             "(Threads credentials not configured). "
             "THREADS_ACCESS_TOKEN, THREADS_USER_ID 환경변수를 설정하세요. "
-            "발급 절차는 mcp-servers/threads-poster/CONNECTORS.md 참조."
+            "발급 절차는 mcp-servers/moai-mcp-threads-poster/CONNECTORS.md 참조."
         ),
     }
 
@@ -139,7 +140,7 @@ def _ig_setup_required_error() -> dict[str, Any]:
             "IG_ACCESS_TOKEN(Facebook Page 액세스 토큰), IG_USER_ID(Instagram Professional "
             "계정 ID) 환경변수를 설정하세요. Instagram Professional(Business 또는 Creator) "
             "계정만 지원됩니다 — Personal 계정은 Graph API 로 발행할 수 없습니다. "
-            "발급 절차는 mcp-servers/threads-poster/CONNECTORS.md 참조."
+            "발급 절차는 mcp-servers/moai-mcp-threads-poster/CONNECTORS.md 참조."
         ),
     }
 
@@ -202,10 +203,10 @@ def threads_publish_text(text: str) -> dict[str, Any]:
     r"""Threads 에 텍스트 게시 (publish a text post).
 
     텍스트 전용 스레드를 만들어 발행한다 (create TEXT container → wait → publish).
-    ``text`` 는 500 UTF-8 바이트 제한 — 이모지·한글은 바이트 단위로 계산.
+    ``text`` 는 500자 제한이다.
 
     Args:
-        text: 게시할 텍스트 본문 (500 UTF-8 바이트 이하).
+        text: 게시할 텍스트 본문 (500자 이하).
 
     Returns:
         ``media_id``, ``container_id``, ``permalink`` 힌트를 포함한 dict.
@@ -228,7 +229,7 @@ def threads_publish_image(text: str, image_url: str) -> dict[str, Any]:
     r"""Threads 에 이미지 게시 (publish an image post).
 
     이미지(JPEG/PNG, ≤8MB, 공개 URL) 컨테이너를 만들어 발행한다.
-    ``text`` 는 캡션(선택) — 500 UTF-8 바이트 제한.
+    ``text`` 는 캡션(선택) — 500자 제한.
 
     Args:
         text: 캡션 본문 (빈 문자열 허용 — 캡션 없는 이미지 발행).
@@ -258,7 +259,7 @@ def threads_publish_video(text: str, video_url: str) -> dict[str, Any]:
     r"""Threads 에 비디오 게시 (publish a video post).
 
     비디오(MOV/MP4, ≤1GB, ≤5분, 공개 URL) 컨테이너를 만들어 발행한다.
-    ``text`` 는 캡션(선택) — 500 UTF-8 바이트 제한.
+    ``text`` 는 캡션(선택) — 500자 제한.
 
     Args:
         text: 캡션 본문 (빈 문자열 허용).
@@ -331,22 +332,19 @@ def threads_refresh_token() -> dict[str, Any]:
 _STYLE_PROFILE_FILENAME = "style-profile.md"
 
 
-def _default_style_path() -> str:
-    r"""스타일 프로필 기본 경로 해석 (resolve default style-profile path from env).
+def _default_style_path() -> Path:
+    """앱 설치 위치와 무관한 사용자 데이터 경로."""
+    return Path.home() / ".moai" / "mcp" / "threads-style-profile.md"
 
-    우선순위 (precedence):
-      1. ``$CLAUDE_PLUGIN_ROOT/mcp-servers/threads-poster/.data/style-profile.md``
-      2. 패키지 기준 상대 경로 폴백 (``../../.data/style-profile.md``)
-    """
+
+def _legacy_style_paths() -> list[Path]:
+    """이전 버전이 플러그인 내부에 저장한 프로필의 읽기 경로."""
+    paths = []
     root = os.environ.get("CLAUDE_PLUGIN_ROOT")
     if root:
-        return os.path.join(
-            root, "mcp-servers", "threads-poster", ".data", _STYLE_PROFILE_FILENAME
-        )
-    here = os.path.dirname(__file__)
-    return os.path.abspath(
-        os.path.join(here, "..", "..", ".data", _STYLE_PROFILE_FILENAME)
-    )
+        paths.append(Path(root) / "mcp-servers" / "threads-poster" / ".data" / _STYLE_PROFILE_FILENAME)
+    paths.append(Path(__file__).resolve().parents[2] / ".data" / _STYLE_PROFILE_FILENAME)
+    return paths
 
 
 @mcp.tool()
@@ -355,9 +353,8 @@ def threads_style_save(
 ) -> dict[str, Any]:
     r"""문체 프로필을 디스크에 저장 (save the style profile markdown to disk).
 
-    ``threads-style-learn`` 스킬이 분석한 문체 프로필을 안정적인 경로에 쓴다. 기본 경로는
-    ``$CLAUDE_PLUGIN_ROOT/mcp-servers/threads-poster/.data/style-profile.md`` 이며
-    ``.data/`` 디렉토리가 없으면 생성한다. Threads 자격증명은 필요 없다 — 로컬 파일 쓰기 전용.
+    ``threads-style-learn`` 스킬이 분석한 문체 프로필을 사용자 데이터 경로
+    ``~/.moai/mcp/threads-style-profile.md`` 에 쓴다. Threads 자격증명은 필요 없다.
 
     Args:
         profile_markdown: 저장할 프로필 마크다운 본문.
@@ -374,16 +371,13 @@ def threads_style_save(
                 f"{type(profile_markdown).__name__}"
             ),
         }
-    target = path or _default_style_path()
+    target = Path(path).expanduser() if path else _default_style_path()
     try:
-        parent = os.path.dirname(target)
-        if parent:
-            os.makedirs(parent, exist_ok=True)
-        with open(target, "w", encoding="utf-8") as fh:
-            fh.write(profile_markdown)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(profile_markdown, encoding="utf-8")
     except OSError as exc:
         return {"error": True, "message": f"스타일 프로필 저장 실패 (write failed): {exc}"}
-    return {"path": target, "saved": True, "chars": len(profile_markdown)}
+    return {"path": str(target), "saved": True, "chars": len(profile_markdown)}
 
 
 @mcp.tool()
@@ -401,15 +395,16 @@ def threads_style_load(path: Optional[str] = None) -> dict[str, Any]:
         파일이 없으면 ``exists: False, profile: None`` (에러가 아님).
         I/O 에러 시 ``error`` dict.
     """
-    target = path or _default_style_path()
-    if not os.path.exists(target):
-        return {"path": target, "exists": False, "profile": None}
+    target = Path(path).expanduser() if path else _default_style_path()
+    if not target.exists() and not path:
+        target = next((old for old in _legacy_style_paths() if old.is_file()), target)
+    if not target.exists():
+        return {"path": str(target), "exists": False, "profile": None}
     try:
-        with open(target, "r", encoding="utf-8") as fh:
-            content = fh.read()
+        content = target.read_text(encoding="utf-8")
     except OSError as exc:
         return {"error": True, "message": f"스타일 프로필 읽기 실패 (read failed): {exc}"}
-    return {"path": target, "exists": True, "profile": content}
+    return {"path": str(target), "exists": True, "profile": content}
 
 
 # ------------------------------------------------------------------ 멀티 채널 포맷 (multi-channel formatter — 발행 안 함, 포맷만)
@@ -418,7 +413,7 @@ def threads_style_load(path: Optional[str] = None) -> dict[str, Any]:
 # Facebook/X 로 발행하지 않고 *복붙용* 텍스트만 만든다. Threads 결과는 직접 발행 도구로 넘긴다.
 #
 # 길이 제한 참고 (2026 baseline):
-#   - Threads  : 500 UTF-8 바이트
+#   - Threads  : 500자
 #   - X free   : 트윗당 280자  → 초과 시 1/ · 2/ 번호 트윗 체인으로 분할
 #   - X premium: 25,000자      → 단일 문자열 그대로
 #   - Facebook : 개인 계정 글자 수 제한 없음 (단, API 발행 불가 → 복붙)
@@ -430,54 +425,25 @@ _KNOWN_CHANNELS = ("threads", "facebook", "x")
 _X_PREMIUM_MAX_CHARS = 25000
 
 
-def _utf8_bytes(s: str) -> int:
-    """UTF-8 인코딩 바이트 수 (UTF-8 byte length)."""
-    return len(s.encode("utf-8"))
-
-
-def _truncate_utf8(text: str, max_bytes: int) -> str:
-    r"""UTF-8 문자 경계에서 ``max_bytes`` 이하로 자른다 (byte-boundary-safe truncation).
-
-    바이트 단위로 자른 뒤 ``errors="ignore"`` 로 디코딩해 잘린 멀티바이트 문자의
-    잔여 바이트를 버린다 — 깨진 문자(�) 가 생기지 않는다.
-    """
-    encoded = text.encode("utf-8")[:max_bytes]
-    return encoded.decode("utf-8", errors="ignore")
-
-
-def _fit_bytes(text: str, max_bytes: int, ellipsis: str = "…") -> tuple[str, int]:
-    r"""``text`` 를 ``max_bytes`` 이하의 UTF-8 로 다듬는다 (word-boundary truncation + ellipsis).
-
-    예산 내면 그대로 반환. 초과 시 (ellipsis 바이트를 뺀 예산 안에서) 최대한 채우되
-    마지막 공백(단어 경계) 에서 끊고 ellipsis 를 붙인다 — 단어 중간을 자르지 않는다.
-    공백을 찾지 못하면 UTF-8 문자 경계에서 하드 자른다.
-
-    의미 보존 *요약* 은 LLM 작업이라 이 도구는 하지 않는다 — 본 함수는 기계적 안전망이다.
-    진짜 요약이 필요하면 호출 *전* 에 LLM 이 본문을 줄여야 한다.
-
-    Returns:
-        (다듬은 텍스트, 실제 UTF-8 바이트 수).
-    """
-    nbytes = _utf8_bytes(text)
-    if nbytes <= max_bytes:
-        return text, nbytes
-    ellipsis_bytes = _utf8_bytes(ellipsis)
-    target = max_bytes - ellipsis_bytes
+def _fit_chars(text: str, max_chars: int, ellipsis: str = "…") -> tuple[str, int]:
+    """문자 수에 맞춰 단어 경계에서 자른 뒤 결과와 글자 수를 반환한다."""
+    if len(text) <= max_chars:
+        return text, len(text)
+    target = max_chars - len(ellipsis)
     if target <= 0:
-        # max_bytes 자체가 ellipsis 보다 작다 — ellipsis 없이 문자 경계 하드 자름.
-        cut = _truncate_utf8(text, max_bytes)
-        return cut, _utf8_bytes(cut)
-    truncated = _truncate_utf8(text, target)
+        cut = text[:max_chars]
+        return cut, len(cut)
+    truncated = text[:target]
     last_space = truncated.rfind(" ")
     if last_space > 0:
         truncated = truncated[:last_space].rstrip()
     out = truncated + ellipsis
-    return out, _utf8_bytes(out)
+    return out, len(out)
 
 
 def _adapt_for_threads(text: str) -> tuple[str, int]:
-    r"""Threads 용 텍스트 변형 — 500 UTF-8 바이트 이하 (byte-budget enforcement)."""
-    return _fit_bytes(text, 500)
+    """Threads 용 텍스트 변형 — 최대 500자."""
+    return _fit_chars(text, 500)
 
 
 def _adapt_for_facebook(text: str) -> str:
@@ -635,8 +601,8 @@ def threads_format_multi_channel(
 
     **발행은 하지 않는다 — 포맷만 한다.**
 
-      - **Threads**: 500 UTF-8 바이트 이하로 다듬어 ``threads_publish_text`` 등 직접 발행
-        도구에 넘길 수 있는 형태로 반환 (바이트 수 포함).
+      - **Threads**: 500자 이하로 다듬어 ``threads_publish_text`` 등 직접 발행
+        도구에 넘길 수 있는 형태로 반환 (글자 수와 잘림 여부 포함).
       - **Facebook**: 개인 계정은 API 발행이 정책상 불가하므로 *복붙용* 텍스트를 반환한다
         (본 도구는 Facebook 으로 발행하지 않는다). 가벼운 정규화만 적용.
       - **X**: ``x_tier`` 에 따라 —
@@ -651,7 +617,7 @@ def threads_format_multi_channel(
 
     Returns:
         채널별 포맷 결과 dict:
-          - ``threads``: ``{"text", "bytes", "max_bytes"}`` — 직접 발행 도구용.
+          - ``threads``: ``{"text", "chars", "max_chars", "truncated"}`` — 직접 발행 도구용.
           - ``facebook``: 복붙용 텍스트 *문자열*.
           - ``x``: ``free`` → 번호 트윗 *리스트* · ``premium`` → 단일 *문자열*.
           - 최상위: ``channels`` · ``x_tier`` · ``note`` (복붙 안내).
@@ -684,8 +650,13 @@ def threads_format_multi_channel(
         ),
     }
     if "threads" in selected:
-        adapted, nbytes = _adapt_for_threads(text)
-        out["threads"] = {"text": adapted, "bytes": nbytes, "max_bytes": 500}
+        adapted, nchars = _adapt_for_threads(text)
+        out["threads"] = {
+            "text": adapted,
+            "chars": nchars,
+            "max_chars": 500,
+            "truncated": adapted != text,
+        }
     if "facebook" in selected:
         out["facebook"] = _adapt_for_facebook(text)
     if "x" in selected:
@@ -705,7 +676,7 @@ def threads_format_multi_channel(
 # 독립적인 IG_ACCESS_TOKEN/IG_USER_ID. Instagram Professional(Business/Creator) 계정 전용.
 #
 # 직접 발행 모델 — Instagram Graph API 는 서버 측 스케줄링 파라미터가 없다. 본 플러그인은
-# 즉시 발행만 담당하고, 예약·정기 발행은 Claude Cowork 이 맡는다.
+# 즉시 발행만 담당한다. 예약·정기 발행은 사용 중인 앱의 지원 여부를 확인한다.
 _VALID_IG_MEDIA_TYPES = ("IMAGE", "VIDEO", "REELS")
 
 

@@ -1,8 +1,8 @@
 # 작가 (moai-writer)
 
-출판·텍스트 전담 AI 코워커입니다. 출판 기획·집필·제안서·출판사 매칭(book-* 8종), 한국어 인문화 윤문과 맞춤법 검수까지 텍스트 창작 전 과정 스킬 10종을 하나의 플러그인으로 제공합니다. 슬래시 명령을 외울 필요 없이 자연어로 요청하면 매칭되는 스킬이 자동 호출됩니다.
+출판·텍스트 전담 AI 코워커입니다. 출판 기획·집필·제안서·출판사 매칭(book-*), 한국어 인문화 윤문과 맞춤법 검수까지 텍스트 창작 전 과정 스킬을 하나의 플러그인으로 제공합니다. 슬래시 명령을 외울 필요 없이 자연어로 요청하면 매칭되는 스킬이 자동 호출됩니다.
 
-> **스토리/IP 창작 분리 안내**: 웹툰·웹소설·시나리오·콘티·표지·IP 사업화(story-* 13종)는 `moai-story` 플러그인으로 분리되었습니다. 스토리 창작 요청은 moai-story을 설치해 사용하세요.
+> **스토리/IP 창작 분리 안내**: 웹툰·웹소설·시나리오·콘티·표지·IP 사업화(story-*)는 `moai-story` 플러그인으로 분리되었습니다. 스토리 창작 요청은 moai-story를 설치해 사용하세요.
 
 **이런 분께 추천**: 작가 · 1인 출판인 · 실용서 저자
 
@@ -10,27 +10,15 @@
 
 `modu-ai/moai-cowork` 마켓플레이스 하나에서 설치합니다. **Claude Cowork**와 **ChatGPT Work** 두 데스크톱 앱 모두 같은 방식입니다.
 
-**가장 쉬운 방법** — 설정(Settings) 또는 플러그인(Plugins) 메뉴 → 마켓플레이스(Marketplace)에서 주소 `modu-ai/moai-cowork`를 추가한 뒤, 플러그인 목록에서 `moai-writer`를 찾아 **Install**을 누르세요.
-
-**터미널에 익숙하다면 (대안)**
-
-```bash
-# Claude Cowork CLI
-claude plugin marketplace add modu-ai/moai-cowork
-claude plugin install moai-writer@moai-cowork
-
-# ChatGPT Work CLI
-codex plugin marketplace add modu-ai/moai-cowork
-codex plugin add moai-writer@moai-cowork
-```
+Claude Cowork·ChatGPT Work 데스크톱 앱에서 **Settings(또는 Plugins) → Marketplace → +**를 열어 `modu-ai/moai-cowork`를 추가하세요. 그다음 Plugins 화면에서 **moai-writer**를 선택하고 **+** 또는 **Install**을 누르세요.
 
 > 앱별 정확한 클릭 경로와 잘 안 될 때 대처법은 [플러그인 설치와 관리](https://cowork.mo.ai.kr/plugins/install/)에 정리해 두었습니다.
 
-## 스킬 10종
+## 스킬
 
 호출 형식: `/moai-writer:<스킬명>` — 예: `/moai-writer:book-concept-planner`. 자연어 요청("책 컨셉서 만들어줘")으로도 자동 매칭됩니다.
 
-### 출판 (book-* 8종)
+### 출판 (book-*)
 
 | 스킬 | 역할 |
 |------|------|
@@ -43,14 +31,18 @@ codex plugin add moai-writer@moai-cowork
 | `book-proposal-writer` | 출판사 투고용 제안서 — 기획서 + 샘플 챕터 + 마케팅 플랜 통합 |
 | `book-publisher-matcher` | 한국 출판사 매칭 — 장르·규모·계약·인세 4차원 평가로 Top 5 추천 |
 
-### 한국어 마감 (2종)
+### 한국어 마감
 
 | 스킬 | 역할 |
 |------|------|
 | `korean-humanize` | AI가 쓴 한국어의 "AI 티"를 제거하는 인문화 윤문 (의미·수치·인용 100% 보존, 변경률 30%/50% 가드) |
 | `korean-spell-check` | 바른한글 기반 띄어쓰기·맞춤법·문법 최종 검수 |
+| `book-workflow` | 도서 기획·집필·투고 작업 연결 |
+| `book-manuscript-audit` | 원고 연속성·사실 앵커·출판 정보 검수 |
 
-## 에이전트 2종
+## Claude 에이전트
+
+ChatGPT Work에서는 도서 작업과 원고 검수를 `book-workflow`·`book-manuscript-audit` 스킬로 제공합니다.
 
 | 에이전트 | 등급 | 역할 |
 |----------|------|------|

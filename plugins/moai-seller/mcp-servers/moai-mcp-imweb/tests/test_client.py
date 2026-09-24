@@ -43,6 +43,49 @@ def test_path_params_substitution(cfg):
     assert str(respx.calls[0].request.url) == f"{BASE}/orders/ORD123"
 
 
+def test_path_param_is_one_url_segment(cfg):
+    seen = []
+    client = ImwebClient(cfg)
+    client._http.close()
+    client._http = httpx.Client(base_url=BASE, transport=httpx.MockTransport(
+        lambda req: (seen.append(req), httpx.Response(200, json={"ok": True}))[1]
+    ))
+    try:
+        client.request("GET", "/orders/{orderNo}", path_params={"orderNo": "A/../B?limit=9"})
+        assert seen[0].url.raw_path == b"/orders/A%2F..%2FB%3Flimit%3D9"
+        assert seen[0].url.query == b""
+    finally:
+        client.close()
+
+
+def test_paginated_path_keeps_resource_id(cfg):
+    seen = []
+
+    def respond(req):
+        seen.append(req.url.raw_path)
+        rows = [{"id": 1}] if req.url.params["page"] == "1" else []
+        return httpx.Response(200, json={"list": rows})
+
+    client = ImwebClient(cfg)
+    client._http.close()
+    client._http = httpx.Client(base_url=BASE, transport=httpx.MockTransport(respond))
+    try:
+        result = client.list_all_pages("/products/{prodNo}/options", path_params={"prodNo": 7}, page_size=1)
+        assert len(result["list"]) == 1
+        assert seen == [b"/products/7/options?page=1&limit=1", b"/products/7/options?page=2&limit=1"]
+    finally:
+        client.close()
+
+
+def test_missing_path_parameter_fails_before_request(cfg):
+    client = ImwebClient(cfg)
+    try:
+        with pytest.raises(ValueError, match="Missing path parameter"):
+            client.request("GET", "/orders/{orderNo}")
+    finally:
+        client.close()
+
+
 @respx.mock
 def test_post_json_body(cfg):
     respx.post(f"{BASE}/products").mock(return_value=httpx.Response(200, json={"created": True}))

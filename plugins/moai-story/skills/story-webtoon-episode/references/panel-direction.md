@@ -39,12 +39,12 @@
 
 ## C. 작성 위치 승격 규칙 (실측)
 
-배치·연출 지시를 컷 묘사 문장 **안에 한 줄로 묻으면 무시된다**(묘사 안 삽입 2회 연속 실패 → 페이지/컷 레벨로 승격 후 1회 성공).
+한 내부 사례에서는 컷 묘사와 분리한 레이아웃 지시가 효과를 보였다. 모델과 장면에 따라 달라질 수 있으므로 생성 결과로 확인한다.
 
-- 승격 형식: 컷 지시 직후 **`★ 레이아웃:` 줄**로 별도로 쓴다.
+- 시도 형식: 컷 지시 직후 **`레이아웃:` 줄**로 별도로 쓴다.
   ```
   컷 7: 라이벌이 골목 끝에 처음 나타난다.
-  ★ 레이아웃: a tall full-body character standing vertically across multiple stacked panels, breaking through the panel borders (부치누키 — 첫 등장)
+  레이아웃: a tall full-body character standing vertically across multiple stacked panels, breaking through the panel borders (부치누키 — 첫 등장)
   ```
 - "굵은 검은 테두리·직사각" 전역 못박기는 **일반 컷에만** 한정한다(연출 컷과 충돌).
 - 연출 컷은 "어느 테두리를 어떻게 넘는지" 구체적으로 쓴다(예: `character's body drawn on top of the frame lines, crossing OVER the border`).

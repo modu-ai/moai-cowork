@@ -67,17 +67,17 @@ depth of field. Soft directional light. Editorial portrait
 photography.
 ```
 
-### Midjourney v8.1 (키워드+파라미터)
+### Midjourney V8 (기본 V8.2)
 ```
 <Q1>, <Q2 키워드>, <Q3 키워드>, <Q4 키워드>, 85mm portrait, shallow
 DOF, natural light, editorial photography, film grain
---ar [Round 3] --style raw --hd --q 4 --s 200
+--ar [Round 3] --raw --s 200
 ```
 
 ## 초상권 주의
 
 - 실존 인물·연예인 모방은 정책 위반 가능. 가상 페르소나로 한정.
-- Midjourney `--oref` 사용 시 본인 또는 권한 있는 인물 사진만.
+- Midjourney Edit Model에 인물 사진을 첨부할 때는 본인 또는 권한 있는 사진만 사용합니다.
 - GPT Image 2.5로 실제 인물 사진을 편집할 때는 본인 또는 권한 있는 인물 사진만 쓰고, 지킬 정체성 항목(face, facial features, skin tone, proportions, identity)을 모두 적습니다.
 
 ## 자주 쓰이는 보조 키워드

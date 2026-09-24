@@ -7,19 +7,18 @@ smartstore_test_connection 실인증 검증 스크립트.
   2. 네이버 커머스 API 토큰 발급(client_id + client_secret_sign).
   3. GET /v1/seller/account 호출로 Bearer 인증 + 도메인 API 응답 확인.
 
-출력은 비밀키·토큰 원문을 절대 포함하지 않는다 (client_id 앞 4자리만 마스킹 표시).
+출력은 비밀키·토큰·계정 상세 정보를 포함하지 않는다.
 
 실행:
-  cd cowork-plugins/mcp-servers/moai-mcp-smartstore
-  .venv/bin/python scripts/check_auth.py
+  uv run --directory plugins/moai-seller/mcp-servers/moai-mcp-smartstore python scripts/check_auth.py
 """
 from __future__ import annotations
 
 import os
 import sys
-from pathlib import AnyPath
+from pathlib import Path
 
-_BASE = AnyPath  # type: ignore[assignment]
+_BASE = Path
 
 
 def _load_dotenv(env_path) -> None:
@@ -57,7 +56,7 @@ def main() -> int:
     print("네이버 커머스 API 실인증 검증")
     print("=" * 56)
     print(f"client_id   : {_mask(cfg.client_id)}")
-    print(f"account_id  : {_mask(cfg.account_id) if cfg.account_id else '(미설정 — SELF 모드)'}")
+    print(f"account_id  : {'설정됨' if cfg.account_id else '미설정'}")
     print(f"type        : {cfg.type}")
     print(f"base_url    : {cfg.base_url}")
     print("-" * 56)
@@ -70,31 +69,21 @@ def main() -> int:
 
     # 1) 토큰 발급
     try:
-        token = client.get_token()
+        client.get_token()
     except Exception as exc:
-        print(f"FAIL: 토큰 발급 실패 — {type(exc).__name__}: {exc}")
+        print(f"FAIL: 토큰 발급 실패 — {type(exc).__name__}")
         return 2
-    print(f"토큰 발급    : 성공 (길이 {len(token)}자리, 만료 {cfg.timeout}s 내 재사용 캐싱)")
+    print("토큰 발급    : 성공")
 
     # 2) 도메인 API 호출 (GET /v1/seller/account)
     try:
         data = client.request("GET", "/v1/seller/account")
     except Exception as exc:
         status = getattr(exc, "status_code", "?")
-        print(f"FAIL: 도메인 API 호출 실패 — HTTP {status} {type(exc).__name__}: {exc}")
+        print(f"FAIL: 도메인 API 호출 실패 — HTTP {status} {type(exc).__name__}")
         return 3
 
-    if isinstance(data, dict):
-        safe_keys = [
-            "loginId", "name", "contactName", "sellerId", "accountId",
-            "representativeName", " companyName",
-        ]
-        shown = {k: data.get(k) for k in safe_keys if k in data}
-        if not shown:
-            shown = {"(응답 필드)": list(data.keys())[:8]}
-    else:
-        shown = {"(원시 응답)": str(data)[:120]}
-    print(f"GET /v1/seller/account : 성공 — {shown}")
+    print(f"GET /v1/seller/account : 성공 ({type(data).__name__} 응답)")
     print("=" * 56)
     print("PASS: 인증·연결 정상 (토큰 발급 + 도메인 API 응답 확인)")
     return 0

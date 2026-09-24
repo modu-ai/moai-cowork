@@ -34,7 +34,7 @@
     "data": { "labels": ["Q1","Q2","Q3","Q4"], "values": [320, 480, 610, 920], "unit": "억 원" }
   },
   "image": {
-    "backend": "higgsfield",
+    "backend": "native",
     "prompt": "abstract ascending bar chart hero, warm coral palette",
     "path": "assets/hero-q3.png"
   },

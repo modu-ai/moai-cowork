@@ -1,18 +1,18 @@
 # 인라인 SVG 인포그래픽 패턴
 
-doc-html-slide의 인포그래픽(차트·다이어그램·KPI·타임라인)은 **LLM이 인라인 SVG로 직접 저작**합니다. AI 래스터 이미지로 우회하지 않습니다 — 한국어 숫자·라벨이 100% 정확해야 하고, 확대해도 선명하며, 소스 텍스트 변경 시 동일 결과가 재현되어야 하기 때문입니다.
+doc-html-slide의 인포그래픽(차트·다이어그램·KPI·타임라인)은 인라인 SVG로 작성할 수 있습니다. SVG의 글자는 편집·대조하기 쉽지만, 원고 수치·라벨과 일치하는지 확인해야 합니다. 서체와 렌더 결과도 OS·브라우저에 따라 확인합니다.
 
 ## 왜 SVG인가 (AI 래스터가 아닌)
 
 | 축 | 인라인 SVG (코드 렌더) | AI 래스터 (GPT Image/Nano Banana) |
 |----|------------------------|------------------------------------|
-| 한국어 숫자·라벨 정확도 | ✅ 100% (텍스트 노드) | ⚠️ 변동 (95%+ 주장, 오류 빈번) |
-| 확대 선명도 | ✅ 벡터 (무한 확대) | ❌ 래스터 (뭉개짐) |
-| 재현성 | ✅ 100% (소스 동일=결과 동일) | ❌ 비결정적 |
+| 한국어 숫자·라벨 정확도 | 원고와 텍스트 노드를 직접 대조 가능 | 생성 결과를 읽어 확인 필요 |
+| 확대 선명도 | 벡터 경계가 선명함 | 해상도에 따라 달라짐 |
+| 재현성 | 코드와 데이터가 같으면 구조 재현 가능; 서체·브라우저 표시 확인 필요 | 생성 결과가 달라질 수 있음 |
 | 오타 수정 | ✅ 소스 1줄 | ❌ 전체 재생성 |
 | 브랜드 토큰 정합 | ✅ CSS 변수 주입 | ⚠️ 프롬프트로 유도 (불확실) |
 
-→ 인포그래픽은 **무조건 SVG**. AI 래스터는 히어로·실사 일러스트처럼 "정확한 텍스트가 필요 없는 장식 영역"에만 (`references/image-backend-policy.md`).
+정확한 문구와 수치가 필요한 경우 SVG 또는 HTML 텍스트로 작성하고 원고와 대조합니다. 실사·일러스트 이미지는 필요할 때만 사용합니다(`references/image-backend-policy.md`).
 
 ## 한국어 렌더 규칙 (필수)
 
@@ -23,7 +23,7 @@ doc-html-slide의 인포그래픽(차트·다이어그램·KPI·타임라인)은
 </text>
 ```
 
-1. **font-family 명시** — `Pretendard, 'Noto Sans KR', sans-serif`. 시스템 폰트만 쓰면 OS별 폴백으로 깨짐
+1. **font-family 명시** — `Pretendard, 'Noto Sans KR', sans-serif`. 외부 폰트가 로드되지 않으면 OS마다 줄바꿈과 글립 폭이 달라질 수 있으므로 확인
 2. **text-anchor** — `start`/`middle`/`end`로 수평 정렬
 3. **dominant-baseline** — `central`/`hanging`/`alphabetic`로 수직 정렬
 4. **숫자는 그룹화** — 단위(억 원, %)는 별도 `<tspan>`으로 크기/색 차등
@@ -38,7 +38,7 @@ doc-html-slide의 인포그래픽(차트·다이어그램·KPI·타임라인)은
           fill="var(--primary, #cc785c)" text-anchor="middle">920</text>
     <text y="60" font-family="Pretendard" font-size="32" fill="var(--ink, #141413)"
           text-anchor="middle">분기 매출 (억 원)</text>
-    <text y="110" font-family="Pretendard" font-size="24" fill="#788C5D"
+    <text y="110" font-family="Pretendard" font-size="24" fill="#3D3D3A"
           text-anchor="middle">▲ 전년 대비 +34%</text>
   </g>
 </svg>
@@ -65,7 +65,7 @@ doc-html-slide의 인포그래픽(차트·다이어그램·KPI·타임라인)은
     <text x="1000" y="304">920</text>
   </g>
   <!-- X축 라벨 -->
-  <g font-family="Pretendard" font-size="24" fill="var(--g500)" text-anchor="middle">
+  <g font-family="Pretendard" font-size="24" fill="var(--g700)" text-anchor="middle">
     <text x="340"  y="640">Q1</text>
     <text x="560"  y="640">Q2</text>
     <text x="780"  y="640">Q3</text>
@@ -91,7 +91,7 @@ doc-html-slide의 인포그래픽(차트·다이어그램·KPI·타임라인)은
   </g>
   <text x="300" y="295" font-family="Pretendard" font-size="56" font-weight="800"
         fill="var(--ink)" text-anchor="middle">60%</text>
-  <text x="300" y="335" font-family="Pretendard" font-size="22" fill="var(--g500)"
+  <text x="300" y="335" font-family="Pretendard" font-size="22" fill="var(--g700)"
         text-anchor="middle">B2B SaaS</text>
 </svg>
 ```
@@ -107,7 +107,7 @@ doc-html-slide의 인포그래픽(차트·다이어그램·KPI·타임라인)은
     <circle cx="240"  cy="200" r="14" fill="var(--primary)"/>
     <text x="240"  y="160" font-family="Pretendard" font-size="22" font-weight="700"
           fill="var(--ink)" text-anchor="middle">2026 Q1</text>
-    <text x="240"  y="250" font-family="Pretendard" font-size="18" fill="var(--g500)"
+    <text x="240"  y="250" font-family="Pretendard" font-size="18" fill="var(--g700)"
           text-anchor="middle">MVP 런칭</text>
   </g>
   <!-- 추가 마일스톤... -->
@@ -130,6 +130,7 @@ doc-html-slide의 인포그래픽(차트·다이어그램·KPI·타임라인)은
   --g100: #f0eee6;
   --g300: #d1cfc5;
   --g500: #87867f;
+  --g700: #3d3d3a;
 }
 ```
 

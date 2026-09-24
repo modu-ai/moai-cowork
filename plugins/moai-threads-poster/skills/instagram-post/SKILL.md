@@ -1,7 +1,7 @@
 ---
 name: instagram-post
 description: |
-  주제를 Instagram 게시글(이미지/비디오/릴) 초안으로 작성해 즉시 발행합니다. 저장된 문체 프로필이 있으면 자동 적용합니다. 큐·예약·상태머신 없이 세션 안에서 직접 발행합니다. 예약·정기 발행은 Claude Cowork 이 담당합니다.
+  주제를 Instagram 게시글(이미지/비디오/릴) 초안으로 작성해 즉시 발행합니다. 저장된 문체 프로필이 있으면 자동 적용합니다. 큐·예약·상태머신 없이 세션 안에서 직접 발행합니다. 예약·정기 발행은 사용 중인 앱의 예약 기능을 확인합니다.
   다음과 같은 요청 시 사용하세요:
   - "이 주제로 Instagram 포스트 작성해줘"
   - "인스타에 올릴 이미지 캡션 써줘"
@@ -9,8 +9,8 @@ description: |
   - "인스타에 비디오 게시해줘"
   - "이 뉴스를 Instagram 용으로 요약해줘"
   - "이 초안 인스타에 바로 올려줘" (승인 → 즉시 발행)
-  [책임 경계] vs 형제 스킬: Instagram 이미지/비디오/릴 *초안 작성·즉시 발행* 만 담당합니다. 댓글 관리는 instagram-comments 스킬, Threads 발행은 threads-* 스킬, 멀티 채널 포맷은 threads-multichannel 스킬을 사용하세요. 예약·정기 발행은 Claude Cowork 에게 맡깁니다.
-version: "1.2.0"
+  [책임 경계] vs 형제 스킬: Instagram 이미지/비디오/릴 *초안 작성·즉시 발행* 만 담당합니다. 댓글 관리는 instagram-comments 스킬, Threads 발행은 threads-* 스킬, 멀티 채널 포맷은 threads-multichannel 스킬을 사용하세요. 예약·정기 발행은 앱에서 지원 여부를 확인합니다.
+version: "1.2.1"
 ---
 
 # Instagram 포스트 작성·직접 발행 (instagram-post)
@@ -23,7 +23,7 @@ version: "1.2.0"
 
 > **Instagram Professional(Business 또는 Creator) 계정만 지원** 됩니다. Personal 계정은 Graph API 로 발행할 수 없습니다.
 
-> 예약·정기 발행은 Claude Cowork 이 담당합니다. Instagram Graph API 자체가 서버 측 스케줄링 파라미터를 제공하지 않으므로, 본 스킬은 즉시 발행만 합니다.
+> 본 스킬은 즉시 발행만 합니다. 예약·정기 발행은 사용 중인 앱에서 해당 기능이 실제로 제공되는지 확인합니다.
 
 ## 트리거 키워드
 
@@ -106,7 +106,7 @@ instagram_publish_reel(text="<캡션>", video_url="https://example.com/reel.mp4"
 
 **[HARD] 이 서버에는 발행 여부를 되물을 도구가 없다.** `instagram_get_profile`은 계정 정보만 반환하고, `instagram_insights`·`instagram_comments_list`는 조회하려면 이미 `media_id`가 있어야 하는데 애매한 실패에서는 그 값이 없다. 따라서 **사용자에게 Instagram 앱에서 직접 확인해 달라고 요청**하고, 올라가지 않았다는 확인을 받은 뒤에만 다시 발행한다. 스킬이 혼자 판단하지 않는다.
 
-> 발행은 세션 안에서 즉시 일어난다. 백그라운드 자동 발행은 없다. 예약이 필요하면 Claude Cowork 에게 맡긴다.
+> 발행은 세션 안에서 즉시 일어난다. 백그라운드 자동 발행은 없다. 예약이 필요하면 사용 중인 앱의 지원 여부를 확인한다.
 
 ## 주의사항
 
@@ -114,9 +114,9 @@ instagram_publish_reel(text="<캡션>", video_url="https://example.com/reel.mp4"
 |------|------|
 | 이미지가 PNG | JPEG 로 변환 후 재시도 (`.png` URL 은 빠른 실패) |
 | 미디어 URL 이 비공개 | 공개 URL 사용 (Meta 가 서버에서 fetch) |
-| `setup_required` 에러 | `IG_ACCESS_TOKEN`, `IG_USER_ID` 환경변수 설정 (CONNECTORS.md 참조) |
+| `setup_required` 에러 | 앱 설정 또는 사용자 홈의 `.moai/mcp/threads.json`에 `IG_ACCESS_TOKEN`, `IG_USER_ID` 설정 (CONNECTORS.md 참조) |
 | Personal 계정 오류 | Instagram Professional(Business/Creator) 계정만 지원 — 계정 전환 필요 |
-| 예약·정기 발행 요청 시 | Claude Cowork 에게 맡길 것을 안내 (본 스킬은 즉시 발행만) |
+| 예약·정기 발행 요청 시 | 앱에서 지원 여부를 확인하고, 본 스킬은 즉시 발행만 한다고 안내 |
 | 감사 3단에서 `hold_and_report` 판정 | 발행하지 않음. 사유를 그대로 보여주고 1단계로 복귀 |
 | 캡션에 미공개 정보가 섞임 | `korean-spell-check` 생략 (외부 전송) — 생략 사실을 결과에 적음 |
 | 발행 도구가 애매하게 실패 | 재시도 금지. 사용자에게 Instagram 앱 확인을 요청한 뒤 판단 |
@@ -152,7 +152,7 @@ Instagram 자격증명(Threads 와 별개) 이 필요하다:
 }
 ```
 
-실제 값은 운영체제 환경변수로만 넣는다.
+실제 값은 앱 설정 또는 사용자 홈의 `.moai/mcp/threads.json`에 넣는다. 서버의 자격증명 읽기 순서는 `CONNECTORS.md`를 따른다. 아래 환경변수 예시는 개발자가 셸에서 직접 실행할 때만 사용한다.
 
 **macOS / Linux**:
 
@@ -187,4 +187,4 @@ $env:IG_USER_ID = "<Instagram Professional 계정 ID>"
 
 - 댓글 관리: `instagram-comments` 스킬 사용
 - Threads 발행: `threads-*` 스킬 / 도구 사용
-- 예약·정기 발행: Claude Cowork (본 플러그인은 즉시 발행만)
+- 예약·정기 발행: 사용 중인 앱의 지원 여부 확인 (본 플러그인은 즉시 발행만)

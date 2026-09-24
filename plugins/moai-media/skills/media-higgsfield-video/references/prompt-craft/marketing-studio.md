@@ -18,7 +18,7 @@
 
 - `hook_id`(the "what" — 어텐션 메커닉)와 `setting_id`(the "where" — 장소/바이브)는 서로 **독립**(둘 중 하나, 둘 다, 또는 없음).
 - 둘 다 `ad_reference_id`와 **mutually exclusive(상호 배타)**다. hook/setting은 명시적 빌딩블록으로 구성하고, `ad_reference_id`는 기존 영상 시나리오를 재현한다. **한 접근만 고르고 둘을 함께 쓰지 않는다.** Higgsfield agent 문서 verbatim: *"When the user has selected an ad reference for the ad, do not also pass --hook_id or --setting_id."*
-- hook/setting은 **5개 슬러그에만** 게이트: `ugc`, `ugc_how_to`, `ugc_unboxing`, `product_review`, `ugc_virtual_try_on`. 다른 모드는 무시/거부.
+- hook/setting의 허용 모드와 슬러그는 호출 직전 `show_marketing_studio` 및 실제 도구 스키마에서 확인한다. 2026-07-12 조회 때는 `ugc`, `ugc_how_to`, `ugc_unboxing`, `product_review`, `ugc_virtual_try_on`에 허용됐지만 이를 현재 계약으로 고정하지 않는다.
 - hook을 쓰면 `product_ids`를 **반드시** 포함("they require product context").
 - `ad_reference_id`는 연결된 아바타/제품을 자동으로 끌어오지 **않는다** — 명시적으로 전달한다.
 - 기본 aspect는 landscape → TikTok/Reels는 `9:16`을 **명시적으로** 전달.

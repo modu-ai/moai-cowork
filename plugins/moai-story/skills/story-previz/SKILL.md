@@ -7,7 +7,7 @@ description: |
   - "프리비즈", "시네마틱 숏", "프리비즈 릴"
   - "카메라 무빙", "달리", "팬", "틸트", "크레인 샷"
   - "렌즈 선택", "숏 리스트"
-version: "1.1.0"
+version: "1.1.1"
 ---
 
 # story-previz: 시네마틱 프리비즈
@@ -20,7 +20,7 @@ version: "1.1.0"
 
 ## 2. 이 스킬이 하지 않는 것
 
-- **영상·클립 생성·크레딧 고지·모델 선택 안 함** — `moai-media:media-higgsfield-core` 계약에 위임(§4-생성 실행).
+- **영상·클립 생성 안 함** — 사용자가 선택하고 현재 연결된 `moai-media` 영상 경로에 위임(§4-생성 실행).
 - **정지 프레임 콘티 안 만듦** — 화각별 정지 보드는 `story-conti`.
 - **대본·씬 확정 안 함** — 씬은 `story-screenplay`가 확정.
 - **모델 프롬프트 문법 안 소유** — 벤더별 문법은 `moai-media`.
@@ -28,7 +28,7 @@ version: "1.1.0"
 ## 3. 사전 확인
 
 - `references/camera-move-grammar.md` — 카메라 무빙 어휘·렌즈·숏 리스트 표 규격.
-- `${CLAUDE_PLUGIN_ROOT}/skills/story-webtoon-art/references/context-budget.md` — 여러 숏을 한 세션에서 다룰 때 컨텍스트 체크포인트 인계 원칙(참조).
+- `../story-webtoon-art/references/context-budget.md` — 여러 숏을 한 세션에서 다룰 때 컨텍스트 체크포인트 인계 원칙(참조).
 
 ## 4. 워크플로우
 
@@ -46,9 +46,9 @@ version: "1.1.0"
 
 ### Step 4-생성 실행 — moai-media 위임
 
-숏 클립의 실제 생성·비용 프리플라이트·모델 선택은 `moai-media:media-higgsfield-core` 계약(`models_explore` 라이브 조회 + `get_cost` 사전 고지)에 위임한다.
+숏 클립의 실제 생성은 현재 호스트에서 사용할 수 있는 영상 경로에 위임한다. 사용자가 Higgsfield를 지정한 경우 `moai-media:media-higgsfield-video`에서 연결된 모델·비용·생성 조건을 확인한다.
 
-> moai-media 미설치 시: 완성 숏 프롬프트를 텍스트로 출력하고 Higgsfield 웹(https://higgsfield.ai)에서 직접 생성하도록 안내한다.
+> 영상 생성 도구가 없으면 숏 프롬프트와 숏 리스트를 제공하고 클립을 만들었다고 표시하지 않는다.
 
 ### Step 5 — 프리비즈 릴 조합
 
@@ -67,11 +67,11 @@ version: "1.1.0"
 ### 숏별 생성 프롬프트
 [숏 1 복붙 프롬프트]
 ```
-→ 생성 실행: `moai-media:media-higgsfield-core` 위임.
+→ 생성 실행: 현재 이용 가능한 영상 경로로 위임.
 
 ## 6. 주의사항
 
-- **생성 전 비용 고지·승인.** `moai-media`의 `get_cost` 결과를 사용자에게 고지하고 승인받은 뒤 생성한다.
+- **외부 서비스 비용 확인.** Higgsfield를 선택했다면 실제 비용과 생성 조건을 확인한다.
 - **렌즈·조명 톤 통일** — 한 씬 안에서 왜곡·색온도가 흔들리지 않게.
 - **무빙은 목적에 복무** — 무의미한 카메라 이동 금지.
 - **클립은 최소 필수 숏만** — 생성 비용이 크므로 핵심 숏 위주.
@@ -86,7 +86,7 @@ version: "1.1.0"
 - `story-ip-pitch` — 영상화 피칭(부가)
 
 ### 위임
-- `moai-media:media-higgsfield-core` — 생성 실행·비용 프리플라이트·모델 선택
+- `moai-media:media-higgsfield-video` — 사용자가 Higgsfield 영상을 지정한 경우
 
 ## 8. References
 
@@ -99,5 +99,5 @@ version: "1.1.0"
 
 - 카메라 무빙·렌즈 어휘: 영상 촬영 실무 관행(references에 정리).
 - 컨텍스트 체크포인트 인계: aitoon-comic(내부 자산 참조).
-- 생성·비용·모델: `moai-media:media-higgsfield-core` 라이브 계약.
+- 생성·비용·모델: 선택한 영상 경로의 실제 도구와 응답으로 확인.
 - 원작 카피라이터: **조남경** (https://www.facebook.com/Bmisty)

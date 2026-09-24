@@ -21,6 +21,7 @@ MASK = "***"
 _NAMED_PATTERNS = (
     re.compile(r"(ServiceKey=)[^&\s\"'<>]+", re.I),
     re.compile(r"((?:X-API-KEY|USPTO-API-KEY|Authorization)\s*[:=]\s*)[^\s\"'<>,;]+", re.I),
+    re.compile(r"(\bBasic\s+)[A-Za-z0-9+/=]+", re.I),
 )
 
 
@@ -31,14 +32,17 @@ def _forms(secret: str) -> list[str]:
         urllib.parse.quote_plus(secret),
         html.escape(secret),
     }
-    # 너무 짧은 값은 가리면 정상 텍스트까지 망가진다 — 그런 값은 이름 기반 패턴에 맡긴다.
-    return sorted((f for f in forms if len(f) >= 6), key=len, reverse=True)
+    return sorted((f for f in forms if f), key=len, reverse=True)
 
 
 def redact_text(text: str, secrets: list[str]) -> str:
     for secret in secrets:
         for form in _forms(secret):
-            text = text.replace(form, MASK)
+            if len(form) >= 6:
+                text = text.replace(form, MASK)
+            else:
+                # 짧은 키도 독립된 값으로 반사되면 가린다. 단어 내부의 같은 글자는 보존한다.
+                text = re.sub(rf"(?<![\w]){re.escape(form)}(?![\w])", MASK, text)
     for pattern in _NAMED_PATTERNS:
         text = pattern.sub(lambda m: m.group(1) + MASK, text)
     return text

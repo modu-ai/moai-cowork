@@ -1,7 +1,7 @@
 ---
 name: doc-html-slide
 description: |
-  발표용 슬라이드 덱을 브라우저에서 바로 열리는 단일 파일·자체 완결형(self-contained) HTML로 만들어 드립니다. 인포그래픽(차트·다이어그램·KPI)은 한국어 숫자·라벨이 100% 정확한 인라인 SVG로 직접 렌더링하고, 실사 히어로·일러스트 이미지는 Higgsfield MCP(GPT Image 2.5 등) 또는 codex(GPT Image)로 생성합니다. 필요 시 doc-pptx 체이닝으로 PowerPoint에서 편집 가능한 .pptx까지 병행 산출합니다.
+  발표용 슬라이드 덱을 브라우저에서 바로 열리는 단일 HTML로 만듭니다. 인포그래픽은 정확한 숫자·라벨을 인라인 SVG로 렌더링합니다. 실사·일러스트는 앱의 기본 이미지 생성 도구 또는 사용자가 지정한 Higgsfield 연결로 만듭니다. 필요하면 doc-pptx 체이닝으로 편집 가능한 .pptx도 산출합니다.
   다음과 같은 요청 시 사용하세요:
   - "발표 슬라이드 HTML로 만들어줘"
   - "키노트 덱 단일 HTML 파일로 렌더해줘"
@@ -10,23 +10,23 @@ description: |
   - "슬라이드 만들고 PPTX로도 저장해줘"
   - "투자 피칭 덱 인터랙티브 HTML로"
   - "발표 자료를 HTML 슬라이드 + 편집 가능 PPTX 둘 다"
-  design-system-library 75개 브랜드 토큰 중 테마를 골라 적용하고, 각 토큰별 getdesign.md 상세 페이지 링크로 미리보기를 제공합니다.
+  현재 설치된 design-system-library 브랜드 토큰 중 테마를 고릅니다. getdesign.md 링크는 공식 브랜드 규격이 아닌 외부 참고 자료입니다.
   PDF 배포본이 필요하면 브라우저 `?print-pdf` 인쇄 모드를 쓰거나, 생성한 HTML을 moai-officer:doc-pdf로 넘겨 변환하세요 (weasyprint를 직접 설치·호출하지 말 것).
   [책임 경계] vs moai-officer:doc-pptx: 이 스킬=브라우저에서 바로 열리는 단일 .html 슬라이드 덱(편집 가능 .pptx는 doc-pptx 체이닝으로 산출). vs moai-media:media-notebooklm-slide-prompt: 저 스킬=NotebookLM 입력용 프롬프트(파일 생성 없음). vs moai-officer:doc-html-report: 저 스킬=연속 스크롤 문서/보고서(슬라이드 덱이 아님).
-version: "1.2.1"
+version: "1.2.3"
 ---
 
 # doc-html-slide — 단일 파일 HTML 슬라이드 덱 생성기
 
 ## 목적과 범위
 
-`moai-officer:doc-html-slide`는 발표용 슬라이드 덱을 **단일 파일·자체 완결형 HTML**로 만듭니다. 이웃 스킬 `doc-html-report`의 "0의존·인라인 SVG·design-system-library 토큰 계약" 아키텍처를 계승하되, 연속 스크롤 문서가 아닌 **16:9 슬라이드 시퀀스 + 자체 vanilla JS 덱 런타임**(키보드 내비게이션·풀스크린·`?print-pdf` 인쇄 모드·speaker notes 토글)을 제공합니다.
+`moai-officer:doc-html-slide`는 발표용 슬라이드 덱을 **단일 HTML 파일**로 만듭니다. 이웃 스킬 `doc-html-report`의 "인라인 SVG·design-system-library 토큰 계약" 아키텍처를 계승하되, 연속 스크롤 문서가 아닌 **16:9 슬라이드 시퀀스 + 자체 vanilla JS 덱 런타임**(키보드 내비게이션·풀스크린·`?print-pdf` 인쇄 모드·speaker notes 토글)을 제공합니다.
 
 **핵심 원칙**:
 - 단일 `.html` 파일 — 외부 빌드 단계·런타임 SPA 의존 없이 `file://`로 즉시 오픈
 - 인포그래픽은 LLM이 인라인 SVG로 직접 저작 — 한국어 숫자·라벨 100% 정확, 확대 선명, 재현 가능
-- 실사·일러스트 이미지는 Higgsfield MCP 또는 codex(GPT Image)로 생성 — 허용 백엔드만 사용 (`references/image-backend-policy.md`)
-- design-system-library 75개 브랜드 토큰 적용 — 각 토큰별 getdesign.md 상세 페이지 링크 제공
+- 실사·일러스트 이미지는 앱 기본 이미지 도구 또는 사용자가 지정한 Higgsfield 연결로 생성 (`references/image-backend-policy.md`)
+- 설치된 design-system-library 브랜드 토큰 적용 — getdesign.md 참고 링크 제공
 - 편집 가능 PPTX 산출은 `doc-pptx`(moai-coworker) 체이닝으로 위임 — 자체 구현하지 않음(중복·책임 모호화 방지)
 
 **원고 SSOT**: 모든 덱은 구조화 원고 `deck.json`(title/bullets/chart-data/image-path/layout-key/notes)을 단일 진실 원천으로 둡니다. HTML 렌더와 (체이닝 시) doc-pptx PPTX 렌더 양쪽이 같은 원고를 소비합니다 — 픽셀→OOXML 역매핑이 아니라 원고→객체 직접 생성이 "편집 가능 PPTX"의 보증 기구입니다.
@@ -38,11 +38,11 @@ version: "1.2.1"
 | 인자 | 필수 | 기본값 | 설명 |
 |------|------|--------|------|
 | `topic` / 자연어 주제 | ✓ | — | 덱 주제·대상 청중·발표 목적 |
-| `design_system` | — | `claude` | `claude` \| `clickhouse` \| `clay` 또는 [`design-system-library`](../../../moai-designer/skills/design-system-library/SKILL.md)의 75개 시스템. 지정 시 Tailwind Play CDN + shadcn vanilla 컴포넌트로 해당 브랜드 토큰 적용. 각 토큰별 getdesign.md 미리보기 링크는 [`references/design-system-links.md`](references/design-system-links.md) |
+| `design_system` | — | 미지정 | 사용자 브랜드 또는 현재 설치된 [`design-system-library`](../../../moai-designer/skills/design-system-library/SKILL.md)의 시스템. 실제 토큰과 외부 CDN 사용 여부를 확인. 참고 링크는 [`references/design-system-links.md`](references/design-system-links.md) |
 | `slide_count` / 발표 시간 | — | 주제에서 추천 | 3분=5-7장 · 10분=10-15장 · 30분=20-30장 |
 | `aspect_ratio` | — | `16:9` | `16:9`(프로젝터 표준) \| `1:1`(소셜/카드뉴스) |
 | `locale` | — | `ko` | `ko` \| `en` — 헤드라인·카피 언어 |
-| `image_backend` | — | `higgsfield` | `higgsfield`(Higgsfield MCP, 기본) \| `codex`(GPT Image, ChatGPT 구독 한도) \| `svg-only`(이미지 없이 SVG 장식만) |
+| `image_backend` | — | `native` | `native`(앱 기본 이미지 생성) \| `higgsfield`(사용자가 지정한 Higgsfield 연결) \| `svg-only`(이미지 없이 SVG 장식만). 기존 `codex` 값은 `native`로 해석 |
 | `export_pptx` | — | `false` | `true` 시 doc-pptx 체이닝으로 편집 가능 .pptx 병행 산출 |
 | `output_path` | — | `<cwd>/reports/<slug>-slides-<YYYYMMDD>.html` | 출력 경로 |
 
@@ -51,8 +51,8 @@ version: "1.2.1"
 ## 출력
 
 - **주 산출물**: 단일 `.html` 파일 (`<cwd>/reports/<slug>-slides-<YYYYMMDD>.html`)
-  - 자체 완결형: 브라우저에서 바로 열기 가능, 이메일 첨부·오프라인 사용 가능
-  - 외부 의존: design_system 지정 시 폰트 CDN + Tailwind Play CDN, 미지정 시 폰트 CDN 1건만
+  - 브라우저에서 열 수 있는 단일 파일. 외부 리소스를 썼다면 자체 완결형·오프라인 사용 가능이라고 표시하지 않음
+  - 외부 의존: 최종 HTML의 폰트·이미지·CSS·JS URL을 확인하고 오프라인 파일을 직접 검사
 - **병행 산출물** (`export_pptx: true` 시): 편집 가능 `.pptx` (doc-pptx 체이닝)
 - **원고**: `deck.json` (HTML·PPTX 양쪽 공통 소스, 산출 디렉토리에 보존)
 
@@ -61,7 +61,7 @@ version: "1.2.1"
 ## 핵심 워크플로우 (9단계)
 
 ### 1. 컨텍스트 수집
-`AskUserQuestion`으로 design_system(75 시스템, 기본 `claude`)·발표 시간(슬라이드 수)·이미지 필요 여부·PPTX 산출 여부를 확인합니다. design_system 선택 시 [`references/design-system-links.md`](references/design-system-links.md)의 getdesign.md 링크로 각 토큰 상세 페이지를 안내해 사용자가 미리보기로 확인할 수 있게 합니다. **강연/발표 맥락** — 비개발자 청중 다수·주간·프로젝터 환경에서는 라이트 테마(claude·notion·apple·stripe·mintlify)가 안전합니다. 다크는 발표 공간을 어둡게 조절할 수 있을 때만 권장.
+현재 런타임에서 가능한 질문 경로로 사용할 브랜드·발표 시간(슬라이드 수)·이미지 필요 여부·PPTX 산출 여부를 확인합니다. design_system 선택 시 [`references/design-system-links.md`](references/design-system-links.md)의 getdesign.md 링크로 각 토큰 상세 페이지를 안내해 사용자가 미리보기로 확인할 수 있게 합니다. **강연/발표 맥락** — 비개발자 청중 다수·주간·프로젝터 환경에서는 라이트 테마(claude·notion·apple·stripe·mintlify)가 안전합니다. 다크는 발표 공간을 어둡게 조절할 수 있을 때만 권장.
 
 ### 2. 원고 SSOT 구축 (핵심)
 `deck.json` 원고를 먼저 작성합니다 — title/bullets/chart-data/image-path/layout-key/notes. 이 원고가 HTML 렌더와 doc-pptx PPTX 렌더 양쪽의 공통 소스입니다. 스키마: [`references/deck-manuscript-schema.md`](references/deck-manuscript-schema.md). layout-key는 doc-pptx 9 아키타입(Title/Agenda/Problem/Solution/Features/Stats/Team/CTA/Closing)에 정합시킵니다.
@@ -74,17 +74,16 @@ version: "1.2.1"
 
 | 백엔드 | 모델 | 인증 | 권장 용도 |
 |--------|------|------|-----------|
-| **`higgsfield`** (기본) | GPT Image 2.5·Nano Banana Pro·Soul 등 여러 모델 | Higgsfield MCP(API 키) | 프로덕션·멱등·CI 무인 |
-| **`codex`** (공식 추가 2026-06-17) | GPT Image (버전은 서비스 측 결정) | codex CLI + ChatGPT OAuth(구독 한도, API 키 불필요) | 로컬·개발자·구독 한도 재사용 |
-| `antigravity` | Imagen·Nano Banana (agy -p) | Google OAuth 브라우저 + 구독 quota | ⚠️ 비권장 — OAuth/quota/CI 무인 불가, 로컬 단발 프로토타입 only |
+| **`native`** (기본) | 앱이 제공하는 이미지 모델 | 앱 로그인 | 일반 이미지 생성 |
+| **`higgsfield`** | 연결에서 조회한 Higgsfield 모델 | Higgsfield 공식 플러그인 또는 MCP의 계정 인증 | 사용자가 Higgsfield를 지정한 경우 |
 | `svg-only` | (이미지 없음) | — | 오프라인·비용 민감·빠른 폴백 |
 
-> 위 4개 백엔드만 허용됩니다. 그 외 외부 이미지 백엔드(MCP·API·게이트웨이)는 사용하지 않습니다 — [`references/image-backend-policy.md`](references/image-backend-policy.md).
+> 생성 전에 현재 앱에서 해당 도구가 실제로 노출됐는지 확인합니다 — [`references/image-backend-policy.md`](references/image-backend-policy.md).
 
-한국어 텍스트가 이미지에 들어가면 `moai-media:media-gpt-image-prompt`(GPT Image 2.5 프롬프트 빌더)로 따옴표·등장 횟수·추가 텍스트 금지를 지시한 뒤 선택 백엔드로 생성합니다.
+한국어 텍스트가 이미지에 들어가면 `moai-media:media-gpt-image-prompt`로 따옴표·등장 횟수·추가 텍스트 금지를 지시한 뒤 선택한 이미지 도구로 생성합니다. 정확해야 하는 문구는 HTML/SVG 텍스트로 올립니다.
 
 ### 5. design-system-library 토큰 적용
-design_system 지정 시 `systems/<name>.md` 토큰 → Tailwind Play CDN config + shadcn vanilla 컴포넌트로 렌더. 미지정 시 0의존 기본 템플릿. doc-html-report와 동일 계약 재사용. 사용자가 getdesign.md 링크로 토큰을 미리 확인한 뒤 선택할 수 있습니다.
+design_system을 지정했다면 현재 설치된 `systems/<name>.md`의 토큰을 확인해 CSS에 적용합니다. Tailwind Play CDN을 쓰면 연결이 필요하므로 사용 여부를 산출물에 명시합니다. 미지정이어도 폰트·이미지 URL이 남아 있을 수 있어 오프라인 파일을 별도로 확인합니다.
 
 ### 6. 단일 파일 HTML 덱 조립
 16:9 슬라이드 컨테이너 + 자체 vanilla JS 덱 런타임(키보드 내비·풀스크린·`?print-pdf` 인쇄 모드·speaker notes 토글·progress bar)을 단일 `.html`로 산출. 런타임 구현: [`references/html-runtime.md`](references/html-runtime.md).
@@ -112,7 +111,7 @@ design_system 지정 시 `systems/<name>.md` 토큰 → Tailwind Play CDN config
 
 > **왜 (의무)로 못 박는가.** 이 루브릭이 참고 문서 목록에만 걸려 있고 워크플로 어느 단계에서도 호출되지 않던 시기에, 실제 산출 덱에서 본문 텍스트 14종 중 12종이 hard-fail 하한(#9)에 미달한 채 배포된 사례가 있다. 같은 덱의 한국어 카피는 우수했다 — §7이 워크플로 안에 "(의무)"로 있었기 때문이다. **게이트는 존재만으로 작동하지 않고, 파이프라인에 걸려 있을 때만 작동한다.**
 
-**hard 기준 9개(실패군 8종) — 한 건이라도 걸리면 반려하고 고쳐서 다시 렌더한다.** (#32와 #33은 둘 다 아이콘 문제라 하나의 실패군으로 보고하되, 채점은 독립 함수 두 개다.) (임계값은 전부 `qa-config.json` 오버라이드 대상이며 상수로 하드코딩하지 않는다.)
+**hard 기준 9개(실패군 8종) — 한 건이라도 걸리면 반려하고 고쳐서 다시 렌더한다.** (#32와 #33은 둘 다 아이콘 문제라 하나의 실패군으로 보고하되 각각 확인한다.) 이 플러그인에는 자동 채점기나 `qa-config.json`이 포함되어 있지 않다. 현재 사용 가능한 브라우저 도구로 측정하고, 측정하지 못한 항목은 PASS로 표시하지 않는다.
 
 | # | 기준 | DOM 측정 | 기본 임계값 |
 |---|------|---------|------------|
@@ -128,7 +127,7 @@ design_system 지정 시 `systems/<name>.md` 토큰 → Tailwind Play CDN config
 
 - **[HARD] pt 환산을 생략하지 않는다.** #9는 px 값이 아니라 **투사 시 실제 크기**를 판정한다. 1280px 덱의 본문 18px는 13.5pt이며, 프로젝터 기준 하한(24pt)의 절반을 조금 넘는 수준이다. px로만 보면 "충분히 커 보이는" 값이 여기서 걸린다.
 - **[HARD] 강의장·회의실 투사 덱은 온라인 완화(18pt)를 적용하지 않는다.** 완화는 화면으로만 볼 아카이브 덱에 한한다. 어느 쪽인지 불분명하면 §1에서 사용자에게 확인한다.
-- soft 25개 기준은 6카테고리 가중합으로 채점해 점수와 함께 보고한다. 합격선 미달이면 사용자에게 항목별 수치를 제시하고 수정 여부를 확인한다.
+- soft 25개 기준도 측정 가능한 항목의 수치와 판정을 보고한다. 가중치와 합격선을 실제로 정하고 계산한 경우에만 종합 점수를 보고한다.
 
 **렌더 검사 실무 주의**: 슬라이드가 많은 덱은 문서 전체 높이가 수만 px에 달해 브라우저 스크린샷이 빈 이미지를 반환하는 일이 있다. 측정은 스크린샷이 아니라 **DOM API(`getBoundingClientRect`·`getComputedStyle`·`elementFromPoint`)로 하고**, 시각 확인이 필요하면 대상 슬라이드만 남기고 나머지를 `display:none`으로 접은 뒤 촬영한다.
 
@@ -169,28 +168,28 @@ design_system 지정 시 `systems/<name>.md` 토큰 → Tailwind Play CDN config
 
 ## 디자인 시스템 적용 (`design_system` 파라미터)
 
-`design_system` 입력으로 [`moai-officer:doc-design-library`](../../../moai-designer/skills/design-system-library/SKILL.md)에서 브랜드 토큰을 로드해 **Tailwind Play CDN + shadcn vanilla 컴포넌트**로 렌더합니다. doc-html-report와 동일한 두 렌더 엔진을 제공합니다.
+`design_system` 입력으로 현재 설치된 [`moai-designer:design-system-library`](../../../moai-designer/skills/design-system-library/SKILL.md)의 브랜드 토큰을 확인해 적용합니다. 이 스킬에는 자동 테마 변환 실행기가 포함돼 있지 않습니다.
 
 | `design_system` | 엔진 | 외부 의존 | 산출물 특성 |
 |-----------------|------|-----------|-------------|
-| **미지정** | 0의존 (기본 템플릿) | 폰트 CDN 1건만 | 오프라인·인쇄·이메일 첨부 가능 |
-| **`claude` / `clickhouse` / `clay` / 75개** | Tailwind Play CDN | Tailwind CDN + 폰트 CDN | 브랜드 무드 적용, 인터넷 연결 필요 |
+| **미지정** | 기본 서식 | 최종 HTML의 폰트·이미지 URL 확인 | 오프라인·인쇄 결과 직접 확인 |
+| **지정한 브랜드** | 실제 토큰을 CSS에 적용 | CDN·이미지 사용 여부 확인 | 네트워크 필요 여부를 산출물에 기록 |
 
 ### 테마별 적합 슬라이드 (자동 추천)
 
 | 발표 성격 | 추천 design_system |
 |-----------|-------------------|
-| 사업계획서·보고서·편집성 (기본) | `claude` (warm editorial, 크림+코랄) |
+| 사업계획서·보고서·편집성 | `claude` (warm editorial, 크림+코랄) |
 | 기술·데이터·엔지니어링·다크 프로젝터 | `clickhouse` (dark tech) |
 | 제품 소개·SaaS·스타트업 | `notion`·`apple`·`stripe`·`mintlify` (light, 깔끔) |
 | 마케팅·키노트·임팩트 | `spotify`·`nike`·`airbnb` (bold) |
-| **비개발자 청중·주간·프로젝터 (라이트 안전)** | `claude`(기본) · `notion` · `apple` · `stripe` · `mintlify` |
+| **비개발자 청중·주간·프로젝터 (라이트 안전)** | `claude`(예시) · `notion` · `apple` · `stripe` · `mintlify` |
 | 다크 (방을 어둡게 조절 가능할 때) | `clickhouse` · `vercel` · `linear.app` · `supabase` · `binance` |
 
-> **강연 추천** (getdesign.md 컬렉션 74종 쇼케이스 기준): 비개발자 청중(약 75%)·주간·프로젝터 환경에서는 **라이트가 안전**합니다. 현재 `claude`가 무난하고, 변화를 주고 싶으면 `notion`·`apple`·`stripe`·`mintlify`. 다크는 발표 공간을 어둡게 할 수 있을 때만 — `clickhouse`·`vercel`·`linear.app` 등. 전체 75개 중 19개(⚙️)는 경량 토큰이라 폰트가 시스템 산세리프 기반입니다.
+> 발표 공간·화면 밝기와 사용자 브랜드를 확인해 라이트·다크를 선택합니다. 외부 갤러리의 구성이나 현재 토큰 수를 고정된 값으로 전제하지 않습니다.
 
 ### getdesign.md 미리보기 링크
-각 design_system 값에 대해 [`references/design-system-links.md`](references/design-system-links.md)의 `https://getdesign.md/<slug>` 링크로 상세 페이지를 안내합니다. 사용자가 테마 선택 전 링크를 열어 팔레트·타이포그래피·무드를 직접 확인할 수 있습니다. 75개 시스템 전체 매핑표(저장소 시스템명 → getdesign.md slug)를 해당 파일에서 관리합니다.
+각 design_system 값에 대해 [`references/design-system-links.md`](references/design-system-links.md)의 `https://getdesign.md/<slug>` 목록 페이지를 참고할 수 있습니다. 사이트는 브랜드의 공식 규격이 아닌 독립 분석이며, 상세 분석은 목록에서 한 번 더 선택합니다. 시스템 링크 매핑표(저장소 시스템명 → getdesign.md slug)를 해당 파일에서 관리합니다.
 
 ---
 
@@ -204,9 +203,9 @@ design_system 지정 시 `systems/<name>.md` 토큰 → Tailwind Play CDN config
 
 이미지 필요 시 분기:
 ```
-doc-html-slide → moai-media:media-higgsfield-image (Higgsfield MCP, 기본)
-           → moai-media:media-gpt-image-prompt (GPT Image 2.5 프롬프트 빌더) → media-higgsfield-image
-           → codex exec "$imagegen ..." (image_backend: codex 시, 로컬)
+doc-html-slide → moai-media:media-codex-image → ChatGPT 기본 이미지 생성 (기본)
+           → moai-media:media-higgsfield-image → 공식 Higgsfield 연결 (명시 요청 시)
+           → moai-media:media-gpt-image-prompt → 선택한 이미지 도구에 프롬프트 전달
 ```
 
 design_system 적용은 design-system-library에서 자동 로드 — 별도 선행 스킬 호출 불필요.
@@ -230,9 +229,9 @@ AI 슬라이드 스킬 스타트업 사업계획서 10장 슬라이드로 만들
 신규 API 아키텍처 기술 발표 15장, clickhouse 다크 테마로 슬라이드 HTML 만들어줘.
 ```
 
-**예시 4: codex 백엔드 이미지**
+**예시 4: 앱 기본 이미지 생성**
 ```
-제품 런칭 슬라이드 만들어줘. 히어로 이미지는 codex로 생성하고, notion 테마 적용.
+제품 출시 슬라이드 만들어줘. 히어로 이미지는 기본 이미지 도구로 생성하고, notion 테마 적용.
 ```
 
 **예시 5: 테마 미리보기 후 선택**
@@ -248,7 +247,7 @@ AI 슬라이드 스킬 스타트업 사업계획서 10장 슬라이드로 만들
 - 편집 가능 .pptx 직접 생성은 하지 않습니다 — `doc-pptx`(moai-coworker) 체이닝으로 위임합니다.
 - NotebookLM 입력용 프롬프트는 `moai-media:media-notebooklm-slide-prompt`가 맡습니다.
 - React/Vue/webpack/vite 같은 빌드 단계·런타임 SPA 의존을 도입하지 않습니다 — `file://` 즉시 오픈이 원칙입니다.
-- [`references/image-backend-policy.md`](references/image-backend-policy.md)의 허용 백엔드(Higgsfield MCP + codex)만 사용합니다. 그 외 외부 이미지 백엔드는 사용하지 않습니다.
+- [`references/image-backend-policy.md`](references/image-backend-policy.md)의 이미지 생성 경로를 따릅니다.
 - 여러 파일로 나누지 않습니다 — HTML 산출물은 단일 `.html` 파일입니다.
 
 ---
@@ -259,9 +258,9 @@ AI 슬라이드 스킬 스타트업 사업계획서 10장 슬라이드로 만들
 - [`references/deck-manuscript-schema.md`](references/deck-manuscript-schema.md) — deck.json SSOT 스키마 + doc-pptx 아키타입 매핑 규약
 - [`references/html-runtime.md`](references/html-runtime.md) — 자체 vanilla JS 덱 런타임 (네비게이션·풀스크린·`?print-pdf`·speaker notes, 0의존)
 - [`references/inline-svg-infographics.md`](references/inline-svg-infographics.md) — 인라인 SVG 인포그래픽 패턴 (차트·다이어그램·KPI, 한국어 숫자/라벨 정확 렌더)
-- [`references/image-backend-policy.md`](references/image-backend-policy.md) — 이미지 백엔드 정책 (Higgsfield + codex 공식, antigravity 비권장, 허용 백엔드만)
+- [`references/image-backend-policy.md`](references/image-backend-policy.md) — 앱 기본 이미지 생성과 Higgsfield 연결 선택 규칙
 - [`references/pptx-chaining.md`](references/pptx-chaining.md) — doc-pptx 체이닝 규약 (편집 가능 PPTX 보증 기구)
-- [`references/design-system-links.md`](references/design-system-links.md) — 75개 시스템 → getdesign.md 링크 매핑표
+- [`references/design-system-links.md`](references/design-system-links.md) — 시스템 → getdesign.md 링크 매핑표
 - [`references/deck-quality-rubric.md`](references/deck-quality-rubric.md) — 슬라이드 정량 QA 루브릭 (6카테고리 가중합 + hard-fail, HTML/DOM 재해석, doc-pptx와 공유)
 - [`references/editorial-deck-doctrine.md`](references/editorial-deck-doctrine.md) — 에디토리얼 덱 독트린 (13-슬롯 레이아웃 어휘 + overflow=0, 마침표 액션타이틀 카피 규칙 — 의무 슬롭 체인 보완)
 
@@ -270,9 +269,10 @@ AI 슬라이드 스킬 스타트업 사업계획서 10장 슬라이드로 만들
 - [`samples/deck-sample.html`](samples/deck-sample.html) — 완성 단일 파일 HTML 덱 (design_system: claude 적용)
 
 ### 이웃 스킬 (체이닝)
-- `moai-officer:doc-design-library` — 75개 브랜드 토큰 SSOT
+- `moai-officer:doc-design-library` — 브랜드 토큰 참고
 - `moai-officer:doc-pptx` — 편집 가능 .pptx 생성 (체이닝)
-- `moai-media:media-higgsfield-image` — Higgsfield MCP 이미지 (기본 백엔드)
+- `moai-media:media-codex-image` — ChatGPT 기본 이미지 생성
+- `moai-media:media-higgsfield-image` — 명시 요청 시 Higgsfield 이미지 생성
 - `moai-media:media-gpt-image-prompt` — GPT Image 2.5 이미지 프롬프트 빌더 (한국어 문구 규칙 포함)
 - `moai-coworker:ai-slop-reviewer` → `moai-writer:korean-humanize` — 의무 후처리 체인
 

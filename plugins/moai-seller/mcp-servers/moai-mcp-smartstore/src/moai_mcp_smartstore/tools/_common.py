@@ -7,6 +7,7 @@ API 에러·네트워크 오류를 예외가 아닌 안전한 dict 로 반환해
 from __future__ import annotations
 
 from typing import Any
+from urllib.parse import quote
 
 from ..client import get_client
 from ..config import Config
@@ -16,6 +17,16 @@ _NOT_CONFIGURED_MSG = (
     "NAVER_COMMERCE_CLIENT_ID, NAVER_COMMERCE_CLIENT_SECRET 환경변수를 설정하세요. "
     "발급 절차는 CONNECTORS.md 참고."
 )
+
+
+def segment(value: Any) -> str:
+    """Keep a tool argument inside one API path segment."""
+    if value is None:
+        raise ValueError("Path parameter cannot be None")
+    raw = str(value)
+    if raw in ("", ".", ".."):
+        raise ValueError("Path parameter cannot be empty or a dot segment")
+    return quote(raw, safe="")
 
 
 def call(

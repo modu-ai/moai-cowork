@@ -1,6 +1,6 @@
 # 스토리 크리에이터 (moai-story)
 
-스토리/IP 창작 전담 AI 코워커입니다. 웹툰·웹소설·시나리오·콘티·표지·캐릭터 시트·IP 사업화(story-* 17종) 스킬을 하나의 플러그인으로 제공합니다. 슬래시 명령을 외울 필요 없이 자연어로 요청하면 매칭되는 스킬이 자동 호출됩니다.
+스토리/IP 창작 전담 AI 코워커입니다. 웹툰·웹소설·시나리오·콘티·표지·캐릭터 시트·IP 사업화(story-*) 스킬을 하나의 플러그인으로 제공합니다. 슬래시 명령을 외울 필요 없이 자연어로 요청하면 매칭되는 스킬이 자동 호출됩니다.
 
 > **분리 안내**: 본 플러그인의 스토리 스킬들은 `moai-writer`에서 분리되었습니다(출판 book-* 스킬은 moai-writer에 잔류). 신규 호출은 `moai-story:<스킬명>` 네임스페이스를 사용하세요. 이미지·영상 **생성 실행**은 `moai-media` 플러그인에 위임합니다.
 
@@ -10,23 +10,11 @@
 
 `modu-ai/moai-cowork` 마켓플레이스 하나에서 설치합니다. **Claude Cowork**와 **ChatGPT Work** 두 데스크톱 앱 모두 같은 방식입니다.
 
-**가장 쉬운 방법** — 설정(Settings) 또는 플러그인(Plugins) 메뉴 → 마켓플레이스(Marketplace)에서 주소 `modu-ai/moai-cowork`를 추가한 뒤, 플러그인 목록에서 `moai-story`를 찾아 **Install**을 누르세요.
-
-**터미널에 익숙하다면 (대안)**
-
-```bash
-# Claude Cowork CLI
-claude plugin marketplace add modu-ai/moai-cowork
-claude plugin install moai-story@moai-cowork
-
-# ChatGPT Work CLI
-codex plugin marketplace add modu-ai/moai-cowork
-codex plugin add moai-story@moai-cowork
-```
+Claude Cowork·ChatGPT Work 데스크톱 앱에서 **Settings(또는 Plugins) → Marketplace → +**를 열어 `modu-ai/moai-cowork`를 추가하세요. 그다음 Plugins 화면에서 **moai-story**를 선택하고 **+** 또는 **Install**을 누르세요.
 
 > 앱별 정확한 클릭 경로와 잘 안 될 때 대처법은 [플러그인 설치와 관리](https://cowork.mo.ai.kr/plugins/install/)에 정리해 두었습니다.
 
-## 스킬 17종 (계층별)
+## 스킬 (계층별)
 
 호출 형식: `/moai-story:<스킬명>` — 예: `/moai-story:story-webtoon-episode`. 자연어 요청("웹툰 회차 대본 써줘")으로도 자동 매칭됩니다.
 
@@ -76,6 +64,7 @@ codex plugin add moai-story@moai-cowork
 | 스킬 | 역할 |
 |------|------|
 | `story-webtoon-qc` | 웹툰 산출 이미지 검수 — 결함 7종 점검·세로 스크롤 규격·일관성 앵커 위반 판정 |
+| `story-continuity-audit` | 회차 간 인물·사건·설정, 플랫폼 규격과 IP 주장 검수 |
 
 > **비고**: 이전 `story-ad-conti`(광고 콘티)는 `story-conti`의 광고 프리셋으로 통합되었습니다.
 
@@ -86,7 +75,9 @@ codex plugin add moai-story@moai-cowork
 - 생성 작업은 크레딧이 소모되므로 moai-media가 **사전 크레딧 고지 + 사용자 확인** 후에만 실행합니다
 - MCP 미연결 시 프롬프트 온리 모드(생성 프롬프트만 산출)로 자동 전환됩니다
 
-## 에이전트 2종
+## Claude 에이전트
+
+ChatGPT Work에서는 `story-project`가 작품 작업을 연결하고 `story-continuity-audit`이 서사·권리 근거를 검수합니다.
 
 | 에이전트 | 등급 | 역할 |
 |----------|------|------|

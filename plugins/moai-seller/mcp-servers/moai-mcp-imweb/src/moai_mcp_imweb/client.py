@@ -15,6 +15,7 @@ The client is a thin wrapper; all domain logic lives in the generated tools.
 from __future__ import annotations
 
 import time
+from urllib.parse import quote
 from typing import TYPE_CHECKING, Any, Mapping, Optional
 
 import httpx
@@ -89,8 +90,11 @@ class ImwebClient:
     ) -> Any:
         """Perform a single API call. Returns parsed JSON (or raw text on non-JSON)."""
         if path_params:
-            # str() every path param; None values are filled as empty — caller should not pass None.
-            path = path.format(**{k: ("-" if v is None else _path_val(v)) for k, v in path_params.items()})
+            if any(v is None for v in path_params.values()):
+                raise ValueError("Path parameters cannot be None")
+            path = path.format(**{k: _path_val(v) for k, v in path_params.items()})
+        if "{" in path or "}" in path:
+            raise ValueError(f"Missing path parameter for {path}")
         clean_params = _drop_none(params)
 
         self._delay()
@@ -127,6 +131,7 @@ class ImwebClient:
         self,
         path: str,
         *,
+        path_params: Optional[Mapping[str, Any]] = None,
         params: Optional[Mapping[str, Any]] = None,
         page_size: int = 100,
         max_pages: int = 50,
@@ -145,7 +150,7 @@ class ImwebClient:
         meta: dict[str, Any] = {"page_size": page_size, "pages_fetched": 0}
         for page in range(1, max_pages + 1):
             p = {**base, "page": page, "limit": page_size}
-            data = self.request("GET", path, params=p)
+            data = self.request("GET", path, path_params=path_params, params=p)
             rows = _extract_rows(data, list_key)
             aggregated.extend(rows)
             meta["pages_fetched"] = page
@@ -163,7 +168,9 @@ class ImwebClient:
 def _path_val(v: Any) -> str:
     if isinstance(v, bool):
         return "true" if v else "false"
-    return str(v)
+    if v is None or str(v) in ("", ".", ".."):
+        raise ValueError("Path parameter cannot be empty or a dot segment")
+    return quote(str(v), safe="")
 
 
 def _drop_none(m: Optional[Mapping[str, Any]]) -> dict[str, Any]:

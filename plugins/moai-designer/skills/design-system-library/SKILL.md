@@ -1,7 +1,7 @@
 ---
 name: design-system-library
 description: |
-  75개 글로벌 브랜드 디자인 시스템(Claude · ClickHouse · Clay 포함)을 단일 파일 HTML 산출물에 적용합니다. 각 시스템의 토큰(색·타이포·radius·spacing·컴포넌트)을 Tailwind Play CDN config + shadcn 스타일 vanilla 컴포넌트로 변환해 렌더합니다.
+  글로벌 브랜드 디자인 시스템 참고 자료(Claude · ClickHouse · Clay 포함)의 색·타이포·간격·컴포넌트 구조를 읽고, 사용자 브랜드에 맞는 HTML 디자인 토큰을 설계합니다. Tailwind Play CDN 예시는 개발용이며 최종 산출물은 대상 환경에서 렌더·대비를 검증합니다.
   doc-html-report · 랜딩 페이지 · 각종 문서 생성 시 design_system을 지정하면 해당 브랜드 무드가 즉시 적용됩니다. Claude Design 핸드오프 시에는 DESIGN.md 지침 소스로 제공됩니다.
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
   - "Claude 스타일로 HTML 보고서 만들어줘"
@@ -11,7 +11,7 @@ description: |
   - "Notion / Linear / Stripe 스타일로 리포트"
   - "어두운 테마 / 따뜻한 화이트 테마로"
   - "Claude Design에 올릴 디자인 시스템 자료 정리"
-version: "1.1.1"
+version: "1.1.3"
 ---
 
 # design-system-library — 75개 브랜드 디자인 시스템 SSOT
@@ -26,7 +26,7 @@ version: "1.1.1"
 
 **핵심 원칙**:
 - 라이브러리는 데이터(token + 분석) SSOT — 렌더 로직은 소비자(doc-html-report)가 소유
-- Tailwind Play CDN으로 단일 파일·외부 빌드 없이 브랜드 토큰 적용 (인터넷 연결 필요)
+- Tailwind Play CDN 예시는 개발·미리보기용이다. 최종 배포물은 필요한 스타일을 정적 CSS로 포함하거나 프로젝트의 빌드 경로를 사용한다. [Tailwind 공식 문서](https://tailwindcss.com/docs/installation/play-cdn)도 Play CDN을 개발용으로 한정한다.
 - shadcn 컴포넌트는 React가 아닌 **vanilla HTML/CSS로 재현** (단일 파일·React 불필요)
 - 기존 doc-html-report 0의존 템플릿은 유지 — design_system 미지정 시 하위 호환
 
@@ -59,15 +59,17 @@ version: "1.1.1"
 
 [`systems/registry.md`](systems/registry.md) 참조 — 분류(light/warm/dark) · 캔버스 · primary 색 · 폰트 · 무드 메타 포함.
 
-전체 75개 시스템(56개 풍부 분석 + 19개 경량 토큰 ⚙️) — 각 `systems/<name>.md`에 토큰 보관, `registry.md`에 휘도 기반 분류(light 48 · dark 25 · warm 2)·메타 표기. 기본 3테마(claude/clickhouse/clay)는 Tailwind 매핑 검증 완료. 19개 경량(⚙️)은 `테마_컴포넌트_쇼케이스_전체.html`에서 추출 — 풍부한 분석·typography 스케일은 추후 보강.
+전체 시스템의 파일 목록과 출처 수준은 `registry.md`와 `BRAND-NOTICE.md`에서 확인한다. 기본 3테마의 예시 config가 있으나, 현재 산출물의 렌더·대비 통과를 뜻하지 않는다. 경량 토큰의 출처·재사용 조건이 확인되지 않은 항목은 내부 참고로만 다룬다.
+
+브랜드 분석 문서 상당수에는 원 브랜드의 공식 출처 URL이 기록돼 있지 않다. 이 토큰을 현재 공식 디자인 시스템과 동일하다고 주장하지 않고, 사용자 브랜드를 설계하는 참고값으로만 쓴다. 특정 브랜드를 그대로 재현해야 한다면 해당 브랜드의 현재 공식 자료와 사용권을 별도로 확인한다.
 
 ---
 
-## Tailwind Play CDN 통합
+## Tailwind Play CDN 미리보기
 
 [`mapping/tailwind.md`](mapping/tailwind.md) 참조 — YAML design token → Tailwind CDN inline config 매핑 규칙 + shadcn vanilla 컴포넌트 변환표.
 
-**핵심 패턴** (단일 파일 HTML 내):
+**개발 미리보기 패턴** (네트워크 연결 필요, 최종 배포용 아님):
 
 ```html
 <!-- 1. Tailwind Play CDN -->
@@ -114,9 +116,9 @@ version: "1.1.1"
 
 ### doc-html-report (moai-coworker)
 
-`moai-officer:doc-html-report`에 `design_system` 입력 파라미터 추가:
+`moai-officer:doc-html-report`의 `design_system` 입력은 다음 의도로 쓰인다. 실제 렌더 결과는 소비자 스킬에서 확인한다:
 - 미지정 → 기존 0의존 템플릿 (Anthropic 영감 ivory/slate/clay, 하위 호환)
-- `design_system: claude|clickhouse|clay|<75개 중>` → 본 라이브러리에서 토큰 로드 → Tailwind Play CDN + shadcn vanilla 렌더
+- `design_system: claude|clickhouse|clay|<카탈로그 항목>` → 이 라이브러리에서 토큰을 읽고 결과물 형식에 맞는 CSS와 HTML을 생성한다. 개발 미리보기에만 Play CDN을 쓴다.
 
 체인 예시:
 ```
@@ -133,9 +135,9 @@ version: "1.1.1"
 
 1. **시스템 선택** — 사용자 명시 또는 산출물 성격 기반 자동 추천(위 휴리스틱)
 2. **토큰 로드** — `systems/<name>.md`의 YAML frontmatter(colors/typography/rounded/spacing/components) 파싱
-3. **Tailwind config 생성** — `mapping/tailwind.md` 규칙으로 `tailwind.config` 객체 생성
+3. **토큰 매핑** — `mapping/tailwind.md` 규칙을 참고하고, CTA·배지의 배경과 글자색 대비를 실제 계산
 4. **shadcn vanilla 매핑** — 산출물 구조 카드/버튼/테이블을 `components/` 참조 마크업으로 치환
-5. **단일 파일 렌더** — CDN script + config + 마크업을 단일 `.html`로 출력
+5. **단일 파일 렌더** — 대상 환경에 필요한 CSS와 마크업을 포함해 출력하고 브라우저에서 확인. Play CDN은 개발 미리보기일 때만 사용
 
 ---
 

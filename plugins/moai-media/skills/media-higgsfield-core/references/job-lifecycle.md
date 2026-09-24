@@ -2,17 +2,19 @@
 
 > `media-higgsfield-core` | 프리플라이트 비용, 비동기 JOB 폴링, 오류 분류, 서버 치환 리드백.
 
-**Evidence tier:** 1차 (라이브 `get_cost` / `job_status` 관측. `mcp-catalog-snapshot.md` §5.1 근거)
+**Evidence tier:** 1차 (Higgsfield MCP의 `get_cost`·`job_status`, ChatGPT 공식 Higgsfield 플러그인의 `estimate_image_cost`·`jobs_wait` 도구 스키마 관측)
 
 ---
 
 ## 1. 비용 프리플라이트 — `get_cost`
 
-모든 실제 생성 **직전**, 같은 `params`에 `get_cost: true`를 넣어 프리플라이트한다. 이 호출은 **JOB을 제출하지 않고 크레딧을 0 소모**하며, 반환값에 예상 `credits`가 담긴다. 파라미터 검증 오류도 이때 드러난다.
+실제 생성 **직전**, 현재 연결에 맞는 도구로 견적을 받는다. Higgsfield MCP에서는 같은 `params`에 `get_cost: true`를 넣는다. ChatGPT 공식 플러그인에서는 별도의 `estimate_image_cost({params})`를 호출하고 응답의 `cost.credits`를 읽는다. 둘 다 생성 JOB을 제출하지 않는다.
+
+**참조 이미지가 HTTPS URL이면 주의:** ChatGPT 공식 플러그인의 견적 도구는 URL을 가져와 Higgsfield 미디어 라이브러리에 업로드·확정할 수 있다. 같은 견적을 반복하면 업로드도 반복될 수 있다. 사용자가 해당 이미지를 Higgsfield에 전송하도록 허용했는지 먼저 확인하고, 이미 업로드된 `media_id`가 있으면 재사용한다. 외부 전송 승인이 없으면 URL을 견적 도구에 넘기지 않는다.
 
 ## 2. `credits` vs `credits_exact` — 반드시 `credits`를 보고
 
-프리플라이트 응답은 두 숫자를 줄 수 있다. 예: `soul_2`는 `credits: 1`이지만 `credits_exact: 0.12`를 반환한다 — 반올림/최소 청구 하한(floor)이 있기 때문이다.
+프리플라이트 응답은 두 숫자를 줄 수 있다. 예: `soul_2`는 `credits: 1`이지만 `credits_exact: 0.12`를 반환한다 — 반올림/최소 청구 하한(floor)이 있기 때문이다. ChatGPT 공식 플러그인에서는 이 값이 `cost.credits`와 `cost.credits_exact` 안에 있다.
 
 **규칙: 스킬은 사용자에게 `credits`(실제 청구되는 값)를 보고한다. `credits_exact`(청구되지 않는 미반올림 값)를 보고하지 않는다.** `credits_exact`를 그대로 노출하면 사용자는 실제보다 싼 값으로 오해한다.
 
@@ -36,7 +38,7 @@ adjustments:
 
 ## 5. 비동기 JOB 폴링·오류 분류
 
-Higgsfield는 비동기 처리다. 생성 호출 직후 `job_id`를 받고 `job_status`로 폴링한다.
+Higgsfield는 비동기 처리다. 생성 호출 직후 `job_id`를 받고 MCP에서는 `job_status`로 폴링한다. ChatGPT 공식 플러그인은 `jobs_wait`에 반환된 ID를 넘긴다. 이 도구는 한 번에 최대 8개, 호출당 최대 15초를 기다리며 `all_terminal:false`이면 반환된 `poll_after_seconds`를 따른다. 생성 도구가 이미 결과 위젯을 표시했다면 단순 새로고침 목적으로 `job_display`를 호출하지 않는다.
 
 | 상태 | 의미 | 대응 |
 |---|---|---|

@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import random
 import time
+from urllib.parse import quote
 from typing import TYPE_CHECKING, Any, Mapping, Optional
 
 import httpx
@@ -125,6 +126,8 @@ class Cafe24Client:
         """Perform a single API call. Returns parsed JSON (or raw text on non-JSON)."""
         if path_params:
             path = path.format(**{k: _path_val(v) for k, v in path_params.items()})
+        if "{" in path or "}" in path:
+            raise ValueError(f"Missing path parameter for {path}")
         clean_params = _drop_none(params)
         url = f"{self._base_url(surface)}{path}"
 
@@ -166,6 +169,7 @@ class Cafe24Client:
         path: str,
         *,
         surface: str = SURFACE_ADMIN,
+        path_params: Optional[Mapping[str, Any]] = None,
         params: Optional[Mapping[str, Any]] = None,
         page_size: int = 100,
         max_pages: int = 50,
@@ -191,7 +195,7 @@ class Cafe24Client:
         for page in range(max_pages):
             offset = page * page_size
             p = {**base, "limit": page_size, "offset": offset}
-            last_data = self.request("GET", path, surface=surface, params=p)
+            last_data = self.request("GET", path, surface=surface, path_params=path_params, params=p)
             rows, detected_key = _extract_rows(last_data, list_key)
             if list_key is None and detected_key:
                 list_key = detected_key
@@ -222,7 +226,9 @@ class Cafe24Client:
 def _path_val(v: Any) -> str:
     if isinstance(v, bool):
         return "T" if v else "F"
-    return str(v)
+    if v is None or str(v) in ("", ".", ".."):
+        raise ValueError("Path parameter cannot be empty or a dot segment")
+    return quote(str(v), safe="")
 
 
 def _drop_none(m: Optional[Mapping[str, Any]]) -> dict[str, Any]:

@@ -1,6 +1,6 @@
 # CS매니저 (moai-cs)
 
-고객지원·CRM 전담 AI 코워커입니다. 티켓 분류, 응답 초안, 에스컬레이션 처리, 지식베이스 작성부터 VOC 분석, 채널별 CRM 메시지까지 고객 접점 실무 스킬 6종을 하나의 플러그인으로 제공합니다. 슬래시 명령을 외울 필요 없이 자연어로 요청하면 매칭되는 스킬이 자동 호출됩니다.
+고객지원·CRM 전담 AI 코워커입니다. 티켓 분류, 응답 초안, 에스컬레이션 처리, 지식베이스 작성부터 VOC 분석, 채널별 CRM 메시지까지 고객 접점 실무 스킬을 하나의 플러그인으로 제공합니다. 슬래시 명령을 외울 필요 없이 자연어로 요청하면 매칭되는 스킬이 자동 호출됩니다.
 
 **이런 분께 추천**: 온라인 셀러 · CS 담당자 · 1인 사업자
 
@@ -8,25 +8,13 @@
 
 `modu-ai/moai-cowork` 마켓플레이스 하나에서 설치합니다. **Claude Cowork**와 **ChatGPT Work** 두 데스크톱 앱 모두 같은 방식입니다.
 
-**가장 쉬운 방법** — 설정(Settings) 또는 플러그인(Plugins) 메뉴 → 마켓플레이스(Marketplace)에서 주소 `modu-ai/moai-cowork`를 추가한 뒤, 플러그인 목록에서 `moai-cs`를 찾아 **Install**을 누르세요.
-
-**터미널에 익숙하다면 (대안)**
-
-```bash
-# Claude Cowork CLI
-claude plugin marketplace add modu-ai/moai-cowork
-claude plugin install moai-cs@moai-cowork
-
-# ChatGPT Work CLI
-codex plugin marketplace add modu-ai/moai-cowork
-codex plugin add moai-cs@moai-cowork
-```
+Claude Cowork·ChatGPT Work 데스크톱 앱에서 **Settings(또는 Plugins) → Marketplace → +**를 열어 `modu-ai/moai-cowork`를 추가하세요. 그다음 Plugins 화면에서 **moai-cs**를 선택하고 **+** 또는 **Install**을 누르세요.
 
 > 앱별 정확한 클릭 경로와 잘 안 될 때 대처법은 [플러그인 설치와 관리](https://cowork.mo.ai.kr/plugins/install/)에 정리해 두었습니다.
 
-## 스킬 6종
+## 스킬
 
-호출 형식: `/moai-cs:business-<스킬명>` — 예: `/moai-cs:cs-ticket-triage`. 자연어 요청("이 문의 분류해줘")으로도 자동 매칭됩니다.
+호출 형식: `/moai-cs:cs-<스킬명>` — 예: `/moai-cs:cs-ticket-triage`. 자연어 요청("이 문의 분류해줘")으로도 자동 매칭됩니다.
 
 ### 티켓·응대 (4종)
 
@@ -43,8 +31,12 @@ codex plugin add moai-cs@moai-cowork
 |------|------|
 | `cs-voc-triage` | 멀티채널 리뷰 통합 분석 + VOC 3축 분류 · KTAS 5단계 우선순위 트리아지 |
 | `cs-channel-message` | NCM 프레임워크 기반 검색·광고·CRM·앱 푸시 채널별 메시지 15종 + 운영 카피 생성 |
+| `cs-workflow` | 복합 고객지원 요청의 자료 확인과 작업 연결 |
+| `cs-quality-audit` | 응답·분류·VOC·FAQ의 근거와 개인정보 검수 |
 
-## 에이전트 2종
+## Claude 에이전트
+
+ChatGPT Work에서는 같은 작업 경로를 `cs-workflow`와 `cs-quality-audit` 스킬로 제공합니다.
 
 | 에이전트 | 등급 | 역할 |
 |----------|------|------|

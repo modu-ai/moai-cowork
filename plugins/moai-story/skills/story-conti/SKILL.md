@@ -8,7 +8,7 @@ description: |
   - "연출 콘티", "촬영 콘티", "드라마 콘티", "영화 콘티"
   - "광고 콘티", "광고 스토리보드", "CF 콘티", "브랜드 콘티", "제품 영상 콘티"
   - "화각 설계", "앵글 구성", "컷 전환"
-version: "1.1.0"
+version: "1.1.1"
 ---
 
 # story-conti: 영상 콘티 보드
@@ -21,7 +21,7 @@ version: "1.1.0"
 
 ## 2. 이 스킬이 하지 않는 것
 
-- **이미지·영상 생성·크레딧 고지·모델 선택 안 함** — `moai-media:media-higgsfield-core` 계약에 위임(§4-생성 실행).
+- **이미지·영상 생성 안 함** — 선택한 `moai-media` 경로에 위임(§4-생성 실행).
 - **카메라 무빙 영상 클립 안 만듦** — 달리·팬·트래킹이 들어간 시네마틱 클립은 `story-previz`.
 - **모델 프롬프트 문법 안 소유** — 벤더별 문법은 `moai-media`.
 - **대본 집필 안 함** — 씬·대사는 `story-screenplay`가 확정한 것을 받는다.
@@ -51,9 +51,9 @@ version: "1.1.0"
 
 ### Step 4-생성 실행 — moai-media 위임
 
-조립된 프레임 프롬프트의 실제 생성·비용 프리플라이트·모델 선택은 `moai-media:media-higgsfield-core` 계약(`models_explore` 라이브 조회 + `get_cost` 사전 고지)에 위임한다.
+조립된 프레임 프롬프트의 이미지 생성은 ChatGPT Work의 기본 이미지 경로인 `moai-media:media-codex-image`에 위임한다. 사용자가 Higgsfield를 지정한 경우에만 `moai-media:media-higgsfield-image`로 넘기고 해당 경로에서 실제 연결과 비용을 확인한다.
 
-> moai-media 미설치 시: 완성 프레임 프롬프트를 텍스트로 출력하고 Higgsfield 웹(https://higgsfield.ai)에서 직접 생성하도록 안내한다.
+> 이미지 생성 도구가 없으면 프레임 프롬프트를 텍스트로 제공하고 생성했다고 표시하지 않는다.
 
 ## 5. 출력 형식
 
@@ -70,14 +70,14 @@ version: "1.1.0"
 [프레임 1 복붙 프롬프트]
 ...
 ```
-→ 생성 실행: `moai-media:media-higgsfield-core` 위임.
+→ 생성 실행: 현재 호스트의 기본 이미지 경로 또는 사용자가 지정한 Higgsfield 경로로 위임.
 
 ## 6. 주의사항
 
-- **생성 전 비용 고지·승인.** `moai-media`의 `get_cost` 결과를 사용자에게 고지하고 승인받은 뒤 생성한다(책임이 위임 과정에서 증발하지 않게).
+- **외부 서비스 비용 확인.** Higgsfield를 선택했을 때는 해당 서비스의 실제 비용 정보를 확인한다.
 - **컷 수는 감정 비트가 정한다** — 프레임 할당량 사고 금지.
 - **톤·색온도 통일** — 한 시퀀스 안에서 밝기·색온도가 흔들리지 않게 프롬프트에 반복 명시.
-- **광고는 첫 3초 후크** — 없으면 스킵률 급증(`ad-conti-preset.md`).
+- **광고는 초반 전달력 점검** — 게재 위치와 형식에 맞춰 첫 화면의 메시지를 검토한다(`ad-conti-preset.md`).
 
 ## 7. 관련 스킬
 
@@ -89,7 +89,8 @@ version: "1.1.0"
 - `story-previz` — 카메라 무빙 시네마틱 클립(정지 보드 다음)
 
 ### 위임
-- `moai-media:media-higgsfield-core` — 생성 실행·비용 프리플라이트·모델 선택
+- `moai-media:media-codex-image` — ChatGPT 기본 이미지 생성
+- `moai-media:media-higgsfield-image` — 사용자가 Higgsfield를 지정한 경우
 
 ## 8. References
 
@@ -102,5 +103,5 @@ version: "1.1.0"
 
 - 화각·앵글 어휘·"컷 수는 감정 비트가 정한다": aitoon-comic(내부 자산 참고 이식).
 - 광고 콘티 프리셋: 구 story-ad-conti 지식 이관(병합).
-- 생성·비용·모델: `moai-media:media-higgsfield-core` 라이브 계약.
+- 생성·비용·모델: 선택한 이미지 경로의 실제 도구와 응답으로 확인.
 - 원작 카피라이터: **조남경** (https://www.facebook.com/Bmisty)

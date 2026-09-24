@@ -12,7 +12,7 @@ import pytest
 import respx
 from httpx import Response
 
-from moai_mcp_imweb._base import _load_persisted_tokens, _persist_tokens
+from moai_mcp_imweb._base import _load_persisted_tokens, _persist_tokens, load_config
 from moai_mcp_imweb.auth import ImwebAuthError, refresh_access_token
 
 TOKEN_URL = "https://openapi.imweb.me/oauth2/token"
@@ -54,6 +54,18 @@ def test_갱신_결과가_파일에_남는다(cfg, tmp_path):
 
     refresh_access_token(replace(cfg, token_file=path))
     assert _load_persisted_tokens(path) == ("a2", "r2")
+
+
+def test_재시작하면_저장된_회전_토큰을_환경변수보다_우선한다(tmp_path, monkeypatch):
+    path = tmp_path / "tokens.json"
+    _persist_tokens(path, "fresh-access", "rotated-refresh")
+    monkeypatch.setenv("IMWEB_TOKEN_FILE", str(path))
+    monkeypatch.setenv("IMWEB_ACCESS_TOKEN", "stale-access")
+    monkeypatch.setenv("IMWEB_REFRESH_TOKEN", "stale-refresh")
+
+    config = load_config()
+    assert config.access_token == "fresh-access"
+    assert config.refresh_token == "rotated-refresh"
 
 
 @respx.mock
