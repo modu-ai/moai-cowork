@@ -30,7 +30,7 @@ Claude Cowork와 ChatGPT Work는 마켓플레이스 등록 권한과 경로가 �
 
 | 스킬 | 역할 |
 |------|------|
-| `cs-voc-triage` | 멀티채널 리뷰 통합 분석 + VOC 3축 분류 · KTAS 5단계 우선순위 트리아지 |
+| `cs-voc-triage` | 멀티채널 리뷰 통합 분석 + 안전·법적 시한 우선 확인과 VOC 3축 분류 |
 | `cs-channel-message` | NCM 프레임워크 기반 검색·광고·CRM·앱 푸시 채널별 메시지 15종 + 운영 카피 생성 |
 | `cs-workflow` | 복합 고객지원 요청의 자료 확인과 작업 연결 |
 | `cs-quality-audit` | 응답·분류·VOC·FAQ의 근거와 개인정보 검수 |
