@@ -149,6 +149,23 @@ class GateTests(unittest.TestCase):
         self.assertEqual(res["verdict"], "ABORT")
         self.assertEqual(res["exit_code"], gates.EXIT_ABORT)
 
+    def test_copy_product_name_change_cannot_auto_pass(self):
+        before = "브랜드 알파가 고객을 돕습니다. " * 20
+        after = before.replace("알파", "베타")
+        res = self._run(before, after, genre="copy")
+        self.assertEqual(res["axes"]["P3_불변식"]["status"], "PASS")
+        self.assertEqual(res["verdict"], "INCONCLUSIVE")
+        self.assertEqual(res["exit_code"], gates.EXIT_WARN)
+
+    def test_copy_alias_and_unknown_genre_cannot_auto_pass(self):
+        before = "브랜드 알파가 고객을 돕습니다. " * 20
+        after = before.replace("알파", "베타")
+        for genre in ("마케팅 카피", "브랜드 카피", "알 수 없는 장르"):
+            with self.subTest(genre=genre):
+                res = self._run(before, after, genre=genre)
+                self.assertNotEqual(res["verdict"], "PASS")
+                self.assertNotEqual(res["exit_code"], gates.EXIT_OK)
+
     def test_missing_file_exits_error_not_silently(self):
         """게이트를 건너뛰지 않는다 — 실행 불가는 exit 3으로 드러난다."""
         self.assertEqual(gates.main(["--before", "/nonexistent_a", "--after", "/nonexistent_b"]),

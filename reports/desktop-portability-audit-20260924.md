@@ -29,7 +29,7 @@
 | moai-story | 18 | 2 | 42 | 0 | 1 | 대기 |
 | moai-threads-poster | 5 | 0 | 2 | 16 | 1 | 대기 |
 | moai-tutor | 11 | 2 | 11 | 0 | 0 | 대기 |
-| moai-writer | 10 | 2 | 17 | 0 | 1 | 41/48파일 정적 열람, 나머지·앱 실행 검증 대기 |
+| moai-writer | 10 | 2 | 17 | 0 | 1 | 42/48파일 정적 열람, 나머지·앱 실행 검증 대기 |
 
 ## 공식 문서와 확인한 개선점
 
@@ -947,3 +947,10 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - 적대적 감사의 구조화 판정은 `inconclusive`, `findings: []`였다. 요약의 파일 권한 변경과 심볼릭 링크 교체 지적을 실제 저장 코드와 대조해, 기존 대상의 모드를 새 파일에 적용하고 출력 경로가 심볼릭 링크이면 대상 파일을 교체해 링크 자체를 유지하도록 수정했다. 감사 요약의 `FAIL` 문구는 구조화 판정으로 취급하지 않는다.
 - `uv run --with pytest python -m pytest -q plugins/moai-writer/skills/korean-humanize/tests` 출력은 `134 passed, 10 subtests passed in 0.23s`, `git diff --check`는 출력 없이 종료 코드 0이었다. 새 테스트는 속성·태그·JSON-LD 삽입, 제자리 저장, POSIX 모드와 심볼릭 링크 보존을 확인한다. 실제 데스크톱 앱의 HTML 파일 처리와 Windows 링크 권한은 아직 검증하지 않았다. 스킬 버전은 `1.4.4`, 작가 플러그인 세 버전은 `1.5.11`이다.
 - `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`이었다. 장부 파싱 결과 작가 파일 48개 중 `static_read` 41개였다. 앞선 처방집 수정 `89dcc6df`의 [원격 CI](https://github.com/modu-ai/moai-cowork/actions/runs/36068725384)는 조회 시 `completed/success`였으며 이번 HTML 치환기 수정의 CI는 별도로 확인해야 한다.
+
+### 카피 구조 게이트의 고유명사 누락 (2026-09-25)
+
+- `verify_gates.py`를 전체 열람하고 `브랜드 알파가 고객을 돕습니다.` 20문장의 `알파`를 모두 `베타`로 바꾼 입력을 `run(..., genre="copy")`에 넣었다. 관측 출력은 `P0=REPORT`, `P1=PASS`, `P3=PASS`, 종합 `PASS/exit 0`이었다. P3 구현은 수치·인용·이모지·격식을 검사하지만 고유명사와 핵심 약속을 검사하지 않으므로, 이 결과를 사실 앵커 보존의 증거로 삼을 수 없다.
+- 카피의 문자율 가드는 그대로 보고 전용으로 두되, 다른 축에 경고가 없어도 종합 판정을 `INCONCLUSIVE/exit 1`로 내려 Phase 6 원문 대조를 요구하도록 고쳤다. 고유명사 변조 사례를 회귀 테스트로 추가했고 `uv run --with pytest python -m pytest -q plugins/moai-writer/skills/korean-humanize/tests` 출력은 `135 passed, 10 subtests passed in 0.29s`였다. `git diff --check`는 출력 없이 종료 코드 0이었다. 이는 자동 PASS 차단을 검증하며 실제 윤문본의 의미 보존 판정은 아니다.
+- `mcp__moai__codex_audit`의 구조화 판정은 `inconclusive`, `findings: []`였다. 요약은 미등록 장르 `마케팅 카피`가 산문 분기로 흘러 고유명사·효익 변경을 `PASS`로 낸다고 지적했다. 자주 쓰는 카피 별칭을 정규화하고, 그 밖의 미인식 장르는 자동 PASS 대신 `INCONCLUSIVE`로 보낸다. `contextual-review.md`에서 P3가 고유명사를 판정한다는 잘못된 지시도 원문 직접 대조로 고쳤다. `136 passed, 13 subtests passed in 0.28s`와 런타임 검사 `검사한 플러그인 18개 — 오류 0건, 참고 0건`을 재관측했다. 감사 요약의 `FAIL` 문구는 구조화 판정으로 취급하지 않는다.
+- 앞선 HTML 수정 `82b14a9f`의 [원격 CI](https://github.com/modu-ai/moai-cowork/actions/runs/36069241068)는 조회 시 `completed/success`였다. 이번 카피 게이트 수정의 원격 결과와 실제 데스크톱 윤문은 별도로 확인해야 한다.

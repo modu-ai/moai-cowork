@@ -1082,7 +1082,7 @@ plugins/moai-writer/skills/korean-humanize/references/rewriting-playbook.md		sta
 plugins/moai-writer/skills/korean-humanize/references/sanitize_text.py		static_read
 plugins/moai-writer/skills/korean-humanize/references/scholarship.md		partial
 plugins/moai-writer/skills/korean-humanize/references/strict-pipeline-spec.md		static_read
-plugins/moai-writer/skills/korean-humanize/references/verify_gates.py		partial
+plugins/moai-writer/skills/korean-humanize/references/verify_gates.py		static_read
 plugins/moai-writer/skills/korean-humanize/references/web-service-spec.md		static_read
 plugins/moai-writer/skills/korean-humanize/tests/test_audit_regressions.py		static_read
 plugins/moai-writer/skills/korean-humanize/tests/test_gates.py		static_read

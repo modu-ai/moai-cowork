@@ -53,15 +53,17 @@ ANNIHILATION_BEFORE_MIN = 5
 
 # 카피 모드는 문자 변경률 가드를 쓰지 않는다. 헤드라인을 다시 쓰면 글자는
 # 대부분 바뀌지만 사실 앵커만 지키면 정상이다 — 산문 기준을 그대로 들이대면
-# 정상 리라이트가 ABORT된다. 이 장르에서 P0은 보고만 하고, 판정은 P3
-# 불변식(수치·인용·고유명사)이 맡는다.
+# 정상 리라이트가 ABORT된다. P3는 수치·인용만 확인하며 고유명사와
+# 핵심 약속을 못 보므로 카피의 자동 PASS는 금지하고 원문 대조로 넘긴다.
 COPY_GENRES = {"copy", "headline", "cta", "landing", "slide", "social", "sns", "story"}
+PROSE_GENRES = {"essay", "poetry", "abstract", "news", "qa", "blog", "report", "official"}
 
 # [HARD] 사용자 옵션은 한국어로 들어온다(`장르: 카피|슬라이드`). 영어 값만
 # 비교하면 `슬라이드`가 카피 가드를 못 타고 산문으로 판정된다 — 실측:
 # slide → SKIP, 슬라이드 → FAIL. 경계에서 정규화해 같은 값으로 만든다.
 GENRE_ALIASES = {
-    "카피": "copy", "헤드라인": "headline", "랜딩": "landing", "슬라이드": "slide",
+    "카피": "copy", "마케팅 카피": "copy", "마케팅카피": "copy",
+    "브랜드 카피": "copy", "헤드라인": "headline", "랜딩": "landing", "슬라이드": "slide",
     "소셜": "social", "에스엔에스": "sns", "스토리": "story", "광고": "copy",
     "칼럼": "essay", "리포트": "report", "보고서": "report", "블로그": "blog",
     "공적": "official", "공문": "official", "산문": "essay", "안내문": "official",
@@ -271,6 +273,7 @@ def run(before: str, after: str, genre: str = "essay",
     # emoji_residue FAIL이 났다(2026-08-27 codex finding 4).
     display_genre = genre
     genre = canonical_genre(genre)
+    genre_known = genre in COPY_GENRES | PROSE_GENRES
 
     rate = m2.change_rate(before, after, ignore_markup)
     rate_nm = m2.change_rate(before, after, True)
@@ -278,7 +281,7 @@ def run(before: str, after: str, genre: str = "essay",
     if is_copy:
         p0_s = "REPORT"
         p0_n = (f"문자 변경률 {rate:.1%} — 카피 모드라 변경률 게이트를 적용하지 않는다. "
-                "판정은 P3 사실 앵커가 맡는다.")
+                "P3는 수치·인용만 확인한다. 고유명사·약속은 원문 대조가 필요하다.")
     else:
         p0_s, p0_n = judge_change_rate(rate, m2.CHANGE_RATE_WARN, m2.CHANGE_RATE_ABORT)
     p1_s, p1_n = judge_s1_targets(m2, before, after, genre, baseline, baseline_v2)
@@ -296,6 +299,13 @@ def run(before: str, after: str, genre: str = "essay",
         # 의심이 뜬 글을 "게이트가 봤고 괜찮다더라"로 흘려보내지도 않는다.
         # 통과시키려면 Phase 6 정독 재판정이 근거를 적고 accept를 내야 한다.
         # 앞선 감사에서 문장 20→40 반례가 PASS/exit 0을 받은 경로가 여기다.
+        verdict, code = "INCONCLUSIVE", EXIT_WARN
+    elif is_copy:
+        # P3가 숫자·인용을 보존해도 제품명·혜택·약속의 변조는 못 잡는다.
+        # 카피는 문자율 가드도 면제되므로 자동 PASS 대신 정독으로 넘긴다.
+        verdict, code = "INCONCLUSIVE", EXIT_WARN
+    elif not genre_known:
+        # 미인식 장르가 산문으로 떨어져 사실 앵커 손실을 PASS로 내지 않게 한다.
         verdict, code = "INCONCLUSIVE", EXIT_WARN
     elif p1_s in ("SKIP", "NO_BASELINE"):
         # **검사하지 못한 것을 통과로 읽지 않는다.** 표본이 짧거나 baseline이
