@@ -2,7 +2,7 @@
 name: collab-status-report
 description: >
   제공된 자료로 KPI 현황과 운영 보고서를 정리합니다. "주간 보고서 작성해줘", "KPI 현황 정리해줘", "월간 성과 보고서 만들어줘"라고 요청할 때 사용하세요.
-version: "1.1.2"
+version: "1.1.3"
 ---
 
 # 운영 현황 보고자 (Status Reporter)
@@ -75,16 +75,16 @@ version: "1.1.2"
 
 ## 관련 스킬 (후처리 체인)
 
-보고서의 **서술형 본문**(핵심 요약, 이슈·리스크 설명, 액션 아이템 등 산문 부분)은 다음 체인으로 마무리합니다.
+보고서의 **서술형 본문**(핵심 요약, 이슈·리스크 설명, 액션 아이템 등)은 수치·기간·출처와 원인 가설을 대조하고, 과장·모호한 표현을 직접 검수합니다. 현재 앱에 아래 스킬이 노출돼 있으면 추가로 사용합니다.
 
 ```
-collab-status-report → moai-coworker:ai-slop-reviewer → moai-writer:korean-humanize → 최종 검수
+collab-status-report → 자체 근거·문체 검수 → (노출된 경우) ai-slop-reviewer → (별도 설치된 경우) korean-humanize
 ```
 
-- `moai-coworker:ai-slop-reviewer` — 서술형 본문의 AI 티 패턴을 검수·수정합니다.
-- `moai-writer:korean-humanize` — 검수된 본문을 자연스러운 한국어 보고체로 다듬습니다.
+- `moai-coworker:ai-slop-reviewer` — 노출된 경우 서술형 본문의 AI 티 패턴을 추가 검수합니다.
+- `moai-writer:korean-humanize` — 별도 설치돼 노출된 경우 한국어 보고체를 추가로 다듬습니다. 수치와 미확인 표시는 보존합니다.
 
-KPI 달성 현황 표, 마일스톤 진행률, 이슈·리스크 매트릭스 등 **수치·표 산출물**은 산문 후처리 대상이 아니며 `moai-officer:doc-xlsx`(엑셀 연동) 또는 `moai-analyst:data-visualizer`(대시보드 시각화)로 라우팅합니다.
+KPI 달성 현황 표, 마일스톤 진행률, 이슈·리스크 매트릭스 등 **수치·표 산출물**은 산문 후처리 대상이 아닙니다. 이 스킬에서 마크다운 표를 완성하고, 사용자가 엑셀 파일이나 대시보드를 요청했고 해당 플러그인이 현재 앱에 노출됐을 때만 `moai-officer:doc-xlsx` 또는 `moai-analyst:data-visualizer`로 연결합니다.
 
 ## 참고 사항
 

@@ -11,9 +11,9 @@ description: |
   - "브랜드 포지셔닝이랑 전략 정리해줘"
   - "브랜드 가이드라인 문서로 만들어줘"
   - "기업 브랜딩 처음부터 도와줘"
-  네이밍 후보 평가, 슬로건, 브랜드 스토리, 색상 시스템, 채널별 적용 가이드를 문서로 묶어 줍니다. 텍스트 산출물은 moai-coworker:ai-slop-reviewer → moai-writer:korean-humanize으로 다듬습니다.
+  네이밍 후보 평가, 슬로건, 브랜드 스토리, 색상 시스템, 채널별 적용 가이드를 문서로 묶어 줍니다. 텍스트는 자체 검수하고, 현재 앱에 노출된 윤문 스킬이 있으면 추가로 다듬습니다.
   [책임 경계] vs moai-marketer:marketing-personal-branding: 이 스킬=기업·제품 브랜드, 저 스킬=개인·전문가 브랜드.
-version: "1.1.2"
+version: "1.1.3"
 ---
 
 # 브랜드 아이덴티티 (Brand Identity)
@@ -187,9 +187,9 @@ version: "1.1.2"
 
 ## 후처리 (필수 체인)
 
-슬로건·태그라인·브랜드 스토리·매니페스토·톤앤매너 가이드 등 **텍스트 산출물**은 발행 전 반드시 후처리 체인을 거칩니다. 색상 시스템·SMILE 평가표 등 표·수치 산출물은 대상이 아닙니다.
+슬로건·태그라인·브랜드 스토리·매니페스토·톤앤매너 가이드 등 **텍스트 산출물**은 발행 전에 이름·주장·고유명사·표현의 일관성과 원자료에 없는 사실이 추가되지 않았는지 직접 검수합니다. 색상 시스템·SMILE 평가표 등 표·수치 산출물은 산문 윤문 대상이 아닙니다.
 
-**권장 체인**: `collab-brand-identity → moai-coworker:ai-slop-reviewer → moai-writer:korean-humanize → 최종 검수`
+**추가 검수**: 현재 앱에 노출된 경우 `moai-coworker:ai-slop-reviewer`를 사용하고, `moai-writer:korean-humanize`가 별도 설치돼 노출된 경우에만 윤문을 요청합니다. 두 스킬이 없어도 자체 검수 후 초안을 완성합니다.
 
 ## 관련 스킬
 
@@ -198,8 +198,8 @@ version: "1.1.2"
 | `moai-marketer:marketing-personal-branding` | 개인 브랜딩, 퍼스널 브랜딩 |
 | `moai-marketer:marketing-campaign-planner` | 광고 캠페인 기획, 미디어 플래닝 |
 | `moai-marketer:content-sns-content` | SNS 콘텐츠 제작 |
-| `moai-coworker:ai-slop-reviewer` | 사후 체이닝(필수): 브랜드 텍스트 산출물의 AI 패턴 검수 |
-| `moai-writer:korean-humanize` | 사후 체이닝(필수): ai-slop-reviewer 다음 단계로 한국어 AI 티 제거 |
+| `moai-coworker:ai-slop-reviewer` | 노출된 경우 브랜드 텍스트의 AI 패턴 추가 검수 |
+| `moai-writer:korean-humanize` | 별도 설치돼 노출된 경우 한국어 문장 추가 윤문 |
 | `moai-designer:design-system-library` | 디자인 시스템/컴포넌트 구축 |
 
 ## References

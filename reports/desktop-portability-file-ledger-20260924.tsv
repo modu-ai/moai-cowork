@@ -111,40 +111,40 @@ plugins/moai-consultant/skills/consult-strategy/references/scenario-planner.md		
 plugins/moai-consultant/skills/consult-strategy/references/startup-launcher.md		static_read
 plugins/moai-consultant/skills/consult-strategy/references/strategy-framework.md		static_read
 plugins/moai-consultant/skills/consult-workflow/SKILL.md	new_chatgpt_agent_mapping	static_read
-plugins/moai-coworker/.claude-plugin/plugin.json		partial
-plugins/moai-coworker/.codex-plugin/plugin.json		partial
-plugins/moai-coworker/.mcp.json		partial
+plugins/moai-coworker/.claude-plugin/plugin.json		static_read
+plugins/moai-coworker/.codex-plugin/plugin.json		static_read
+plugins/moai-coworker/.mcp.json		static_read
 plugins/moai-coworker/CHANGELOG.md	cli_install	partial
-plugins/moai-coworker/README.md		partial
+plugins/moai-coworker/README.md		static_read
 plugins/moai-coworker/mcp-launch/mcp_launch.py	platform_path	partial
-plugins/moai-coworker/skills/ai-diagnostic/SKILL.md		partial
-plugins/moai-coworker/skills/ai-diagnostic/tests/test-cases.yaml		partial
-plugins/moai-coworker/skills/ai-prompting-basics/SKILL.md		partial
-plugins/moai-coworker/skills/ai-slop-reviewer/SKILL.md		partial
-plugins/moai-coworker/skills/ai-slop-reviewer/references/kr-pii-masking.md		partial
-plugins/moai-coworker/skills/collab-brand-identity/SKILL.md		partial
+plugins/moai-coworker/skills/ai-diagnostic/SKILL.md		static_read
+plugins/moai-coworker/skills/ai-diagnostic/tests/test-cases.yaml		static_read
+plugins/moai-coworker/skills/ai-prompting-basics/SKILL.md		static_read
+plugins/moai-coworker/skills/ai-slop-reviewer/SKILL.md		static_read
+plugins/moai-coworker/skills/ai-slop-reviewer/references/kr-pii-masking.md		static_read
+plugins/moai-coworker/skills/collab-brand-identity/SKILL.md		static_read
 plugins/moai-coworker/skills/collab-brand-identity/references/brand-identity/archetype-framework.md		partial
 plugins/moai-coworker/skills/collab-brand-identity/references/brand-identity/brand-guide-template.md		partial
 plugins/moai-coworker/skills/collab-brand-identity/references/brand-identity/color-psychology.md		partial
 plugins/moai-coworker/skills/collab-brand-identity/references/brand-identity/naming-methodology.md		partial
-plugins/moai-coworker/skills/collab-conflict/SKILL.md		partial
+plugins/moai-coworker/skills/collab-conflict/SKILL.md		static_read
 plugins/moai-coworker/skills/collab-exec-summary/SKILL.md		partial
 plugins/moai-coworker/skills/collab-exec-summary/tests/test-cases.yaml		partial
-plugins/moai-coworker/skills/collab-feedback-loop/SKILL.md		partial
-plugins/moai-coworker/skills/collab-meeting/SKILL.md		partial
-plugins/moai-coworker/skills/collab-negotiation/SKILL.md		partial
+plugins/moai-coworker/skills/collab-feedback-loop/SKILL.md		static_read
+plugins/moai-coworker/skills/collab-meeting/SKILL.md		static_read
+plugins/moai-coworker/skills/collab-negotiation/SKILL.md		static_read
 plugins/moai-coworker/skills/collab-pm-report/SKILL.md		partial
 plugins/moai-coworker/skills/collab-pm-report/tests/test-cases.yaml		partial
-plugins/moai-coworker/skills/collab-process/SKILL.md		partial
+plugins/moai-coworker/skills/collab-process/SKILL.md		static_read
 plugins/moai-coworker/skills/collab-process/references/meeting-strategist.md		partial
 plugins/moai-coworker/skills/collab-process/references/operations-manual.md		partial
 plugins/moai-coworker/skills/collab-process/references/procurement-docs.md		partial
 plugins/moai-coworker/skills/collab-process/references/sop-writer.md		partial
-plugins/moai-coworker/skills/collab-productivity-report/SKILL.md		partial
+plugins/moai-coworker/skills/collab-productivity-report/SKILL.md		static_read
 plugins/moai-coworker/skills/collab-proposal/SKILL.md		partial
 plugins/moai-coworker/skills/collab-proposal/references/nara-jangteo.md		partial
 plugins/moai-coworker/skills/collab-proposal/tests/test-cases.yaml	claude_only_tool	partial
-plugins/moai-coworker/skills/collab-report-speak/SKILL.md		partial
+plugins/moai-coworker/skills/collab-report-speak/SKILL.md		static_read
 plugins/moai-coworker/skills/collab-report-speak/references/kr-honorific-tone.md		partial
 plugins/moai-coworker/skills/collab-roadmap/SKILL.md		partial
 plugins/moai-coworker/skills/collab-roadmap/references/diversity-inclusion.md		partial
@@ -156,7 +156,7 @@ plugins/moai-coworker/skills/collab-sales-playbook/tests/test-cases.yaml		partia
 plugins/moai-coworker/skills/collab-spec/SKILL.md		partial
 plugins/moai-coworker/skills/collab-spec/references/ai-strategy.md		partial
 plugins/moai-coworker/skills/collab-spec/references/product-manager.md		partial
-plugins/moai-coworker/skills/collab-status-report/SKILL.md		partial
+plugins/moai-coworker/skills/collab-status-report/SKILL.md		static_read
 plugins/moai-coworker/skills/collab-status-report/references/kpi-dashboard.md		partial
 plugins/moai-coworker/skills/collab-status-report/references/reporting-standards.md		partial
 plugins/moai-coworker/skills/collab-ux-design/SKILL.md		partial
@@ -169,7 +169,7 @@ plugins/moai-coworker/skills/collab-vendor/references/contract-management.md		pa
 plugins/moai-coworker/skills/collab-vendor/references/import-export.md		partial
 plugins/moai-coworker/skills/collab-vendor/references/risk-register.md		partial
 plugins/moai-coworker/skills/collab-vendor/references/supply-chain.md		partial
-plugins/moai-coworker/skills/meta-feedback/SKILL.md	claude_only_tool	partial
+plugins/moai-coworker/skills/meta-feedback/SKILL.md	claude_only_tool	static_read
 plugins/moai-coworker/skills/meta-skill-builder/SKILL.md	claude_only_tool	partial
 plugins/moai-coworker/skills/meta-skill-template/SKILL.md	claude_only_tool	partial
 plugins/moai-coworker/skills/meta-skill-tester/SKILL.md	claude_only_tool	partial

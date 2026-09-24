@@ -2,7 +2,7 @@
 name: collab-process
 description: >
   업무 프로세스를 문서화하고 표준화합니다. "SOP 만들어줘", "구매 요청서 써줘", "회의록 정리해줘", "운영 매뉴얼 작성해줘"라고 요청할 때 사용하세요. 운영 매뉴얼, SOP(표준 운영 절차), 조달 문서(구매 요청서·발주서), 회의록 작성 및 안건 관리를 지원합니다.
-version: "1.1.2"
+version: "1.1.3"
 ---
 
 # 프로세스 관리자 (collab-process)
@@ -62,7 +62,7 @@ version: "1.1.2"
 
 **위임전결 규정 설계 가이드**: 사안 유형과 금액 구간별 권한자는 조직의 실제 규정을 확인합니다. 규정이 없다면 결정해야 할 항목만 초안으로 제시하고, 승인권자를 임의로 지정하지 않습니다.
 
-공문·기안문·품의서의 결재란·전결 실서식은 `moai-officer:doc-hwp`의 `references/kr-official-forms.md`(한국형 서식 SSOT)를 참조하세요.
+공문·기안문·품의서의 결재란·전결 실서식은 `moai-officer:doc-hwp`가 현재 앱에 노출돼 있으면 해당 스킬의 `references/kr-official-forms.md`를 참조합니다. 없으면 조직이 제공한 서식을 확인하고, 실서식을 검증하지 못한 부분은 초안으로 표시합니다.
 
 ## 문제 해결
 
@@ -75,14 +75,14 @@ version: "1.1.2"
 
 ## 관련 스킬 (후처리 체인)
 
-SOP, 운영 매뉴얼, 회의록, 조달 문서 등 **서술형 산출물**은 다음 체인으로 마무리합니다.
+SOP, 운영 매뉴얼, 회의록, 조달 문서 등 **서술형 산출물**은 담당·순서·예외·확인되지 않은 결재권한을 원자료와 대조하고 문체를 직접 검수합니다. 아래 스킬은 현재 앱에 노출된 경우에만 추가로 사용합니다.
 
 ```
-collab-process → moai-coworker:ai-slop-reviewer → moai-writer:korean-humanize → 최종 검수
+collab-process → 자체 절차·문체 검수 → (노출된 경우) ai-slop-reviewer → (별도 설치된 경우) korean-humanize
 ```
 
-- `moai-coworker:ai-slop-reviewer` — 문서 본문의 AI 티 패턴을 검수·수정합니다.
-- `moai-writer:korean-humanize` — 검수된 본문을 자연스러운 한국어 실무 문체로 다듬습니다.
+- `moai-coworker:ai-slop-reviewer` — 노출된 경우 문서 본문의 AI 티 패턴을 추가 검수합니다.
+- `moai-writer:korean-humanize` — 별도 설치돼 노출된 경우 한국어 실무 문체를 추가로 다듬습니다. 절차·권한·예외는 보존합니다.
 
 ## 이 스킬을 사용하지 말아야 할 때
 

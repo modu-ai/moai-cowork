@@ -16,7 +16,7 @@
 | moai-analyst | 7 | 2 | 3 | 1 | 1 | 19파일 정적 열람, 앱 실행·현행성 검증 대기 |
 | moai-career | 5 | 2 | 6 | 0 | 0 | 18파일 정적 열람, 앱 실행·현행성 검증 대기 |
 | moai-consultant | 6 | 2 | 16 | 0 | 0 | 31파일 정적 열람, 앱 실행·현행성 검증 대기 |
-| moai-coworker | 32 | 0 | 32 | 1 | 1 | 대기 |
+| moai-coworker | 32 | 0 | 32 | 1 | 1 | 19파일 정적 열람, 나머지 부분 검토 |
 | moai-cs | 6 | 2 | 11 | 0 | 0 | 24파일 정적 열람, 앱 실행·현행성 검증 대기 |
 | moai-designer | 17 | 0 | 11 | 0 | 1 | 대기 |
 | moai-lawyer | 11 | 2 | 19 | 17 | 1 | 대기 |
@@ -766,3 +766,12 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - 두 번째 적대적 감사의 구조화 판정도 `inconclusive`였고, 요약은 Higgsfield 코어·이미지·영상·제품·설명 영상의 질문 분기와 오디오 클로닝 예시가 같은 하위 에이전트 규칙을 따르지 않는다고 파일·줄 근거를 제시했다. 코어 승인 계약과 이미지·영상·제품·에셋·정체성·설명 영상 스킬에 “하위 에이전트는 질문 도구가 보여도 누락 입력 또는 승인서를 상위에 blocker로 반환”하도록 명시하고 오디오 예시도 맞췄다. Higgsfield 스킬 버전은 core `1.3.4`, image `1.3.7`, video `1.3.3`, product `1.3.3`, assets `1.3.2`, identity `1.3.4`, explainer `1.3.3`으로 올렸다. 이 수정은 실제 사용자 질문·유료 생성 호출을 관측한 결과가 아니다.
 - 세 번째 감사도 구조화 판정은 `inconclusive`였다. 요약의 `media-notebooklm-slide-prompt/SKILL.md:269` 지적대로, 사용자가 Higgsfield를 지정하지 않았는데 Gemini 모델이 노출됐다는 이유만으로 Higgsfield 생성 스킬에 연결하던 문구를 고쳤다. Gemini 생성은 해당 제공자의 연결을 확인하고, Higgsfield는 사용자가 명시했을 때만 모델 노출·비용·승인을 확인한다. 이 감사들의 요약에 적힌 `FAIL` 문구는 구조화 판정이 아니다.
 - 커밋 `a70089d2`의 [원격 CI](https://github.com/modu-ai/moai-cowork/actions/runs/36048923075)는 `completed/success`였고 Ubuntu·macOS·Windows의 24개 job이 모두 `success`였다. 이는 플러그인 설정과 MCP 테스트의 결과이며 두 데스크톱 앱의 실제 질문·승인·생성 절차가 성공했다는 증거는 아니다.
+
+### 코워커 단독 설치 시 문서 후처리 경로 (2026-09-25)
+
+- `plugins/moai-coworker`의 장부 76행 중 매니페스트·MCP 설정·README와 스킬·참조 19행을 끝까지 읽어 `static_read`로 표시했다. 나머지 57행은 `partial`이다. 특히 메타 스킬 세 파일은 합쳐 읽은 출력이 잘려 정적 열람 완료로 표시하지 않았다.
+- 읽은 스킬 8개에서 다른 플러그인의 `moai-writer:korean-humanize`를 필수 후처리로 요구하던 경로를 수정했다. 각 스킬은 자기 산출물의 근거·숫자·결정·절차·문체를 직접 검수하며, 별도 설치된 스킬은 현재 앱에 노출된 경우에만 추가로 사용한다. 현황 보고는 마크다운 표를 직접 완성하고 사용자가 파일·대시보드를 요청했으며 해당 플러그인이 노출됐을 때만 연결한다. 프로세스 문서의 실서식은 사용 가능한 참조나 조직 제공 양식으로 확인하며, 확인하지 못한 부분은 초안으로 표시한다.
+- [OpenAI의 마켓플레이스 가져오기 안내](https://help.openai.com/en/articles/20001504-importing-and-syncing-plugin-marketplaces-from-github)는 플러그인 콘텐츠를 가져와도 앱 계정 연결이나 접근 권한이 자동으로 생기지 않는다고 명시한다. 따라서 다른 플러그인의 스킬을 무조건 쓸 수 있다는 전제는 제거했다. 코워커 README의 변동하는 스킬 수와 자연어 자동 호출 단정도 고쳤다.
+- 이 작업 트리에서 `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `python3 scripts/sync-mcp-core.py --check`는 복제 서버 여섯 곳 `[정합]`, `git diff --check`는 출력 없이 종료 코드 0이었다. 수정한 스킬 8개의 버전 형식과 두 매니페스트·마켓플레이스의 코워커 버전 `1.2.25` 일치를 파싱해 확인했다. 이는 정적 검사 결과이며 앱에서의 스킬 발견, 문서 생성 품질, 운영체제별 설치 성공을 뜻하지 않는다.
+- `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges)`의 구조화 판정은 `inconclusive`였다. 요약의 파일·줄 근거에 따라 `collab-negotiation`·`collab-productivity-report`에 남은 필수 외부 윤문 경로와 `ai-slop-reviewer`·README의 자동 호출·마지막 단계 단정을 수정했다. 첫 검사 뒤 수정이 있었으므로 아래 재검증 결과를 별도로 기록한다. 감사 요약의 자체 `FAIL` 문구를 구조화 판정으로 바꿔 기록하지 않는다.
+- 수정 뒤 같은 트리에서 런타임 설정 검사 `오류 0건, 참고 0건`, MCP 복제 서버 여섯 곳 `[정합]`, `git diff --check` 종료 코드 0을 다시 확인했다. 수정된 스킬 11개의 frontmatter 버전 형식과 코워커 버전 `1.2.25`의 세 매니페스트 값 일치를 확인했다. `rg`로 필수 `korean-humanize`와 “마지막 단계” 표현의 남은 일치를 찾지 못했다. `ai-slop-reviewer`의 “자동 호출을 보장하지 않습니다” 문장과 미검토 `meta-skill-tester`의 `/harness` 연쇄 설명은 별개의 일치다. 앱 실행 결과는 아직 없다.
