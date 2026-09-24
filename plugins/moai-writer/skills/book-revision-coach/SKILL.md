@@ -1,19 +1,19 @@
 ---
 name: book-revision-coach
 description: |
-  도서 본문 퇴고·교열 코치 — 7 단계 점검(어법·문체·논리·인용·분량·시각자료·일관성)으로 출판 직전 원고를 다듬는 스킬. 국립국어원 어문규범 기준 + 한국 출판사 편집자 관점 + book-chapter-writer의 4 장르 문체 일관성 검증. korean-spell-check(맞춤법) + korean-humanize(AI 티) + ai-slop-reviewer(최종) 체인의 첫 단계. 분량 정리·인용 정합성·문체 통일·논리 흐름 검증 후 출판사 투고 준비 완료 상태로 출력.
+  도서 본문 퇴고·교열 코치 — 7 단계 점검(어법·문체·논리·인용·분량·시각자료·일관성)으로 원고를 다듬는 스킬. 국립국어원 어문규범과 대상 출판사의 실제 투고 양식을 확인한다. 원고 자체 점검을 수행하고, 노출된 한국어 검수 스킬을 필요할 때 연결한다. 미확인 출처·저작권·투고 양식은 완료로 표시하지 않는다.
 
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
   - "원고 퇴고", "교열", "본문 다듬기"
   - "출판 직전 검수", "투고 전 정리"
   - "문장 다듬기", "어법 점검", "문체 일관성"
   - "논리 흐름 검증", "분량 정리"
-version: "1.1.0"
+version: "1.1.1"
 ---
 
 # book-revision-coach
 
-> 도서 본문 초고를 **출판 직전 수준**으로 다듬는 7 단계 퇴고 코치. book-chapter-writer로 작성한 초고를 받아 어법·문체·논리·인용·분량·시각자료·일관성을 차례로 점검합니다. **korean-spell-check(맞춤법) → book-revision-coach(퇴고) → korean-humanize(AI 티) → ai-slop-reviewer(최종)** 4 체인의 첫 단계. 본 스킬 완료 후 곧바로 출판사 편집자에게 보낼 수 있는 수준이 됩니다. **무엇을** 고쳐야 할지(어법·문체·논리·인용·분량)를 7단계로 점검하고 **언제** 다음 체인으로 넘길지 판단한다.
+> 도서 본문 초고의 어법·문체·논리·인용·분량·시각자료·일관성을 차례로 점검하는 퇴고 코치입니다. 이 스킬의 점검만으로 출판사 제출 준비가 완료되지는 않습니다. 출처·인용 허락·별첨·투고처의 현재 양식까지 확인한 범위와 남은 항목을 보고합니다.
 
 ## 1. 개요
 
@@ -29,7 +29,7 @@ version: "1.1.0"
 | 시각 자료 불일치 | 인쇄·디자인 단계에서 재작업 |
 | 일관성 결여 | 책 전체 완성도 ↓ |
 
-7 단계 점검을 차례로 통과해야 출판 직전 수준 완료.
+7 단계의 점검 결과와 미확인 항목을 분리한다. 투고 가능 여부는 대상 출판사의 실제 요건과 대조한 뒤에만 판단한다.
 
 ## 2. 트리거 키워드
 
@@ -49,7 +49,7 @@ version: "1.1.0"
 | 한자어·외래어 비율 | 우리말 우선 (가능하면 한자어 → 우리말 변환) |
 | 어미 일관성 | "~다" / "~합니다" 한 작품 내 일관성 |
 
-> 💡 본 스킬은 1차 점검만 수행. 정밀 맞춤법은 `moai-writer:korean-spell-check`(바른한글) 체이닝 권장.
+> 본 스킬은 1차 점검을 수행합니다. `moai-writer:korean-spell-check`의 공개 검사기는 사용자 주도 브라우저 검사입니다. 현행 이용 조건에 맞고 문서가 공개 가능하며 사용자가 허용한 경우에만 그 화면의 제안을 확인합니다. 검사기를 열지 않았으면 자체 검토로 표시합니다.
 
 ### Step 2: 문체 일관성 점검
 
@@ -185,6 +185,8 @@ book-outline-designer의 분량 배분과 실제 본문 분량 비교:
 
 ## 4. 출력 형식 (퇴고 보고서)
 
+아래 수치와 통과 표시는 형식 예시다. 실제 원고·출처·별첨을 확인한 항목만 채우고 확인하지 못한 칸은 `미확인`으로 둔다.
+
 ```markdown
 # 퇴고 보고서 — [가제·장 X]
 
@@ -268,7 +270,7 @@ book-outline-designer의 분량 배분과 실제 본문 분량 비교:
 - **우선순위 수정**:
   1. 2꼭지 분량 폭주 → 2꼭지·2.5꼭지로 분리
   2. 용어 통일 ("데이타" → "데이터", "next.js" → "Next.js")
-- **다음 단계**: 수정 후 moai-coworker:ai-slop-reviewer → moai-writer:korean-humanize 체이닝
+- **다음 단계**: 수정 후 현재 노출된 검수 스킬을 적용하고 원문·최종본을 대조. 미확인 투고 요건은 별도 확인
 ```
 
 ## 5. 사용 예시
@@ -287,7 +289,7 @@ book-chapter-writer로 작성한 2장 초고 퇴고해줘.
 → Step 5: 2꼭지 7매(폭주) → 분리 권장 ⚠️  
 → Step 6: 도표 2-2 별첨 없음 ⚠️  
 → Step 7: 용어 통일 1건 ⚠️  
-→ 수정 권장: 4건, 다음 단계 korean-humanize
+→ 수정 권장: 4건. `korean-humanize`가 노출되면 적용하고 최종본을 다시 대조
 
 ### 예시 2 — IT 입문서 (Next.js 1장)
 
@@ -349,7 +351,7 @@ P3 (편집 단계): 시각 자료 보완, 도표 디자인, 인쇄 해상도
 | **퇴고 한 번에 모든 점검** | 7 단계를 차례로 (한 번에 1-2 단계만 집중) |
 | **자신의 문장에 너무 익숙** | 시간 두고 다시 읽기 (1주 후·소리 내어 읽기) |
 | **맞춤법만 점검** | 어법은 1차만, 정밀은 korean-spell-check |
-| **AI 티 무시** | `moai-coworker:ai-slop-reviewer` → `moai-writer:korean-humanize` 체이닝 필수 |
+| **AI 티 무시** | 기계적 반복·번역투를 직접 점검하고, 노출된 검수 스킬이 있으면 추가 적용 |
 | **분량 편차 방치** | ±20% 초과 시 분리·통합 강제 |
 | **출판사 양식 미준수** | 투고 출판사의 어미·문체 컨벤션 사전 확인 |
 
@@ -360,18 +362,20 @@ P3 (편집 단계): 시각 자료 보완, 도표 디자인, 인쇄 해상도
   ↓
 1차 어법·문체·논리 (book-revision-coach) ← 본 스킬
   ↓
-정밀 맞춤법 (moai-writer:korean-spell-check, 바른한글)
+정밀 맞춤법 (공개 가능하고 사용자 주도 검사가 허용된 경우 moai-writer:korean-spell-check)
   ↓
-AI 슬롭 검수 (moai-coworker:ai-slop-reviewer) ← 필수
+AI 슬롭 검수 (moai-coworker:ai-slop-reviewer가 노출된 경우)
   ↓
-AI 티 윤문 (moai-writer:korean-humanize) ← 필수
+AI 티 윤문 (moai-writer:korean-humanize가 노출된 경우, 문장 수정의 마지막 단계)
+  ↓
+원문·최종본의 사실 앵커 대조 + 투고처 요건 확인
   ↓
 출판사 투고용 제안서 (book-proposal-writer)
 ```
 
 ### moai-coworker 연계 및 미설치 폴백
 
-위 검수 체인의 정밀 맞춤법·AI 슬롭 검수·AI 티 윤문 단계는 `moai-coworker` 플러그인 스킬과 연계된다. **moai-coworker 플러그인이 설치된 경우** `korean-spell-check` → `ai-slop-reviewer` → `korean-humanize` 체인을 자동 연계합니다. **미설치 시 본 스킬의 자체 퇴고 절차를 따릅니다** — Step 1(어법 1차)·Step 2(문체 일관성)·Step 7(일관성 최종) 점검과 본문 내 자체 가이드라인만으로 출판 직전 수준까지 다듬습니다.
+`korean-spell-check`와 `korean-humanize`는 이 `moai-writer` 플러그인에, `ai-slop-reviewer`는 별도 `moai-coworker` 플러그인에 있습니다. 각 스킬은 현재 호스트에서 실제 사용 가능한 경우에만 연결합니다. 공개 맞춤법 검사는 사용자의 브라우저 조작과 실제 결과 확인이 필요합니다. `moai-coworker`가 없어도 본 스킬의 Step 1~7을 수행하고, 의미·숫자·인용·고유명사와 원문을 대조합니다. 미해결 오류나 확인되지 않은 투고 조건이 있으면 제출 준비 완료라고 표시하지 않습니다.
 
 ### 출처 정책
 
@@ -387,11 +391,11 @@ AI 티 윤문 (moai-writer:korean-humanize) ← 필수
 
 ### After (체이닝 — 정규 체인)
 - `moai-writer:korean-spell-check` — 정밀 한국어 맞춤법
-- `moai-coworker:ai-slop-reviewer` — AI 슬롭 검수 (필수)
-- `moai-writer:korean-humanize` — AI 티 정밀 윤문 (필수)
+- `moai-coworker:ai-slop-reviewer` — 별도 설치·노출된 경우 AI 슬롭 검수
+- `moai-writer:korean-humanize` — 노출된 경우 AI 티 정밀 윤문
 - `book-proposal-writer` — 검수 완료 후 출판사 투고 제안서로
 
-> 퇴고 완료 본문은 정규 체인 **`book-revision-coach → moai-coworker:ai-slop-reviewer → moai-writer:korean-humanize`**으로 마무리합니다.
+> 퇴고 본문은 현재 노출된 검수 스킬을 순서대로 적용하고, 최종본을 원문과 대조합니다. 스킬이 없으면 자체 점검을 수행하고 빠진 검수 단계를 기록합니다.
 
 ### Alternative
 - `moai-writer:korean-spell-check` 단독 — 빠른 맞춤법만

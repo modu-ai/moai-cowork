@@ -1042,30 +1042,30 @@ plugins/moai-tutor/skills/education-research-assistant/references/research-assis
 plugins/moai-tutor/skills/education-research-assistant/references/thesis-advisor.md		partial
 plugins/moai-tutor/skills/education-tutor-research/SKILL.md	claude_only_tool	partial
 plugins/moai-tutor/skills/education-workflow/SKILL.md	new_chatgpt_agent_mapping	partial
-plugins/moai-writer/.claude-plugin/plugin.json		partial
-plugins/moai-writer/.codex-plugin/plugin.json		partial
-plugins/moai-writer/.mcp.json		partial
-plugins/moai-writer/README.md		partial
-plugins/moai-writer/agents/manuscript-auditor.md	claude_only_tool	partial
-plugins/moai-writer/agents/writer-director.md	claude_only_tool	partial
-plugins/moai-writer/skills/book-author-bio/SKILL.md	claude_only_tool	partial
-plugins/moai-writer/skills/book-author-bio/tests/test-cases.yaml		partial
+plugins/moai-writer/.claude-plugin/plugin.json		static_read
+plugins/moai-writer/.codex-plugin/plugin.json		static_read
+plugins/moai-writer/.mcp.json		static_read
+plugins/moai-writer/README.md		static_read
+plugins/moai-writer/agents/manuscript-auditor.md	claude_only_tool	static_read
+plugins/moai-writer/agents/writer-director.md	claude_only_tool	static_read
+plugins/moai-writer/skills/book-author-bio/SKILL.md	claude_only_tool	static_read
+plugins/moai-writer/skills/book-author-bio/tests/test-cases.yaml		static_read
 plugins/moai-writer/skills/book-chapter-writer/SKILL.md	claude_only_tool	partial
 plugins/moai-writer/skills/book-chapter-writer/tests/test-cases.yaml		partial
 plugins/moai-writer/skills/book-concept-planner/SKILL.md	claude_only_tool	partial
 plugins/moai-writer/skills/book-concept-planner/tests/test-cases.yaml		partial
-plugins/moai-writer/skills/book-manuscript-audit/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-writer/skills/book-manuscript-audit/SKILL.md	new_chatgpt_agent_mapping	static_read
 plugins/moai-writer/skills/book-outline-designer/SKILL.md		partial
 plugins/moai-writer/skills/book-outline-designer/tests/test-cases.yaml		partial
 plugins/moai-writer/skills/book-proposal-writer/SKILL.md		partial
 plugins/moai-writer/skills/book-proposal-writer/tests/test-cases.yaml		partial
 plugins/moai-writer/skills/book-publisher-matcher/SKILL.md	claude_only_tool	partial
 plugins/moai-writer/skills/book-publisher-matcher/tests/test-cases.yaml		partial
-plugins/moai-writer/skills/book-revision-coach/SKILL.md		partial
-plugins/moai-writer/skills/book-revision-coach/tests/test-cases.yaml		partial
+plugins/moai-writer/skills/book-revision-coach/SKILL.md		static_read
+plugins/moai-writer/skills/book-revision-coach/tests/test-cases.yaml		static_read
 plugins/moai-writer/skills/book-target-reader/SKILL.md		partial
 plugins/moai-writer/skills/book-target-reader/tests/test-cases.yaml		partial
-plugins/moai-writer/skills/book-workflow/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-writer/skills/book-workflow/SKILL.md	new_chatgpt_agent_mapping	static_read
 plugins/moai-writer/skills/korean-humanize/SKILL.md		partial
 plugins/moai-writer/skills/korean-humanize/references/ai-tell-taxonomy.md		partial
 plugins/moai-writer/skills/korean-humanize/references/baseline.json		partial
@@ -1089,4 +1089,4 @@ plugins/moai-writer/skills/korean-humanize/tests/test_gates.py		partial
 plugins/moai-writer/skills/korean-humanize/tests/test_humanize_html.py		partial
 plugins/moai-writer/skills/korean-humanize/tests/test_metrics.py		partial
 plugins/moai-writer/skills/korean-humanize/tests/test_rhythm_gate.py		partial
-plugins/moai-writer/skills/korean-spell-check/SKILL.md		partial
+plugins/moai-writer/skills/korean-spell-check/SKILL.md		static_read

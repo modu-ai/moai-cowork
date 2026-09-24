@@ -29,7 +29,7 @@
 | moai-story | 18 | 2 | 42 | 0 | 1 | 대기 |
 | moai-threads-poster | 5 | 0 | 2 | 16 | 1 | 대기 |
 | moai-tutor | 11 | 2 | 11 | 0 | 0 | 대기 |
-| moai-writer | 10 | 2 | 17 | 0 | 1 | 대기 |
+| moai-writer | 10 | 2 | 17 | 0 | 1 | 13/48파일 정적 열람, 나머지·앱 실행 검증 대기 |
 
 ## 공식 문서와 확인한 개선점
 
@@ -871,3 +871,13 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - PM README의 고정 로스터를 제거하고 Claude·Codex 양쪽 에이전트 산출물을 적었다. PM 스킬 버전 `1.6.4`, 플러그인의 Claude·Codex·마켓플레이스 버전 `1.6.7`로 올렸다.
 - 이 작업 트리에서 `git diff --check`는 출력 없이 종료 코드 0, `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `python3 scripts/sync-mcp-core.py --check`는 여섯 복제 서버 모두 `[정합]`이었다. 생성 템플릿에서 HARD 블록은 8개, CLAUDE 포인터 템플릿은 `@AGENTS.md` 한 줄, PM 문서의 백틱 `moai-<plugin>:<skill>` 참조 51종 중 파일 경로 미해결은 0종이었다. 이 검사는 실제 앱의 스킬 발견·이미지 생성·질문 카드 동작을 검증하지 않는다.
 - 필수 `mcp__moai__codex_audit`의 구조화 판정은 `inconclusive`였고 `findings` 배열은 비어 있었다. 요약에 `file:line`으로 적힌 세 지점은 직접 대조했다. 에이전트의 무조건 `ai-slop-reviewer` 호출은 감사 실행 중 이미 고쳤고, 직접 검수의 미해결 오류 차단과 생성 템플릿의 질문 상한은 감사 뒤 고쳤다. 요약의 자체 `FAIL` 표현을 구조화 판정으로 바꾸지 않는다.
+
+### 작가 플러그인의 저자 약력·원고 퇴고 경로 (2026-09-25)
+
+- 앞선 PM 커밋 `bd95fa14`의 [원격 CI](https://github.com/modu-ai/moai-cowork/actions/runs/36061928182)를 이 작업 트리에서 `gh run view ... --json status,conclusion,jobs,url`로 조회하니 `completed/success`, 27/27 작업이 `success`였다. 이 CI는 PM이 생성한 프로젝트를 두 데스크톱 앱에서 실행한 결과가 아니다.
+- `moai-writer`의 매니페스트·README·에이전트·선택한 책 스킬·검수 사례·맞춤법 스킬 등 13/48파일을 끝까지 읽었다. 나머지 35파일은 장부에서 `partial`로 유지한다. 매니페스트에는 현재 파일 수와 맞지 않는 고정 스킬 수가 남아 있어 제거했다. 플러그인 버전은 세 매니페스트 위치에서 `1.5.4`, 수정한 스킬의 PATCH 버전을 각각 올렸다.
+- `book-author-bio`의 예시에는 입력에 없는 학력·회사 타임라인, 베스트셀러 여부, 첫 매출 시점, 카페 경험이 산출물에 더해지는 경로가 있었다. 사실 확인 규칙과 예시·검수 사례를 맞춰, 부족한 이력은 `확인 필요`로 두고 분량을 채우려고 만들지 않게 했다. 출판사별 고정 문체와 SNS 입력 한도는 발행 시 현재 자료로 확인하도록 바꿨다.
+- `book-revision-coach`는 별도 `moai-coworker:ai-slop-reviewer`를 필수로 지정하면서 미설치 상태에서도 투고 준비 완료를 단정했고, `korean-spell-check`·`korean-humanize`의 소속도 잘못 설명했다. 실제 노출된 스킬만 연결하고 원문·최종본의 사실 앵커를 대조하며, 출처·권리·별첨·현재 투고 양식이 미확인일 때 제출 준비로 표시하지 않게 했다. Claude 에이전트와 ChatGPT 진입 스킬도 외부 맞춤법 검사 조건과 미검증 제출 판정을 맞췄다.
+- [바른한글 이전 버전 공식 화면](https://nara-speller.co.kr/old_speller/)은 비상업적 용도와 개인·학생 무료 이용을 명시한다. [공식 구매 안내](https://nara-speller.co.kr/order/)는 별도 API 문의 경로를 제시한다. 공개 검사기의 사용자 주도 브라우저 결과를 실제로 보지 않았으면 자체 검토로 표시하며, 현행 이용 조건·문서 공개 범위·사용자 허용을 확인하기 전에는 원고를 보내지 않게 했다.
+- 이 작업 트리의 `git diff --check`는 출력 없이 종료 코드 0, `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`이었다. 변경한 두 YAML 사례 파일은 각각 9개 사례로 파싱됐고 ID 중복이 없었으며, 작가 플러그인의 Claude·Codex·마켓플레이스 버전은 모두 `1.5.4`였다. 이는 정적 지침·설정 검사이며 원고 작성, 실제 맞춤법 사이트 접속, 출판사 요건 확인, 데스크톱 앱 실행의 증거는 아니다.
+- 필수 `mcp__moai__codex_audit`의 구조화 판정은 `inconclusive`, `findings` 배열은 비어 있었다. 요약에 위치가 붙은 저자 경험 조작 예시, 자료 없는 YAML 통과 기대, 인용 검증 완료 기대, Claude·ChatGPT 독립 감사 문턱 차이를 파일에서 확인해 고쳤다. 요약의 `FAIL` 표현을 구조화 판정으로 바꾸지 않는다. 다른 책 스킬과 한국어 윤문 검사 코드, 두 앱의 실제 실행은 남아 있다.

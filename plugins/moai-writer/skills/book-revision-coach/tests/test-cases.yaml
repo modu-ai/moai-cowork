@@ -36,12 +36,12 @@ test_cases:
   - id: TC-04-citation-completeness
     name: 인용·각주 정합성
     input: |
-      통계·인터뷰·인터넷 자료 인용 점검.
+      통계·인터뷰·인터넷 자료 인용 점검. 원고와 원출처·이용 허락 자료는 아직 제공되지 않았다.
     expected:
       - check_items: [출처명시, 양식정확, 각주순서, 저작권]
-      - verbatim_quote_rejection: true
+      - missing_sources_marked_unverified: true
     pass_criteria:
-      - all_citations_verified: true
+      - no_unobserved_citation_pass: true
 
   - id: TC-05-volume-balance
     name: 분량 균형 (±20%)
@@ -76,28 +76,28 @@ test_cases:
       - terminology_unified: true
 
   - id: TC-08-publisher-style-compliance
-    name: 출판사 양식 준수 (어미 통일)
+    name: 출판사 양식 확인 전 고정 문체를 추정하지 않음
     input: |
-      한빛미디어 투고 본문 "~다" / "~합니다" 혼용.
+      출판사 투고 본문에 "~다" / "~합니다"가 혼용됐다. 대상 출판사의 현재 양식은 제공되지 않았다.
     expected:
-      - publisher_preference: 한빛미디어_~다
-      - correction_applied: "~합니다 → ~다"
+      - mixed_endings_flagged: true
+      - publisher_preference: 미확인
+      - current_submission_guidelines_requested: true
     pass_criteria:
-      - publisher_style_aligned: true
+      - unsupported_publisher_rule_absent: true
 
   - id: TC-09-chain-recommendation
-    name: 4 체인 검수 순서 권장
+    name: 사용 가능한 검수만 연결하고 외부 전송을 차단
     input: |
       퇴고 완료. 다음 단계는?
     expected:
-      - chain:
-        - korean-spell-check (정밀 맞춤법)
-        - korean-humanize (AI 티 — 필수)
-        - ai-slop-reviewer (최종 — 필수)
-        - book-proposal-writer (투고 제안서)
+      - public_spell_check: 명시적 공개 가능·사용자 허용·실제 브라우저 결과가 있을 때만
+      - ai_slop_reviewer: 별도 설치·노출된 경우
+      - korean_humanize: 노출된 경우 문장 수정의 마지막 단계
+      - final_check: 원문·최종본의 사실 앵커 대조와 투고 요건 확인
     pass_criteria:
-      - chain_explicit: true
-      - humanize_ai_slop_mandatory: true
+      - unavailable_steps_recorded: true
+      - no_unverified_submission_ready_claim: true
 
 rubric_anchors:
   correctness:
@@ -112,7 +112,7 @@ rubric_anchors:
       - 7_step_workflow_complete
       - 4_genre_style_consistency_check
       - revision_priority_p1_p2_p3
-      - chain_to_4_post_skills_clear
+      - optional_finishing_and_submission_checks_clear
   clarity:
     target_score: ">= 0.80"
     checks:
