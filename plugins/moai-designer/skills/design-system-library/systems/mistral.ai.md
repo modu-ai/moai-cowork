@@ -408,7 +408,7 @@ The system pairs PP Editorial Old (a near-serif elegant display face) for hero d
 **Key Characteristics:**
 - Atmospheric mountain-sunset hero photography (orange-red-yellow gradient sky)
 - Horizontal "sunset stripe" band ({colors.primary} → {colors.sunshine-700} → {colors.yellow-saturated} → {colors.cream}) at every page bottom
-- Cream-yellow surfaces ({colors.cream}, {colors.cream-soft}) for form panels and feature cards
+- Cream-yellow surfaces ({colors.cream}, {colors.cream-light}) for form panels and feature cards
 - PP Editorial Old (or similar near-serif) for hero displays; Inter for everything else
 - `{rounded.md}` (8px) buttons and `{rounded.lg}` (12px) cards — less playful, more editorial geometry
 - Saturated orange primary CTA ({colors.primary}) carries every action call
@@ -430,7 +430,7 @@ The system pairs PP Editorial Old (a near-serif elegant display face) for hero d
 
 ### Cream / Neutral Warm
 - **Cream** ({colors.cream}): Warm yellow-cream surface for form panels, feature cards, footer
-- **Cream Soft** ({colors.cream-soft}): Lighter cream variant
+- **Cream Light** ({colors.cream-light}): Lighter cream variant
 - **Cream Deeper** ({colors.cream-deeper}): More-saturated cream for badge/tag chips
 - **Beige Deep** ({colors.beige-deep}): Cream surface 1px border color
 

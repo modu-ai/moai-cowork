@@ -131,7 +131,7 @@ spacing:
 
 `keynote-editorial-dark`는 다른 다크 시스템(clickhouse·vercel·linear.app)과 **팔레트가 어둡다는 점만 같고 성격이 다릅니다**. 저들이 "브랜드 다크 팔레트"라면, 이것은 **의견이 담긴 프리미엄 에디토리얼 키노트 레시피** — 색 토큰이 아니라 **구성 계약(compositional contract)**입니다. 프리미엄 키노트에서 흔히 관찰되는 절제된 다크 편집 미학(넓은 여백·거대숫자·단일 강조)을 슬라이드에 손으로 구현하기 위한 규율의 집합이며, 아래 토큰 값은 우리가 이 레시피용으로 직접 정한 값입니다.
 
-캔버스는 순흑(#000)이 아닌 **near-black `{colors.canvas}`**. 이 미세한 밝기가 "검은 화면"과 "프리미엄 다크"를 가릅니다. surface는 채우기가 아니라 **래더(`{colors.surface-1/2/3}`)**로 한 단씩 올리고, 구분선은 오직 **알파화이트 hairline `{colors.hairline}`**입니다.
+캔버스는 순흑(#000)이 아닌 **near-black `{colors.canvas}`**. 이 미세한 밝기가 "검은 화면"과 "프리미엄 다크"를 가릅니다. surface는 채우기가 아니라 **래더(`{colors.surface-1}`·`{colors.surface-2}`·`{colors.surface-3}`)**로 한 단씩 올리고, 구분선은 오직 **알파화이트 hairline `{colors.hairline}`**입니다.
 
 **시그니처 (다른 다크 시스템과 구별되는 지점):**
 - **채운 박스 금지** — 채운 회색 카드 금지. 배경은 surface 래더, 구분은 알파화이트 hairline. 그림자·스포트라이트·대기그라디언트 없음.

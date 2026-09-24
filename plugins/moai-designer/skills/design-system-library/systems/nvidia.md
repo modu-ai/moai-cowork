@@ -585,7 +585,7 @@ The system is aggressively angular. Outside of avatar/icon circles, no element e
 - Don't introduce drop shadows on cards or content surfaces. The only allowed shadow is the 5px ambient on sticky chrome.
 - Don't substitute `{colors.success-deep}`, `{colors.accent-green-pale}`, or any other green for `{colors.primary}` in CTAs. The brand green is precise.
 - Don't use `{colors.link-blue}` outside of inline body-prose links. It is not a button color, not a chrome color.
-- Don't soften the geometry. No pill buttons, no rounded cards, no `{rounded.lg}` or higher anywhere except avatars and social icons.
+- Don't soften the geometry. Use `{rounded.sm}` on buttons, cards, and inputs; reserve `{rounded.none}` for structural sections and `{rounded.xs}` for decorative strips. Circles belong to avatars and social icons.
 - Don't pad the hero `{component.hero-card-dark}` symmetrically. Copy hugs the left third; imagery fills the right.
 - Don't add a second accent color for variety. The system is intentionally one-color.
 - Don't put `{component.button-primary}` on a `{colors.canvas}` background where green-on-white would clash with photo content — use `{component.button-outline}` instead and reserve fill for dark surfaces.

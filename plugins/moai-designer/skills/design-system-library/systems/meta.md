@@ -314,7 +314,7 @@ components:
     padding: "{spacing.section} {spacing.xxl}"
     border: "1px solid {colors.hairline-soft}"
   hero-band-marketing:
-    backgroundColor: "{colors.canvas}"
+    backgroundColor: "{colors.ink-deep}"
     textColor: "{colors.canvas}"
     typography: "{typography.hero-display}"
     rounded: "{rounded.xxxl}"
@@ -592,7 +592,7 @@ The system runs predominantly flat. Elevation is reserved for two interaction la
 ### Signature Components
 
 **`hero-band-marketing`** — Full-bleed photographic hero with overlaid copy + dual-CTA pair.
-- Edge-to-edge product photography on a dark or photographic background. Overlay copy in `{typography.hero-display}` white. Below the title: 1-line subtitle in `{typography.subtitle-md}` then `button-primary` + `button-secondary` pair.
+- Edge-to-edge product photography on a dark background, with `{colors.ink-deep}` as the fallback surface. Overlay copy in `{typography.hero-display}` white. Below the title: 1-line subtitle in `{typography.subtitle-md}` then `button-primary` + `button-secondary` pair.
 
 **`product-gallery-pdp`** — Product detail page main hero: 4-up vertical thumbnail strip on the left, large product image center, sticky purchase rail right.
 - Thumbnails: 80×80px, `{rounded.lg}`, `{colors.surface-soft}` background, 1px `{colors.hairline-soft}` border (active border switches to `{colors.ink-deep}`).
@@ -621,7 +621,7 @@ The system runs predominantly flat. Elevation is reserved for two interaction la
 
 ### Do
 - Reserve `{colors.primary}` (cobalt) for buy-now CTAs only — its visual weight is meaningful precisely because it doesn't appear on marketing pages.
-- Use `{colors.ink-button}` (black) for marketing-surface primary CTAs. Pair with `{colors.button-secondary}` ghost outline for the secondary action.
+- Use `{colors.ink-button}` (black) for marketing-surface primary CTAs. Pair with the `{component.button-secondary}` ghost outline for the secondary action.
 - Apply `{rounded.full}` to every button, every category pill, every badge, every chip — buttons are NEVER squared in Meta's system.
 - Apply `{rounded.xxxl}` to photographic product cards and `{rounded.xl}` to icon-feature tiles to maintain the visible card-hierarchy contrast.
 - Switch on `ss01, ss02` together for any Optimistic VF heading. Never one stylistic set without the other.

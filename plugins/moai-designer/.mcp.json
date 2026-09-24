@@ -6,7 +6,7 @@
       "url": "https://mcp.higgsfield.ai/mcp",
       "timeout": 120000,
       "headers": {
-        "User-Agent": "MoAI-Designer/1.4.29"
+        "User-Agent": "MoAI-Designer/1.4.30"
       }
     }
   }
