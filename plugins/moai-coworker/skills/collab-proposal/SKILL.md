@@ -4,7 +4,7 @@ description: |
   실제 고객 요구사항이나 RFP를 바탕으로 B2B 영업·공공조달 제안서 초안을 작성합니다.
   "제안서 써줘", "이 RFP 답변 초안", "나라장터 기술 제안서" 요청에 사용합니다.
   공고별 요구사항과 자사 증빙을 대조하고, 확인되지 않은 자격·실적·가격·ROI는 채워 넣지 않습니다.
-version: "1.1.1"
+version: "1.1.2"
 ---
 
 # B2B 제안서 작성
@@ -61,5 +61,5 @@ version: "1.1.1"
 
 - `moai-consultant:consult-market`: 실제 산업·시장 자료 조사
 - `moai-lawyer:legal-contract-review`: 계약 조건 검토
-- `moai-coworker:ai-slop-reviewer` · `moai-writer:korean-humanize`: 서술형 문장 검토
+- 서술형 문장은 이 스킬에서 RFP·자사 증빙·가격·일정과 대조하고 문체를 검수합니다. `moai-coworker:ai-slop-reviewer`가 노출된 경우 추가 검수하고, 별도 설치된 `moai-writer:korean-humanize`가 노출된 경우에만 윤문합니다.
 - `moai-officer:doc-docx` · `moai-officer:doc-pptx` · `moai-officer:doc-xlsx`: 요청된 문서 형식 제작

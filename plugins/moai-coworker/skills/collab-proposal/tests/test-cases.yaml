@@ -1,7 +1,7 @@
 # 실행 전에는 기대 결과만 정의하며 PASS를 주장하지 않는다.
 skill: collab-proposal
 plugin: moai-coworker
-version: 1.1.1
+version: 1.1.2
 
 cases:
   - id: T01

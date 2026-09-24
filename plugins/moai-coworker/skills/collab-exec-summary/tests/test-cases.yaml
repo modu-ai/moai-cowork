@@ -1,7 +1,7 @@
 # collab-exec-summary test cases
 skill: collab-exec-summary
 plugin: moai-coworker
-version: 1.1.1
+version: 1.1.2
 
 rubric:
   correctness: 0.30

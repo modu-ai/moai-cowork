@@ -4,7 +4,7 @@ description: |
   긴 보고서와 분석 자료를 경영진이 읽을 수 있는 짧은 의사결정 요약으로 정리합니다.
   "임원 보고용으로 요약해줘", "이사회 자료 핵심만 정리해줘", "What/So What/Now What으로 써줘" 같은 요청에 사용합니다.
   원문에 없는 성과·재무 수치·결정 시한을 만들지 않고, 필요한 경우 문서 제작 스킬로 연결합니다.
-version: "1.1.1"
+version: "1.1.2"
 ---
 
 # 경영진 요약
@@ -67,4 +67,4 @@ version: "1.1.1"
 - `moai-accountant:finance-financial-statements` · `moai-accountant:finance-variance-analysis`: 검증된 재무 입력
 - `moai-coworker:collab-pm-report`: 프로젝트 보고 입력
 - `moai-officer:doc-html-report` · `moai-officer:doc-pdf` · `moai-officer:doc-docx` · `moai-officer:doc-pptx` · `moai-officer:doc-hwp`: 요청한 형식의 문서 제작
-- `moai-coworker:ai-slop-reviewer` · `moai-writer:korean-humanize`: 서술형 문장의 최종 검토
+- 서술형 문장은 이 스킬에서 원문 수치·기간·판단 근거를 대조하고 문체를 검수합니다. `moai-coworker:ai-slop-reviewer`가 노출된 경우 추가 검수하고, 별도 설치된 `moai-writer:korean-humanize`가 노출된 경우에만 윤문합니다.

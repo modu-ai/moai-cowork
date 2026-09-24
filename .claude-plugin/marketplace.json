@@ -15,7 +15,7 @@
     {
       "name": "moai-coworker",
       "source": "./plugins/moai-coworker",
-      "version": "1.2.26",
+      "version": "1.2.27",
       "description": "실무 범용 코어 AI 코워커 — 브랜드·제안서·보고·협상·프로세스 등 비즈니스 실무와 목표·습관·회고·여행·웰니스·행사기획을 돕습니다. 전문 영역은 해당 분야 플러그인으로 연결합니다. 이런 분께 추천: 1인 사업자·스타트업 운영자.",
       "displayName": "🧑‍💼 코워커",
       "category": "범용 실무"

@@ -1,11 +1,11 @@
 test_suite: ai-diagnostic
-version: "1.0.0"
+version: "1.1.2"
 description: "AI 기반 다차원 진단 분석 스킬 테스트 케이스"
 
 test_cases:
   - id: TC-001
     name: happy-path
-    description: "웹 앱 성능 이슈에 대한 4차원 진단과 근본 원인 분석"
+    description: "웹 앱 성능 이슈에 대한 4차원 진단과 원인 가설 검토"
     input:
       problem_description: |
         웹 앱 로그인 속도가 지난 2주간 0.5초에서 4초로 악화됨.
@@ -19,13 +19,13 @@ test_cases:
       symptoms:
         - "로그인 API 응답 시간 0.5초 → 4초"
         - "새벽 1-3시에 최대 10초 지연"
-        - "고객센터 문의 60건/일 (로그인 관련 40%)"
+        - "고객센터 문의 150건/일 중 로그인 관련 40%"
     expected_output:
       contains_sections:
         - "증상 요약"
         - "가설 목록"
         - "차원별 진단 결과"
-        - "근본 원인 분석"
+        - "원인 분석"
         - "해결책 우선순위"
         - "실행 계획"
       contains_dimensions:
@@ -37,8 +37,6 @@ test_cases:
         - "JWT"
         - "응답 시간"
         - "로그인"
-        - "근본 원인"
-        - "5 Whys"
       has_hypotheses_with_priority: true
       has_solutions_with_priority: true
       distinguishes_hypotheses_from_verified_causes: true
@@ -71,7 +69,7 @@ test_cases:
       problem_description: |
         (1) 배송 시간이 2일에서 5일로 지연 (고객 불만 급증)
         (2) 재고 부족으로 주문 취소율 15% (이전 3%)
-        (3) 창고 직원 이탈률 40% (번아웃)
+        (3) 창고 직원 이탈률 40% (번아웃이라는 설명은 검증 전)
         (4) IT 시스템 다운타임 10시간/월 (이전 2시간)
         (5) 물류 비용이 매출의 25% (외부 비교 기준은 미확인)
       context:
@@ -99,10 +97,9 @@ test_cases:
         - "증상 요약"
         - "가설 목록"
         - "차원별 진단 결과"
-        - "근본 원인 분석"
+        - "원인 분석"
         - "해결책 우선순위"
         - "실행 계획"
-        - "위험도 평가"  # 복잡한 상황에서 리스크 분석 추가
       contains_dimensions:
         - "기술 차원"
         - "프로세스 차원"
@@ -116,14 +113,8 @@ test_cases:
         - "직원 이탈"
         - "다운타임"
         - "물류 비용"
-        - "상관관계"  # 차원 간 상관관계 분석
-      frameworks_used:
-        - "5 Whys"
-        - "Fishbone Diagram"
-        - "Iceberg Model"
       has_hypotheses_with_priority: true
       has_cross_dimensional_analysis: true
-      has_risk_assessment: true
       has_prioritized_actions_without_invented_deadlines: true
       distinguishes_hypotheses_from_verified_causes: true
       does_not_invent_impact_metrics: true

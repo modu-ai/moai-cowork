@@ -4,7 +4,7 @@ description: |
   사용자가 제공한 업무 기록이나 연결 서비스의 실제 자료로 팀 주간보고를 작성합니다.
   "이번 주 한 일 정리해줘", "주간보고 만들어줘", "임원용으로 요약해줘" 같은 요청에 사용합니다.
   읽지 못한 데이터와 확인되지 않은 성과는 보고서에 사실처럼 넣지 않습니다.
-version: "1.1.2"
+version: "1.1.3"
 ---
 
 # 팀 주간보고
@@ -71,5 +71,5 @@ version: "1.1.2"
 
 - `moai-coworker:collab-roadmap`: 향후 제품 방향·마일스톤 계획
 - `moai-coworker:collab-exec-summary`: 경영진용 압축 요약
-- `moai-coworker:ai-slop-reviewer` · `moai-writer:korean-humanize`: 서술형 문장 검토
+- 서술형 문장은 이 스킬에서 기록·수치·기간·담당자를 대조하고 문체를 검수합니다. `moai-coworker:ai-slop-reviewer`가 노출된 경우 추가 검수하고, 별도 설치된 `moai-writer:korean-humanize`가 노출된 경우에만 윤문합니다.
 - `moai-officer:doc-pptx`: 요청된 발표 자료 제작

@@ -1,6 +1,6 @@
 # 문서 기반 기대 동작. 실제 호스트 실행 결과가 아니다.
 test_suite: collab-ux-design
-version: "1.0.1"
+version: "1.1.2"
 test_cases:
   - id: TC-001
     name: 화면과 사용성 기록이 있는 경우

@@ -16,7 +16,7 @@
 | moai-analyst | 7 | 2 | 3 | 1 | 1 | 19파일 정적 열람, 앱 실행·현행성 검증 대기 |
 | moai-career | 5 | 2 | 6 | 0 | 0 | 18파일 정적 열람, 앱 실행·현행성 검증 대기 |
 | moai-consultant | 6 | 2 | 16 | 0 | 0 | 31파일 정적 열람, 앱 실행·현행성 검증 대기 |
-| moai-coworker | 32 | 0 | 32 | 1 | 1 | 22파일 정적 열람, 나머지 부분 검토 |
+| moai-coworker | 32 | 0 | 32 | 1 | 1 | 76파일 정적 열람 완료, 앱 실행·현행성 검증 대기 |
 | moai-cs | 6 | 2 | 11 | 0 | 0 | 24파일 정적 열람, 앱 실행·현행성 검증 대기 |
 | moai-designer | 17 | 0 | 11 | 0 | 1 | 대기 |
 | moai-lawyer | 11 | 2 | 19 | 17 | 1 | 대기 |
@@ -785,3 +785,14 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - `cd www && hugo --gc --minify --logLevel warn`는 종료 코드 0으로 209페이지를 빌드했고 새 크레딧 페이지의 렌더된 날짜는 `최종 업데이트 2026.09.25`였다. 이 페이지 렌더 결과에 남은 `**` 표시는 찾지 못했다. 저장소 전체 `npx markdownlint-cli2 'www/content/**/*.md'`는 148파일 중 147파일, 3399건의 문제로 종료 코드 1이었다. 수정한 크레딧 행(41행)에 대한 lint 출력은 없었으며, 기존 문서 전체의 lint 미통과를 이번 변경의 통과로 해석하지 않는다.
 - 메타 스킬 변경에 대한 `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges)`의 구조화 판정은 `inconclusive`였다. 요약에 파일·줄 근거가 있던 생성기 `tests`/`expected_output`와 검증기 `test_cases`/`assertions` 형식 불일치, 신규 스킬 0.70/0.75 통과 기준 불일치, README 직접 호출 안내와 `user-invocable: false`의 충돌을 수정했다. [Claude의 스킬 설정 문서](https://code.claude.com/docs/en/skills)는 `user-invocable: false`가 직접 `/` 호출을 막는다고 설명한다. 과거 1.6.0 변경 이력도 재정립 이전 기록임을 표시했다. 수정 뒤 생성기·검증기의 YAML 예시를 PyYAML로 파싱해 두 예시 모두 `skill`·`version`·`test_cases`와 케이스별 `id`·`name`·`prompt`·`assertions`를 갖는 것을 확인했다. 감사 요약의 자체 `FAIL` 문구를 구조화 판정으로 바꿔 기록하지 않는다.
 - 최종 정적 재검사에서 `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `python3 scripts/sync-mcp-core.py --check`는 복제 서버 여섯 곳 `[정합]`, `git diff --check`는 출력 없이 종료 코드 0이었다. 메타 스킬 두 파일의 YAML frontmatter와 코워커 Claude·Codex·마켓플레이스 버전 `1.2.26` 일치, 장부의 코워커 `static_read` 22행·`partial` 54행을 확인했다.
+- 커밋 `b48ee91f`의 [원격 CI](https://github.com/modu-ai/moai-cowork/actions/runs/36051108143)는 `completed/success`, 24개 job이 모두 `success`였다. 이 결과에 아래의 업무·생활 스킬 및 테스트 정의 후속 수정은 포함되지 않는다.
+
+### 코워커 잔여 파일 정적 열람과 문서 계약 정리 (2026-09-25)
+
+- 업무·생활 스킬 16개와 남은 변경 이력·MCP 런처·테스트 YAML·참조 문서를 각각 끝까지 읽었다. `mcp-launch/mcp_launch.py` 146행은 자격증명 저장소와 macOS/Windows 프로세스 실행 분기를 확인했으며, Linux 실제 실행은 별도 검증이 필요하다. 장부의 코워커 76행은 모두 `static_read`다. 이는 내용 열람 범위이지 앱 설치·스킬 발견·MCP 인증·실제 산출물 품질을 입증하지 않는다.
+- `collab-exec-summary`·`collab-pm-report`·`collab-proposal`·`collab-roadmap`의 서술형 후처리를 자기 근거·문체 검수로 완결하고, 다른 플러그인의 윤문 스킬은 별도 설치돼 현재 앱에 노출된 경우에만 추가 사용하도록 했다. 관련 일정·수치·증빙·제도 적용 범위는 유지한다. 코워커 버전은 세 위치에서 `1.2.27`로 올렸다.
+- `collab-pm-report/tests/test-cases.yaml`의 섹션 이름을 현재 스킬의 `핵심 지표`·`다음 계획`·`위험·이슈`·`결정 요청`에 맞췄다. 버전 필드가 있는 테스트 YAML 다섯 개도 해당 스킬의 현재 frontmatter 버전에 맞췄다. 이 파일들은 기대 사례이며 앱에서 실행된 테스트 결과가 아니다.
+- `collab-brand-identity/references/brand-identity/brand-guide-template.md`의 바깥 마크다운 코드 울타리를 내부 예시보다 길게 수정해 템플릿 전체가 한 블록으로 유지되게 했다. 스킬 본문의 리터럴 `references/*.md` 35건을 경로로 검사해 자기 스킬에서 찾지 못한 세 건은 모두 명시된 다른 스킬 위치에 실제 파일이 있음을 확인했다.
+- 이 트리의 `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `python3 scripts/sync-mcp-core.py --check`는 복제 서버 여섯 곳 `[정합]`, `git diff --check`는 출력 없이 종료 코드 0이었다. 테스트 YAML 여섯 개를 PyYAML로 파싱했고 버전 필드가 있는 다섯 개는 해당 스킬과 일치했다. 주간보고 테스트의 여섯 섹션 이름은 스킬 본문에 존재한다. 브랜드 템플릿의 코드 울타리는 바깥 4개 백틱 한 쌍, 내부 3개 백틱 세 쌍으로 확인했다. 코워커 세 버전은 `1.2.27`로 일치하고 장부 76행은 모두 `static_read`다.
+- 필수 `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges)`의 구조화 판정은 `inconclusive`였다. 요약의 파일·줄 근거를 `ai-diagnostic`의 본문과 테스트 입력에 대조해, `근본 원인 분석` 대신 실제 필수 섹션 `원인 분석`을 기대하도록 수정했다. 임의의 5 Whys·Fishbone·Iceberg 동시 사용 요구, 선택 섹션인 위험도 평가의 필수 기대, 문의 150건 중 40%를 별도 60건 중 40%로 읽히게 한 증상 문구도 고쳤다. 감사 요약의 자체 `FAIL` 문구를 구조화 판정으로 바꿔 기록하지 않는다. 수정된 테스트는 여전히 실행 기대값 문서이며 실제 앱 결과가 아니다.
+- 감사 후 재검사에서도 런타임 설정 `오류 0건, 참고 0건`, MCP 복제 서버 여섯 곳 `[정합]`, `git diff --check` 종료 코드 0이었다. 테스트 YAML 여섯 개를 파싱했고, `ai-diagnostic`의 기대 섹션·문의 입력·선택 기법 판정이 스킬과 맞는지 확인했다. 코워커 버전 세 곳은 `1.2.27`, 장부는 `static_read` 76/76이다.
