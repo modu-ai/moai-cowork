@@ -14,6 +14,7 @@ on:
       - "plugins/*/.mcp.json"
       - "plugins/*/mcp-servers/**"
       - "scripts/check-plugin-runtimes.py"
+      - "scripts/sync-mcp-core.py"
   push:
     paths:
       - ".github/workflows/mcp-cross-platform.yml"
@@ -27,6 +28,7 @@ on:
       - "plugins/*/.mcp.json"
       - "plugins/*/mcp-servers/**"
       - "scripts/check-plugin-runtimes.py"
+      - "scripts/sync-mcp-core.py"
   workflow_dispatch:
 
 permissions:
