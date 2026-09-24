@@ -39,14 +39,14 @@ Typography is the voice of this darkness. LamboType — a custom Neo-Grotesk typ
 ## 2. Color Palette & Roles
 
 ### Primary
-- **Lamborghini Gold** (`#FFC000`): The signature accent color — a warm, saturated amber-gold (rgb 255, 192, 0) used exclusively for primary action buttons ("Discover More", "Tickets", "Start Configuration"). The only chromatic color in the entire interface, it ignites against the black canvas like a headlight cutting through night
+- **Lamborghini Gold** (`#FFC000`): The signature accent color — a warm, saturated amber-gold (rgb 255, 192, 0) used for primary action buttons ("Discover More", "Tickets", "Start Configuration"). Cyan and teal remain limited to link and ghost-button interaction states.
 - **Pure White** (`#FFFFFF`): Primary text color on dark surfaces, logo rendering, nav elements, and light-mode button fills — the voice that speaks from the darkness
 
 ### Secondary & Accent
 - **Dark Gold** (`#917300`): Hover/pressed state for gold buttons — a deep amber (rgb 145, 115, 0) that darkens the gold to signal interaction
 - **Gold Text** (`#FFCE3E`): Slightly lighter gold variant (rgb 255, 206, 62) used for inline text accents and highlighted labels
 - **Cyan Pulse** (`#29ABE2`): Electric blue-cyan (rgb 41, 171, 226) appearing as an informational accent and interactive element highlight
-- **Link Blue** (`#3860BE`): Medium blue (rgb 56, 96, 190) used universally for link hover states across all text colors
+- **Link Blue** (`#3860BE`): Medium blue for hover on light surfaces only; use Cyan Pulse (`#29ABE2`) for links on black or charcoal
 
 ### Surface & Background
 - **Absolute Black** (`#000000`): The dominant surface color — used for page background, hero sections, header, footer, and most containers
@@ -68,7 +68,7 @@ Typography is the voice of this darkness. LamboType — a custom Neo-Grotesk typ
 
 ### Semantic & Accent
 - **Cyan Pulse** (`#29ABE2`): Used for informational highlights and interactive feedback
-- **Link Blue** (`#3860BE`): Universal hover state for all hyperlinks
+- **Link Blue** (`#3860BE`): Hover on light surfaces; use Cyan Pulse (`#29ABE2`) on dark surfaces
 - **Teal Action** (`#1EAEDB`): Button hover background for transparent/ghost variants (rgb 30, 174, 219)
 
 ### Gradient System
@@ -123,9 +123,9 @@ All buttons use **zero border-radius** — sharp, angular rectangles that echo t
 - Used for: "Discover More", "Tickets", "Start Configuration"
 
 **Transparent Ghost** — The secondary action on dark backgrounds:
-- Default: bg transparent, text `#FFFFFF`, border 1px solid `#FFFFFF`, padding 16px, opacity 0.5
-- Hover: bg `#1EAEDB` (Teal Action), text white, opacity 0.7
-- Focus: bg `#1EAEDB`, border 1px solid `#000000`, outline 2px solid `#000000`
+- Default: bg transparent, text `#FFFFFF`, border 1px solid `rgba(255,255,255,0.5)`, padding 16px, full element opacity
+- Hover: bg `#1EAEDB` (Teal Action), text `#202020`, full opacity
+- Focus: bg `#1EAEDB`, text `#202020`, full opacity, outline 2px solid `#FFFFFF` with 2px offset
 - Used for: secondary CTAs on hero sections and dark panels
 
 **White Filled** — Light-mode primary:
@@ -133,7 +133,7 @@ All buttons use **zero border-radius** — sharp, angular rectangles that echo t
 - Used for: CTAs on dark sections where gold isn't appropriate
 
 **Black Filled** — Dark filled variant:
-- Default: bg `#000000`, text `#202020`
+- Default: bg `#000000`, text `#FFFFFF`
 - Used for: Inverted CTA on light sections
 
 **Gray Neutral** — Subtle action:
@@ -170,7 +170,7 @@ All buttons use **zero border-radius** — sharp, angular rectangles that echo t
 ### Distinctive Components
 - **Hexagonal Pause Button**: Video control uses a hexagonal outline (matching the brand's geometric DNA from the typeface), positioned bottom-right of hero sections
 - **Progress Bar**: Thin white line at bottom of hero sections indicating video/slide progress
-- **Badge/Tag**: bg `#969696`, text white, padding 8px, fontSize 10px, borderRadius 2px — tiny metallic pills
+- **Badge/Tag**: bg `#969696`, text `#202020`, padding 8px, fontSize 10px, borderRadius 2px — tiny metallic pills
 
 ## 5. Layout Principles
 
@@ -233,7 +233,7 @@ Lamborghini achieves depth through surface color layering rather than shadows. O
 - Keep the gray palette achromatic — all neutrals are pure gray without color tinting
 
 ### Don't
-- Introduce additional accent colors beyond gold — the monochrome-plus-gold system is sacred
+- Introduce decorative accent colors beyond gold; reserve cyan and teal for the documented link and ghost-button interaction states
 - Apply border-radius to buttons or cards — curved edges contradict the angular vehicle aesthetic
 - Use LamboType in italic or decorative styles — the brand is always upright and direct
 - Add gradients to buttons or surfaces — depth comes from surface layering, not blending
@@ -258,7 +258,7 @@ Lamborghini achieves depth through surface color layering rather than shadows. O
 | Wide | >1440px | Content centered, margins expand, hero fills viewport |
 
 ### Touch Targets
-- Gold CTA buttons: 48px+ minimum height with 24px padding (exceeds WCAG 44×44px)
+- Gold CTA buttons: 48px+ minimum height with 24px padding; confirm the rendered width before claiming the WCAG 2.5.5 enhanced 44×44px target
 - Ghost buttons: 48px+ with 16px padding
 - Hamburger menu: large touch target (~48px square)
 - Hexagonal pause button: approximately 48px diameter
@@ -284,16 +284,16 @@ Lamborghini achieves depth through surface color layering rather than shadows. O
 - Background: "Absolute Black (#000000)"
 - Surface: "Charcoal (#202020)"
 - Heading text: "Pure White (#FFFFFF)"
-- Body text: "Ash (#7D7D7D)"
-- Link hover: "Link Blue (#3860BE)"
+- Body text: "Mist (#E6E6E6) on dark surfaces; Ash (#7D7D7D) only where its actual background passes the required contrast"
+- Link hover: "Cyan Pulse (#29ABE2) on dark surfaces; Link Blue (#3860BE) on light surfaces"
 - Accent: "Cyan Pulse (#29ABE2)"
 - Border: "Pure White (#FFFFFF) at 50% opacity"
 
 ### Example Component Prompts
 - "Create a hero section with a full-viewport black background, the model name 'TEMERARIO' in LamboType at 120px uppercase weight 400 white text with 0.92 line-height, centered vertically, with a Lamborghini Gold (#FFC000) 'Discover More' button below — sharp corners, 0px radius, 24px padding, black text"
-- "Design a transparent ghost button with 1px solid white border at 50% opacity, white text at 14.4px uppercase with 0.2px letter-spacing, padding 16px, on a black background — hover state changes to Teal Action (#1EAEDB) background with 70% opacity"
+- "Design a transparent ghost button with 1px solid white border at 50% opacity, white text at 14.4px uppercase with 0.2px letter-spacing, padding 16px, on a black background — hover state uses opaque Teal Action (#1EAEDB) with #202020 text"
 - "Build a navigation bar with zero visible background on absolute black, a centered bull logo, 'MENU' text label with hamburger icon on the left, and search + bookmark icons on the right — all in white, sticky position"
-- "Create a news card grid on charcoal (#202020) background with white headlines at 27px uppercase, body text in #7D7D7D at 16px, and a white underlined 'Read More' link that turns #3860BE on hover"
+- "Create a news card grid on charcoal (#202020) background with white headlines at 27px uppercase, body text in #B0B0B0 at 16px, and a white underlined 'Read More' link that turns #29ABE2 on hover"
 - "Design a section divider using a 1px solid bottom border in #202020 on a black canvas — the elevation difference is purely through surface color shift, not shadow"
 
 ### Iteration Guide

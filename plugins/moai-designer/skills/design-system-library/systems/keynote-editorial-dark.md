@@ -10,7 +10,7 @@ colors:
   surface-3: "#262A31"
   ink: "#F4F5F7"
   body: "#AAB0B8"
-  muted: "#6E747D"
+  muted: "#9298A0"
   faint: "#40454C"
   hairline: "rgba(255,255,255,.08)"
   hairline-strong: "rgba(255,255,255,.16)"
@@ -151,8 +151,8 @@ spacing:
 ### Text
 - **Ink** (`{colors.ink}`): 제목·주요 텍스트.
 - **Body** (`{colors.body}`): 본문.
-- **Muted** (`{colors.muted}`): 라벨·캡션·크롬 텍스트.
-- **Faint** (`{colors.faint}`): 3차 텍스트·미세 구분.
+- **Muted** (`{colors.muted}`): 라벨·캡션·크롬 텍스트. 가장 밝은 surface-3 위에서도 일반 텍스트 대비를 확보한다.
+- **Faint** (`{colors.faint}`): 장식용 미세 구분에만 사용한다. 텍스트·의미를 전달하는 아이콘에는 쓰지 않는다.
 
 ### Accent & Signal
 - **Accent** (`{colors.accent}`) / **Accent-2** (`{colors.accent-2}`): 단일 azure 시그널. 슬라이드당 1곳. `{colors.accent-soft}`는 활성 노드 그라디언트.

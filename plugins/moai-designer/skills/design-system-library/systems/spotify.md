@@ -149,7 +149,7 @@ What distinguishes Spotify is its pill-and-circle geometry. Primary buttons use 
 - Search input: `#1f1f1f` background, `#ffffff` text
 - Radius: 500px (pill)
 - Padding: 12px 96px 12px 48px (icon-aware)
-- Focus: border becomes `#000000`, outline `1px solid`
+- Focus: keep the dark border and add a visible `2px solid #b3b3b3` outline with `2px` offset; do not rely on a black outline against the dark input
 
 ### Navigation
 - Dark sidebar with SpotifyMixUI 14px weight 700 for active, 400 for inactive
