@@ -170,9 +170,9 @@ plugins/moai-coworker/skills/collab-vendor/references/import-export.md		partial
 plugins/moai-coworker/skills/collab-vendor/references/risk-register.md		partial
 plugins/moai-coworker/skills/collab-vendor/references/supply-chain.md		partial
 plugins/moai-coworker/skills/meta-feedback/SKILL.md	claude_only_tool	static_read
-plugins/moai-coworker/skills/meta-skill-builder/SKILL.md	claude_only_tool	partial
-plugins/moai-coworker/skills/meta-skill-template/SKILL.md	claude_only_tool	partial
-plugins/moai-coworker/skills/meta-skill-tester/SKILL.md	claude_only_tool	partial
+plugins/moai-coworker/skills/meta-skill-builder/SKILL.md	claude_only_tool	static_read
+plugins/moai-coworker/skills/meta-skill-template/SKILL.md	claude_only_tool	static_read
+plugins/moai-coworker/skills/meta-skill-tester/SKILL.md	claude_only_tool	static_read
 plugins/moai-coworker/skills/personal-event/SKILL.md		partial
 plugins/moai-coworker/skills/personal-event/references/event-organizer.md		partial
 plugins/moai-coworker/skills/personal-event/references/wedding-planner.md		partial

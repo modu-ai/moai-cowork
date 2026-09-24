@@ -4,7 +4,7 @@ weight: 50
 description: "모두의 코워크가 어깨를 빌린 오픈소스 프로젝트 목록입니다. 스킬이 참고한 방법론, 함께 쓰는 MCP 서버, 문서 사이트를 떠받치는 도구까지 전부 밝힙니다."
 geekdocBreadcrumb: true
 date: 2026-08-08T00:00:00+09:00
-lastmod: 2026-09-01T00:00:00+09:00
+lastmod: 2026-09-25T04:45:00+09:00
 ---
 
 모두의 코워크는 처음부터 끝까지 혼자 만든 물건이 아닙니다. 남이 먼저 정리해 둔 방법론을
@@ -38,6 +38,7 @@ lastmod: 2026-09-01T00:00:00+09:00
 | [jjlabsio/korea-stock-mcp](https://github.com/jjlabsio/korea-stock-mcp) | 원저작자 공개 | 데이터 애널리스트 — 국내 주식 데이터 |
 | [daangn/seed-design](https://github.com/daangn/seed-design) · [kakao/kakao-font](https://github.com/kakao/kakao-font) · [KRDS-uiux/krds-uiux](https://github.com/KRDS-uiux/krds-uiux) | 각 프로젝트 라이선스 | 디자이너 — 한국 디자인 시스템 레퍼런스 |
 | [epoko77-ai/im-not-ai](https://github.com/epoko77-ai/im-not-ai) | MIT | 작가 — 한국어 윤문(`korean-humanize`)의 원본 계보 |
+| [revfactory/harness](https://github.com/revfactory/harness) | Apache-2.0 | 코워커 — 스킬 작성·검증 방법론의 참고 자료 |
 
 위 표에서 MIT로 표기된 항목은 라이선스가 저작권 고지를 요구하므로, 저작권 문구와 허가
 문구 전문이 저장소 루트 [`NOTICE`](https://github.com/modu-ai/moai-cowork/blob/main/NOTICE)

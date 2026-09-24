@@ -9,9 +9,8 @@ description: |
   - "이 기능 스킬로 만들고 싶어", "스킬 제작"
   - "Vibe 스킬 추가", "새 플러그인 스킬"
   - meta-skill-template으로 시작한 스킬의 체계적 생성이 필요할 때
-  - /harness 커맨드의 new 단계로 진입할 때
 user-invocable: false
-version: "1.1.1"
+version: "1.1.3"
 ---
 
 # Skill Builder — 6-Phase 스킬 생성 워크플로우
@@ -155,24 +154,33 @@ Phase 6: Review         → 품질 게이트 통과 확인, 파일 배치
 **테스트 구성:**
 
 ```yaml
-tests:
-  - name: "happy-path"
+skill: <skill-name>
+version: 0.1.0
+test_cases:
+  - id: TC-001
+    name: "happy-path"
     prompt: "<대표적인 사용 프롬프트>"
-    expected_output:
-      format: "<출력 형식>"
-      contains: ["<필수 포함 내용>"]
-      not_contains: ["<금지 내용>"]
+    assertions:
+      - type: format
+        value: "<markdown|json|text|html>"
+      - type: contains
+        value: "<필수 포함 내용>"
+      - type: not_contains
+        value: "<금지 내용>"
 
-  - name: "edge-case"
+  - id: TC-002
+    name: "edge-case"
     prompt: "<경계 조건 프롬프트>"
-    expected_output:
-      handles_gracefully: true
-      fallback_behavior: "<설명>"
+    assertions:
+      - type: handles_gracefully
+        value: true
 
-  - name: "complex-input"
+  - id: TC-003
+    name: "complex-input"
     prompt: "<복잡한 입력 프롬프트>"
-    expected_output:
-      completeness: "모든 요구사항 충족"
+    assertions:
+      - type: contains
+        value: "<복잡한 입력에서 반드시 반영할 항목>"
 ```
 
 **출력물:** `<skill-dir>/tests/test-cases.yaml`
@@ -188,7 +196,7 @@ tests:
 | Clarity | 25% | 사용자 이해 가능성 |
 | Efficiency | 20% | 토큰 대비 품질 |
 
-**통과 기준:** 가중 평균 >= 0.70, 모든 차원 >= 0.50
+**통과 기준:** 실행 결과가 관측됐을 때 기존 스킬은 가중 평균 >= 0.70, 신규 스킬은 >= 0.75이며 모든 차원은 >= 0.50입니다. 실행하지 못한 검사는 `NOT-RUN`으로 표시합니다.
 
 **미달 시:** Phase 3으로 돌아가서 부족한 차원을 보완합니다. 최대 3회 반복.
 
@@ -206,7 +214,7 @@ tests:
 - [ ] 수정한 스킬의 `version`, 양쪽 `plugin.json`, 마켓플레이스 버전을 같은 변경에서 갱신
 - [ ] 스킬 체인 관계가 프로젝트의 스킬 체인 정의와 일치 (해당 시)
 - [ ] 테스트 케이스가 생성됨
-- [ ] 루브릭 스코어 0.70 이상 통과
+- [ ] 실제 실행 결과를 바탕으로 기존 스킬 0.70 이상, 신규 스킬 0.75 이상 통과. 미실행 검사는 `NOT-RUN`
 - [ ] **`## 출처` 섹션 존재** (Phase 1.5 적용 스킬, `--skip-research` 미지정 시)
 - [ ] **정량 수치 모두 출처 또는 `[추정]` 태그** (Phase 1.5 적용 스킬)
 
@@ -255,11 +263,9 @@ tests:
 | meta-skill-tester | after | 생성된 스킬의 테스트 실행 + 루브릭 스코어링 |
 | ai-slop-reviewer | after | 스킬 본문의 AI 패턴 검수 (선택) |
 
-## 관련 커맨드
+## 실행 진입점
 
-| 커맨드 | 설명 |
-|--------|------|
-| `/harness` | new→test→review 자동 연쇄 (이 스킬 + meta-skill-tester + ai-slop-reviewer 오케스트레이션) |
+현재 앱에 이 스킬이 노출돼 있으면 자연어로 스킬 제작을 요청합니다. `meta-skill-tester`의 검증과 `ai-slop-reviewer`의 문체 검수는 각 스킬이 노출된 경우에만 연결합니다. 이 플러그인은 별도 `/harness` 명령을 제공하지 않습니다.
 
 ---
 
@@ -267,6 +273,6 @@ Source: revfactory/harness 6-Phase workflow (Apache 2.0) + MoAI adaptation
 
 ## Changelog
 
-- **1.6.0** (2026-05-01): Phase 1.5 Research 신설 — 외부 자료 조사(WebSearch·Context7) 의무화, 도메인별 공식 출처 화이트리스트 추가, `## 출처` 섹션 의무화 + 정량 수치 출처/`[추정]` 태그 강제
-- **1.5.x**: skill-forge → meta-skill-builder 이름 변경
+- **재정립 전 1.6.0** (2026-05-01): Phase 1.5 Research 신설 — 외부 자료 조사(WebSearch·Context7) 의무화, 도메인별 공식 출처 화이트리스트 추가, `## 출처` 섹션 의무화 + 정량 수치 출처/`[추정]` 태그 강제
+- **재정립 전 1.5.x**: skill-forge → meta-skill-builder 이름 변경
 - **이전**: harness 6-Phase 워크플로우 흡수

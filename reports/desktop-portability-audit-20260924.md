@@ -16,7 +16,7 @@
 | moai-analyst | 7 | 2 | 3 | 1 | 1 | 19파일 정적 열람, 앱 실행·현행성 검증 대기 |
 | moai-career | 5 | 2 | 6 | 0 | 0 | 18파일 정적 열람, 앱 실행·현행성 검증 대기 |
 | moai-consultant | 6 | 2 | 16 | 0 | 0 | 31파일 정적 열람, 앱 실행·현행성 검증 대기 |
-| moai-coworker | 32 | 0 | 32 | 1 | 1 | 19파일 정적 열람, 나머지 부분 검토 |
+| moai-coworker | 32 | 0 | 32 | 1 | 1 | 22파일 정적 열람, 나머지 부분 검토 |
 | moai-cs | 6 | 2 | 11 | 0 | 0 | 24파일 정적 열람, 앱 실행·현행성 검증 대기 |
 | moai-designer | 17 | 0 | 11 | 0 | 1 | 대기 |
 | moai-lawyer | 11 | 2 | 19 | 17 | 1 | 대기 |
@@ -775,3 +775,13 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - 이 작업 트리에서 `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `python3 scripts/sync-mcp-core.py --check`는 복제 서버 여섯 곳 `[정합]`, `git diff --check`는 출력 없이 종료 코드 0이었다. 수정한 스킬 8개의 버전 형식과 두 매니페스트·마켓플레이스의 코워커 버전 `1.2.25` 일치를 파싱해 확인했다. 이는 정적 검사 결과이며 앱에서의 스킬 발견, 문서 생성 품질, 운영체제별 설치 성공을 뜻하지 않는다.
 - `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges)`의 구조화 판정은 `inconclusive`였다. 요약의 파일·줄 근거에 따라 `collab-negotiation`·`collab-productivity-report`에 남은 필수 외부 윤문 경로와 `ai-slop-reviewer`·README의 자동 호출·마지막 단계 단정을 수정했다. 첫 검사 뒤 수정이 있었으므로 아래 재검증 결과를 별도로 기록한다. 감사 요약의 자체 `FAIL` 문구를 구조화 판정으로 바꿔 기록하지 않는다.
 - 수정 뒤 같은 트리에서 런타임 설정 검사 `오류 0건, 참고 0건`, MCP 복제 서버 여섯 곳 `[정합]`, `git diff --check` 종료 코드 0을 다시 확인했다. 수정된 스킬 11개의 frontmatter 버전 형식과 코워커 버전 `1.2.25`의 세 매니페스트 값 일치를 확인했다. `rg`로 필수 `korean-humanize`와 “마지막 단계” 표현의 남은 일치를 찾지 못했다. `ai-slop-reviewer`의 “자동 호출을 보장하지 않습니다” 문장과 미검토 `meta-skill-tester`의 `/harness` 연쇄 설명은 별개의 일치다. 앱 실행 결과는 아직 없다.
+- 커밋 `da564973`의 [원격 CI](https://github.com/modu-ai/moai-cowork/actions/runs/36050244364)는 `completed/success`, 24개 job이 모두 `success`였다. 플러그인 설정과 MCP 테스트 결과이며 앱에서 코워커 스킬을 실제로 호출한 결과는 아니다.
+
+### 코워커 메타 스킬의 실행 진입점과 출처 (2026-09-25)
+
+- `meta-skill-builder`·`meta-skill-template`·`meta-skill-tester`의 본문을 끝까지 읽고 장부의 세 행을 `static_read`로 바꿨다. 코워커는 총 76행 중 22행 정적 열람, 54행 부분 검토다.
+- `rg --files --hidden plugins/moai-coworker`와 스킬 본문 대조에서 두 메타 스킬이 안내한 `/harness` 명령 파일은 이 플러그인에 없었다. 두 스킬의 명령 트리거·연쇄 표를 현재 앱에 스킬이 노출된 경우의 자연어 요청으로 바꿨다. 스킬을 실제 앱에서 호출한 것은 아니다.
+- [revfactory/harness 원본](https://github.com/revfactory/harness)은 Apache-2.0 라이선스와 스킬 작성·검증 참고문서를 제공한다. 이를 `www/content/plugins/open-source.md`에 크레딧으로 추가했다. 코워커 플러그인의 세 버전 표시는 `1.2.26`으로 갱신했다.
+- `cd www && hugo --gc --minify --logLevel warn`는 종료 코드 0으로 209페이지를 빌드했고 새 크레딧 페이지의 렌더된 날짜는 `최종 업데이트 2026.09.25`였다. 이 페이지 렌더 결과에 남은 `**` 표시는 찾지 못했다. 저장소 전체 `npx markdownlint-cli2 'www/content/**/*.md'`는 148파일 중 147파일, 3399건의 문제로 종료 코드 1이었다. 수정한 크레딧 행(41행)에 대한 lint 출력은 없었으며, 기존 문서 전체의 lint 미통과를 이번 변경의 통과로 해석하지 않는다.
+- 메타 스킬 변경에 대한 `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges)`의 구조화 판정은 `inconclusive`였다. 요약에 파일·줄 근거가 있던 생성기 `tests`/`expected_output`와 검증기 `test_cases`/`assertions` 형식 불일치, 신규 스킬 0.70/0.75 통과 기준 불일치, README 직접 호출 안내와 `user-invocable: false`의 충돌을 수정했다. [Claude의 스킬 설정 문서](https://code.claude.com/docs/en/skills)는 `user-invocable: false`가 직접 `/` 호출을 막는다고 설명한다. 과거 1.6.0 변경 이력도 재정립 이전 기록임을 표시했다. 수정 뒤 생성기·검증기의 YAML 예시를 PyYAML로 파싱해 두 예시 모두 `skill`·`version`·`test_cases`와 케이스별 `id`·`name`·`prompt`·`assertions`를 갖는 것을 확인했다. 감사 요약의 자체 `FAIL` 문구를 구조화 판정으로 바꿔 기록하지 않는다.
+- 최종 정적 재검사에서 `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `python3 scripts/sync-mcp-core.py --check`는 복제 서버 여섯 곳 `[정합]`, `git diff --check`는 출력 없이 종료 코드 0이었다. 메타 스킬 두 파일의 YAML frontmatter와 코워커 Claude·Codex·마켓플레이스 버전 `1.2.26` 일치, 장부의 코워커 `static_read` 22행·`partial` 54행을 확인했다.

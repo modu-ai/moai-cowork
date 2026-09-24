@@ -10,9 +10,8 @@ description: |
   - "스킬 회귀 테스트", "스킬 체인 테스트"
   - "스킬 루브릭 스코어링", "4차원 평가"
   - meta-skill-builder Phase 5 이후 검증이 필요할 때
-  - /harness 커맨드의 test 단계로 진입할 때
 user-invocable: false
-version: "1.1.1"
+version: "1.1.2"
 ---
 
 # Skill Tester — 스킬 품질 검증 도구 (루브릭 + 체인 내장)
@@ -373,11 +372,9 @@ test_cases:
 | meta-skill-template | before | 템플릿 기반 스킬 구조 정의 |
 | ai-slop-reviewer | alternative | 텍스트 품질 검수 (비기능적) |
 
-## 관련 커맨드
+## 실행 진입점
 
-| 커맨드 | 설명 |
-|--------|------|
-| `/harness` | new→test→review 자동 연쇄에서 본 스킬을 test 단계로 호출 |
+현재 앱에 이 스킬이 노출돼 있으면 자연어로 스킬 검증을 요청합니다. 이 플러그인은 별도 `/harness` 명령을 제공하지 않습니다.
 
 ---
 

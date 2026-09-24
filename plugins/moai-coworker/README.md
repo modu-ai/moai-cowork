@@ -34,7 +34,7 @@ Claude Cowork와 ChatGPT Work는 마켓플레이스 등록 권한과 경로가 �
 
 ## 스킬
 
-호출 형식: `/moai-coworker:<스킬명>` — 예: `/moai-coworker:collab-proposal`. 앱에 스킬이 노출돼 있으면 자연어로도 요청할 수 있습니다.
+직접 호출이 허용된 스킬은 `/moai-coworker:<스킬명>` 형식으로 요청할 수 있습니다. 예: `/moai-coworker:collab-proposal`. `meta-skill-builder`와 `meta-skill-tester`처럼 `user-invocable: false`로 설정된 스킬은 직접 호출 명령 대상이 아닙니다. 앱에 스킬이 노출돼 있으면 자연어로 작업을 요청할 수 있습니다.
 
 ### 전략·기획
 
