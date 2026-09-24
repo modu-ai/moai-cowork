@@ -23,7 +23,7 @@
     {
       "name": "moai-writer",
       "source": "./plugins/moai-writer",
-      "version": "1.5.5",
+      "version": "1.5.6",
       "description": "출판·텍스트 전담 AI 코워커 — 도서 기획·집필·퇴고·제안서·출판사 조사와 한국어 윤문을 돕습니다. 공개 맞춤법 검사기는 이용 조건과 원고 공개 범위를 확인한 뒤 사용자 주도로 사용합니다. 스토리/IP 창작은 별도 moai-story 플러그인이 담당합니다. 이런 분께 추천: 작가·1인 출판인·실용서 저자.",
       "displayName": "✍️ 작가",
       "category": "창작·출판"
