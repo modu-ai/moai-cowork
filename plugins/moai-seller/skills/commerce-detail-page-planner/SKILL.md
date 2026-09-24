@@ -3,7 +3,7 @@ name: commerce-detail-page-planner
 description: >
   상품 상세페이지의 핵심 메시지, 정보 순서, 사진 목록, 채널별 확인 사항을 기획합니다.
   확인된 사양과 실제 고객 자료를 바탕으로 카피·이미지 제작 전에 브리프를 만듭니다.
-version: "1.1.2"
+version: "1.1.3"
 ---
 
 # 상세페이지 기획

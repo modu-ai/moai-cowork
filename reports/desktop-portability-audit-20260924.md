@@ -538,3 +538,8 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - 법적 표현은 [전자상거래법 제17조](https://law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1024961473), [제품안전정보센터의 어린이제품 대상품목](https://www.safetykorea.kr/policy/targetsSafetySupply), [식약처 화장품 정책개요](https://www.mfds.go.kr/wpge/m_639/de050601l001.do)를 대조했다. 외부 자료는 일반 기준이며 개별 판매자의 실제 약관·품목·심사 상태까지 확인해 주지 않는다.
 - `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges)`는 구조화된 `verdict: inconclusive`, `findings: []`를 반환했지만 요약에 파일·줄이 있는 잔존 위험을 제시했다. 직접 대조해 발달 효능·성분 효능 자동 변환, 기본 무료 체험, 미확인 인증 배지, 구독 해지 단계의 `true`·`1`, 여행 일정의 확정값을 추가로 수정했다. 구조화된 감사 결과를 PASS로 간주하지 않는다.
 - 이 작업 트리에서 Python/PyYAML로 다섯 참고문서의 YAML 블록 `5/5`를 파싱하고 감사에서 지적한 고정값 패턴의 부재를 확인했다. Seller 버전은 마켓플레이스·Claude·Codex 매니페스트 `1.4.3` 세 곳이 같고 스킬은 `1.1.2`였다. `git diff --check`도 종료 코드 0이었다. 실제 상품 데이터를 넣은 생성 결과나 법률 자문·앱 호스트 실행은 미검증이다.
+
+### Seller B2B·펫 참고문서 재검토 (2026-09-25)
+- B2B/SaaS 참고문서의 가상 고객 수·도입 효과·무료 체험·응답 시간·가격 할인·보안 인증을 실제 제공 조건과 증빙을 확인하는 항목으로 바꿨다. SOC 2 감사 보고서와 ISO/IEC 27001 인증서를 구분하고 로고 사용 권한을 명시했다. [AICPA SOC 2](https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2)와 [ISO/IEC 27001](https://www.iso.org/standard/27001), [ISO 인증 안내](https://www.iso.org/certification.html)를 대조했다.
+- 펫 참고문서의 가상 성분 함량·원산지 인증·기호성·수의사 추천·효능·배송 할인을 제거하고 제품 자료·추천 사실·공개 허락을 확인하게 했다. 각 제품의 실제 성장 단계·급여량을 쓰도록 고쳤다. 품목별 판매 조건과 실제 브리프 생성은 아직 검증하지 않았다.
+- 이 두 문서에 대한 `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges)`도 구조화된 `verdict: inconclusive`, `findings: []`였으나 요약에는 파일·줄을 든 네 지적이 있었다. 요금제 기본값, 감사 보고서와 인증서의 혼합 목록, 이미 선택된 선택 모듈, 문자열로 채운 확인 상태를 실제 YAML에서 확인하고 `[]` 또는 `null`로 수정했다. Python/PyYAML로 두 블록을 파싱하고 미확인 상태가 빈 목록·null로 읽히는 것을 확인했다. 이 검사는 생성된 판매 페이지나 실제 인증 상태를 검증하지 않는다.
