@@ -585,3 +585,9 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - `www/content/plugins/install.md`에서 두 앱이 등록 상태를 공유한다는 문구를 제거했다. `www/content/plugins/mcp/credentials.md`에서 채팅에 키를 입력하라는 문구를 제거하고 새 파일 경로를 추가했다. 수정 문서 날짜는 2026-09-25로 갱신했다.
 - `hugo --gc --minify --logLevel warn`은 종료 코드 0으로 209페이지를 빌드했다. 렌더된 설치·자격증명 페이지에서 날짜가 보이고 `**` 잔류는 각 0건이었다. 대상 네 Markdown 파일 lint는 180건의 MD013·MD060 등을 출력하며 종료 코드 1, 전체 `www/content/**/*.md` lint도 종료 코드 1이었다. 따라서 Markdown lint 통과는 주장하지 않는다.
 - 새 런처 파일을 장부에 추가해 `partial 1078`개가 되었다. `partial`은 소스·구조 확인이며 실제 앱 설치·인증·조회·운영체제별 성공은 미검증이다.
+
+### 카페24 공식 카탈로그 MCP와 CI 설정 검사 (2026-09-25)
+- [카페24 공식 MCP 예시](https://github.com/cafe24-oss/cafe24-mcp-demo)는 `https://mcp-catalog.cafe24.com/api/mcp`를 카탈로그 서버 주소로 안내한다. 이 작업 트리의 Claude `.mcp.json`에는 서버가 있었지만 Codex 매니페스트에는 없었다. 같은 공식 URL을 Codex HTTP MCP 항목에 추가하고, Claude 주석에서 현재 주소를 별도 Global Catalog 제품으로 부르던 표현을 바로잡았다.
+- 이 컴퓨터에서 해당 URL로 MCP `initialize`를 POST했을 때 HTTP 200, `serverInfo.name=cafe24-mcp-catalog`, `protocolVersion=2025-03-26`을 받았다. 반환된 세션 ID로 `tools/list`를 호출해 HTTP 200과 `search-catalog-products`·`search-category-code`·`search-products-detail` 세 이름을 확인했다. 이는 공식 원격 서버의 현재 응답이며 ChatGPT Work 설치·도구 호출 결과는 아니다.
+- `python3 scripts/check-plugin-runtimes.py` 출력은 `검사한 플러그인 18개 — 오류 0건, 참고 0건`. moai-seller의 Claude·Codex·마켓플레이스 버전 `1.4.6` 세 곳 일치와 Codex URL을 JSON 파싱으로 확인했다. `git diff --check`와 `actionlint -no-color .github/workflows/mcp-cross-platform.yml`은 출력 없이 종료 코드 0이었다.
+- CI의 기존 MCP 서버·런처 테스트는 이미 Ubuntu·Windows·macOS 행렬을 사용한다. 이번에는 플러그인 매니페스트·MCP 설정·런처 사본·검사기 변경도 워크플로 실행 조건에 포함하고, 같은 세 운영체제에서 전체 플러그인 설정 검사와 런처 사본 동일성 검사를 수행하는 job을 추가했다. 원격 CI 결과와 데스크톱 앱 실행은 별도로 관측해야 한다.

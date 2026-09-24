@@ -51,7 +51,7 @@
       }
     },
     "cafe24-catalog-mcp": {
-      "$comment": "카페24 공식 Global Catalog MCP. 상품 검색 등 제공 기능은 현재 tools/list로 확인합니다. 판매자 Admin API와는 용도가 다릅니다.",
+      "$comment": "카페24 공식 Catalog MCP. 상품 검색 등 제공 기능은 현재 tools/list로 확인합니다. 판매자 Admin API와는 용도가 다릅니다.",
       "command": "npx",
       "args": ["mcp-remote", "https://mcp-catalog.cafe24.com/api/mcp"]
     }
