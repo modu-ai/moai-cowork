@@ -58,6 +58,7 @@ Windows에서는 `C:\Users\사용자이름\.moai\mcp\<서비스이름>.json`입�
 |---|---|---|
 | `moai-accountant` · `moai-analyst` · `moai-coworker` | `dart` | `DART_API_KEY` |
 | `moai-media` | `elevenlabs` | `ELEVENLABS_API_KEY` |
+| `moai-media` (정확한 GPT Image 2.5 생성) | `openai` | `OPENAI_API_KEY` |
 | `moai-seller` (스마트스토어) | `smartstore` | `NAVER_COMMERCE_CLIENT_ID` · `NAVER_COMMERCE_CLIENT_SECRET` · `NAVER_COMMERCE_ACCOUNT_ID` · `NAVER_COMMERCE_TYPE` |
 | `moai-seller` (아임웹) | `imweb` | `IMWEB_CLIENT_ID` · `IMWEB_CLIENT_SECRET` · `IMWEB_ACCESS_TOKEN` · `IMWEB_REFRESH_TOKEN` · `IMWEB_UNIT_CODE` |
 | `moai-seller` (카페24) | `cafe24` | `CAFE24_MALL_ID` · `CAFE24_CLIENT_ID` · `CAFE24_CLIENT_SECRET` · `CAFE24_ACCESS_TOKEN` · `CAFE24_REFRESH_TOKEN` |
@@ -66,6 +67,19 @@ Windows에서는 `C:\Users\사용자이름\.moai\mcp\<서비스이름>.json`입�
 | `moai-lawyer` (국가법령정보, ChatGPT Work) | `korean-law` | `LAW_OC` |
 
 `moai-lawyer`의 국가법령정보는 Claude Cowork에서는 앱의 `KOREAN_LAW_OC` 입력란을 사용합니다. ChatGPT Work에서는 `korean-law.json`에 `{"LAW_OC":"발급받은_키"}`를 저장합니다. ChatGPT Work의 로컬 서버에는 uv와 Node.js 20.19 이상이 필요합니다. 서버가 연결된 뒤 법령 검색 도구로 실제 조회를 확인하세요.
+
+정확한 GPT Image 2.5 생성에는
+[OpenAI API 키](https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key)를
+별도로 발급해 `openai.json`에 `{"OPENAI_API_KEY":"발급받은_키"}`로 저장합니다.
+Claude Cowork에서 비밀정보 입력란이 보이면 그곳에 넣어도 됩니다.
+[ChatGPT 구독과 API는 청구가 분리](https://help.openai.com/en/articles/9039756)됩니다.
+키와 API 사용 권한이 없다면 `moai-media`는 기본 이미지 도구의 결과를
+GPT Image 2.5 생성으로 표시하지 않습니다.
+
+macOS·Linux에서 `openai.json`을 사용할 때는 `.moai/mcp` 폴더 권한을 `0700`,
+키 파일 권한을 `0600`으로 설정하세요. 권한이 더 넓으면 생성 도구가 키 사용을
+거부합니다. Windows에서는 파일 속성의 **보안** 탭에서 다른 일반 사용자에게
+읽기 권한이 없는지 확인하세요. Windows ACL은 현재 도구가 자동 확인하지 못합니다.
 
 Higgsfield·Meta Ads·Slack·WordPress·Typefully처럼 **로그인 방식(OAuth)** 인 서비스는 이 페이지와 무관합니다. 처음 쓸 때 브라우저 로그인 창이 뜨고, 키를 적을 일이 없습니다.
 

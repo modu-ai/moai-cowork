@@ -1,10 +1,10 @@
 ---
 title: "MCP 설치와 설정"
 weight: 1
-description: "사전 준비물 uv·Node.js 설치부터 자격증명 입력, 연결 확인까지. macOS와 Windows 양쪽 안내를 함께 담았습니다."
+description: "사전 준비물 uv·Node.js 설치부터 자격증명 입력, 연결 확인까지. macOS·Windows·Linux 안내를 함께 담았습니다."
 geekdocBreadcrumb: true
 date: 2026-08-08T00:00:00+09:00
-lastmod: 2026-08-22T12:00:00+09:00
+lastmod: 2026-09-25T00:00:00+09:00
 ---
 
 MCP 서버를 쓰려면 준비물이 **두 가지** 필요합니다. 한 번만 설치하면 이후 모든 MCP
@@ -24,7 +24,7 @@ MCP 서버를 쓰려면 준비물이 **두 가지** 필요합니다. 한 번만 
 서버들은 파이썬으로 되어 있는데, uv가 있으면 **필요한 것을 알아서 받아 옵니다.**
 따로 파이썬을 설치하거나 버전을 맞출 필요가 없습니다.
 
-셀러(스마트스토어·아임웹·카페24), SNS 크리에이터(Threads), 미디어(ElevenLabs) 코워커가
+셀러(스마트스토어·아임웹·카페24), SNS 크리에이터(Threads), 미디어(ElevenLabs·OpenAI 이미지) 코워커가
 이걸 씁니다.
 
 ### macOS
@@ -47,6 +47,15 @@ winget install --id=astral-sh.uv -e
 
 ```powershell
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+### Linux
+
+[uv 공식 설치 안내](https://docs.astral.sh/uv/getting-started/installation/)의
+Linux 설치 명령을 터미널에서 실행하세요. macOS와 같은 명령입니다.
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
 ### 설치 확인
@@ -90,6 +99,12 @@ winget install --id=OpenJS.NodeJS.LTS -e
 
 `winget` 이 없다면 [nodejs.org](https://nodejs.org/) 에서 **LTS** 설치 파일(`.msi`)을 받아
 실행하세요. 마법사에서 계속 "다음"만 누르면 됩니다.
+
+### Linux
+
+[Node.js 공식 다운로드](https://nodejs.org/en/download)에서 사용 중인 Linux 배포판에
+맞는 **LTS** 설치 방법을 선택하세요. 설치 후 아래 확인 명령으로 `node`와 `npx`가
+모두 실행되는지 확인합니다.
 
 ### 설치 확인
 

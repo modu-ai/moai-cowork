@@ -340,6 +340,7 @@ plugins/moai-lawyer/.mcp.json		partial
 plugins/moai-lawyer/README.md		partial
 plugins/moai-lawyer/agents/legal-researcher.md	claude_only_tool	partial
 plugins/moai-lawyer/agents/risk-auditor.md	claude_only_tool	partial
+plugins/moai-lawyer/mcp-launch/mcp_launch.py	platform_path	partial
 plugins/moai-lawyer/mcp-servers/moai-mcp-ip/.gitignore		partial
 plugins/moai-lawyer/mcp-servers/moai-mcp-ip/CONNECTORS.md		partial
 plugins/moai-lawyer/mcp-servers/moai-mcp-ip/README.md		partial
@@ -495,6 +496,19 @@ plugins/moai-media/README.md		partial
 plugins/moai-media/agents/media-brand-auditor.md	claude_only_tool	partial
 plugins/moai-media/agents/media-producer.md	claude_only_tool	partial
 plugins/moai-media/mcp-launch/mcp_launch.py	platform_path	partial
+plugins/moai-media/mcp-servers/moai-mcp-openai/README.md		partial
+plugins/moai-media/mcp-servers/moai-mcp-openai/pyproject.toml		partial
+plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/__init__.py		partial
+plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/auth.py		partial
+plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/cache.py		partial
+plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/credentials.py		partial
+plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/errors.py		partial
+plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/http.py		partial
+plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/tokenstore.py	platform_path	partial
+plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_openai/__init__.py		partial
+plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_openai/server.py		partial
+plugins/moai-media/mcp-servers/moai-mcp-openai/tests/test_server.py		partial
+plugins/moai-media/mcp-servers/moai-mcp-openai/uv.lock		partial
 plugins/moai-media/skills/media-asset-production/SKILL.md		partial
 plugins/moai-media/skills/media-audio-gen/SKILL.md	claude_only_tool	partial
 plugins/moai-media/skills/media-brand-audit/SKILL.md		partial
@@ -731,6 +745,7 @@ plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_core/http.py		parti
 plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_core/tokenstore.py	platform_path	partial
 plugins/moai-seller/mcp-servers/moai-mcp-cafe24/tests/conftest.py		partial
 plugins/moai-seller/mcp-servers/moai-mcp-cafe24/tests/test_auth.py		partial
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/tests/test_client_paths.py	new_test	partial
 plugins/moai-seller/mcp-servers/moai-mcp-cafe24/uv.lock		partial
 plugins/moai-seller/mcp-servers/moai-mcp-imweb/.gitignore		partial
 plugins/moai-seller/mcp-servers/moai-mcp-imweb/CONNECTORS.md		partial
@@ -1075,5 +1090,3 @@ plugins/moai-writer/skills/korean-humanize/tests/test_humanize_html.py		partial
 plugins/moai-writer/skills/korean-humanize/tests/test_metrics.py		partial
 plugins/moai-writer/skills/korean-humanize/tests/test_rhythm_gate.py		partial
 plugins/moai-writer/skills/korean-spell-check/SKILL.md		partial
-plugins/moai-seller/mcp-servers/moai-mcp-cafe24/tests/test_client_paths.py	new_test	partial
-plugins/moai-lawyer/mcp-launch/mcp_launch.py	platform_path	partial

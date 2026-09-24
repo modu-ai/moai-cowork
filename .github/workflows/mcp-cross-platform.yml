@@ -56,6 +56,9 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
         server:
+          - name: openai
+            path: plugins/moai-media/mcp-servers/moai-mcp-openai
+            dev: --group dev
           - name: ip
             path: plugins/moai-lawyer/mcp-servers/moai-mcp-ip
             dev: --group dev

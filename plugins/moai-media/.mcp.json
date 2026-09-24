@@ -25,7 +25,20 @@
       "url": "https://mcp.higgsfield.ai/mcp",
       "timeout": 120000,
       "headers": {
-        "User-Agent": "MoAI-Media/3.2.0"
+        "User-Agent": "MoAI-Media/3.3.0"
+      }
+    },
+    "moai-mcp-openai": {
+      "$comment": "정확한 GPT Image 2.5 모델 지정용 OpenAI Image API MCP. 별도 API 키·과금 필요. 키는 앱 MCP 연결 설정 또는 ~/.moai/mcp/openai.json에 저장하고 채팅에 입력하지 않는다.",
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "${CLAUDE_PLUGIN_ROOT}/mcp-servers/moai-mcp-openai",
+        "moai-mcp-openai"
+      ],
+      "env": {
+        "OPENAI_API_KEY": "${user_config.OPENAI_API_KEY}"
       }
     }
   }
