@@ -13,12 +13,12 @@ description: |
   이 스킬은 로고 타입·브랜드 정합·제약과 실제 산출물 점검을 맡습니다. ChatGPT Work에서는 네이티브
   이미지 생성으로 컨셉을 만들 수 있고, 사용자가 선택한 Higgsfield 경로의 모델·출력 형식은 실행 전에
   확인합니다. 최종 벡터 마스터가 필요한 경우 실제 SVG 결과를 별도로 검증합니다.
-version: "1.1.2"
+version: "1.1.3"
 ---
 
 # design-logo — 브랜드 정합 로고 생성
 
-> `moai-designer` | 브랜드 컨텍스트 → 로고 타입 → 제약 → 생성 위임 → 정합 검증 (생성 실행: `moai-media`)
+> `moai-designer` | 브랜드 컨텍스트 → 로고 타입 → 제약 → 생성 → 정합 검증
 
 ## 개요
 
@@ -28,7 +28,7 @@ version: "1.1.2"
 
 ## 하지 않는 것
 
-- **생성 모델·비용 고지** — 선택한 `moai-media` 경로의 계약에 따른다. 모델 이름만 보고 벡터 출력을 보장하지 않는다.
+- **생성 모델·비용 고지** — 실제 연결에서 모델·견적·승인 조건을 확인한다. 모델 이름만 보고 벡터 출력을 보장하지 않는다.
 - **디자인 토큰 정의 안 함** — 토큰의 진실원은 프로젝트의 디자인 시스템이다. 이 스킬은 읽어서 쓸 뿐 새로 만들지 않는다.
 - 필수 브랜드 정보가 없으면 사용 가능한 질문 채널로 확인하고, 답이 없으면 확인 가능한 범위의 컨셉만 제시한다.
 
@@ -100,9 +100,9 @@ version: "1.1.2"
 
 탐색 단계에서는 요청 범위·비용과 실제 지원 파라미터에 맞춰 후보 수를 정한다.
 
-### 5단계 — 생성 위임
+### 5단계 — 생성
 
-ChatGPT Work의 컨셉 이미지는 `moai-media:media-codex-image` 네이티브 경로를 기본으로 한다. 사용자가 Higgsfield를 지정했다면 `moai-media:media-higgsfield-image`가 실제 모델·출력 형식·비용을 확인한다. 벡터 마스터가 목적이라면 해당 경로에서 SVG가 실제로 제공되는지 확인하고, 제공되지 않으면 컨셉 이미지로만 표기한다.
+ChatGPT Work의 컨셉 이미지는 현재 대화의 이미지 생성 도구를 기본으로 한다. 사용자가 Higgsfield를 지정했다면 이 플러그인의 공식 Higgsfield 연결에서 실제 모델·출력 형식·크레딧 견적을 확인한다. 생성 전에 비용과 승인 조건을 확인한다. 별도로 `moai-media`를 설치했다면 해당 이미지 스킬의 상세 절차를 사용할 수 있다. 벡터 마스터가 목적이라면 해당 경로에서 SVG가 실제로 제공되는지 확인하고, 제공되지 않으면 컨셉 이미지로만 표기한다.
 
 > 이미지 도구가 없으면 프롬프트와 검토 기준을 제공하고 생성 상태를 미완료로 기록한다. Higgsfield 웹 안내는 사용자가 그 경로를 선택했을 때만 한다.
 
@@ -138,16 +138,16 @@ ChatGPT Work의 컨셉 이미지는 `moai-media:media-codex-image` 네이티브 
 - 금지 사항은 긍정 서술로 바꿔 넣는다(R1).
 - 워드마크/레터마크 텍스트는 따옴표로 감싸고 폰트를 함께 지정한다(R3).
 - 로고 안에 슬로건·부가 텍스트를 과도하게 넣지 않는다 — 작아지면 깨진다.
-- 생성 비용·모델은 이 스킬이 정하지 않는다 — 위임처의 사전 고지 절차를 그대로 따른다.
+- 생성 비용·모델은 추정하지 않는다 — 실제 도구의 모델·견적과 사전 고지 절차를 확인한다.
 - **파일 형식을 확인한다.** 실제 SVG 벡터 결과라면 경로·편집 가능성·텍스트 윤곽을 점검한다. PNG/JPG 결과는 컨셉 이미지이며 최종 벡터 마스터가 필요하면 별도 제작·벡터화가 필요하다.
 
 ## 관련 스킬
 
 | 스킬 | 시점 |
 |---|---|
-| `moai-media:media-codex-image` | 위임: ChatGPT Work 네이티브 컨셉 이미지 |
-| `moai-media:media-higgsfield-core` | 위임: 선택한 Higgsfield 생성의 비용·모델 |
-| `moai-media:media-higgsfield-image` | 인접: recraft 프롬프트 크래프트 SSOT |
+| `moai-media:media-codex-image` | 선택: 별도 설치된 경우 ChatGPT 이미지 작업 상세 절차 |
+| `moai-media:media-higgsfield-core` | 선택: 별도 설치된 경우 Higgsfield 비용·모델 확인 절차 |
+| `moai-media:media-higgsfield-image` | 선택: 별도 설치된 경우 Recraft 프롬프트 지침 |
 | `moai-designer:design-brand-visual` | 형제: 히어로·OG·목업 비주얼 |
 | `moai-designer:design-brand-system` | 선행: 브랜드 디자인 시스템 정의 |
 | `moai-designer:design-slop-check` | 후속: AI 슬롭 점검 |
@@ -157,5 +157,5 @@ ChatGPT Work의 컨셉 이미지는 `moai-media:media-codex-image` 네이티브 
 - [Higgsfield MCP](https://higgsfield.ai/mcp) — 생성 실행 경로.
 - [Recraft](https://www.recraft.ai) — 벡터/로고/아이콘 프롬프트 크래프트(1차). global-to-local 구조, 디자이너 용어 사전.
 - [Higgsfield Skills (공식 agent 문서)](https://github.com/higgsfield-ai/skills) (MIT) — 로고 용도 구분 참고.
-- 생성 계약·비용·모델 선택: `moai-media:media-higgsfield-core` 라이브 계약.
+- 생성 계약·비용·모델 선택: 현재 연결된 공식 Higgsfield 도구의 라이브 결과.
 - 로고 타입 분류와 5원칙의 출처는 `references/logo-types.md`, `references/logo-principles.md` 각 파일에 명시.

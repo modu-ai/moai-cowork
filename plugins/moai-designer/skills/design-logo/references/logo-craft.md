@@ -1,11 +1,11 @@
 # logo-craft.md — 로고 프롬프트 크래프트
 
 > `design-logo` 참조 파일. 프롬프트를 조립할 때 연다.
-> 생성 실행·비용·결과 형식은 선택한 `moai-media` 경로에서 확인한다. 이 파일은 프롬프트 크래프트만 다룬다.
+> 생성 실행·비용·결과 형식은 실제 사용 가능한 도구에서 확인한다. 이 파일은 프롬프트 크래프트만 다룬다.
 
 ## 핵심 원칙: 파라미터는 런타임 조회
 
-모델 id·aspect_ratio·media role·컬러 파라미터는 경로마다 다르다. Higgsfield를 선택했다면 `moai-media:media-higgsfield-core`에서 실제 연결의 라이브 스키마를 확인한다. ChatGPT Work 네이티브 경로에는 Higgsfield MCP 파라미터를 넘기지 않는다.
+모델 id·aspect_ratio·media role·컬러 파라미터는 경로마다 다르다. Higgsfield를 선택했다면 이 플러그인의 공식 연결에서 노출된 도구와 라이브 스키마를 확인한다. 별도 `moai-media`를 설치했다면 해당 스킬의 상세 절차도 참고할 수 있다. ChatGPT Work 네이티브 경로에는 Higgsfield MCP 파라미터를 넘기지 않는다.
 
 ## Recraft 공식 프롬프트 6개 구성 요소
 
@@ -52,7 +52,7 @@ Higgsfield MCP 경로에서 별도 `negative_prompt` 필드가 확인되지 않�
 
 > *"green and charcoal palette, deep green (#1b6e4a) with neutral charcoal (#2b2b2b)."*
 
-정확한 색 파라미터 스키마는 unverified — `models_explore`로 라이브 확인 필수.
+정확한 색 파라미터 스키마는 미검증 — 현재 연결의 모델 조회 도구와 라이브 스키마로 확인한다.
 
 ## 벡터 작업 금지 언어
 
@@ -83,5 +83,5 @@ texture, material, photographic, realistic, gradient, shadow, highlight, beveled
 ## 출처
 - Recraft — Practical Prompt Engineering: A Recraft V4 Guide — https://www.recraft.ai/blog/prompt-engineering-guide (WebFetch 검증)
 - Recraft — AI Logo Maker Guide — https://www.recraft.ai/blog/ai-logo-maker-guide (WebFetch 검증)
-- `moai-media:media-higgsfield-image` references/prompt-craft/recraft.md (SSOT, 1차 recraft.ai docs)
-- `moai-media:media-higgsfield-core` references/universal-rules.md (R1-R5)
+- 별도 설치된 `moai-media:media-higgsfield-image`의 `references/prompt-craft/recraft.md` (추가 참고 자료)
+- 별도 설치된 `moai-media:media-higgsfield-core`의 `references/universal-rules.md` (추가 참고 자료)

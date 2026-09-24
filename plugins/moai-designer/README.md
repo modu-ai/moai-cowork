@@ -4,7 +4,7 @@
 
 ---
 
-## 무엇을 하나요 (16스킬)
+## 무엇을 하나요
 
 | 역할 | 언제 | 무엇을 하나요 |
 |------|------|---------------|
@@ -12,8 +12,8 @@
 | 📥 **Claude Design 핸드오프** | claude.ai/design에서 만든 시안을 코드로 받을 때 | 핸드오프 번들(.zip·URL) 분석 → 토큰·컴포넌트 추출 |
 | ✍️ **디자인 카피 검수** | 랜딩 페이지·카드뉴스 카피의 AI 맛을 뺄 때 | AI 슬롭 감사 → 검수 보고서 + 자연스러운 대안 |
 | 🛠️ **코드 기반 브랜드 디자인** | 브랜드 컨텍스트에서 카피+비주얼 토큰을 코드로 만들 때 | 카피·비주얼 토큰 병렬 생성 → GAN 품질 루프 |
-| 🖼️ **브랜드 정합 비주얼 생성** | 히어로·OG·목업·마스코트 이미지가 필요할 때 | 디자인 토큰을 읽어 제약으로 변환 → Higgsfield 생성 위임 → 정합 검증 |
-| 🏷️ **브랜드 정합 로고 생성** | 로고·브랜드 마크·앱 아이콘이 필요할 때 | 브랜드 컨텍스트 → 로고 타입 선택 → recraft 벡터 제약 → Higgsfield 생성 위임 → 스케일 정합 검증 |
+| 🖼️ **브랜드 정합 비주얼 생성** | 히어로·OG·목업·마스코트 이미지가 필요할 때 | 디자인 토큰을 제약으로 변환 → 현재 앱의 이미지 도구 또는 공식 Higgsfield 연결로 생성 → 정합 검증 |
+| 🏷️ **브랜드 정합 로고 생성** | 로고·브랜드 마크·앱 아이콘이 필요할 때 | 브랜드 컨텍스트 → 로고 타입 선택 → 지원 도구로 컨셉 생성 → 결과 형식·스케일 검증 |
 | ✨ **다이나믹 랜딩 제작** | 스크롤·three.js·모션이 들어간 랜딩이 필요할 때 | 컨셉 스파인 → 시그니처 효과 1개 → 에셋 킷 생성 → 구현 → 기계 게이트 |
 
 > 실무 문서·카피·글쓰기는 **코워커**가 담당합니다.
@@ -37,8 +37,7 @@
 
 ### 이렇게 말하면 됩니다
 
-슬래시 명령은 두지 않습니다 — Claude Cowork에서만 동작해서 ChatGPT Work 사용자가 못 쓰기 때문입니다.
-아래처럼 자연어로 말하면 같은 스킬이 붙고, 두 앱에서 똑같이 동작합니다.
+이 플러그인은 자체 슬래시 명령을 제공하지 않습니다. 아래처럼 자연어로 요청하면 해당 스킬을 사용할 수 있습니다. 앱의 스킬 선택과 연결 가능 여부는 설치 환경에서 확인해야 합니다.
 
 | 이렇게 말하면 | 무슨 일 |
 |------|--------|
@@ -78,7 +77,7 @@ Claude Cowork와 ChatGPT Work는 마켓플레이스 등록 권한과 경로가 �
 
 ## 다른 AI 코워커과 함께 쓰기
 
-디자이너는 4명의 AI 코워커 중 한 명입니다.
+디자이너는 다른 플러그인과 함께 사용할 수 있습니다.
 
 | AI 코워커 | 언제 |
 |---------|------|
@@ -93,14 +92,12 @@ Claude Cowork와 ChatGPT Work는 마켓플레이스 등록 권한과 경로가 �
 ## 더 알아보기 (개발자·디자이너 기술)
 
 - **두 갈래 경로** — 디자인 작업 요청이 Path A(Claude Design import)와 Path B(코드 기반 브랜드 디자인)를 1라운드 인터뷰로 선택
-- **GAN 품질 루프** — Design Quality(30%)·Originality(25%)·Completeness(25%)·Functionality(20%) 4차원 회의적 채점 + `config/design.yaml`의 `max_iterations`/`pass_threshold`/`escalation_after`로 반복 제어
-- **파이프라인** — `manager-spec`(BRIEF) → 카피·비주얼 토큰 병렬 생성 → frontend 구현 → `sync-auditor`(GAN 루프)
-- **스킬 15종** — 도메인/워크플로우 5종(`design-brand-system`, `design-copywriting`, `design-workflow`, `design-iteration-loop`, `design-handoff`) + Claude Design 전처리·라이브러리 6종(`design-brief`, `design-system-prep`, `design-prompt-builder`, `design-handoff-reader`, `design-slop-check`, `design-system-library`) + 토큰·업로드 2종(`design-tokens-transformer`, `design-sync-upload`) + 비주얼·로고·모션 3종(`design-brand-visual`, `design-logo`, `design-landing-motion`)
-- **MCP 연동** — `higgsfield`(mcp.higgsfield.ai). `design-brand-visual`·`design-logo`가 사용하며, 생성 실행·모델 선택·크레딧 사전 고지 계약은 `moai-media:media-higgsfield-core`에 위임한다. 인증은 Higgsfield 계정 로그인/OAuth 승인으로 진행한다.
-- **에이전트 3종** — `manager-spec`(BRIEF), `sync-auditor`(GAN 4차원 평가), `builder-harness`(Path B 동적 생성). 조사는 Anthropic 내장 `Explore`
+- **품질 검수** — Design Quality·Originality·Completeness·Functionality를 실제 브리프 기준으로 점검한다. MoAI-ADK 파이프라인을 설치한 프로젝트에서는 `config/design.yaml`과 해당 런타임의 평가 단계를 확인한다.
+- **파이프라인** — MoAI-ADK가 설치된 프로젝트에서는 `manager-spec`(BRIEF) → 카피·비주얼 토큰 생성 → frontend 구현 → `sync-auditor` 평가 경로를 사용할 수 있다. 이 플러그인만 설치한 데스크톱 앱에는 해당 에이전트가 포함되지 않는다.
+- **MCP 연동** — 이 플러그인에 공식 Higgsfield 연결이 포함된다. `design-brand-visual`·`design-logo`는 연결이 실제 활성화됐을 때 모델·크레딧 견적을 확인한다. 별도 `moai-media` 설치 없이도 연결된 도구를 사용할 수 있다. 인증은 Higgsfield 계정 로그인/OAuth 승인으로 진행한다.
 - **anti-slop 정본** — 디자인 카피 AI 슬롭 사전(영문·한국어 Tier 1/2)은 `design-copywriting`이 정본, `design-slop-check`는 다운스트림 QA 게이트
 - **디자인 헌법** — `rules/moai/design/constitution.md` (파이프라인 순서·5 안전 계층·GAN 루프 계약·평가자 관대성 방지, FROZEN)
-- **설정** — `config/design.yaml` (GAN 컨트롤·브랜드 컨텍스트·Claude Design 통합·design_docs 자동 로드)
+- **설정** — `config/design.yaml`은 MoAI-ADK 파이프라인의 참고 설정이다. 데스크톱 앱이 이 파일을 자동 적용한다고 가정하지 않는다.
 - **런타임 산출물 경로** — `.moai/design/`(토큰·컴포넌트·브리프), `.moai/project/brand/`(브랜드 컨텍스트). 플러그인은 참조만, 스캐폴드하지 않음
 
 ---

@@ -211,37 +211,37 @@ plugins/moai-cs/skills/cs-ticket-triage/SKILL.md		static_read
 plugins/moai-cs/skills/cs-ticket-triage/references/customer-support.md		static_read
 plugins/moai-cs/skills/cs-voc-triage/SKILL.md		static_read
 plugins/moai-cs/skills/cs-workflow/SKILL.md	new_chatgpt_agent_mapping	static_read
-plugins/moai-designer/.claude-plugin/plugin.json		partial
-plugins/moai-designer/.codex-plugin/plugin.json		partial
-plugins/moai-designer/.mcp.json		partial
-plugins/moai-designer/README.md		partial
-plugins/moai-designer/config/design.yaml		partial
-plugins/moai-designer/rules/moai/design/constitution.md	claude_only_tool	partial
-plugins/moai-designer/skills/design-brand-system/SKILL.md		partial
-plugins/moai-designer/skills/design-brand-visual/SKILL.md		partial
-plugins/moai-designer/skills/design-brief/SKILL.md	claude_only_tool	partial
-plugins/moai-designer/skills/design-copywriting/SKILL.md		partial
-plugins/moai-designer/skills/design-gui-guide/SKILL.md		partial
-plugins/moai-designer/skills/design-handoff-reader/SKILL.md		partial
-plugins/moai-designer/skills/design-handoff/SKILL.md	claude_only_tool	partial
+plugins/moai-designer/.claude-plugin/plugin.json		static_read
+plugins/moai-designer/.codex-plugin/plugin.json		static_read
+plugins/moai-designer/.mcp.json		static_read
+plugins/moai-designer/README.md		static_read
+plugins/moai-designer/config/design.yaml		static_read
+plugins/moai-designer/rules/moai/design/constitution.md	claude_only_tool	static_read
+plugins/moai-designer/skills/design-brand-system/SKILL.md		static_read
+plugins/moai-designer/skills/design-brand-visual/SKILL.md		static_read
+plugins/moai-designer/skills/design-brief/SKILL.md	claude_only_tool	static_read
+plugins/moai-designer/skills/design-copywriting/SKILL.md		static_read
+plugins/moai-designer/skills/design-gui-guide/SKILL.md		static_read
+plugins/moai-designer/skills/design-handoff-reader/SKILL.md		static_read
+plugins/moai-designer/skills/design-handoff/SKILL.md	claude_only_tool	static_read
 plugins/moai-designer/skills/design-handoff/references/prompt-template.md		partial
 plugins/moai-designer/skills/design-handoff/references/supporting-files.md		partial
-plugins/moai-designer/skills/design-iteration-loop/SKILL.md	claude_only_tool	partial
-plugins/moai-designer/skills/design-landing-motion/SKILL.md		partial
-plugins/moai-designer/skills/design-landing-motion/references/asset-kit.md		partial
+plugins/moai-designer/skills/design-iteration-loop/SKILL.md	claude_only_tool	static_read
+plugins/moai-designer/skills/design-landing-motion/SKILL.md		static_read
+plugins/moai-designer/skills/design-landing-motion/references/asset-kit.md		static_read
 plugins/moai-designer/skills/design-landing-motion/references/effects-catalog.md		partial
 plugins/moai-designer/skills/design-landing-motion/references/motion-craft.md		partial
 plugins/moai-designer/skills/design-landing-motion/references/quality-gate.md		partial
-plugins/moai-designer/skills/design-landing-motion/references/threejs-patterns.md		partial
-plugins/moai-designer/skills/design-logo/SKILL.md		partial
-plugins/moai-designer/skills/design-logo/references/logo-craft.md		partial
+plugins/moai-designer/skills/design-landing-motion/references/threejs-patterns.md		static_read
+plugins/moai-designer/skills/design-logo/SKILL.md		static_read
+plugins/moai-designer/skills/design-logo/references/logo-craft.md		static_read
 plugins/moai-designer/skills/design-logo/references/logo-principles.md		partial
 plugins/moai-designer/skills/design-logo/references/logo-types.md		partial
-plugins/moai-designer/skills/design-prompt-builder/SKILL.md	claude_only_tool	partial
-plugins/moai-designer/skills/design-slop-check/SKILL.md	claude_only_tool	partial
-plugins/moai-designer/skills/design-sync-upload/SKILL.md	claude_only_tool	partial
+plugins/moai-designer/skills/design-prompt-builder/SKILL.md	claude_only_tool	static_read
+plugins/moai-designer/skills/design-slop-check/SKILL.md	claude_only_tool	static_read
+plugins/moai-designer/skills/design-sync-upload/SKILL.md	claude_only_tool	static_read
 plugins/moai-designer/skills/design-system-library/BRAND-NOTICE.md		partial
-plugins/moai-designer/skills/design-system-library/SKILL.md		partial
+plugins/moai-designer/skills/design-system-library/SKILL.md		static_read
 plugins/moai-designer/skills/design-system-library/components/README.md		partial
 plugins/moai-designer/skills/design-system-library/components/alert.md		partial
 plugins/moai-designer/skills/design-system-library/components/badge.md		partial
@@ -331,9 +331,9 @@ plugins/moai-designer/skills/design-system-library/systems/wired.md		partial
 plugins/moai-designer/skills/design-system-library/systems/wise.md		partial
 plugins/moai-designer/skills/design-system-library/systems/x.ai.md		partial
 plugins/moai-designer/skills/design-system-library/systems/zapier.md		partial
-plugins/moai-designer/skills/design-system-prep/SKILL.md	claude_only_tool	partial
-plugins/moai-designer/skills/design-tokens-transformer/SKILL.md		partial
-plugins/moai-designer/skills/design-workflow/SKILL.md	claude_only_tool	partial
+plugins/moai-designer/skills/design-system-prep/SKILL.md	claude_only_tool	static_read
+plugins/moai-designer/skills/design-tokens-transformer/SKILL.md		static_read
+plugins/moai-designer/skills/design-workflow/SKILL.md	claude_only_tool	static_read
 plugins/moai-lawyer/.claude-plugin/plugin.json		partial
 plugins/moai-lawyer/.codex-plugin/plugin.json		partial
 plugins/moai-lawyer/.mcp.json		partial

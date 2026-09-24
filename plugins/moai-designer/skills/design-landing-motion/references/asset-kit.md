@@ -1,6 +1,6 @@
 # asset-kit.md — 랜딩 비주얼 킷
 
-> `design-landing-motion` | 필요한 자산을 고르는 구성표. 생성은 선택한 이미지·영상 스킬의 계약을 따른다.
+> `design-landing-motion` | 필요한 자산을 고르는 구성표. 생성은 현재 사용 가능한 이미지·영상 도구의 계약을 따른다.
 
 **Evidence tier:** 2차 (Higgsfield 공식 스킬 `higgsfield-websites` v0.12.0, MIT — `asset-system.md` 착안. CLI 명령 계층은 제거하고 킷 구성과 규칙만 남김)
 
@@ -43,18 +43,18 @@
 
 ## 3. 위임 방법
 
-필요한 항목마다 프롬프트를 조립한다. 실제 사용 가능한 경로를 확인하고 해당 스킬의 모델·비용·승인 절차를 따른다.
+필요한 항목마다 프롬프트를 조립한다. 현재 앱과 이 플러그인에 실제 연결된 도구의 모델·출력 형식·비용·승인 절차를 확인한다. 별도 설치된 `moai-media` 스킬은 상세 절차로 활용할 수 있다.
 
-| 필요한 것 | 위임처 |
+| 필요한 것 | 확인할 경로 |
 |---|---|
-| 이미지 (ChatGPT Work 기본) | `moai-media:media-codex-image` 네이티브 생성 |
-| 이미지 (Higgsfield 명시 선택) | `moai-media:media-higgsfield-image` |
-| 스크럽용 영상 | `moai-media:media-higgsfield-video` |
-| 누끼·업스케일·아웃페인팅 | `moai-media:media-higgsfield-assets` |
-| GLB (B3 효과) | `moai-media:media-higgsfield-assets` |
-| 인물·마스코트 일관성 | `moai-media:media-higgsfield-identity` |
+| 이미지 (ChatGPT Work 기본) | 현재 대화의 이미지 생성 도구 |
+| 이미지 (Higgsfield 명시 선택) | 이 플러그인의 공식 Higgsfield 연결에서 이미지 생성 도구 확인 |
+| 스크럽용 영상 | 공식 Higgsfield 연결에서 영상 생성 지원 여부 확인 |
+| 누끼·업스케일·아웃페인팅 | 현재 연결에서 해당 편집 도구 지원 여부 확인 |
+| GLB (B3 효과) | 현재 연결에서 실제 GLB 출력·변환 도구 지원 여부 확인 |
+| 인물·마스코트 일관성 | 현재 연결에서 참조 이미지·일관성 기능 지원 여부 확인 |
 
-외부 생성 경로를 쓴다면 항목 수와 해당 서비스의 실제 비용 조건을 확인한다.
+도구가 없는 항목은 기존 자산이나 CSS 표현으로 대체할 수 있는지 확인하고, 생성이 꼭 필요하면 미완료로 기록한다. 외부 생성 경로를 쓴다면 항목 수와 해당 서비스의 실제 비용 조건을 확인한다.
 
 ---
 

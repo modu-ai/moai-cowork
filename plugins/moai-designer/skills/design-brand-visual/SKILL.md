@@ -2,9 +2,9 @@
 name: design-brand-visual
 description: |
   브랜드 자료에 맞는 히어로·OG·목업·마스코트 이미지의 구도와 제약을 정하고 실제 이미지 생성 경로로 보냅니다.
-  ChatGPT Work의 기본 이미지 생성은 moai-media:media-codex-image, Higgsfield 지정 요청은 moai-media:media-higgsfield-image를 사용합니다.
+  ChatGPT Work에서는 현재 대화의 이미지 생성 도구를, Higgsfield 지정 요청에는 이 플러그인의 공식 Higgsfield 연결을 사용합니다.
   "브랜드 히어로 이미지 만들어줘", "OG 이미지 생성해줘", "마스코트 다른 포즈로 그려줘" 같은 요청에 사용하세요.
-version: "1.1.3"
+version: "1.1.4"
 ---
 
 # 브랜드 비주얼
@@ -22,12 +22,12 @@ version: "1.1.3"
 
 | 사용자 요청과 현재 호스트 | 실행 경로 |
 |---|---|
-| ChatGPT Work의 기본 이미지 생성·편집 | `moai-media:media-codex-image`와 현재 대화의 이미지 생성 도구. [데스크톱 공식 문서](https://learn.chatgpt.com/docs/image-generation)는 기본 모델을 `gpt-image-2`로 명시한다. 정확한 2.5 요청은 해당 스킬의 API 경로 확인 절차를 따른다. |
-| Higgsfield 계정·모델·크레딧을 명시 | `moai-media:media-higgsfield-image`와 공식 Higgsfield 연결. 모델·비용·파라미터는 라이브 조회와 해당 스킬의 절차를 따른다. |
-| Claude Cowork에서 Higgsfield 연결 사용 | `moai-media:media-higgsfield-image`를 사용한다. 연결이 없으면 실제 생성 가능 여부를 밝히고 프롬프트를 제공한다. |
+| ChatGPT Work의 기본 이미지 생성·편집 | 현재 대화의 이미지 생성 도구를 사용한다. [ChatGPT Images 공식 안내](https://help.openai.com/en/articles/11084440)는 Images 2.5를 설명하지만, 도구가 내부 모델 ID를 노출하지 않으면 특정 API 모델을 사용했다고 단정하지 않는다. |
+| Higgsfield 계정·모델·크레딧을 명시 | 이 플러그인에 연결된 공식 Higgsfield 도구를 확인한다. 사용 가능한 모델·파라미터와 크레딧 견적을 라이브 도구에서 조회한 뒤 생성한다. 별도 설치된 `moai-media:media-higgsfield-image`의 상세 절차도 사용할 수 있다. |
+| Claude Cowork에서 Higgsfield 연결 사용 | 이 플러그인의 공식 Higgsfield 연결을 확인한다. 연결이 없으면 실제 생성 가능 여부를 밝히고 프롬프트를 제공한다. |
 | 프롬프트만 요청 | 선택한 경로에 맞는 프롬프트와 브랜드 제약을 제공한다. |
 
-일반 ChatGPT 이미지 요청을 Higgsfield로 자동 전환하지 않는다. 반대로 Higgsfield를 지정한 요청을 ChatGPT 기본 이미지 도구로 임의 전환하지 않는다. 앱 도구가 실제 API 모델 ID를 노출하지 않으면 결과에 특정 API 모델 ID를 붙이지 않는다. 여러 컷의 동일 인물·마스코트 참조가 필요하고 Higgsfield를 선택했다면 `moai-media:media-higgsfield-identity`의 실제 지원 범위를 확인한다.
+일반 ChatGPT 이미지 요청을 Higgsfield로 자동 전환하지 않는다. 반대로 Higgsfield를 지정한 요청을 ChatGPT 기본 이미지 도구로 임의 전환하지 않는다. 앱 도구가 실제 API 모델 ID를 노출하지 않으면 결과에 특정 API 모델 ID를 붙이지 않는다. 여러 컷의 동일 인물·마스코트 참조가 필요하면 현재 연결이 참조 이미지와 일관성 기능을 지원하는지 확인한다. 생성 비용이 발생하면 실행 전에 견적과 사용자의 승인 조건을 확인한다. 별도 설치된 `moai-media` 스킬은 상세 작업에 활용할 수 있지만 필수 전제는 아니다.
 
 ## 결과 검수
 

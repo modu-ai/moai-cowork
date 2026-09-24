@@ -18,7 +18,7 @@
 | moai-consultant | 6 | 2 | 16 | 0 | 0 | 31파일 정적 열람, 앱 실행·현행성 검증 대기 |
 | moai-coworker | 32 | 0 | 32 | 1 | 1 | 76파일 정적 열람 완료, 앱 실행·현행성 검증 대기 |
 | moai-cs | 6 | 2 | 11 | 0 | 0 | 24파일 정적 열람, 앱 실행·현행성 검증 대기 |
-| moai-designer | 17 | 0 | 11 | 0 | 1 | 대기 |
+| moai-designer | 17 | 0 | 11 | 0 | 1 | 26/123파일 정적 열람, 앱 실행·나머지 파일 검수 대기 |
 | moai-lawyer | 11 | 2 | 19 | 17 | 1 | 대기 |
 | moai-marketer | 21 | 2 | 64 | 0 | 1 | 대기 |
 | moai-media | 14 | 2 | 43 | 1 | 1 | 86파일 정적 열람 완료, 앱 실행·현행성 검증 대기 |
@@ -796,3 +796,11 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - 이 트리의 `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `python3 scripts/sync-mcp-core.py --check`는 복제 서버 여섯 곳 `[정합]`, `git diff --check`는 출력 없이 종료 코드 0이었다. 테스트 YAML 여섯 개를 PyYAML로 파싱했고 버전 필드가 있는 다섯 개는 해당 스킬과 일치했다. 주간보고 테스트의 여섯 섹션 이름은 스킬 본문에 존재한다. 브랜드 템플릿의 코드 울타리는 바깥 4개 백틱 한 쌍, 내부 3개 백틱 세 쌍으로 확인했다. 코워커 세 버전은 `1.2.27`로 일치하고 장부 76행은 모두 `static_read`다.
 - 필수 `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges)`의 구조화 판정은 `inconclusive`였다. 요약의 파일·줄 근거를 `ai-diagnostic`의 본문과 테스트 입력에 대조해, `근본 원인 분석` 대신 실제 필수 섹션 `원인 분석`을 기대하도록 수정했다. 임의의 5 Whys·Fishbone·Iceberg 동시 사용 요구, 선택 섹션인 위험도 평가의 필수 기대, 문의 150건 중 40%를 별도 60건 중 40%로 읽히게 한 증상 문구도 고쳤다. 감사 요약의 자체 `FAIL` 문구를 구조화 판정으로 바꿔 기록하지 않는다. 수정된 테스트는 여전히 실행 기대값 문서이며 실제 앱 결과가 아니다.
 - 감사 후 재검사에서도 런타임 설정 `오류 0건, 참고 0건`, MCP 복제 서버 여섯 곳 `[정합]`, `git diff --check` 종료 코드 0이었다. 테스트 YAML 여섯 개를 파싱했고, `ai-diagnostic`의 기대 섹션·문의 입력·선택 기법 판정이 스킬과 맞는지 확인했다. 코워커 버전 세 곳은 `1.2.27`, 장부는 `static_read` 76/76이다.
+
+### 디자이너 독립 설치 경로와 설명 정합 (2026-09-25)
+
+- 이 작업 트리의 `plugins/moai-designer` 파일 123개 중 매니페스트 두 개·MCP 설정·README·설정·규칙, 스킬 본문 17개, 참조 문서 3개를 끝까지 읽었다. 장부의 26행을 `static_read`로 표시했다. 나머지 97개는 부분 열람 상태이며 브랜드 시스템 예시·참조 문서의 의미 검수는 계속 필요하다.
+- 배포 파일 목록에는 디자이너 자체 `commands/`·`agents/`·`scripts/`가 없다. [Claude Design 공식 안내](https://support.claude.com/en/articles/14604416-get-started-with-claude-design)의 `/design`·`/design-sync`는 Claude Code 기능이다. 그런데 두 매니페스트와 마켓플레이스 설명은 이 플러그인의 `/design`·`/upload` 사용을 약속했다. 자체 명령처럼 읽히는 문구를 제거했고 README에는 자연어 스킬 요청과 MoAI-ADK 프로젝트의 에이전트 경로를 구분했다. README의 30/25/25/20 평가 가중치도 실제 `config/design.yaml`에 없어 제거했다.
+- 이미지·로고·모션 스킬의 상위 본문과 세 참조 문서가 별도 `moai-media` 설치를 필수 위임처로 지정했다. 디자이너 자체 `.mcp.json`에는 Higgsfield 공식 원격 연결이 있으므로, 현재 앱 이미지 도구 또는 이 플러그인에서 실제 활성화된 공식 Higgsfield 도구를 우선 확인하게 했다. 연결에 영상·GLB·일관성 도구가 없으면 해당 슬롯을 미완료로 기록하고, `moai-media`가 별도로 설치됐을 때만 상세 절차를 추가로 쓰게 했다. [OpenAI의 ChatGPT Images 안내](https://help.openai.com/en/articles/11084440)는 Images 2.5를 설명하지만, 앱 도구의 내부 API 모델 ID는 노출될 때만 단정한다.
+- 스킬 세 개의 PATCH를 각각 `design-brand-visual 1.1.4`, `design-logo 1.1.3`, `design-landing-motion 1.1.5`로 올리고 플러그인 세 버전을 `1.4.25`로 맞췄다. `python3 scripts/check-plugin-runtimes.py` 출력은 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `python3 scripts/sync-mcp-core.py --check`는 복제 서버 여섯 곳 `[정합]`, `git diff --check`는 출력 없이 종료 코드 0이었다. JSON·YAML 파싱으로 매니페스트 세 버전 일치와 스킬 17개 frontmatter를 확인했다.
+- 필수 `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges,project_root=<이 작업 트리>)`의 구조화 판정은 `inconclusive`였다. 요약의 파일·줄 지적을 직접 대조해 `asset-kit.md`, `threejs-patterns.md`, `logo-craft.md`의 남은 필수 위임을 고쳤다. 요약 자체의 `FAIL` 문구를 구조화 판정으로 바꿔 기록하지 않는다. 두 데스크톱 앱에서 디자이너 단독 설치, 스킬 선택, Higgsfield OAuth·도구 노출·유료 생성은 아직 실행하지 않았다.

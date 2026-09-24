@@ -13,7 +13,7 @@ description: |
   - "어워드 받을 만한 사이트", "밋밋해 보여"
   호스팅·배포·도메인·DB는 범위 밖입니다. 코드는 사용자 프로젝트 안에 만들며 외부 호스팅에 올리지
   않습니다. 브랜드 이미지 한 장만 필요하면 design-brand-visual을 쓰세요.
-version: "1.1.4"
+version: "1.1.5"
 ---
 
 # design-landing-motion — 다이나믹 랜딩 제작
@@ -29,7 +29,7 @@ version: "1.1.4"
 ## 하지 않는 것
 
 - **호스팅·배포·도메인·DB·시크릿 관리 안 함** — 코드는 사용자 프로젝트 안에 만든다. 외부 호스팅 제품에 올리지 않는다.
-- **이미지 생성 실행·모델 선택·크레딧 고지** — 선택한 이미지 경로의 스킬이 맡는다. 이 스킬은 필요한 자산과 사용처를 정한다.
+- **이미지 생성 실행·모델 선택·크레딧 고지** — 실제 이미지 도구와 연결의 지원 범위·견적을 확인한다. 이 스킬은 필요한 자산과 사용처를 정한다.
 - **디자인 토큰 정의 안 함** — 프로젝트의 디자인 시스템을 읽어 쓸 뿐 새로 만들지 않는다.
 - 필요한 브리프 정보가 비면 사용 가능한 질문 채널로 확인하고, 답 없이 정할 수 없는 결정만 보류한다.
 
@@ -75,7 +75,7 @@ version: "1.1.4"
 
 ### 2단계 — 필요한 에셋 준비
 
-`references/asset-kit.md`에서 필요한 항목만 고른다. 확인된 브랜드 팔레트가 있으면 프롬프트에 반영한다. ChatGPT Work에서 모델을 지정하지 않은 이미지 요청은 `moai-media:media-codex-image`의 기본 이미지 경로를 따른다. Images 2.5 요청은 같은 스킬에서 현재 세션의 모델을 확인하고, Flare·Sunburst API 모델 ID 지정 요청은 별도 API 경로를 확인한다. 사용자가 Higgsfield를 지정했거나 영상·3D 등 그 경로가 필요한 항목은 해당 `moai-media:media-higgsfield-*` 스킬로 보낸다. Claude Cowork에서는 실제 연결된 이미지 도구를 확인한다. 생성 전에 각 경로의 비용·승인 조건을 따른다.
+`references/asset-kit.md`에서 필요한 항목만 고른다. 확인된 브랜드 팔레트가 있으면 프롬프트에 반영한다. ChatGPT Work에서 모델을 지정하지 않은 이미지 요청은 현재 대화의 이미지 생성 도구를 사용한다. Images 2.5 요청은 앱이 모델 식별 정보를 노출하는지 확인하고, Flare·Sunburst API 모델 ID 지정 요청은 별도 API 경로의 사용 가능 여부를 확인한다. 사용자가 Higgsfield를 지정했거나 영상·3D 등 그 경로가 필요한 항목은 이 플러그인의 공식 Higgsfield 연결에서 지원 도구·모델·견적을 확인한다. 별도 설치된 `moai-media:media-higgsfield-*` 스킬의 상세 절차도 사용할 수 있다. Claude Cowork에서는 실제 연결된 도구를 확인한다. 생성 전에 비용·승인 조건을 따른다.
 
 **사용자 자산이 언제나 이긴다.** 로고·제품 사진·팀 사진·폰트를 이미 갖고 있으면 그대로 쓴다. 생성은 **빈 곳만** 채운다.
 
@@ -110,7 +110,7 @@ version: "1.1.4"
 - 판정 환경: [React | 정적] — 근거: [감지한 파일]
 - 시그니처 효과: [카탈로그 id] — 스파인과의 연결: [한 문장]
 - 참조한 디자인 시스템: [파일 경로] (없으면 "근거 없음")
-- 생성 에셋: [항목별 목록] (위임: moai-media)
+- 생성 에셋: [항목별 목록과 실제 사용한 도구]
 - 모바일 열화: [무엇이 어떻게 바뀌는지]
 - 저감모션 대체: [정적 최종 상태 설명]
 - 게이트: [통과 | 걸린 항목과 조치]
@@ -132,14 +132,14 @@ version: "1.1.4"
 | `moai-designer:design-brand-system` | 선행: 팔레트·타이포 기준 수립 |
 | `moai-designer:design-tokens-transformer` | 선행: 토큰을 CSS로 |
 | `moai-designer:design-slop-check` | 후속: 카피 AI 슬롭 점검 |
-| `moai-media:media-codex-image` | 위임: ChatGPT Work의 네이티브 이미지 생성 |
-| `moai-media:media-higgsfield-image` | 위임: 사용자가 선택한 Higgsfield 이미지 생성 |
-| `moai-media:media-higgsfield-video` | 위임: 스크럽용 영상 생성 |
-| `moai-media:media-higgsfield-assets` | 위임: 3D(GLB)·업스케일·누끼 |
-| `moai-media:media-higgsfield-identity` | 선행: 인물·마스코트 일관성 |
+| `moai-media:media-codex-image` | 선택: 별도 설치된 경우 ChatGPT 이미지 작업 상세 절차 |
+| `moai-media:media-higgsfield-image` | 선택: 별도 설치된 경우 Higgsfield 이미지 생성 절차 |
+| `moai-media:media-higgsfield-video` | 선택: 별도 설치된 경우 영상 생성 절차 |
+| `moai-media:media-higgsfield-assets` | 선택: 별도 설치된 경우 3D·업스케일·누끼 절차 |
+| `moai-media:media-higgsfield-identity` | 선택: 별도 설치된 경우 인물·마스코트 일관성 절차 |
 
 ## 출처
 
 - [Higgsfield Skills (공식 agent 문서)](https://github.com/higgsfield-ai/skills) — `higgsfield-websites` v0.12.0 (MIT). 효과 카탈로그·모션 규범·에셋 킷 구성·안티슬롭 카피 규칙·게이트 항목의 착안점.
 - 원본은 Cloudflare Worker 호스팅 파이프라인과 결합돼 있고 `higgsfield website` CLI를 요구한다. 이 스킬은 **디자인·모션·에셋 지식만** 가져오고 호스팅 계층은 가져오지 않는다. 따라서 원본과 동작이 같지 않다.
-- 이미지 생성 실행·모델·비용: 선택한 `moai-media:media-codex-image` 또는 `moai-media:media-higgsfield-core` 계약.
+- 이미지 생성 실행·모델·비용: 현재 대화의 이미지 도구 또는 이 플러그인에 연결된 공식 Higgsfield 도구의 라이브 결과.
