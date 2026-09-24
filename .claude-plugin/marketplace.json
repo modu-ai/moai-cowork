@@ -47,7 +47,7 @@
     {
       "name": "moai-media",
       "source": "./plugins/moai-media",
-      "version": "3.3.8",
+      "version": "3.3.9",
       "description": "미디어 생성 전담 AI 코워커 — 이미지·영상·오디오 생성 스킬. ChatGPT 기본 이미지 도구, 별도 API 키로 정확한 GPT Image 2.5 생성, Higgsfield 공식 연결의 이미지·영상·제품 촬영, ElevenLabs 오디오, Gemini·Midjourney·NotebookLM 프롬프트 작업을 지원합니다. Higgsfield 3D·설명 영상 완성은 현재 연결에 제출·조립 도구가 있을 때만 진행합니다.",
       "displayName": "🎬 미디어 크리에이터",
       "category": "미디어 생성"
@@ -55,7 +55,7 @@
     {
       "name": "moai-seller",
       "source": "./plugins/moai-seller",
-      "version": "1.4.9",
+      "version": "1.4.10",
       "description": "이커머스 셀러 전담 AI 코워커 — 스마트스토어·아임웹·카페24 MCP 연동과 상세페이지·마켓플레이스·광고·CRM 등 커머스 실무 스킬. VOC·채널 메시지는 moai-cs(CS매니저)로 이관. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 온라인 셀러·이커머스 운영자.",
       "displayName": "🛒 셀러",
       "category": "이커머스"
@@ -79,7 +79,7 @@
     {
       "name": "moai-lawyer",
       "source": "./plugins/moai-lawyer",
-      "version": "1.4.12",
+      "version": "1.4.13",
       "description": "법무 전담 AI 코워커 — 계약 검토·NDA 트리아지·컴플라이언스 점검·법령/판례 리서치·국내외 특허/상표 선행조사·식약처 안전 기준 스킬. 국가법령정보 MCP(korean-law)로 인용을 검증하고, 특허/상표 공식 데이터 MCP(moai-mcp-ip)로 한국·미국·일본·유럽 DB를 조회합니다. 이런 분께 추천: 1인 사업자·스타트업 운영자. ※ 법률 자문 대체가 아닌 참고 자료입니다.",
       "displayName": "⚖️ 법무 담당",
       "category": "전문직"
@@ -151,7 +151,7 @@
     {
       "name": "moai-threads-poster",
       "source": "./plugins/moai-threads-poster",
-      "version": "2.0.1",
+      "version": "2.0.2",
       "description": "Threads·Instagram(Meta) 자율 발행 전담 AI 코워커 — 직접 Graph API 연결 MCP(월정액 없음)로 텍스트·이미지·비디오 2단계 발행. 세션 안에서 직접 발행. 예약·정기 발행은 사용 중인 앱의 지원 여부를 확인합니다. Facebook 개인 계정은 API 미지원(정책)이라 복붙만 지원합니다. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 1인 브랜드·콘텐츠 크리에이터·Threads/Instagram 정기 운영자.",
       "displayName": "📸 SNS 크리에이터",
       "category": "소셜미디어"

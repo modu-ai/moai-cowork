@@ -1,21 +1,21 @@
 path	flags	content_review
-plugins/_shared/mcp-launch/mcp_launch.py	platform_path	partial
-plugins/_shared/mcp-launch/test_mcp_launch.py		partial
-plugins/_shared/moai-mcp-core/README.md		partial
-plugins/_shared/moai-mcp-core/moai_mcp_core/__init__.py		partial
-plugins/_shared/moai-mcp-core/moai_mcp_core/auth.py		partial
-plugins/_shared/moai-mcp-core/moai_mcp_core/cache.py		partial
-plugins/_shared/moai-mcp-core/moai_mcp_core/credentials.py		partial
-plugins/_shared/moai-mcp-core/moai_mcp_core/errors.py		partial
-plugins/_shared/moai-mcp-core/moai_mcp_core/http.py		partial
-plugins/_shared/moai-mcp-core/moai_mcp_core/tokenstore.py	platform_path	partial
-plugins/_shared/moai-mcp-core/pyproject.toml		partial
-plugins/_shared/moai-mcp-core/tests/test_auth.py		partial
-plugins/_shared/moai-mcp-core/tests/test_cache_errors.py		partial
-plugins/_shared/moai-mcp-core/tests/test_credentials.py		partial
-plugins/_shared/moai-mcp-core/tests/test_http.py		partial
-plugins/_shared/moai-mcp-core/tests/test_tokenstore.py		partial
-plugins/_shared/moai-mcp-core/uv.lock		partial
+plugins/_shared/mcp-launch/mcp_launch.py	platform_path	static_read
+plugins/_shared/mcp-launch/test_mcp_launch.py		static_read
+plugins/_shared/moai-mcp-core/README.md		static_read
+plugins/_shared/moai-mcp-core/moai_mcp_core/__init__.py		static_read
+plugins/_shared/moai-mcp-core/moai_mcp_core/auth.py		static_read
+plugins/_shared/moai-mcp-core/moai_mcp_core/cache.py		static_read
+plugins/_shared/moai-mcp-core/moai_mcp_core/credentials.py		static_read
+plugins/_shared/moai-mcp-core/moai_mcp_core/errors.py		static_read
+plugins/_shared/moai-mcp-core/moai_mcp_core/http.py		static_read
+plugins/_shared/moai-mcp-core/moai_mcp_core/tokenstore.py	platform_path	static_read
+plugins/_shared/moai-mcp-core/pyproject.toml		static_read
+plugins/_shared/moai-mcp-core/tests/test_auth.py		static_read
+plugins/_shared/moai-mcp-core/tests/test_cache_errors.py		static_read
+plugins/_shared/moai-mcp-core/tests/test_credentials.py		static_read
+plugins/_shared/moai-mcp-core/tests/test_http.py		static_read
+plugins/_shared/moai-mcp-core/tests/test_tokenstore.py		static_read
+plugins/_shared/moai-mcp-core/uv.lock		static_read
 plugins/moai-accountant/.claude-plugin/plugin.json		static_read
 plugins/moai-accountant/.codex-plugin/plugin.json		static_read
 plugins/moai-accountant/.mcp.json		static_read

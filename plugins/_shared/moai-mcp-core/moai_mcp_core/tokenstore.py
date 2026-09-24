@@ -12,6 +12,7 @@ from __future__ import annotations
 import json
 import os
 import stat
+import tempfile
 from pathlib import Path
 from typing import Any
 
@@ -75,20 +76,32 @@ class TokenStore:
             파일에 기록했으면 True, 인메모리 폴백이면 False.
         """
         self._memory = dict(tokens)
+        tmp: Path | None = None
         try:
             self.path.parent.mkdir(parents=True, exist_ok=True)
-            # 같은 디렉터리에 임시 파일로 쓴 뒤 바꿔치기한다.
-            # 저장 도중 프로세스가 죽어도 기존 파일이 반쯤 망가지지 않는다.
-            tmp = self.path.with_name(self.path.name + ".tmp")
-            tmp.write_text(
-                json.dumps(tokens, ensure_ascii=False, indent=2),
+            # 같은 디렉터리에 매번 고유한 임시 파일을 만든 뒤 바꿔치기한다.
+            # 두 앱이 동시에 저장해도 서로의 임시 파일을 덮어쓰지 않는다.
+            with tempfile.NamedTemporaryFile(
+                mode="w",
                 encoding="utf-8",
-            )
+                prefix=f".{self.path.name}.",
+                suffix=".tmp",
+                dir=self.path.parent,
+                delete=False,
+            ) as handle:
+                tmp = Path(handle.name)
+                json.dump(tokens, handle, ensure_ascii=False, indent=2)
             os.replace(tmp, self.path)
             self._restrict_permissions()
         except OSError:
             self._persistent = False
             return False
+        finally:
+            if tmp is not None:
+                try:
+                    tmp.unlink(missing_ok=True)
+                except OSError:
+                    pass
         self._persistent = True
         return True
 

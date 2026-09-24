@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import json
+import threading
 
+from moai_mcp_core import tokenstore
 from moai_mcp_core.tokenstore import TokenStore
 
 
@@ -69,3 +71,33 @@ def test_clear_는_파일이_없어도_실패하지_않는다(tmp_path):
     store.save({"a": 1})
     store.clear()
     assert store.load() == {}
+
+
+def test_동시_저장은_각자_고유한_임시_파일을_쓴다(tmp_path, monkeypatch):
+    path = tmp_path / "shared-tokens.json"
+    barrier = threading.Barrier(2)
+    original_replace = tokenstore.os.replace
+    sources: list[str] = []
+    lock = threading.Lock()
+
+    def replace(src, dst):
+        with lock:
+            sources.append(str(src))
+        barrier.wait(timeout=5)
+        return original_replace(src, dst)
+
+    monkeypatch.setattr(tokenstore.os, "replace", replace)
+    results: list[bool | None] = [None, None]
+
+    def save(index: int) -> None:
+        results[index] = TokenStore("shared", path=path).save({"refresh_token": str(index)})
+
+    threads = [threading.Thread(target=save, args=(index,)) for index in range(2)]
+    for thread in threads:
+        thread.start()
+    for thread in threads:
+        thread.join()
+
+    assert results == [True, True]
+    assert len(set(sources)) == 2
+    assert TokenStore("shared", path=path).load()["refresh_token"] in {"0", "1"}

@@ -1,6 +1,6 @@
 [project]
 name = "moai-mcp-core"
-version = "0.1.1"
+version = "0.1.2"
 description = "자체 제작 MoAI MCP 서버 공통 코어 — OAuth2 갱신·토큰 영속화·HTTP 재시도·TTL 캐시·오류 매핑"
 readme = "README.md"
 requires-python = ">=3.11"

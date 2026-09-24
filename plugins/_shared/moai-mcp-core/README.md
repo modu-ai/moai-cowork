@@ -27,7 +27,7 @@ python3 scripts/sync-mcp-core.py --check   # 드리프트 검사 (불일치면 �
 
 | 모듈 | 책임 |
 |---|---|
-| `tokenstore.py` | `~/.moai/mcp/<서비스>-tokens.json` 영속화. 쓰기 불가 시 인메모리 폴백 |
+| `tokenstore.py` | `~/.moai/mcp/<서비스>-tokens.json` 영속화. 동시 저장마다 고유한 임시 파일 사용, 쓰기 불가 시 인메모리 폴백 |
 | `auth.py` | OAuth2 갱신, 리프레시 토큰 회전 대응, 만료 선반영 |
 | `http.py` | 타임아웃·재시도·백오프·429 대응·401 시 1회 강제 재인증 |
 | `cache.py` | 읽기 응답 TTL 캐시 — 성능이 아니라 **할당량 절약**이 목적 |
@@ -44,6 +44,9 @@ python3 scripts/sync-mcp-core.py --check   # 드리프트 검사 (불일치면 �
 
 **macOS와 Windows에서 동일하게.** 경로는 `pathlib`으로만 조립하고, 파일 입출력은
 `encoding="utf-8"`을 명시하며, 권한 제한(`chmod`)은 실패해도 넘어갑니다.
+
+동시 저장의 임시 파일 충돌은 막지만, 두 프로세스가 같은 회전형 리프레시 토큰으로
+동시에 OAuth 갱신을 요청하는 문제까지 조정하지는 않습니다. 해당 연동은 별도 검증이 필요합니다.
 
 ## 개발
 

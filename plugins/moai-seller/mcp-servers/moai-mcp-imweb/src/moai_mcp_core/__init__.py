@@ -25,7 +25,7 @@ from .errors import (
 from .http import HttpClient
 from .tokenstore import DEFAULT_DIR, TokenStore
 
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 
 __all__ = [
     "DEFAULT_DIR",
