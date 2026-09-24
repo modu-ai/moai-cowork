@@ -19,21 +19,21 @@ Claude Cowork와 ChatGPT Work는 마켓플레이스 등록 권한과 경로가 �
 
 호출 형식: `/moai-lawyer:legal-<스킬명>` — 예: `/moai-lawyer:legal-contract-review`. 자연어 요청("이 계약서 검토해줘")으로도 자동 매칭됩니다.
 
-### 계약·문서 검토 (2종)
+### 계약·문서 검토
 
 | 스킬 | 역할 |
 |------|------|
-| `legal-contract-review` | 계약서·이용약관·개인정보처리방침 분석/작성 — 민법·상법 기반 10대 리스크 패턴 + 수정 권고안 |
+| `legal-contract-review` | 계약서·이용약관·개인정보처리방침 분석/작성 — 적용 조항과 거래 사실에 따른 위험 검토 + 수정 권고안 |
 | `legal-nda-triage` | NDA(비밀유지계약서) 신속 검토 — 조항별 위험도 평가 + 수정 권고안 |
 
-### 컴플라이언스·리스크 (2종)
+### 컴플라이언스·리스크
 
 | 스킬 | 역할 |
 |------|------|
 | `legal-compliance-check` | 규제 준수 점검·내부 감사·ESG 보고·인허가 서류 — 갭 분석 + 시정 계획 |
 | `legal-legal-risk` | 기업 법적 리스크 분석·IP 전략 — 리스크 매트릭스 + 대응 액션 플랜 |
 
-### 법령·판례 리서치 (1종)
+### 법령·판례 리서치
 
 | 스킬 | 역할 |
 |------|------|
@@ -43,11 +43,11 @@ Claude Cowork와 ChatGPT Work는 마켓플레이스 등록 권한과 경로가 �
 
 | 스킬 | 역할 |
 |------|------|
-| `legal-ip-search-report` | 한국·미국·일본·유럽 공식 DB로 상표 선행검색·특허 선행기술/권리상태 조사 → 검색 로그·위험 평가·출원 전략 보고서. API 키 확인이 먼저, 없으면 등록 안내 |
+| `legal-ip-search-report` | 한국·미국·일본·유럽 공식 DB로 상표 선행검색·특허 선행기술/권리상태 조사 → 검색 로그·위험 평가·출원 전략 보고서. 연결된 API의 키를 확인하고, 없으면 공식 웹 화면에서 조사한 범위를 표시 |
 | `legal-patent-search` | KIPRIS Plus 한국 특허·실용신안·상표 검색 + 출원 현황 정리 (moai-mcp-ip) |
 | `legal-patent-analyzer` | 특허 동향 보고서·선행기술 조사·FTO(침해 가능성) 분석·출원서 초안 |
 
-### 행정·안전 기준 (2종)
+### 행정·안전 기준
 
 | 스킬 | 역할 |
 |------|------|
@@ -56,18 +56,18 @@ Claude Cowork와 ChatGPT Work는 마켓플레이스 등록 권한과 경로가 �
 
 ## MCP 연동: korean-law (국가법령정보)
 
-Claude Cowork는 플러그인 루트 `.mcp.json`의 공식 hosted 서버를 사용합니다. ChatGPT Work는 `.codex-plugin/plugin.json`의 공식 `korean-law-mcp` 패키지를 로컬에서 실행합니다. 법령·판례·행정규칙·자치법규·조약·해석례 조회와 인용 검증 도구를 사용할 수 있으며, 사용 가능한 도구는 현재 연결에서 확인합니다.
+`korean-law`는 법제처가 운영하는 공식 MCP가 아니라 제3자 오픈소스(`chrisryugj/korean-law-mcp`)입니다. Claude Cowork는 플러그인 루트 `.mcp.json`의 제3자 hosted 서버를 사용합니다. ChatGPT Work는 `.codex-plugin/plugin.json`에 지정된 제3자 `korean-law-mcp` 패키지를 로컬에서 실행합니다. 법령·판례·행정규칙 등 사용 가능한 도구와 인증 상태는 현재 연결에서 확인합니다.
 
 | 앱 | 실행 경로 | 키 입력 |
 |------|-----------|---------|
-| Claude Cowork | 공식 hosted 서버 `mcp.gomdori.app/law` | 플러그인 설치 화면의 `KOREAN_LAW_OC` 입력란 |
-| ChatGPT Work | 공식 `korean-law-mcp` 패키지 (`uv`·Node.js 20.19 이상 필요) | `~/.moai/mcp/korean-law.json`의 `LAW_OC` |
+| Claude Cowork | 제3자 hosted 서버 `mcp.gomdori.app/law` | 플러그인 설치 화면의 `KOREAN_LAW_OC` 입력란 |
+| ChatGPT Work | 제3자 `korean-law-mcp` 패키지 (`uv`·Node.js 20.19 이상 필요) | `~/.moai/mcp/korean-law.json`의 `LAW_OC` |
 
 **OC 키 발급**: [law.go.kr](https://www.law.go.kr) 국가법령정보 Open API에서 발급합니다. Claude에서는 앱의 민감정보 입력란에 넣으세요. ChatGPT Work에서는 본인 컴퓨터의 `korean-law.json`에 `{"LAW_OC":"발급받은_키"}`를 저장합니다. Windows 경로는 `C:\\Users\\사용자이름\\.moai\\mcp\\korean-law.json`입니다. 키를 채팅이나 저장소에 넣지 마세요. 연결 후 법령 검색 도구가 실제로 응답하는지 확인하세요.
 
 ## MCP 연동: moai-mcp-ip (특허·상표 공식 데이터)
 
-특허청·USPTO·일본 특허청·EPO 모두 공식 MCP를 제공하지 않아 직접 만든 서버입니다(`mcp-servers/moai-mcp-ip`). 조사 전에 `ip_check_access`로 기관별 자격증명을 확인하며, 키 값은 어떤 응답·로그에도 남기지 않습니다.
+공식 기관 API에 연결하도록 직접 만든 서버입니다(`mcp-servers/moai-mcp-ip`). 조사 전에 `ip_check_access`로 기관별 자격증명을 확인합니다. 구현은 응답의 자격증명 값을 가리고 HTTP 클라이언트의 URL 로그를 억제합니다. 실제 호스트 로그와 기관 응답의 모든 경우를 검사했다는 뜻은 아닙니다.
 
 | 소스 | 할 수 있는 것 | 자격증명 |
 |------|---------------|----------|
@@ -90,12 +90,12 @@ ChatGPT Work에서는 복합 법무 조사와 근거 검수를 `legal-workflow`�
 
 | 에이전트 | 등급 | 역할 |
 |----------|------|------|
-| `legal-researcher` | worker | 계약 검토·컴플라이언스·법령/판례 리서치·특허 분석 산출물을 만드는 실무 에이전트. 목표 이해 → 계획 → legal-* 스킬 선택 → 실행 → 검증의 에이전트 루프로 동작. 모든 법령·판례 인용은 korean-law MCP로 검증하며, 산출물에 "법률 자문 아님" 고지를 항상 포함 |
+| `legal-researcher` | worker | 계약 검토·컴플라이언스·법령/판례 리서치·특허 분석 산출물을 만드는 실무 에이전트. 목표 이해 → 계획 → legal-* 스킬 선택 → 실행 → 검증의 에이전트 루프로 동작. 법령·판례 인용은 연결된 도구가 있으면 현재 스키마를 확인해 사용하고, 없으면 공식 원문과 대조하며, 산출물에 "법률 자문 아님" 고지를 항상 포함 |
 | `risk-auditor` | read-only audit | 인용 실존·판례 생사·리스크 등급 논리·누락 쟁점·고지 문구를 회의적으로 재검증하는 감사 에이전트. 증거 기반 PASS/FAIL 판정만 반환하며 파일을 수정하지 않음 |
 
 ## 이관 안내
 
-본 플러그인의 법무 스킬은 기존 통합 플러그인(moai-coworker)의 legal 카테고리에서 전담 플러그인으로 이관되었습니다. 기존 `moai-lawyer:legal-*` 호출 경로 대신 `moai-lawyer:legal-*` 네임스페이스를 사용하세요.
+본 플러그인의 법무 스킬은 기존 통합 플러그인(moai-coworker)의 legal 카테고리에서 전담 플러그인으로 이관되었습니다. 현재 호출 경로는 `moai-lawyer:legal-*`입니다.
 
 ## 라이선스
 

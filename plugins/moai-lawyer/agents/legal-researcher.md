@@ -22,7 +22,7 @@ Run this 7-step loop for each task until the goal is met, then respond with resu
 
 ## Guardrails (HARD)
 
-- Every 법령·판례 citation MUST resolve to an official source before it appears in output. Where `korean-law` is connected, run `verify_citations` on citation-bearing drafts and `cite_check` on precedents. Without those tools, verify each citation and date against official source pages and label precedent status unverified unless independently established. A citation you did not verify is a gap, never a fact.
+- Every 법령·판례 citation MUST resolve to an official source before it appears in output. Where `korean-law` is connected, inspect its current tool list and schemas, then use any available citation and precedent checks. Without those tools, verify each citation and date against official source pages and label precedent status unverified unless independently established. A citation you did not verify is a gap, never a fact.
 - Every deliverable MUST carry the disclaimer that it is "법률 자문이 아닌 참고 자료" (reference material, not legal advice) and recommend consulting a licensed attorney for binding decisions.
 - When the legal question depends on which version of a law applied at the time of the facts (행위시법), use `applicable_law` if available or the official historical law text and supplementary provisions. Never assume the current text governs past conduct.
 - Never write credentials, API keys, or the 법제처 OC key into any file. Credentials live only in environment variables referenced by `.mcp.json`.

@@ -1,7 +1,7 @@
 ---
 name: legal-ip-search-report
 description: |
-  상표 선행검색과 특허 선행기술·권리상태를 한국·미국·일본·유럽 공식 데이터베이스로 조사하고, 검색 로그·위험 평가·국가별 출원 전략이 담긴 의사결정용 보고서를 만들어 드립니다. 조사 전에 공식 API 자격증명부터 확인하고, 없으면 기관별 등록 방법을 먼저 안내합니다.
+  상표 선행검색과 특허 선행기술·권리상태를 한국·미국·일본·유럽 공식 데이터베이스로 조사하고, 검색 로그·위험 평가·국가별 출원 전략이 담긴 의사결정용 보고서를 만들어 드립니다. 연결된 API의 자격증명을 확인하고, 없으면 공식 공개 검색 화면의 조사 범위를 표시합니다.
   다음과 같은 요청 시 사용하세요:
   - "이 브랜드명 상표 등록 가능한지 한국·미국·일본까지 조사해줘"
   - "상표 선행조사 보고서 만들어줘. 35류·42류야"
@@ -10,7 +10,7 @@ description: |
   - "FTO 예비조사 보고서 작성해줘"
   - "특허·상표 API 키는 어디서 받아?"
   국내 특허 목록만 빠르게 뽑을 때는 moai-lawyer:legal-patent-search, 동향·청구항 대비·출원서 초안은 moai-lawyer:legal-patent-analyzer로 이어집니다.
-version: "1.0.1"
+version: "1.0.2"
 ---
 
 # IP 선행조사 보고서 (상표·특허, 국내외)
@@ -150,9 +150,9 @@ FTO·무효·침해·등록 가능성은 법률 의견이 필요한 고위험 �
 9. 공식 출처
 10. 확인 필요 항목과 면책
 
-정식 보고서가 필요하면 `moai-officer:doc-docx`(편집용)와 `moai-officer:doc-pdf`(검토용)로 만들고, 표 잘림·링크·글꼴을 렌더링으로 확인합니다. 원본 증거대장은 Markdown·CSV·JSON 중 하나로 함께 보관합니다.
+정식 보고서 파일을 요청받으면 현재 호스트에서 사용할 수 있는 문서 생성 도구로 만들고, 표 잘림·링크·글꼴을 렌더링으로 확인합니다. `moai-officer:doc-docx`·`moai-officer:doc-pdf`가 설치돼 있으면 사용할 수 있습니다. 파일을 만들 수 없다면 Markdown 보고서와 증거대장을 제공하고, 요청한 파일 형식은 만들지 못했다고 밝힙니다. 원본 증거대장은 Markdown·CSV·JSON 중 하나로 함께 보관합니다.
 
-한국어 보고서는 전달 전에 `moai-coworker:ai-slop-reviewer` → `moai-writer:korean-humanize` 순서로 검수합니다. 청구항·미공개 기술·계약·원가 같은 민감 정보가 있으면 외부 맞춤법 서비스로 보내지 않습니다.
+한국어 보고서는 전달 전에 원문 증거대장과 대조해 사실·숫자·법적 의미가 바뀌지 않았는지 검수합니다. `moai-coworker:ai-slop-reviewer`와 `moai-writer:korean-humanize`가 설치돼 있으면 문장 검수에 추가로 사용할 수 있습니다. 청구항·미공개 기술·계약·원가 같은 민감 정보가 있으면 외부 맞춤법 서비스로 보내지 않습니다.
 
 ## 완료 기준
 
@@ -172,8 +172,8 @@ FTO·무효·침해·등록 가능성은 법률 의견이 필요한 고위험 �
 | moai-lawyer:legal-patent-search | 한국 특허 목록·출원 현황을 빠르게 뽑을 때 |
 | moai-lawyer:legal-patent-analyzer | 동향 보고서·청구항 대비·출원서 초안 |
 | moai-lawyer:legal-legal-risk | IP 포트폴리오를 포함한 전사 법적 리스크 |
-| moai-officer:doc-docx · moai-officer:doc-pdf | 정식 보고서 파일 |
-| moai-coworker:ai-slop-reviewer → moai-writer:korean-humanize | 한국어 보고서 검수 |
+| moai-officer:doc-docx · moai-officer:doc-pdf | 설치돼 있으면 정식 보고서 파일 제작에 사용 |
+| moai-coworker:ai-slop-reviewer · moai-writer:korean-humanize | 설치돼 있으면 한국어 문장 검수에 추가 사용 |
 
 ## 출처
 

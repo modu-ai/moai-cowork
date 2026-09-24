@@ -334,67 +334,67 @@ plugins/moai-designer/skills/design-system-library/systems/zapier.md		partial
 plugins/moai-designer/skills/design-system-prep/SKILL.md	claude_only_tool	static_read
 plugins/moai-designer/skills/design-tokens-transformer/SKILL.md		static_read
 plugins/moai-designer/skills/design-workflow/SKILL.md	claude_only_tool	static_read
-plugins/moai-lawyer/.claude-plugin/plugin.json		partial
-plugins/moai-lawyer/.codex-plugin/plugin.json		partial
-plugins/moai-lawyer/.mcp.json		partial
-plugins/moai-lawyer/README.md		partial
-plugins/moai-lawyer/agents/legal-researcher.md	claude_only_tool	partial
-plugins/moai-lawyer/agents/risk-auditor.md	claude_only_tool	partial
-plugins/moai-lawyer/mcp-launch/mcp_launch.py	platform_path	partial
-plugins/moai-lawyer/mcp-servers/moai-mcp-ip/.gitignore		partial
-plugins/moai-lawyer/mcp-servers/moai-mcp-ip/CONNECTORS.md		partial
-plugins/moai-lawyer/mcp-servers/moai-mcp-ip/README.md		partial
-plugins/moai-lawyer/mcp-servers/moai-mcp-ip/pyproject.toml		partial
-plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_core/__init__.py		partial
-plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_core/auth.py		partial
-plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_core/cache.py		partial
-plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_core/credentials.py		partial
-plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_core/errors.py		partial
-plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_core/http.py		partial
-plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_core/tokenstore.py	platform_path	partial
-plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/__init__.py		partial
-plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/access.py		partial
-plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/epo.py		partial
-plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/jpo.py		partial
-plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/kipris.py		partial
-plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/redact.py		partial
-plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/server.py		partial
-plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/uspto.py		partial
-plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/xmlutil.py		partial
-plugins/moai-lawyer/mcp-servers/moai-mcp-ip/tests/test_server.py		partial
-plugins/moai-lawyer/mcp-servers/moai-mcp-ip/uv.lock		partial
-plugins/moai-lawyer/skills/legal-compliance-check/SKILL.md		partial
-plugins/moai-lawyer/skills/legal-compliance-check/references/2026-law-changes.md		partial
-plugins/moai-lawyer/skills/legal-compliance-check/references/audit-report.md		partial
-plugins/moai-lawyer/skills/legal-compliance-check/references/compliance-checker.md		partial
-plugins/moai-lawyer/skills/legal-compliance-check/references/esg-reporting.md		partial
-plugins/moai-lawyer/skills/legal-compliance-check/references/ftc-standard-terms.md		partial
-plugins/moai-lawyer/skills/legal-compliance-check/references/regulatory-filing.md		partial
-plugins/moai-lawyer/skills/legal-contract-review/SKILL.md		partial
-plugins/moai-lawyer/skills/legal-contract-review/references/contract/guide.md		partial
-plugins/moai-lawyer/skills/legal-contract-review/references/service-legal-docs.md		partial
-plugins/moai-lawyer/skills/legal-evidence-audit/SKILL.md	new_chatgpt_agent_mapping	partial
-plugins/moai-lawyer/skills/legal-ip-search-report/SKILL.md	claude_only_tool	partial
-plugins/moai-lawyer/skills/legal-ip-search-report/references/api-access.md		partial
-plugins/moai-lawyer/skills/legal-ip-search-report/references/patent-workflow.md		partial
-plugins/moai-lawyer/skills/legal-ip-search-report/references/report-schema.md		partial
-plugins/moai-lawyer/skills/legal-ip-search-report/references/trademark-workflow.md		partial
-plugins/moai-lawyer/skills/legal-iros-registry-automation/SKILL.md		partial
-plugins/moai-lawyer/skills/legal-law-research/SKILL.md		partial
-plugins/moai-lawyer/skills/legal-legal-risk/SKILL.md		partial
-plugins/moai-lawyer/skills/legal-legal-risk/references/ip-portfolio.md		partial
-plugins/moai-lawyer/skills/legal-legal-risk/references/legal-research.md		partial
-plugins/moai-lawyer/skills/legal-mfds-safety/SKILL.md		partial
-plugins/moai-lawyer/skills/legal-nda-triage/SKILL.md		partial
-plugins/moai-lawyer/skills/legal-patent-analyzer/SKILL.md	claude_only_tool	partial
-plugins/moai-lawyer/skills/legal-patent-analyzer/references/patent-analyzer/guide.md		partial
-plugins/moai-lawyer/skills/legal-patent-search/SKILL.md		partial
-plugins/moai-lawyer/skills/legal-patent-search/references/patent-search/guide.md		partial
-plugins/moai-lawyer/skills/legal-service-launch-checklist/SKILL.md		partial
-plugins/moai-lawyer/skills/legal-service-launch-checklist/references/ai-act-user-vs-provider.md		partial
-plugins/moai-lawyer/skills/legal-service-launch-checklist/references/launch-checklist-2026.md		partial
-plugins/moai-lawyer/skills/legal-service-launch-checklist/references/service-risk-matrix.md		partial
-plugins/moai-lawyer/skills/legal-workflow/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-lawyer/.claude-plugin/plugin.json		static_read
+plugins/moai-lawyer/.codex-plugin/plugin.json		static_read
+plugins/moai-lawyer/.mcp.json		static_read
+plugins/moai-lawyer/README.md		static_read
+plugins/moai-lawyer/agents/legal-researcher.md	claude_only_tool	static_read
+plugins/moai-lawyer/agents/risk-auditor.md	claude_only_tool	static_read
+plugins/moai-lawyer/mcp-launch/mcp_launch.py	platform_path	static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/.gitignore		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/CONNECTORS.md		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/README.md		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/pyproject.toml		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_core/__init__.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_core/auth.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_core/cache.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_core/credentials.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_core/errors.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_core/http.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_core/tokenstore.py	platform_path	static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/__init__.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/access.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/epo.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/jpo.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/kipris.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/redact.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/server.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/uspto.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/xmlutil.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/tests/test_server.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/uv.lock		static_read
+plugins/moai-lawyer/skills/legal-compliance-check/SKILL.md		static_read
+plugins/moai-lawyer/skills/legal-compliance-check/references/2026-law-changes.md		static_read
+plugins/moai-lawyer/skills/legal-compliance-check/references/audit-report.md		static_read
+plugins/moai-lawyer/skills/legal-compliance-check/references/compliance-checker.md		static_read
+plugins/moai-lawyer/skills/legal-compliance-check/references/esg-reporting.md		static_read
+plugins/moai-lawyer/skills/legal-compliance-check/references/ftc-standard-terms.md		static_read
+plugins/moai-lawyer/skills/legal-compliance-check/references/regulatory-filing.md		static_read
+plugins/moai-lawyer/skills/legal-contract-review/SKILL.md		static_read
+plugins/moai-lawyer/skills/legal-contract-review/references/contract/guide.md		static_read
+plugins/moai-lawyer/skills/legal-contract-review/references/service-legal-docs.md		static_read
+plugins/moai-lawyer/skills/legal-evidence-audit/SKILL.md	new_chatgpt_agent_mapping	static_read
+plugins/moai-lawyer/skills/legal-ip-search-report/SKILL.md	claude_only_tool	static_read
+plugins/moai-lawyer/skills/legal-ip-search-report/references/api-access.md		static_read
+plugins/moai-lawyer/skills/legal-ip-search-report/references/patent-workflow.md		static_read
+plugins/moai-lawyer/skills/legal-ip-search-report/references/report-schema.md		static_read
+plugins/moai-lawyer/skills/legal-ip-search-report/references/trademark-workflow.md		static_read
+plugins/moai-lawyer/skills/legal-iros-registry-automation/SKILL.md		static_read
+plugins/moai-lawyer/skills/legal-law-research/SKILL.md		static_read
+plugins/moai-lawyer/skills/legal-legal-risk/SKILL.md		static_read
+plugins/moai-lawyer/skills/legal-legal-risk/references/ip-portfolio.md		static_read
+plugins/moai-lawyer/skills/legal-legal-risk/references/legal-research.md		static_read
+plugins/moai-lawyer/skills/legal-mfds-safety/SKILL.md		static_read
+plugins/moai-lawyer/skills/legal-nda-triage/SKILL.md		static_read
+plugins/moai-lawyer/skills/legal-patent-analyzer/SKILL.md	claude_only_tool	static_read
+plugins/moai-lawyer/skills/legal-patent-analyzer/references/patent-analyzer/guide.md		static_read
+plugins/moai-lawyer/skills/legal-patent-search/SKILL.md		static_read
+plugins/moai-lawyer/skills/legal-patent-search/references/patent-search/guide.md		static_read
+plugins/moai-lawyer/skills/legal-service-launch-checklist/SKILL.md		static_read
+plugins/moai-lawyer/skills/legal-service-launch-checklist/references/ai-act-user-vs-provider.md		static_read
+plugins/moai-lawyer/skills/legal-service-launch-checklist/references/launch-checklist-2026.md		static_read
+plugins/moai-lawyer/skills/legal-service-launch-checklist/references/service-risk-matrix.md		static_read
+plugins/moai-lawyer/skills/legal-workflow/SKILL.md	new_chatgpt_agent_mapping	static_read
 plugins/moai-marketer/.claude-plugin/plugin.json		static_read
 plugins/moai-marketer/.codex-plugin/plugin.json		static_read
 plugins/moai-marketer/.mcp.json		static_read
