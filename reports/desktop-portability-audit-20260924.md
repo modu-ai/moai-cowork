@@ -12,12 +12,12 @@
 
 | 플러그인 | 스킬 | 에이전트 | 참조 | 실행 코드 | MCP 설정 | 내용 검수 |
 |---|---:|---:|---:|---:|---:|---|
-| moai-accountant | 11 | 2 | 7 | 1 | 1 | 대기 |
-| moai-analyst | 7 | 2 | 3 | 1 | 1 | 대기 |
+| moai-accountant | 11 | 2 | 7 | 1 | 1 | 27파일 정적 열람, 앱 실행·현행성 검증 대기 |
+| moai-analyst | 7 | 2 | 3 | 1 | 1 | 19파일 정적 열람, 앱 실행·현행성 검증 대기 |
 | moai-career | 5 | 2 | 6 | 0 | 0 | 18파일 정적 열람, 앱 실행·현행성 검증 대기 |
-| moai-consultant | 6 | 2 | 16 | 0 | 0 | 대기 |
+| moai-consultant | 6 | 2 | 16 | 0 | 0 | 31파일 정적 열람, 앱 실행·현행성 검증 대기 |
 | moai-coworker | 32 | 0 | 32 | 1 | 1 | 대기 |
-| moai-cs | 6 | 2 | 11 | 0 | 0 | 대기 |
+| moai-cs | 6 | 2 | 11 | 0 | 0 | 24파일 정적 열람, 앱 실행·현행성 검증 대기 |
 | moai-designer | 17 | 0 | 11 | 0 | 1 | 대기 |
 | moai-lawyer | 11 | 2 | 19 | 17 | 1 | 대기 |
 | moai-marketer | 21 | 2 | 64 | 0 | 1 | 대기 |
@@ -689,3 +689,11 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - README의 DART 키 안내를 런처의 앱 입력란·개인 자격증명 파일 경로에 맞췄다. 매니페스트와 MCP 설명의 즉시 발급·호출 한도·서버 내부 기능 수 같은 검증되지 않은 현재 상태 주장을 덜어내고, [OpenDART 공식 사이트](https://opendart.fss.or.kr/)에서 현재 조건을 확인하게 했다. 원격 DART 서버의 현재 도구 목록·실제 인증·공시 조회는 실행하지 않았다.
 - 이 작업 트리의 `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `git diff --check`는 출력 없이 종료 코드 0이었다. JSON·YAML 파서로 회계 플러그인 세 버전 `['1.3.8', '1.3.8', '1.3.8']`과 스킬 frontmatter 13개를 확인했다. 파일 장부는 헤더 제외 1091행이며 회계 27행이 `static_read`다. 앞선 분석가 커밋 `03f42156`의 [원격 CI](https://github.com/modu-ai/moai-cowork/actions/runs/36036404525)는 24개 job 모두 `success`로 완료됐다. 이 검사는 회계 변경의 원격 CI나 macOS·Windows·Linux 및 두 데스크톱 앱에서의 실제 MCP·세무 산출물 검증을 대신하지 않는다.
 - `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges)`의 구조화 판정은 `inconclusive`였다. 요약에 `finance-tax-helper/SKILL.md:26`의 주민등록번호 일부 노출 가능성과 `finance-personal-tax-saver/SKILL.md:95`의 식별값 포함 문장을 외부 윤문 스킬에 전달할 가능성이 파일·줄 근거로 제시됐다. 주민등록번호·외국인등록번호는 산출물에 일부도 남기지 않고, 계좌·카드번호는 필요한 경우 뒤 4자리만, 전화번호는 중간 자리를 가리게 했다. 외부 윤문 스킬을 쓰는 회계 스킬 11개도 식별값을 제거한 서술 문장만 전달하게 고쳤다. 이 감사는 실제 개인정보가 포함된 입력의 앱 실행 결과가 아니다.
+
+### 컨설턴트 플러그인 파일별 정적 열람과 단독 설치 경로 (2026-09-25)
+
+- `rg --files --hidden plugins/moai-consultant`로 확인한 31개 파일을 각각 읽었다. 두 매니페스트, README, 에이전트 2개, 스킬 8개, 참조 문서 16개, YAML 테스트 사례 2개다. 장부의 31행은 `static_read`로 표시했다. 이 표시는 파일 열람이며 최신 공고의 자격 판정, 시장 규모 계산, 실제 상권 PDF 분석이나 데스크톱 앱 실행 결과를 뜻하지 않는다.
+- [Claude의 플러그인 사용 안내](https://support.claude.com/en/articles/13837440-use-plugins-in-claude)와 [OpenAI의 플러그인 설치·접근 안내](https://help.openai.com/en/articles/20001256/)를 대조했다. `consult-brief`·`consult-gov-grant`·`consult-market`·`consult-sbiz365`·`consult-startup`·`consult-strategy`가 다른 플러그인의 윤문을 필수처럼 요구하던 경로를 자체 수치·근거·문안 검수로 바꾸고, 별도 스킬은 현재 앱에 설치돼 사용 가능할 때만 식별값을 제거한 서술 문장에 적용하게 했다. 문서 변환도 해당 기능이 있을 때 실제 생성 파일을 확인하도록 했다.
+- 상권 PDF 스킬의 고정된 4개 질문 동시 호출을 이미 주어진 정보와 현재 앱의 질문 기능에 맞는 누락 항목 확인으로 바꿨다. 시장 분석 스킬의 기업 공시 출처를 금융감독원 DART로 바로잡았다. 오래된 역할별 참조 문서 7개에는 별도 작업자·여러 파일 생성·경영진 검토·배포가 자동 완료됐다고 해석하지 않도록 조건을 붙였다. 비영리 기부자 이력은 사용자 권한 범위의 최소 정보만 정리하고 외부 산출물에서 식별값을 제외하게 했다.
+- 이 작업 트리의 `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `git diff --check`는 출력 없이 종료 코드 0이었다. JSON·YAML 파서로 컨설턴트 플러그인 세 버전 `['1.2.7', '1.2.7', '1.2.7']`, 스킬 frontmatter 8개, YAML 테스트 사례 2개를 확인했다. 장부는 헤더 제외 1091행이며 컨설턴트 31행이 `static_read`다. 앞선 회계 커밋 `26f3aa8f`의 [원격 CI](https://github.com/modu-ai/moai-cowork/actions/runs/36037296379)는 24개 job 모두 `success`로 완료됐다. 컨설턴트 변경의 원격 CI와 macOS·Windows·Linux의 두 데스크톱 앱에서 스킬 호출·PDF 읽기·지원사업 조회는 아직 검증하지 않았다.
+- `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges)`의 구조화 판정은 `inconclusive`였고 요약에는 파일·줄 근거가 있는 결함 네 가지가 제시됐다. 별도 튜터·셀러 플러그인으로 무조건 넘기던 경로는 설치 여부를 확인하고, 없으면 이 플러그인에서 확인 가능한 자료와 전문 검토 공백을 구분하도록 고쳤다. `consult-feasibility-audit`는 미확인 주장이 하나라도 남으면 전체 사실성을 PASS로 표시할 수 없게 했다. 외부 윤문에는 신청자·기업 식별값과 서술 속 수치도 제외하고, 돌아온 문장에 원래의 숫자와 의미를 대조하게 했다. 보고서 상단의 컨설턴트·회계·분석가·고객지원 정적 열람 상태도 장부에 맞췄다. 감사 결과는 PASS가 아니며 실제 앱의 판단·윤문·개인정보 처리를 검증한 것은 아니다.

@@ -10,8 +10,8 @@ description: |
   - "경영 개선 제안서 만들어줘"
   - "비즈니스 진단 리포트 써줘"
   - "현황 분석하고 권고안까지 정리해줘"
-  Executive Summary·현황 분석·문제 정의·권고사항·실행 로드맵 구조로 작성하며, PPT 변환이나 AI 표현 다듬기로 이어집니다.
-version: "1.1.1"
+  Executive Summary·현황 분석·문제 정의·권고사항·실행 로드맵 구조로 작성하며, 파일 변환 기능이 있으면 요청한 PPT 형식으로도 전달합니다.
+version: "1.1.2"
 ---
 
 # 컨설팅 브리프 (Consulting Brief)
@@ -239,5 +239,8 @@ Executive Summary, 현황 분석, 문제 정의, 분석 프레임워크, 권고�
 
 - **moai-consultant:consult-strategy**: 전략 기획서 작성 시 활용
 - **moai-consultant:consult-market**: 시장 분석이 필요한 경우 먼저 실행
-- **moai-officer:doc-pptx**: 브리프를 PPT로 변환
-- **moai-coworker:ai-slop-reviewer → moai-writer:korean-humanize**: 최종 산출물 AI 패턴 검수 후 한국어 표현을 자연스럽게 다듬습니다 (필수)
+- **moai-officer:doc-pptx**: 설치돼 사용 가능하면 브리프를 PPT로 변환하고 생성 파일을 확인
+
+### 산출물 자체 검수
+
+공고·시장·매출·일정 수치는 원자료의 기준일·단위·적용 범위와 대조하고, 추정은 입력값·산식·가정을 표시한다. 서술 문장은 과장·어색한 표현·근거 없는 확정을 이 스킬 안에서 고친다. 다른 플러그인의 윤문 스킬이 현재 앱에 설치돼 사용 가능하면 기업·인물 식별값과 수치를 제외한 서술 문장만 추가로 검수한다. 윤문 뒤 원문 수치를 정확히 유지하고 의미·자격요건을 다시 대조하며, 실행하지 않은 검사를 완료했다고 기록하지 않는다.

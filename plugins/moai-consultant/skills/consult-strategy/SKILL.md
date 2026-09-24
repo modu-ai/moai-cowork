@@ -10,8 +10,8 @@ description: |
   - "블루오션 전략 세워줘"
   - "OKR 설정해줘"
   - "해외 진출 전략 짜줘"
-  현황 분석·전략 프레임워크·전략 방향·실행 로드맵 구조로 작성하며, PPT 변환이나 AI 표현 다듬기로 이어집니다.
-version: "1.1.1"
+  현황 분석·전략 프레임워크·전략 방향·실행 로드맵 구조로 작성하며, 파일 변환 기능이 있으면 요청한 PPT 형식으로도 전달합니다.
+version: "1.1.2"
 ---
 
 # 전략 플래너 (Strategy Planner)
@@ -219,8 +219,7 @@ SWOT은 단순히 4칸을 채우는 도구가 아니라 **마케팅·사업 플�
 - **moai-consultant:consult-brief**: 컨설팅 제안서 형식의 구조화된 문서 필요 시
 - **moai-consultant:consult-startup**: 스타트업 종합 계획 (피치덱, 재무 모델 포함)
 - **moai-consultant:consult-market**: 심층 시장 조사 및 경쟁사 분석 필요 시
-- **moai-officer:doc-pptx**: 전략 문서를 PPT로 변환
-- **moai-coworker:ai-slop-reviewer → moai-writer:korean-humanize**: 생성된 문서 AI 패턴 검수 후 한국어 표현을 자연스럽게 다듬습니다 (필수)
+- **moai-officer:doc-pptx**: 설치돼 사용 가능하면 전략 문서를 PPT로 변환하고 생성 파일을 확인
 
 ## References
 
@@ -232,3 +231,7 @@ SWOT은 단순히 4칸을 채우는 도구가 아니라 **마케팅·사업 플�
 | references/market-entry-strategy.md | 진입 방식·고객 획득 등 신시장 진입 전략 개발 시 |
 | references/business-model-canvas.md | Business Model Canvas 9개 블록 작성·검증 시 |
 | references/nonprofit-management.md | 비영리·미션 중심 조직 운영 설계 시 (자금 조성·기부자 관리·프로그램 영향 측정·이사회 거버넌스·자원봉사 조정) |
+
+### 산출물 자체 검수
+
+공고·시장·매출·일정 수치는 원자료의 기준일·단위·적용 범위와 대조하고, 추정은 입력값·산식·가정을 표시한다. 서술 문장은 과장·어색한 표현·근거 없는 확정을 이 스킬 안에서 고친다. 다른 플러그인의 윤문 스킬이 현재 앱에 설치돼 사용 가능하면 기업·인물 식별값과 수치를 제외한 서술 문장만 추가로 검수한다. 윤문 뒤 원문 수치를 정확히 유지하고 의미·자격요건을 다시 대조하며, 실행하지 않은 검사를 완료했다고 기록하지 않는다.

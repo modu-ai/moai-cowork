@@ -80,37 +80,37 @@ plugins/moai-career/skills/career-resume/references/korean-resume.md		static_rea
 plugins/moai-career/skills/career-transition/SKILL.md		static_read
 plugins/moai-career/skills/career-transition/references/kr-resignation-benefits.md		static_read
 plugins/moai-career/skills/career-workflow/SKILL.md	new_chatgpt_agent_mapping	static_read
-plugins/moai-consultant/.claude-plugin/plugin.json		partial
-plugins/moai-consultant/.codex-plugin/plugin.json		partial
-plugins/moai-consultant/README.md		partial
-plugins/moai-consultant/agents/feasibility-auditor.md	claude_only_tool	partial
-plugins/moai-consultant/agents/strategy-consultant.md	claude_only_tool	partial
-plugins/moai-consultant/skills/consult-brief/SKILL.md		partial
-plugins/moai-consultant/skills/consult-brief/tests/test-cases.yaml		partial
-plugins/moai-consultant/skills/consult-feasibility-audit/SKILL.md	new_chatgpt_agent_mapping	partial
-plugins/moai-consultant/skills/consult-gov-grant/SKILL.md		partial
-plugins/moai-consultant/skills/consult-gov-grant/references/grant-writer.md		partial
-plugins/moai-consultant/skills/consult-gov-grant/references/programs.md		partial
-plugins/moai-consultant/skills/consult-market/SKILL.md		partial
-plugins/moai-consultant/skills/consult-market/references/competitive-analysis.md		partial
-plugins/moai-consultant/skills/consult-market/references/market-research.md		partial
-plugins/moai-consultant/skills/consult-market/references/market-researcher.md		partial
-plugins/moai-consultant/skills/consult-market/references/pricing-strategy.md		partial
-plugins/moai-consultant/skills/consult-sbiz365/SKILL.md		partial
-plugins/moai-consultant/skills/consult-sbiz365/references/analysis-guide.md		partial
-plugins/moai-consultant/skills/consult-sbiz365/references/data-fields.md		partial
-plugins/moai-consultant/skills/consult-sbiz365/references/feasibility-scoring.md		partial
-plugins/moai-consultant/skills/consult-sbiz365/references/report-template.md		partial
-plugins/moai-consultant/skills/consult-startup/SKILL.md		partial
-plugins/moai-consultant/skills/consult-startup/tests/test-cases.yaml		partial
-plugins/moai-consultant/skills/consult-strategy/SKILL.md		partial
-plugins/moai-consultant/skills/consult-strategy/references/business-model-canvas.md		partial
-plugins/moai-consultant/skills/consult-strategy/references/market-entry-strategy.md		partial
-plugins/moai-consultant/skills/consult-strategy/references/nonprofit-management.md		partial
-plugins/moai-consultant/skills/consult-strategy/references/scenario-planner.md		partial
-plugins/moai-consultant/skills/consult-strategy/references/startup-launcher.md		partial
-plugins/moai-consultant/skills/consult-strategy/references/strategy-framework.md		partial
-plugins/moai-consultant/skills/consult-workflow/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-consultant/.claude-plugin/plugin.json		static_read
+plugins/moai-consultant/.codex-plugin/plugin.json		static_read
+plugins/moai-consultant/README.md		static_read
+plugins/moai-consultant/agents/feasibility-auditor.md	claude_only_tool	static_read
+plugins/moai-consultant/agents/strategy-consultant.md	claude_only_tool	static_read
+plugins/moai-consultant/skills/consult-brief/SKILL.md		static_read
+plugins/moai-consultant/skills/consult-brief/tests/test-cases.yaml		static_read
+plugins/moai-consultant/skills/consult-feasibility-audit/SKILL.md	new_chatgpt_agent_mapping	static_read
+plugins/moai-consultant/skills/consult-gov-grant/SKILL.md		static_read
+plugins/moai-consultant/skills/consult-gov-grant/references/grant-writer.md		static_read
+plugins/moai-consultant/skills/consult-gov-grant/references/programs.md		static_read
+plugins/moai-consultant/skills/consult-market/SKILL.md		static_read
+plugins/moai-consultant/skills/consult-market/references/competitive-analysis.md		static_read
+plugins/moai-consultant/skills/consult-market/references/market-research.md		static_read
+plugins/moai-consultant/skills/consult-market/references/market-researcher.md		static_read
+plugins/moai-consultant/skills/consult-market/references/pricing-strategy.md		static_read
+plugins/moai-consultant/skills/consult-sbiz365/SKILL.md		static_read
+plugins/moai-consultant/skills/consult-sbiz365/references/analysis-guide.md		static_read
+plugins/moai-consultant/skills/consult-sbiz365/references/data-fields.md		static_read
+plugins/moai-consultant/skills/consult-sbiz365/references/feasibility-scoring.md		static_read
+plugins/moai-consultant/skills/consult-sbiz365/references/report-template.md		static_read
+plugins/moai-consultant/skills/consult-startup/SKILL.md		static_read
+plugins/moai-consultant/skills/consult-startup/tests/test-cases.yaml		static_read
+plugins/moai-consultant/skills/consult-strategy/SKILL.md		static_read
+plugins/moai-consultant/skills/consult-strategy/references/business-model-canvas.md		static_read
+plugins/moai-consultant/skills/consult-strategy/references/market-entry-strategy.md		static_read
+plugins/moai-consultant/skills/consult-strategy/references/nonprofit-management.md		static_read
+plugins/moai-consultant/skills/consult-strategy/references/scenario-planner.md		static_read
+plugins/moai-consultant/skills/consult-strategy/references/startup-launcher.md		static_read
+plugins/moai-consultant/skills/consult-strategy/references/strategy-framework.md		static_read
+plugins/moai-consultant/skills/consult-workflow/SKILL.md	new_chatgpt_agent_mapping	static_read
 plugins/moai-coworker/.claude-plugin/plugin.json		partial
 plugins/moai-coworker/.codex-plugin/plugin.json		partial
 plugins/moai-coworker/.mcp.json		partial

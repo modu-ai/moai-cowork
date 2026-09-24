@@ -11,8 +11,8 @@ description: |
   - "고객 세분화 좀 해줘"
   - "시장 조사 보고서 써줘"
   공개 데이터로 시장 규모·경쟁 구도·가격 모델을 분석하고, 인사이트와 권고안까지 정리합니다.
-  [책임 경계] vs 오프라인 상권 단위는 moai-consultant:consult-sbiz365, 온라인 카테고리·검색 키워드 단위는 moai-seller:commerce-market-research를 사용하세요. 이 스킬=산업·시장 단위 분석.
-version: "1.1.1"
+  오프라인 상권 자료는 이 플러그인의 consult-sbiz365로 연결합니다. 온라인 카테고리·검색 키워드 분석은 moai-seller:commerce-market-research가 설치돼 있으면 연결하고, 없으면 이 스킬에서 확인 가능한 시장 자료만 분석합니다.
+version: "1.1.2"
 ---
 
 # 시장 분석가 (Market Analyst)
@@ -168,7 +168,7 @@ version: "1.1.1"
 - 통계청 KOSIS (kosis.kr)
 - 한국무역협회 K-stat (stat.kita.net)
 - 중소벤처기업부 K-스타트업 (k-startup.go.kr)
-- 금융투자협회 기업 공시
+- 금융감독원 DART 기업 공시
 
 **글로벌 소스:**
 - Statista, IBISWorld
@@ -180,9 +180,13 @@ version: "1.1.1"
 - **moai-consultant:consult-strategy**: 시장 분석 결과를 바탕으로 전략 수립
 - **moai-consultant:consult-startup**: 스타트업 시장 분석 및 진입 전략
 - **moai-consultant:consult-brief**: 컨설팅 제안서에 시장 분석 포함
-- **moai-coworker:ai-slop-reviewer → moai-writer:korean-humanize**: 생성된 분석 보고서 AI 패턴 검수 후 한국어 표현을 자연스럽게 다듬습니다 (필수)
 
-> 포지셔닝 매트릭스·TAM/SAM/SOM 산식·경쟁사 비교 등 **표·수치 산출물은 humanize 대상이 아닙니다** — `moai-officer:doc-xlsx` 또는 `moai-analyst:data-visualizer`로 라우팅하세요. 위 체인은 인사이트·권고안 등 **서술(narrative) 본문**에만 적용합니다.
+
+### 산출물 자체 검수
+
+공고·시장·매출·일정 수치는 원자료의 기준일·단위·적용 범위와 대조하고, 추정은 입력값·산식·가정을 표시한다. 서술 문장은 과장·어색한 표현·근거 없는 확정을 이 스킬 안에서 고친다. 다른 플러그인의 윤문 스킬이 현재 앱에 설치돼 사용 가능하면 기업·인물 식별값과 수치를 제외한 서술 문장만 추가로 검수한다. 윤문 뒤 원문 수치를 정확히 유지하고 의미·자격요건을 다시 대조하며, 실행하지 않은 검사를 완료했다고 기록하지 않는다.
+
+표·산식은 문체 변경 대상이 아니다. Excel·시각화 파일은 해당 플러그인이 설치되고 실제 생성 기능이 있을 때만 연결한다.
 
 ## References
 
