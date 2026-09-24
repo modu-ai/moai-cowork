@@ -224,19 +224,19 @@ plugins/moai-designer/skills/design-copywriting/SKILL.md		static_read
 plugins/moai-designer/skills/design-gui-guide/SKILL.md		static_read
 plugins/moai-designer/skills/design-handoff-reader/SKILL.md		static_read
 plugins/moai-designer/skills/design-handoff/SKILL.md	claude_only_tool	static_read
-plugins/moai-designer/skills/design-handoff/references/prompt-template.md		partial
-plugins/moai-designer/skills/design-handoff/references/supporting-files.md		partial
+plugins/moai-designer/skills/design-handoff/references/prompt-template.md		static_read
+plugins/moai-designer/skills/design-handoff/references/supporting-files.md		static_read
 plugins/moai-designer/skills/design-iteration-loop/SKILL.md	claude_only_tool	static_read
 plugins/moai-designer/skills/design-landing-motion/SKILL.md		static_read
 plugins/moai-designer/skills/design-landing-motion/references/asset-kit.md		static_read
-plugins/moai-designer/skills/design-landing-motion/references/effects-catalog.md		partial
-plugins/moai-designer/skills/design-landing-motion/references/motion-craft.md		partial
-plugins/moai-designer/skills/design-landing-motion/references/quality-gate.md		partial
+plugins/moai-designer/skills/design-landing-motion/references/effects-catalog.md		static_read
+plugins/moai-designer/skills/design-landing-motion/references/motion-craft.md		static_read
+plugins/moai-designer/skills/design-landing-motion/references/quality-gate.md		static_read
 plugins/moai-designer/skills/design-landing-motion/references/threejs-patterns.md		static_read
 plugins/moai-designer/skills/design-logo/SKILL.md		static_read
 plugins/moai-designer/skills/design-logo/references/logo-craft.md		static_read
-plugins/moai-designer/skills/design-logo/references/logo-principles.md		partial
-plugins/moai-designer/skills/design-logo/references/logo-types.md		partial
+plugins/moai-designer/skills/design-logo/references/logo-principles.md		static_read
+plugins/moai-designer/skills/design-logo/references/logo-types.md		static_read
 plugins/moai-designer/skills/design-prompt-builder/SKILL.md	claude_only_tool	static_read
 plugins/moai-designer/skills/design-slop-check/SKILL.md	claude_only_tool	static_read
 plugins/moai-designer/skills/design-sync-upload/SKILL.md	claude_only_tool	static_read
@@ -302,7 +302,7 @@ plugins/moai-designer/skills/design-system-library/systems/pinterest.md		partial
 plugins/moai-designer/skills/design-system-library/systems/playstation.md		partial
 plugins/moai-designer/skills/design-system-library/systems/posthog.md		partial
 plugins/moai-designer/skills/design-system-library/systems/raycast.md		partial
-plugins/moai-designer/skills/design-system-library/systems/registry.md		partial
+plugins/moai-designer/skills/design-system-library/systems/registry.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/renault.md		partial
 plugins/moai-designer/skills/design-system-library/systems/replicate.md		partial
 plugins/moai-designer/skills/design-system-library/systems/resend.md		partial

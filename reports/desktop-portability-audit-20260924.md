@@ -18,7 +18,7 @@
 | moai-consultant | 6 | 2 | 16 | 0 | 0 | 31파일 정적 열람, 앱 실행·현행성 검증 대기 |
 | moai-coworker | 32 | 0 | 32 | 1 | 1 | 76파일 정적 열람 완료, 앱 실행·현행성 검증 대기 |
 | moai-cs | 6 | 2 | 11 | 0 | 0 | 24파일 정적 열람, 앱 실행·현행성 검증 대기 |
-| moai-designer | 17 | 0 | 11 | 0 | 1 | 26/123파일 정적 열람, 앱 실행·나머지 파일 검수 대기 |
+| moai-designer | 17 | 0 | 11 | 0 | 1 | 34/123파일 정적 열람, 앱 실행·나머지 파일 검수 대기 |
 | moai-lawyer | 11 | 2 | 19 | 17 | 1 | 대기 |
 | moai-marketer | 21 | 2 | 64 | 0 | 1 | 대기 |
 | moai-media | 14 | 2 | 43 | 1 | 1 | 86파일 정적 열람 완료, 앱 실행·현행성 검증 대기 |
@@ -804,3 +804,6 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - 이미지·로고·모션 스킬의 상위 본문과 세 참조 문서가 별도 `moai-media` 설치를 필수 위임처로 지정했다. 디자이너 자체 `.mcp.json`에는 Higgsfield 공식 원격 연결이 있으므로, 현재 앱 이미지 도구 또는 이 플러그인에서 실제 활성화된 공식 Higgsfield 도구를 우선 확인하게 했다. 연결에 영상·GLB·일관성 도구가 없으면 해당 슬롯을 미완료로 기록하고, `moai-media`가 별도로 설치됐을 때만 상세 절차를 추가로 쓰게 했다. [OpenAI의 ChatGPT Images 안내](https://help.openai.com/en/articles/11084440)는 Images 2.5를 설명하지만, 앱 도구의 내부 API 모델 ID는 노출될 때만 단정한다.
 - 스킬 세 개의 PATCH를 각각 `design-brand-visual 1.1.4`, `design-logo 1.1.3`, `design-landing-motion 1.1.5`로 올리고 플러그인 세 버전을 `1.4.25`로 맞췄다. `python3 scripts/check-plugin-runtimes.py` 출력은 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `python3 scripts/sync-mcp-core.py --check`는 복제 서버 여섯 곳 `[정합]`, `git diff --check`는 출력 없이 종료 코드 0이었다. JSON·YAML 파싱으로 매니페스트 세 버전 일치와 스킬 17개 frontmatter를 확인했다.
 - 필수 `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges,project_root=<이 작업 트리>)`의 구조화 판정은 `inconclusive`였다. 요약의 파일·줄 지적을 직접 대조해 `asset-kit.md`, `threejs-patterns.md`, `logo-craft.md`의 남은 필수 위임을 고쳤다. 요약 자체의 `FAIL` 문구를 구조화 판정으로 바꿔 기록하지 않는다. 두 데스크톱 앱에서 디자이너 단독 설치, 스킬 선택, Higgsfield OAuth·도구 노출·유료 생성은 아직 실행하지 않았다.
+
+- 후속으로 로고 참조 2개, 모션 참조 3개, 핸드오프 참조 2개와 브랜드 카탈로그 레지스트리를 끝까지 읽어 디자이너 장부는 `static_read` 34/123파일이다. 이번 추가 열람에서는 앞서 수정한 별도 미디어 플러그인 필수 경로가 발견되지 않았다. 레지스트리 링크 75개는 모두 존재하며, `keynote-editorial-dark.md`는 레지스트리의 브랜드 카탈로그에 속하지 않는 별도 키노트 레시피로 스킬 본문에 명시돼 있다. 참조 문서에 인용된 외부 디자인 원칙의 최신성·라이선스와 나머지 브랜드 시스템 파일은 별도 확인 범위다.
+- 커밋 `4bd7cef3`의 [원격 CI](https://github.com/modu-ai/moai-cowork/actions/runs/36052998869)는 `completed/success`였고 macOS·Windows·Ubuntu의 MCP 서버·런처·플러그인 배선 작업 24개가 모두 `success`였다. 이미지 생성, Higgsfield 인증, 두 데스크톱 앱의 실제 플러그인 사용은 이 CI에 포함되지 않는다.
