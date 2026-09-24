@@ -10,8 +10,8 @@ colors:
   ink: "#0a0a0a"
   body: "#3a3a3a"
   body-strong: "#1a1a1a"
-  muted: "#6a6a6a"
-  muted-soft: "#9a9a9a"
+  muted: "#606060"
+  muted-soft: "#686868"
   hairline: "#e5e5e5"
   hairline-soft: "#f0f0f0"
   canvas: "#fffaf0"
@@ -21,6 +21,7 @@ colors:
   surface-dark: "#0a1a1a"
   surface-dark-elevated: "#1a2a2a"
   on-primary: "#ffffff"
+  on-pink: "#0a0a0a"
   on-dark: "#ffffff"
   on-dark-soft: "#a0a0a0"
   brand-pink: "#ff4d8b"
@@ -187,7 +188,7 @@ components:
     rounded: "{rounded.xl}"
   feature-card-pink:
     backgroundColor: "{colors.brand-pink}"
-    textColor: "{colors.on-primary}"
+    textColor: "{colors.on-pink}"
     typography: "{typography.title-md}"
     rounded: "{rounded.xl}"
     padding: 32px
@@ -336,9 +337,10 @@ Component voltage comes from **saturated single-color feature cards** in a 6-col
 - **Ink** (`{colors.ink}` — #0a0a0a): Headlines and primary text.
 - **Body Strong** (`{colors.body-strong}` — #1a1a1a): Emphasized body, lead paragraphs.
 - **Body** (`{colors.body}` — #3a3a3a): Default running-text.
-- **Muted** (`{colors.muted}` — #6a6a6a): Sub-headings, breadcrumbs, footer body.
-- **Muted Soft** (`{colors.muted-soft}` — #9a9a9a): Captions, fine-print.
+- **Muted** (`{colors.muted}` — #606060): Sub-headings, breadcrumbs, footer body.
+- **Muted Soft** (`{colors.muted-soft}` — #686868): Captions and fine-print on cream surfaces.
 - **On Primary / On Dark** (`{colors.on-primary}` — #ffffff): Text on primary buttons + dark feature cards (teal).
+- **On Pink** (`{colors.on-pink}` — #0a0a0a): Text on hot-pink feature cards.
 
 ### Semantic
 - **Success** (`{colors.success}` — #22c55e): Success states.
@@ -447,7 +449,7 @@ The system uses no heavy shadows. Depth comes from the saturated color contrast 
 
 **`hero-illustration-card`** — Right-side artifact holding 3D claymation illustration (mountains, mascot character, abstract shapes). Background `{colors.surface-soft}`, rounded `{rounded.xl}` (24px). The illustration IS the artifact.
 
-**`feature-card-pink`** / **`feature-card-teal`** / **`feature-card-lavender`** / **`feature-card-peach`** / **`feature-card-ochre`** — Saturated single-color feature cards. Background varies per variant; rounded `{rounded.xl}` (24px); padding `{spacing.xl}` (32px). Each card carries an h3 in `{typography.title-md}`, a body description, and a product UI fragment or mascot illustration. Text color flips to `{colors.on-dark}` (white) on pink and teal cards, `{colors.ink}` (dark) on lavender/peach/ochre cards (the lighter saturations have enough contrast for dark text).
+**`feature-card-pink`** / **`feature-card-teal`** / **`feature-card-lavender`** / **`feature-card-peach`** / **`feature-card-ochre`** — Saturated single-color feature cards. Background varies per variant; rounded `{rounded.xl}` (24px); padding `{spacing.xl}` (32px). Each card carries an h3 in `{typography.title-md}`, a body description, and a product UI fragment or mascot illustration. Pink uses `{colors.on-pink}` (dark), teal uses `{colors.on-dark}` (white), and lavender/peach/ochre use `{colors.ink}` (dark).
 
 **`feature-card-cream`** — Lower-key feature card variant on `{colors.surface-card}`. Used for less-emphasized features that don't warrant a saturated color.
 
@@ -511,7 +513,7 @@ The system uses no heavy shadows. Depth comes from the saturated color contrast 
 | Wide | > 1440px | Same as desktop with more breathing room; max content 1280px |
 
 ### Touch Targets
-- `{component.button-primary}` at minimum 44 × 44px (matches WCAG AAA).
+- `{component.button-primary}` has a documented 44px height; verify the rendered width before claiming the WCAG 2.5.5 AAA 44 × 44px target.
 - `{component.text-input}` height is 44px.
 
 ### Collapsing Strategy

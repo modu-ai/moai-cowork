@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Cohere-design-analysis
-description: Cohere's 2026 web system is a controlled enterprise AI interface built from stark white editorial space, deep green-black product bands, soft mineral surfaces, rounded media cards, and a distinctive type split between monospaced-feeling display headlines and precise Unica77 UI text.
+description: A Cohere-inspired enterprise AI interface built from stark white editorial space, deep green-black product bands, soft mineral surfaces, rounded media cards, and a distinctive type split between monospaced-feeling display headlines and precise Unica77 UI text.
 
 colors:
   primary: "#17171c"
@@ -16,12 +16,14 @@ colors:
   hairline: "#d9d9dd"
   border-light: "#e5e7eb"
   card-border: "#f2f2f2"
-  muted: "#93939f"
-  slate: "#75758a"
+  muted: "#6d6d78"
+  muted-on-dark: "#a7a7b0"
+  slate: "#737388"
   body-muted: "#616161"
   action-blue: "#1863dc"
   focus-blue: "#4c6ee6"
   coral: "#ff7759"
+  coral-ink: "#b3472c"
   coral-soft: "#ffad9b"
   form-focus: "#9b60aa"
   on-primary: "#ffffff"
@@ -175,7 +177,7 @@ components:
     padding: 32px
   blog-filter-chip:
     backgroundColor: transparent
-    textColor: "{colors.coral}"
+    textColor: "{colors.coral-ink}"
     typography: "{typography.card-heading}"
     rounded: "{rounded.sm}"
     padding: 8px 14px
@@ -192,11 +194,15 @@ components:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.on-dark}"
     typography: "{typography.micro}"
+  footer-newsletter-muted:
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.muted-on-dark}"
+    typography: "{typography.micro}"
 ---
 
 ## Overview
 
-Cohere's current web presence feels like a sober enterprise AI command center with editorial restraint. The home page opens on a huge typographic declaration over a white canvas, then uses photography, dark product mockups, trust logos, and generous empty space to make AI infrastructure feel controlled rather than speculative. Product pages invert the tone into deep green-black or dark navy bands, while blog and research pages move toward publishing-system clarity: large filters, thin rules, dense lists, and pale technical backgrounds.
+This Cohere-inspired reference has the feel of a sober enterprise AI command center with editorial restraint. It uses a huge typographic declaration over a white canvas, then photography, dark product mockups, trust logos, and generous empty space. Product pages invert the tone into deep green-black or dark navy bands, while blog and research pages move toward publishing-system clarity: large filters, thin rules, dense lists, and pale technical backgrounds.
 
 What makes the system distinctive is the mix of austere black-and-white UI with bursts of tactile brand imagery. The site avoids decorative chrome in the normal interface; color arrives through photography, abstract 3D media, coral blog taxonomy chips, blue research links, and dark product environments. Cards are rounded but not cute. Type is large, tight, and almost monospaced in spirit, creating a research-lab cadence across marketing, product, and editorial surfaces.
 
@@ -219,6 +225,7 @@ What makes the system distinctive is the mix of austere black-and-white UI with 
 - **Dark Navy** (`#071829`): Financial-services and security-oriented solution bands.
 - **Action Blue** (`#1863dc`): Editorial links, pagination, and secondary action emphasis.
 - **Coral** (`#ff7759`): Blog category chips, taxonomy outlines, and warm product markers.
+- **Coral Ink** (`#b3472c`): Text on inactive blog filters against white; keep the brighter coral for filled active chips.
 - **Soft Coral** (`#ffad9b`): Pale chip borders and segmented article-label details.
 
 ### Surface & Background
@@ -232,8 +239,9 @@ What makes the system distinctive is the mix of austere black-and-white UI with 
 ### Text & Rules
 
 - **Ink** (`#212121`): Default body text and most link text on light backgrounds.
-- **Muted Slate** (`#93939f`): Footer links, dates, metadata, and de-emphasized labels.
-- **Slate** (`#75758a`): Research separators and tertiary text.
+- **Muted Slate** (`#6d6d78`): Dates, metadata, and de-emphasized labels on light surfaces.
+- **Muted on Dark** (`#a7a7b0`): Footer links and metadata on near-black surfaces.
+- **Slate** (`#737388`): Research separators and tertiary text on light surfaces.
 - **Hairline** (`#d9d9dd`): Standard list rules and section dividers.
 - **Border Light** (`#e5e7eb`): Secondary divider and utility rule.
 
@@ -375,7 +383,7 @@ Warm stone card used for product/model summaries. Typically 3-column on desktop,
 
 ### **`blog-filter-chip`**
 
-Large coral taxonomy chip used on the blog index. Active chips invert to coral fill with dark text; inactive chips use coral outline and pale fill. Typography is oversized relative to typical filters, making the taxonomy a hero-level control.
+Large coral taxonomy chip used on the blog index. Active chips invert to coral fill with dark text; inactive chips use `{colors.coral-ink}` text on white with a coral outline. Typography is oversized relative to typical filters, making the taxonomy a hero-level control.
 
 ### **`research-table`**
 
@@ -387,7 +395,7 @@ Rounded white form panel set against dark green or warm stone sections. Inputs a
 
 ### **`footer-newsletter`**
 
-Dark footer subscription block with coral "AI moves fast" label, white headline, muted legal microcopy, a single-line email field, and arrow submit marker. Footer columns use white section labels and muted links.
+Dark footer subscription block with coral "AI moves fast" label, white headline, muted legal microcopy, a single-line email field, and arrow submit marker. Use `footer-newsletter` for the white headline and section labels, and `footer-newsletter-muted` for legal microcopy and muted links.
 
 ## Do's and Don'ts
 

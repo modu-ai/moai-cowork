@@ -18,7 +18,7 @@
 | moai-consultant | 6 | 2 | 16 | 0 | 0 | 31파일 정적 열람, 앱 실행·현행성 검증 대기 |
 | moai-coworker | 32 | 0 | 32 | 1 | 1 | 76파일 정적 열람 완료, 앱 실행·현행성 검증 대기 |
 | moai-cs | 6 | 2 | 11 | 0 | 0 | 24파일 정적 열람, 앱 실행·현행성 검증 대기 |
-| moai-designer | 17 | 0 | 11 | 0 | 1 | 72/123파일 정적 열람, 앱 실행·나머지 파일 검수 대기 |
+| moai-designer | 17 | 0 | 11 | 0 | 1 | 77/123파일 정적 열람, 앱 실행·나머지 파일 검수 대기 |
 | moai-lawyer | 11 | 2 | 19 | 17 | 1 | 대기 |
 | moai-marketer | 21 | 2 | 64 | 0 | 1 | 대기 |
 | moai-media | 14 | 2 | 43 | 1 | 1 | 86파일 정적 열람 완료, 앱 실행·현행성 검증 대기 |
@@ -41,7 +41,7 @@
 ## 검증 경계
 
 - 이 기록의 플러그인별 행은 파일 목록 검사다. 각 파일의 의미 검수, 참조 무결성, Windows/Linux/macOS 실행 검증을 아직 뜻하지 않는다.
-- 현재 검사 호스트는 macOS다. Windows와 Linux 실행 결과는 없다.
+- 현재 로컬 검사 호스트는 macOS다. 뒤의 macOS·Windows·Ubuntu 원격 CI는 지정된 MCP·CLI 경로의 스모크 검사이며 두 데스크톱 앱의 실제 실행 결과는 아니다.
 - ChatGPT Work와 Claude Cowork의 설치·이미지 생성·MCP OAuth를 실제 앱에서 아직 실행하지 않았다.
 - 이전 `reports/cross-platform-audit-20260822.md`는 다른 커밋의 정적 조사다. 현재 실행 성공의 증거로 재사용하지 않는다.
 
@@ -834,3 +834,17 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - 두 번째 적대적 감사도 구조화 판정은 `inconclusive`, finding 배열은 비어 있었지만 요약에 파일·행이 붙은 세 결함이 있었다. 직접 대조해 Lamborghini ghost 버튼 포커스에도 `opacity: 1`을 지정했고, 숯색 배경 링크 hover는 2.78:1인 `#3860BE` 대신 6.22:1인 `#29ABE2`를 쓰도록 안내했다. 밝은 표면의 기존 파랑은 유지한다. Tesla의 생성 예시에도 AAA 적용 시 높이 44px 조건을 반영했다. 감사 요약의 `FAIL`을 구조화 판정으로 바꿔 기록하지 않는다.
 - `lovable.md`도 끝까지 읽었다. 크림색 바닥에서 반투명 파란 포커스 링은 합성 후 1.78:1, 흐린 검정 그림자는 약 1.25:1이었다. 두 효과는 남기되 키보드 포커스에 `#5f5f5d` 2px 외곽선과 2px 간격을 추가해 단색 대비 5.83:1을 확보했다. 기본 ghost 버튼의 반투명 흰 글자는 검정·숯색 바탕에서 각각 5.32:1·5.10:1, 불투명 포커스 글자는 지정 배경에서 6.31:1이었다. 장부는 디자이너 `static_read` 72/123파일이다.
 - 세 번째 적대적 감사의 구조화 판정은 다시 `inconclusive`, finding 배열은 비어 있었지만 요약에서 근거를 붙인 다섯 모순을 직접 확인했다. Lovable pill의 전체 `opacity: 0.5`는 기본 글자 3.22:1·포커스 외곽선 2.12:1을 만들므로 전체 투명도를 없애고 배경만 조절하게 했다. 흐린 그림자가 외곽선을 대신한다는 남은 설명도 고쳤다. Tesla의 독립 생성 예시에 사진 크롭별 흰 글자 대비 확인을 추가했다. Lamborghini ghost 기본 상태는 요소 전체가 아닌 테두리만 반투명하게 통일하고, 금색 이외 상호작용 색의 예외를 적었다. 세 감사의 요약 표현은 구조화 판정으로 취급하지 않는다.
+
+### 기본 시스템 프로필의 색 대비 재검토 (2026-09-25)
+
+- 커밋 `8c01faf4`의 [MCP 원격 CI](https://github.com/modu-ai/moai-cowork/actions/runs/36056486312)는 24/24, [디자인 CLI 원격 CI](https://github.com/modu-ai/moai-cowork/actions/runs/36056486470)는 macOS·Windows·Ubuntu 3/3 작업이 `success`였다. 검증 범위는 해당 워크플로의 명령과 배선이다.
+- 브랜드 프로필 YAML의 `ink`·`body`·`muted`를 `canvas`·`surface-card`와, `on-primary`를 `primary`와 개별 조합해 sRGB 대비를 계산했다. 76프로필 중 23파일에서 4.5:1 미만인 후보 조합 31개를 찾았다. 토큰 역할만으로 짝지은 선별 결과이므로 실제 사용 문맥을 대조하지 않은 후보를 확정 결함으로 세지 않는다. 예를 들어 `sanity.md`의 `ink`와 `canvas`는 둘 다 `#0b0b0b`지만, 부분 열람에서 다크 화면의 흰 글자는 별도 토큰을 쓰고 라이트 화면은 `on-canvas-light`를 쓰는 이중 테마임을 확인했다. 해당 파일 전체는 아직 읽지 않았다.
+- `anthropic-claude.md`·`clay.md`·`clickhouse.md` 세 파일을 각각 끝까지 읽었다. Claude 기본 coral 위 흰 글자는 3.28:1, active coral 위 어두운 글자는 3.65:1이어서 기본·active의 글자색을 각각 어두운 잉크·흰색으로 분리했다. 연한 카드 위 보조 글자와 본문 링크도 4.5:1 이상인 색으로 조정했고, 다크 코드창의 줄 번호는 별도 `on-dark-soft` 토큰을 쓰게 했다. Clay의 분홍 카드 위 흰 글자는 3.14:1이라 어두운 전용 글자색을 지정했다. ClickHouse의 `muted-soft`는 어두운 카드 위 2.52:1이어서 5.12:1인 값으로 조정했다.
+- 세 프로필의 텍스트·배경이 모두 단색으로 선언된 컴포넌트를 YAML에서 찾아 다시 계산했다. Claude 26개 중 비활성 버튼 1개가 4.49:1, Clay 25개 중 0개, ClickHouse 23개 중 비활성 버튼 1개가 3.28:1이었다. [W3C의 비활성 컴포넌트 예외](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast)가 있지만 이 결과는 컴포넌트 선언만 확인한 것이며 브라우저의 실제 `disabled` 상태를 입증하지 않는다. Claude·ClickHouse의 36px 아이콘 버튼과 Clay의 높이만 44px로 지정된 버튼은 [AA 대상 크기·간격 기준](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum)과 [AAA 44×44 기준](https://www.w3.org/WAI/WCAG22/Understanding/target-size-enhanced)을 구분해 안내했다. 디자인 시스템 스킬은 `1.1.7`, 디자이너 플러그인 표기는 `1.4.29`로 동기화했고 장부는 `static_read` 75/123파일이다.
+- 적대적 감사의 구조화 판정은 `inconclusive`이고 finding 배열은 비어 있었지만 요약에서 세 샘플·지침 모순을 `file:line`으로 짚었다. 직접 대조해 Claude 샘플의 흰 카드 위 청록 숫자 `3`을 `#5db8a6`(2.37:1)에서 `#2a796c`(5.19:1)로 고치고, Claude active 버튼에서 배경과 글자가 함께 바뀐다는 설명을 넣었다. Claude·Clay·ClickHouse 샘플의 `muted`·`muted-soft` 값을 각 프로필과 맞췄다. ClickHouse 바닥글은 기존 `#777777`(검정 위 4.42:1)에서 `#949494`(6.53:1)로 바뀌었다. 감사 요약의 자체 `FAIL` 문구를 구조화 판정으로 바꿔 기록하지 않는다.
+- `agent-browser`로 수정된 세 샘플을 로컬 파일 브라우저에서 열고 Play CDN 로드 후 계산 스타일을 읽었다. Claude 숫자 `3`은 `rgb(42, 121, 108)`/흰 카드, ClickHouse 바닥글은 `rgb(148, 148, 148)`/`rgb(10, 10, 10)` 바닥, Clay 보조 글자는 `rgb(96, 96, 96)`/`rgb(255, 250, 240)` 바닥이었다. 세 페이지에서 `window.tailwind`는 객체였다. 이는 이 macOS 브라우저와 지정 요소의 결과이며 오프라인·다른 OS·전체 요소 검증이 아니다.
+- `sanity.md` 662행도 끝까지 읽었다. `ink`=`canvas`라며 1:1을 낸 기계적 후보는 다크 섹션에서 `on-primary` 흰 글자를 쓰는 이중 테마를 무시한 오탐이었다. 실제로 두 색이 모두 단색으로 선언된 컴포넌트 31개의 텍스트·배경 쌍은 4.5:1 미만이 없었다. [공식 Sanity 표기](https://www.sanity.io/content-platform)에 맞춰 본문의 `Saniti` 오기 10곳을 고쳤고, 브랜드 색이 배경에 전혀 쓰이지 않는다는 설명을 드문 브랜드 카드 사용과 맞췄다. 버튼의 44px 높이만으로 AAA 44×44 충족을 선언한 문구도 너비 실측 조건으로 고쳤다. 장부는 `static_read` 76/123파일이다.
+- 두 번째 적대적 감사도 구조화 판정은 `inconclusive`, finding 배열은 비어 있었지만 요약의 `file:line` 네 지적을 직접 확인했다. ClickHouse 샘플의 `body-strong`을 프로필과 같은 `#e6e6e6`으로 맞췄다. ClickHouse `muted`·`muted-soft`는 각각 `#949494`·`#888888`으로 조정해 밝기 위계와 어두운 카드 위 대비 5.74:1·4.91:1을 함께 확보했다. Sanity 보조 버튼의 모바일 높이 44px도 너비·간격 확인 전 적합 선언을 하지 않도록 했다. 세 샘플의 `2026-W23`은 Python `date.isocalendar()`에서 2026-06-01~06-07과 일치함을 확인해 날짜를 바꾸고, 별도 근거가 없던 “11주차” 제목은 “주간 현황”으로 바꿨다. 감사 요약의 자체 `FAIL`을 구조화 판정으로 바꾸지 않는다.
+- `cohere.md`를 끝까지 읽었다. 흰 바탕의 `muted`는 3.04:1, `slate`는 반올림 전 4.499:1, inactive 필터의 산호색 글자는 2.61:1이었다. 밝은 면 글자색을 각각 `#6d6d78`(5.11:1)·`#737388`(4.63:1)·`#b3472c`(5.45:1)로 나눴다. 어두운 바닥글 글자는 전용 `muted-on-dark`를 지정해 `#17171c` 위 7.48:1을 계산했다. 출처 시점이 고정되지 않은 “현재 2026 웹 시스템” 단정은 영감 기반 참조 설명으로 바꿨다. 장부는 `static_read` 77/123파일이다.
+- 세 번째 적대적 감사의 구조화 판정도 `inconclusive`, finding 배열은 비어 있었다. 요약의 `file:line` 두 지적을 직접 대조해 Sanity의 `on-primary` 설명에서 브랜드색 위 흰 글자 안내를 제거하고 실제 `button-brand`·`feature-card-brand`의 어두운 `ink`를 명시했다. Cohere 바닥글에는 `muted-on-dark`를 쓰는 별도 `footer-newsletter-muted` 컴포넌트를 정의하고 흐린 링크·법적 문구와 연결했다. 감사 요약의 `FAIL` 표현은 구조화 판정으로 취급하지 않는다.
+- 최종 수정 뒤 이 작업 트리에서 `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `python3 scripts/sync-mcp-core.py --check`는 여섯 복제 서버 `[정합]`, `git diff --check`는 출력 없이 종료 코드 0이었다. `designmd lint`를 수정된 프로필 다섯 개에 개별 실행한 결과 Claude·Clay·ClickHouse·Sanity·Cohere 순서로 오류는 모두 0건, 경고는 각각 17·15·14·10·17건, 정보는 각 1건이었다. 남은 경고에는 투명 배경을 검정으로 취급한 대비 검사와 미사용 토큰 검사가 섞여 있으며, 이 결과를 화면 접근성 통과로 해석하지 않는다. 세 샘플의 공통 Tailwind 토큰 9개는 각 프로필과 9/9 일치했다. 앱 내 생성 화면과 macOS 외 운영체제는 아직 관측하지 않았다.
