@@ -543,3 +543,9 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - B2B/SaaS 참고문서의 가상 고객 수·도입 효과·무료 체험·응답 시간·가격 할인·보안 인증을 실제 제공 조건과 증빙을 확인하는 항목으로 바꿨다. SOC 2 감사 보고서와 ISO/IEC 27001 인증서를 구분하고 로고 사용 권한을 명시했다. [AICPA SOC 2](https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2)와 [ISO/IEC 27001](https://www.iso.org/standard/27001), [ISO 인증 안내](https://www.iso.org/certification.html)를 대조했다.
 - 펫 참고문서의 가상 성분 함량·원산지 인증·기호성·수의사 추천·효능·배송 할인을 제거하고 제품 자료·추천 사실·공개 허락을 확인하게 했다. 각 제품의 실제 성장 단계·급여량을 쓰도록 고쳤다. 품목별 판매 조건과 실제 브리프 생성은 아직 검증하지 않았다.
 - 이 두 문서에 대한 `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges)`도 구조화된 `verdict: inconclusive`, `findings: []`였으나 요약에는 파일·줄을 든 네 지적이 있었다. 요금제 기본값, 감사 보고서와 인증서의 혼합 목록, 이미 선택된 선택 모듈, 문자열로 채운 확인 상태를 실제 YAML에서 확인하고 `[]` 또는 `null`로 수정했다. Python/PyYAML로 두 블록을 파싱하고 미확인 상태가 빈 목록·null로 읽히는 것을 확인했다. 이 검사는 생성된 판매 페이지나 실제 인증 상태를 검증하지 않는다.
+
+### Seller 나머지 상세페이지 참고문서 검토 (2026-09-25)
+- 패션·푸드·럭셔리·스포츠 카테고리와 공통 카피·사진 체크리스트 6개를 각각 읽었다. 확인되지 않은 세탁·배송·역사·매체·수상·수리·성능·인증·전문가 추천·할인·재고·효능·촬영 장수 예시를 실제 상품 자료를 확인하는 항목으로 바꿨다. 푸드 문서는 [식품표시광고법 제8조](https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1029094685)와 [일반식품 기능성 표시 규정](https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000210547&chrClsCd=010201)을 대조해 일반식품 기능성 표현의 일률적 금지·허용을 피했다.
+- 사진 체크리스트의 실제 카테고리 수와 어긋난 표제를 고치고, 해당하지 않는 사진을 모두 찍게 하던 규칙과 PowerPoint 필수 절차를 제거했다. 실제 제품 원본·촬영 허락·채널 규격을 우선하고, ChatGPT 기본 이미지 생성과 사용자가 지정한 Higgsfield 경로를 구분했다. 생성 이미지를 실제 상품·인증·고객 후기의 증빙으로 쓰지 않도록 명시했다.
+- `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges)`는 구조화된 `verdict: inconclusive`, `findings: []`를 반환했지만 요약에서 푸드 산지·생산자 서사의 기본값, 럭셔리 사진·영상의 기본 선택, 카피 CTA의 체험·재고 약속 선택지, 사진만으로 원산지·내구성을 입증한다는 문구를 파일·줄 근거와 함께 지적했다. 실제 파일에서 확인하고 빈 목록·`null`과 별도 자료 확인 문구로 수정했다. 감사 결과를 PASS로 해석하지 않는다.
+- `reports/desktop-portability-residual-file-scan-20260924.tsv`의 해시·줄 수는 최초 잔여 파일 스캔 당시의 스냅샷이다. 이번에 고친 참고문서의 현재 해시나 줄 수를 나타내지 않으며, 현재 내용은 작업 트리 파일과 Git 커밋으로 확인해야 한다.
