@@ -7,9 +7,14 @@ date: 2026-08-07T00:00:00+09:00
 lastmod: 2026-09-25T00:00:00+09:00
 ---
 
-플러그인 설치는 크게 두 단계입니다. 먼저 **마켓플레이스를 등록**하고(어느 저장소에서 플러그인을 받아올지 앱에 알려 주는 일), 그다음 **필요한 코워커 플러그인만 골라 설치**합니다. Claude Cowork와 ChatGPT Work를 모두 쓴다면 각 앱에서 등록해야 합니다.
+플러그인 설치는 크게 두 단계입니다. 먼저 **마켓플레이스를 등록**하고,
+그다음 **필요한 코워커 플러그인을 골라 설치**합니다.
+Claude Cowork는 앱에서 등록하고, ChatGPT Work는 워크스페이스 관리자가
+GitHub 마켓플레이스를 가져옵니다.
 
-이 페이지는 **Claude Cowork 또는 ChatGPT Work 데스크톱 앱**을 쓴다는 전제로 안내합니다. 두 앱에 같은 저장소 주소를 등록하지만, 한 앱의 설치 상태가 다른 앱으로 복사되지는 않습니다. 기본 설치·업데이트는 앱 화면에서 진행합니다. MCP 연동에 필요한 자격증명은 [API 키 넣는 법](mcp/credentials/)을 확인하세요.
+이 페이지는 **Claude Cowork 또는 ChatGPT Work 데스크톱 앱**을 기준으로 안내합니다.
+두 앱의 플러그인 설치 상태는 공유되지 않습니다.
+MCP 연동에 필요한 자격증명은 [API 키 넣는 법](mcp/credentials/)을 확인하세요.
 
 ![마켓플레이스 등록에서 설치, 확인, 업데이트로 이어지는 네 단계 흐름](/infographics/install-manage-flow.png)
 
@@ -26,19 +31,26 @@ Claude Cowork 앱의 설정(또는 플러그인) 화면에서 마켓플레이스
 
 등록이 완료되면 **moai-cowork** 마켓플레이스가 목록에 보이고, 이제 이 가게의 플러그인 목록을 앱에서 볼 수 있습니다.
 
-### ChatGPT Work 앱에서 등록
+### ChatGPT Work 워크스페이스에서 가져오기
 
-ChatGPT Work 앱(데스크톱)에서도 같은 마켓플레이스를 등록할 수 있습니다.
+ChatGPT의 GitHub 마켓플레이스 가져오기는 **워크스페이스 관리자**가 진행합니다.
+[OpenAI의 가져오기 안내](https://help.openai.com/en/articles/20001504)에 따른 경로입니다.
 
-1. Work 모드로 진입
-2. **Plugins** 메뉴 열기
-3. **Marketplace**에서 **+** 로 저장소를 추가하고 `modu-ai/moai-cowork` 입력
+1. **Workspace settings → Plugins → Add → Import marketplace**로 이동
+2. **Source**에 `https://github.com/modu-ai/moai-cowork` 입력
+3. 저장소 루트의 마켓플레이스를 가져오므로 **Path**는 비우고 가져오기 완료
 
-{{< screenshot-request "ChatGPT Work 앱, Work 모드 → Plugins 메뉴 — 마켓플레이스에서 + 로 저장소를 추가하고 modu-ai/moai-cowork를 입력하는 화면" >}}
+{{< screenshot-request "ChatGPT 관리자: Plugins → Add → Import marketplace" >}}
 
-`modu-ai/moai-cowork`는 GitHub 저장소 주소의 줄임 표기입니다. 추가가 끝나면 이제 해당 앱이 이 가게의 플러그인 목록을 알게 됩니다.
+관리자가 가져온 뒤에는 설치 권한이 있는 사용자가 ChatGPT Work의
+**Plugins Directory**에서 해당 마켓플레이스를 선택해 코워커를 설치합니다.
+관리자 권한이 없거나 워크스페이스에서 가져오기를 허용하지 않으면
+관리자에게 등록을 요청하세요. 개인 계정에서 GitHub 저장소를 직접 추가하는
+앱 화면은 여기서 확인하지 못했습니다.
 
-> **잘 안 될 때** — 추가 후 목록이 비어 있다면 앱을 껐다가 다시 켜보세요. 네트워크 오류가 나오면 GitHub 접속이 가능한 환경인지 (회사 프록시 등) 확인하세요.
+> **잘 안 될 때** — ChatGPT에서 목록이 비어 있다면 관리자에게 가져오기 상태와
+> 본인의 설치 권한을 확인해 달라고 요청하세요. Claude에서 목록이 비어 있다면
+> 앱을 다시 열고 저장소 등록 상태를 확인하세요.
 
 ## 2. 코워커 설치
 
@@ -46,7 +58,7 @@ ChatGPT Work 앱(데스크톱)에서도 같은 마켓플레이스를 등록할 �
 
 마켓플레이스 등록 후에는 Plugins 화면에서 코워커를 선택하고 설치할 수 있습니다.
 
-1. **Plugins** 메뉴 열기
+1. Claude는 **Plugins**, ChatGPT Work는 **Plugins Directory** 열기
 2. **moai-cowork** 마켓플레이스에서 원하는 코워커 선택 (예: `moai-marketer`, `moai-seller`, `moai-coworker`)
 3. **+** 또는 **Install** 선택
 
@@ -103,7 +115,11 @@ Plugins 화면에서 각 코워커별로 업데이트·비활성화·제거를 �
 
 자격증명이 없어도 코워커의 일반 스킬 (상세페이지 작성, 캠페인 기획 등) 은 그대로 쓸 수 있습니다. 연동 도구를 쓰려는 시점에 넣으면 됩니다.
 
-**키를 넣는 방법은 두 가지입니다.** Claude Cowork는 키가 필요한 코워커를 켤 때 **입력 폼**을 띄우고 안전한 곳에 보관합니다. ChatGPT Work를 쓰거나 두 앱에서 같은 키를 쓰고 싶다면 **자격증명 파일**(`~/.moai/mcp/<서비스>.json`)에 넣으면 되는데, 코워커에게 키를 알려 주면 파일도 대신 만들어 줍니다. 서비스별 항목 이름과 안전 수칙은 [API 키 넣는 법](mcp/credentials/)에 정리해 두었습니다.
+**키를 넣는 방법은 두 가지입니다.** Claude Cowork는 키가 필요한 코워커를 켤 때
+**입력 폼**을 제공합니다. ChatGPT Work에서는 서비스별
+**자격증명 파일**(`~/.moai/mcp/<서비스>.json`)을 본인 컴퓨터에 직접 만듭니다.
+키를 채팅에 적지 마세요. 서비스별 항목 이름과 안전 수칙은
+[API 키 넣는 법](mcp/credentials/)에 정리해 두었습니다.
 
 **API 키는 비밀번호와 같습니다.** 채팅창에 그대로 붙여 넣지 말고, 앱 입력창이나 자격증명 파일로만 넘기세요.
 
@@ -117,6 +133,7 @@ Plugins 화면에서 각 코워커별로 업데이트·비활성화·제거를 �
 
 - Claude Code 플러그인 공식 문서: <https://code.claude.com/docs/en/plugins>
 - OpenAI 플러그인 빌드 가이드: <https://developers.openai.com/plugins/build/plugins>
+- OpenAI GitHub 마켓플레이스 가져오기: <https://help.openai.com/en/articles/20001504-importing-and-syncing-plugin-marketplaces-from-github>
 - OpenAI 플러그인 사용 가이드: <https://learn.chatgpt.com/docs/plugins?surface=app>
 - OpenAI 서브에이전트 설정: <https://learn.chatgpt.com/docs/agent-configuration/subagents>
 - 마켓플레이스 진실 원본: [`/.claude-plugin/marketplace.json`](https://github.com/modu-ai/moai-cowork/blob/main/.claude-plugin/marketplace.json)
