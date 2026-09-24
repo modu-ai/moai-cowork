@@ -7,15 +7,15 @@ description: |
   - "그래프 그려줘"
   - "시각화해줘"
   - "대시보드 만들어줘"
-  Mermaid·Recharts·Chart.js·Tremor·ECharts 중 적합한 스택으로 인터랙티브 대시보드를 제작하고, moai-officer:doc-pptx / moai-officer:doc-docx로 PPT·Word 변환까지 이어집니다.
-version: "1.1.1"
+  데이터 형식과 사용자의 기존 프로젝트에 맞춰 표·Mermaid·단일 HTML 차트·기존 앱의 차트 라이브러리 중 필요한 방식을 선택합니다. PPT·Word가 필요하면 사용할 수 있는 문서 도구로 연결합니다.
+version: "1.1.2"
 ---
 
 # 데이터 시각화 (Data Visualizer)
 
 ## 역할
 
-데이터를 시각적으로 표현하는 전문가. Mermaid, Recharts/Chart.js, Tremor 기반 HTML 대시보드를 생성하고 PPT/Word로 변환합니다. HTML 산출물은 shadcn/ui OKLCH 토큰을 기본 테마로 사용합니다.
+데이터를 출처·단위·기간을 보존하며 시각화합니다. 파일 형식과 스택은 사용자가 요청한 산출물과 현재 프로젝트에 맞춥니다. 원자료가 없으면 수치가 채워진 차트를 만들지 않고 필요한 입력을 묻습니다.
 
 ## 시각화 전략 (자동 판단)
 
@@ -25,13 +25,11 @@ version: "1.1.1"
 - 빠르고 가벼움, 별도 파일 불필요
 - 테마 인터뷰 **생략 가능** (Mermaid 기본 스타일 사용)
 
-### 방식 2: shadcn 기반 HTML·React 대시보드 (상세 분석)
-- **기본값**: Next.js 15 + Tailwind v4 + shadcn/ui + **Recharts**
-- 단일 HTML 파일 모드: Tailwind CDN + shadcn CSS 변수 인라인 + Chart.js
-- KPI 카드, 라인/막대/파이/도넛/레이더/버블 차트
-- 필터, 호버 툴팁, 줌, 다크 모드 자동 지원
-- 앱의 미리보기 기능이 지원되면 표시하고, 그렇지 않으면 HTML 파일로 전달
-- **테마 인터뷰 필수**
+### 방식 2: HTML·기존 앱 대시보드 (상세 분석)
+- 사용자가 단일 파일을 원하면 전달 환경의 인터넷 연결을 확인한다. CDN을 실제로 불러올 수 있으면 Chart.js HTML을 쓸 수 있다. 오프라인이면 사용 허가된 로컬 스크립트를 포함하거나 외부 의존성이 없는 SVG 차트를 만든다.
+- 기존 React 앱이라면 설치된 차트 라이브러리와 디자인 토큰을 먼저 확인해 재사용한다. shadcn/ui Chart 컴포넌트와 Recharts가 둘 다 설치된 경우에만 그 경로를 따른다.
+- 필터·툴팁·줌·다크 모드는 요청과 데이터에 필요한 것만 구현하고, 실제로 동작을 확인한 것만 지원한다고 보고한다.
+- 앱의 미리보기 기능이 지원되면 표시하고, 그렇지 않으면 파일 경로와 확인 방법을 전달한다.
 
 ### 방식 3: 마크다운 테이블 (텍스트 기반)
 - 간단한 비교표, 순위표
@@ -40,81 +38,77 @@ version: "1.1.1"
 
 ---
 
-## [HARD] HTML 대시보드 생성 시 shadcn 테마 인터뷰
+## 대시보드 모양과 실행 환경 확인
 
-HTML·React 대시보드(방식 2)를 산출할 때는 **코드 생성 직전에** 현재 앱의 구조화 질문 기능 또는 대화로 다음 4개 선택을 확인합니다.
+사용자가 준 브랜드 색·차트 예시·기존 디자인 시스템이 있으면 그것을 따른다. 모양이 결정되지 않아 결과에 영향을 줄 때만 현재 앱의 질문 기능 또는 대화로 필요한 항목을 묻는다.
 
-1. **Q1 베이스 팔레트** — Neutral(기본) / Zinc / Stone / Slate
-2. **Q2 컬러 모드** — System+Toggle(기본) / Light / Dark / Auto
-3. **Q3 모서리 반경** — Balanced 0.5rem(기본) / Sharp / Soft / Pill
-4. **Q4 차트 라이브러리** — Recharts(기본) / Chart.js / Tremor / ECharts
+1. 브랜드 색과 접근 가능한 대비 기준
+2. 밝은 화면·어두운 화면 지원 필요 여부
+3. 기존 프로젝트 또는 단일 HTML 중 실제 전달 형식
+4. 이미 설치된 차트 라이브러리 또는 필요한 상호작용
 
-> 대시보드 스킬은 Q4 옵션 자체가 차트 스택이므로 랜딩/상세와 달리 multiSelect를 사용하지 않습니다.
+질문할 수 없고 기존 디자인 지침도 없으면 읽기 쉬운 중립 테마를 적용하고 선택 이유를 산출물에 적는다. 별도 앱 프로젝트가 없으면 새 Next.js 프로젝트를 자동으로 만들지 않는다.
 
-테마 선택의 상세 설명은 `../../../moai-marketer/skills/marketing-landing-page/references/landing-page/shadcn-theme-interview.md`를 참조합니다. 그 문서의 Claude 전용 질문 도구 호출 형식은 현재 앱의 기능에 맞게 바꿔 사용합니다.
-
-Fallback(인터뷰 생략) 기본값: `Neutral + System+Toggle + 0.5rem + Recharts`. 적용 시 응답 상단에 고지합니다.
+참고: [shadcn/ui Chart](https://ui.shadcn.com/docs/components/base/chart)는 Recharts를 사용하며, [Chart.js 시작 문서](https://www.chartjs.org/docs/latest/getting-started/)는 단일 HTML의 CDN 예시를 제공합니다.
 
 ### 라이브러리 선택 가이드
 
 | 상황 | 권장 라이브러리 | 이유 |
 |------|---------------|------|
-| React/Next.js + B2B 대시보드 | **Recharts** | shadcn 공식 Chart 컴포넌트 기반, 타입 안전 |
-| 단일 HTML(React 없음) | **Chart.js** | CDN 한 줄로 시작, Canvas 기반 가벼움 |
-| KPI·영업 대시보드 빠른 산출 | **Tremor** | AreaChart/BarChart 프리셋 풍부 |
-| 지도·Sankey·TreeMap | **ECharts** | 고난도 시각화 커버리지 |
+| Chart 컴포넌트와 Recharts가 설치된 shadcn/ui 앱 | **Recharts** | 현재 앱의 컴포넌트와 토큰 재사용 |
+| 인터넷 연결이 확인된 단일 HTML(React 없음) | **Chart.js** | 별도 앱 프로젝트 없이 실행 가능 |
+| 오프라인 단일 HTML | **SVG 또는 허가된 로컬 스크립트** | 외부 CDN 없이 표시 가능 |
+| 기존 Tremor·ECharts 앱 | **현재 설치된 라이브러리** | 기존 설정과 디자인 유지 |
 
 ---
 
 ## 판단 기준
 
-| 조건 | 방식 | 테마 인터뷰 |
+| 조건 | 방식 | 모양 확인 |
 |------|------|---------|
-| 데이터 5행 이하 | 마크다운 테이블 | 생략 |
+| 간단한 비교이고 사용자가 차트를 지정하지 않음 | 마크다운 테이블 | 생략 |
 | 단순 비율/분포 | Mermaid pie/bar | 생략 |
-| 시계열/트렌드 (React) | Recharts 선 차트 | 필수 |
-| 시계열/트렌드 (HTML) | Chart.js 선 차트 | 필수 |
-| 다차원 비교 | Recharts 레이더/버블 | 필수 |
-| 대시보드·KPI | Tremor + shadcn Card | 필수 |
-| 지도·복합 시각화 | ECharts | 필수 |
-| 인터랙티브 필요 | HTML/React 대시보드 | 필수 |
+| 시계열/트렌드 (기존 React 앱) | 현재 앱의 차트 구성 | 기존 디자인 지침이 없을 때만 |
+| 시계열/트렌드 (단일 HTML) | CDN 연결·로컬 스크립트 사용 가능 여부에 따라 Chart.js 또는 SVG | 기존 디자인 지침이 없을 때만 |
+| 다차원 비교 | 데이터에 적합한 기존 차트 | 차트 선택이 해석에 영향을 줄 때 |
+| 대시보드·KPI | HTML 또는 기존 앱 | 브랜드·전달 형식이 불분명할 때 |
+| 지도·복합 시각화 | 지원 도구 확인 후 선택 | 데이터·기능 요구가 불분명할 때 |
+| 인터랙티브 필요 | HTML/기존 앱 | 필요한 조작이 불분명할 때 |
 
 ---
 
 ## PPT/Word 변환 플로우
 
 사용자가 "PPT로 만들어줘" 요청 시:
-1. HTML·React 차트 → 스크린샷/이미지 추출
-2. 데이터 테이블 + 차트 이미지 → `moai-officer:doc-pptx`로 전달
-3. PPT 슬라이드 생성
+1. 원자료와 차트의 수치·단위를 대조한다.
+2. 사용 가능한 내보내기 기능으로 차트를 이미지화하고, `moai-officer:doc-pptx`가 설치돼 있으면 연결한다.
+3. 실제 PPT를 생성·열어 본 경우에만 완성했다고 보고한다. 변환 도구가 없으면 차트·원자료를 전달한다.
 
 Word 보고서 요청 시:
-1. 차트 이미지 + 분석 텍스트 → `moai-officer:doc-docx`로 전달
-2. Word 문서 생성 (차트 임베드)
+1. 차트 이미지와 분석 텍스트를 준비해 `moai-officer:doc-docx`가 설치돼 있으면 연결한다.
+2. 실제 Word 파일 생성·열기 확인 여부를 구분해 보고한다.
 
 ---
 
 ## 산출물
 
 - Mermaid 다이어그램 (인라인)
-- **shadcn 기반 HTML 대시보드** (OKLCH 테마, 다크 모드 지원)
-- Recharts/Chart.js/Tremor/ECharts HTML·React 파일 (인터랙티브)
+- 단일 HTML 또는 기존 앱의 대시보드 (실제로 구현한 상호작용만 명시)
 - 마크다운 보고서 (테이블 + 인사이트)
 
-### HTML 대시보드 필수 구성
+### HTML 대시보드 구성
 
-1. `index.html` — 또는 Next.js `app/page.tsx`
-2. `styles.css` — shadcn OKLCH CSS 변수 `:root` + `.dark` 블록 (인라인 또는 별도)
-3. 차트 스크립트 — 선택된 라이브러리의 CDN 또는 npm 모듈
-4. 다크 모드 토글 — 인터뷰 Q2가 `system+toggle`인 경우
-5. `README-setup.md` — React 모드일 경우 shadcn 컴포넌트 설치 명령
+1. 요청한 형식의 HTML 또는 기존 앱 컴포넌트
+2. 차트에 필요한 스타일과 스크립트
+3. 출처·기간·단위·표본 범위와 필요한 범례·대체 텍스트
+4. 별도 설치가 필요하면 해당 프로젝트의 실행 방법
 
 ---
 
 ## 실행 규칙
 
 1. 사용자 요청 수신 → 시각화 방식 자동 판단
-2. **방식 2(HTML·React) 선택 시 shadcn 테마 인터뷰 실행** (HARD)
+2. 기존 디자인 지침과 실행 환경을 확인하고, 필요한 정보가 빠졌을 때만 질문
 3. 데이터 구조 확인 → 부적합 시 `moai-analyst:data-explorer` 권유
 4. 차트 산출 후 사용자 검토 요청
 
@@ -122,17 +116,17 @@ Word 보고서 요청 시:
 - **데이터 탐색/프로파일링** → `moai-analyst:data-explorer` 사용
 - **공공데이터 조회** → `moai-analyst:data-public` 사용
 - **랜딩 페이지 내 차트 섹션** → `moai-marketer:marketing-landing-page`에서 Q4 효과 선택 시 통합 산출
-- **상세페이지 내 가격 비교 차트** → `moai-seller:commerce-product-detail`에서 직접 처리
+- **상세페이지 내 가격 비교 차트** → `moai-seller:commerce-detail-page-planner`가 설치돼 있으면 페이지 구성과 함께 검토
 
 
-## 한국어 카피 품질 게이트 (필수)
+## 수치와 한국어 문안 검수
 
-본 스킬이 산출하는 한국어 텍스트는 배포 전 의무 게이트를 통과합니다:
+배포 전 원자료와 차트 값·축·단위·기간을 대조하고, 한국어 제목과 설명의 과장·어색한 조사·잘못된 확정 표현을 이 스킬 안에서 검수합니다. 다른 플러그인이 없어도 작업을 마무리할 수 있습니다. 아래 스킬이 현재 설치돼 사용 가능하면 표현을 추가 점검합니다:
 
 1. `moai-coworker:ai-slop-reviewer` — 1차 일반 AI 슬롭 검수 (금지어, 구조 패턴, 리듬)
 2. `moai-writer:korean-humanize` — 2차 한국어 정밀 윤문 (40+ 패턴 SSOT, 의미 불변)
 
-두 게이트는 대시 대비 헤드라인·조사·체언 종결 조각문·"A에서 B로" 전환 공식 S1 패턴을 잡아냅니다. 게이트 통과 없이 산출물을 바로 배포하지 않습니다.
+추가 스킬을 실행하지 않았다면 실행했다고 기록하지 않습니다. 실제 데이터·렌더링·접근성 점검 없이 배포 준비가 끝났다고 보고하지 않습니다.
 
 ## References
 

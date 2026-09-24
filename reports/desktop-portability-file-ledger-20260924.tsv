@@ -43,25 +43,25 @@ plugins/moai-accountant/skills/finance-tax-helper/references/tax/guide.md		parti
 plugins/moai-accountant/skills/finance-variance-analysis/SKILL.md		partial
 plugins/moai-accountant/skills/finance-wealth-roadmap/SKILL.md		partial
 plugins/moai-accountant/skills/finance-workflow/SKILL.md		partial
-plugins/moai-analyst/.claude-plugin/plugin.json		partial
-plugins/moai-analyst/.codex-plugin/plugin.json		partial
-plugins/moai-analyst/.mcp.json		partial
-plugins/moai-analyst/README.md		partial
-plugins/moai-analyst/agents/data-analyst.md	claude_only_tool	partial
-plugins/moai-analyst/agents/data-provenance-auditor.md	claude_only_tool	partial
-plugins/moai-analyst/mcp-launch/mcp_launch.py	platform_path	partial
-plugins/moai-analyst/skills/data-building-ledger/SKILL.md		partial
-plugins/moai-analyst/skills/data-court-auction/SKILL.md		partial
-plugins/moai-analyst/skills/data-explorer/SKILL.md	claude_only_tool	partial
-plugins/moai-analyst/skills/data-explorer/references/data-explorer/guide.md		partial
-plugins/moai-analyst/skills/data-provenance-audit/SKILL.md	new_chatgpt_agent_mapping	partial
-plugins/moai-analyst/skills/data-public/SKILL.md	claude_only_tool	partial
-plugins/moai-analyst/skills/data-public/references/public-data/guide.md		partial
-plugins/moai-analyst/skills/data-realestate/SKILL.md		partial
-plugins/moai-analyst/skills/data-stock/SKILL.md		partial
-plugins/moai-analyst/skills/data-visualizer/SKILL.md	claude_only_tool	partial
-plugins/moai-analyst/skills/data-visualizer/references/data-visualizer/guide.md		partial
-plugins/moai-analyst/skills/data-workflow/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-analyst/.claude-plugin/plugin.json		static_read
+plugins/moai-analyst/.codex-plugin/plugin.json		static_read
+plugins/moai-analyst/.mcp.json		static_read
+plugins/moai-analyst/README.md		static_read
+plugins/moai-analyst/agents/data-analyst.md	claude_only_tool	static_read
+plugins/moai-analyst/agents/data-provenance-auditor.md	claude_only_tool	static_read
+plugins/moai-analyst/mcp-launch/mcp_launch.py	platform_path	static_read
+plugins/moai-analyst/skills/data-building-ledger/SKILL.md		static_read
+plugins/moai-analyst/skills/data-court-auction/SKILL.md		static_read
+plugins/moai-analyst/skills/data-explorer/SKILL.md	claude_only_tool	static_read
+plugins/moai-analyst/skills/data-explorer/references/data-explorer/guide.md		static_read
+plugins/moai-analyst/skills/data-provenance-audit/SKILL.md	new_chatgpt_agent_mapping	static_read
+plugins/moai-analyst/skills/data-public/SKILL.md	claude_only_tool	static_read
+plugins/moai-analyst/skills/data-public/references/public-data/guide.md		static_read
+plugins/moai-analyst/skills/data-realestate/SKILL.md		static_read
+plugins/moai-analyst/skills/data-stock/SKILL.md		static_read
+plugins/moai-analyst/skills/data-visualizer/SKILL.md	claude_only_tool	static_read
+plugins/moai-analyst/skills/data-visualizer/references/data-visualizer/guide.md		static_read
+plugins/moai-analyst/skills/data-workflow/SKILL.md	new_chatgpt_agent_mapping	static_read
 plugins/moai-career/.claude-plugin/plugin.json		static_read
 plugins/moai-career/.codex-plugin/plugin.json		static_read
 plugins/moai-career/README.md		static_read

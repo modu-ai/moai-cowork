@@ -40,13 +40,13 @@ Claude Cowork와 ChatGPT Work는 마켓플레이스 등록 권한과 경로가 �
 
 ## MCP 연동 3종
 
-플러그인 루트 `.mcp.json`에 3개 MCP 서버가 선언되어 있습니다. 자격증명은 **환경변수로만** 설정하세요(파일에 키를 적지 않습니다).
+플러그인 루트 `.mcp.json`에 3개 MCP 서버가 선언되어 있습니다. DART 키는 앱의 비밀정보 입력란이나 [API 키 넣는 법](https://cowork.mo.ai.kr/plugins/mcp/credentials/)에 안내된 개인 자격증명 파일로 설정하세요. 저장소 파일이나 채팅에는 키를 적지 마세요.
 
 | 서버 | 역할 | 키 발급 | 비고 |
 |------|------|---------|------|
 | `korean-stats` | KOSIS 국가통계 조회 — 92 키워드·시도/시군구 라우팅·출처(통계표 ID) 자동 인용 (14도구) | 불필요 (공용키 hosted) | remote 커넥터, URL 등록만으로 동작 |
-| `archhub` | 국토교통부 건축HUB — 건축물대장·인허가·공시가격·노후도 (11도구) | 불필요 (공용키 hosted) | hosted 장애 시 로컬 대체: `uvx --from git+https://github.com/chrisryugj/archhub-mcp archhub-mcp` + `ARCHHUB_SERVICE_KEY`(data.go.kr 건축HUB 활용신청) |
-| `dart` | OpenDART 전자공시 — 공시·재무·지권·XBRL·HWP/PDF 첨부 마크다운화 (15도구) | 필요: [opendart.fss.or.kr](https://opendart.fss.or.kr) 회원가입 → 인증키 신청(이메일 즉시, 일 20,000건 무료) → `DART_API_KEY` 환경변수 | Node.js 20.19+ 권장 |
+| `archhub` | 국토교통부 건축HUB — 건축물대장·인허가·공시가격·노후도 (11도구) | 불필요 (공용키 hosted) | 연결이 안 되면 [연동 문제 해결](https://cowork.mo.ai.kr/plugins/troubleshooting/) 안내를 확인 |
+| `dart` | OpenDART 전자공시 — 공시·재무·지권·XBRL·HWP/PDF 첨부 마크다운화 (15도구) | 필요: [opendart.fss.or.kr](https://opendart.fss.or.kr)에서 인증키 신청 후 `DART_API_KEY` 입력 | Node.js 20.19+ 권장 |
 
 ## Claude 에이전트
 
