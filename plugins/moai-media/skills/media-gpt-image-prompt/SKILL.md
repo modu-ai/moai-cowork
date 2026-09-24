@@ -11,7 +11,7 @@ description: |
   - "/media-gpt-image-prompt" (직접 호출)
 
   이미지 자동 생성은 페어 스킬 media-higgsfield-image(Higgsfield) 또는 media-codex-image(ChatGPT 기본 이미지 도구)를 사용하세요. 본 스킬은 프롬프트 텍스트 산출 전용입니다.
-version: "2.0.3"
+version: "2.0.4"
 ---
 
 # GPT Image 2.5 Prompt Builder — 공식 가이드 8원칙 + 3-모델 동시 출력
@@ -33,7 +33,7 @@ GPT Image 2.5는 모델이 둘입니다.
 - **3개 모델 동시 출력**: GPT Image 2.5 메인 프롬프트와 함께 같은 의도를 Gemini 3 Pro Image(5-component)와 현재 Midjourney V8(기본 V8.2)의 어조로 변환합니다.
 - **프리셋 + 미세조정**: 제품샷·인물·일러스트·풍경 프리셋과 프리셋별 미세조정 질문으로 디테일을 모읍니다.
 
-프롬프트 텍스트만 산출합니다. 실제 생성은 ChatGPT의 기본 이미지 도구나 페어 스킬(`media-higgsfield-image`, `media-codex-image`)로 이어 갑니다. ChatGPT 기본 도구의 내부 모델 ID는 이 스킬에서 지정하거나 확인할 수 없으므로 API 모델 파라미터를 앱 설정처럼 안내하지 않습니다.
+프롬프트 텍스트만 산출합니다. 정확한 GPT Image 2.5 생성은 해당 모델을 지정할 수 있는 OpenAI API 또는 Higgsfield의 현재 연결로 이어 갑니다. ChatGPT Work의 기본 이미지 도구는 데스크톱 공식 문서상 `gpt-image-2`이므로, 같은 프롬프트를 거기에 입력해도 2.5 생성으로 표시하지 않습니다. 실제 생성은 `media-codex-image` 또는 `media-higgsfield-image`의 경로 판단을 따릅니다.
 
 ## 트리거 키워드
 
@@ -143,11 +143,11 @@ Midjourney 파라미터 상세는 페어 스킬 `media-midjourney-v8-prompt`를 
 ````markdown
 ## 생성된 프롬프트 (3개 모델)
 
-### 1) GPT Image 2.5 — ChatGPT 기본 이미지 도구 또는 OpenAI API
+### 1) GPT Image 2.5 — OpenAI API 또는 지원 모델이 확인된 Higgsfield 연결
 ```text
 <공식 원칙에 맞춘 프롬프트 (단락 또는 라벨 섹션)>
 ```
-**OpenAI API에서 지정할 때의 권장 파라미터**: `model=gpt-image-2.5-flare`, `quality=medium`, `size=1024x1024` (투명 배경이면 `background=transparent`, `output_format=png`). ChatGPT 기본 이미지 도구에서는 내부 모델 ID를 확인하거나 이 값을 직접 설정할 수 없습니다.
+**OpenAI API에서 지정할 때의 권장 파라미터**: `model=gpt-image-2.5-flare`, `quality=medium`, `size=1024x1024` (투명 배경이면 `background=transparent`, `output_format=png`). ChatGPT Work 기본 이미지 도구에서는 이 값을 직접 설정할 수 없고, 데스크톱 공식 문서는 기본 모델을 `gpt-image-2`로 안내합니다.
 **Higgsfield로 생성 시**: `model=gpt_image_2_5`, `variant=flare`, `quality=medium`, `aspect_ratio=1:1`
 
 ### 2) Gemini 3 Pro Image — Nano Banana Pro
@@ -211,7 +211,7 @@ Constraints: <no extra text, no logos, no watermark, do not restyle>
 
 | 산출물 | 형식 | 설명 |
 |---|---|---|
-| GPT Image 2.5 프롬프트 | 영문 단락 또는 라벨 섹션 | ChatGPT / API `prompt` / Higgsfield `prompt` |
+| GPT Image 2.5 프롬프트 | 영문 단락 또는 라벨 섹션 | OpenAI API `prompt` / Higgsfield `prompt`. ChatGPT Work 기본 도구에 입력하면 2.5 모델 지정은 유지되지 않음 |
 | 권장 파라미터 | `model`·`quality`·`size`·`background` | API 호출 시 프롬프트와 **별도로** 설정 |
 | Gemini 3 Pro Image 프롬프트 | 영문 5-component 단락 | Google AI Studio / Vertex AI |
 | Midjourney V8 프롬프트 | 짧은 설명 + 지원되는 `--파라미터` | Discord `/imagine` 또는 웹 |

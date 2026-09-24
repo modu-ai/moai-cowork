@@ -4,7 +4,7 @@ description: |
   브랜드 자료에 맞는 히어로·OG·목업·마스코트 이미지의 구도와 제약을 정하고 실제 이미지 생성 경로로 보냅니다.
   ChatGPT Work의 기본 이미지 생성은 moai-media:media-codex-image, Higgsfield 지정 요청은 moai-media:media-higgsfield-image를 사용합니다.
   "브랜드 히어로 이미지 만들어줘", "OG 이미지 생성해줘", "마스코트 다른 포즈로 그려줘" 같은 요청에 사용하세요.
-version: "1.1.2"
+version: "1.1.3"
 ---
 
 # 브랜드 비주얼
@@ -22,7 +22,7 @@ version: "1.1.2"
 
 | 사용자 요청과 현재 호스트 | 실행 경로 |
 |---|---|
-| ChatGPT Work의 기본 이미지 생성·편집 | `moai-media:media-codex-image`와 현재 대화의 이미지 생성 도구. [ChatGPT Images 2.5 공식 안내](https://help.openai.com/en/articles/11084440-images-in-chatgpt)를 따른다. |
+| ChatGPT Work의 기본 이미지 생성·편집 | `moai-media:media-codex-image`와 현재 대화의 이미지 생성 도구. [데스크톱 공식 문서](https://learn.chatgpt.com/docs/image-generation)는 기본 모델을 `gpt-image-2`로 명시한다. 정확한 2.5 요청은 해당 스킬의 API 경로 확인 절차를 따른다. |
 | Higgsfield 계정·모델·크레딧을 명시 | `moai-media:media-higgsfield-image`와 공식 Higgsfield 연결. 모델·비용·파라미터는 라이브 조회와 해당 스킬의 절차를 따른다. |
 | Claude Cowork에서 Higgsfield 연결 사용 | `moai-media:media-higgsfield-image`를 사용한다. 연결이 없으면 실제 생성 가능 여부를 밝히고 프롬프트를 제공한다. |
 | 프롬프트만 요청 | 선택한 경로에 맞는 프롬프트와 브랜드 제약을 제공한다. |

@@ -1,6 +1,6 @@
 ---
 name: media-producer
-description: "moai-media 플러그인의 멀티모달 미디어 생성 프로듀서. ChatGPT 기본 Images 2.5 생성·편집, Higgsfield 이미지/영상, ElevenLabs TTS/보이스클로닝/더빙과 모델별 프롬프트를 요청할 때 사용합니다. 이 플러그인의 media-* 스킬 집합에 대해 전체 에이전트 루프를 실행합니다."
+description: "moai-media 플러그인의 멀티모달 미디어 생성 프로듀서. ChatGPT 기본 이미지 생성·편집, Higgsfield 이미지/영상, ElevenLabs TTS/보이스클로닝/더빙과 모델별 프롬프트를 요청할 때 사용합니다. 이 플러그인의 media-* 스킬 집합에 대해 전체 에이전트 루프를 실행합니다."
 tools: Read, Write, Edit, Bash, Grep, Glob, WebSearch, WebFetch, Skill
 ---
 

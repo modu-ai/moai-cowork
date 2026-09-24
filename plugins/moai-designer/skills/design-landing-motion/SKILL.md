@@ -13,7 +13,7 @@ description: |
   - "어워드 받을 만한 사이트", "밋밋해 보여"
   호스팅·배포·도메인·DB는 범위 밖입니다. 코드는 사용자 프로젝트 안에 만들며 외부 호스팅에 올리지
   않습니다. 브랜드 이미지 한 장만 필요하면 design-brand-visual을 쓰세요.
-version: "1.1.2"
+version: "1.1.3"
 ---
 
 # design-landing-motion — 다이나믹 랜딩 제작
@@ -75,7 +75,7 @@ version: "1.1.2"
 
 ### 2단계 — 필요한 에셋 준비
 
-`references/asset-kit.md`에서 필요한 항목만 고른다. 확인된 브랜드 팔레트가 있으면 프롬프트에 반영한다. ChatGPT Work에서 이미지 생성이 가능한 요청은 `moai-media:media-codex-image`의 네이티브 GPT Image 2.5 경로를 기본으로 한다. 사용자가 Higgsfield를 지정했거나 영상·3D 등 그 경로가 필요한 항목은 해당 `moai-media:media-higgsfield-*` 스킬로 보낸다. Claude Cowork에서는 실제 연결된 이미지 도구를 확인한다. 생성 전에 각 경로의 비용·승인 조건을 따른다.
+`references/asset-kit.md`에서 필요한 항목만 고른다. 확인된 브랜드 팔레트가 있으면 프롬프트에 반영한다. ChatGPT Work에서 모델을 지정하지 않은 이미지 요청은 `moai-media:media-codex-image`의 기본 이미지 경로를 따른다. 정확한 GPT Image 2.5 요청은 같은 스킬에서 별도 API 경로를 확인한다. 사용자가 Higgsfield를 지정했거나 영상·3D 등 그 경로가 필요한 항목은 해당 `moai-media:media-higgsfield-*` 스킬로 보낸다. Claude Cowork에서는 실제 연결된 이미지 도구를 확인한다. 생성 전에 각 경로의 비용·승인 조건을 따른다.
 
 **사용자 자산이 언제나 이긴다.** 로고·제품 사진·팀 사진·폰트를 이미 갖고 있으면 그대로 쓴다. 생성은 **빈 곳만** 채운다.
 

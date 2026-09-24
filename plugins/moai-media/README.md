@@ -40,7 +40,7 @@
 | `media-gpt-image-prompt` | OpenAI GPT Image 2.5(Flare·Sunburst) 공식 가이드 기반 이미지 프롬프트 빌더 |
 | `media-gemini-3-image-prompt` | Gemini 3 Pro Image(Nano Banana Pro) 전용 5-component 프롬프트 빌더 |
 | `media-midjourney-v8-prompt` | Midjourney V8 프롬프트 빌더. 현재 기본 V8.2와 Edit Model 안내 |
-| `media-codex-image` | ChatGPT Work의 기본 Images 2.5 도구로 직접 생성·편집 (기존 스킬 이름 유지) |
+| `media-codex-image` | ChatGPT Work의 기본 이미지 도구로 직접 생성·편집. 데스크톱 문서의 모델은 `gpt-image-2`이며, 정확한 2.5 지정은 별도 API 경로가 필요 (기존 스킬 이름 유지) |
 | `media-notebooklm-slide-prompt` | 강연 마크다운 → NotebookLM 슬라이드 데크 + 슬라이드별 이미지 프롬프트 |
 | `media-asset-production` | 구명칭 호환 스텁. 신규 호출은 분리 스킬 사용 |
 
