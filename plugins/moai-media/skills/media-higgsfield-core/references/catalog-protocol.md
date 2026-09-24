@@ -27,7 +27,7 @@ Higgsfield 자신의 agent 문서가 이 설계를 직접 확인한다. `referen
 | 도구 | 런타임 역할 |
 |---|---|
 | `models_explore(action:'list'\|'search'\|'get'\|'recommend')` | 카탈로그 진실원. `get`은 한 모델의 정확한 제약(aspect·duration·media role·모델별 param)을 반환. `recommend`는 목표 + 입력 컨텍스트로 후보를 제안. `list`는 유형별 전체 목록. `search`는 키워드 검색. |
-| `show_marketing_studio(type:'image_style'\|'brand_kit'\|'product'\|'hook'\|'setting'\|'ad_reference')` | `ms_image` / `marketing_studio_video`의 **필수** 사전 목록 호출. style·hook·setting UUID를 반환. |
+| `show_marketing_studio(type:'image_style'\|'brand_kit'\|'product'\|'hook'\|'setting'\|'ad_reference')` | MCP 연결에서 `ms_image` / `marketing_studio_video`의 사전 목록 호출. ChatGPT 공식 플러그인에서는 현재 노출된 대응 목록 도구를 확인한다. 이 세션의 DTC Ads 이미지 포맷 목록은 `marketing_list_ad_formats`가 반환했다. |
 | `presets_show` | `higgsfield_preset`용 프리셋 카탈로그. |
 | `get_workflow_instructions()` | 브리핑형 워크플로 카탈로그. 인자 없이 목록, `{workflow}`로 상세. |
 | `get_cost`(생성 도구의 `params.get_cost:true`) | 비용 프리플라이트. `job-lifecycle.md` 참조. |
@@ -44,8 +44,9 @@ Higgsfield 자신의 agent 문서가 이 설계를 직접 확인한다. `referen
 1. **후보 좁히기** — 사용자 의도에서 계열 후보를 추린다(→ 각 `prompt-craft` 크래프트 노트). 이 단계는 후보를 *좁힐 뿐*, 파라미터를 단정하지 않는다.
 2. **라이브 조회** — MCP는 `models_explore(action:'get', ...)`, ChatGPT 공식 플러그인은 `models_get({model_id})`로 제약을 가져온다. 사용자가 모델을 지정하지 않은 평범한 이미지 생성에서는 공식 플러그인이 안내하는 기본 모델을 사용할 수 있다. Marketing Studio의 필수 스타일 목록은 현재 연결의 대응 목록 도구로 조회한다.
 3. **비용 프리플라이트** — MCP는 `get_cost: true`, ChatGPT 공식 플러그인은 작업 유형에 맞는 `estimate_image_cost`·`estimate_video_cost`로 견적을 받는다. `adjustments`를 승인 전에 확인한다. 공식 플러그인에 HTTPS 참조 이미지를 전달하면 이 단계에서 미디어 라이브러리 업로드가 일어날 수 있으므로, 업로드 허용을 먼저 받는다.
-4. **생성** — 조회된 값으로만 실제 `generate_image` / `generate_video`를 호출한다.
-5. **폴링·리드백** — MCP는 `job_status`, ChatGPT 공식 플러그인은 반환된 job ID를 `jobs_wait`에 전달한다. ChatGPT 생성 도구가 결과 위젯을 자동으로 표시한 경우 같은 결과를 다시 `job_display`로 열지 않는다. 반환된 `adjustments`를 보고한다(→ `job-lifecycle.md`).
+4. **유료 생성 승인** — 코어 스킬의 승인서를 사용자에게 보여주고 명시적 응답을 받는다. 하위 실행에서 직접 물을 수 없으면 승인서 전체를 상위에 반환한다. 견적 조회만으로 생성 승인을 받은 것으로 보지 않는다.
+5. **생성** — 승인된 값으로만 실제 `generate_image` / `generate_video`를 호출한다.
+6. **폴링·리드백** — MCP는 `job_status`, ChatGPT 공식 플러그인은 반환된 job ID를 `jobs_wait`에 전달한다. ChatGPT 생성 도구가 결과 위젯을 자동으로 표시한 경우 같은 결과를 다시 `job_display`로 열지 않는다. 반환된 `adjustments`를 보고한다(→ `job-lifecycle.md`).
 
 ---
 

@@ -21,7 +21,7 @@
 | moai-designer | 17 | 0 | 11 | 0 | 1 | 대기 |
 | moai-lawyer | 11 | 2 | 19 | 17 | 1 | 대기 |
 | moai-marketer | 21 | 2 | 64 | 0 | 1 | 대기 |
-| moai-media | 14 | 2 | 43 | 1 | 1 | GPT Image 경로 17파일 정적 열람, 나머지 부분 검토 |
+| moai-media | 14 | 2 | 43 | 1 | 1 | GPT Image·Higgsfield 이미지 경로 31파일 정적 열람, 나머지 부분 검토 |
 | moai-officer | 13 | 2 | 54 | 0 | 1 | 대기 |
 | moai-pm | 1 | 0 | 14 | 0 | 0 | 대기 |
 | moai-recruiter | 6 | 2 | 11 | 0 | 0 | 대기 |
@@ -703,3 +703,10 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - 현재 작업 트리의 미디어 매니페스트 두 개, MCP 설정, README, `media-codex-image` 스킬, `moai-mcp-openai` 서버의 README·프로젝트 설정·서버 코드·테스트·공유 코어 복제본 일곱 개를 각각 읽었다. 장부의 해당 17행만 `static_read`로 바꿨다. 810행의 생성된 `uv.lock`은 출력이 잘려 전체 정적 열람으로 세지 않고 `uv lock --check`로 정합만 검사했다. 이 범위 밖의 미디어 파일도 아직 전수 완료로 보지 않는다.
 - [OpenAI 데스크톱 이미지 문서](https://learn.chatgpt.com/docs/image-generation)는 기본 생성 모델을 `gpt-image-2`로, [OpenAI Image API 가이드](https://developers.openai.com/api/docs/guides/image-generation)는 정확한 2.5 모델 ID를 `gpt-image-2.5-flare`와 `gpt-image-2.5-sunburst`로 안내한다. [Higgsfield 공식 연결 안내](https://higgsfield.ai/creator-hub/help-center/integrations/how-do-i-connect-higgsfield-to-ai-agent)는 Claude에서 공식 MCP 커넥터, ChatGPT에서 공식 Higgsfield 플러그인을 사용하게 한다. 따라서 README의 “MCP 미연결 시 프롬프트만” 단정을 고쳤다. ChatGPT 기본 이미지 도구가 있으면 기본 모델로 생성할 수 있고, 정확한 2.5나 Higgsfield 지정 요청의 연결이 없으면 해당 생성은 미완료라고 보고한다. README의 MCP 연동 표에는 실제 포함된 `moai-mcp-openai`의 별도 API 키·과금 경로를 추가했다. 마켓플레이스 설명의 고정 스킬 총수와 오래된 `codex` 표현을 지우고 미디어 플러그인 세 버전과 두 Higgsfield User-Agent를 `3.3.1`로 맞췄다.
 - 이 작업 트리에서 `uv run --locked --python 3.11 --directory plugins/moai-media/mcp-servers/moai-mcp-openai --group dev pytest -q`는 `6 passed in 0.43s`, `uv lock --check --directory plugins/moai-media/mcp-servers/moai-mcp-openai`는 `Resolved 38 packages in 3ms`였다. `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `python3 scripts/sync-mcp-core.py --check`는 OpenAI를 포함한 복제 서버 여섯 곳 `[정합]`, `git diff --check`는 출력 없이 종료 코드 0이었다. 이들은 로컬 정적·모의 API 검사다. OpenAI 실계정 과금 생성, Higgsfield 로그인·크레딧 사용, 두 데스크톱 앱의 도구 표시와 macOS·Windows·Linux 실제 실행은 확인하지 않았다.
+
+### Higgsfield 이미지 모델 조회·승인 절차 대조 (2026-09-25)
+
+- `media-higgsfield-core`의 본문과 참조 5개, `media-higgsfield-image`의 본문과 계열별 참조 7개를 각각 끝까지 읽어 장부의 14행을 `static_read`로 바꿨다. 이전 17행을 합쳐 미디어 86행 중 정적 열람 31행이며, 나머지 55행은 아직 `partial`이다. 정적 열람은 실제 생성 성공을 뜻하지 않는다.
+- [Higgsfield의 공식 연결 안내](https://higgsfield.ai/creator-hub/help-center/integrations/how-do-i-connect-higgsfield-to-ai-agent)는 Claude의 MCP와 ChatGPT 공식 플러그인 연결을 구분하고 두 경로 모두 크레딧을 쓴다고 설명한다. 이 세션의 ChatGPT Higgsfield 연결에서 읽기 전용 `models_get(model_id="gpt_image_2_5")` 응답은 모델 ID `gpt_image_2_5`, 변형 `flare`·`sunburst`, 참조 역할 `image_references`를 반환했다. 그러나 같은 연결의 `generate_image` 입력 스키마는 공통 역할 `image`를 받는다. 모델 내부 역할명을 생성 인자에 그대로 복사하지 않도록 호출 계약을 고쳤다. 읽기 전용 `models_get(model_id="ms_image")`는 `style_id` 필수·기본값 없음과 `batch_size` 범위 1~20을 반환했고, `marketing_list_ad_formats`는 ID·이름을 가진 목록을 반환했다. 생성·견적·잔액 조회·크레딧 차감은 실행하지 않았다.
+- `catalog-protocol.md`의 표준 순서는 비용 조회 바로 다음에 생성하도록 적혀 있어 코어의 유료 생성 승인 게이트와 충돌했다. 승인서를 보여주고 명시적 응답을 받은 뒤 생성하도록 순서를 고쳤다. 이미지 스킬의 누락 정보 수집도 직접 대화 중에는 앱 질문 기능 또는 대화로 묻고, 하위 실행일 때만 blocker를 반환하도록 코어와 맞췄다. Marketing Studio 참조는 Claude MCP의 `show_marketing_studio`와 이 세션 ChatGPT 공식 플러그인의 `marketing_list_ad_formats`를 구분하고, 목록 선택 뒤 비용·잔액·승인 절차를 거치게 했다. 이미지 스킬 버전 `1.3.4`, 미디어 플러그인 세 버전과 두 Higgsfield User-Agent는 `3.3.2`로 갱신했다.
+- `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges)`의 구조화 판정은 `inconclusive`였다. 감사 요약의 `marketing-studio.md:23` 지적은 ChatGPT용 목록 도구를 설명하면서 필수 절차가 MCP 전용 `show_marketing_studio`만 요구한 충돌이었다. 연결별 조회 절차와 승인 단계를 명시해 수정했다. 이 감사도 두 앱에서 실제 유료 생성 절차가 작동함을 증명하지 않는다.

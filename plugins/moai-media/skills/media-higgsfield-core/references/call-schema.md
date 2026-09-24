@@ -47,7 +47,7 @@ ChatGPT 공식 Higgsfield 플러그인은 `get_cost` 필드 대신 별도 `estim
 | 제약 | 내용 |
 |---|---|
 | `medias[].value` | Higgsfield MCP 표면은 `media_id` 또는 이전 생성 `job_id`를 받는다. ChatGPT 공식 플러그인은 이 값 외에 **승인된 HTTPS 이미지 URL**도 받아 자동으로 계정 미디어 라이브러리에 가져온다. URL을 보낼 때는 외부 업로드라는 사실을 먼저 알리고 사용자의 허용을 확인한다. |
-| `medias[].role` | 연결과 모델별로 다르다. MCP는 `models_explore`, ChatGPT 공식 플러그인은 `models_get`에서 해당 모델의 허용 role을 조회한다. |
+| `medias[].role` | 연결과 모델별로 다르다. MCP는 `models_explore`에서 허용 role을 확인한다. ChatGPT 공식 플러그인은 `generate_image`·`generate_video` 도구의 입력 스키마가 받는 **공통 role**을 보내고, `models_get`의 모델 내부 media role과 대응되는지 확인한다. 예를 들어 이 세션의 `gpt_image_2_5` 상세 응답은 `image_references`를 보였지만 생성 도구 입력은 `image`를 받는다. 모델 내부 이름을 생성 인자로 그대로 복사하지 않는다. |
 | `aspect_ratio` | 모델이 선언한 목록 안에 있어야 한다. 일부 모델은 빈 목록을 선언(aspect 미적용). |
 | `duration` | 모델이 `durations`(enum) 또는 `duration_range`(범위) 중 하나를 선언한다. 허용 밖 값은 가장 가까운 값으로 스냅/클램프된다. |
 | 비용 조회 | MCP는 `get_cost: true`, ChatGPT 공식 플러그인은 `estimate_image_cost({params})`를 사용한다. 둘 다 생성 JOB은 제출하지 않는다. 다만 공식 플러그인은 HTTPS 참조를 미디어 라이브러리에 가져올 수 있어, URL이 있으면 이 호출을 무부작용 조회로 취급하지 않는다. |

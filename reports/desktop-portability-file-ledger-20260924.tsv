@@ -534,25 +534,25 @@ plugins/moai-media/skills/media-higgsfield-assets/SKILL.md		partial
 plugins/moai-media/skills/media-higgsfield-assets/references/3d.md		partial
 plugins/moai-media/skills/media-higgsfield-assets/references/analysis.md		partial
 plugins/moai-media/skills/media-higgsfield-assets/references/audio.md		partial
-plugins/moai-media/skills/media-higgsfield-core/SKILL.md	claude_only_tool	partial
-plugins/moai-media/skills/media-higgsfield-core/references/call-schema.md		partial
-plugins/moai-media/skills/media-higgsfield-core/references/catalog-protocol.md		partial
-plugins/moai-media/skills/media-higgsfield-core/references/interview-schema.md	claude_only_tool	partial
-plugins/moai-media/skills/media-higgsfield-core/references/job-lifecycle.md		partial
-plugins/moai-media/skills/media-higgsfield-core/references/universal-rules.md	higgsfield_key	partial
+plugins/moai-media/skills/media-higgsfield-core/SKILL.md	claude_only_tool	static_read
+plugins/moai-media/skills/media-higgsfield-core/references/call-schema.md		static_read
+plugins/moai-media/skills/media-higgsfield-core/references/catalog-protocol.md		static_read
+plugins/moai-media/skills/media-higgsfield-core/references/interview-schema.md	claude_only_tool	static_read
+plugins/moai-media/skills/media-higgsfield-core/references/job-lifecycle.md		static_read
+plugins/moai-media/skills/media-higgsfield-core/references/universal-rules.md	higgsfield_key	static_read
 plugins/moai-media/skills/media-higgsfield-explainer/SKILL.md	claude_only_tool	partial
 plugins/moai-media/skills/media-higgsfield-explainer/references/prompts.md		partial
 plugins/moai-media/skills/media-higgsfield-identity/SKILL.md	claude_only_tool	partial
 plugins/moai-media/skills/media-higgsfield-identity/references/soul-vs-elements.md		partial
 plugins/moai-media/skills/media-higgsfield-identity/references/training-photo-guide.md		partial
-plugins/moai-media/skills/media-higgsfield-image/SKILL.md		partial
-plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/flux.md		partial
-plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/marketing-studio.md		partial
-plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/nano-banana.md		partial
-plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/openai.md		partial
-plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/recraft.md		partial
-plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/seedream.md		partial
-plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/soul.md		partial
+plugins/moai-media/skills/media-higgsfield-image/SKILL.md		static_read
+plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/flux.md		static_read
+plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/marketing-studio.md		static_read
+plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/nano-banana.md		static_read
+plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/openai.md		static_read
+plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/recraft.md		static_read
+plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/seedream.md		static_read
+plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/soul.md		static_read
 plugins/moai-media/skills/media-higgsfield-product/SKILL.md		partial
 plugins/moai-media/skills/media-higgsfield-product/references/interview.md	claude_only_tool	partial
 plugins/moai-media/skills/media-higgsfield-product/references/modes.md		partial
