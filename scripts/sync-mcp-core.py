@@ -18,6 +18,7 @@
 from __future__ import annotations
 
 import argparse
+import io
 import sys
 from pathlib import Path
 
@@ -120,6 +121,11 @@ def adopt(server: Path) -> None:
 
 
 def main() -> int:
+    # Windows의 파이프 기본 인코딩(cp1252 등)에서도 한글 검사 결과를 쓸 수 있게 한다.
+    for stream in (sys.stdout, sys.stderr):
+        if isinstance(stream, io.TextIOWrapper):
+            stream.reconfigure(encoding="utf-8")
+
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="복제하지 않고 드리프트만 검사")
     parser.add_argument("--adopt", metavar="서버경로", help="서버가 코어를 쓰도록 채택")
