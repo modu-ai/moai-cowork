@@ -55,13 +55,14 @@ Claude Cowork·ChatGPT Work 데스크톱 앱에서 **Settings(또는 Plugins) �
 
 ## MCP 연동: korean-law (국가법령정보)
 
-플러그인 루트 `.mcp.json`에 법제처 국가법령정보 MCP 서버가 선언되어 있습니다. 법령·판례·행정규칙·자치법규·조약·해석례 조회에 더해, LLM 환각방지 인용 검증(`verify_citations`), 판례 생사 확인(`cite_check`), 행위시법 판단(`applicable_law`)을 제공합니다.
+Claude Cowork는 플러그인 루트 `.mcp.json`의 공식 hosted 서버를 사용합니다. ChatGPT Work는 `.codex-plugin/plugin.json`의 공식 `korean-law-mcp` 패키지를 로컬에서 실행합니다. 법령·판례·행정규칙·자치법규·조약·해석례 조회와 인용 검증 도구를 사용할 수 있으며, 사용 가능한 도구는 현재 연결에서 확인합니다.
 
-| 서버 | 출처 | 필요 환경변수 | 비고 |
-|------|------|---------------|------|
-| `korean-law` | 법제처 42개 API → 9개 도구 (hosted, `mcp.gomdori.app/law`) | `KOREAN_LAW_OC` | 법제처 Open API OC 키 — 사용자마다 발급 필수 |
+| 앱 | 실행 경로 | 키 입력 |
+|------|-----------|---------|
+| Claude Cowork | 공식 hosted 서버 `mcp.gomdori.app/law` | 플러그인 설치 화면의 `KOREAN_LAW_OC` 입력란 |
+| ChatGPT Work | 공식 `korean-law-mcp` 패키지 (`uv`·Node.js 20.19 이상 필요) | `~/.moai/mcp/korean-law.json`의 `LAW_OC` |
 
-**OC 키 발급**: [law.go.kr](https://www.law.go.kr) 국가법령정보 Open API에서 무료로 발급합니다 (회원가입 → Open API 신청 → OC 값 확인). 발급받은 값을 환경변수 `KOREAN_LAW_OC`로 설정하세요 — 파일에 키를 적지 않습니다.
+**OC 키 발급**: [law.go.kr](https://www.law.go.kr) 국가법령정보 Open API에서 발급합니다. Claude에서는 앱의 민감정보 입력란에 넣으세요. ChatGPT Work에서는 본인 컴퓨터의 `korean-law.json`에 `{"LAW_OC":"발급받은_키"}`를 저장합니다. Windows 경로는 `C:\\Users\\사용자이름\\.moai\\mcp\\korean-law.json`입니다. 키를 채팅이나 저장소에 넣지 마세요. 연결 후 법령 검색 도구가 실제로 응답하는지 확인하세요.
 
 ## MCP 연동: moai-mcp-ip (특허·상표 공식 데이터)
 

@@ -1076,3 +1076,4 @@ plugins/moai-writer/skills/korean-humanize/tests/test_metrics.py		partial
 plugins/moai-writer/skills/korean-humanize/tests/test_rhythm_gate.py		partial
 plugins/moai-writer/skills/korean-spell-check/SKILL.md		partial
 plugins/moai-seller/mcp-servers/moai-mcp-cafe24/tests/test_client_paths.py	new_test	partial
+plugins/moai-lawyer/mcp-launch/mcp_launch.py	platform_path	partial

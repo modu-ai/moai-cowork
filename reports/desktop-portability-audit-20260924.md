@@ -577,3 +577,11 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - 같은 안내는 ChatGPT에서 오디오 생성과 Website Building을 사용할 수 없다고 적는 반면, Higgsfield의 [마케터용 MCP 소개](https://higgsfield.ai/blog/mcp-for-marketers)는 ChatGPT의 음성 작업을 포함해 설명한다. 공식 문서 사이에 기능 범위의 차이가 있어 오디오·설명 영상·Soul 등은 현재 세션에 실제로 노출된 도구를 확인한 뒤에만 실행하도록 안내했다. 이 페이지의 변경은 어느 계정에서 기능을 실행했다는 증거가 아니다.
 - 기존 문서의 고정 크레딧 예시, 견적과 실제 청구액의 동일성, 토큰 저장 위치·자동 갱신 단정을 제거했다. 견적 전 참조 이미지의 외부 전송 가능성을 고지하고 실제 견적·차감 정보를 구분했다. 모델별 가격과 계정별 인증 상태는 조회하지 않았다.
 - 이 작업 트리에서 `hugo --gc --minify --logLevel warn`은 종료 코드 0으로 209페이지를 빌드했고 WARN·ERROR는 출력되지 않았다. 수정 페이지의 `npx --yes markdownlint-cli2 'www/content/plugins/higgsfield-setup.md'`는 `Summary: 0 issues in 0 files`였다. 렌더된 `www/public/plugins/higgsfield-setup/index.html`에서 두 앱의 안내, 2026-09-25 수정일, 본문에 잔류한 `**` 0건을 확인했다. 전체 문서 lint는 종료 코드 1이었고 출력 끝에는 기존 릴리스 페이지의 MD013·MD060 등이 있었다. 전체 실패를 수정 페이지의 통과로 바꾸어 말하지 않는다.
+
+### 국가법령정보 MCP의 Codex 연결 (2026-09-25)
+- 확인한 기준 트리: 이 작업 트리의 `f7090ed8`와 이 절의 미커밋 변경. Claude `moai-lawyer/.mcp.json`에는 `korean-law`가 있었지만 Codex 매니페스트에는 없었다. Codex에 공식 `korean-law-mcp` 패키지와 기존 자격증명 런처를 연결했다. Claude는 기존 hosted 서버, Codex는 `~/.moai/mcp/korean-law.json`의 `LAW_OC`를 로컬 서버에 전달한다. 런처 복사본과 공유 원본의 바이트 동일성을 Python으로 확인했다.
+- `python3 scripts/check-plugin-runtimes.py moai-lawyer moai-officer` 출력: `검사한 플러그인 2개 — 오류 0건, 참고 0건`. 수정한 두 플러그인의 Claude·Codex·마켓플레이스 버전은 각각 `1.4.11`과 `1.3.2`로 세 곳이 일치했다. `uv run --with pytest python -m pytest -q plugins/_shared/mcp-launch/test_mcp_launch.py`는 `25 passed in 0.04s`였다. 새 복사본 자체의 데스크톱 부팅을 뜻하지 않는다.
+- 필수 적대적 감사 `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges)`의 구조화 판정은 `inconclusive`였다. 요약은 README의 옛 `KOREAN_LAW_OC` 안내와 새 Codex `LAW_OC` 경로의 불일치를 파일·줄 근거와 더미 키 재현으로 지적했다. README를 두 앱별 안내로 수정했다. 감사 요약은 더미 키로 공식 패키지의 MCP 초기화·도구 10개 조회를 관찰했다고 보고했으나, 실제 법제처 키·법령 조회·Windows 데스크톱 실행을 검증한 것은 아니다.
+- `www/content/plugins/install.md`에서 두 앱이 등록 상태를 공유한다는 문구를 제거했다. `www/content/plugins/mcp/credentials.md`에서 채팅에 키를 입력하라는 문구를 제거하고 새 파일 경로를 추가했다. 수정 문서 날짜는 2026-09-25로 갱신했다.
+- `hugo --gc --minify --logLevel warn`은 종료 코드 0으로 209페이지를 빌드했다. 렌더된 설치·자격증명 페이지에서 날짜가 보이고 `**` 잔류는 각 0건이었다. 대상 네 Markdown 파일 lint는 180건의 MD013·MD060 등을 출력하며 종료 코드 1, 전체 `www/content/**/*.md` lint도 종료 코드 1이었다. 따라서 Markdown lint 통과는 주장하지 않는다.
+- 새 런처 파일을 장부에 추가해 `partial 1078`개가 되었다. `partial`은 소스·구조 확인이며 실제 앱 설치·인증·조회·운영체제별 성공은 미검증이다.

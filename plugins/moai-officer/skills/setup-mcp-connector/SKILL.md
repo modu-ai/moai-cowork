@@ -4,7 +4,7 @@ description: |
   [책임 경계] Drive·Notion·Higgsfield 3커넥터 인증·환경변수·트러블슈팅 가이드 전담. 페어 moai-seller:commerce-morning-brief(MCP 매장 데이터 호출)와 명확히 구분 — 본 스킬은 커넥터 설치·인증 단계, 페어는 인증 이후 실제 MCP 호출 결과물.
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
   "MCP 커넥터 연결", "Drive 인증 방법", "Notion Integration Token 어디서", "Higgsfield 연결", "Windows MAX_PATH 오류", "한글 파일명 30자 오류", "computer:// 링크 안 열려요", "커넥터 3개 연결 방법", "MCP 3커넥터 인증", "커넥터 오류 해결".
-version: "1.1.2"
+version: "1.1.3"
 ---
 
 # MCP 커넥터 셋업 가이드
@@ -179,20 +179,20 @@ Cowork 플러그인은 한국 공공데이터·공문서·법령 처리를 위�
 
 ### Connector H — korean-law (법제처 국가법령정보)
 
-**목적**: 국가법령정보(법제처) 법령·판례·행정규칙·자치법규·조약·해석례(국세청) 원문 조회 + LLM 환각방지 인용검증(`verify_citations`) + 판례 생사(`cite_check`) + 행위시법(`applicable_law`) + 조문 영향그래프(`impact_map`). 42개 API → 9 도구. `moai-lawyer:legal-law-research` 스킬이 호출.
+**목적**: 국가법령정보(법제처) 법령·판례·행정규칙·자치법규·조약·해석례(국세청) 원문 조회와 인용검증 도구를 `moai-lawyer:legal-law-research` 스킬에서 사용.
 
-**사전 준비물**: **법제처 Open API OC 키(사용자마다 발급 필수, 공용키 아님 — stats/archhub와 상이)**. Node.js 불필요(hosted).
+**사전 준비물**: **법제처 Open API OC 키(사용자마다 발급)**. Claude hosted 연결은 Node.js가 필요 없으며, ChatGPT Work의 로컬 서버 경로는 Node.js 20.19 이상과 uv가 필요합니다.
 
 **발급 절차**
 1. law.go.kr(또는 법제처 Open API 신청 페이지) 접속 → 회원가입·로그인
 2. Open API 사용 신청 → 신청서 작성
 3. OC 키 즉시 발급(무료)
 
-**인증**: 환경변수 `KOREAN_LAW_OC` 등록(`.mcp.json`의 `url: https://mcp.gomdori.app/law?oc=${KOREAN_LAW_OC}`에 보간). 또는 `${CLAUDE_PLUGIN_DATA}/moai-credentials.env`의 `KOREAN_LAW_OC` 항목에 입력.
+**인증**: Claude Cowork에서는 `moai-lawyer` 설치 시 민감정보 입력란 `KOREAN_LAW_OC`에 키를 입력합니다. `.mcp.json`은 `${user_config.KOREAN_LAW_OC}`을 hosted URL에 보간합니다. ChatGPT Work에서는 본인 컴퓨터의 `~/.moai/mcp/korean-law.json`에 `{"LAW_OC":"발급받은_키"}`를 저장합니다. Windows 경로는 `C:\Users\사용자이름\.moai\mcp\korean-law.json`입니다. 키를 채팅에 적거나 저장소에 넣지 마세요.
 
 **1회 호출 검증**: `search_law(query="근로기준법")` → 법령 검색 응답 시 성공
 
-> **주의**: 공용키 모덜이 아님(사용자마다 OC 키). 사내망·폐쇄망에서 법제처 API 인증서 검증 이슈 시 `LAW_API_PROTOCOL=http` fallback. 라이브 스킬: `moai-lawyer:legal-law-research`.
+> **주의**: 인증서 오류가 나면 서버·프록시의 인증서 설정을 확인하세요. 법령 원문과 인용은 `moai-lawyer:legal-law-research`의 출처 대조 기준에 따라 검증합니다.
 
 ---
 
