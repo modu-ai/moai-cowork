@@ -110,6 +110,9 @@ _DOUBLE_PASSIVE_FORMS = (
     "불려진",
     "놓여진",
 )
+_DOUBLE_PASSIVE_RE = re.compile(
+    "|".join(re.escape(form) for form in sorted(_DOUBLE_PASSIVE_FORMS, key=len, reverse=True))
+)
 
 # T2a '~에 의해 + 피동'. 피동 동사가 직후 12글자 안에 와야 매칭한다.
 # 단순 '에 의해'는 자연 한국어이므로 제외. 한자어 피동은 '되-' 축약형
@@ -197,6 +200,9 @@ _LIGHT_VERB_LITERAL = (
     "한번 봄을 가지",
     "결정을 내리",
     "결정을 내렸",
+)
+_LIGHT_VERB_RE = re.compile(
+    "|".join(re.escape(form) for form in sorted(_LIGHT_VERB_LITERAL, key=len, reverse=True))
 )
 
 # T7 이중 조사. 단일 '~의'는 절대 매칭하지 않도록 6종만 등재한다.
@@ -408,7 +414,7 @@ def double_passive_count(text: str) -> int:
     """
     if not text.strip():
         return 0
-    return sum(text.count(form) for form in _DOUBLE_PASSIVE_FORMS)
+    return len(_DOUBLE_PASSIVE_RE.findall(text))
 
 
 def pronoun_density(text: str) -> float:
@@ -510,7 +516,7 @@ def have_make_literal_count(text: str) -> int:
     """
     if not text.strip():
         return 0
-    return sum(text.count(form) for form in _LIGHT_VERB_LITERAL)
+    return len(_LIGHT_VERB_RE.findall(text))
 
 
 def double_particle_count(text: str) -> int:

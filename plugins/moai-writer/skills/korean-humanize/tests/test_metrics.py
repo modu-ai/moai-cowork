@@ -244,6 +244,13 @@ class V2SignalTests(unittest.TestCase):
         sample = "그것은 잊혀진 약속이다. 수치가 보여진다. 문장이 쓰여진다."
         self.assertGreaterEqual(metrics_v2.double_passive_count(sample), 3)
 
+    def test_overlapping_forms_count_once_per_occurrence(self) -> None:
+        self.assertEqual(metrics_v2.double_passive_count("판단되어진다."), 1)
+        self.assertEqual(metrics_v2.have_make_literal_count("회의를 가졌다."), 1)
+        self.assertEqual(
+            metrics_v2.have_make_literal_count("회의를 가졌다. 회의를 가졌다."), 2
+        )
+
     def test_light_verb_literal_count(self) -> None:
         sample = "우리는 오늘 회의를 가졌다. 위원회가 결정을 내렸다."
         self.assertGreaterEqual(metrics_v2.have_make_literal_count(sample), 2)
