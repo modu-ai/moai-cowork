@@ -655,25 +655,25 @@ plugins/moai-officer/skills/doc-xlsx/SKILL.md	officer_skill_review	partial
 plugins/moai-officer/skills/productivity-briefing/SKILL.md	officer_skill_review	partial
 plugins/moai-officer/skills/productivity-time/SKILL.md	officer_skill_review	partial
 plugins/moai-officer/skills/setup-mcp-connector/SKILL.md	higgsfield_key	partial
-plugins/moai-pm/.claude-plugin/plugin.json		partial
-plugins/moai-pm/.codex-plugin/plugin.json		partial
-plugins/moai-pm/README.md		partial
-plugins/moai-pm/commands/project.md	claude_only_tool	partial
-plugins/moai-pm/skills/project/SKILL.md	claude_only_tool	partial
-plugins/moai-pm/skills/project/references/INDEX.md	claude_only_tool	partial
-plugins/moai-pm/skills/project/references/agentsmd-generator.md	claude_only_tool	partial
-plugins/moai-pm/skills/project/references/context-collector.md	claude_only_tool	partial
-plugins/moai-pm/skills/project/references/cowork-setup.md	claude_only_tool	partial
-plugins/moai-pm/skills/project/references/designer-setup.md		partial
-plugins/moai-pm/skills/project/references/diagnostic-protocol.md		partial
-plugins/moai-pm/skills/project/references/evaluation-protocol.md		partial
-plugins/moai-pm/skills/project/references/execution-protocol.md	claude_only_tool	partial
-plugins/moai-pm/skills/project/references/init-protocol.md	claude_only_tool	partial
-plugins/moai-pm/skills/project/references/quality-evaluator.md		partial
-plugins/moai-pm/skills/project/references/router.md	claude_only_tool	partial
-plugins/moai-pm/skills/project/references/templates/AGENTS.md.tmpl	claude_only_tool	partial
-plugins/moai-pm/skills/project/references/templates/CLAUDE.md.tmpl		partial
-plugins/moai-pm/skills/project/references/update-protocol.md	claude_only_tool	partial
+plugins/moai-pm/.claude-plugin/plugin.json		static_read
+plugins/moai-pm/.codex-plugin/plugin.json		static_read
+plugins/moai-pm/README.md		static_read
+plugins/moai-pm/commands/project.md	claude_only_tool	static_read
+plugins/moai-pm/skills/project/SKILL.md	claude_only_tool	static_read
+plugins/moai-pm/skills/project/references/INDEX.md	claude_only_tool	static_read
+plugins/moai-pm/skills/project/references/agentsmd-generator.md	claude_only_tool	static_read
+plugins/moai-pm/skills/project/references/context-collector.md	claude_only_tool	static_read
+plugins/moai-pm/skills/project/references/cowork-setup.md	claude_only_tool	static_read
+plugins/moai-pm/skills/project/references/designer-setup.md		static_read
+plugins/moai-pm/skills/project/references/diagnostic-protocol.md		static_read
+plugins/moai-pm/skills/project/references/evaluation-protocol.md		static_read
+plugins/moai-pm/skills/project/references/execution-protocol.md	claude_only_tool	static_read
+plugins/moai-pm/skills/project/references/init-protocol.md	claude_only_tool	static_read
+plugins/moai-pm/skills/project/references/quality-evaluator.md		static_read
+plugins/moai-pm/skills/project/references/router.md	claude_only_tool	static_read
+plugins/moai-pm/skills/project/references/templates/AGENTS.md.tmpl	claude_only_tool	static_read
+plugins/moai-pm/skills/project/references/templates/CLAUDE.md.tmpl		static_read
+plugins/moai-pm/skills/project/references/update-protocol.md	claude_only_tool	static_read
 plugins/moai-recruiter/.claude-plugin/plugin.json		partial
 plugins/moai-recruiter/.codex-plugin/plugin.json		partial
 plugins/moai-recruiter/README.md		partial

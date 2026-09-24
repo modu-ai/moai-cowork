@@ -23,7 +23,7 @@
 | moai-marketer | 21 | 2 | 64 | 0 | 1 | 대기 |
 | moai-media | 14 | 2 | 43 | 1 | 1 | 86파일 정적 열람 완료, 앱 실행·현행성 검증 대기 |
 | moai-officer | 13 | 2 | 54 | 0 | 1 | 대기 |
-| moai-pm | 1 | 0 | 14 | 0 | 0 | 대기 |
+| moai-pm | 1 | 0 | 14 | 0 | 0 | 19파일 정적 열람 완료, 앱 실행·생성물 검증 대기 |
 | moai-recruiter | 6 | 2 | 11 | 0 | 0 | 대기 |
 | moai-seller | 31 | 2 | 45 | 97 | 1 | 대기 |
 | moai-story | 18 | 2 | 42 | 0 | 1 | 대기 |
@@ -861,3 +861,13 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - 커밋 `7b6d5f1c`의 [새 원격 CI](https://github.com/modu-ai/moai-cowork/actions/runs/36059943083)는 27개 중 26개가 성공했고, **공통 코어 테스트는 Ubuntu·Windows·macOS 모두 성공**했다. 실패한 Windows `plugin wiring`의 로그는 `scripts/sync-mcp-core.py:144` 출력에서 `UnicodeEncodeError` (`cp1252`)를 보였다. macOS에서 `PYTHONIOENCODING=cp1252 python3 scripts/sync-mcp-core.py --check`로 같은 실패를 재현했다. [Python 표준 스트림 문서](https://docs.python.org/3/library/sys.html)와 [`TextIOWrapper.reconfigure` 문서](https://docs.python.org/3/library/io.html)를 따라 스크립트의 실제 텍스트 출력 스트림을 UTF-8로 설정했다. 같은 강제 `cp1252` 명령을 다시 실행하니 여섯 복제 서버가 모두 `[정합]`, 종료 코드 0이었다. 이 수정 뒤 Windows CI 재검증은 아직 남았다.
 - 커밋 `413b01d0`은 `scripts/sync-mcp-core.py`만 건드렸지만 당시 워크플로의 `paths`에 그 파일이 없어 새 실행이 만들어지지 않았다. 후속 변경으로 pull request와 push 트리거 양쪽에 이 경로를 추가했다. CI 실행이 없던 커밋을 통과로 세지 않는다.
 - 커밋 `59de21d7`의 [MCP 원격 CI](https://github.com/modu-ai/moai-cowork/actions/runs/36060424025)는 `completed/success`, 27/27 작업이 `success`였다. 공통 코어 테스트와 복제본 검사는 Ubuntu·Windows·macOS에서 모두 통과했다. 이는 CI 러너의 파일 시스템과 테스트 입력에 대한 결과이며, 실제 두 데스크톱 앱의 동시 OAuth 갱신 또는 사용자 Windows 디렉터리 ACL까지 검증하지 않는다.
+
+### 프로젝트 PM의 생성 지침 정합 (2026-09-25)
+
+- `plugins/moai-pm/`의 배포 파일 19개를 끝까지 읽고 파일 장부에 `static_read`로 기록했다. 이는 정적 열람 상태이며 생성된 프로젝트를 두 앱에서 실행했다는 뜻이 아니다.
+- `SKILL.md`와 `init-protocol.md`의 1질문×3옵션 공통 단위와 후반의 4슬롯 강제 규칙이 충돌했다. 현재 세션의 `request_user_input`은 최대 3질문·각 2~3옵션이며 `request_user_input_async`는 문자열 옵션을 받는다. 두 문서를 도구 상한에 맞추고 `description`은 지원하는 도구에서만 사용하게 했다. 생성 템플릿의 “1회 4질문”도 같은 원칙으로 바꿨다.
+- `init-protocol.md`의 Bash·`find`·`$HOME` 고정 설치 스캔을 현재 호스트의 앱 목록·세션 노출·접근 가능한 매니페스트를 따로 대조하는 절차로 교체했다. 파일 존재만으로 호출 가능을 선언하지 않는다. 단독 PM 설치 시 다른 플러그인의 한국어 스킬을 필수 호출하던 지침은 노출된 스킬만 쓰고 원문·최종본을 직접 대조하게 수정했다. 직접 검수에서 의미·수치·인용 오류가 해결되지 않으면 `hold_and_report`로 완성본 전달을 중단한다.
+- 생성 `AGENTS.md`의 이미지 경로를 ChatGPT Work 기본 이미지 생성이 노출된 경우 직접 사용하도록 바꾸고, Higgsfield를 지정했을 때 공식 연결을 확인하도록 했다. [Higgsfield 공식 연결 안내](https://higgsfield.ai/creator-hub/help-center/integrations/how-do-i-connect-higgsfield-to-ai-agent)에 따르면 MCP는 API 키 없이 계정 인증을 사용하므로 PM의 API 키 표를 고쳤다. 정확한 GPT Image 2.5 모델 노출은 현재 세션 도구와 앱에서 별도 확인해야 한다.
+- PM README의 고정 로스터를 제거하고 Claude·Codex 양쪽 에이전트 산출물을 적었다. PM 스킬 버전 `1.6.4`, 플러그인의 Claude·Codex·마켓플레이스 버전 `1.6.7`로 올렸다.
+- 이 작업 트리에서 `git diff --check`는 출력 없이 종료 코드 0, `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `python3 scripts/sync-mcp-core.py --check`는 여섯 복제 서버 모두 `[정합]`이었다. 생성 템플릿에서 HARD 블록은 8개, CLAUDE 포인터 템플릿은 `@AGENTS.md` 한 줄, PM 문서의 백틱 `moai-<plugin>:<skill>` 참조 51종 중 파일 경로 미해결은 0종이었다. 이 검사는 실제 앱의 스킬 발견·이미지 생성·질문 카드 동작을 검증하지 않는다.
+- 필수 `mcp__moai__codex_audit`의 구조화 판정은 `inconclusive`였고 `findings` 배열은 비어 있었다. 요약에 `file:line`으로 적힌 세 지점은 직접 대조했다. 에이전트의 무조건 `ai-slop-reviewer` 호출은 감사 실행 중 이미 고쳤고, 직접 검수의 미해결 오류 차단과 생성 템플릿의 질문 상한은 감사 뒤 고쳤다. 요약의 자체 `FAIL` 표현을 구조화 판정으로 바꾸지 않는다.
