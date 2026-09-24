@@ -530,18 +530,18 @@ plugins/moai-media/skills/media-gpt-image-prompt/references/prompting-fundamenta
 plugins/moai-media/skills/media-gpt-image-prompt/references/text-rendering.md		partial
 plugins/moai-media/skills/media-gpt-image-prompt/references/workflow-recipes.md		partial
 plugins/moai-media/skills/media-gpt-image-prompt/tests/test-cases.yaml		partial
-plugins/moai-media/skills/media-higgsfield-assets/SKILL.md		partial
-plugins/moai-media/skills/media-higgsfield-assets/references/3d.md		partial
-plugins/moai-media/skills/media-higgsfield-assets/references/analysis.md		partial
-plugins/moai-media/skills/media-higgsfield-assets/references/audio.md		partial
+plugins/moai-media/skills/media-higgsfield-assets/SKILL.md		static_read
+plugins/moai-media/skills/media-higgsfield-assets/references/3d.md		static_read
+plugins/moai-media/skills/media-higgsfield-assets/references/analysis.md		static_read
+plugins/moai-media/skills/media-higgsfield-assets/references/audio.md		static_read
 plugins/moai-media/skills/media-higgsfield-core/SKILL.md	claude_only_tool	static_read
 plugins/moai-media/skills/media-higgsfield-core/references/call-schema.md		static_read
 plugins/moai-media/skills/media-higgsfield-core/references/catalog-protocol.md		static_read
 plugins/moai-media/skills/media-higgsfield-core/references/interview-schema.md	claude_only_tool	static_read
 plugins/moai-media/skills/media-higgsfield-core/references/job-lifecycle.md		static_read
 plugins/moai-media/skills/media-higgsfield-core/references/universal-rules.md	higgsfield_key	static_read
-plugins/moai-media/skills/media-higgsfield-explainer/SKILL.md	claude_only_tool	partial
-plugins/moai-media/skills/media-higgsfield-explainer/references/prompts.md		partial
+plugins/moai-media/skills/media-higgsfield-explainer/SKILL.md		static_read
+plugins/moai-media/skills/media-higgsfield-explainer/references/prompts.md		static_read
 plugins/moai-media/skills/media-higgsfield-identity/SKILL.md		static_read
 plugins/moai-media/skills/media-higgsfield-identity/references/soul-vs-elements.md		static_read
 plugins/moai-media/skills/media-higgsfield-identity/references/training-photo-guide.md		static_read

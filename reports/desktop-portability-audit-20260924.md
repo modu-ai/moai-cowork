@@ -21,7 +21,7 @@
 | moai-designer | 17 | 0 | 11 | 0 | 1 | 대기 |
 | moai-lawyer | 11 | 2 | 19 | 17 | 1 | 대기 |
 | moai-marketer | 21 | 2 | 64 | 0 | 1 | 대기 |
-| moai-media | 14 | 2 | 43 | 1 | 1 | GPT Image·Higgsfield 이미지·영상·정체성·제품 경로 47파일 정적 열람, 나머지 부분 검토 |
+| moai-media | 14 | 2 | 43 | 1 | 1 | GPT Image·Higgsfield 이미지·영상·정체성·제품·에셋·설명 영상 경로 53파일 정적 열람, 나머지 부분 검토 |
 | moai-officer | 13 | 2 | 54 | 0 | 1 | 대기 |
 | moai-pm | 1 | 0 | 14 | 0 | 0 | 대기 |
 | moai-recruiter | 6 | 2 | 11 | 0 | 0 | 대기 |
@@ -727,3 +727,12 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - [Higgsfield 공식 product-photoshoot 스킬](https://github.com/higgsfield-ai/skills/blob/main/higgsfield-product-photoshoot/SKILL.md)은 전용 백엔드가 프롬프트를 강화하고, 직접 이미지 모델을 부르는 경로는 그 강화기를 우회한다고 설명한다. 기존 스킬이 저술 시점 앱 목록에서 전용 기능을 찾지 못한 사실을 모든 현재 연결의 부재로 넓혀 말한 부분을 고쳤다. 전용 기능이 없을 때는 직접 조립의 품질 한계를 알리고, 제품 인터뷰는 저장소 `AGENTS.md`의 질문 채널 규칙에 맞춰 채널이 없으면 blocker로 반환하게 했다. 미디어 플러그인은 `3.3.4`, 정체성·제품 스킬은 각각 `1.3.3`·`1.3.2`로 올렸다.
 - `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges)`의 구조화 판정은 `inconclusive`였다. 요약의 `identity/SKILL.md:132` 지적대로 학습된 Soul을 다른 모델에서 쓰기 전에 기존 Elements 목록에서 해당 캐릭터를 찾아 재사용하고, 없을 때만 새 참조 생성 여부를 확인하게 했다. `product/SKILL.md:32` 지적대로 전용 촬영 기능이 노출된 연결은 그 도구·견적·승인 경로로 분기하고, 직접 프롬프트 조립은 전용 기능을 사용할 수 없을 때만 하게 했다. 이 감사는 실제 계정 생성이나 품질 비교를 검증하지 않았다.
 - 이 작업 트리에서 `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `python3 scripts/sync-mcp-core.py --check`는 복제 서버 여섯 곳 `[정합]`, `git diff --check`는 출력 없이 종료 코드 0이었다. JSON·YAML 파싱으로 미디어 플러그인 세 버전 `3.3.4`와 정체성·제품 스킬 버전 `1.3.3`·`1.3.2`를 확인했다. 장부는 1091행이고 미디어 86행 중 `static_read` 47행·`partial` 39행이다. 이 검사는 macOS·Windows·Linux의 두 데스크톱 앱에서 해당 기능이 실제 작동함을 입증하지 않는다.
+
+### Higgsfield 에셋·설명 영상 기능별 도구 대조 (2026-09-25)
+
+- `media-higgsfield-assets` 본문·참조 3개와 `media-higgsfield-explainer` 본문·프롬프트 참조를 각각 끝까지 읽었다. 장부의 여섯 행을 `static_read`로 바꿔 미디어 86행 중 정적 열람 53행, `partial` 33행이 됐다. 이 표시는 파일 검토이며 실제 GLB·음원·설명 영상 제작을 뜻하지 않는다.
+- 이 세션의 ChatGPT 공식 Higgsfield 연결에서 읽기 전용 `models_get`은 `image_to_3d`·`tripo_3d`·`seed_audio`·`sonilo_music`·`mirelo_text_to_audio`의 상세를 반환했다. 그러나 노출된 생성 도구 목록에는 3D 제출 도구가 없고 `generate_audio` 설명은 음성 합성 전용이며 음악·효과음에 쓰지 말라고 명시한다. `models_get(model_id="explainer_video")`는 `Model not found: explainer_video`를 반환했다. Claude MCP 도구 목록에는 `generate_3d`·`virality_predictor`·설명 영상 프리셋 조회·해석 도구가 보였다. 도구 목록 관측은 실제 계정 권한·생성 성공을 뜻하지 않는다.
+- [Higgsfield의 공식 설명 영상 스킬](https://github.com/higgsfield-ai/skills/blob/main/higgsfield-video-explainer/SKILL.md)은 오디오와 영상 블록을 `explainer_video`로 최종 조립하도록 한다. 조립·견적 도구가 없는 연결에서는 개별 유료 잡을 시작하지 않게 했다. 커스텀 스타일 키 이미지도 승인 전에 생성하던 순서 오류를 고쳐 비용 견적·전체 승인 뒤에 생성한다. 보이스는 승인 전에 고르게 하고, 한국어 내레이션은 영어 단어 수 대신 낭독 시간을 검수한다. 다른 플러그인의 한국어 검수 스킬은 현재 앱에서 쓸 수 있을 때만 적용하고 세 가지 기본 검수는 이 스킬에서 수행한다.
+- [Higgsfield Virality Predictor 안내](https://higgsfield.ai/apps/virality-predictor)는 최대 15초 클립의 훅·주의·유지력을 모형 기반으로 추정한다고 설명한다. 이 세션 ChatGPT 플러그인의 장면별 `video_analysis_create`와 같은 점수로 취급하지 않도록 고쳤다. 3D 모델 상세 조회와 실제 제출 도구, 오디오 모델 목록과 실제 음악·효과음 생성 도구도 분리했다. 미디어 플러그인은 `3.3.5`, 에셋·설명 영상 스킬은 각각 `1.3.1`·`1.3.2`로 올렸다.
+- `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges)`의 구조화 판정은 `inconclusive`였다. 요약의 파일·줄 근거 네 건을 반영했다. 후처리도 해당 도구의 견적·입력 공개·명시적 승인·잡 확인을 거치게 했고, 설명 영상 프리셋의 계정 저장소 가져오기는 전체 승인 뒤로 옮겼다. 말속도·STYLE·NEGATIVE 등 승인한 값을 바꾸는 재생성은 재견적·재승인하도록 고쳤다. Claude·Codex 매니페스트와 마켓플레이스 설명의 3D·설명 영상 기능에는 현재 연결의 제출·조립 도구 조건을 붙였다. 이 감사도 두 앱의 실제 유료 호출이나 최종 MP4를 검증한 판정은 아니다.
+- 이 작업 트리에서 `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `python3 scripts/sync-mcp-core.py --check`는 복제 서버 여섯 곳 `[정합]`, `git diff --check`는 출력 없이 종료 코드 0이었다. JSON·YAML 파싱으로 미디어 플러그인 세 버전 `3.3.5`, 에셋·설명 영상 스킬 버전 `1.3.1`·`1.3.2`, 장부 1091행 중 미디어 `static_read` 53행·`partial` 33행을 확인했다. 이 정적 검사는 운영체제별 앱 실행이나 계정 과금을 검증하지 않는다.
