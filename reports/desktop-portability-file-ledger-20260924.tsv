@@ -493,9 +493,9 @@ plugins/moai-media/.claude-plugin/plugin.json		static_read
 plugins/moai-media/.codex-plugin/plugin.json		static_read
 plugins/moai-media/.mcp.json	platform_path	static_read
 plugins/moai-media/README.md		static_read
-plugins/moai-media/agents/media-brand-auditor.md	claude_only_tool	partial
-plugins/moai-media/agents/media-producer.md	claude_only_tool	partial
-plugins/moai-media/mcp-launch/mcp_launch.py	platform_path	partial
+plugins/moai-media/agents/media-brand-auditor.md	claude_only_tool	static_read
+plugins/moai-media/agents/media-producer.md	claude_only_tool	static_read
+plugins/moai-media/mcp-launch/mcp_launch.py	platform_path	static_read
 plugins/moai-media/mcp-servers/moai-mcp-openai/README.md		static_read
 plugins/moai-media/mcp-servers/moai-mcp-openai/pyproject.toml		static_read
 plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/__init__.py		static_read
@@ -508,10 +508,10 @@ plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/tokenstore.py	p
 plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_openai/__init__.py		static_read
 plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_openai/server.py		static_read
 plugins/moai-media/mcp-servers/moai-mcp-openai/tests/test_server.py		static_read
-plugins/moai-media/mcp-servers/moai-mcp-openai/uv.lock		partial
-plugins/moai-media/skills/media-asset-production/SKILL.md		partial
-plugins/moai-media/skills/media-audio-gen/SKILL.md	claude_only_tool	partial
-plugins/moai-media/skills/media-brand-audit/SKILL.md		partial
+plugins/moai-media/mcp-servers/moai-mcp-openai/uv.lock		static_read
+plugins/moai-media/skills/media-asset-production/SKILL.md		static_read
+plugins/moai-media/skills/media-audio-gen/SKILL.md	claude_only_tool	static_read
+plugins/moai-media/skills/media-brand-audit/SKILL.md		static_read
 plugins/moai-media/skills/media-codex-image/SKILL.md	codex_exec	static_read
 plugins/moai-media/skills/media-gemini-3-image-prompt/SKILL.md		static_read
 plugins/moai-media/skills/media-gemini-3-image-prompt/references/parameter-cheatsheet.md		static_read
@@ -572,9 +572,9 @@ plugins/moai-media/skills/media-midjourney-v8-prompt/references/parameter-cheats
 plugins/moai-media/skills/media-midjourney-v8-prompt/references/prompt-blocks.md		static_read
 plugins/moai-media/skills/media-midjourney-v8-prompt/references/style-references.md		static_read
 plugins/moai-media/skills/media-midjourney-v8-prompt/tests/test-cases.yaml		static_read
-plugins/moai-media/skills/media-notebooklm-slide-prompt/SKILL.md	claude_only_tool	partial
-plugins/moai-media/skills/media-notebooklm-slide-prompt/references/slide-style-library.md	claude_only_tool	partial
-plugins/moai-media/skills/media-production/SKILL.md		partial
+plugins/moai-media/skills/media-notebooklm-slide-prompt/SKILL.md	claude_only_tool	static_read
+plugins/moai-media/skills/media-notebooklm-slide-prompt/references/slide-style-library.md	claude_only_tool	static_read
+plugins/moai-media/skills/media-production/SKILL.md		static_read
 plugins/moai-officer/.claude-plugin/plugin.json		partial
 plugins/moai-officer/.codex-plugin/plugin.json		partial
 plugins/moai-officer/.mcp.json		partial

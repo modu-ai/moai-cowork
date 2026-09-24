@@ -13,7 +13,7 @@ description: |
   Veo·Kling·Seedance·Cinema Studio·Marketing Studio·Wan·Gemini Omni·Grok 등 계열의 프롬프트 크래프트는
   references/prompt-craft/*.md에 출처와 함께 큐레이션돼 있고(계열마다 규칙이 다름 — 범용 공식 없음),
   실제 파라미터(모델 id·해상도·비율·길이·비용)는 런타임에 라이브 조회합니다.
-version: "1.3.2"
+version: "1.3.3"
 ---
 
 # Higgsfield 영상 생성 (media-higgsfield-video)
@@ -51,7 +51,7 @@ Claude에서는 Higgsfield MCP, ChatGPT에서는 공식 Higgsfield 플러그인�
 
 ### 1단계 — 의도 파악 → 후보 좁히기
 
-사용자 요청에서 subject·action·scene·camera·audio·references(+각 용도)·shot count·duration 등 슬롯을 수집(→ core `interview-schema.md`)하고 계열 후보를 좁힙니다. 후보를 좁힐 뿐 파라미터를 단정하지 않습니다. 슬롯이 부족하면 현재 앱의 질문 채널로 필요한 항목만 확인합니다. 질문 채널이 없으면 직접 대화 중에도 누락 슬롯·선택지·재개 방법을 blocker로 반환합니다.
+사용자 요청에서 subject·action·scene·camera·audio·references(+각 용도)·shot count·duration 등 슬롯을 수집(→ core `interview-schema.md`)하고 계열 후보를 좁힙니다. 후보를 좁힐 뿐 파라미터를 단정하지 않습니다. 슬롯이 부족하면 직접 실행에서만 현재 앱의 질문 채널로 필요한 항목을 확인합니다. 하위 에이전트는 질문 도구가 보여도 누락 슬롯·선택지·재개 방법을 blocker로 상위에 반환하고, 직접 실행에 채널이 없어도 같은 blocker를 반환합니다.
 
 | 사용자 표현 | 후보 계열 |
 |---|---|

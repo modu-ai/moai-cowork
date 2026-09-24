@@ -13,7 +13,7 @@ description: |
   한 프롬프트에 여러 개를 배치할 수 있고 사람이 아닌 대상도 됩니다. 학습된 Soul은 연결에 따라 Elements에서
   재사용될 수 있습니다. 이 분기를 잘못 고르면 되돌릴 수 없는
   학습 비용이 발생하므로, 경로가 불명확하면 생성하지 않고 blocker를 반환합니다.
-version: "1.3.3"
+version: "1.3.4"
 ---
 
 # Higgsfield 일관성 참조 (media-higgsfield-identity)
@@ -66,7 +66,7 @@ Element 경로라고 위험이 줄지 않는다. 학습은 없지만 **그 사�
 
 ### 1단계 — 경로 판정 (0단계를 통과한 뒤)
 
-아래 신호로 경로를 가른다. **어느 쪽도 확실하지 않으면 생성하지 않는다.** 현재 앱의 질문 채널이 있으면 경로를 확인하고, 없으면 누락된 선택을 blocker로 반환한다.
+아래 신호로 경로를 가른다. **어느 쪽도 확실하지 않으면 생성하지 않는다.** 직접 실행에 질문 채널이 있으면 경로를 확인한다. 하위 에이전트는 질문 도구가 보여도 누락된 선택을 blocker로 상위에 반환하고, 직접 실행에 채널이 없어도 같은 blocker를 반환한다.
 
 **Element로 확정되는 신호 (하나라도 걸리면 Element):**
 - 한 컷에 인물/대상이 **2명 이상** ("나랑 친구", "두 사람이")
@@ -129,7 +129,7 @@ Element 경로라고 위험이 줄지 않는다. 학습은 없지만 **그 사�
 3. **타입 선택.** 다운스트림 용도로 정한다 — 정지 이미지는 `soul_2`, 시네마틱은 `soul_cinematic`.
 4. **학습 제출.** `show_characters(action:'train', name, medias[])`. 비차단이며 약 10분 소요.
 5. **상태 확인.** `show_characters(action:'status', soul_id)`. 폴링은 조용히 — 진행 상황을 반복 보고하지 않는다.
-6. **인계.** 직접 Soul 모델에 쓸 때만 `soul_id`를 `generate_image`의 `params.soul_id`로 넘긴다. 모델은 `soul_2` 또는 `soul_cinematic`. 다른 모델에서 재사용하려면 연결의 Elements 목록에서 **기존 캐릭터 참조를 찾아 선택**한다. 있으면 그 Element ID를 재사용하고 새 Element를 만들지 않는다. 없으면 자동 연동을 가정하지 말고 필요한 이미지와 새 Element 생성 여부를 질문 채널로 확인한다.
+6. **인계.** 직접 Soul 모델에 쓸 때만 `soul_id`를 `generate_image`의 `params.soul_id`로 넘긴다. 모델은 `soul_2` 또는 `soul_cinematic`. 다른 모델에서 재사용하려면 연결의 Elements 목록에서 **기존 캐릭터 참조를 찾아 선택**한다. 있으면 그 Element ID를 재사용하고 새 Element를 만들지 않는다. 없으면 자동 연동을 가정하지 말고 필요한 이미지와 새 Element 생성 여부를 코어의 질문·blocker 계약으로 확인한다.
 
 기존 Soul을 찾을 때는 `show_characters(action:'list', status:'ready')`.
 
@@ -137,7 +137,7 @@ Element 경로라고 위험이 줄지 않는다. 학습은 없지만 **그 사�
 
 **[HARD] 사람이 찍힌 이미지면 0단계 게이트를 이미 통과했어야 한다.** 통과 기록이 없는 상태로 이 경로에 들어왔다면 업로드하지 말고 0단계로 돌아간다 — "Element라서 학습이 없으니 괜찮다"는 이유로 건너뛰지 않는다.
 
-1. **기존 참조 조회.** `show_reference_elements(action:'list')`에서 해당 캐릭터·제품·환경의 기존 Element가 있는지 확인한다. 학습된 Soul을 재사용하는 요청이면 먼저 해당 캐릭터가 Elements에 나타나는지 찾는다. 후보가 여러 개면 질문 채널로 고르고, 없으면 새 생성 여부를 확인한다. 질문 채널이 없으면 blocker로 반환한다.
+1. **기존 참조 조회.** `show_reference_elements(action:'list')`에서 해당 캐릭터·제품·환경의 기존 Element가 있는지 확인한다. 학습된 Soul을 재사용하는 요청이면 먼저 해당 캐릭터가 Elements에 나타나는지 찾는다. 후보가 여러 개면 코어의 질문·blocker 계약으로 고르고, 없으면 새 생성 여부를 같은 계약으로 확인한다. 하위 에이전트는 질문 도구가 보여도 blocker를 상위에 반환한다.
 2. **필요할 때만 이미지 준비.** 기존 Element를 재사용하면 업로드하지 않는다. 새 Element를 명시적으로 만들 때만 0단계 얼굴 동의 게이트를 거친 뒤 이미지를 업로드한다. `medias[]` 항목은 `{id, url, type}` 형태이며 `type`은 `media_input`(업로드) 또는 `image_job`(이전 생성).
 3. **필요할 때만 생성.** 새 Element를 선택한 경우 `show_reference_elements(action:'create', medias[])`를 호출한다. `category`는 기본 `auto`(서버 분류)로 두고, 사용자가 명시할 때만 `character`/`environment`/`prop`을 지정한다. `name`은 32자 이내이며 생략하면 서버가 자동 부여한다.
 4. **사용.** 기존 또는 새 Element의 사용 가능 상태를 확인하고, 해당 id를 `generate_image`/`generate_video`의 `params.prompt` 안에 `<<<element_id>>>` 형태로 끼워 넣는다. 대상 모델이 Element를 지원하는지 라이브 조회한다.

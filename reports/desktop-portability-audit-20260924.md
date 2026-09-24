@@ -21,7 +21,7 @@
 | moai-designer | 17 | 0 | 11 | 0 | 1 | 대기 |
 | moai-lawyer | 11 | 2 | 19 | 17 | 1 | 대기 |
 | moai-marketer | 21 | 2 | 64 | 0 | 1 | 대기 |
-| moai-media | 14 | 2 | 43 | 1 | 1 | GPT·Gemini·Midjourney 이미지 프롬프트와 Higgsfield 경로 76파일 정적 열람, 나머지 부분 검토 |
+| moai-media | 14 | 2 | 43 | 1 | 1 | 86파일 정적 열람 완료, 앱 실행·현행성 검증 대기 |
 | moai-officer | 13 | 2 | 54 | 0 | 1 | 대기 |
 | moai-pm | 1 | 0 | 14 | 0 | 0 | 대기 |
 | moai-recruiter | 6 | 2 | 11 | 0 | 0 | 대기 |
@@ -754,3 +754,14 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - [OpenAI의 이미지 크기 제약](https://developers.openai.com/api/docs/guides/image-prompting)에 맞춰 21:9 OpenAI API 예시를 `1792x768`로 지정하고, 같은 요청의 Gemini `aspect_ratio=21:9`와 Midjourney `--ar 21:9`를 회귀 사례에 넣었다. `1792`와 `768`은 각각 16의 배수이고 곱은 1,376,256이다. 출력 예시의 꺾쇠괄호 자리표시는 사용자 요청으로 채우도록 세 스킬에 명시했다.
 - 필수 `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges)`의 첫 구조화 판정은 `inconclusive`였고, 요약에 제공자 우선 라우팅·21:9 출력 고정값·API 필드 혼동의 파일·줄 근거 세 건이 있었다. 이를 수정한 뒤 재실행한 구조화 판정도 `inconclusive`, `findings: []`였다. 요약의 자체 `PASS` 문구를 구조화 판정으로 대체하지 않는다.
 - 이 작업 트리에서 `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `python3 scripts/sync-mcp-core.py --check`는 복제 서버 여섯 곳 `[정합]`, `git diff --check`는 출력 없이 종료 코드 0이었다. 두 테스트 YAML은 각각 5·7개 케이스로 파싱됐고, 미디어 플러그인 버전은 Claude·Codex·마켓플레이스 모두 `3.3.7`이다. 수정한 네 스킬 버전은 GPT `2.0.6`, Gemini `1.1.7`, Midjourney `2.0.3`, production `1.0.3`이다. 회귀 사례는 YAML 명세이며 두 앱의 실제 프롬프트 결과나 이미지 생성 실행 결과는 아니다.
+- 위 변경 커밋 `4ef7224c`의 [원격 CI](https://github.com/modu-ai/moai-cowork/actions/runs/36047455693)는 `completed/success`, Ubuntu·macOS·Windows의 24개 job이 모두 `success`였다. 이 실행에는 아래 NotebookLM·오디오 후속 수정이 포함되지 않는다.
+
+### 미디어 잔여 파일 열람과 NotebookLM·오디오 단독 설치 경로 (2026-09-25)
+
+- 미디어 장부의 잔여 10파일을 각각 열거나 구조 파싱했다. Claude 에이전트 2개, MCP 런처, 오디오·NotebookLM·브랜드 검수·프로덕션 스킬, 스타일 참고문서를 읽었다. `moai-mcp-openai/uv.lock` 810행은 Python 3.11 `tomllib`로 전체 파싱해 패키지 38개와 Windows/비 Windows 해석 마커를 확인했다. 장부의 미디어 86행을 모두 `static_read`로 바꿨다. 락파일의 해시 무결성이나 운영체제별 실제 설치를 확인한 것은 아니다.
+- [Google의 슬라이드 데크 도움말](https://support.google.com/gemininotebook/answer/16757456)은 NotebookLM Studio에서 Format·Length·Output language·Prompt를 설정하고 PDF뿐 아니라 PPTX도 내려받을 수 있다고 설명한다. 따라서 “PPTX는 반드시 별도 스킬”이라는 분기를 고쳤다. NotebookLM 프롬프트만 만드는 이 스킬과, NotebookLM을 거치지 않고 PPTX를 바로 만드는 별도 스킬을 사용자의 제작 경로로 구분했다. [Google DeepMind 프롬프트 가이드](https://deepmind.google/models/gemini-image/prompt-guide/)의 Style·Subject·Setting·Action·Composition 항목과 슬라이드 이미지 프롬프트 구성도 대조했다.
+- NotebookLM 스킬과 스타일 참고문서에서 질문 채널이 없는 직접·하위 실행의 필수 입력은 blocker로 보고하게 했다. `moai-coworker:ai-slop-reviewer`는 현재 앱에 노출된 경우만 추가 호출하고, 없으면 이 스킬의 클리셰·번역투·사실·출처 검수를 직접 수행한다. ElevenLabs 오디오 스킬의 한국어 원고 검수도 외부 윤문 스킬 설치를 전제하지 않도록 바꾸고, 원문·고유명사·발음·민감정보·호흡 검수를 자체 수행한다. 실제 TTS·PPTX 생성 또는 앱에서의 스킬 발견은 아직 실행하지 않았다.
+- 후속 수정 직후 `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `python3 scripts/sync-mcp-core.py --check`는 여섯 복제 서버 `[정합]`, `git diff --check`는 출력 없이 종료 코드 0이었다. Claude·Codex 매니페스트와 마켓플레이스 미디어 버전은 모두 `3.3.8`, 오디오·NotebookLM 스킬은 각각 `1.3.2`·`1.1.2`로 파싱됐다.
+- `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges)`의 구조화 판정은 `inconclusive`, 요약에는 `media-notebooklm-slide-prompt/SKILL.md:69`에서 하위 에이전트의 질문 도구 사용과 `media-producer.md:32`의 질문 금지가 충돌한다는 P2 지적이 있었다. NotebookLM과 스타일 참고문서뿐 아니라 `media-production`·GPT·Gemini·Midjourney·오디오 스킬도 하위 에이전트에서는 질문 도구가 보여도 blocker를 상위에 반환하도록 맞췄다. 이 변경 뒤 스킬 버전은 production `1.0.4`, GPT `2.0.7`, Gemini `1.1.8`, Midjourney `2.0.4`다. 감사 요약의 자체 `FAIL` 문구를 구조화 판정으로 바꿔 기록하지 않는다.
+- 두 번째 적대적 감사의 구조화 판정도 `inconclusive`였고, 요약은 Higgsfield 코어·이미지·영상·제품·설명 영상의 질문 분기와 오디오 클로닝 예시가 같은 하위 에이전트 규칙을 따르지 않는다고 파일·줄 근거를 제시했다. 코어 승인 계약과 이미지·영상·제품·에셋·정체성·설명 영상 스킬에 “하위 에이전트는 질문 도구가 보여도 누락 입력 또는 승인서를 상위에 blocker로 반환”하도록 명시하고 오디오 예시도 맞췄다. Higgsfield 스킬 버전은 core `1.3.4`, image `1.3.7`, video `1.3.3`, product `1.3.3`, assets `1.3.2`, identity `1.3.4`, explainer `1.3.3`으로 올렸다. 이 수정은 실제 사용자 질문·유료 생성 호출을 관측한 결과가 아니다.
+- 세 번째 감사도 구조화 판정은 `inconclusive`였다. 요약의 `media-notebooklm-slide-prompt/SKILL.md:269` 지적대로, 사용자가 Higgsfield를 지정하지 않았는데 Gemini 모델이 노출됐다는 이유만으로 Higgsfield 생성 스킬에 연결하던 문구를 고쳤다. Gemini 생성은 해당 제공자의 연결을 확인하고, Higgsfield는 사용자가 명시했을 때만 모델 노출·비용·승인을 확인한다. 이 감사들의 요약에 적힌 `FAIL` 문구는 구조화 판정이 아니다.

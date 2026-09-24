@@ -14,7 +14,7 @@ description: |
   references/prompt-craft/*.md에 출처와 함께 큐레이션돼 있고, 실제 파라미터(모델 id·해상도·비율·비용)는
   런타임에 라이브 조회합니다. 프롬프트만 필요하면 media-gpt-image-prompt 등 해당 모델의
   프롬프트 스킬을 사용하세요.
-version: "1.3.6"
+version: "1.3.7"
 ---
 
 # Higgsfield 이미지 생성 (media-higgsfield-image)
@@ -53,7 +53,7 @@ Higgsfield 이미지, Higgsfield Soul, Higgsfield Nano Banana, Higgsfield GPT Im
 
 ### 1단계 — 의도 파악 → 후보 좁히기
 
-사용자 요청에서 subject·용도·톤·리터럴 텍스트 등 슬롯을 수집(→ core `interview-schema.md`)하고, 계열 크래프트로 **후보 모델을 좁힙니다**. 이 단계는 후보를 좁힐 뿐 파라미터를 단정하지 않습니다. 슬롯이 부족하면 현재 앱의 질문 채널로 필요한 항목만 확인합니다. 질문 채널이 없으면 직접 대화 중에도 누락 슬롯·선택지·재개 방법을 blocker로 반환합니다.
+사용자 요청에서 subject·용도·톤·리터럴 텍스트 등 슬롯을 수집(→ core `interview-schema.md`)하고, 계열 크래프트로 **후보 모델을 좁힙니다**. 이 단계는 후보를 좁힐 뿐 파라미터를 단정하지 않습니다. 슬롯이 부족하면 직접 실행에서만 현재 앱의 질문 채널로 필요한 항목을 확인합니다. 하위 에이전트는 질문 도구가 보여도 누락 슬롯·선택지·재개 방법을 blocker로 상위에 반환하고, 직접 실행에 채널이 없어도 같은 blocker를 반환합니다.
 
 후보 좁히기 힌트(파라미터가 아니라 계열 선택 힌트):
 

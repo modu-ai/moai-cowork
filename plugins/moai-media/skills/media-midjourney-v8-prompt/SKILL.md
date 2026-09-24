@@ -11,7 +11,7 @@ description: |
   - "/media-midjourney-v8-prompt" (직접 호출)
 
   본 스킬은 프롬프트 텍스트만 산출합니다. 실제 생성은 사용자가 Midjourney 웹 또는 Discord에서 실행합니다.
-version: "2.0.3"
+version: "2.0.4"
 ---
 
 # Midjourney V8 Prompt Builder — 현재 버전의 파라미터 + 3개 모델 프롬프트
@@ -67,7 +67,7 @@ Midjourney 공식 문서의 현재 기본 버전은 V8.2입니다. 사용자가 
 
 4개 프리셋 (제품샷·인물·일러스트·풍경) 중 선택. 프리셋 슬롯 정의는 3개 이미지 프롬프트 빌더(gpt-image·gemini·midjourney)가 공유하는 단일 원본을 사용하며, 원본은 `media-gpt-image-prompt` 스킬에 있습니다:
 
-사용자가 이미 제공한 정보는 다시 묻지 않습니다. 필요한 정보가 비어 있으면 현재 앱의 질문 채널을 사용합니다. 직접 실행·하위 실행 모두 질문 채널이 없으면 필요한 입력을 명시한 blocker를 반환합니다. 응답을 받기 전에 임의로 프리셋을 확정하지 않습니다.
+사용자가 이미 제공한 정보는 다시 묻지 않습니다. 필요한 정보가 비어 있으면 직접 실행에서만 현재 앱의 질문 채널을 사용합니다. 하위 에이전트에서는 질문 도구가 보여도 상위에 blocker를 반환하고, 직접 실행에 질문 채널이 없어도 필요한 입력을 명시한 blocker를 반환합니다. 응답을 받기 전에 임의로 프리셋을 확정하지 않습니다.
 
 - 제품샷 — `../media-gpt-image-prompt/presets/product-shot.md`
 - 인물·캐릭터 — `../media-gpt-image-prompt/presets/portrait.md`
