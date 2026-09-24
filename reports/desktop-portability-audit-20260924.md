@@ -903,3 +903,10 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - 두 번째 `mcp__moai__codex_audit`도 구조화 판정 `inconclusive`, `findings: []`였다. 요약의 파일·줄 근거로 제안서 사례에 출처 없는 시장 수치를 거르는 조건, 공식 안내를 조회할 수 있는 경우와 없는 경우의 구분, 독자 가설 상태의 전달 사례가 빠졌음을 확인해 테스트에 추가했다. 요약의 `FAIL` 문구를 구조화 판정으로 바꾸지 않는다. 새 사례는 YAML 검토 시나리오이며 실제 스킬 호출 성공을 증명하지 않는다.
 - 앞선 `09da6350` 푸시의 [MCP 원격 CI](https://github.com/modu-ai/moai-cowork/actions/runs/36064295504)는 첫 실행과 실패 작업 재실행 모두 27개 중 Windows `MCP core` 한 작업이 실패했다. 첫 로그에서 동시 토큰 저장 테스트는 `results == [True, True]`를 기대했으나 `[False, True]`를 반환했고 66개는 통과했다. 이 코어는 해당 writer 커밋에서 수정되지 않았다. Windows 토큰 저장의 동시성 문제를 별도로 조사해야 한다.
 - 이 작업 트리에서 Python/PyYAML로 두 스킬 frontmatter `1.1.1`, 독자 사례 8건·제안서 사례 11건과 각각 중복 ID 0건을 확인했다. 작가 플러그인 매니페스트 세 곳은 `1.5.6`으로 일치했다. `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `git diff --check`는 출력 없이 종료 코드 0이었다. 실제 제안서 생성 사례는 실행하지 않았다.
+
+### Windows 동시 토큰 저장 실패 조사 (2026-09-25)
+
+- [원격 CI 실행 36064295504](https://github.com/modu-ai/moai-cowork/actions/runs/36064295504)의 1·2차 Windows `MCP core` 로그 모두 `tests/test_tokenstore.py:101`에서 `results`가 `[False, True]`가 되어 실패했다. 테스트는 두 스레드를 같은 대상 파일의 `os.replace` 직전에 모은다. 저장 구현은 `OSError`가 나면 메모리 폴백을 반환하므로, 두 번의 결과는 적어도 한 저장이 파일 영속화에 실패했음을 보여 준다. 로그만으로 정확한 Windows 오류 코드는 확인되지 않았다.
+- 정본 `tokenstore.py`에 Windows 공유 위반 코드 5·32·33으로 식별되는 짧은 교체 실패만 최대 5회 다시 시도하게 했다. 그 밖의 오류와 재시도 소진은 기존 메모리 폴백을 유지한다. 동시 저장 테스트의 장벽은 각 스레드 첫 교체에서만 기다리게 바꾸고, 첫 교체가 공유 위반으로 실패하는 결정적 사례를 추가했다. `scripts/sync-mcp-core.py`로 여섯 채택 서버에 정본을 복제했다.
+- 로컬 `uv run --python 3.11 --directory plugins/_shared/moai-mcp-core --group dev pytest -q`는 `68 passed in 0.06s`, `python3 scripts/sync-mcp-core.py --check`는 여섯 서버 모두 `[정합]`, `git diff --check`는 종료 코드 0이었다. 로컬 환경은 macOS이므로 Windows 원격 재검증 전에는 수정을 Windows PASS로 표시하지 않는다.
+- 별도 적대적 감사의 구조화 판정은 `inconclusive`, `findings: []`였다. 요약은 `auth.py`가 저장 실패를 확인하지 않아 회전된 토큰이 메모리에만 남는 경우와, 동시 저장 테스트가 최신 토큰의 순서를 검증하지 않는 경우를 재현했다고 보고했다. `auth.py`가 `save()` 반환값을 확인하지 않는 점과 테스트가 고유 임시 파일·두 저장 성공만 확인하는 점은 소스에서 확인했다. 이 감사의 별도 재현 명령·전체 출력은 전달되지 않았으므로 그 재현을 이 작업의 직접 측정으로 주장하지 않는다. 이번 수정은 일시적 Windows 파일 공유 위반의 재시도에 한정하며, 저장 불능이나 회전 순서 충돌의 별도 설계 검토는 남아 있다.

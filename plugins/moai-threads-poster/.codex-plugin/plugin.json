@@ -1,6 +1,6 @@
 {
   "name": "moai-threads-poster",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Threads·Instagram(Meta) 자율 발행 전담 AI 코워커 — 직접 Graph API 연결 MCP(월정액 없음). 세션 안에서 초안을 작성해 보여드리고 승인하면 텍스트·이미지·비디오를 즉시 발행합니다. 큐·예약·승인 상태머신은 없습니다. 예약·정기 발행은 사용 중인 앱의 지원 여부를 확인합니다. Facebook 개인 계정은 API 미지원(정책)이라 복붙만 지원합니다.",
   "author": {
     "name": "모두의 AI",

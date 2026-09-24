@@ -13,6 +13,7 @@ import json
 import os
 import stat
 import tempfile
+import time
 from pathlib import Path
 from typing import Any
 
@@ -91,7 +92,16 @@ class TokenStore:
             ) as handle:
                 tmp = Path(handle.name)
                 json.dump(tokens, handle, ensure_ascii=False, indent=2)
-            os.replace(tmp, self.path)
+            # Windows에서 같은 대상 파일을 동시에 교체하면 잠깐의 공유 위반이 날 수 있다.
+            # 권한/경로 오류는 그대로 폴백하고, 공유 위반만 짧게 다시 시도한다.
+            for attempt in range(5):
+                try:
+                    os.replace(tmp, self.path)
+                    break
+                except OSError as exc:
+                    if getattr(exc, "winerror", None) not in {5, 32, 33} or attempt == 4:
+                        raise
+                    time.sleep(0.01 * (attempt + 1))
             self._restrict_permissions()
         except OSError:
             self._persistent = False

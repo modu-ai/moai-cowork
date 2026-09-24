@@ -78,12 +78,17 @@ def test_동시_저장은_각자_고유한_임시_파일을_쓴다(tmp_path, mon
     barrier = threading.Barrier(2)
     original_replace = tokenstore.os.replace
     sources: list[str] = []
+    first_calls: set[int] = set()
     lock = threading.Lock()
 
     def replace(src, dst):
         with lock:
             sources.append(str(src))
-        barrier.wait(timeout=5)
+            thread_id = threading.get_ident()
+            first_call = thread_id not in first_calls
+            first_calls.add(thread_id)
+        if first_call:
+            barrier.wait(timeout=5)
         return original_replace(src, dst)
 
     monkeypatch.setattr(tokenstore.os, "replace", replace)
@@ -101,3 +106,26 @@ def test_동시_저장은_각자_고유한_임시_파일을_쓴다(tmp_path, mon
     assert results == [True, True]
     assert len(set(sources)) == 2
     assert TokenStore("shared", path=path).load()["refresh_token"] in {"0", "1"}
+
+
+def test_일시적인_windows_공유_위반은_다시_시도한다(tmp_path, monkeypatch):
+    path = tmp_path / "tokens.json"
+    original_replace = tokenstore.os.replace
+    calls = 0
+
+    def replace(src, dst):
+        nonlocal calls
+        calls += 1
+        if calls == 1:
+            error = PermissionError("temporary sharing violation")
+            error.winerror = 32
+            raise error
+        return original_replace(src, dst)
+
+    monkeypatch.setattr(tokenstore.os, "replace", replace)
+    monkeypatch.setattr(tokenstore.time, "sleep", lambda _: None)
+
+    store = TokenStore("shared", path=path)
+    assert store.save({"refresh_token": "새 토큰"}) is True
+    assert calls == 2
+    assert TokenStore("shared", path=path).load()["refresh_token"] == "새 토큰"
