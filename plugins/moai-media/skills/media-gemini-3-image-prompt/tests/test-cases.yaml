@@ -12,7 +12,7 @@ tests:
         - "### 3) Midjourney V8.2"
         - '"MONDAY"'
         - "aspect_ratio"
-        - "Thinking"               # mode 권장 표시
+        - "image_size"             # 현재 Gemini API 출력 크기 필드
         - "SynthID"                # 워터마크 안내
       not_contains:
         - "metadata:"
@@ -20,7 +20,7 @@ tests:
         - "<placeholder>"
       assertion:
         - Gemini 5-component 마침표 구분 (component당 영문 문장)
-        - 카메라 하드웨어 1개 이상 명시
+        - 카메라 기종은 필요한 경우에만 외형 단서로 쓰고 실제 촬영 장비를 사용했다고 주장하지 않음
         - SynthID 워터마크 한국어 해설 포함
 
   - name: happy-path-portrait-21-9
@@ -31,11 +31,16 @@ tests:
       contains:
         - "21:9"
         - "Gemini"
+        - "aspect_ratio=21:9"
+        - "1792x768"
+        - "--ar 21:9"
       not_contains:
         - "metadata:"
+        - "aspect_ratio=1:1"
+        - "size=1024x1024"
       assertion:
         - Gemini에는 21:9 화면비를 유지
-        - GPT Image 2.5 API와 Midjourney에도 21:9 설정이 가능하다고 설명하되 ChatGPT 기본 이미지 도구에서 크기 파라미터를 직접 지정한다고 주장하지 않음
+        - GPT Image 2.5 API에는 유효한 1792x768 예시를, Midjourney에는 --ar 21:9를 적용하고 ChatGPT 기본 이미지 도구에서 크기 파라미터를 직접 지정한다고 주장하지 않음
 
   - name: search-grounding-infographic
     description: 인포그래픽 → Search Grounding 활성화 권장
@@ -44,16 +49,15 @@ tests:
       format: markdown
       contains:
         - "Search Grounding"
-        - "Thinking"
-        - "KOSIS"                   # 데이터 출처 권장 예
+        - "공식"                    # 확인 가능한 출처 요구
         - "verbatim"
-        - "cross-reference"
+        - "출처"
       not_contains:
         - "metadata:"
       assertion:
-        - Search Grounding 활성화 권장
-        - Thinking Mode 권장
-        - 데이터 검증 문구 ("cross-reference" 등) 포함
+        - 현재 경로가 Google Search Grounding을 지원할 때만 활성화 안내
+        - Gemini 3 Pro Image를 공통 mode=Thinking API 값으로 표시하지 않음
+        - 실제 수치와 출처를 별도 검증하도록 안내
 
   - name: reference-images-character
     description: 캐릭터 일관성 → 14 reference image 슬롯 전략 안내
@@ -65,7 +69,7 @@ tests:
         - "Image 1"                  # reference 라벨링
         - "preserve"                 # 일관성 키워드
       assertion:
-        - reference 이미지 슬롯 전략 안내
+        - 총 14개와 Pro의 객체 6개·캐릭터 5개·스타일 3개 유형별 한도 안내
         - '"Image N" 라벨링 패턴 출력'
 
   - name: edge-case-ambiguous-input
@@ -84,15 +88,12 @@ rubric_targets:
   weighted_pass_threshold: 0.70
 
 regression:
-  baseline_version: "2.9.0"
+  baseline_version: "1.1.6"
   changed_files:
     - SKILL.md
     - references/prompt-blocks.md
     - references/parameter-cheatsheet.md
     - references/reference-images.md
     - references/search-grounding.md
-    - presets/product-shot.md
-    - presets/portrait.md
-    - presets/illustration.md
-    - presets/landscape.md
-  expected_diff: "신규 스킬 — 회귀 베이스라인 없음 (initial release)"
+    - tests/test-cases.yaml
+  expected_diff: "앱 공통 프리셋 경로, Gemini API 파라미터, 참조 이미지 유형별 한도와 질문 채널 정합"

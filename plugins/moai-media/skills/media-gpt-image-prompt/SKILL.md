@@ -11,7 +11,7 @@ description: |
   - "/media-gpt-image-prompt" (직접 호출)
 
   이미지 자동 생성은 페어 스킬 media-higgsfield-image(Higgsfield) 또는 media-codex-image(ChatGPT 기본 이미지 도구)를 사용하세요. 본 스킬은 프롬프트 텍스트 산출 전용입니다.
-version: "2.0.5"
+version: "2.0.6"
 ---
 
 # GPT Image 2.5 Prompt Builder — 공식 가이드 8원칙 + 3-모델 동시 출력
@@ -140,6 +140,8 @@ Midjourney 파라미터 상세는 페어 스킬 `media-midjourney-v8-prompt`를 
 
 ### 출력 — 3개 모델 코드블록 + 권장 파라미터 + 검수 + 해설
 
+아래의 꺾쇠괄호 자리표시는 출력 전에 요청 내용으로 채웁니다. 화면비를 지정하지 않았다면 각 제공자의 기본값을 명시합니다.
+
 ````markdown
 ## 생성된 프롬프트 (3개 모델)
 
@@ -147,18 +149,18 @@ Midjourney 파라미터 상세는 페어 스킬 `media-midjourney-v8-prompt`를 
 ```text
 <공식 원칙에 맞춘 프롬프트 (단락 또는 라벨 섹션)>
 ```
-**OpenAI API에서 지정할 때의 권장 파라미터**: `model=<선택한 gpt-image-2.5-flare 또는 gpt-image-2.5-sunburst>`, `quality=medium`, `size=1024x1024` (투명 배경이면 `background=transparent`, `output_format=png`). 사용자가 Sunburst를 지목했다면 `model=gpt-image-2.5-sunburst`를 그대로 출력합니다. ChatGPT Work의 Images 도구에서 이 API 값을 직접 설정했다고 표시하지 않습니다. Images 2.5의 데스크톱 배포가 안내됐지만 실제 세션의 모델 ID는 별도로 확인해야 합니다.
-**Higgsfield로 생성 시**: `model=gpt_image_2_5`, `variant=<선택한 flare 또는 sunburst>`, `quality=medium`, `aspect_ratio=1:1` (Sunburst 지정 시 `variant=sunburst`)
+**OpenAI API에서 지정할 때의 권장 파라미터**: `model=<선택한 gpt-image-2.5-flare 또는 gpt-image-2.5-sunburst>`, `quality=medium`, `size=<요청 비율에 맞고 API 제약을 충족하는 WIDTHxHEIGHT>` (비율을 지정하지 않았을 때만 `1024x1024`; 투명 배경이면 `background=transparent`, `output_format=png`). 21:9 예시는 `1792x768`입니다. 사용자가 Sunburst를 지목했다면 `model=gpt-image-2.5-sunburst`를 그대로 출력합니다. ChatGPT Work의 Images 도구에서 이 API 값을 직접 설정했다고 표시하지 않습니다. Images 2.5의 데스크톱 배포가 안내됐지만 실제 세션의 모델 ID는 별도로 확인해야 합니다.
+**Higgsfield로 생성 시**: `model=gpt_image_2_5`, `variant=<선택한 flare 또는 sunburst>`, `quality=medium`, `aspect_ratio=<요청 비율>` (Sunburst 지정 시 `variant=sunburst`; 실제 지원 비율은 현재 연결 확인)
 
 ### 2) Gemini 3 Pro Image — Nano Banana Pro
 ```text
 <5-component 영문 문장>
 ```
-**권장 파라미터**: `aspect_ratio=1:1`, `resolution=2K`
+**Gemini Interactions API에서 지정할 때의 권장값**: 이미지 `response_format`의 `type=image`, `aspect_ratio=<요청 비율>`, `image_size=2K`. GenerateContent API는 요청 형식이 달라 공식 가이드를 확인합니다.
 
 ### 3) Midjourney V8.2 (사용자가 V8.1을 지정했다면 V8.1)
 ```text
-<키워드, 키워드, ... --ar 1:1 --raw --s 300>
+<키워드, 키워드, ... --ar <요청 비율> [--raw] --s 300>
 ```
 
 ### 결과 검수 체크리스트

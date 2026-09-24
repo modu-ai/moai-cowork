@@ -11,7 +11,7 @@ description: |
   - "/media-midjourney-v8-prompt" (직접 호출)
 
   본 스킬은 프롬프트 텍스트만 산출합니다. 실제 생성은 사용자가 Midjourney 웹 또는 Discord에서 실행합니다.
-version: "2.0.2"
+version: "2.0.3"
 ---
 
 # Midjourney V8 Prompt Builder — 현재 버전의 파라미터 + 3개 모델 프롬프트
@@ -67,16 +67,16 @@ Midjourney 공식 문서의 현재 기본 버전은 V8.2입니다. 사용자가 
 
 4개 프리셋 (제품샷·인물·일러스트·풍경) 중 선택. 프리셋 슬롯 정의는 3개 이미지 프롬프트 빌더(gpt-image·gemini·midjourney)가 공유하는 단일 원본을 사용하며, 원본은 `media-gpt-image-prompt` 스킬에 있습니다:
 
-사용자가 이미 제공한 정보는 다시 묻지 않습니다. 필요한 정보가 비어 있으면 현재 앱의 질문 도구를 사용하고, 질문 도구가 없으면 일반 대화로 확인합니다. 응답을 받기 전에 임의로 프리셋을 확정하지 않습니다.
+사용자가 이미 제공한 정보는 다시 묻지 않습니다. 필요한 정보가 비어 있으면 현재 앱의 질문 채널을 사용합니다. 직접 실행·하위 실행 모두 질문 채널이 없으면 필요한 입력을 명시한 blocker를 반환합니다. 응답을 받기 전에 임의로 프리셋을 확정하지 않습니다.
 
-- 제품샷 — `${CLAUDE_PLUGIN_ROOT}/skills/media-gpt-image-prompt/presets/product-shot.md`
-- 인물·캐릭터 — `${CLAUDE_PLUGIN_ROOT}/skills/media-gpt-image-prompt/presets/portrait.md`
-- 일러스트·아트 — `${CLAUDE_PLUGIN_ROOT}/skills/media-gpt-image-prompt/presets/illustration.md`
-- 풍경·환경 — `${CLAUDE_PLUGIN_ROOT}/skills/media-gpt-image-prompt/presets/landscape.md`
+- 제품샷 — `../media-gpt-image-prompt/presets/product-shot.md`
+- 인물·캐릭터 — `../media-gpt-image-prompt/presets/portrait.md`
+- 일러스트·아트 — `../media-gpt-image-prompt/presets/illustration.md`
+- 풍경·환경 — `../media-gpt-image-prompt/presets/landscape.md`
 
 ### Round 2 — 프리셋별 미세조정 (3-4 질문)
 
-위 공유 슬롯 원본(`${CLAUDE_PLUGIN_ROOT}/skills/media-gpt-image-prompt/presets/<name>.md`)의 슬롯 정의를 따릅니다. 각 프리셋 파일에는 GPT·Gemini·Midjourney 세 모델의 어조 변환 가이드가 모두 들어 있으며, 본 스킬은 Midjourney 키워드+파라미터 어조 섹션을 적용합니다.
+위 경로는 이 `SKILL.md`가 있는 디렉터리를 기준으로 해석합니다. 공유 슬롯 원본 `../media-gpt-image-prompt/presets/<name>.md`에는 세 모델의 어조 변환 가이드가 있으며, 본 스킬은 Midjourney 섹션을 적용합니다.
 
 ### Round 3 — 화면비 + 텍스트 + 고급 옵션
 
@@ -145,13 +145,15 @@ V8.1·V8.2에는 `--q` Quality 파라미터가 없습니다. GPU 시간은 작�
 
 ### 출력 — 3개 모델 코드블록
 
+아래의 꺾쇠괄호 자리표시는 출력 전에 요청 내용으로 채웁니다. 화면비를 지정하지 않았다면 각 제공자의 기본값을 명시합니다.
+
 ```markdown
 ## 생성된 프롬프트 (3개 모델)
 
 ### 1) Midjourney V8.2 (메인, 사용자가 V8.1을 지정하면 V8.1)
 ```
 <subject>, <scene>, <composition>, <lighting>, <style>
---ar 1:1 --raw --s 300
+--ar <요청 비율> [--raw] --s 300
 ```
 **해상도·비용**: 고해상도를 요청했을 때만 `--hd`를 붙이고 공식 GPU 시간 표와 계정 잔여 시간을 확인합니다.
 **Personalization 활용**: `--p YOUR_PROFILE_ID` 추가 시 일관된 스타일
@@ -160,13 +162,13 @@ V8.1·V8.2에는 `--q` Quality 파라미터가 없습니다. GPU 시간은 작�
 ```
 <공식 원칙 프롬프트 (단락 또는 라벨 섹션)>
 ```
-**OpenAI API에서 지정할 때의 권장 파라미터**: `quality=medium`, `size=1024x1024`. ChatGPT 기본 이미지 도구의 내부 모델이나 API 파라미터를 설정했다고 표시하지 않습니다.
+**OpenAI API에서 지정할 때의 권장 파라미터**: `quality=medium`, `size=<요청 비율에 맞는 유효한 WIDTHxHEIGHT>` (비율 미지정 시 `1024x1024`; 21:9 예시 `1792x768`). ChatGPT 기본 이미지 도구의 내부 모델이나 API 파라미터를 설정했다고 표시하지 않습니다.
 
 ### 3) Gemini 3 Pro Image — Nano Banana Pro
 ```
 <5-component 영문 문장>
 ```
-**권장 파라미터**: `aspect_ratio=1:1`, `resolution=2K`, `mode=Thinking`
+**Gemini Interactions API에서 지정할 때의 권장값**: 이미지 `response_format`의 `type=image`, `aspect_ratio=<요청 비율>`, `image_size=2K`. GenerateContent API는 요청 형식이 다릅니다. Pro 모델에 `mode=Thinking`을 API 값으로 넘기지 않습니다.
 
 ### 한국어 해설
 - Midjourney 프롬프트는 필요한 시각적 단서와 지원되는 파라미터만 담았습니다.

@@ -56,6 +56,22 @@ tests:
         - 출력할 Midjourney 프롬프트에서는 --q 4를 제거
         - --hd 비용을 4배 또는 --q와 16배로 계산하지 않음
 
+  - name: ultrawide-21-9
+    description: 울트라와이드 입력을 세 제공자 출력에서 유지
+    prompt: "미드저니 V8.2 풍경 프롬프트, 한강 일몰 21:9"
+    expected_output:
+      format: markdown
+      contains:
+        - "--ar 21:9"
+        - "1792x768"
+        - "aspect_ratio=21:9"
+      not_contains:
+        - "--ar 1:1"
+        - "size=1024x1024"
+      assertion:
+        - OpenAI API 크기 예시는 16픽셀 배수이며 3:1 이하의 비율을 사용
+        - Gemini Interactions API와 GenerateContent API의 필드 구조를 혼동하지 않음
+
   - name: deprecated-character-reference
     description: 사용자가 오래된 --cref를 입력
     prompt: "MJ V8 프롬프트, --cref https://example.com/face.jpg 인물 일관성"
@@ -72,7 +88,7 @@ tests:
     prompt: "미드저니 프롬프트 만들어줘"
     expected_output:
       assertion:
-        - 구조화 질문 도구가 있으면 사용하고 없으면 일반 대화로 용도를 확인
+        - 질문 채널이 있으면 사용하고 없으면 필요한 용도를 명시한 blocker를 반환
         - 답변 없이 프리셋과 이미지 생성 경로를 임의로 확정하지 않음
 
 rubric_targets:
@@ -83,12 +99,8 @@ rubric_targets:
   weighted_pass_threshold: 0.70
 
 regression:
-  baseline_version: "1.1.1"
+  baseline_version: "2.0.2"
   changed_files:
     - SKILL.md
-    - references/cost-traps.md
-    - references/parameter-cheatsheet.md
-    - references/prompt-blocks.md
-    - references/style-references.md
     - tests/test-cases.yaml
-  expected_diff: "현재 V8.2 기본값과 Edit Model·GPU 시간·앱 공통 질문 경로로 갱신"
+  expected_diff: "앱 공통 프리셋 경로와 질문 채널, Gemini 보조 출력의 API 파라미터 정합"

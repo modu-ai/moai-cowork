@@ -24,34 +24,31 @@ Gemini 3 Pro Image의 차별 기능 중 하나. 이미지 생성 도중 Google S
 ## 활성화 방법
 
 ### Google AI Studio (UI)
-- Tools 패널에서 "Use Google Search" 체크박스 활성화.
-- "Use Thinking Mode" 도 함께 활성화 권장 (정확도 시너지).
+- 현재 계정의 이미지 생성 화면에 Google Search 도구가 제공되는지 확인하고, 제공될 때만 켭니다. 고정된 체크박스 이름이나 추론 모드를 필수 단계로 가정하지 않습니다.
 
 ### API
 
-API 도구와 필드 이름은 [Google의 현재 이미지 생성 가이드](https://ai.google.dev/gemini-api/docs/image-generation)에서 확인합니다. 이 프롬프트 전용 스킬에서는 오래된 SDK 호출 예시를 실행 지침으로 제공하지 않습니다.
+[Google의 현재 이미지 생성 가이드](https://ai.google.dev/gemini-api/docs/image-generation#grounding-with-google-search)는 이미지 요청에 `google_search` 도구를 따로 지정합니다. 이 프롬프트 전용 스킬은 API 호출을 실행하지 않으며, 검색 사용 여부만 제안합니다.
 
 ### Gemini App (consumer)
-- 일부 버전에서 "Search context" 토글 제공. 기능 위치는 앱 업데이트에 따라 변동.
+- 현재 앱의 검색 연결 제공 여부를 확인합니다. 프롬프트에 검색을 지시한 것만으로 도구가 켜졌다고 보고하지 않습니다.
 
 ## 프롬프트 작성 팁
 
 ### 시간 명시
 Search가 최신 자료를 가져올 수 있도록:
 
-- ✅ "based on 2026 data"
-- ✅ "as reported in Q1 2026"
-- ✅ "current statistics from KOSIS as of 2026"
-- ❌ "recent data" (모호)
+- 기준 날짜와 자료명을 구체적으로 적습니다. 예: "2026년 9월 25일 기준으로 확인한 공식 자료".
+- 실제로 확인하지 않은 기관·통계 연도나 수치는 프롬프트에 넣지 않습니다.
 
 ### 출처 우선순위 제시
 Gemini가 신뢰할 출처를 명시적으로 지시:
 
 ```
-A donut chart showing global AI image generation model market
-share in 2026. Prioritize data from Gartner, IDC, or Stanford
-HAI reports. <composition>. <lighting>. <style>. Display the
-percentages and model names verbatim from the source.
+A donut chart showing <verified subject and figures>.
+Use the official source supplied for this request, dated <date>.
+<composition>. <lighting>. <style>. Display the verified
+percentages and labels verbatim from that source.
 ```
 
 ### 데이터 검증 요청
@@ -73,14 +70,14 @@ finalizing the visualization.
 ### 예 1 — 인포그래픽
 
 ```
-A horizontal infographic showing the top 5 most-used SNS
-platforms in South Korea in 2026 with percentage of users.
+A horizontal infographic showing <verified SNS platform data>
+in South Korea for <source period>.
 Wide composition with clean white background, captured in
 flat editorial design style. Soft consistent lighting.
 Modern infographic design, sans-serif typography. Each
-platform displays its name in Korean and its market share
-percentage verbatim from KOSIS 2026 statistics. Cross-reference
-data with at least two reliable sources.
+platform displays its name in Korean and the supplied percentage
+verbatim. Verify each figure and its denominator against the
+cited source before publishing.
 ```
 
 ### 예 2 — 지도
@@ -89,7 +86,7 @@ data with at least two reliable sources.
 A minimalist map of the Seoul Subway Line 2 (Loop Line). Top-
 down view, simplified vector style. Soft pastel palette. Modern
 transit map aesthetic. Each station name displayed in Korean
-verbatim from the official Seoul Metro 2026 information.
+verbatim from the current official Seoul Metro source supplied for this request.
 Maintain the correct loop sequence and the inner-outer track
 distinction.
 ```

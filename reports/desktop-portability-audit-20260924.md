@@ -21,7 +21,7 @@
 | moai-designer | 17 | 0 | 11 | 0 | 1 | 대기 |
 | moai-lawyer | 11 | 2 | 19 | 17 | 1 | 대기 |
 | moai-marketer | 21 | 2 | 64 | 0 | 1 | 대기 |
-| moai-media | 14 | 2 | 43 | 1 | 1 | GPT Image·Higgsfield 이미지·영상·정체성·제품·에셋·설명 영상 경로 64파일 정적 열람, 나머지 부분 검토 |
+| moai-media | 14 | 2 | 43 | 1 | 1 | GPT·Gemini·Midjourney 이미지 프롬프트와 Higgsfield 경로 76파일 정적 열람, 나머지 부분 검토 |
 | moai-officer | 13 | 2 | 54 | 0 | 1 | 대기 |
 | moai-pm | 1 | 0 | 14 | 0 | 0 | 대기 |
 | moai-recruiter | 6 | 2 | 11 | 0 | 0 | 대기 |
@@ -745,3 +745,12 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - 필수 `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges)`를 두 번 실행했다. 구조화 판정은 두 번 모두 `inconclusive`였다. 첫 요약의 Media 에이전트·스킬 간 분기 충돌과 모델 미확인 생성, 두 번째 요약의 Sunburst 출력 고정값·2.5 편집의 생성 도구 오경로·직접 실행 질문 채널 충돌은 각각 파일·줄 근거를 확인하고 수정했다. 감사 요약의 자체 “FAIL” 문구를 구조화 판정 `inconclusive`의 PASS/FAIL로 바꿔 기록하지 않는다.
 - 이 작업 트리에서 `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `python3 scripts/sync-mcp-core.py --check`는 복제 서버 여섯 곳 `[정합]`, `git diff --check`는 출력 없이 종료 코드 0이었다. 수정된 스킬 10개의 YAML과 JSON을 파싱하고 Media `3.3.6`, Designer `1.4.24`, Seller `1.4.9`의 Claude·Codex·마켓플레이스 버전 일치를 확인했다. 현재 장부 1091행, 미디어 `static_read` 64행이다. 실제 ChatGPT Work·Claude Cowork 세션에서 Images 2.5 모델 노출, 유료 API 생성·편집, 세 운영체제의 플러그인 로드는 실행하지 않았다.
 - 커밋 `a5a92c71`의 [원격 CI 실행](https://github.com/modu-ai/moai-cowork/actions/runs/36045191319)은 24개 job 모두 `success`로 끝났다. Ubuntu·macOS·Windows의 플러그인 설정과 MCP 테스트를 실행한 결과이며, 데스크톱 앱 설치·실제 Images 2.5 사용 모델·계정 과금 생성 검증은 아니다.
+
+### Gemini·Midjourney 이미지 프롬프트 경로 대조 (2026-09-25)
+
+- Gemini 프롬프트 본문·참조 4개·테스트와 Midjourney 프롬프트 본문·테스트, 관련 GPT 프롬프트 본문을 읽었다. 파일 장부는 1091행이며 미디어 86행 중 `static_read` 76행, `partial` 10행이다. 이 표시는 정적 열람 범위다.
+- [Google 이미지 생성 가이드](https://ai.google.dev/gemini-api/docs/image-generation)와 [GenerateContent 이미지 가이드](https://ai.google.dev/gemini-api/docs/generate-content/image-generation)를 대조해 Gemini Interactions의 `response_format`과 GenerateContent REST의 `generationConfig.responseFormat.image`를 구분했다. Google 문서의 참조 이미지 표는 Pro 객체 6·캐릭터 5·스타일 3, 총 14개를 제시하지만 같은 가이드의 제한 절에는 고충실도 이미지 5개라고 적혀 있다. 이 불일치를 참고문서에 드러내고 적은 수로 시작해 현재 실행 경로를 확인하도록 했다. Search Grounding은 프롬프트 문구만으로 켜지지 않으므로 실제 도구 지원과 `google_search` 설정을 확인하도록 했다.
+- [Midjourney 버전 안내](https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version), [Edit Model 안내](https://docs.midjourney.com/hc/en-us/articles/48495453462797-Edit-Model), [GPU 시간 안내](https://docs.midjourney.com/hc/en-us/articles/32016412137741-GPU-Speed-Fast-Relax-Turbo)를 기준으로 V8.2 기본값, 참조 이미지 편집 경로, 비용 확인 절차를 대조했다. Gemini·Midjourney 스킬의 공유 프리셋 경로를 스킬 디렉터리 기준 상대경로로 고쳐 `${CLAUDE_PLUGIN_ROOT}` 의존을 없앴다. 질문 채널이 없는 직접·하위 실행에서는 필수 입력을 blocker로 반환하게 했다. 사용자가 Gemini나 Midjourney **생성**을 지정한 경우에는 실제 해당 연결을 확인하고, 없으면 생성 미완료와 완성된 프롬프트를 보고하도록 `media-production`과 에이전트를 맞췄다.
+- [OpenAI의 이미지 크기 제약](https://developers.openai.com/api/docs/guides/image-prompting)에 맞춰 21:9 OpenAI API 예시를 `1792x768`로 지정하고, 같은 요청의 Gemini `aspect_ratio=21:9`와 Midjourney `--ar 21:9`를 회귀 사례에 넣었다. `1792`와 `768`은 각각 16의 배수이고 곱은 1,376,256이다. 출력 예시의 꺾쇠괄호 자리표시는 사용자 요청으로 채우도록 세 스킬에 명시했다.
+- 필수 `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges)`의 첫 구조화 판정은 `inconclusive`였고, 요약에 제공자 우선 라우팅·21:9 출력 고정값·API 필드 혼동의 파일·줄 근거 세 건이 있었다. 이를 수정한 뒤 재실행한 구조화 판정도 `inconclusive`, `findings: []`였다. 요약의 자체 `PASS` 문구를 구조화 판정으로 대체하지 않는다.
+- 이 작업 트리에서 `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `python3 scripts/sync-mcp-core.py --check`는 복제 서버 여섯 곳 `[정합]`, `git diff --check`는 출력 없이 종료 코드 0이었다. 두 테스트 YAML은 각각 5·7개 케이스로 파싱됐고, 미디어 플러그인 버전은 Claude·Codex·마켓플레이스 모두 `3.3.7`이다. 수정한 네 스킬 버전은 GPT `2.0.6`, Gemini `1.1.7`, Midjourney `2.0.3`, production `1.0.3`이다. 회귀 사례는 YAML 명세이며 두 앱의 실제 프롬프트 결과나 이미지 생성 실행 결과는 아니다.
