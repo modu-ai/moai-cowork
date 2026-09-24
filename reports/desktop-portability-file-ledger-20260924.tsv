@@ -489,30 +489,30 @@ plugins/moai-marketer/skills/marketing-youtube-podcast-planner/SKILL.md		partial
 plugins/moai-marketer/skills/marketing-youtube-podcast-planner/references/book-publishing.md		partial
 plugins/moai-marketer/skills/marketing-youtube-podcast-planner/references/podcast-studio.md		partial
 plugins/moai-marketer/skills/marketing-youtube-podcast-planner/references/youtube-production.md		partial
-plugins/moai-media/.claude-plugin/plugin.json		partial
-plugins/moai-media/.codex-plugin/plugin.json		partial
-plugins/moai-media/.mcp.json	platform_path	partial
-plugins/moai-media/README.md		partial
+plugins/moai-media/.claude-plugin/plugin.json		static_read
+plugins/moai-media/.codex-plugin/plugin.json		static_read
+plugins/moai-media/.mcp.json	platform_path	static_read
+plugins/moai-media/README.md		static_read
 plugins/moai-media/agents/media-brand-auditor.md	claude_only_tool	partial
 plugins/moai-media/agents/media-producer.md	claude_only_tool	partial
 plugins/moai-media/mcp-launch/mcp_launch.py	platform_path	partial
-plugins/moai-media/mcp-servers/moai-mcp-openai/README.md		partial
-plugins/moai-media/mcp-servers/moai-mcp-openai/pyproject.toml		partial
-plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/__init__.py		partial
-plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/auth.py		partial
-plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/cache.py		partial
-plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/credentials.py		partial
-plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/errors.py		partial
-plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/http.py		partial
-plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/tokenstore.py	platform_path	partial
-plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_openai/__init__.py		partial
-plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_openai/server.py		partial
-plugins/moai-media/mcp-servers/moai-mcp-openai/tests/test_server.py		partial
+plugins/moai-media/mcp-servers/moai-mcp-openai/README.md		static_read
+plugins/moai-media/mcp-servers/moai-mcp-openai/pyproject.toml		static_read
+plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/__init__.py		static_read
+plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/auth.py		static_read
+plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/cache.py		static_read
+plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/credentials.py		static_read
+plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/errors.py		static_read
+plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/http.py		static_read
+plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/tokenstore.py	platform_path	static_read
+plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_openai/__init__.py		static_read
+plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_openai/server.py		static_read
+plugins/moai-media/mcp-servers/moai-mcp-openai/tests/test_server.py		static_read
 plugins/moai-media/mcp-servers/moai-mcp-openai/uv.lock		partial
 plugins/moai-media/skills/media-asset-production/SKILL.md		partial
 plugins/moai-media/skills/media-audio-gen/SKILL.md	claude_only_tool	partial
 plugins/moai-media/skills/media-brand-audit/SKILL.md		partial
-plugins/moai-media/skills/media-codex-image/SKILL.md	codex_exec	partial
+plugins/moai-media/skills/media-codex-image/SKILL.md	codex_exec	static_read
 plugins/moai-media/skills/media-gemini-3-image-prompt/SKILL.md	claude_only_tool	partial
 plugins/moai-media/skills/media-gemini-3-image-prompt/references/parameter-cheatsheet.md		partial
 plugins/moai-media/skills/media-gemini-3-image-prompt/references/prompt-blocks.md		partial

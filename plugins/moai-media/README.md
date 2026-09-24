@@ -53,9 +53,11 @@ Claude에서 Higgsfield는 플러그인 루트 `.mcp.json`의 공식 원격 MCP 
 |------|------|-----------|
 | `higgsfield` | AI 영상·이미지 생성 (media-higgsfield-* 사용) | Claude: 공식 MCP OAuth · ChatGPT: 공식 Higgsfield 플러그인 OAuth |
 | `ElevenLabs` | TTS·보이스 클로닝·더빙·효과음 (media-audio-gen 전용) | `ELEVENLABS_API_KEY` 환경변수 (elevenlabs.io에서 발급) + `uv` 사전 설치 |
+| `moai-mcp-openai` | 정확한 GPT Image 2.5 Flare·Sunburst 이미지 한 장 생성 | 별도 OpenAI API 키와 API 과금. 앱의 MCP 연결 설정 또는 사용자 컴퓨터의 `.moai/mcp/openai.json`에 키를 저장 |
 
 - Higgsfield MCP 생성은 크레딧이 소모되므로 **사전 크레딧 고지 + 사용자 확인** 후에만 실행합니다. ChatGPT 기본 이미지 도구의 이용 한도는 앱에 표시되는 계정 조건을 따릅니다.
-- MCP 미연결 시 프롬프트 온리 모드(생성 프롬프트만 산출)로 자동 전환됩니다
+- ChatGPT 기본 이미지 도구가 있으면 Higgsfield·OpenAI API MCP 연결 없이도 현재 앱의 기본 모델로 생성할 수 있습니다. [OpenAI의 데스크톱 이미지 생성 안내](https://learn.chatgpt.com/docs/image-generation)는 기본 모델을 `gpt-image-2`로 명시합니다.
+- 정확한 GPT Image 2.5 요청에서 `moai-mcp-openai` 또는 API 키가 없으면 2.5 생성은 미완료로 알립니다. Higgsfield 요청에서 공식 연결이 없을 때도 생성을 완료했다고 하지 않고 연결 방법과 프롬프트를 제공합니다. 어느 경로에서도 프롬프트 작성만으로 이미지 생성 완료라고 보고하지 않습니다.
 
 ## Claude 에이전트
 

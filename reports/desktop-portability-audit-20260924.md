@@ -21,7 +21,7 @@
 | moai-designer | 17 | 0 | 11 | 0 | 1 | 대기 |
 | moai-lawyer | 11 | 2 | 19 | 17 | 1 | 대기 |
 | moai-marketer | 21 | 2 | 64 | 0 | 1 | 대기 |
-| moai-media | 14 | 2 | 43 | 1 | 1 | 이미지·영상·Higgsfield 코어 일부 수정, 나머지 대기 |
+| moai-media | 14 | 2 | 43 | 1 | 1 | GPT Image 경로 17파일 정적 열람, 나머지 부분 검토 |
 | moai-officer | 13 | 2 | 54 | 0 | 1 | 대기 |
 | moai-pm | 1 | 0 | 14 | 0 | 0 | 대기 |
 | moai-recruiter | 6 | 2 | 11 | 0 | 0 | 대기 |
@@ -697,3 +697,9 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - 상권 PDF 스킬의 고정된 4개 질문 동시 호출을 이미 주어진 정보와 현재 앱의 질문 기능에 맞는 누락 항목 확인으로 바꿨다. 시장 분석 스킬의 기업 공시 출처를 금융감독원 DART로 바로잡았다. 오래된 역할별 참조 문서 7개에는 별도 작업자·여러 파일 생성·경영진 검토·배포가 자동 완료됐다고 해석하지 않도록 조건을 붙였다. 비영리 기부자 이력은 사용자 권한 범위의 최소 정보만 정리하고 외부 산출물에서 식별값을 제외하게 했다.
 - 이 작업 트리의 `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `git diff --check`는 출력 없이 종료 코드 0이었다. JSON·YAML 파서로 컨설턴트 플러그인 세 버전 `['1.2.7', '1.2.7', '1.2.7']`, 스킬 frontmatter 8개, YAML 테스트 사례 2개를 확인했다. 장부는 헤더 제외 1091행이며 컨설턴트 31행이 `static_read`다. 앞선 회계 커밋 `26f3aa8f`의 [원격 CI](https://github.com/modu-ai/moai-cowork/actions/runs/36037296379)는 24개 job 모두 `success`로 완료됐다. 컨설턴트 변경의 원격 CI와 macOS·Windows·Linux의 두 데스크톱 앱에서 스킬 호출·PDF 읽기·지원사업 조회는 아직 검증하지 않았다.
 - `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges)`의 구조화 판정은 `inconclusive`였고 요약에는 파일·줄 근거가 있는 결함 네 가지가 제시됐다. 별도 튜터·셀러 플러그인으로 무조건 넘기던 경로는 설치 여부를 확인하고, 없으면 이 플러그인에서 확인 가능한 자료와 전문 검토 공백을 구분하도록 고쳤다. `consult-feasibility-audit`는 미확인 주장이 하나라도 남으면 전체 사실성을 PASS로 표시할 수 없게 했다. 외부 윤문에는 신청자·기업 식별값과 서술 속 수치도 제외하고, 돌아온 문장에 원래의 숫자와 의미를 대조하게 했다. 보고서 상단의 컨설턴트·회계·분석가·고객지원 정적 열람 상태도 장부에 맞췄다. 감사 결과는 PASS가 아니며 실제 앱의 판단·윤문·개인정보 처리를 검증한 것은 아니다.
+
+### 미디어 GPT Image 생성 경로와 서버 정적 열람 (2026-09-25)
+
+- 현재 작업 트리의 미디어 매니페스트 두 개, MCP 설정, README, `media-codex-image` 스킬, `moai-mcp-openai` 서버의 README·프로젝트 설정·서버 코드·테스트·공유 코어 복제본 일곱 개를 각각 읽었다. 장부의 해당 17행만 `static_read`로 바꿨다. 810행의 생성된 `uv.lock`은 출력이 잘려 전체 정적 열람으로 세지 않고 `uv lock --check`로 정합만 검사했다. 이 범위 밖의 미디어 파일도 아직 전수 완료로 보지 않는다.
+- [OpenAI 데스크톱 이미지 문서](https://learn.chatgpt.com/docs/image-generation)는 기본 생성 모델을 `gpt-image-2`로, [OpenAI Image API 가이드](https://developers.openai.com/api/docs/guides/image-generation)는 정확한 2.5 모델 ID를 `gpt-image-2.5-flare`와 `gpt-image-2.5-sunburst`로 안내한다. [Higgsfield 공식 연결 안내](https://higgsfield.ai/creator-hub/help-center/integrations/how-do-i-connect-higgsfield-to-ai-agent)는 Claude에서 공식 MCP 커넥터, ChatGPT에서 공식 Higgsfield 플러그인을 사용하게 한다. 따라서 README의 “MCP 미연결 시 프롬프트만” 단정을 고쳤다. ChatGPT 기본 이미지 도구가 있으면 기본 모델로 생성할 수 있고, 정확한 2.5나 Higgsfield 지정 요청의 연결이 없으면 해당 생성은 미완료라고 보고한다. README의 MCP 연동 표에는 실제 포함된 `moai-mcp-openai`의 별도 API 키·과금 경로를 추가했다. 마켓플레이스 설명의 고정 스킬 총수와 오래된 `codex` 표현을 지우고 미디어 플러그인 세 버전과 두 Higgsfield User-Agent를 `3.3.1`로 맞췄다.
+- 이 작업 트리에서 `uv run --locked --python 3.11 --directory plugins/moai-media/mcp-servers/moai-mcp-openai --group dev pytest -q`는 `6 passed in 0.43s`, `uv lock --check --directory plugins/moai-media/mcp-servers/moai-mcp-openai`는 `Resolved 38 packages in 3ms`였다. `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `python3 scripts/sync-mcp-core.py --check`는 OpenAI를 포함한 복제 서버 여섯 곳 `[정합]`, `git diff --check`는 출력 없이 종료 코드 0이었다. 이들은 로컬 정적·모의 API 검사다. OpenAI 실계정 과금 생성, Higgsfield 로그인·크레딧 사용, 두 데스크톱 앱의 도구 표시와 macOS·Windows·Linux 실제 실행은 확인하지 않았다.

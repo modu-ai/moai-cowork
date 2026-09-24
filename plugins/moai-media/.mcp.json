@@ -25,7 +25,7 @@
       "url": "https://mcp.higgsfield.ai/mcp",
       "timeout": 120000,
       "headers": {
-        "User-Agent": "MoAI-Media/3.3.0"
+        "User-Agent": "MoAI-Media/3.3.1"
       }
     },
     "moai-mcp-openai": {
