@@ -1,7 +1,7 @@
 ---
 name: content-copywriting
 description: 제품·브랜드 자료를 바탕으로 헤드라인, CTA, 슬로건, 광고 문구와 스토리보드 카피를 작성합니다. 성능·가격·후기·희소성 주장은 실제 근거와 조건을 확인합니다.
-version: "1.1.1"
+version: "1.1.2"
 ---
 
 # 카피라이팅
@@ -20,7 +20,7 @@ version: "1.1.1"
 
 ## 결과
 
-후보별로 사용 채널, 주된 메시지, 문구, 실제 근거, 아직 확인할 주장, 랜딩 화면과의 대조 결과를 적는다. 광고 캠페인 전체 설계는 [캠페인 참고](references/advertising-campaign.md), 영상·이미지 스토리는 [비주얼 스토리 참고](references/visual-storytelling.md)를 필요할 때 연계한다. 이미지 생성이 필요한 경우 ChatGPT 기본 요청은 moai-media:media-codex-image, 사용자가 Higgsfield를 지정하면 moai-media:media-higgsfield-image로 연결한다.
+후보별로 사용 채널, 주된 메시지, 문구, 실제 근거, 아직 확인할 주장, 랜딩 화면과의 대조 결과를 적는다. 광고 캠페인 전체 설계는 [캠페인 참고](references/advertising-campaign.md), 영상·이미지 스토리는 [비주얼 스토리 참고](references/visual-storytelling.md)를 필요할 때 연계한다. 일반 이미지는 ChatGPT 대화의 기본 이미지 도구를 확인해 사용한다. GPT Image 2.5를 정확히 지정했다면 모델을 확인하고, 확인되지 않으면 설치된 moai-media:media-codex-image의 별도 API 경로와 비용·승인 절차를 따른다. Higgsfield 지정 요청은 공식 연결의 실제 모델을 확인하고 설치된 경우 moai-media:media-higgsfield-image를 사용한다.
 
 [공정위의 부당 표시·광고 안내](https://www.ftc.go.kr/www/contents.do?key=700)에 따라 거짓·과장, 기만, 부당 비교, 비방 가능성을 검토한다. 의료·식품·금융 등 업종별 문구는 해당 최신 규정과 전문 검토가 필요할 수 있다. 후보의 효과는 실제 시험 전에는 성과로 보고하지 않는다.
 

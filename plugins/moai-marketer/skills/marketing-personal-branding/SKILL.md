@@ -3,12 +3,12 @@ name: marketing-personal-branding
 description: |
   개인의 확인된 경력·작업물·전문 분야를 바탕으로 포지셔닝, 프로필과 콘텐츠·채널 계획을 정리합니다.
   성과·직함·후기와 플랫폼 알고리즘 효과를 만들어 내지 않습니다.
-version: "1.1.2"
+version: "1.1.3"
 ---
 
 # 개인 브랜딩
 
-개인이 어떤 일을 누구에게 어떤 근거로 소개할지 정리합니다. 기업·제품 브랜드 아이덴티티는 moai-coworker:collab-brand-identity, 실제 SNS 글 작성은 content-sns-content를 사용합니다.
+개인이 어떤 일을 누구에게 어떤 근거로 소개할지 정리합니다. 기업·제품 브랜드 아이덴티티까지 요청받으면 설치된 경우 moai-coworker:collab-brand-identity를 활용하고, 없으면 확인된 브랜드 자료로 범위를 한정합니다. 실제 SNS 글 작성은 content-sns-content를 사용합니다.
 
 ## 입력
 
@@ -28,7 +28,7 @@ version: "1.1.2"
 
 ## 이미지와 영상
 
-프로필·콘텐츠 이미지가 필요하면 ChatGPT Work의 기본 생성 경로는 moai-media:media-codex-image입니다. 사용자가 Higgsfield를 지정하면 moai-media:media-higgsfield-image를 사용합니다. 실제 인물의 사진·초상과 생성 인물의 표시·사용권을 확인합니다. 이미지 생성만으로 전문 경력이나 성과를 증명하지 않습니다.
+프로필·콘텐츠의 일반 이미지는 ChatGPT Work의 현재 대화에 제공된 이미지 도구로 만듭니다. GPT Image 2.5를 정확히 지정했다면 모델을 확인하고, 확인되지 않으면 설치된 moai-media:media-codex-image의 별도 API 경로와 비용·승인 절차를 따릅니다. Higgsfield 지정 요청은 공식 연결의 실제 모델을 확인하고 설치된 경우 moai-media:media-higgsfield-image를 사용합니다. 실제 인물의 사진·초상과 생성 인물의 표시·사용권을 확인합니다. 이미지 생성만으로 전문 경력이나 성과를 증명하지 않습니다.
 
 ## 검수
 

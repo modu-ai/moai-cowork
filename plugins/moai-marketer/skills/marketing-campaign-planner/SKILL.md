@@ -3,12 +3,12 @@ name: marketing-campaign-planner
 description: |
   광고·SNS·이메일을 묶은 캠페인 기획안과 A/B 테스트, 인플루언서 협업, 고객 여정·CRM 전략을 작성합니다.
   확인된 사업 자료와 가정을 구분하고, 예산·성과 수치를 임의로 확정하지 않습니다.
-version: "1.1.2"
+version: "1.1.3"
 ---
 
 # 캠페인 플래너
 
-광고·SNS·이메일·인플루언서 활동을 하나의 목표에 맞춰 계획합니다. 사업 전체 전략은 moai-consultant:consult-strategy, 상세페이지는 moai-seller, 이미지·영상 제작은 moai-media가 담당합니다.
+광고·SNS·이메일·인플루언서 활동을 하나의 목표에 맞춰 계획합니다. 사업 전체 전략이나 상세페이지·전문 미디어 제작까지 요청받으면 설치된 경우 moai-consultant·moai-seller·moai-media의 해당 스킬을 활용합니다. 없어도 이 스킬에서 캠페인 계획과 제작 브리프를 제공합니다.
 
 ## 입력 확인
 
@@ -38,8 +38,8 @@ version: "1.1.2"
 
 ## 이미지·상세페이지 요청
 
-- ChatGPT Work에서 일반 이미지 생성 요청은 moai-media:media-codex-image로 연결합니다.
-- 사용자가 Higgsfield를 지정하거나 그 기능이 필요하면 moai-media:media-higgsfield-image로 연결합니다. 영상은 해당 media-higgsfield-video 스킬을 사용합니다.
+- ChatGPT Work에서 일반 이미지는 현재 대화의 이미지 도구로 생성합니다. GPT Image 2.5를 정확히 지정했다면 모델을 확인하고, 확인되지 않으면 설치된 moai-media:media-codex-image의 별도 API 경로와 비용·승인 절차를 따릅니다.
+- 사용자가 Higgsfield를 지정하면 공식 연결의 실제 모델을 확인하고, 설치된 경우 moai-media:media-higgsfield-image를 사용합니다. 영상은 사용 가능한 도구와 설치된 경우 media-higgsfield-video 스킬을 확인합니다.
 - 이커머스 상세페이지 제작은 moai-seller의 상세페이지 스킬로 연결합니다.
 - 이 폴더의 references/imagegen/guide.md와 references/product-detail/guide.md는 제작 요청을 정리하는 참고자료입니다. 사실·규격·권리 조건은 해당 도구와 판매 채널에서 확인합니다.
 

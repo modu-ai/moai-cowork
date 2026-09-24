@@ -39,8 +39,8 @@
     {
       "name": "moai-marketer",
       "source": "./plugins/moai-marketer",
-      "version": "1.2.21",
-      "description": "마케팅 전담 AI 코워커 — 캠페인 기획·퍼포먼스 분석·키워드 리서치·그로스 실험·리텐션, 블로그·뉴스레터·SNS 콘텐츠 스킬. Meta Ads·게시 채널 MCP 연동. 미디어 생성은 moai-media 플러그인으로 연결합니다. 이런 분께 추천: 마케터·콘텐츠 크리에이터·1인 브랜드.",
+      "version": "1.2.22",
+      "description": "마케팅 전담 AI 코워커 — 캠페인 기획·퍼포먼스 분석·키워드 리서치·그로스 실험·리텐션, 블로그·뉴스레터·SNS 콘텐츠 스킬. Meta Ads·게시 채널 MCP 연동. 일반 이미지는 ChatGPT 기본 도구를 확인하고, 전문 미디어 제작은 연결된 도구와 moai-media 스킬을 활용합니다. 이런 분께 추천: 마케터·콘텐츠 크리에이터·1인 브랜드.",
       "displayName": "📣 마케터",
       "category": "마케팅"
     },

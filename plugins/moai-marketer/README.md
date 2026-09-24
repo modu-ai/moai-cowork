@@ -2,7 +2,7 @@
 
 마케팅 전담 AI 코워커입니다. 캠페인 기획·퍼포먼스 분석(marketing-*), 블로그·뉴스레터·SNS 콘텐츠(content-*) 스킬과 Meta Ads·게시 채널 MCP 연동을 하나의 플러그인으로 제공합니다. 슬래시 명령을 외울 필요 없이 자연어로 요청하면 매칭되는 스킬이 자동 호출됩니다.
 
-> **미디어 생성 분리 안내**: 이미지·오디오·영상 미디어 생성(media-*)은 `moai-media` 플러그인으로 분리되었습니다. 미디어 생성 요청은 moai-media를 설치해 사용하세요.
+> **미디어 생성 안내**: ChatGPT Work에서 일반 이미지는 현재 대화에 제공된 기본 이미지 도구로 만들 수 있습니다. 정확한 GPT Image 2.5 모델 지정이나 Higgsfield 모델 사용, 영상·오디오 제작은 연결된 도구와 권한을 확인하세요. `moai-media`를 설치하면 해당 제작 스킬을 사용할 수 있습니다.
 
 **이런 분께 추천**: 마케터 · 콘텐츠 크리에이터 · 1인 브랜드
 
@@ -32,6 +32,9 @@ Claude Cowork와 ChatGPT Work는 마켓플레이스 등록 권한과 경로가 �
 | `marketing-landing-page-conversion-audit` | 기존 랜딩페이지 전환율 진단·우선순위 처방 |
 | `marketing-pixel-audit` | 메타·구글 추적 픽셀 설치·설정 점검 리포트 |
 | `marketing-target-script` | 타겟 고객 페인포인트 분석·채널별 맞춤 메시지 |
+| `marketing-growth-experiment` | 실제 기준선에 맞춘 성장 실험 설계 |
+| `marketing-keyword-research` | 검색 의도와 자료에 근거한 키워드 조사 |
+| `marketing-retention` | 고객 상태별 재참여·윈백 캠페인 설계 |
 | `marketing-personal-branding` | 개인 브랜드 포지셔닝·콘텐츠·채널 전략 문서 |
 | `marketing-youtube-podcast-planner` | 유튜브·팟캐스트 기획·대본·쇼노트 구성 |
 
@@ -65,7 +68,7 @@ ChatGPT Work에서는 복합 캠페인 작업과 근거 검수를 `marketing-wor
 
 | 에이전트 | 등급 | 역할 |
 |----------|------|------|
-| `campaign-strategist` | worker | 캠페인 구조·콘텐츠 캘린더·크리에이티브 브리프·성과 리포트를 만드는 실무 에이전트. 목표 이해 → 계획 → marketing-*/content-* 스킬 선택 → 실행 → 검증의 에이전트 루프로 동작. 미디어 생성은 moai-media의 media-producer로 인계. 라이브 광고 상태 변경·외부 게시는 사용자 승인 없이 절대 수행하지 않음 |
+| `campaign-strategist` | worker | 캠페인 구조·콘텐츠 캘린더·크리에이티브 브리프·성과 리포트를 만드는 실무 에이전트. 목표 이해 → 계획 → marketing-*/content-* 스킬 선택 → 실행 → 검증의 에이전트 루프로 동작. 이미지 생성은 현재 호스트 도구를 확인하고, 설치된 경우 전문 미디어 스킬을 활용. 라이브 광고 상태 변경·외부 게시는 사용자 승인 범위를 확인 |
 | `performance-auditor` | read-only audit | 캠페인 플랜·예산 배분·카피·성과 보고서를 회의적으로 재검증하는 감사 에이전트. 출처 없는 벤치마크는 reject하고 증거 기반 PASS/FAIL 판정만 반환하며 파일을 수정하지 않음 |
 
 ## 라이선스

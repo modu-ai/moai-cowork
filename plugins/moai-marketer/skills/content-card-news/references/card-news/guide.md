@@ -12,7 +12,7 @@
 
 ## 이미지
 
-사용자 제공 이미지의 사용 권한을 확인한다. ChatGPT 기본 생성 요청은 moai-media:media-codex-image, 명시적인 Higgsfield 요청은 moai-media:media-higgsfield-image로 연결한다. 두 도구를 실제 호출하지 않았다면 원고와 이미지 지시만 제출한다. 외부 Python·Pillow·Figma 설치를 비개발자의 필수 제작 단계로 만들지 않는다.
+사용자 제공 이미지의 사용 권한을 확인한다. 일반 이미지는 ChatGPT 대화의 이미지 도구를 확인해 만든다. GPT Image 2.5를 정확히 지정했다면 모델을 확인하고, 확인되지 않으면 설치된 moai-media:media-codex-image의 별도 API 경로를 따른다. Higgsfield 지정 요청은 공식 연결의 실제 모델을 확인하고 설치된 경우 moai-media:media-higgsfield-image를 사용한다. 실제 생성 결과가 없으면 원고와 이미지 지시만 제출한다. 외부 Python·Pillow·Figma 설치를 비개발자의 필수 제작 단계로 만들지 않는다.
 
 이미지를 만들었다면 카드별 파일을 열어 원고와 철자·숫자·로고·제품 모습이 일치하는지 확인한다. 모바일 축소 화면에서 글자 가독성, 대비, 잘림과 순서를 확인한다. 수정할 수 있는 원본 파일이나 Figma 링크는 실제로 생성·접근한 경우에만 제공한다.
 
