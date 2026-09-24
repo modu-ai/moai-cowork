@@ -571,3 +571,9 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - Consultant·CS의 두 쌍과 각 플러그인의 나머지 비교 항목에서는 이번 본문 대조에서 추가로 고칠 차이를 확인하지 못했다. 이 결과만으로 실행 기능의 동등성이나 법률·재무·채용 판단의 정확성을 선언하지 않는다.
 - 두 번째 `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges)`도 구조화된 판정은 `inconclusive`였다. 요약의 파일·줄 근거 세 건을 직접 확인해 공식 웹 법령 검증 기록을 법무 생성·감사 스킬 양쪽에 명시했다. Analyst·Officer에는 출처 없는 핵심 수치를 조작으로 단정하지 않되 제출 산출물은 FAIL로 막는 기준을, Writer·Story에는 실질적 표현 복제와 미확인 허락의 제출 FAIL 기준을 넣었다. 이 감사는 실제 법령 조회나 원고 표절 판정의 실행 검증이 아니다.
 - 이 작업 트리에서 Python으로 변경한 아홉 플러그인의 Claude·Codex·마켓플레이스 버전 일치(`3-way OK` 각 9건), Lawyer 스킬 두 개의 YAML `1.0.1`, 매핑표 `28 body_compared; 28 not_run`을 확인했다. `git diff --check`는 출력 없이 종료 코드 0이었다. 이는 파일 구조와 문구의 검사이며 데스크톱 앱에서 에이전트나 스킬이 실제 발견·실행됐다는 증거는 아니다.
+
+### Higgsfield 설치 안내 대조 (2026-09-25)
+- [Higgsfield 공식 연결 안내](https://higgsfield.ai/creator-hub/help-center/integrations/how-do-i-connect-higgsfield-to-ai-agent)는 Claude에서 공식 MCP URL을 커스텀 커넥터로 추가하고 ChatGPT에서는 공식 Higgsfield 플러그인을 설치하라고 안내한다. 기존 `www/content/plugins/higgsfield-setup.md`는 Claude의 플러그인 설치만으로 MCP가 자동 등록·인증된다고 단정하고 ChatGPT 경로를 설명하지 않았다. 두 앱의 클릭 경로를 분리하고 실제 연결 상태를 확인하도록 고쳤다.
+- 같은 안내는 ChatGPT에서 오디오 생성과 Website Building을 사용할 수 없다고 적는 반면, Higgsfield의 [마케터용 MCP 소개](https://higgsfield.ai/blog/mcp-for-marketers)는 ChatGPT의 음성 작업을 포함해 설명한다. 공식 문서 사이에 기능 범위의 차이가 있어 오디오·설명 영상·Soul 등은 현재 세션에 실제로 노출된 도구를 확인한 뒤에만 실행하도록 안내했다. 이 페이지의 변경은 어느 계정에서 기능을 실행했다는 증거가 아니다.
+- 기존 문서의 고정 크레딧 예시, 견적과 실제 청구액의 동일성, 토큰 저장 위치·자동 갱신 단정을 제거했다. 견적 전 참조 이미지의 외부 전송 가능성을 고지하고 실제 견적·차감 정보를 구분했다. 모델별 가격과 계정별 인증 상태는 조회하지 않았다.
+- 이 작업 트리에서 `hugo --gc --minify --logLevel warn`은 종료 코드 0으로 209페이지를 빌드했고 WARN·ERROR는 출력되지 않았다. 수정 페이지의 `npx --yes markdownlint-cli2 'www/content/plugins/higgsfield-setup.md'`는 `Summary: 0 issues in 0 files`였다. 렌더된 `www/public/plugins/higgsfield-setup/index.html`에서 두 앱의 안내, 2026-09-25 수정일, 본문에 잔류한 `**` 0건을 확인했다. 전체 문서 lint는 종료 코드 1이었고 출력 끝에는 기존 릴리스 페이지의 MD013·MD060 등이 있었다. 전체 실패를 수정 페이지의 통과로 바꾸어 말하지 않는다.
