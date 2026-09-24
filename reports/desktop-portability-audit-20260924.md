@@ -29,7 +29,7 @@
 | moai-story | 18 | 2 | 42 | 0 | 1 | 대기 |
 | moai-threads-poster | 5 | 0 | 2 | 16 | 1 | 대기 |
 | moai-tutor | 11 | 2 | 11 | 0 | 0 | 대기 |
-| moai-writer | 10 | 2 | 17 | 0 | 1 | 32/48파일 정적 열람, 나머지·앱 실행 검증 대기 |
+| moai-writer | 10 | 2 | 17 | 0 | 1 | 36/48파일 정적 열람, 나머지·앱 실행 검증 대기 |
 
 ## 공식 문서와 확인한 개선점
 
@@ -932,3 +932,10 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - `uv run --with pytest python -m pytest -q plugins/moai-writer/skills/korean-humanize/tests` 출력은 `129 passed, 10 subtests passed in 0.21s`였다. `python3 scripts/check-plugin-runtimes.py` 출력은 `검사한 플러그인 18개 — 오류 0건, 참고 0건`이고 `git diff --check`는 출력 없이 종료 코드 0이었다. 스킬 버전은 `1.4.2`, 작가 플러그인의 세 버전은 `1.5.9`로 일치했다. 이는 코드 회귀와 구조 점검이며 새 지침을 데스크톱 앱에서 실제 수행한 증거는 아니다.
 - `mcp__moai__codex_audit`를 두 차례 실행했다. 두 번 모두 구조화 판정 `inconclusive`, `findings: []`였고 요약의 구체 file:line 지적을 지침에서 확인해 재실행 원문 계승·폴더 충돌·이전 검수 결과 확인을 보강했다. 이 감사는 PASS로 기록하지 않는다. 원문과 윤문본의 실제 생성·의미 보존, macOS·Windows·Linux 호스트별 파일 작업은 아직 검증하지 않았다.
 - 앞선 목차 수정 `f9f01568`의 [원격 CI](https://github.com/modu-ai/moai-cowork/actions/runs/36067268541)는 조회 시 `completed/success`, 27개 작업 중 실패 0개였다. 이 CI는 실제 한국어 윤문 결과나 데스크톱 앱 동작을 검사하지 않는다.
+
+### 한국어 윤문 처방집 의미 보존 점검 (2026-09-25)
+
+- `quick-rules.md`, `rewriting-playbook.md`, `checks.py`, `empirical-validation.md`를 파일별로 전체 열람했다. 실증 노트는 원저작 프로젝트의 측정을 요약하며 이 작업에서 코퍼스 수치를 독립 재현하지 않았음을 자체 출처 절에도 적고 있다. `checks.py`는 숫자·직접 인용 등 표층 불변식을 검사하며 의미 보존 자체를 증명하지 않는다고 명시한다.
+- 짧은 룰북과 처방집에는 가능성을 단정으로, 추정을 사실로, 협업을 대행으로, 현재를 미래·과거로 바꾸는 예시와 원문에 없는 제품 성능·고객 수치·사례를 넣게 하는 예시가 있었다. 원문이 제공한 근거·양태·시제·행위자를 우선하도록 처방을 고쳤고 가상 수치·후기는 실제 산출물에 옮기지 못하게 했다. `D-7`을 S1 목록에 넣은 표기도 S2 분류에 맞췄다. 스킬 버전은 `1.4.3`, 작가 플러그인 세 버전은 `1.5.10`으로 올렸다.
+- `mcp__moai__codex_audit`의 구조화 판정은 `inconclusive`, `findings: []`였다. 요약이 지적한 I-4 의무→사실, A-22 협업→대행, 결과 약속→행동 요청, 원문에 없는 행위자·대상 추가, 객관 판단→화자 경험 전환 다섯 곳은 실제 파일에서 확인해 수정했다. 감사 요약의 `FAIL` 문구를 구조화 판정으로 바꾸지 않는다. 실제 윤문 모델 출력과 12개 남은 작가 파일은 계속 미검증이다.
+- `python3 scripts/check-plugin-runtimes.py` 출력은 `검사한 플러그인 18개 — 오류 0건, 참고 0건`이고, `git diff --check`는 출력 없이 종료 코드 0이었다. 장부를 파싱한 결과 작가 파일 48개 중 `static_read` 36개였으며 스킬 `1.4.3`, Claude·Codex·마켓플레이스 `1.5.10`이 일치했다. 앞선 원문 보존 수정 `4a695647`의 [원격 CI](https://github.com/modu-ai/moai-cowork/actions/runs/36068223441)는 조회 시 `completed/success`였다. 이 CI는 이번 처방집 수정이나 실제 윤문 산출물을 검증하지 않는다.
