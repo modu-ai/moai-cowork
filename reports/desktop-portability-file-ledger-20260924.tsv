@@ -974,45 +974,45 @@ plugins/moai-story/skills/story-webtoon-spec/references/monetization-hooks.md		p
 plugins/moai-story/skills/story-webtoon-spec/references/platform-debut-paths.md		partial
 plugins/moai-story/skills/story-webtoon-spec/references/thumbnail-cover-specs.md		partial
 plugins/moai-story/skills/story-webtoon-spec/references/webtoon-glossary.md		partial
-plugins/moai-threads-poster/.claude-plugin/plugin.json		partial
-plugins/moai-threads-poster/.codex-plugin/plugin.json		partial
-plugins/moai-threads-poster/.mcp.json		partial
-plugins/moai-threads-poster/.moai/reports/plan-audit/SPEC-THREADS-POSTER-INSTAGRAM-001-run-gate-2026-08-05.md		partial
-plugins/moai-threads-poster/.moai/specs/SPEC-THREADS-POSTER-INSTAGRAM-001/acceptance.md		partial
-plugins/moai-threads-poster/.moai/specs/SPEC-THREADS-POSTER-INSTAGRAM-001/plan.md	claude_only_tool	partial
-plugins/moai-threads-poster/.moai/specs/SPEC-THREADS-POSTER-INSTAGRAM-001/progress.md	claude_only_tool	partial
-plugins/moai-threads-poster/.moai/specs/SPEC-THREADS-POSTER-INSTAGRAM-001/spec.md		partial
-plugins/moai-threads-poster/README.md		partial
-plugins/moai-threads-poster/config/threads.yaml		partial
-plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/.gitignore		partial
-plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/CONNECTORS.md		partial
-plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/README.md		partial
-plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/pyproject.toml		partial
-plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_core/__init__.py		partial
-plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_core/auth.py		partial
-plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_core/cache.py		partial
-plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_core/credentials.py		partial
-plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_core/errors.py		partial
-plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_core/http.py		partial
-plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_core/tokenstore.py	platform_path	partial
-plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/__init__.py		partial
-plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/instagram_api.py		partial
-plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/server.py		partial
-plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/threads_api.py		partial
-plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/tests/__init__.py		partial
-plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/tests/test_instagram_api.py		partial
-plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/tests/test_multichannel.py		partial
-plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/tests/test_server.py	platform_path	partial
-plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/tests/test_threads_api.py		partial
-plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/uv.lock		partial
-plugins/moai-threads-poster/skills/README.md		partial
-plugins/moai-threads-poster/skills/instagram-comments/SKILL.md	claude_only_tool	partial
-plugins/moai-threads-poster/skills/instagram-post/SKILL.md		partial
-plugins/moai-threads-poster/skills/threads-multichannel/SKILL.md	claude_only_tool	partial
-plugins/moai-threads-poster/skills/threads-post-draft/SKILL.md	claude_only_tool	partial
-plugins/moai-threads-poster/skills/threads-post-draft/references/threads-spec.md		partial
-plugins/moai-threads-poster/skills/threads-style-learn/SKILL.md		partial
-plugins/moai-threads-poster/skills/threads-style-learn/references/style-profile-template.md		partial
+plugins/moai-threads-poster/.claude-plugin/plugin.json		static_read
+plugins/moai-threads-poster/.codex-plugin/plugin.json		static_read
+plugins/moai-threads-poster/.mcp.json		static_read
+plugins/moai-threads-poster/.moai/reports/plan-audit/SPEC-THREADS-POSTER-INSTAGRAM-001-run-gate-2026-08-05.md		static_read
+plugins/moai-threads-poster/.moai/specs/SPEC-THREADS-POSTER-INSTAGRAM-001/acceptance.md		static_read
+plugins/moai-threads-poster/.moai/specs/SPEC-THREADS-POSTER-INSTAGRAM-001/plan.md	claude_only_tool	static_read
+plugins/moai-threads-poster/.moai/specs/SPEC-THREADS-POSTER-INSTAGRAM-001/progress.md	claude_only_tool	static_read
+plugins/moai-threads-poster/.moai/specs/SPEC-THREADS-POSTER-INSTAGRAM-001/spec.md		static_read
+plugins/moai-threads-poster/README.md		static_read
+plugins/moai-threads-poster/config/threads.yaml		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/.gitignore		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/CONNECTORS.md		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/README.md		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/pyproject.toml		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_core/__init__.py		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_core/auth.py		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_core/cache.py		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_core/credentials.py		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_core/errors.py		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_core/http.py		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_core/tokenstore.py	platform_path	static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/__init__.py		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/instagram_api.py		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/server.py		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/threads_api.py		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/tests/__init__.py		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/tests/test_instagram_api.py		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/tests/test_multichannel.py		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/tests/test_server.py	platform_path	static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/tests/test_threads_api.py		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/uv.lock		static_read
+plugins/moai-threads-poster/skills/README.md		static_read
+plugins/moai-threads-poster/skills/instagram-comments/SKILL.md	claude_only_tool	static_read
+plugins/moai-threads-poster/skills/instagram-post/SKILL.md		static_read
+plugins/moai-threads-poster/skills/threads-multichannel/SKILL.md	claude_only_tool	static_read
+plugins/moai-threads-poster/skills/threads-post-draft/SKILL.md	claude_only_tool	static_read
+plugins/moai-threads-poster/skills/threads-post-draft/references/threads-spec.md		static_read
+plugins/moai-threads-poster/skills/threads-style-learn/SKILL.md		static_read
+plugins/moai-threads-poster/skills/threads-style-learn/references/style-profile-template.md		static_read
 plugins/moai-tutor/.claude-plugin/plugin.json		static_read
 plugins/moai-tutor/.codex-plugin/plugin.json		static_read
 plugins/moai-tutor/README.md		static_read

@@ -55,13 +55,13 @@ uv run moai-mcp-threads-poster   # stdio MCP 서버 기동
 
 ## 발행 워크플로 (직접 발행 모델)
 
-> **큐·예약·승인 상태머신은 없습니다.** 세션 안에서 초안을 작성해 사용자에게 보여드리고, 승인하면 즉시 Graph API 로 발행합니다. 예약·정기 발행(예: 매주 수요일 12시)은 Claude Cowork 이 담당합니다.
+> **큐·예약·승인 상태머신은 없습니다.** 세션 안에서 초안을 작성해 사용자에게 보여드리고, 승인하면 즉시 Graph API 로 발행합니다. 예약·정기 발행은 사용 중인 앱의 지원 여부를 확인합니다.
 
 ### 플로우
 
 1. **주제 → 초안** — `threads-post-draft` 스킬이 저장된 문체를 적용해 초안을 작성해 사용자에게 보여준다.
 2. **승인** — 사용자가 초안을 확인하고 승인하면 발행으로 간다 (승인 없이는 발행하지 않는다 — "자동 아닌 자율").
-3. **즉시 발행** — `threads_publish_text` / `threads_publish_image` / `threads_publish_video` 로 Graph API 에 바로 게시. 결과(`media_id`, `permalink`) 를 즉시 반환한다.
+3. **즉시 발행** — `threads_publish_text` / `threads_publish_image` / `threads_publish_video` 로 Graph API 에 바로 게시. 결과는 `media_id`와 프로필 확인 후 조합할 `permalink_hint`를 반환한다.
 
 ```
 주제 ──threads-post-draft(문체 적용)──> 초안 ──사용자 승인──> threads_publish_text ──> PUBLISHED

@@ -206,7 +206,7 @@ Meta App 에 다음 권한을 추가한다 (App Review 필요):
 | `instagram_content_publish` | 2단계 발행(container → media_publish) |
 | `pages_read_engagement` | 발행에 필요 |
 | `pages_show_list` | Page 해석(setup) |
-| `manage_comments` | 댓글 모더레이션(`instagram_comments_*`) — 선택 |
+| `instagram_manage_comments` | 댓글 모더레이션(`instagram_comments_*`) — 선택 |
 | `manage_insights` | 인사이트(`instagram_insights`) — 선택 |
 
 ## I-3. Facebook Login for Business 로 장기 Page 토큰 발급
@@ -291,4 +291,4 @@ instagram_get_profile
 
 ---
 
-버전: 0.2.0 · API SSOT: Threads <https://developers.facebook.com/docs/threads> · Instagram <https://developers.facebook.com/docs/instagram-api> · 문의: 모두의 AI
+API 참고: Threads <https://developers.facebook.com/docs/threads> · Instagram <https://developers.facebook.com/docs/instagram-api> · 문의: 모두의 AI

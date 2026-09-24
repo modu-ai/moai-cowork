@@ -126,6 +126,19 @@ def test_split_oversized_single_word_hard_splits_within_budget():
     assert body_zs == huge
 
 
+def test_split_oversized_word_recalculates_budget_at_two_digit_prefix():
+    huge = "Z" * 3000
+    out = _split_for_x_thread(huge, limit=X_FREE_LIMIT)
+    assert len(out) >= 10
+    assert all(len(tweet) <= X_FREE_LIMIT for tweet in out)
+    assert "".join(re.sub(r"^\d+/\s", "", tweet) for tweet in out) == huge
+
+
+def test_split_rejects_character_larger_than_remaining_budget():
+    with pytest.raises(ValueError, match="limit too small for character"):
+        _split_for_x_thread("가", limit=4, counter=lambda text: len(text.encode("utf-8")))
+
+
 def test_split_respects_injected_byte_counter():
     # 한글 1글자 = UTF-8 3바이트. counter 를 바이트 기반으로 주입하면
     # 한글 텍스트가 *바이트* 예산 안에서 더 적게 쪼개지는지(더 많은 청크) 검증.

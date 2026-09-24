@@ -469,7 +469,7 @@ def _adapt_for_x_premium(text: str) -> tuple[str, bool]:
 def _take_prefix(token: str, budget: int, counter: Callable[[str], int]) -> str:
     r"""``token`` 에서 ``counter(접두) <= budget`` 인 최장 접두 반환 (longest fitting prefix).
 
-    단일 문자조차 ``budget`` 을 초과하면 빈 문자열을 반환한다 (호출자가 한 글자 강제 처리).
+    단일 문자조차 ``budget`` 을 초과하면 빈 문자열을 반환한다 (호출자가 오류 처리).
     """
     best = ""
     for ch in token:
@@ -478,25 +478,6 @@ def _take_prefix(token: str, budget: int, counter: Callable[[str], int]) -> str:
             break
         best = cand
     return best
-
-
-def _hard_split_token(
-    token: str, budget: int, counter: Callable[[str], int]
-) -> list[str]:
-    r"""단일 토큰이 ``budget`` 을 초과할 때 조각으로 자른다 (hard-split an oversized token).
-
-    각 조각의 ``counter`` 값은 ``budget`` 이하다. 단일 문자가 ``budget`` 을 초과하는
-    극단적 케이스는 한 글자씩 강제 분할한다 (진행 보장 — 무한루프 방지).
-    """
-    pieces: list[str] = []
-    remaining = token
-    while remaining:
-        piece = _take_prefix(remaining, budget, counter)
-        if not piece:
-            piece = remaining[0]
-        pieces.append(piece)
-        remaining = remaining[len(piece):]
-    return pieces
 
 
 def _split_for_x_thread(
@@ -513,8 +494,8 @@ def _split_for_x_thread(
 
     분할 원칙 (split rules):
       - 공백 단위로 단어를 쪼갠다 (``text.split()``) — 단어 중간은 자르지 않는다.
-      - 단일 단어가 (접두를 뺀) 내용 예산보다 긴 극단적 케이스만 어쩔 수 없이 글자 단위로
-        강제 분할한다 (``_hard_split_token``). 일반적인 텍스트에서는 발생하지 않는다.
+      - 단일 단어가 (접두를 뺀) 내용 예산보다 긴 경우 글자 단위로 나누고,
+        접두 번호가 바뀔 때마다 예산을 다시 계산한다.
       - 접두 번호 길이는 자릿수에 따라 자라난다(9→10, 99→100) — 각 청크마다 *현재* idx
         기준으로 예산을 다시 계산해 정확도를 보장한다.
 
@@ -577,11 +558,23 @@ def _split_for_x_thread(
                 i += 1
             else:
                 # 단일 단어가 예산 초과 — 글자 단위 강제 분할, 각 조각을 자체 청크로.
-                for piece in _hard_split_token(w, budget, counter):
+                while w:
+                    piece = _take_prefix(w, budget, counter)
+                    if not piece:
+                        raise ValueError(
+                            f"limit {limit} 이 다음 글자를 담기에 너무 작습니다 "
+                            f"(limit too small for character at idx={idx})."
+                        )
                     chunks.append(prefix + piece)
+                    w = w[len(piece):]
                     idx += 1
                     prefix = f"{idx}/ "
                     budget = limit - counter(prefix)
+                    if w and budget <= 0:
+                        raise ValueError(
+                            f"limit {limit} 이 번호 접두를 담기에 너무 작습니다 "
+                            f"(limit too small for prefix at idx={idx})."
+                        )
                 current = []
                 current_len = 0
                 i += 1
@@ -695,8 +688,8 @@ def instagram_publish_image(text: str, image_url: str) -> dict[str, Any]:
     r"""Instagram 에 이미지 발행 (publish an image — JPEG-only, immediate 2-stage).
 
     JPEG 이미지(공개 URL) 컨테이너를 만들어 즉시 발행한다. PNG 는 거부된다(Threads 와 상이).
-    ``text`` 는 캡션(선택). Instagram 은 서버 측 스케줄링을 지원하지 않는다 — 예약·정기 발행은
-    Claude Cowork 이 담당한다.
+    ``text`` 는 캡션(선택). 본 도구는 즉시 발행만 한다. 예약·정기 발행은
+    사용 중인 앱의 지원 여부를 확인한다.
 
     Returns:
         ``media_id``/``container_id``/``permalink_hint`` dict. 자격증명 미설정 시 ``setup_required``.
@@ -797,7 +790,8 @@ def instagram_refresh_token() -> dict[str, Any]:
 def instagram_comments_list(media_id: str) -> dict[str, Any]:
     r"""Instagram 미디어의 댓글 목록 (list comments on a media object).
 
-    ``manage_comments`` 권한 필요 (REQ-INST-018). 미설정 시 ``setup_required`` 에러.
+    ``instagram_manage_comments`` 권한 필요 (REQ-INST-018). 자격증명 미설정 시
+    ``setup_required``, 권한 부족 시 Instagram API 오류를 반환한다.
     """
     client = _get_ig_client()
     if client is None:
@@ -812,7 +806,7 @@ def instagram_comments_list(media_id: str) -> dict[str, Any]:
 def instagram_comments_reply(comment_id: str, text: str) -> dict[str, Any]:
     r"""Instagram 댓글에 답글 작성 (reply to a comment).
 
-    ``manage_comments`` 권한 필요 (REQ-INST-018).
+    ``instagram_manage_comments`` 권한 필요 (REQ-INST-018).
     """
     client = _get_ig_client()
     if client is None:
@@ -827,7 +821,7 @@ def instagram_comments_reply(comment_id: str, text: str) -> dict[str, Any]:
 def instagram_comments_hide(comment_id: str) -> dict[str, Any]:
     r"""Instagram 댓글 숨김 (hide a comment).
 
-    ``manage_comments`` 권한 필요 (REQ-INST-018).
+    ``instagram_manage_comments`` 권한 필요 (REQ-INST-018).
     """
     client = _get_ig_client()
     if client is None:

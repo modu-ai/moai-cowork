@@ -1,7 +1,7 @@
 ---
 name: instagram-comments
 description: |
-  Instagram 미디어의 댓글을 관리합니다 — 목록 조회, 답글 작성, 댓글 숨김. `manage_comments` 권한이 부여된 경우에만 동작합니다. 발행된 게시물의 댓글 모더레이션(응대/정리) 에 사용합니다.
+  Instagram 미디어의 댓글을 관리합니다 — 목록 조회, 답글 작성, 댓글 숨김. `instagram_manage_comments` 권한이 부여된 경우에만 동작합니다. 발행된 게시물의 댓글 모더레이션(응대/정리) 에 사용합니다.
   다음과 같은 요청 시 사용하세요:
   - "인스타 게시물 댓글 확인해줘"
   - "이 댓글에 답글 달아줘"
@@ -9,16 +9,16 @@ description: |
   - "최근 포스트 댓글 정리해줘"
   - "특정 댓글 숨김 처리해줘"
   [책임 경계] vs 형제 스킬: Instagram 댓글 *조회/답글/숨김* 만 담당합니다. 포스트 발행은 instagram-post 스킬, 인사이트 조회는 instagram_insights 도구를 직접 사용하세요.
-version: "1.3.1"
+version: "1.3.2"
 ---
 
 # Instagram 댓글 관리 (instagram-comments)
 
 ## 개요
 
-발행된 Instagram 미디어의 댓글을 조회하고, 답글을 달고, 댓글을 숨긴다. 이 스킬은 Instagram Graph API 의 댓글 엔드포인트(`manage_comments` 권한 게이트) 를 통해 `instagram_comments_list` / `instagram_comments_reply` / `instagram_comments_hide` 도구를 호출한다.
+발행된 Instagram 미디어의 댓글을 조회하고, 답글을 달고, 댓글을 숨긴다. 이 스킬은 Instagram Graph API 의 댓글 엔드포인트(`instagram_manage_comments` 권한 게이트) 를 통해 `instagram_comments_list` / `instagram_comments_reply` / `instagram_comments_hide` 도구를 호출한다.
 
-> **권한**: 세 가지 도구 모두 Meta 앱에 `manage_comments` 권한이 부여되어 있어야 한다. 권한이 없으면 API 가 거부한다.
+> **권한**: 세 가지 도구 모두 Meta 앱에 `instagram_manage_comments` 권한이 부여되어 있어야 한다. 권한이 없으면 API 가 거부한다.
 
 ## 트리거 키워드
 
@@ -35,7 +35,7 @@ instagram_comments_list(media_id="<미디어 ID>")
 # → {"data": [{"id", "text", "username", "timestamp", "hidden": false}, ...]}
 ```
 
-- `media_id` 는 `instagram_publish_image` 등 발행 도구가 반환한 `media_id` (또는 `instagram_insights` 로 조회한 미디어 ID).
+- `media_id`는 `instagram_publish_image` 등 발행 도구가 반환한 값이나 사용자가 확인해 준 게시물 ID를 사용한다. `instagram_insights`는 게시물 목록을 조회하지 않는다.
 
 ### 2단계: 답글 초안 작성
 
@@ -43,19 +43,13 @@ instagram_comments_list(media_id="<미디어 ID>")
 
 답글 본문도 저장된 문체 프로필을 반영해 작성한다 (있으면). 공격적/스팸 댓글에는 답글 대신 숨김을 권장.
 
-### 3단계: 한국어 감사 3단 (답글 발행 전 필수)
+### 3단계: 답글 최종 점검 (발행 전 필수)
 
-답글은 브랜드 계정 이름으로 공개된 자리에 나가고, 사업 계정에 그대로 남는다. 사용자에게 보여주기 **전에** ⟨한국어 감사 3단⟩을 통과시킨다. 순서는 고정이다:
+답글은 브랜드 계정 이름으로 공개된다. 사용자에게 보여주기 전에 대상 댓글과 답글을 대조해 사실·수치·고객 개인정보·미공개 정보·말투·맞춤법을 직접 확인한다. 근거 또는 공개 가능 여부를 확인할 수 없으면 답글을 보류하고 사유를 알린다.
 
-```
-  moai-coworker:ai-slop-reviewer     1차 일반 슬롭 정리
-→ moai-writer:korean-spell-check     2차 맞춤법 — 제안 수집 (미공개 정보가 섞였으면 건너뜀)
-→ moai-writer:korean-humanize        3차 정밀 윤문 + 맞춤법 반영 + Phase 6 최종 검수
-```
-
-- **[HARD] `korean-humanize`가 마지막이다.** Phase 6 최종 검수가 판정한 **바로 그 산출물**이 발행된다.
-- `korean-spell-check`는 원문을 외부 서비스(`nara-speller.co.kr`)로 보낸다. 답글에 **아직 공개되지 않은 정보**(미발표 출시일·비공개 실적·고객 개인정보)가 섞였다면 이 단계를 건너뛴다 — 생략해도 `korean-humanize`가 맞춤법을 함께 본다. 생략했으면 그 사실을 결과에 적는다.
-- 감사가 `hold_and_report`로 판정하면 발행하지 않는다. 사유를 그대로 보여주고 2단계로 돌아간다.
+- **[HARD] 점검을 마친 답글 그대로 승인받는다.** 승인 뒤 수정하면 다시 점검하고 재승인받는다.
+- `moai-coworker:ai-slop-reviewer`, `moai-writer:korean-spell-check`, `moai-writer:korean-humanize`가 현재 세션에 있으면 보조 검수에 사용할 수 있다. 별도 플러그인 설치를 답글 조건으로 삼지 않는다. 외부 맞춤법 서비스를 쓰기 전에는 고객 개인정보와 미공개 정보의 전송 여부를 확인한다.
+- 보조 검수에서 `hold_and_report`가 나오거나 의미 보존을 확인할 수 없으면 답글을 발행하지 않고 2단계로 돌아간다. 보조 검수 뒤에도 최종 답글을 직접 다시 읽는다.
 
 ### 4단계: 승인 게이트 (답글·숨김 공통)
 
@@ -70,8 +64,8 @@ instagram_comments_list(media_id="<미디어 ID>")
 | 대상 게시물 `media_id` | ✓ | ✓ |
 | 대상 댓글 `comment_id` | ✓ | ✓ |
 | 대상 댓글 **원문 전문**과 작성자 | ✓ | ✓ |
-| 감사를 마친 답글 **전문**과 바이트 수 | ✓ | — |
-| 감사 3단에서 무엇이 바뀌었는지 한 줄 | ✓ | — |
+| 점검을 마친 답글 **전문**과 글자 수 | ✓ | — |
+| 최종 점검에서 무엇이 바뀌었는지 한 줄 | ✓ | — |
 | 숨김 사유 (스팸 / 비난 / 기타) | — | ✓ |
 
 승인 선택지는 이렇게 구성한다:
@@ -79,7 +73,7 @@ instagram_comments_list(media_id="<미디어 ID>")
 | 선택지 | 뜻 |
 |---|---|
 | 이대로 실행 (권장) | 보여준 인자 그대로 답글 발행 또는 숨김 |
-| 고쳐 쓰기 / 대상 바꾸기 | 2단계로 복귀 → 감사 3단 재통과 → 재승인 |
+| 고쳐 쓰기 / 대상 바꾸기 | 2단계로 복귀 → 최종 점검 → 재승인 |
 | 취소 | 아무것도 실행하지 않고 종료 |
 
 - **[HARD] 여러 댓글을 한꺼번에 처리할 때도 건별로 보여준다.** "스팸 5건 숨김" 같은 묶음 승인은 금지한다 — 5건 중 하나가 정당한 고객 불만이어도 사용자가 알 수 없다. 목록으로 한 번에 제시하되, 각 건의 댓글 원문·작성자·사유가 모두 보여야 한다.
@@ -92,7 +86,7 @@ instagram_comments_list(media_id="<미디어 ID>")
 
 ```python
 # 답글
-instagram_comments_reply(comment_id="<댓글 ID>", text="<감사를 마치고 승인된 답글>")
+instagram_comments_reply(comment_id="<댓글 ID>", text="<점검을 마치고 승인된 답글>")
 # → {"id": "<새 답글 ID>"}
 
 # 숨김 (삭제가 아님 — 작성자와 페이지 관리자만 안 보이거나, 정책에 따라 전체 숨김)
@@ -142,12 +136,12 @@ instagram_comments_hide(comment_id="<댓글 ID>")
 
 | 상황 | 대응 |
 |------|------|
-| `manage_comments` 권한 없음 | Meta 앱 검수(App Review) 로 권한 추가 필요 |
+| `instagram_manage_comments` 권한 없음 | Meta 앱 검수(App Review) 로 권한 추가 필요 |
 | `setup_required` 에러 | 앱 설정 또는 사용자 자격증명 파일에서 `IG_ACCESS_TOKEN` / `IG_USER_ID` 확인 |
 | Personal 계정 | Graph API 미지원 — Professional 계정 필요 |
 | 엔드포인트 미검증 | comments 엔드포인트 경로는 run-phase 검증 대상(@MX:TODO) — 최초 사용 시 공식 문서로 경로 재확인 권장 |
-| 감사 3단에서 `hold_and_report` 판정 | 답글을 발행하지 않음. 사유를 그대로 보여주고 2단계로 복귀 |
-| 답글에 미공개 정보·고객 개인정보가 섞임 | `korean-spell-check` 생략 (외부 전송) — 생략 사실을 결과에 적음 |
+| 출처·공개 가능 여부 미확인 또는 보조 검수 `hold_and_report` | 답글을 발행하지 않음. 사유를 보여주고 2단계로 복귀 |
+| 답글에 미공개 정보·고객 개인정보가 섞임 | 공개 범위를 확인할 때까지 답글 보류. 외부 맞춤법 서비스에 전송하지 않음 |
 | 사용자가 승인 게이트에서 취소 | 아무것도 실행하지 않고 종료. 부분 실행 금지 |
 
 ## 출력 형식
@@ -167,7 +161,7 @@ instagram_comments_hide(comment_id="<댓글 ID>")
 
 ## 발행 전 설정 (최초 1회)
 
-Threads 발행 자격증명과 별개로 Instagram용 `IG_ACCESS_TOKEN` / `IG_USER_ID`가 필요하며, Meta 앱에 `manage_comments` 권한도 부여되어야 한다. 발급 절차는 `mcp-servers/moai-mcp-threads-poster/CONNECTORS.md`의 Instagram 섹션을 따른다.
+Threads 발행 자격증명과 별개로 Instagram용 `IG_ACCESS_TOKEN` / `IG_USER_ID`가 필요하며, Meta 앱에 `instagram_manage_comments` 권한도 부여되어야 한다. 발급 절차는 `mcp-servers/moai-mcp-threads-poster/CONNECTORS.md`의 Instagram 섹션을 따른다.
 
 ## 관련 스킬
 
