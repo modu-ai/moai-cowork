@@ -177,7 +177,7 @@ All evolution proposals require human approval when require_approval is true:
 
 - Present the proposed change with before/after diff
 - Show supporting evidence (observation count, confidence score)
-- Provide one-click approve/reject via AskUserQuestion
+- Present approve/reject options through the current runtime's user question channel; if unavailable, report the pending decision and wait for user input
 - Log the decision with timestamp and rationale
 
 ---
@@ -241,7 +241,7 @@ When a learning reaches Rule tier (5+ observations, confidence >= 0.80):
 
 3. **Contradiction Check**: Layer 3 scans for conflicting rules
 
-4. **Human Review**: Layer 5 presents the proposal via AskUserQuestion
+4. **Human Review**: Layer 5 presents the proposal through the current runtime's user question channel; if unavailable, it reports the pending decision and waits
 
 5. **Application**: On approval, the change is applied
    - Learning status updated to "graduated"
