@@ -4,9 +4,9 @@ description: |
   NCM 프레임워크(Need→Channel→Moment→Message→CTA)로 검색·광고·CRM·앱 푸시 채널별 메시지를 자동 생성하는 단일 채널 메시지 엔진입니다 — 채널 분기 메시지 15종 + 채널별 운영 카피(광고·톡톡·푸시·이메일) + 앱 푸시 기획(4원칙·3요소·변형 3안)을 한 곳에서 처리합니다.
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
   "채널별 메시지 만들어줘", "검색광고 카피 15종", "CRM 메시지 뽑아줘", "스마트스토어 배너 카피", "쿠팡 광고 문구", "카카오 알림톡 문구", "SNS 광고 카피 5종", "광고 헤드라인 만들어줘", "톡톡 응답 템플릿", "카트 이탈 메시지", "이메일 시퀀스 짜줘", "재구매 유도 알림톡", "앱 푸시 문구 만들어줘", "리텐션 푸시 카피 3안", "할인 푸시 알림", "게이미피케이션 푸시"
-  3개 동작 모드(채널 분기 메시지 15종 / 운영 카피 / 앱 푸시 기획)가 자연어로 자동 선택되며, 6 심리 방아쇠 + 채널별 심리 상태 매트릭스 + 인지 편향 9종을 적용하고, 텍스트 산출물 직후 moai-coworker:ai-slop-reviewer를 자동 체이닝합니다.
-  [책임 경계] 페어 design-copywriting(도메인 비특정 단일 목적 카피)·moai-marketer:content-copywriting(이커머스 외 범용)과 구분 — 본 스킬은 이커머스 채널 운영 메시지 전용. 상세페이지 카피는 moai-seller:commerce-detail-page-copy, 발송 전 법규 게이트는 moai-seller:commerce-message-compliance-kr.
-version: "1.1.1"
+  3개 동작 모드(채널 분기 메시지 15종 / 운영 카피 / 앱 푸시 기획)가 자연어로 자동 선택됩니다. 텍스트 산출물은 자체 검수하고, moai-coworker:ai-slop-reviewer가 설치돼 있으면 표현을 추가 점검합니다.
+  [책임 경계] 페어 design-copywriting(도메인 비특정 단일 목적 카피)·moai-marketer:content-copywriting(이커머스 외 범용)과 구분 — 본 스킬은 이커머스 채널 운영 메시지 전용. 상세페이지 카피는 moai-seller:commerce-detail-page-copy가 설치돼 있으면 연결합니다. 발송 전 법규 검토는 담당자가 수행하며 moai-seller:commerce-message-compliance-kr가 있으면 추가로 사용합니다.
+version: "1.1.2"
 ---
 
 # 채널별 메시지 자동 생성 (Commerce Channel Message)
@@ -59,7 +59,7 @@ JTBD와 페르소나를 기반으로 NCM 프레임워크(Need → Channel → Mo
 
 | 항목 | 필수 여부 | 예시 |
 |------|----------|------|
-| JTBD 결과 | 필수 | commerce-jtbd-persona --mode jtbd 산출물 |
+| 고객의 실제 문제·구매 목적 | 필수 | 고객 인터뷰·문의·사용자 설명 또는 설치된 commerce-jtbd-persona 산출물 |
 | 페르소나 | 권장 | commerce-jtbd-persona --mode persona 산출물 |
 | 우선 채널 | 필수 | 검색광고, 배너광고, CRM (최소 1개 선택) |
 | 시즌/시기 | 선택 | "봄 시즌", "연말 프로모션" (기본값: 현재 월) |
@@ -81,9 +81,9 @@ JTBD와 페르소나를 기반으로 NCM 프레임워크(Need → Channel → Mo
    [CTA] 키워드 성과 데이터 기반 채널별 CTA 최적화
 ```
 
-### ai-slop-reviewer 자동 체이닝 (HARD)
+### 표현 검수
 
-메시지 15종 생성 직후 `moai-coworker:ai-slop-reviewer`를 자동 체인합니다.
+메시지 15종 생성 직후 채널별 표현, 사실 근거, 혜택 승인, 개인정보와 광고 동의 상태를 자체 검수합니다. `moai-coworker:ai-slop-reviewer`가 현재 설치돼 사용 가능하면 표현을 추가 점검하고, 실행 여부를 출력에 기록합니다.
 
 검수 항목:
 - AI 패턴 메시지 ("혁신적인", "놀라운", "최고의" 클리셰) 제거
@@ -146,6 +146,11 @@ JTBD와 페르소나를 기반으로 NCM 프레임워크(Need → Channel → Mo
     ]
   },
   "channel_differentiation_check": "PASS — 3채널 표현 상이 확인",
+  "send_readiness": {
+    "status": "미확인",
+    "evidence": "채널별 광고 수신 동의·혜택 승인·표시 요건·발송 시각의 확인 근거를 기록. 근거가 없으면 미확인 유지",
+    "note": "표현 차이 PASS는 발송 승인이나 법규 검토 완료를 뜻하지 않음"
+  },
   "slop_review": {
     "status": "not_run",
     "changes_made": 0,
@@ -159,6 +164,7 @@ JTBD와 페르소나를 기반으로 NCM 프레임워크(Need → Channel → Mo
 - **15종 완성**: 검색·광고·CRM 각 5종씩 총 15종
 - **채널별 다른 표현**: 같은 니즈가 채널별 다른 방식으로 분기
 - **ai-slop-reviewer 검수 흔적**: 실제 실행 여부를 slop_review 블록에 기록. 실행하지 않았으면 `not_run`
+- **발송 준비 상태**: 채널마다 동의·혜택 승인·표시·발송 시각의 확인 근거를 `send_readiness`에 기록. 자료가 없으면 `미확인`, 위반이 확인되면 `FAIL`. `channel_differentiation_check`의 PASS와 분리
 - **CTA 포함**: 각 메시지에 채널 특성에 맞는 행동 유도 문구
 
 ## 관련 스킬
@@ -170,8 +176,8 @@ JTBD와 페르소나를 기반으로 NCM 프레임워크(Need → Channel → Mo
 - `commerce-integrated-strategy` — 채널 메시지 포함 전략 1장 종합 (다음 단계)
 - `commerce-message-compliance-kr` — 발송 전 법규 게이트 (푸시·알림톡·이메일 광고)
 - `moai-marketer:content-sns-content` — SNS 콘텐츠 단독 심화 작업
-- `moai-coworker:ai-slop-reviewer` — AI 패턴 검수 (자동 체이닝)
-- `moai-writer:korean-humanize` — 한국어 AI 티 제거 (슬롭 검수 다음, 필수)
+- `moai-coworker:ai-slop-reviewer` — 설치돼 있으면 표현 추가 검수
+- `moai-writer:korean-humanize` — 설치돼 있으면 한국어 표현 추가 점검
 
 ## 이 스킬을 사용하지 말아야 할 때
 
@@ -199,7 +205,7 @@ JTBD와 페르소나를 기반으로 NCM 프레임워크(Need → Channel → Mo
 2. 컨텍스트 수집 (상품·타겟·목적·톤·길이 제한)
 3. 채널별 카피 산출 (위 references)
 4. A/B 변형 2-3안 (A: 직설/기능, B: 감성/라이프스타일, C: 긴급/스토리)
-5. `moai-coworker:ai-slop-reviewer` 자동 체이닝
+5. 문안의 사실·혜택·어조·광고 동의 상태를 자체 검수하고, 설치돼 있으면 `moai-coworker:ai-slop-reviewer`로 표현 추가 점검
 
 ### 채널별 길이 제약 (cheat sheet)
 
@@ -246,7 +252,7 @@ JTBD와 페르소나를 기반으로 NCM 프레임워크(Need → Channel → Mo
 | 핵심 혜택·콘텐츠 | 필수 | 비건 세럼 20% 할인 |
 | 톤앤매너 선호 | 권장 | 숫자 / 게이미피케이션 / 브랜딩 |
 
-푸시 기획 후속: 발송 직전 `moai-seller:commerce-message-compliance-kr`로 광고 수신 동의·야간 별도 사전 동의(21:00~08:00, 법령상 예외 확인)·수신거부·발신자 정보 요건을 확인합니다.
+푸시 기획 후속: 발송 직전 담당자가 광고 수신 동의·야간 별도 사전 동의(21:00~08:00, 법령상 예외 확인)·수신거부·발신자 정보 요건을 확인합니다. `moai-seller:commerce-message-compliance-kr`가 설치돼 있으면 추가로 사용합니다. 확인할 근거가 없으면 발송 가능으로 판정하지 않습니다.
 
 ---
 
@@ -261,7 +267,7 @@ NCM의 Need·Channel·Moment·Message·CTA를 채울 때는 고객의 실제 문
 | 긴급성 | 마감·한정·재고 표현은 운영 데이터로 확인된 경우에만 사용 |
 | 개인화 | 이름·구매 이력 사용은 수집 목적과 광고 수신 동의 범위를 확인 |
 | 행동 유도 | 고객이 이동할 실제 페이지와 수행할 행동을 분명히 적기 |
-| 발송 | 정보성 알림톡과 광고 메시지를 분리하고, `moai-seller:commerce-message-compliance-kr`로 채널·동의·시간·표시 요건 확인 |
+| 발송 | 정보성 알림톡과 광고 메시지를 분리하고, 담당자가 채널·동의·시간·표시 요건을 확인. 설치돼 있으면 `moai-seller:commerce-message-compliance-kr`로 추가 점검 |
 
 ### AARRR 단계별 문안 목적
 
@@ -274,3 +280,4 @@ NCM의 Need·Channel·Moment·Message·CTA를 채울 때는 고객의 실제 문
 | Referral | 공유 시 상대방에게도 도움이 되는가? | 실제 추천 프로그램 조건과 적용 범위 안내 |
 
 문안별로 대상 세그먼트, 발송 채널, 출처가 있는 주장, 승인된 혜택, CTA 목적지, 광고 동의 확인 상태를 기록한다. 비교가 필요하면 같은 고객군과 기간에 A/B 문안을 발송한 뒤 CTR·전환율·수신거부율을 실측한다. 표본과 발송 기록이 없으면 우승 문안이나 예상 성과를 단정하지 않는다.
+저장하는 문안에서는 불필요한 고객 식별자를 삭제한다. 주문번호가 꼭 필요하면 뒤 4자리만 남기고, 연락처 중간 자리·주소 상세 위치·결제정보를 가린다. 원문 번호를 예시나 중간 메모에 다시 쓰지 않고 최종 문안을 원문과 대조한다.

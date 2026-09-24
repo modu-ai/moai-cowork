@@ -2,7 +2,7 @@
 name: cs-escalation
 description: >
   고객 불만 에스컬레이션을 처리하고 VOC를 분석합니다. "불만 고객 대응 전략 세워줘", "VIP 고객 특별 응대 방법 알려줘", "주간 CS 요약 보고서 만들어줘"라고 요청할 때 사용하세요. 에스컬레이션 레벨 배정, VIP 응대, VOC 분석, 주간 CS 요약 보고서 생성을 지원합니다.
-version: "1.1.2"
+version: "1.1.3"
 ---
 
 # 에스컬레이션 관리자 (Escalation Manager)
@@ -113,7 +113,7 @@ Zendesk·Medallia 2026 CX 연구 반영:
 
 ## 관련 스킬 (후처리 체인)
 
-서술형 산출물(에스컬레이션 대응 계획서, VIP 응대 스크립트, 개선 권고안, VOC 인사이트 서술)은 다음 체인으로 마무리합니다:
+서술형 산출물(에스컬레이션 대응 계획서, VIP 응대 스크립트, 개선 권고안, VOC 인사이트 서술)은 우선 이 스킬 안에서 사실·미승인 약속·개인정보·경어를 검수합니다. 아래 표현 검수 체인은 해당 플러그인들이 현재 설치돼 사용 가능할 때만 추가합니다.
 
 ```
 cs-escalation → moai-coworker:ai-slop-reviewer → moai-writer:korean-humanize → 최종 검수
@@ -122,7 +122,7 @@ cs-escalation → moai-coworker:ai-slop-reviewer → moai-writer:korean-humanize
 - `moai-coworker:ai-slop-reviewer` — AI 티 나는 표현·과잉 수식·기계적 문장 패턴을 검수·수정
 - `moai-writer:korean-humanize` — 한국어 경어 자연스러움과 사람이 쓴 듯한 어조로 다듬기
 
-VIP 응대 스크립트·사과문의 종결어미·사과/독촉 화법은 `moai-coworker:collab-report-speak`의 `references/kr-honorific-tone.md` 공유 규격을 따릅니다.
+VIP 응대 스크립트와 사과문은 일관된 존댓말로 쓰고, 미확인된 보상·연락 시점을 약속하지 않습니다. `moai-coworker:collab-report-speak`가 설치돼 있으면 `references/kr-honorific-tone.md`도 참고합니다.
 
 > 주간 CS 요약 보고서의 **수치·KPI 표**(핵심 지표·유형별 현황표 등)는 후처리 체인 대상이 아닙니다. 표·대시보드 형태가 필요하면 `moai-officer:doc-xlsx` 또는 `moai-analyst:data-visualizer`로 라우팅하고, 보고서의 **서술 부분(Top 3 이슈·인사이트·액션 권고)만** 위 체인으로 다듬습니다.
 

@@ -17,7 +17,7 @@ Claude Cowork와 ChatGPT Work는 마켓플레이스 등록 권한과 경로가 �
 
 호출 형식: `/moai-cs:cs-<스킬명>` — 예: `/moai-cs:cs-ticket-triage`. 자연어 요청("이 문의 분류해줘")으로도 자동 매칭됩니다.
 
-### 티켓·응대 (4종)
+### 티켓·응대
 
 | 스킬 | 역할 |
 |------|------|
@@ -26,7 +26,7 @@ Claude Cowork와 ChatGPT Work는 마켓플레이스 등록 권한과 경로가 �
 | `cs-escalation` | 불만 에스컬레이션 레벨 배정 · VIP 응대 · 주간 CS 요약 보고서 |
 | `cs-kb-article` | FAQ · 사용자 가이드 · 트러블슈팅 문서 · 정책 안내문 (Zendesk·Freshdesk·카카오비즈니스 형식) |
 
-### VOC·채널 메시지 (2종)
+### VOC·채널 메시지
 
 | 스킬 | 역할 |
 |------|------|

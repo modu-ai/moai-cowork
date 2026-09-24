@@ -2,7 +2,7 @@
 name: cs-kb-article
 description: >
   고객지원 지식베이스 문서를 작성합니다. "FAQ 만들어줘", "트러블슈팅 가이드 작성해줘", "헬프센터 아티클 써줘"라고 요청할 때 사용하세요. FAQ, 사용자 가이드, 트러블슈팅 문서, 정책 안내문을 Zendesk·Freshdesk·카카오비즈니스 형식에 맞게 생성합니다.
-version: "1.1.2"
+version: "1.1.3"
 ---
 
 # 지식베이스 문서 작성 (KB Article)
@@ -113,7 +113,7 @@ version: "1.1.2"
 
 ## 관련 스킬 (후처리 체인)
 
-KB 아티클(FAQ·가이드·트러블슈팅) 본문을 작성한 뒤에는 다음 체인으로 마무리합니다:
+KB 아티클(FAQ·가이드·트러블슈팅) 본문을 작성한 뒤에는 우선 이 스킬 안에서 정책 근거·확인되지 않은 정보·경어·개인정보를 검수합니다. 아래 표현 검수 체인은 해당 플러그인들이 현재 설치돼 사용 가능할 때만 추가합니다.
 
 ```
 cs-kb-article → moai-coworker:ai-slop-reviewer → moai-writer:korean-humanize → 최종 검수
@@ -122,7 +122,7 @@ cs-kb-article → moai-coworker:ai-slop-reviewer → moai-writer:korean-humanize
 - `moai-coworker:ai-slop-reviewer` — AI 티 나는 표현·과잉 수식·기계적 문장 패턴을 검수·수정
 - `moai-writer:korean-humanize` — 한국어 경어 자연스러움과 사람이 쓴 듯한 어조로 다듬기
 
-고객 대상 문서의 존댓말 문체(하십시오체 고정·사과/안내 화법)는 `moai-coworker:collab-report-speak`의 `references/kr-honorific-tone.md` 공유 규격을 따릅니다.
+고객 대상 문서는 일관된 하십시오체로 쓰고, 정책이나 처리 일정의 근거가 없으면 확인 필요 항목으로 남깁니다. `moai-coworker:collab-report-speak`가 설치돼 있으면 `references/kr-honorific-tone.md`도 참고합니다.
 
 ## 이 스킬을 사용하지 말아야 할 때
 

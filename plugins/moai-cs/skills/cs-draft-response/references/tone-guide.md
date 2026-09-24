@@ -4,7 +4,7 @@
 
 ## 개요
 
-고객 응대 품질은 어조(tone)에서 결정됩니다. 동일한 정보라도 어조에 따라 고객 만족도가 크게 달라집니다. 이 가이드는 한국 CS 환경에 최적화된 채널별 어조 기준을 제공하며, 응답 초안 완성 후 적용하는 후처리 체인(`moai-coworker:ai-slop-reviewer → moai-writer:korean-humanize`) 연동 방법을 안내합니다.
+이 가이드는 고객 응답의 채널별 어조 기준을 제공합니다. 초안 완성 후 사실·약속·개인정보·경어를 자체 검수하고, 다른 플러그인이 설치돼 있으면 표현 검수 스킬을 추가로 사용할 수 있습니다.
 
 ---
 
@@ -76,7 +76,7 @@
 
 ## 4. 후처리 체인 연동
 
-응답 초안을 완성한 뒤에는 다음 체인으로 어조·표현 품질을 마무리합니다:
+응답 초안을 완성한 뒤에는 이 문서의 검토 항목과 실제 정책·문의 원문으로 먼저 검수합니다. 아래 표현 검수 체인은 두 플러그인이 현재 설치돼 사용 가능할 때만 추가합니다:
 
 ```
 cs-draft-response → moai-coworker:ai-slop-reviewer → moai-writer:korean-humanize → 최종 검수
@@ -85,7 +85,7 @@ cs-draft-response → moai-coworker:ai-slop-reviewer → moai-writer:korean-huma
 - `moai-coworker:ai-slop-reviewer` — AI 티 나는 표현·과잉 수식·기계적 문장 패턴을 검수·수정
 - `moai-writer:korean-humanize` — 한국어 경어 자연스러움과 사람이 쓴 듯한 어조로 다듬기
 
-### 호출 방법
+### 추가 검수 요청 예시
 
 ```
 [초안 응답 내용]을 작성한 뒤,

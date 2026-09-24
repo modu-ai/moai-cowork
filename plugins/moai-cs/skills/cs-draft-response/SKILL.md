@@ -2,7 +2,7 @@
 name: cs-draft-response
 description: >
   고객 문의에 대한 응답 초안을 작성합니다. "이 문의에 답변 초안 써줘", "환불 요청 이메일 답변 만들어줘", "카카오채널 응답 초안 작성해줘"라고 요청할 때 사용하세요. 한국어 경어 기반 이메일·채팅·공식 답변서 초안을 채널별 어조에 맞게 생성합니다.
-version: "1.1.2"
+version: "1.1.3"
 ---
 
 # 응답 초안 작성 (Draft Response)
@@ -79,7 +79,7 @@ version: "1.1.2"
 
 ## 관련 스킬 (후처리 체인)
 
-응답 초안을 작성한 뒤에는 다음 체인으로 마무리합니다:
+응답 초안을 작성한 뒤에는 같은 스킬 안에서 먼저 사실·약속·개인정보·경어를 검수합니다. `moai-coworker`와 `moai-writer`가 현재 설치돼 사용 가능하면 아래 순서로 표현을 추가 점검합니다. 다른 플러그인이 없어도 초안을 마무리할 수 있습니다.
 
 ```
 cs-draft-response → moai-coworker:ai-slop-reviewer → moai-writer:korean-humanize → 최종 검수
@@ -90,8 +90,8 @@ cs-draft-response → moai-coworker:ai-slop-reviewer → moai-writer:korean-huma
 
 채널별 어조 기준 및 금지 표현 목록: `references/tone-guide.md`
 
-- 고객 문의 원문에 개인정보(주민등록번호·계좌·카드번호·연락처 등)가 포함되면 `moai-coworker:ai-slop-reviewer`의 `references/kr-pii-masking.md` 규칙으로 마스킹 후 처리합니다 (답변 초안에 원본 재출력 금지).
-- 수신자 위계별 종결어미·서명·사과/거절 화법의 공유 규격은 `moai-coworker:collab-report-speak`의 `references/kr-honorific-tone.md`를 따릅니다.
+- 고객 문의 원문에 개인정보가 있으면 업무에 불필요한 값은 삭제하고, 필요한 값도 주민등록번호 뒤 7자리·연락처 중간 자리·계좌와 카드번호 앞자리를 가립니다. 주소는 시·군·구까지만 남깁니다. 주문번호는 고객 공개 초안에서 삭제하거나 식별에 필요한 뒤 4자리만 남깁니다. 중간 메모와 답변 초안에 원본을 다시 쓰지 않고, 제출 전 원문과 대조합니다. 공유 규격 `moai-coworker:ai-slop-reviewer/references/kr-pii-masking.md`를 이용할 수 있으면 함께 확인합니다.
+- 다른 플러그인이 없어도 고객 응답은 일관된 존댓말로 쓰고, 확인되지 않은 처리 결과·기한을 단정하지 않습니다. `moai-coworker:collab-report-speak`가 설치돼 있으면 `references/kr-honorific-tone.md`도 참고합니다.
 
 ## 이 스킬을 사용하지 말아야 할 때
 
