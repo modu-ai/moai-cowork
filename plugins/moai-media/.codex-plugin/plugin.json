@@ -1,6 +1,6 @@
 {
   "name": "moai-media",
-  "version": "3.3.2",
+  "version": "3.3.3",
   "description": "미디어 생성 전담 AI 코워커 — ChatGPT Work 기본 이미지 생성, Higgsfield 이미지·영상·3D·설명영상·제품촬영·캐릭터 일관성(Soul/Element), ElevenLabs TTS/보이스클로닝, GPT Image 2.5·Gemini 3·Midjourney v8 프롬프트 빌더와 NotebookLM 연동. 정확한 GPT Image 2.5 지정에는 별도 모델 선택 경로를 확인합니다.",
   "author": {
     "name": "모두의 AI",
@@ -43,7 +43,7 @@
       "url": "https://mcp.higgsfield.ai/mcp",
       "timeout": 120000,
       "headers": {
-        "User-Agent": "MoAI-Media/3.3.2"
+        "User-Agent": "MoAI-Media/3.3.3"
       }
     },
     "moai-mcp-openai": {

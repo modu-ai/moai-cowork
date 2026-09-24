@@ -556,16 +556,16 @@ plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/soul.md
 plugins/moai-media/skills/media-higgsfield-product/SKILL.md		partial
 plugins/moai-media/skills/media-higgsfield-product/references/interview.md	claude_only_tool	partial
 plugins/moai-media/skills/media-higgsfield-product/references/modes.md		partial
-plugins/moai-media/skills/media-higgsfield-video/SKILL.md		partial
-plugins/moai-media/skills/media-higgsfield-video/references/dop-motions.md		partial
-plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/cinema-studio.md	higgsfield_key	partial
-plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/gemini-omni.md		partial
-plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/grok.md		partial
-plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/kling.md		partial
-plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/marketing-studio.md		partial
-plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/seedance.md		partial
-plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/veo.md		partial
-plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/wan.md		partial
+plugins/moai-media/skills/media-higgsfield-video/SKILL.md		static_read
+plugins/moai-media/skills/media-higgsfield-video/references/dop-motions.md		static_read
+plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/cinema-studio.md	higgsfield_key	static_read
+plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/gemini-omni.md		static_read
+plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/grok.md		static_read
+plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/kling.md		static_read
+plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/marketing-studio.md		static_read
+plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/seedance.md		static_read
+plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/veo.md		static_read
+plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/wan.md		static_read
 plugins/moai-media/skills/media-midjourney-v8-prompt/SKILL.md	claude_only_tool	partial
 plugins/moai-media/skills/media-midjourney-v8-prompt/references/cost-traps.md		partial
 plugins/moai-media/skills/media-midjourney-v8-prompt/references/parameter-cheatsheet.md		partial

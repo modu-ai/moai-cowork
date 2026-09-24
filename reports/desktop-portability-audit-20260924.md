@@ -21,7 +21,7 @@
 | moai-designer | 17 | 0 | 11 | 0 | 1 | 대기 |
 | moai-lawyer | 11 | 2 | 19 | 17 | 1 | 대기 |
 | moai-marketer | 21 | 2 | 64 | 0 | 1 | 대기 |
-| moai-media | 14 | 2 | 43 | 1 | 1 | GPT Image·Higgsfield 이미지 경로 31파일 정적 열람, 나머지 부분 검토 |
+| moai-media | 14 | 2 | 43 | 1 | 1 | GPT Image·Higgsfield 이미지·영상 경로 41파일 정적 열람, 나머지 부분 검토 |
 | moai-officer | 13 | 2 | 54 | 0 | 1 | 대기 |
 | moai-pm | 1 | 0 | 14 | 0 | 0 | 대기 |
 | moai-recruiter | 6 | 2 | 11 | 0 | 0 | 대기 |
@@ -708,5 +708,14 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 
 - `media-higgsfield-core`의 본문과 참조 5개, `media-higgsfield-image`의 본문과 계열별 참조 7개를 각각 끝까지 읽어 장부의 14행을 `static_read`로 바꿨다. 이전 17행을 합쳐 미디어 86행 중 정적 열람 31행이며, 나머지 55행은 아직 `partial`이다. 정적 열람은 실제 생성 성공을 뜻하지 않는다.
 - [Higgsfield의 공식 연결 안내](https://higgsfield.ai/creator-hub/help-center/integrations/how-do-i-connect-higgsfield-to-ai-agent)는 Claude의 MCP와 ChatGPT 공식 플러그인 연결을 구분하고 두 경로 모두 크레딧을 쓴다고 설명한다. 이 세션의 ChatGPT Higgsfield 연결에서 읽기 전용 `models_get(model_id="gpt_image_2_5")` 응답은 모델 ID `gpt_image_2_5`, 변형 `flare`·`sunburst`, 참조 역할 `image_references`를 반환했다. 그러나 같은 연결의 `generate_image` 입력 스키마는 공통 역할 `image`를 받는다. 모델 내부 역할명을 생성 인자에 그대로 복사하지 않도록 호출 계약을 고쳤다. 읽기 전용 `models_get(model_id="ms_image")`는 `style_id` 필수·기본값 없음과 `batch_size` 범위 1~20을 반환했고, `marketing_list_ad_formats`는 ID·이름을 가진 목록을 반환했다. 생성·견적·잔액 조회·크레딧 차감은 실행하지 않았다.
-- `catalog-protocol.md`의 표준 순서는 비용 조회 바로 다음에 생성하도록 적혀 있어 코어의 유료 생성 승인 게이트와 충돌했다. 승인서를 보여주고 명시적 응답을 받은 뒤 생성하도록 순서를 고쳤다. 이미지 스킬의 누락 정보 수집도 직접 대화 중에는 앱 질문 기능 또는 대화로 묻고, 하위 실행일 때만 blocker를 반환하도록 코어와 맞췄다. Marketing Studio 참조는 Claude MCP의 `show_marketing_studio`와 이 세션 ChatGPT 공식 플러그인의 `marketing_list_ad_formats`를 구분하고, 목록 선택 뒤 비용·잔액·승인 절차를 거치게 했다. 이미지 스킬 버전 `1.3.4`, 미디어 플러그인 세 버전과 두 Higgsfield User-Agent는 `3.3.2`로 갱신했다.
+- `catalog-protocol.md`의 표준 순서는 비용 조회 바로 다음에 생성하도록 적혀 있어 코어의 유료 생성 승인 게이트와 충돌했다. 승인서를 보여주고 명시적 응답을 받은 뒤 생성하도록 순서를 고쳤다. 이미지 스킬의 누락 정보 수집도 질문 채널로 확인하게 하고, 채널이 없으면 blocker를 반환하도록 코어와 맞췄다. Marketing Studio 참조는 Claude MCP의 `show_marketing_studio`와 이 세션 ChatGPT 공식 플러그인의 `marketing_list_ad_formats`를 구분하고, 목록 선택 뒤 비용·잔액·승인 절차를 거치게 했다. 이 단계에서 이미지 스킬 버전 `1.3.4`, 미디어 플러그인 세 버전과 두 Higgsfield User-Agent를 `3.3.2`로 갱신했다.
 - `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges)`의 구조화 판정은 `inconclusive`였다. 감사 요약의 `marketing-studio.md:23` 지적은 ChatGPT용 목록 도구를 설명하면서 필수 절차가 MCP 전용 `show_marketing_studio`만 요구한 충돌이었다. 연결별 조회 절차와 승인 단계를 명시해 수정했다. 이 감사도 두 앱에서 실제 유료 생성 절차가 작동함을 증명하지 않는다.
+
+### Higgsfield 영상 모델별 지침 대조 (2026-09-25)
+
+- `media-higgsfield-video`의 본문·카메라 참고·계열별 프롬프트 참조 10개 파일을 각각 읽어 장부의 해당 10행을 `static_read`로 바꿨다. 미디어 전체는 86행 중 정적 열람 41행, 나머지 45행은 `partial`이다. 이 표시는 파일 열람 범위이며 실제 영상 제작이나 화질 평가를 뜻하지 않는다.
+- [Higgsfield Seedance 2.5 가이드](https://higgsfield.ai/blog/seedance-2-5-prompting-guide)는 샷별 구성과 시간대가 있는 실전 예시를 제시한다. 이전 BytePlus 자료의 정밀 타이밍 경고를 모든 Seedance 세대에 적용하던 문구를 고쳐 세대별로 분리했다. 이 세션의 읽기 전용 `models_get(model_id="seedance_2_5")`는 `t2v`·`omni_reference`·`video_edit`·`video_extension`, 길이 4~30초, 해상도 `480p`·`720p`·`1080p`를 반환했다. 이 연결의 조회 결과이지 다른 연결의 보장값이 아니다.
+- 현재 [Google Omni 문서](https://ai.google.dev/gemini-api/docs/omni)는 짧은 영상 참조를 지원하고 참조 오디오는 무시되며 여러 영상 참조는 품질이 떨어질 수 있다고 설명한다. 기존의 `video_references` 일괄 고장 판정을 제거했다. 이 세션의 읽기 전용 `models_get(model_id="gemini_omni")`는 `video_references`를 반환했으나 실제 렌더 결과는 확인하지 않았다. [xAI 영상 문서](https://docs.x.ai/developers/model-capabilities/video/generation)는 Grok 1.5 자체 API의 오디오 생성·제어를 설명하지만, 이 세션의 Higgsfield `models_get(model_id="grok_video_v15")`에는 `generate_audio` 옵션이 없었다. 영상 스킬의 “공식 오디오 문서 없음” 문구를 고치고 API 인자를 연결 간 복사하지 않게 했다.
+- ChatGPT 공식 Higgsfield 연결의 읽기 전용 `marketing_list_video_presets`는 이 세션에서 `formats` 26개·`presets` 26개를 반환했다. 영상 Marketing Studio 참조·카메라 참고 문서가 Claude MCP의 `show_marketing_studio`를 단독 필수 도구로 요구하지 않도록 연결별 목록 조회를 명시했다. 현재 목록 재조회, 사용자 모드 선택, 견적·잔액·승인은 생성 전에 유지한다. 저장소 `AGENTS.md`의 question-channel 바인딩에 따라 공통·이미지·영상 스킬의 누락 정보와 유료 생성 승인은 현재 앱의 질문 채널로만 요청하고, 채널이 없으면 직접 대화 중에도 필요한 입력을 적은 blocker를 반환하도록 고쳤다. 공통 스킬 `1.3.3`, 이미지 `1.3.5`, 영상 `1.3.2`, 미디어 플러그인 세 버전과 두 Higgsfield User-Agent는 `3.3.3`이다. 영상 생성·크레딧 차감은 실행하지 않았다.
+- `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges)`의 구조화 판정은 `inconclusive`였다. 요약이 제시한 `video/SKILL.md:54`의 question-channel 충돌, `:40`의 Wan 세대별 타이밍과 맞지 않는 요약, `:42`의 낡은 Grok 오디오 문구를 각각 수정하고 관련 공통·이미지 지침도 맞췄다. 이는 감사 PASS나 두 앱의 실제 유료 영상 생성 검증이 아니다.
+- 이 작업 트리에서 `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `python3 scripts/sync-mcp-core.py --check`는 복제 서버 여섯 곳 `[정합]`, `git diff --check`는 출력 없이 종료 코드 0이었다. JSON·YAML 파싱으로 미디어 플러그인 세 버전 `3.3.3`과 공통·이미지·영상 스킬 버전 `1.3.3`·`1.3.5`·`1.3.2`를 확인했다. 파일 장부는 1091행, 미디어 86행 중 `static_read` 41행·`partial` 45행이며 영상 참조 10행 모두 `static_read`다. 이 검사는 실제 데스크톱 앱 실행을 대신하지 않는다.

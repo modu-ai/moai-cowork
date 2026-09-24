@@ -13,7 +13,7 @@ description: |
   Veo·Kling·Seedance·Cinema Studio·Marketing Studio·Wan·Gemini Omni·Grok 등 계열의 프롬프트 크래프트는
   references/prompt-craft/*.md에 출처와 함께 큐레이션돼 있고(계열마다 규칙이 다름 — 범용 공식 없음),
   실제 파라미터(모델 id·해상도·비율·길이·비용)는 런타임에 라이브 조회합니다.
-version: "1.3.1"
+version: "1.3.2"
 ---
 
 # Higgsfield 영상 생성 (media-higgsfield-video)
@@ -34,24 +34,24 @@ Claude에서는 Higgsfield MCP, ChatGPT에서는 공식 Higgsfield 플러그인�
 |---|---|
 | `references/prompt-craft/veo.md` | Veo (오디오 문법 SFX:/Ambient noise:) |
 | `references/prompt-craft/kling.md` | Kling (유연 프레임워크, 1차-relayed) |
-| `references/prompt-craft/seedance.md` | Seedance (타임스탬프 unstable — 라벨 샷 리스트) |
+| `references/prompt-craft/seedance.md` | Seedance (2.0의 정밀 타이밍 주의·2.5의 샷별 구성 구분) |
 | `references/prompt-craft/cinema-studio.md` | Cinema Studio (4계층 참조, enum 라이브 조회) |
 | `references/prompt-craft/marketing-studio.md` | Marketing Studio (hook/setting↔ad_reference 상호배타) |
-| `references/prompt-craft/wan.md` | Wan (Timestamp 멀티샷 — Seedance와 정반대) |
+| `references/prompt-craft/wan.md` | Wan (Timestamp 멀티샷 — Seedance 세대별 지침과 구분) |
 | `references/prompt-craft/gemini-omni.md` | Gemini Omni (편집은 단순 프롬프트) |
-| `references/prompt-craft/grok.md` | Grok (오디오 문서 부재 — 지어내지 않음) |
+| `references/prompt-craft/grok.md` | Grok (xAI 오디오 문서 확인, Higgsfield 옵션은 별도 조회) |
 
 카메라 디렉팅·Marketing Studio 슬러그 참고: `references/dop-motions.md`.
 
 ## 범용 비디오 공식은 없다 — per-family 라우팅
 
-**단일 범용 비디오 프롬프트 공식을 쓰지 않는다.** 벤더마다 컨벤션이 정반대이기 때문이다: Wan은 멀티샷에 명시적 Timestamp를 처방하지만 ByteDance는 Timestamp가 Seedance를 불안정하게 만든다고 경고한다. 이 둘을 하나로 통합하는 것은 correctness 회귀다. 따라서 스킬은 대상 계열의 `prompt-craft/` 파일로 **per-family(계열별)** 라우팅하여 그 계열의 벤더 공식 컨벤션을 적용한다.
+**단일 범용 비디오 프롬프트 공식을 쓰지 않는다.** 모델 세대마다 타이밍 지침도 다르다. 이전 Seedance 안내는 초 단위 강제를 경고했지만, Higgsfield의 Seedance 2.5 가이드는 샷별 구성과 시간대 예시를 보여준다. Wan의 타임스탬프 지침도 별개다. 따라서 대상 모델 세대의 `prompt-craft/` 파일과 현재 연결의 제약을 대조한다.
 
 ## 워크플로우 (REQ-010 흐름)
 
 ### 1단계 — 의도 파악 → 후보 좁히기
 
-사용자 요청에서 subject·action·scene·camera·audio·references(+각 용도)·shot count·duration 등 슬롯을 수집(→ core `interview-schema.md`)하고 계열 후보를 좁힙니다. 후보를 좁힐 뿐 파라미터를 단정하지 않습니다. 슬롯이 부족하면 blocker 보고를 반환하고 오케스트레이터가 확인합니다(스킬은 사용자에게 직접 질문하지 않음).
+사용자 요청에서 subject·action·scene·camera·audio·references(+각 용도)·shot count·duration 등 슬롯을 수집(→ core `interview-schema.md`)하고 계열 후보를 좁힙니다. 후보를 좁힐 뿐 파라미터를 단정하지 않습니다. 슬롯이 부족하면 현재 앱의 질문 채널로 필요한 항목만 확인합니다. 질문 채널이 없으면 직접 대화 중에도 누락 슬롯·선택지·재개 방법을 blocker로 반환합니다.
 
 | 사용자 표현 | 후보 계열 |
 |---|---|
@@ -76,7 +76,7 @@ MCP는 `get_cost: true`, ChatGPT 공식 플러그인은 `estimate_video_cost({pa
 견적은 생성 승인이 아닙니다. 크레딧이 실제로 나가기 전 코어 §유료 생성 승인 게이트를 따릅니다 — 프롬프트 전문·모델 id·입력 미디어·확정 옵션·길이·생성 개수·`adjustments`·견적 크레딧·잔액을 보여주고 승인을 받습니다.
 
 - **[HARD] 3단계에서 확보한 `adjustments`를 여기서 보여줍니다.** 3단계의 예(오디오를 요청했는데 `generate_audio: false`로 치환)가 바로 이 게이트가 필요한 이유입니다 — 오디오 없는 영상에 영상 값 크레딧을 낸 뒤에 알게 되면 늦습니다.
-- 위 §위험 블록에 해당하는 모델(`gemini_omni` video-references·`minimax_hailuo` 카메라 명령)이면 **그 경고를 승인 화면에 함께 띄웁니다.** 알려진 위험을 아는 채로 돈을 쓸지 사용자가 고르게 합니다.
+- 위 §주의 블록에 해당하는 참조 영상 사용이나 정밀 카메라 명령이면 **현재 확인한 제약을 승인 화면에 함께 띄웁니다.** 사용자가 예상 결과와 비용을 알고 결정하게 합니다.
 - 서브에이전트로 실행 중이면 승인서를 blocker로 반환합니다. 사용자와 직접 대화하는 세션이면 코어의 런타임 중립 승인 요청 계약을 따릅니다.
 
 ### 5단계 — 생성 (generate_video)
@@ -89,13 +89,13 @@ MCP는 `get_cost: true`, ChatGPT 공식 플러그인은 `estimate_video_cost({pa
 
 MCP는 `job_status`, ChatGPT 공식 플러그인은 `jobs_wait`로 완료를 확인합니다. 생성 도구가 결과 위젯을 이미 보여줬으면 단순 표시를 위해 `job_display`를 다시 호출하지 않습니다. 결과 URL과 `adjustments`를 보고합니다.
 
-## 위험 블록 (반드시 경고)
+## 주의 블록 (해당 요청에 적용)
 
-이 세 가지는 계열 크래프트가 벤더 근거로 확인한 위험이다. 스킬은 해당 모델 사용 시 사용자에게 경고한다:
+해당 기능을 요청했을 때 현재 연결과 벤더 문서의 제약을 대조해 사용자에게 알린다:
 
-- **`gemini_omni` video-references는 known-broken** — Google 자신의 말: *"...are not correctly processed by the model at this time."* API가 받아들여도 모델이 제대로 처리하지 못한다(→ `prompt-craft/gemini-omni.md`).
+- **`gemini_omni` 영상 참조** — 이 세션의 Higgsfield 모델 상세 조회는 `video_references`를 노출했다. 현재 [Google의 Omni 안내](https://ai.google.dev/gemini-api/docs/omni)는 짧은 영상 참조를 지원한다고 설명하지만 참조 영상의 오디오는 무시되고 여러 영상을 함께 참조하면 결과가 저하될 수 있다고 경고한다. Higgsfield 연결에서 실제 결과를 확인하지 않았으므로 성공을 보장하지 않는다(→ `prompt-craft/gemini-omni.md`).
 - **`minimax_hailuo`는 카메라 명령을 조용히 덮어쓸 수 있다** — MiniMax 자체 API의 `prompt_optimizer`(기본 true)가 프롬프트를 자동 재작성해 정밀한 수동 카메라 명령을 뭉갤 수 있다. **Higgsfield는 이 스위치를 노출하지 않으므로** MCP로는 끌 수 없다. 정밀 카메라 디렉팅이 무시될 수 있음을 경고한다.
-- **Grok은 오디오 컨벤션이 문서화돼 있지 않다** — 카탈로그가 "native audio"로 태깅해도 xAI 공식 문서엔 오디오 언급이 없다. Grok 오디오 문법을 지어내지 않는다(→ `prompt-craft/grok.md`).
+- **Grok 영상 오디오** — [xAI의 현재 문서](https://docs.x.ai/developers/model-capabilities/video/generation)는 자체 API 영상에 기본 오디오와 `generate_audio` 옵션을 설명한다. 이 세션의 Higgsfield `grok_video_v15` 모델 상세에는 해당 옵션이 없었다. xAI API의 오디오 제어 인자를 Higgsfield 호출에 그대로 넣거나 결과의 오디오를 보장하지 않는다(→ `prompt-craft/grok.md`).
 
 ## 범위 밖 모델 폴백 (live lookup)
 
