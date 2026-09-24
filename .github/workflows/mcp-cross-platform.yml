@@ -4,6 +4,8 @@ on:
   pull_request:
     paths:
       - ".github/workflows/mcp-cross-platform.yml"
+      - ".agents/plugins/marketplace.json"
+      - ".claude-plugin/marketplace.json"
       - "plugins/_shared/mcp-launch/**"
       - "plugins/*/mcp-launch/**"
       - "plugins/*/.claude-plugin/plugin.json"
@@ -14,6 +16,8 @@ on:
   push:
     paths:
       - ".github/workflows/mcp-cross-platform.yml"
+      - ".agents/plugins/marketplace.json"
+      - ".claude-plugin/marketplace.json"
       - "plugins/_shared/mcp-launch/**"
       - "plugins/*/mcp-launch/**"
       - "plugins/*/.claude-plugin/plugin.json"

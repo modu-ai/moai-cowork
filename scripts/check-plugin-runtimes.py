@@ -359,6 +359,39 @@ def check_plugin(plugin: Path, report: Report) -> None:
     check_launcher_referenced(name, claude, codex, plugin, report)
 
 
+def check_marketplaces(plugins: list[Path], report: Report) -> None:
+    """두 마켓플레이스의 항목·경로·버전을 실제 플러그인과 대조한다."""
+    expected = {plugin.name for plugin in plugins}
+    for label, path in (
+        ("Claude", REPO_ROOT / ".claude-plugin" / "marketplace.json"),
+        ("Codex", REPO_ROOT / ".agents" / "plugins" / "marketplace.json"),
+    ):
+        manifest = read_json(path) or {}
+        entries = manifest.get("plugins") or []
+        if not isinstance(entries, list):
+            report.error(label, "마켓플레이스 plugins 가 배열이 아닙니다")
+            continue
+        names = [entry.get("name") for entry in entries if isinstance(entry, dict)]
+        valid_names = {name for name in names if isinstance(name, str) and name}
+        if len(names) != len(entries) or len(valid_names) != len(names):
+            report.error(label, "마켓플레이스 항목 이름이 비었거나 중복됐습니다")
+        if valid_names != expected:
+            report.error(label, f"플러그인 목록 불일치: 누락={sorted(expected - valid_names)}, 초과={sorted(valid_names - expected)}")
+        for entry in entries:
+            if not isinstance(entry, dict) or entry.get("name") not in expected:
+                continue
+            name = entry["name"]
+            source = entry.get("source")
+            source_path = source.get("path") if isinstance(source, dict) else source
+            if source_path != f"./plugins/{name}":
+                report.error(label, f"{name}: 마켓플레이스 source.path 가 실제 디렉터리와 다릅니다")
+            version = (read_json(PLUGINS_DIR / name / ".codex-plugin" / "plugin.json") or {}).get("version")
+            if label == "Claude" and entry.get("version") != version:
+                report.error(label, f"{name}: 마켓플레이스 version 이 플러그인 {version} 와 다릅니다")
+            if label == "Codex" and "version" in entry:
+                report.error(label, f"{name}: 중복 version 은 플러그인 매니페스트와 어긋날 수 있습니다")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("plugins", nargs="*", help="검사할 플러그인 이름 (기본: 전체)")
@@ -376,6 +409,8 @@ def main() -> int:
             report.errors.append(f"{plugin.name}: 디렉터리가 없습니다")
             continue
         check_plugin(plugin, report)
+    if not args.plugins:
+        check_marketplaces(targets, report)
 
     for warning in report.warnings:
         print(f"참고  {warning}")
