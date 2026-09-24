@@ -17,6 +17,6 @@ shadcn UI 컴포넌트를 React 없이 **vanilla HTML + Tailwind utility class**
 
 - React · Vue · 빌드 단계 없이 **단일 파일 HTML** 안에서 동작하는 마크업만 둡니다
 - utility class + **token class** 조합(`bg-canvas` · `text-ink` · `border-hairline` · `font-display` 등)을 개발 미리보기에서 참조한다. 최종 HTML은 해당 클래스를 제공하는 정적 CSS 또는 빌드 결과를 포함해야 한다.
-- 0의존 self-contained 출력이 필요한 경우(이메일 첨부 · 오프라인 · 인쇄)는 `design_system`을 지정하지 않고 기존 doc-html-report 0의존 템플릿을 사용하세요
+- 외부 의존이 없는 단일 파일 출력(이메일 첨부·오프라인·인쇄)이 필요하고 별도 `moai-officer:doc-html-report`가 현재 앱에 설치·노출돼 있으면 해당 기본 템플릿을 사용한다. 없으면 현재 사용 가능한 HTML 생성 도구를 확인하고, 만들 수 없으면 토큰과 적용 지침만 제공한다.
 - 토큰 정의는 각 [`../systems/`](../systems/) frontmatter(`colors` · `typography` · `rounded` · `spacing`)에서, 매핑은 [`../mapping/tailwind.md`](../mapping/tailwind.md)에서
 - `primary`·`error` 같은 배경의 글자색은 토큰별 대비를 계산해 `on-primary`·`on-error`로 제공한다. HTML 예시의 대비는 브랜드 토큰을 주입한 뒤 확인해야 한다.

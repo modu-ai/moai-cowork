@@ -1,8 +1,8 @@
-# Tailwind Play CDN 매핑 규칙
+# Tailwind v3 Play CDN 매핑 규칙
 
 `design-system-library`의 YAML 디자인 토큰을 Tailwind utility 예시와 HTML 컴포넌트에 대응시키는 매핑 규칙.
 
-> 아래 Play CDN 코드는 개발 미리보기용이다. 최종 배포에는 필요한 스타일을 정적 CSS로 포함하거나 프로젝트 빌드 결과를 사용한다. Play CDN은 [Tailwind 공식 문서](https://tailwindcss.com/docs/installation/play-cdn)에서 개발용으로 한정한다.
+> 아래 JavaScript `tailwind.config` 코드는 [Tailwind v3 Play CDN 공식 문서](https://v3.tailwindcss.com/docs/installation/play-cdn)에 맞춘 개발 미리보기용이다. 현재 v4의 CSS `@theme` 설정 방식과 섞지 않는다. 최종 배포에는 필요한 스타일을 정적 CSS로 포함하거나 프로젝트 빌드 결과를 사용한다.
 
 ---
 
@@ -59,7 +59,7 @@
 
 ---
 
-## 2. Tailwind Play CDN 개발 미리보기 패턴
+## 2. Tailwind v3 Play CDN 개발 미리보기 패턴
 
 단일 파일 HTML의 `<head>`에 다음 3블록을 배치합니다.
 

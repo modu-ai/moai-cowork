@@ -54,6 +54,7 @@ shadcn `Tabs` / `TabsList` / `TabsTrigger` / `TabsContent`를 React 없이 재�
         item.classList.toggle('bg-primary', active);
         item.classList.toggle('text-on-primary', active);
         item.classList.toggle('text-muted', !active);
+        item.classList.toggle('hover:text-ink', !active);
         document.getElementById(item.getAttribute('aria-controls')).hidden = !active;
       });
       if (moveFocus) tab.focus();
@@ -79,5 +80,5 @@ shadcn `Tabs` / `TabsList` / `TabsTrigger` / `TabsContent`를 React 없이 재�
 ## 토큰 메모
 
 - 선택 탭은 `bg-primary text-on-primary`, 비선택은 `text-muted` → `text-ink` hover. 실제 대비를 확인한다.
-- `<details>` 패턴은 `0-JS` 산출물(doc-html-report 기본 템플릿)과 호환. ARIA 탭은 CDN 환경(doc-html-report design_system 지정 시)에서만.
+- `<details>` 패턴은 JavaScript가 없는 단일 파일과 호환된다. ARIA 탭은 위 JavaScript와 필요한 스타일을 결과 HTML에 포함하면 오프라인에서도 사용할 수 있다. 실제 키보드 동작을 브라우저에서 확인한다.
 - 키보드 접근성: 좌우 화살표·Home·End로 이동하고 선택한다([WAI-ARIA Tabs Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/)). 여러 탭 묶음을 쓴다면 `id`와 `aria-controls`를 묶음마다 고유하게 만든다.

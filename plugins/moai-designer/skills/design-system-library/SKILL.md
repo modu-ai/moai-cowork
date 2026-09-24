@@ -11,7 +11,7 @@ description: |
   - "Notion / Linear / Stripe 스타일로 리포트"
   - "어두운 테마 / 따뜻한 화이트 테마로"
   - "Claude Design에 올릴 디자인 시스템 자료 정리"
-version: "1.1.4"
+version: "1.1.5"
 ---
 
 # design-system-library — 75개 브랜드 디자인 시스템 SSOT
@@ -26,7 +26,7 @@ version: "1.1.4"
 
 **핵심 원칙**:
 - 라이브러리는 데이터(token + 분석) SSOT — 렌더 로직은 소비자(doc-html-report)가 소유
-- Tailwind Play CDN 예시는 개발·미리보기용이다. 최종 배포물은 필요한 스타일을 정적 CSS로 포함하거나 프로젝트의 빌드 경로를 사용한다. [Tailwind 공식 문서](https://tailwindcss.com/docs/installation/play-cdn)도 Play CDN을 개발용으로 한정한다.
+- 아래 `tailwind.config` 예시는 [Tailwind v3 Play CDN 공식 문서](https://v3.tailwindcss.com/docs/installation/play-cdn)의 JavaScript 설정 방식이다. 현재 v4 Play CDN의 CSS `@theme` 방식과 섞지 않는다. 개발 미리보기용이며 최종 배포물에는 필요한 스타일을 정적 CSS로 포함하거나 프로젝트의 빌드 경로를 사용한다.
 - shadcn 컴포넌트는 React가 아닌 **vanilla HTML/CSS로 재현** (단일 파일·React 불필요)
 - 기존 doc-html-report 0의존 템플릿은 유지 — design_system 미지정 시 하위 호환
 
@@ -65,14 +65,14 @@ version: "1.1.4"
 
 ---
 
-## Tailwind Play CDN 미리보기
+## Tailwind v3 Play CDN 미리보기
 
 [`mapping/tailwind.md`](mapping/tailwind.md) 참조 — YAML design token → Tailwind CDN inline config 매핑 규칙 + shadcn vanilla 컴포넌트 변환표.
 
 **개발 미리보기 패턴** (네트워크 연결 필요, 최종 배포용 아님):
 
 ```html
-<!-- 1. Tailwind Play CDN -->
+<!-- 1. Tailwind v3 Play CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
 <!-- 2. 브랜드 토큰 → tailwind.config 주입 -->
 <script>

@@ -240,17 +240,17 @@ plugins/moai-designer/skills/design-logo/references/logo-types.md		static_read
 plugins/moai-designer/skills/design-prompt-builder/SKILL.md	claude_only_tool	static_read
 plugins/moai-designer/skills/design-slop-check/SKILL.md	claude_only_tool	static_read
 plugins/moai-designer/skills/design-sync-upload/SKILL.md	claude_only_tool	static_read
-plugins/moai-designer/skills/design-system-library/BRAND-NOTICE.md		partial
+plugins/moai-designer/skills/design-system-library/BRAND-NOTICE.md		static_read
 plugins/moai-designer/skills/design-system-library/SKILL.md		static_read
-plugins/moai-designer/skills/design-system-library/components/README.md		partial
-plugins/moai-designer/skills/design-system-library/components/alert.md		partial
-plugins/moai-designer/skills/design-system-library/components/badge.md		partial
-plugins/moai-designer/skills/design-system-library/components/button.md		partial
-plugins/moai-designer/skills/design-system-library/components/card.md		partial
-plugins/moai-designer/skills/design-system-library/components/table.md		partial
-plugins/moai-designer/skills/design-system-library/components/tabs.md		partial
-plugins/moai-designer/skills/design-system-library/mapping/tailwind.md		partial
-plugins/moai-designer/skills/design-system-library/references/korean-design-systems.md		partial
+plugins/moai-designer/skills/design-system-library/components/README.md		static_read
+plugins/moai-designer/skills/design-system-library/components/alert.md		static_read
+plugins/moai-designer/skills/design-system-library/components/badge.md		static_read
+plugins/moai-designer/skills/design-system-library/components/button.md		static_read
+plugins/moai-designer/skills/design-system-library/components/card.md		static_read
+plugins/moai-designer/skills/design-system-library/components/table.md		static_read
+plugins/moai-designer/skills/design-system-library/components/tabs.md		static_read
+plugins/moai-designer/skills/design-system-library/mapping/tailwind.md		static_read
+plugins/moai-designer/skills/design-system-library/references/korean-design-systems.md		static_read
 plugins/moai-designer/skills/design-system-library/samples/status-claude.html		partial
 plugins/moai-designer/skills/design-system-library/samples/status-clay.html		partial
 plugins/moai-designer/skills/design-system-library/samples/status-clickhouse.html		partial

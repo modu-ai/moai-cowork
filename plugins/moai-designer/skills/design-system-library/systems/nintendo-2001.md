@@ -84,4 +84,4 @@ Y2K 콘솔 크롬·앰버. 본 파일은 `테마_컴포넌트_쇼케이스_전�
 
 ## 사용
 
-별도 `moai-officer` 플러그인이 설치되고 현재 앱에서 `doc-html-report` 또는 `doc-html-slide` 스킬을 사용할 수 있다면 `design_system: nintendo-2001`으로 본 토큰을 참고할 수 있습니다. 해당 스킬이 없으면 이 파일의 토큰과 적용 지침만 제공합니다.
+별도 `moai-officer` 플러그인이 설치되고 현재 앱에서 `doc-html-report` 또는 `doc-html-slide` 스킬을 사용할 수 있다면 `design_system: nintendo-2001` 값을 지정해 본 토큰을 참고할 수 있습니다. 해당 스킬이 없으면 이 파일의 토큰과 적용 지침만 제공합니다.

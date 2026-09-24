@@ -18,7 +18,7 @@
 | moai-consultant | 6 | 2 | 16 | 0 | 0 | 31파일 정적 열람, 앱 실행·현행성 검증 대기 |
 | moai-coworker | 32 | 0 | 32 | 1 | 1 | 76파일 정적 열람 완료, 앱 실행·현행성 검증 대기 |
 | moai-cs | 6 | 2 | 11 | 0 | 0 | 24파일 정적 열람, 앱 실행·현행성 검증 대기 |
-| moai-designer | 17 | 0 | 11 | 0 | 1 | 34/123파일 정적 열람, 앱 실행·나머지 파일 검수 대기 |
+| moai-designer | 17 | 0 | 11 | 0 | 1 | 44/123파일 정적 열람, 앱 실행·나머지 파일 검수 대기 |
 | moai-lawyer | 11 | 2 | 19 | 17 | 1 | 대기 |
 | moai-marketer | 21 | 2 | 64 | 0 | 1 | 대기 |
 | moai-media | 14 | 2 | 43 | 1 | 1 | 86파일 정적 열람 완료, 앱 실행·현행성 검증 대기 |
@@ -815,3 +815,12 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - 이 macOS 작업 트리에서 `npx -p '@google/design.md' designmd lint plugins/moai-designer/skills/design-system-library/systems/clay.md`는 종료 코드 0, JSON 요약 `errors: 0, warnings: 17, infos: 1`이었다. 같은 별칭으로 브랜드 시스템 프로필 76개를 병렬 검증했을 때 종료 코드 실패 0개, JSON 파싱 실패 0개, 합계 `errors: 0, warnings: 1020, infos: 111`이었다. 린터가 형식을 읽었다는 증거이며 1,020건의 경고를 해소하거나 시각 품질을 승인한 결과는 아니다.
 - `.github/workflows/design-cli-cross-platform.yml`에 Ubuntu·Windows·macOS에서 같은 `designmd` 별칭을 실행하고 JSON 결과를 확인하는 작업을 추가했다. CI에 고정한 `@google/design.md@0.4.0`으로 macOS 로컬 실행을 다시 확인해 종료 코드 0, `errors: 0, warnings: 17, infos: 1`이었다. `actionlint -color=false .github/workflows/design-cli-cross-platform.yml`은 출력 없이 종료 코드 0이었다. 워크플로는 아직 원격 실행 전이므로 현재 Windows·Linux 성공 근거로 쓰지 않는다.
 - 필수 `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges,project_root=<이 작업 트리>)`의 구조화 판정은 `inconclusive`였다. 요약의 `SKILL.md:172,174`와 `airbnb.md:87`을 직접 대조해 남은 무조건 렌더 안내를 수정했다. 요약의 자체 `FAIL` 문구를 구조화 판정으로 바꿔 기록하지 않는다. `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `python3 scripts/sync-mcp-core.py --check`는 복제 서버 여섯 곳 `[정합]`, `git diff --check`는 출력 없이 종료 코드 0이었다.
+
+### 디자인 시스템 참조·미리보기 버전 재대조 (2026-09-25)
+
+- 커밋 `cae03e65`의 [디자인 CLI 원격 CI](https://github.com/modu-ai/moai-cowork/actions/runs/36054042874)는 `completed/success`이며 macOS·Windows·Ubuntu의 `designmd` 별칭 작업 세 개가 모두 `success`였다. 같은 커밋의 [MCP 원격 CI](https://github.com/modu-ai/moai-cowork/actions/runs/36054042736)도 `completed/success`, 24개 작업 모두 `success`였다. 이는 해당 CLI·MCP·플러그인 배선 검사의 OS별 결과이며 데스크톱 앱의 설치나 HTML 시각 품질 검사가 아니다.
+- 디자인 시스템의 권리 고지, 한국 자료 참고문서, 컴포넌트 문서 일곱 개, Tailwind 매핑 문서를 각각 끝까지 읽었다. 장부는 디자이너 `static_read` 44/123파일이다. 브랜드 시스템 프로필의 수정된 명령 행과 경량 시스템 사용 문구는 확인했지만 프로필 전체를 읽었다고 표시하지 않는다.
+- [현재 Tailwind v4 Play CDN 안내](https://tailwindcss.com/docs/installation/play-cdn)는 CSS `@theme` 예시를 쓰지만, 이 라이브러리의 `tailwind.config` 예시는 [공식 v3 Play CDN 안내](https://v3.tailwindcss.com/docs/installation/play-cdn)와 일치한다. 스킬과 매핑 문서에 v3 미리보기임을 명시하고 공식 v3 출처로 연결했다. 최종 산출물은 정적 CSS 또는 프로젝트 빌드 결과를 포함해야 한다는 조건을 유지했다.
+- 컴포넌트 README의 `doc-html-report` 기본 템플릿 안내에도 별도 사무관 플러그인 설치·노출 조건을 붙였다. ARIA 탭 참조 문서의 “CDN 환경에서만”이라는 제한은 예시 JavaScript와 스타일을 단일 파일에 포함하는 오프라인 경로와 맞지 않아 바로잡았다. 경량 시스템 19파일에서 `design_system: <name>` 뒤에 붙던 어색한 조사는 `값을 지정해`로 고쳤다. 디자인 시스템 스킬은 `1.1.5`, 디자이너 플러그인 버전 표기는 `1.4.27`로 동기화했다.
+- 스킬 변경에 대해 필수 `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges,project_root=<이 작업 트리>)`를 호출했고 구조화 판정은 `inconclusive`였다. 요약에서 `tabs.md:35,54`를 근거로 지적한 hover 색 충돌을 직접 확인해, 탭 선택 로직이 `hover:text-ink`도 활성 상태에 따라 켜고 끄도록 고쳤다. 요약 자체의 `FAIL` 문구를 구조화 판정으로 바꾸지 않는다.
+- `agent-browser`로 `tabs.md`의 ARIA 탭 예시를 로컬 HTML에 넣고 ClickHouse의 노란 primary·어두운 `on-primary`·흰 `ink` 색을 적용해 실행했다. 두 번째 탭 클릭 뒤 계산 결과는 배경 `rgb(250, 255, 105)`, 글자 `rgb(10, 10, 10)`, `aria-selected=true`, 첫 패널 숨김·둘째 패널 노출이었다. 이어 `ArrowLeft`를 누르자 첫 탭이 선택·포커스되고 첫 패널만 노출됐다. 이 브라우저 결과는 해당 예시와 지정 색에 대한 확인이다. 다른 브랜드 토큰·전체 HTML 출력의 대비를 보증하지 않는다.
