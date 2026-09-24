@@ -532,3 +532,9 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 ### 원격 CI와 브랜치 상태 (2026-09-24)
 - 작업 브랜치 `WT-cowork-desktop-portability`에서 변경 764개 파일을 `0fe8de14 feat(portability): audit and adapt desktop plugins across hosts`로 로컬 커밋하고 같은 이름의 원격 브랜치에 push했다. 이 브랜치는 push 당시 `origin/main`보다 7개 커밋 앞서 있었고, 이번 커밋 이전의 로컬 커밋 6개를 선행 이력으로 포함한다. `main` 병합·PR 생성·배포는 하지 않았다.
 - [GitHub Actions MCP cross-platform tests run 36014771836](https://github.com/modu-ai/moai-cowork/actions/runs/36014771836): `gh run view 36014771836 --json status,conclusion,jobs` 결과 `completed`, `success`, `18/18` 완료. `ubuntu-latest`, `windows-latest`, `macos-latest` 각각에서 IP·Threads·Cafe24·Smartstore·Imweb 서버와 MCP 런처 job이 모두 `success`였다. 이는 OS별 자동 테스트이며 Claude Cowork·ChatGPT Work 데스크톱 앱의 실제 플러그인 설치·MCP OAuth·실계정 외부 서비스 호출 성공까지 입증하지 않는다.
+
+### Seller 상세페이지 참고문서의 근거 재검토 (2026-09-24)
+- `commerce-detail-page-planner`의 디지털 콘텐츠·구독·여행·어린이제품·뷰티 참고문서 5개를 내용 단위로 다시 읽었다. 기존 문서에는 판매자 약관과 무관한 `30일 100% 환불`, 구독 첫 박스 보장, 여행 출발일별 고정 환불률, 임의 후기·매출·학습 성과, 모든 어린이제품의 KC 인증 의무, 화장품 효능의 일괄 인증 표현이 있었다. 해당 표현을 판매자 실제 조건·원문·집계 근거·품목별 관리 절차를 확인하는 지침으로 수정했다.
+- 법적 표현은 [전자상거래법 제17조](https://law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1024961473), [제품안전정보센터의 어린이제품 대상품목](https://www.safetykorea.kr/policy/targetsSafetySupply), [식약처 화장품 정책개요](https://www.mfds.go.kr/wpge/m_639/de050601l001.do)를 대조했다. 외부 자료는 일반 기준이며 개별 판매자의 실제 약관·품목·심사 상태까지 확인해 주지 않는다.
+- `mcp__moai__codex_audit(mode=adversarial,target=uncommittedChanges)`는 구조화된 `verdict: inconclusive`, `findings: []`를 반환했지만 요약에 파일·줄이 있는 잔존 위험을 제시했다. 직접 대조해 발달 효능·성분 효능 자동 변환, 기본 무료 체험, 미확인 인증 배지, 구독 해지 단계의 `true`·`1`, 여행 일정의 확정값을 추가로 수정했다. 구조화된 감사 결과를 PASS로 간주하지 않는다.
+- 이 작업 트리에서 Python/PyYAML로 다섯 참고문서의 YAML 블록 `5/5`를 파싱하고 감사에서 지적한 고정값 패턴의 부재를 확인했다. Seller 버전은 마켓플레이스·Claude·Codex 매니페스트 `1.4.3` 세 곳이 같고 스킬은 `1.1.2`였다. `git diff --check`도 종료 코드 0이었다. 실제 상품 데이터를 넣은 생성 결과나 법률 자문·앱 호스트 실행은 미검증이다.
