@@ -62,24 +62,24 @@ plugins/moai-analyst/skills/data-stock/SKILL.md		partial
 plugins/moai-analyst/skills/data-visualizer/SKILL.md	claude_only_tool	partial
 plugins/moai-analyst/skills/data-visualizer/references/data-visualizer/guide.md		partial
 plugins/moai-analyst/skills/data-workflow/SKILL.md	new_chatgpt_agent_mapping	partial
-plugins/moai-career/.claude-plugin/plugin.json		partial
-plugins/moai-career/.codex-plugin/plugin.json		partial
-plugins/moai-career/README.md		partial
-plugins/moai-career/agents/career-coach.md	claude_only_tool	partial
-plugins/moai-career/agents/resume-auditor.md	claude_only_tool	partial
-plugins/moai-career/skills/career-claim-audit/SKILL.md	new_chatgpt_agent_mapping	partial
-plugins/moai-career/skills/career-interview/SKILL.md		partial
-plugins/moai-career/skills/career-interview/references/common-questions.md		partial
-plugins/moai-career/skills/career-interview/references/interview-types.md		partial
-plugins/moai-career/skills/career-junior-onboarding/SKILL.md		partial
-plugins/moai-career/skills/career-portfolio/SKILL.md		partial
-plugins/moai-career/skills/career-portfolio/references/portfolio-by-field.md		partial
-plugins/moai-career/skills/career-resume/SKILL.md		partial
-plugins/moai-career/skills/career-resume/references/cover-letter-guide.md		partial
-plugins/moai-career/skills/career-resume/references/korean-resume.md		partial
-plugins/moai-career/skills/career-transition/SKILL.md		partial
-plugins/moai-career/skills/career-transition/references/kr-resignation-benefits.md		partial
-plugins/moai-career/skills/career-workflow/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-career/.claude-plugin/plugin.json		static_read
+plugins/moai-career/.codex-plugin/plugin.json		static_read
+plugins/moai-career/README.md		static_read
+plugins/moai-career/agents/career-coach.md	claude_only_tool	static_read
+plugins/moai-career/agents/resume-auditor.md	claude_only_tool	static_read
+plugins/moai-career/skills/career-claim-audit/SKILL.md	new_chatgpt_agent_mapping	static_read
+plugins/moai-career/skills/career-interview/SKILL.md		static_read
+plugins/moai-career/skills/career-interview/references/common-questions.md		static_read
+plugins/moai-career/skills/career-interview/references/interview-types.md		static_read
+plugins/moai-career/skills/career-junior-onboarding/SKILL.md		static_read
+plugins/moai-career/skills/career-portfolio/SKILL.md		static_read
+plugins/moai-career/skills/career-portfolio/references/portfolio-by-field.md		static_read
+plugins/moai-career/skills/career-resume/SKILL.md		static_read
+plugins/moai-career/skills/career-resume/references/cover-letter-guide.md		static_read
+plugins/moai-career/skills/career-resume/references/korean-resume.md		static_read
+plugins/moai-career/skills/career-transition/SKILL.md		static_read
+plugins/moai-career/skills/career-transition/references/kr-resignation-benefits.md		static_read
+plugins/moai-career/skills/career-workflow/SKILL.md	new_chatgpt_agent_mapping	static_read
 plugins/moai-consultant/.claude-plugin/plugin.json		partial
 plugins/moai-consultant/.codex-plugin/plugin.json		partial
 plugins/moai-consultant/README.md		partial

@@ -6,15 +6,15 @@
 
 배포되는 각 플러그인의 매니페스트, 스킬, 에이전트, 스크립트, MCP, 참조 문서를 파일별로 읽고 Claude Cowork와 ChatGPT Work의 실제 지원 표면에 맞게 고친다. 이미지 생성은 ChatGPT 기본 Images 2.5 경로와 Higgsfield 공식 연결 경로를 각각 실행 검증한다. Windows, Linux, macOS에서 실행 코드와 설치 안내를 검증한다. 정적 검사만으로 앱 또는 운영체제의 실행 성공을 선언하지 않는다.
 
-## 현재 인벤토리
+## 초기 인벤토리와 내용 검수 상태
 
-`git ls-files plugins`와 파일 경로 분류를 이 트리에서 실행했다. 플러그인 파일 1049개 중 스킬 225개, 에이전트 28개, 참조 문서 428개, MCP/런처 실행 코드 136개, 플러그인 `.mcp.json` 12개다. 두 매니페스트 쌍은 18개 플러그인 모두에 있다. 파일 수는 범위 확인용이며 내용 검수 완료 수가 아니다.
+`git ls-files plugins`와 파일 경로 분류를 초기 기준 트리에서 실행했다. 당시 플러그인 파일 1049개 중 스킬 225개, 에이전트 28개, 참조 문서 428개, MCP/런처 실행 코드 136개, 플러그인 `.mcp.json` 12개였다. 아래 수량은 초기 범위 기준선이며 이후 추가 파일은 반영하지 않는다. 내용 검수 열만 진행 상태를 갱신한다. 두 매니페스트 쌍은 18개 플러그인 모두에 있다.
 
 | 플러그인 | 스킬 | 에이전트 | 참조 | 실행 코드 | MCP 설정 | 내용 검수 |
 |---|---:|---:|---:|---:|---:|---|
 | moai-accountant | 11 | 2 | 7 | 1 | 1 | 대기 |
 | moai-analyst | 7 | 2 | 3 | 1 | 1 | 대기 |
-| moai-career | 5 | 2 | 6 | 0 | 0 | 대기 |
+| moai-career | 5 | 2 | 6 | 0 | 0 | 18파일 정적 열람, 앱 실행·현행성 검증 대기 |
 | moai-consultant | 6 | 2 | 16 | 0 | 0 | 대기 |
 | moai-coworker | 32 | 0 | 32 | 1 | 1 | 대기 |
 | moai-cs | 6 | 2 | 11 | 0 | 0 | 대기 |
@@ -642,3 +642,11 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - `moai-career/agents/career-coach.md`와 `resume-auditor.md`, 대응하는 `career-workflow`와 `career-claim-audit` 스킬의 본문을 대조했다. Claude 에이전트의 고위험 산출물 독립 검수 요청 절차가 ChatGPT용 작업 스킬에는 없었다. [OpenAI의 Claude 플러그인 이식 안내](https://developers.openai.com/plugins/guides/submit-claude-plugin)는 재사용할 에이전트 절차를 스킬로 옮기도록 안내한다. `career-workflow`는 별도 검수자를 실제로 사용할 수 있을 때 요청하고, 사용할 수 없으면 직접 대조와 독립 검수 미실시를 구분해 보고하도록 수정했다.
 - `career-claim-audit`는 주장별 원자료 대응을 요구한다. 적대적 감사가 `career-claim-audit/SKILL.md:17`에서 일부 주장만 검증돼도 전체 PASS가 나올 수 있는 구체적 경로를 지적했다. 모든 경력·수치·날짜 주장이 확인될 때만 전체 사실성을 PASS, 미검증 주장이 남으면 `미확인`, 확인된 날조·기만은 FAIL로 적도록 고쳤다. 감사의 구조화 판정은 `inconclusive`였으므로 감사 통과로 기록하지 않는다.
 - 스킬 두 개와 `moai-career` 플러그인 버전을 올렸다. `git diff --check`, 세 JSON 파일 파싱, `python3 scripts/check-plugin-runtimes.py`를 실행했고 마지막 검사는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`을 출력했다. 커밋 `a7fd8d08`을 작업 브랜치에 push했다. [원격 CI 실행](https://github.com/modu-ai/moai-cowork/actions/runs/36031248916)은 24개 job 모두 `success`로 완료됐다. 이 증거는 선택한 에이전트·스킬의 문구와 설정 검사에 한정되며, 커리어 플러그인의 나머지 스킬·참조 문서 내용 검수나 앱에서의 독립 검수 실행을 뜻하지 않는다.
+
+### 커리어 플러그인 파일별 정적 열람 (2026-09-25)
+
+- 이 작업 트리에서 `rg --files --hidden plugins/moai-career`로 확인한 18개 파일(Claude·Codex 매니페스트 2개, README 1개, 에이전트 2개, 스킬 7개, 참조 문서 6개)을 각각 열람했다. 대응 에이전트·스킬, 스킬 간 참조, 별도 플러그인 의존성, 개인정보 처리와 결과 보장 표현을 대조했다. 장부의 해당 18행만 `static_read`로 바꿨다. 이는 파일 내용을 읽었다는 표시이며 실제 앱 호출, 법령·채용 관행의 현행성, 사용 결과에 대한 PASS가 아니다. 장부는 헤더를 제외하고 1091행이며 `moai-career`의 `static_read`는 18행이다.
+- [OpenAI의 플러그인 가져오기 안내](https://help.openai.com/en/articles/20001504-importing-and-syncing-plugin-marketplaces-from-github)와 [Claude의 설치 안내](https://support.claude.com/en/articles/13837440-use-plugins-in-claude)는 플러그인별 설치·이용 가능 상태를 구분한다. `career-resume`·`career-portfolio`·`career-interview`·`career-transition`·`career-junior-onboarding`이 별도 플러그인의 윤문 스킬을 요구하던 경로를 검사해, 각 스킬이 현재 앱에 노출된 경우에만 연결하고 없으면 커리어 스킬 자체에서 문체·사실성 검수를 수행하게 고쳤다. `career-transition`과 `career-junior-onboarding`은 단독 설치에서도 불필요한 식별자 삭제, 주민등록번호 뒤 7자리·전화번호 중간 자리 마스킹, 계좌번호 뒤 4자리만 남기기, 원문 재출력 금지, 중간·최종 산출물 일관 적용을 명시했다.
+- 적대적 감사가 첫 마스킹 문구의 모호한 ‘제외한 부분’ 표현을 파일·줄 근거로 지적했다. 이를 식별자별 가림 방향으로 고쳤다. 마지막 감사 호출의 구조화 판정은 `inconclusive`, 요약은 구체 결함 없음이었다. 실제 개인정보를 넣은 앱 실행 검증으로 해석하지 않는다. 커밋 `7dda996f`의 [원격 CI](https://github.com/modu-ai/moai-cowork/actions/runs/36032312686)는 24개 job 모두 성공했다.
+- `career-portfolio`의 출처 없는 합격·조회수·완성 시간 보장과 `career-interview`의 합격률·반복 횟수 효과 단정, `career-resume`의 고정 응답 기한·블랙리스트 주장을 작성 예시와 확인 절차로 바꿨다. 이는 해당 주장이 거짓이라는 판정이 아니라, 파일 안에 결과 보장의 근거가 없어 그 보장을 사용자에게 전달하지 않도록 한 수정이다. 적대적 감사가 ‘긴장 관리’의 구체 행동이 빠진 점을 지적해 제한 시간 모의 답변·재시도·녹음 피드백을 추가했다. 커밋 `d04df78f`의 [원격 CI](https://github.com/modu-ai/moai-cowork/actions/runs/36032764060)는 24개 job 모두 성공했다.
+- `career-transition/references/kr-resignation-benefits.md`의 법령·고용24 절차와 나머지 참조 문서의 채용 관행은 이번 열람에서 실제 기관 자료로 항목별 재검증하지 않았다. 두 앱의 스킬 자동 발견, 단독 설치 후 문체·개인정보 처리, Windows·Linux·macOS 실행도 아직 확인하지 않았다. `LICENSE-OUTPUT.md`, `kr-pii-masking.md`, `korean-humanize/SKILL.md` 경로 존재와 플러그인 설정 검사는 확인했으나 해당 스킬이 사용자 앱에 설치됐다는 증거는 아니다.
