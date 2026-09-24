@@ -63,13 +63,10 @@ PM은 직접 일하지 않습니다. **누가 이 일에 맞는지 찾아 팀을
 
 ## 설치
 
-### ① 마켓플레이스 등록 (최초 1회만)
+Claude Cowork와 ChatGPT Work는 마켓플레이스 등록 권한과 경로가 다릅니다.
 
-'MoAI-Cowork, 모두의 코워크' AI 코워커는 `modu-ai/moai-cowork` 마켓플레이스 하나에 들어있습니다. **Claude Cowork**와 **ChatGPT Work** 두 데스크톱 앱 모두 설정(Settings) 또는 플러그인(Plugins) 메뉴 → 마켓플레이스(Marketplace)에서 이 주소를 추가하면 됩니다.
-
-### ② 플러그인 추가
-
-**가장 쉬운 방법** — 플러그인(Plugins) 메뉴를 열고 `moai-cowork` 마켓플레이스에서 원하는 코워커를 찾아 **Install**을 누르세요.
+- **Claude Cowork**: Settings(또는 Plugins) → Marketplace → +에서 `modu-ai/moai-cowork`를 추가한 뒤 Plugins에서 **moai-pm**를 설치하세요.
+- **ChatGPT Work**: 워크스페이스 관리자가 Workspace settings → Plugins → Add → Import marketplace에서 `https://github.com/modu-ai/moai-cowork`를 가져와야 합니다. 이용자는 권한이 부여된 뒤 Plugins에서 **moai-pm**를 찾아 Install plugin을 누르세요. 외부 서비스 연결은 별도 인증이 필요합니다.
 
 > 처음엔 PM + 코워커만 설치해도 충분합니다. 나중에 다른 코워커가 필요해지면 셋업 중 **Gap Detection**이 감지해 설치를 안내한 뒤, 완료되면 "이어서 진행"이라고 말해 이어서 진행합니다.
 

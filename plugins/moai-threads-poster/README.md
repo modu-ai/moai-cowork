@@ -15,7 +15,12 @@ Threads(Meta) · Instagram 포스팅 전담 플러그인 — 연결된 앱에서
 
 ## 설치 (플러그인 등록)
 
-Claude Cowork·ChatGPT Work에서 **Settings(또는 Plugins) → Marketplace → +**를 열어 `modu-ai/moai-cowork`를 추가하세요. Plugins 화면에서 **moai-threads-poster**를 선택하고 **+** 또는 **Install**을 누르세요. 자격증명(토큰) 발급 절차는 **[`mcp-servers/moai-mcp-threads-poster/CONNECTORS.md`](mcp-servers/moai-mcp-threads-poster/CONNECTORS.md)**를 참조하세요.
+Claude Cowork와 ChatGPT Work는 마켓플레이스 등록 권한과 경로가 다릅니다.
+
+- **Claude Cowork**: Settings(또는 Plugins) → Marketplace → +에서 `modu-ai/moai-cowork`를 추가한 뒤 Plugins에서 **moai-threads-poster**를 설치하세요.
+- **ChatGPT Work**: 워크스페이스 관리자가 Workspace settings → Plugins → Add → Import marketplace에서 `https://github.com/modu-ai/moai-cowork`를 가져와야 합니다. 이용자는 권한이 부여된 뒤 Plugins에서 **moai-threads-poster**를 찾아 Install plugin을 누르세요. 외부 서비스 연결은 별도 인증이 필요합니다.
+
+자격증명(토큰) 발급 절차는 **[`mcp-servers/moai-mcp-threads-poster/CONNECTORS.md`](mcp-servers/moai-mcp-threads-poster/CONNECTORS.md)**를 참조하세요.
 
 ## 환경변수
 

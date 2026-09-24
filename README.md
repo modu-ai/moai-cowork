@@ -104,15 +104,16 @@ MoAI-Cowork는 이 분들이 "**하고 싶은 일만 말하면 시작**" 할 수
 
 ## 시작하기 — 두 데스크톱 앱에서 설치
 
-두 데스크톱 앱 **Claude Cowork**와 **ChatGPT Work** 중 평소 쓰는 쪽에 설치합니다. 두 앱 모두 같은 마켓플레이스 주소 `modu-ai/moai-cowork`를 사용합니다. 설치는 전부 앱 안에서 마우스 클릭으로 진행합니다 — 터미널은 필요하지 않습니다.
+두 데스크톱 앱 **Claude Cowork**와 **ChatGPT Work** 중 평소 쓰는 쪽에 설치합니다. Claude Cowork는 앱에서 저장소를 추가하고, ChatGPT Work는 워크스페이스 관리자가 GitHub 마켓플레이스를 가져옵니다. 설치는 앱 화면에서 진행합니다.
 
 ![마켓플레이스 등록, 코워커 설치, 프로젝트 시작으로 이어지는 세 단계](./www/static/infographics/install-3steps.png)
 
 ### 1. 마켓플레이스 등록 (최초 1회)
 
-마켓플레이스(= 설치할 수 있는 앱 목록이 모여 있는 곳, 앱 스토어처럼 생각하시면 됩니다)에 주소를 등록합니다. 컴퓨터당 한 번이면 끝납니다.
+마켓플레이스는 설치할 수 있는 코워커 목록입니다. 사용하는 앱의 경로로 등록합니다.
 
-두 데스크톱 앱 모두 같은 방식입니다 — 앱의 <strong>설정(Settings) 또는 플러그인(Plugins) 메뉴 → 마켓플레이스(Marketplace)</strong>에서 **+** 로 저장소를 추가하고 주소 `modu-ai/moai-cowork`를 입력합니다. 동기화가 끝나면 코워커 목록이 표시됩니다.
+- **Claude Cowork**: Settings(또는 Plugins) → Marketplace → +에서 `modu-ai/moai-cowork`를 추가합니다.
+- **ChatGPT Work**: 워크스페이스 관리자가 Workspace settings → Plugins → Add → Import marketplace에서 Source에 `https://github.com/modu-ai/moai-cowork`를 입력하고 가져옵니다. 저장소 루트의 마켓플레이스를 쓰므로 Path는 비웁니다. 관리자 권한이 없으면 관리자에게 등록을 요청하세요.
 
 <!-- ▼ 이미지 삽입 자리 — 마켓플레이스 등록 화면. 링크를 주시면 아래 줄의 TODO를 실제 이미지로 교체합니다. -->
 <!-- ![마켓플레이스 등록 화면](TODO-사용자-제공-이미지-링크) -->
@@ -121,7 +122,7 @@ MoAI-Cowork는 이 분들이 "**하고 싶은 일만 말하면 시작**" 할 수
 
 ### 2. 코워커(플러그인) 설치
 
-등록한 마켓플레이스에서 필요한 코워커를 각각 **+** 버튼으로 추가합니다.
+Claude Cowork는 Plugins에서, ChatGPT Work는 관리자에게 설치 권한을 받은 뒤 Plugins Directory에서 필요한 코워커를 골라 설치합니다. 외부 서비스 연결은 플러그인 설치와 별도로 인증합니다.
 
 - **먼저 `moai-pm`** — `/project` 한 명령으로 프로젝트를 초기화하고 나머지 코워커를 배치하는 진입 허브입니다.
 - **함께 권장 `moai-coworker`** — 텍스트 산출물 검수 등 범용 실무 코어를 담습니다.
@@ -140,7 +141,7 @@ MoAI-Cowork는 이 분들이 "**하고 싶은 일만 말하면 시작**" 할 수
 /project
 ```
 
-"온라인 클래스 런칭 준비할 거야"처럼 답하면, PM이 프로젝트 전용 커스텀 에이전트와 스킬 체인을 설계해 `CLAUDE.md`(Claude Cowork) 또는 `AGENTS.md`(ChatGPT Work)를 생성합니다. 이후에는 자연어 한 줄로 실무가 굴러갑니다.
+"온라인 클래스 런칭 준비할 거야"처럼 답하면, PM이 프로젝트 전용 커스텀 에이전트와 스킬 체인을 설계해 두 앱이 공유하는 `AGENTS.md`를 생성하고 Claude용 `CLAUDE.md`에는 이를 불러오는 한 줄을 둡니다. 이후에는 자연어 한 줄로 작업을 이어갈 수 있습니다.
 
 단계별 전체 가이드는 [빠른 시작](https://cowork.mo.ai.kr/getting-started/quick-start/)을 보세요.
 
