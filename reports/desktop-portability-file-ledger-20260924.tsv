@@ -674,31 +674,31 @@ plugins/moai-pm/skills/project/references/router.md	claude_only_tool	static_read
 plugins/moai-pm/skills/project/references/templates/AGENTS.md.tmpl	claude_only_tool	static_read
 plugins/moai-pm/skills/project/references/templates/CLAUDE.md.tmpl		static_read
 plugins/moai-pm/skills/project/references/update-protocol.md	claude_only_tool	static_read
-plugins/moai-recruiter/.claude-plugin/plugin.json		partial
-plugins/moai-recruiter/.codex-plugin/plugin.json		partial
-plugins/moai-recruiter/README.md		partial
-plugins/moai-recruiter/agents/recruiter.md	claude_only_tool	partial
-plugins/moai-recruiter/agents/screening-auditor.md	claude_only_tool	partial
-plugins/moai-recruiter/skills/hr-draft-offer/SKILL.md		partial
-plugins/moai-recruiter/skills/hr-employment/SKILL.md		partial
-plugins/moai-recruiter/skills/hr-employment/references/hiring-pipeline.md		partial
-plugins/moai-recruiter/skills/hr-employment/references/insurance-lifecycle.md		partial
-plugins/moai-recruiter/skills/hr-employment/references/korean-tone-reviewer.md		partial
-plugins/moai-recruiter/skills/hr-employment/references/onboarding-system.md		partial
-plugins/moai-recruiter/skills/hr-job-analysis/SKILL.md		partial
-plugins/moai-recruiter/skills/hr-job-analysis/references/jd-analysis-guide.md		partial
-plugins/moai-recruiter/skills/hr-operations/SKILL.md		partial
-plugins/moai-recruiter/skills/hr-operations/references/hybrid-work-policy.md		partial
-plugins/moai-recruiter/skills/hr-operations/references/kr-flexible-work-law.md		partial
-plugins/moai-recruiter/skills/hr-operations/references/remote-work-ops.md		partial
-plugins/moai-recruiter/skills/hr-operations/references/team-culture.md		partial
-plugins/moai-recruiter/skills/hr-performance-review/SKILL.md		partial
-plugins/moai-recruiter/skills/hr-performance-review/references/feedback-templates.md		partial
-plugins/moai-recruiter/skills/hr-performance-review/references/okr-guide.md		partial
-plugins/moai-recruiter/skills/hr-resume-screener/SKILL.md		partial
-plugins/moai-recruiter/skills/hr-resume-screener/tests/test-cases.yaml		partial
-plugins/moai-recruiter/skills/hr-screening-audit/SKILL.md	new_chatgpt_agent_mapping	partial
-plugins/moai-recruiter/skills/hr-workflow/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-recruiter/.claude-plugin/plugin.json		static_read
+plugins/moai-recruiter/.codex-plugin/plugin.json		static_read
+plugins/moai-recruiter/README.md		static_read
+plugins/moai-recruiter/agents/recruiter.md	claude_only_tool	static_read
+plugins/moai-recruiter/agents/screening-auditor.md	claude_only_tool	static_read
+plugins/moai-recruiter/skills/hr-draft-offer/SKILL.md		static_read
+plugins/moai-recruiter/skills/hr-employment/SKILL.md		static_read
+plugins/moai-recruiter/skills/hr-employment/references/hiring-pipeline.md		static_read
+plugins/moai-recruiter/skills/hr-employment/references/insurance-lifecycle.md		static_read
+plugins/moai-recruiter/skills/hr-employment/references/korean-tone-reviewer.md		static_read
+plugins/moai-recruiter/skills/hr-employment/references/onboarding-system.md		static_read
+plugins/moai-recruiter/skills/hr-job-analysis/SKILL.md		static_read
+plugins/moai-recruiter/skills/hr-job-analysis/references/jd-analysis-guide.md		static_read
+plugins/moai-recruiter/skills/hr-operations/SKILL.md		static_read
+plugins/moai-recruiter/skills/hr-operations/references/hybrid-work-policy.md		static_read
+plugins/moai-recruiter/skills/hr-operations/references/kr-flexible-work-law.md		static_read
+plugins/moai-recruiter/skills/hr-operations/references/remote-work-ops.md		static_read
+plugins/moai-recruiter/skills/hr-operations/references/team-culture.md		static_read
+plugins/moai-recruiter/skills/hr-performance-review/SKILL.md		static_read
+plugins/moai-recruiter/skills/hr-performance-review/references/feedback-templates.md		static_read
+plugins/moai-recruiter/skills/hr-performance-review/references/okr-guide.md		static_read
+plugins/moai-recruiter/skills/hr-resume-screener/SKILL.md		static_read
+plugins/moai-recruiter/skills/hr-resume-screener/tests/test-cases.yaml		static_read
+plugins/moai-recruiter/skills/hr-screening-audit/SKILL.md	new_chatgpt_agent_mapping	static_read
+plugins/moai-recruiter/skills/hr-workflow/SKILL.md	new_chatgpt_agent_mapping	static_read
 plugins/moai-seller/.claude-plugin/plugin.json		partial
 plugins/moai-seller/.codex-plugin/plugin.json		partial
 plugins/moai-seller/.mcp.json		partial

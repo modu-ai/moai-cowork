@@ -95,8 +95,8 @@
     {
       "name": "moai-recruiter",
       "source": "./plugins/moai-recruiter",
-      "version": "2.0.7",
-      "description": "인사·채용 전담 AI 코워커(고용주 편) — 채용 공고 분석·이력서 스크리닝·오퍼레터/근로계약서·성과평가·People Ops 스킬 6종. 구직자 편은 moai-career(커리어코치)로 분리되었습니다. 이런 분께 추천: 채용 담당자·인사 실무자.",
+      "version": "2.0.8",
+      "description": "인사·채용 전담 AI 코워커(고용주 편) — 채용 공고 분석·이력서 스크리닝·오퍼레터/근로계약서·성과평가·People Ops를 돕습니다. 구직자 편은 moai-career(커리어코치)로 분리되었습니다. 이런 분께 추천: 채용 담당자·인사 실무자.",
       "displayName": "🤝 인사·채용 담당",
       "category": "전문직"
     },

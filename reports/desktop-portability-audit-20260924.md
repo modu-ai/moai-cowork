@@ -24,7 +24,7 @@
 | moai-media | 14 | 2 | 43 | 1 | 1 | 86파일 정적 열람 완료, 앱 실행·현행성 검증 대기 |
 | moai-officer | 13 | 2 | 54 | 0 | 1 | 대기 |
 | moai-pm | 1 | 0 | 14 | 0 | 0 | 19파일 정적 열람 완료, 앱 실행·생성물 검증 대기 |
-| moai-recruiter | 6 | 2 | 11 | 0 | 0 | 대기 |
+| moai-recruiter | 6 | 2 | 11 | 0 | 0 | 25/25파일 정적 열람, 앱 실행·법령 현행성 검증 대기 |
 | moai-seller | 31 | 2 | 45 | 97 | 1 | 대기 |
 | moai-story | 18 | 2 | 42 | 0 | 1 | 대기 |
 | moai-threads-poster | 5 | 0 | 2 | 16 | 1 | 대기 |
@@ -961,3 +961,11 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - `metrics_v2.py`의 한 표현 `판단되어진다.`와 `회의를 가졌다.`가 각각 2건으로 집계되는 것을 수정 전 호출에서 재현했다. 표현 목록에 짧은 형태와 긴 형태가 함께 있었고 `text.count`의 합계가 겹친 구간을 중복 집계했다. 긴 표현 우선 정규식으로 한 구간을 한 번 세게 하고 정확한 개수 회귀 테스트를 추가했다. 처방집의 변경률 설명도 실제 `1 - difflib.SequenceMatcher(..., autojunk=False).ratio()` 계산에 맞췄다. 분류표의 A-2 `S2`와 JSON 예시 `S1`의 불일치, 경어체 다섯 이름을 “4단계”로 적은 표기도 바로잡았다.
 - `uv run --with pytest python -m pytest -q plugins/moai-writer/skills/korean-humanize/tests`의 출력은 `137 passed, 13 subtests passed in 0.27s`였다. `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `git diff --check`는 출력 없이 종료 코드 0이었다. 스킬 버전은 `1.4.6`, 작가 플러그인의 Claude·Codex·마켓플레이스 버전은 `1.5.13`으로 올렸다. 이 검증은 등록된 표현의 회귀와 설정 구조에 한정된다.
 - `mcp__moai__codex_audit`의 구조화 판정은 `inconclusive`, `findings: []`였다. 요약에는 `PASS`라고 적혔지만 구조화 판정을 대체하지 않는다. 원고 전반의 탐지 정확도·학술 출처·실제 윤문 의미 보존과 macOS·Windows·Linux 데스크톱 앱 동작은 아직 검증하지 않았다. 직전 `225a284e`의 [원격 CI](https://github.com/modu-ai/moai-cowork/actions/runs/36069666728)는 `completed/success`였고, 이번 미커밋 변경분의 CI 결과는 아니다.
+
+### 인사·채용 플러그인 정적 열람과 단독 설치 경로 (2026-09-25)
+
+- 배포 파일 25개를 개별 열람하고 장부를 `static_read`로 기록했다. Claude·Codex 매니페스트와 마켓플레이스 설명의 고정 “스킬 6종” 표기는 실제 진입점 8개와 어긋나 제거했다. 플러그인 버전은 세 위치에서 `2.0.8`로 맞췄다.
+- `hr-draft-offer`, `hr-employment`, `hr-operations`, `hr-performance-review`, `hr-job-analysis`는 다른 플러그인의 윤문 스킬을 필수 후처리로 요구하거나 문체 게이트 통과를 배포 조건으로 적었다. 단독 설치한 앱에서도 원자료의 직무 요건·금액·날짜·평가 근거·개인정보를 직접 검수하도록 고치고, 다른 스킬과 파일 작성 기능은 현재 앱에 노출되고 해당 산출물이 필요할 때만 연결했다. 오퍼 스킬의 별도 법률 플러그인도 선택적 보조 검토로 바꾸고, 공식 법령·실제 계약 조건·전문가 검토가 없으면 조항 적법성 확정을 금지했다. 다섯 스킬의 PATCH 버전을 올렸다.
+- `hr-job-analysis`는 매니페스트의 “고용주 편” 설명과 달리 본문·예시가 구직자 경험 매칭과 지원 전략을 주로 다룬다. 이 소속·라우팅은 별도 제품 판단이 필요해 이번 이식성 수정에서는 유지했다. 근로계약, 최저임금, 4대보험, 유연근무 관련 수치와 법령 링크는 각 기관의 현재 원문과 항목별 대조하지 않았다. 실제 지원서 처리, 법률 검토, Claude Cowork·ChatGPT Work 단독 설치 및 macOS·Windows·Linux 동작도 아직 실행하지 않았다.
+- `mcp__moai__codex_audit`의 구조화 판정은 `inconclusive`, `findings: []`였으나 요약에서 `hr-draft-offer/SKILL.md:26`과 `hr-employment/SKILL.md:21`의 개인정보 처리 목적·권한 확인 누락을 구체적으로 지적했다. 두 위치에 처리 목적·권한 확인, 공유용 초안 식별자 마스킹, 주민등록번호의 법령상 근거·필요성 확인을 추가했다. [개인정보 포털의 고유식별정보 안내](https://www.privacy.go.kr/front/per/chk/examInfoViewImproveCOMQ6_1.do)는 주민등록번호 처리가 원칙적으로 금지되고 다른 법령 등에 근거가 필요하다고 안내한다. 감사 요약의 `FAIL` 문구를 구조화 판정으로 바꾸지 않는다.
+- 이 작업 트리의 `python3 scripts/check-plugin-runtimes.py` 출력은 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `git diff --check`는 출력 없이 종료 코드 0이었다. 장부 파싱은 `recruiter 25 static_read 25`였고, 다섯 스킬의 버전은 순서대로 `1.1.3`, `1.1.4`, `1.1.4`, `1.1.3`, `1.1.2`, 플러그인 세 버전은 모두 `2.0.8`이었다. 직전 작가 수정 `c9fdd276`의 [원격 CI](https://github.com/modu-ai/moai-cowork/actions/runs/36070291368)는 `completed/success`였고 이번 인사 플러그인 수정의 CI 결과는 아니다.
