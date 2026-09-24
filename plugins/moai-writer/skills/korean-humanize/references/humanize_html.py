@@ -55,9 +55,14 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
+import stat
 import sys
+import tempfile
+from html import escape
 from html.parser import HTMLParser
+from pathlib import Path
 from typing import Any, Optional
 
 # 내용을 통째로 건너뛰는 태그 — 코드·스타일·서식 보존 블록.
@@ -196,16 +201,25 @@ def _sorted_rules(replacements: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return sorted(rules, key=lambda rule: len(rule["before"]), reverse=True)
 
 
-def _apply_rules(segment: str, rules: list[dict[str, Any]]) -> tuple[str, int]:
+def _apply_rules(
+    segment: str, rules: list[dict[str, Any]], html_context: Optional[str] = None
+) -> tuple[str, int]:
     """한 표면 조각에 규칙을 순서대로 적용한다. (결과, 치환 횟수) 반환."""
     applied = 0
     for rule in rules:
         if rule.get("regex"):
-            segment, count = re.subn(rule["before"], rule["after"], segment)
+            def _replacement(match: re.Match[str]) -> str:
+                value = match.expand(rule["after"])
+                return escape(value, quote=html_context == "attr") if html_context else value
+
+            segment, count = re.subn(rule["before"], _replacement, segment)
         else:
             count = segment.count(rule["before"])
             if count:
-                segment = segment.replace(rule["before"], rule["after"])
+                value = rule["after"]
+                if html_context:
+                    value = escape(value, quote=html_context == "attr")
+                segment = segment.replace(rule["before"], value)
         applied += count
     return segment, applied
 
@@ -236,7 +250,8 @@ def _apply_rules_jsonld(segment: str, rules: list[dict[str, Any]]) -> tuple[str,
     transformed = _walk(parsed)
     if counter[0] == 0:
         return segment, 0
-    return json.dumps(transformed, ensure_ascii=False, indent=2), counter[0]
+    # HTML 파서는 JSON 문자열 안의 </script>도 스크립트 종료로 해석한다.
+    return json.dumps(transformed, ensure_ascii=False, indent=2).replace("<", "\\u003c"), counter[0]
 
 
 def _json_strings(node: Any) -> list[str]:
@@ -333,7 +348,7 @@ def humanize_html(
         if kind == "jsonld":
             new_segment, count = _apply_rules_jsonld(segment, rules)
         else:
-            new_segment, count = _apply_rules(segment, rules)
+            new_segment, count = _apply_rules(segment, rules, kind)
         applied_total += count
         if new_segment != segment:
             changed_nodes += 1
@@ -401,10 +416,23 @@ def _main(argv: Optional[list[str]] = None) -> int:
         parser.error("--output은 --check-only가 아닐 때 필수입니다")
 
     result, summary = humanize_html(raw, replacements)
-    with open(args.output, "w", encoding="utf-8") as handle:
-        handle.write(result)
+    if not summary["tag_balance_ok"]:
+        print("치환 뒤 HTML 태그 구조가 바뀌어 출력하지 않습니다", file=sys.stderr)
+        return 1
+    output_path = Path(args.output).resolve()
+    original_mode = stat.S_IMODE(output_path.stat().st_mode) if output_path.exists() else None
+    fd, temp_path = tempfile.mkstemp(prefix=".humanize-", suffix=".tmp", dir=output_path.parent)
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as handle:
+            handle.write(result)
+        if original_mode is not None:
+            os.chmod(temp_path, original_mode)
+        os.replace(temp_path, output_path)
+    finally:
+        if os.path.exists(temp_path):
+            os.unlink(temp_path)
     print(json.dumps(summary, ensure_ascii=False, indent=2))
-    return 0 if summary["tag_balance_ok"] else 1
+    return 0
 
 
 if __name__ == "__main__":
