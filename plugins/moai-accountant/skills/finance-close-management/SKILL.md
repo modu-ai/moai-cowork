@@ -5,7 +5,7 @@ description: >
   '결산 체크리스트 만들어줘', '4대보험 정산해줘', '급여 마감해줘'처럼 말하면 됩니다.
   K-IFRS 기준 계정 마감, 급여 정산, 세무 일정 관리, 결산 보고서 자동 생성을 지원합니다.
   적용 연도의 공식 보험료율과 세무 일정을 확인해 반영합니다.
-version: "1.1.2"
+version: "1.1.3"
 ---
 
 # 결산 관리 (Close Management)
@@ -141,18 +141,9 @@ version: "1.1.2"
 - **moai-accountant:finance-variance-analysis**: 예산 대비 실적 분석
 - **moai-accountant:finance-tax-helper**: 세금 신고, 홈택스 안내
 
-### 후처리 체인 (결산 보고서·경영진 요약 등 서술형 산출물)
+### 산출물 검수
 
-결산 보고서, 경영진 요약, 비용 분석 코멘트처럼 문장 산출물을 작성한 뒤에는 반드시 아래 체인으로 마무리한다.
-
-```
-finance-close-management → moai-coworker:ai-slop-reviewer → moai-writer:korean-humanize → 최종 검수
-```
-
-- **moai-coworker:ai-slop-reviewer**: AI 티 나는 표현·과장·상투구 검수 및 수정
-- **moai-writer:korean-humanize**: 한국어 자연스러움 보정 (서술 산출물 한정)
-
-> 급여 대장·4대보험 계산 내역·세무 일정 캘린더 같은 표·숫자 산출물은 체인 대상이 아니며, 엑셀화가 필요하면 `moai-officer:doc-xlsx`로 라우팅한다.
+표·계산식·세율·요율·기간·출처를 원자료와 다시 대조하고, 확인하지 못한 값은 미확인으로 남긴다. 서술 문장은 과장·어색한 조사·확정 표현을 이 스킬 안에서 고친다. 추가 스킬에는 성명·주민등록번호·계좌·연락처를 제거한 서술 문장만 전달한다. `moai-coworker:ai-slop-reviewer`나 `moai-writer:korean-humanize`가 현재 앱에 설치돼 사용 가능하면 그 문장 표현을 추가 검수한다. 윤문 후에는 원문과 대조해 숫자·법적 의미·시한이 유지됐는지 확인한다. 추가 스킬이 없다면 자체 검수만 수행하고 실행하지 않은 검사를 완료했다고 쓰지 않는다. Excel 파일이 필요할 때는 `moai-officer:doc-xlsx`가 설치돼 있는지 확인한다.
 
 ## 이 스킬을 사용하지 말아야 할 때
 

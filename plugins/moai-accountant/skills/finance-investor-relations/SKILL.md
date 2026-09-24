@@ -11,7 +11,7 @@ description: |
   - "시리즈 A 투자 유치 자료 준비해줘"
   - "투자자 보고서 정리해줘"
   회사의 단계와 자료에 맞춘 피치덱·재무 모델·예상 질문 Q&A를 만들고 필요한 형식으로 정리합니다.
-version: "1.1.1"
+version: "1.1.2"
 ---
 
 # 투자자 관계 (Investor Relations)
@@ -160,10 +160,9 @@ version: "1.1.1"
 - **moai-consultant:consult-startup**: 스타트업 초기 IR 자료 및 재무 모델
 - **moai-consultant:consult-market**: 시장 규모 분석 및 TAM/SAM/SOM
 - **moai-consultant:consult-strategy**: 비즈니스 모델 및 성장 전략
-- **moai-officer:doc-pptx**: IR 덱 Markdown → PPT 변환
-- **moai-coworker:ai-slop-reviewer → moai-writer:korean-humanize**: 생성된 IR 자료 AI 패턴 검수 후 한국어 표현을 자연스럽게 다듬습니다 (필수)
+- **moai-officer:doc-pptx**: 설치돼 있고 실제 변환이 가능할 때 IR 덱을 PPT로 생성
 
-> IR 덱의 재무 모델·매출 예측·밸류에이션 등 **표·수치 산출물은 humanize 대상이 아닙니다** — `moai-officer:doc-xlsx`로 라우팅하세요. 위 체인은 문제·솔루션·시장·비전 등 **서술(narrative) 슬라이드 본문**에만 적용합니다.
+재무 모델·매출 예측·밸류에이션의 숫자와 출처는 원자료로 검수한다. 문제·솔루션·시장·비전 등 서술 슬라이드의 과장·어색한 표현은 이 스킬 안에서 고친다. 성명·주민등록번호·계좌·연락처를 제거한 서술 문장만 추가 스킬에 전달한다. `moai-coworker:ai-slop-reviewer`와 `moai-writer:korean-humanize`가 현재 앱에 설치돼 사용 가능하면 문장 표현을 추가 검수하고, 윤문 전후 숫자·의미를 대조한다. 표·수치 산출물에 윤문을 적용하지 않는다. Excel 파일은 `moai-officer:doc-xlsx`가 설치돼 있을 때만 연결한다. 추가 도구를 실행하지 않았으면 완료했다고 쓰지 않는다.
 
 ## References
 

@@ -4,7 +4,7 @@ description: >
   재무제표를 만들어주는 스킬입니다.
   '재무상태표 작성해줘', '손익계산서 분석해줘', 'K-IFRS 기준으로 재무제표 만들어줘'처럼 말하면 됩니다.
   원장과 적용 회계기준을 확인해 재무제표 초안·주석·재무비율 분석을 지원합니다.
-version: "1.1.2"
+version: "1.1.3"
 ---
 
 # 재무제표 작성 (Financial Statements)
@@ -168,18 +168,9 @@ version: "1.1.2"
 - **moai-accountant:finance-variance-analysis**: 예산 대비 실적 분석
 - **moai-accountant:finance-tax-helper**: 세금 신고, 홈택스 안내
 
-### 후처리 체인 (재무제표 해설·주석·재무비율 코멘트 등 서술형 산출물)
+### 산출물 검수
 
-재무제표 분석 코멘트, 주석 초안의 서술 문단, 재무비율 해설, 경영진 보고용 설명문처럼 문장 산출물을 작성한 뒤에는 아래 체인으로 마무리한다.
-
-```
-finance-financial-statements (해설·코멘트 부분) → moai-coworker:ai-slop-reviewer → moai-writer:korean-humanize → 최종 검수
-```
-
-- **moai-coworker:ai-slop-reviewer**: AI 티 나는 표현·과장·상투구 검수 및 수정
-- **moai-writer:korean-humanize**: 한국어 자연스러움 보정 (서술 산출물 한정)
-
-> 재무상태표·손익계산서·현금흐름표·재무비율 같은 표·숫자 산출물 자체는 체인 대상이 아니며, 엑셀화가 필요하면 `moai-officer:doc-xlsx`로 라우팅한다. 체인은 표를 둘러싼 해설·주석·코멘트 문장에만 적용한다.
+표·계산식·세율·요율·기간·출처를 원자료와 다시 대조하고, 확인하지 못한 값은 미확인으로 남긴다. 서술 문장은 과장·어색한 조사·확정 표현을 이 스킬 안에서 고친다. 추가 스킬에는 성명·주민등록번호·계좌·연락처를 제거한 서술 문장만 전달한다. `moai-coworker:ai-slop-reviewer`나 `moai-writer:korean-humanize`가 현재 앱에 설치돼 사용 가능하면 그 문장 표현을 추가 검수한다. 윤문 후에는 원문과 대조해 숫자·법적 의미·시한이 유지됐는지 확인한다. 추가 스킬이 없다면 자체 검수만 수행하고 실행하지 않은 검사를 완료했다고 쓰지 않는다. Excel 파일이 필요할 때는 `moai-officer:doc-xlsx`가 설치돼 있는지 확인한다.
 
 ## 이 스킬을 사용하지 말아야 할 때
 

@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "dart": {
-      "$comment": "OpenDART 전자공시 MCP (chrisryugj/korean-dart-mcp, MIT) — 83개 API를 15 도구로 압축. 공시·재무·지분·XBRL(markdown_full 전체 계정 + 계산 검증) + 버핏급 애널리스트 프레임(insider_signal·disclosure_anomaly·buffett_quality_snapshot) + HWP/PDF 첨부 마크다운화(kordoc 엔진) + 90일 자동분할. 사전 설치: Node.js 20.19+(LTS 권장). 회사명/종목코드/corp_code 자동 해결(SQLite FTS, 첫 기동 시 11.6만건 덤프 약 5-10초). 키 발급: opendart.fss.or.kr 회원가입 → 인증키 신청(이메일 즉시, 40자, 일 20,000건 무료).",
+      "$comment": "OpenDART 전자공시용 제3자 MCP. 도구 목록과 호출 한도는 설치된 서버 및 OpenDART의 현재 안내를 확인한다. 인증키는 앱 입력란 또는 개인 자격증명 파일에서 런처가 읽는다.",
       "command": "uv",
       "args": [
         "run",

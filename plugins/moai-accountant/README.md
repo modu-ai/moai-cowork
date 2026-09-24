@@ -1,6 +1,6 @@
 # 재무·세무 담당 (moai-accountant)
 
-재무·세무 전담 AI 코워커입니다. 재무제표 작성·결산 관리·차이 분석·IR 같은 사업 재무 실무와 연말정산·세금·가계 예산·투자 입문 같은 개인 재무까지 스킬 11종을 하나의 플러그인으로 제공합니다. OpenDART 전자공시 MCP 연동으로 공시 데이터에 근거한 분석을 수행하며, 슬래시 명령을 외울 필요 없이 자연어로 요청하면 매칭되는 스킬이 자동 호출됩니다.
+재무·세무 전담 AI 코워커입니다. 재무제표 초안·결산 관리·차이 분석·IR 같은 사업 재무 실무와 연말정산·세금·가계 예산·투자 입문을 지원합니다. OpenDART 전자공시 MCP가 연결되면 조회한 공시를 근거로 분석할 수 있습니다. 자연어로 요청하면 해당 스킬을 찾을 수 있습니다.
 
 > 이 플러그인의 스킬들은 moai-coworker에서 이관되었습니다.
 
@@ -17,7 +17,7 @@ Claude Cowork와 ChatGPT Work는 마켓플레이스 등록 권한과 경로가 �
 
 > 앱별 정확한 클릭 경로와 잘 안 될 때 대처법은 [플러그인 설치와 관리](https://cowork.mo.ai.kr/plugins/install/)에 정리해 두었습니다.
 
-## 스킬 11종
+## 스킬
 
 호출 형식: `/moai-accountant:finance-<스킬명>` — 예: `/moai-accountant:finance-tax-helper`. 자연어 요청("연말정산 환급 늘리는 법 알려줘")으로도 자동 매칭됩니다.
 
@@ -46,11 +46,11 @@ Claude Cowork와 ChatGPT Work는 마켓플레이스 등록 권한과 경로가 �
 
 ## MCP 연동
 
-플러그인 루트 `.mcp.json`에 OpenDART 전자공시 MCP 서버가 선언되어 있습니다. 자격증명은 **환경변수로만** 설정하세요(파일에 키를 적지 않습니다).
+플러그인 루트 `.mcp.json`에 OpenDART 전자공시 MCP 서버가 선언되어 있습니다. DART 키는 앱의 비밀정보 입력란이나 [API 키 넣는 법](https://cowork.mo.ai.kr/plugins/mcp/credentials/)에 안내된 개인 자격증명 파일에 저장하세요. 저장소 파일이나 채팅에는 키를 적지 마세요.
 
 | 서버 | 플랫폼 | 필요 환경변수 | 비고 |
 |------|--------|---------------|------|
-| `dart` | OpenDART 전자공시 (83 API → 15 도구, XBRL 계산 검증 포함) | `DART_API_KEY` | 키 발급: opendart.fss.or.kr 회원가입 → 인증키 신청(무료, 일 20,000건). 사전 설치: Node.js 20.19+ |
+| `dart` | OpenDART 전자공시 | `DART_API_KEY` | [OpenDART](https://opendart.fss.or.kr/)에서 키 신청. 사전 설치: Node.js 20.19+ |
 
 ## Claude 에이전트
 
