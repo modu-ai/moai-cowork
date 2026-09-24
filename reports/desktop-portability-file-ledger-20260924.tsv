@@ -187,30 +187,30 @@ plugins/moai-coworker/skills/personal-wellness/references/parenting-guide.md		pa
 plugins/moai-coworker/skills/productivity-goal/SKILL.md		partial
 plugins/moai-coworker/skills/productivity-habit/SKILL.md		partial
 plugins/moai-coworker/skills/productivity-retro/SKILL.md		partial
-plugins/moai-cs/.claude-plugin/plugin.json		partial
-plugins/moai-cs/.codex-plugin/plugin.json		partial
-plugins/moai-cs/README.md		partial
-plugins/moai-cs/agents/cs-responder.md	claude_only_tool	partial
-plugins/moai-cs/agents/voc-auditor.md	claude_only_tool	partial
-plugins/moai-cs/skills/cs-channel-message/SKILL.md		partial
-plugins/moai-cs/skills/cs-channel-message/references/ad-copy.md		partial
-plugins/moai-cs/skills/cs-channel-message/references/email-sequence.md		partial
-plugins/moai-cs/skills/cs-channel-message/references/push-copy.md		partial
-plugins/moai-cs/skills/cs-channel-message/references/push-planning.md		partial
-plugins/moai-cs/skills/cs-channel-message/references/talk-copy.md		partial
-plugins/moai-cs/skills/cs-draft-response/SKILL.md		partial
-plugins/moai-cs/skills/cs-draft-response/references/kr-ecommerce-cs-law.md		partial
-plugins/moai-cs/skills/cs-draft-response/references/response-templates.md		partial
-plugins/moai-cs/skills/cs-draft-response/references/tone-guide.md		partial
-plugins/moai-cs/skills/cs-escalation/SKILL.md		partial
-plugins/moai-cs/skills/cs-escalation/references/feedback-analyzer.md		partial
-plugins/moai-cs/skills/cs-kb-article/SKILL.md		partial
-plugins/moai-cs/skills/cs-kb-article/references/writing-standards.md		partial
-plugins/moai-cs/skills/cs-quality-audit/SKILL.md	new_chatgpt_agent_mapping	partial
-plugins/moai-cs/skills/cs-ticket-triage/SKILL.md		partial
-plugins/moai-cs/skills/cs-ticket-triage/references/customer-support.md		partial
-plugins/moai-cs/skills/cs-voc-triage/SKILL.md		partial
-plugins/moai-cs/skills/cs-workflow/SKILL.md	new_chatgpt_agent_mapping	partial
+plugins/moai-cs/.claude-plugin/plugin.json		static_read
+plugins/moai-cs/.codex-plugin/plugin.json		static_read
+plugins/moai-cs/README.md		static_read
+plugins/moai-cs/agents/cs-responder.md	claude_only_tool	static_read
+plugins/moai-cs/agents/voc-auditor.md	claude_only_tool	static_read
+plugins/moai-cs/skills/cs-channel-message/SKILL.md		static_read
+plugins/moai-cs/skills/cs-channel-message/references/ad-copy.md		static_read
+plugins/moai-cs/skills/cs-channel-message/references/email-sequence.md		static_read
+plugins/moai-cs/skills/cs-channel-message/references/push-copy.md		static_read
+plugins/moai-cs/skills/cs-channel-message/references/push-planning.md		static_read
+plugins/moai-cs/skills/cs-channel-message/references/talk-copy.md		static_read
+plugins/moai-cs/skills/cs-draft-response/SKILL.md		static_read
+plugins/moai-cs/skills/cs-draft-response/references/kr-ecommerce-cs-law.md		static_read
+plugins/moai-cs/skills/cs-draft-response/references/response-templates.md		static_read
+plugins/moai-cs/skills/cs-draft-response/references/tone-guide.md		static_read
+plugins/moai-cs/skills/cs-escalation/SKILL.md		static_read
+plugins/moai-cs/skills/cs-escalation/references/feedback-analyzer.md		static_read
+plugins/moai-cs/skills/cs-kb-article/SKILL.md		static_read
+plugins/moai-cs/skills/cs-kb-article/references/writing-standards.md		static_read
+plugins/moai-cs/skills/cs-quality-audit/SKILL.md	new_chatgpt_agent_mapping	static_read
+plugins/moai-cs/skills/cs-ticket-triage/SKILL.md		static_read
+plugins/moai-cs/skills/cs-ticket-triage/references/customer-support.md		static_read
+plugins/moai-cs/skills/cs-voc-triage/SKILL.md		static_read
+plugins/moai-cs/skills/cs-workflow/SKILL.md	new_chatgpt_agent_mapping	static_read
 plugins/moai-designer/.claude-plugin/plugin.json		partial
 plugins/moai-designer/.codex-plugin/plugin.json		partial
 plugins/moai-designer/.mcp.json		partial
