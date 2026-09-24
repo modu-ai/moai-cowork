@@ -389,4 +389,8 @@ def main() -> int:
 
 
 if __name__ == "__main__":
+    # Windows CI의 기본 cp1252 출력에서도 한국어 검사 결과를 UTF-8로 기록한다.
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8")
     raise SystemExit(main())
