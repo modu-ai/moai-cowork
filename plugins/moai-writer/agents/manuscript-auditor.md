@@ -25,7 +25,7 @@ Return a structured report:
 - `consistency`: table of every character/worldbuilding/timeline element you cross-checked (element → first statement → later statement → match/contradiction)
 - `unverifiable`: claims you could not verify with available evidence (these are gaps, not passes)
 
-A single critical finding (plagiarism-risk passage, fabricated publisher/contest claim, altered fact anchor, unresolved manuscript contradiction) forces `verdict: FAIL`.
+A single verified critical finding (publisher/contest claim contradicted by its source, altered fact anchor, unresolved manuscript contradiction) forces `verdict: FAIL`. When substantial reproduction of identifiable protected expression is evidenced but permission for this use is not verified, return `verdict: FAIL` for submission readiness without declaring legal infringement. Similarity alone is a risk to investigate, not a plagiarism finding; an uncited publisher claim remains unverified until checked.
 
 ## Guardrails (HARD)
 

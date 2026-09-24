@@ -23,7 +23,7 @@
     {
       "name": "moai-writer",
       "source": "./plugins/moai-writer",
-      "version": "1.5.0",
+      "version": "1.5.1",
       "description": "출판·텍스트 전담 AI 코워커 — 출판 기획·집필·제안서·출판사 매칭(book-* 8종), 한국어 인문화 윤문과 맞춤법 검수까지 텍스트 창작 전 과정 스킬 10종. 스토리/IP 창작은 moai-story 플러그인으로 분리. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 작가·1인 출판인·실용서 저자.",
       "displayName": "✍️ 작가",
       "category": "창작·출판"
@@ -31,7 +31,7 @@
     {
       "name": "moai-story",
       "source": "./plugins/moai-story",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "description": "스토리/IP 창작 전담 AI 코워커 — 웹툰 제작 체인(기획→캐릭터→회차→식자→작화→QC)·웹소설 연재(기획→집필)·영상 시나리오·콘티·표지·IP 사업화 스킬. 플랫폼 제출 규격은 최신 공고를 확인하고, 이미지·영상 생성 실행은 moai-media에 위임합니다. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 웹툰/웹소설 창작자·시나리오 작가·IP 콘텐츠 기획자.",
       "displayName": "📖 스토리 크리에이터",
       "category": "창작·IP"
@@ -39,7 +39,7 @@
     {
       "name": "moai-marketer",
       "source": "./plugins/moai-marketer",
-      "version": "1.2.18",
+      "version": "1.2.19",
       "description": "마케팅 전담 AI 코워커 — 캠페인 기획·퍼포먼스 분석·키워드 리서치·그로스 실험·리텐션, 블로그·뉴스레터·SNS 콘텐츠 스킬. Meta Ads·게시 채널 MCP 연동. 미디어 생성은 moai-media 플러그인으로 연결합니다. 이런 분께 추천: 마케터·콘텐츠 크리에이터·1인 브랜드.",
       "displayName": "📣 마케터",
       "category": "마케팅"
@@ -63,7 +63,7 @@
     {
       "name": "moai-officer",
       "source": "./plugins/moai-officer",
-      "version": "1.3.0",
+      "version": "1.3.1",
       "description": "사무 문서 전담 AI 코워커 — 한국형 오피스 문서(HWPX·DOCX·XLSX·PPTX·PDF)·HTML 리포트/슬라이드 생성, 공문서 파싱, 노션 템플릿·생산성 루틴 스킬 13종. kordoc MCP 연동. 공공데이터 조회·데이터 분석은 moai-analyst로, 라이프스타일은 moai-coworker로 분리. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 사무직·기획자·자영업 운영자.",
       "displayName": "📄 사무관",
       "category": "문서·오피스"
@@ -71,7 +71,7 @@
     {
       "name": "moai-analyst",
       "source": "./plugins/moai-analyst",
-      "version": "1.3.3",
+      "version": "1.3.4",
       "description": "데이터·공공데이터 분석 전담 AI 코워커 — 데이터 프로파일링·시각화, 공공데이터 조회(부동산·경매·주식·KOSIS·건축물대장·DART 전자공시) 스킬 7종. KOSIS 통계·건축HUB·DART MCP 연동. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 데이터 애널리스트·사무직·기획자·자영업 운영자.",
       "displayName": "📊 데이터 애널리스트",
       "category": "데이터·분석"
@@ -79,7 +79,7 @@
     {
       "name": "moai-lawyer",
       "source": "./plugins/moai-lawyer",
-      "version": "1.4.9",
+      "version": "1.4.10",
       "description": "법무 전담 AI 코워커 — 계약 검토·NDA 트리아지·컴플라이언스 점검·법령/판례 리서치·국내외 특허/상표 선행조사·식약처 안전 기준 스킬. 국가법령정보 MCP(korean-law)로 인용을 검증하고, 특허/상표 공식 데이터 MCP(moai-mcp-ip)로 한국·미국·일본·유럽 DB를 조회합니다. 이런 분께 추천: 1인 사업자·스타트업 운영자. ※ 법률 자문 대체가 아닌 참고 자료입니다.",
       "displayName": "⚖️ 법무 담당",
       "category": "전문직"
@@ -95,7 +95,7 @@
     {
       "name": "moai-recruiter",
       "source": "./plugins/moai-recruiter",
-      "version": "2.0.5",
+      "version": "2.0.6",
       "description": "인사·채용 전담 AI 코워커(고용주 편) — 채용 공고 분석·이력서 스크리닝·오퍼레터/근로계약서·성과평가·People Ops 스킬 6종. 구직자 편은 moai-career(커리어코치)로 분리되었습니다. 이런 분께 추천: 채용 담당자·인사 실무자.",
       "displayName": "🤝 인사·채용 담당",
       "category": "전문직"
@@ -119,7 +119,7 @@
     {
       "name": "moai-career",
       "source": "./plugins/moai-career",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "description": "구직자 편 커리어 코칭 전담 AI 코워커 — 이력서·포트폴리오 첨삭, 면접 준비, 이직 전략까지 커리어 전환 실무 스킬. 인사채용(고용주 편)과 구분되는 구직자 관점입니다. 이런 분께 추천: 이직 준비자·취업 준비생·주니어 직장인.",
       "displayName": "🧭 커리어코치",
       "category": "커리어"
@@ -127,7 +127,7 @@
     {
       "name": "moai-tutor",
       "source": "./plugins/moai-tutor",
-      "version": "1.3.1",
+      "version": "1.3.2",
       "description": "교육 전담 AI 코워커 — 커리큘럼 설계·학습 자료·평가 문항 제작·강좌 운영 매뉴얼·논문 검색/작성·연구 보조 스킬. 강사와 학습자 양쪽 워크플로우를 지원합니다. 이런 분께 추천: 강사·교육 기획자·대학원생·연구자.",
       "displayName": "🎓 튜터",
       "category": "전문직"

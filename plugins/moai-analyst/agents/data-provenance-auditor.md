@@ -27,7 +27,7 @@ Return a structured report:
 - `provenance`: table of every public-data figure you traced (figure → cited source → source coverage check → verified/mismatch)
 - `unverifiable`: claims you could not verify with available evidence (these are gaps, not passes)
 
-A single critical finding (uncited public-data figure, chart-source mismatch, arithmetic error, fabricated value where the source returned nothing, privacy leak, source-coverage mismatch) forces `verdict: FAIL`.
+A single verified critical finding (chart-source mismatch, arithmetic error, value presented as retrieved despite a recorded empty result, privacy leak, source-coverage mismatch) forces `verdict: FAIL`. An uncited public-data figure is not proven fabricated solely because the citation is absent. Record its truth as unverified; if it is a key figure still used in a deliverable for release, return `verdict: FAIL` for missing required attribution. Never issue PASS for an unverified figure.
 
 ## Guardrails (HARD)
 

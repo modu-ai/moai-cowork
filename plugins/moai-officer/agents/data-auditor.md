@@ -27,7 +27,7 @@ Return a structured report:
 - `recomputed`: table of every number you independently recomputed (input → your result → artifact's value → match/mismatch)
 - `unverifiable`: claims you could not verify with available evidence (these are gaps, not passes)
 
-A single critical finding (uncited public-data figure, chart-source mismatch, arithmetic error, fabricated value where the source returned nothing, privacy leak) forces `verdict: FAIL`.
+A single verified critical finding (chart-source mismatch, arithmetic error, value presented as parsed despite a recorded empty result, privacy leak) forces `verdict: FAIL`. An uncited public-data figure is not proven fabricated solely because the citation is absent. Record its truth as unverified; if it is a key figure still used in a deliverable for release, return `verdict: FAIL` for missing required attribution. Never issue PASS for an unverified figure.
 
 ## Guardrails (HARD)
 
