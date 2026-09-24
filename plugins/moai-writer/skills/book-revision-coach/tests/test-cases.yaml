@@ -23,15 +23,16 @@ test_cases:
     pass_criteria:
       - style_violation_caught: true
 
-  - id: TC-03-5-element-chapter-check
-    name: 꼭지 5 요소 점검 (훅·본문·클라이맥스·정리·연결)
+  - id: TC-03-chapter-flow-check
+    name: 저자 의도에 따른 꼭지 흐름 점검
     input: |
-      각 꼭지의 5 요소 점검.
+      전환과 다음 연결 없이 여운으로 끝나는 에세이 꼭지를 퇴고하라.
     expected:
-      - elements_checked: [훅, 본문, 클라이맥스, 정리, 다음연결]
-      - per_꼭지_status: 표_형식
+      - flow_checked: [도입, 전개, 마무리]
+      - optional_elements: [전환, 다음연결]
+      - author_intent_considered: true
     pass_criteria:
-      - 5_elements_status_per_chapter: true
+      - missing_optional_elements_not_auto_failed: true
 
   - id: TC-04-citation-completeness
     name: 인용·각주 정합성
@@ -44,15 +45,15 @@ test_cases:
       - no_unobserved_citation_pass: true
 
   - id: TC-05-volume-balance
-    name: 분량 균형 (±20%)
+    name: 목표 분량과 실제 분량 비교
     input: |
-      2꼭지 7매 (목표 4매) → 75% 폭주.
+      투고처 기준으로 측정한 2꼭지 분량은 7매이고 목표는 4매다.
     expected:
-      - warning_raised: true
-      - recommendation: 꼭지_분리
+      - difference_reported: "3매 초과"
+      - recommendation: "저자와 분할·축약 여부 협의"
     pass_criteria:
-      - volume_warning: true
-      - split_recommended: true
+      - measured_basis_preserved: true
+      - automatic_split_absent: true
 
   - id: TC-06-visual-asset-integrity
     name: 시각 자료 정합성
