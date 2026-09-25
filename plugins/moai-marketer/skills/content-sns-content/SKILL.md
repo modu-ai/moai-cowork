@@ -1,7 +1,7 @@
 ---
 name: content-sns-content
 description: 인스타그램·카카오 채널·Threads·X·LinkedIn·Facebook·YouTube Shorts용 원고와 캡션을 실제 브랜드 자료와 채널 규격에 맞춰 작성합니다. 이미지 생성, 초안, 예약, 게시 상태를 구분합니다.
-version: "1.1.3"
+version: "1.1.4"
 ---
 
 # SNS 콘텐츠
@@ -13,7 +13,7 @@ version: "1.1.3"
 1. 게시물에서 독자에게 전달할 한 가지 핵심 내용과 출처를 정한다.
 2. 채널별 편집 화면과 [공식 규격 확인표](references/platform-specs.md)를 확인한다. 글자 수·이미지·영상·태그 제한은 계정 유형과 기능에 따라 달라질 수 있다. 고정된 최적 게시 시각·빈도·알고리즘 가중치를 근거 없이 적용하지 않는다.
 3. 플랫폼별 문체를 조정하되 원문의 사실과 제한 조건은 보존한다. 네이버 블로그 단일 글은 content-blog, 카드뉴스는 content-card-news, 광고 문구는 content-copywriting을 사용한다.
-4. 일반 이미지는 ChatGPT 대화의 기본 이미지 도구를 확인해 사용한다. GPT Image 2.5를 정확히 지정했다면 모델을 확인하고, 확인되지 않으면 설치된 moai-media:media-codex-image의 별도 API 경로와 비용·승인 절차를 따른다. Higgsfield 지정 요청은 공식 연결의 실제 모델을 확인하고 설치된 경우 moai-media:media-higgsfield-image를 사용한다. 생성된 이미지의 글자·로고·권리·크롭을 직접 확인한다. 숏폼 영상은 실제 제작 도구·모델과 결과를 확인한다.
+4. 일반 이미지는 ChatGPT 대화의 기본 이미지 도구를 확인해 사용한다. ChatGPT Images 2.5 요청도 현재 대화의 기본 이미지 도구로 생성·편집한다. 모델 표시가 없으면 개별 호출의 정확한 모델은 미확인으로 보고한다. Flare·Sunburst API 모델 ID 지정은 설치된 `moai-media:media-codex-image`의 별도 API 경로와 비용·승인 절차를 따른다. Higgsfield 지정 요청은 공식 연결의 실제 모델을 확인하고 설치된 경우 moai-media:media-higgsfield-image를 사용한다. 생성된 이미지의 글자·로고·권리·크롭을 직접 확인한다. 숏폼 영상은 실제 제작 도구·모델과 결과를 확인한다.
 5. [원본 재활용](references/content-repurposer.md)은 사용 권리와 현재성을 확인하고 채널에 맞게 편집한다. 원본이 없으면 실제 내용을 보지 못한 상태로 변환했다고 하지 않는다.
 
 ## 연결과 게시

@@ -4,7 +4,7 @@
 
 1. 실제 자료에서 장면별 핵심 사실과 필요한 감정을 정한다.
 2. 장면별 자막·내레이션·시각 요소의 역할을 나눈다.
-3. 일반 이미지는 ChatGPT 대화의 이미지 도구를 확인해 만든다. GPT Image 2.5를 정확히 지정했다면 모델을 확인하고, 확인되지 않으면 설치된 moai-media:media-codex-image의 별도 API 경로를 따른다. Higgsfield 지정 요청은 공식 연결의 실제 모델을 확인하고 설치된 경우 moai-media:media-higgsfield-image를 사용한다. 실제 도구가 없으면 장면 지시만 제공한다.
+3. 일반 이미지는 ChatGPT 대화의 이미지 도구를 확인해 만든다. ChatGPT Images 2.5 요청도 현재 대화의 기본 이미지 도구로 생성·편집한다. 모델 표시가 없으면 개별 호출의 정확한 모델은 미확인으로 보고한다. Flare·Sunburst API 모델 ID 지정은 설치된 `moai-media:media-codex-image`의 별도 API 경로와 비용·승인 절차를 따른다. Higgsfield 지정 요청은 공식 연결의 실제 모델을 확인하고 설치된 경우 moai-media:media-higgsfield-image를 사용한다. 실제 도구가 없으면 장면 지시만 제공한다.
 4. 생성 이미지를 원본 자료와 대조해 인물·제품·브랜드 표기·텍스트 왜곡을 확인한다.
 5. 최종 컷마다 출처, 화면과 자막의 일치, 필요한 제한 조건을 확인한다.
 

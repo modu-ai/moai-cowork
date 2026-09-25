@@ -39,7 +39,7 @@
     {
       "name": "moai-marketer",
       "source": "./plugins/moai-marketer",
-      "version": "1.2.22",
+      "version": "1.2.23",
       "description": "마케팅 전담 AI 코워커 — 캠페인 기획·퍼포먼스 분석·키워드 리서치·그로스 실험·리텐션, 블로그·뉴스레터·SNS 콘텐츠 스킬. Meta Ads·게시 채널 MCP 연동. 일반 이미지는 ChatGPT 기본 도구를 확인하고, 전문 미디어 제작은 연결된 도구와 moai-media 스킬을 활용합니다. 이런 분께 추천: 마케터·콘텐츠 크리에이터·1인 브랜드.",
       "displayName": "📣 마케터",
       "category": "마케팅"
@@ -47,7 +47,7 @@
     {
       "name": "moai-media",
       "source": "./plugins/moai-media",
-      "version": "3.3.12",
+      "version": "3.3.13",
       "description": "미디어 생성 전담 AI 코워커 — 이미지·영상·오디오 생성 스킬. ChatGPT 기본 이미지 도구, 별도 API 키로 정확한 GPT Image 2.5 생성, Higgsfield 공식 연결의 이미지·영상·제품 촬영, ElevenLabs 오디오, Gemini·Midjourney·NotebookLM 프롬프트 작업을 지원합니다. Higgsfield 3D·설명 영상 완성은 현재 연결에 제출·조립 도구가 있을 때만 진행합니다.",
       "displayName": "🎬 미디어 크리에이터",
       "category": "미디어 생성"
@@ -63,7 +63,7 @@
     {
       "name": "moai-officer",
       "source": "./plugins/moai-officer",
-      "version": "1.3.7",
+      "version": "1.3.8",
       "description": "사무 문서 전담 AI 코워커 — 한국형 오피스 문서(HWPX·DOCX·XLSX·PPTX·PDF)·HTML 리포트/슬라이드 생성, 공문서 파싱, 노션 템플릿·생산성 루틴 스킬. kordoc MCP 연동. 공공데이터 조회·데이터 분석은 moai-analyst로, 라이프스타일은 moai-coworker로 분리. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 사무직·기획자·자영업 운영자.",
       "displayName": "📄 사무관",
       "category": "문서·오피스"

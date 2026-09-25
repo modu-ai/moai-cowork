@@ -3,7 +3,7 @@ name: marketing-personal-branding
 description: |
   개인의 확인된 경력·작업물·전문 분야를 바탕으로 포지셔닝, 프로필과 콘텐츠·채널 계획을 정리합니다.
   성과·직함·후기와 플랫폼 알고리즘 효과를 만들어 내지 않습니다.
-version: "1.1.3"
+version: "1.1.4"
 ---
 
 # 개인 브랜딩
@@ -28,7 +28,7 @@ version: "1.1.3"
 
 ## 이미지와 영상
 
-프로필·콘텐츠의 일반 이미지는 ChatGPT Work의 현재 대화에 제공된 이미지 도구로 만듭니다. GPT Image 2.5를 정확히 지정했다면 모델을 확인하고, 확인되지 않으면 설치된 moai-media:media-codex-image의 별도 API 경로와 비용·승인 절차를 따릅니다. Higgsfield 지정 요청은 공식 연결의 실제 모델을 확인하고 설치된 경우 moai-media:media-higgsfield-image를 사용합니다. 실제 인물의 사진·초상과 생성 인물의 표시·사용권을 확인합니다. 이미지 생성만으로 전문 경력이나 성과를 증명하지 않습니다.
+프로필·콘텐츠의 일반 이미지는 ChatGPT Work의 현재 대화에 제공된 이미지 도구로 만듭니다. ChatGPT Images 2.5 요청도 현재 대화의 기본 이미지 도구로 생성·편집합니다. 모델 표시가 없으면 개별 호출의 정확한 모델은 미확인으로 보고합니다. Flare·Sunburst API 모델 ID 지정은 설치된 `moai-media:media-codex-image`의 별도 API 경로와 비용·승인 절차를 따릅니다. Higgsfield 지정 요청은 공식 연결의 실제 모델을 확인하고 설치된 경우 moai-media:media-higgsfield-image를 사용합니다. 실제 인물의 사진·초상과 생성 인물의 표시·사용권을 확인합니다. 이미지 생성만으로 전문 경력이나 성과를 증명하지 않습니다.
 
 ## 검수
 

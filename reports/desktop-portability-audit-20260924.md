@@ -1693,6 +1693,13 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - **주장·기준 트리:** 이 격리 작업 트리의 `scripts/check-plugin-runtimes.py`는 Claude·Codex 플러그인 매니페스트 버전 불일치와 Claude 마켓플레이스 버전 불일치를 각각 검사한다. 기존 코드는 Claude 마켓플레이스 버전을 Codex 매니페스트와 대조해 Claude 매니페스트의 단독 드리프트를 놓칠 수 있었다.
 - **근거:** 수정 후 `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 1건`을 출력했다. `moai-media`의 Claude 매니페스트 버전을 메모리에서만 `0.0.0`으로 바꾼 사례는 `check_plugin`에서 `version 이 다릅니다`, `check_marketplaces`에서 `Claude: moai-media: 마켓플레이스 version` 오류를 각각 냈다. `git diff --check`는 출력 없이 종료 코드 0이었다.
 - **빈틈·남은 위험:** 이 검사는 버전 메타데이터의 일치만 확인한다. 앱의 플러그인 설치·업데이트, 스킬 실행, MCP 인증과 이미지 생성은 확인하지 않았다.
+
+## ChatGPT Images 2.5 기본 생성 경로 정렬 (2026-09-25)
+
+- **주장·기준 트리:** 이 작업 트리의 미디어·마케팅·문서 제작 지침은 ChatGPT Work의 Images 2.5 요청을 현재 대화의 기본 이미지 도구로 생성·편집하도록 한다. 도구가 내부 모델을 숨기면 결과는 전달하되 개별 호출의 정확한 모델은 미확인으로 보고한다. Flare·Sunburst의 정확한 API 모델 ID와 Higgsfield 계정·모델 지정 요청은 각자의 별도 연결로 보낸다.
+- **공식 근거:** [OpenAI의 Images 2.5 발표](https://openai.com/index/introducing-chatgpt-images-2-5/)는 ChatGPT Work 데스크톱의 제품 제공과 Flare·Sunburst API 모델을 구분한다. 제품 배포 사실만으로 개별 호출의 모델을 증명하지는 않는다. 기존 미디어 스킬·프로듀서 에이전트 및 마케팅·슬라이드 참조에는 모델이 표시되지 않으면 기본 도구를 건너뛰고 별도 API 인증·과금 경로로 보내는 지침이 있었다.
+- **검사:** 변경한 SKILL.md 11개의 YAML frontmatter를 파싱했고, 미디어 `3.3.13`·마케팅 `1.2.23`·문서 `1.3.8`의 Claude·Codex·마켓플레이스 버전 세 곳이 각각 일치했다. `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 1건`이었다. `mcp__moai__codex_audit`의 첫 요약이 `media-producer.md:16`의 오래된 API 우회 지침을 지적해 직접 확인하고 수정했다. 재감사의 요약은 추가 결함 없음이라고 했지만 구조화 판정은 두 번 모두 `inconclusive`·`findings: []`였으므로 PASS로 세지 않는다.
+- **빈틈·남은 위험:** Claude Cowork·ChatGPT Work 앱에서 변경된 스킬·에이전트가 실제 선택되는지, Images 2.5 이미지가 생성·편집되는지, 개별 호출의 모델 메타데이터가 노출되는지, Higgsfield와 API의 비용·결과는 실행하지 않았다. 이 경로들은 앱 확인표에서 계속 `NOT-RUN`이다.
 - **남은 위험:** 앱 버전·배포판·로그인·권한·로컬 런처와 유료 서비스 상태에 따라 결과가 달라질 수 있다. 현장 확인표에 실제 도구명·화면 모델 표시·생성물·오류를 기록한 뒤 조합별 판정을 내려야 한다.
 
 macOS 앱 조작 경로를 확인하려고 `orca skills get computer-use`를 실행했으나 종료 코드 1과 `Unable to determine Orca.app path from symlink: /usr/local/bin/orca`가 나왔다. 컴퓨터 사용 스킬의 실행기 교체 금지 지침에 따라 다른 명령으로 앱을 조작하지 않았다. 이 결과는 로컬 Orca 실행기 진입 실패이며 Claude Cowork·ChatGPT Work의 설치나 플러그인 호출 실패를 뜻하지 않는다.

@@ -18,7 +18,7 @@
 
 ## 재활용과 이미지
 
-기존 글을 요약하거나 영상 대본으로 바꿀 때 원래 의미와 숫자를 유지합니다. 일반 이미지는 ChatGPT 대화의 이미지 도구를 확인해 만들고, GPT Image 2.5를 정확히 지정했다면 모델 또는 설치된 moai-media:media-codex-image의 별도 API 경로를 확인합니다. Higgsfield 지정 요청은 공식 연결의 실제 모델을 확인하고 설치된 경우 moai-media:media-higgsfield-image를 사용합니다. 실제 이미지·대본을 생성하거나 게시했는지 상태를 구분합니다.
+기존 글을 요약하거나 영상 대본으로 바꿀 때 원래 의미와 숫자를 유지합니다. 일반 이미지는 ChatGPT 대화의 이미지 도구를 확인해 만들고, ChatGPT Images 2.5 요청도 기본 이미지 도구로 생성·편집하고, 모델 표시가 없으면 개별 호출의 정확한 모델은 미확인으로 보고합니다. Flare·Sunburst API 모델 ID 지정은 설치된 `moai-media:media-codex-image`의 별도 인증·과금 경로를 확인합니다. Higgsfield 지정 요청은 공식 연결의 실제 모델을 확인하고 설치된 경우 moai-media:media-higgsfield-image를 사용합니다. 실제 이미지·대본을 생성하거나 게시했는지 상태를 구분합니다.
 
 ## AI 활용
 

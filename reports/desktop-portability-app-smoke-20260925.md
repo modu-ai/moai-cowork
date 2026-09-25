@@ -24,10 +24,10 @@ ChatGPT 쪽은 데스크톱 앱의 **Work 모드 새 대화**에서 검사한다
 | `moai-coworker` | 1.2.27 | `ai-diagnostic` | `dart` | `dart` |
 | `moai-writer` | 1.5.13 | `book-author-bio` | — | — |
 | `moai-story` | 1.2.4 | `story-ad-conti` | `higgsfield` | `higgsfield` |
-| `moai-marketer` | 1.2.22 | `content-blog` | `meta-ads`, `typefully`, `wordpress` | 동일 |
-| `moai-media` | 3.3.12 | `media-asset-production` | `ElevenLabs`, `higgsfield`, `moai-mcp-openai` | 동일 |
+| `moai-marketer` | 1.2.23 | `content-blog` | `meta-ads`, `typefully`, `wordpress` | 동일 |
+| `moai-media` | 3.3.13 | `media-asset-production` | `ElevenLabs`, `higgsfield`, `moai-mcp-openai` | 동일 |
 | `moai-seller` | 1.4.31 | `commerce-ad-claim-compliance-kr` | `moai-mcp-smartstore`, `moai-mcp-imweb`, `moai-mcp-cafe24`, `cafe24-catalog-mcp`, `higgsfield` | 앞의 네 서버 |
-| `moai-officer` | 1.3.7 | `doc-data-audit` | `kordoc` | `kordoc` |
+| `moai-officer` | 1.3.8 | `doc-data-audit` | `kordoc` | `kordoc` |
 | `moai-analyst` | 1.3.6 | `data-building-ledger` | `korean-stats`, `archhub`, `dart` | 동일 |
 | `moai-lawyer` | 1.4.16 | `legal-compliance-check` | `korean-law`, `moai-mcp-ip` | 동일 |
 | `moai-accountant` | 1.3.8 | `finance-audit` | `dart` | `dart` |
@@ -77,5 +77,6 @@ ChatGPT 쪽은 데스크톱 앱의 **Work 모드 새 대화**에서 검사한다
 4. Higgsfield를 쓰는 검사는 계정·크레딧 잔액과 비용을 확인하고 사용자가 해당 유료 호출을 승인한 뒤에만 진행한다. Claude는 공식 MCP, ChatGPT는 Higgsfield 공식 플러그인을 각각 설치·인증한다. 비용 조회와 이미지 도구가 실제 노출되는지 기록한다. 참조 이미지 검사는 공식 업로드 창에서 **업로드 완료된** 가상 자산만 사용하고, 채팅 첨부만으로 전달됐다고 간주하지 않는다. 생성 ID·결과 파일·실제 차감 크레딧을 기록한다.
 5. `moai-seller`의 `commerce-detail-page-image`에서 합성 실행 환경을 확인한다. Python·Pillow가 없으면 섹션 파일과 합성 명세를 받되 단일 PNG는 미완료로 표시하는지 확인한다. 도구가 있으면 더미 섹션 13장의 합성 파일을 다시 열어 1080×12720과 누락 섹션 0개를 확인한다.
 6. 나머지 플러그인을 위 표의 순서로 설치하고 각 버전·예시 스킬·선언된 MCP 도구 노출을 확인한다. `moai-media`는 3번의 기본 이미지 도구 경로를 기록한 뒤 설치한다. 로컬 MCP가 뜨지 않으면 앱 화면의 시작 오류와 `uv`·`npx` 실행 파일 관련 표시를 그대로 기록한다. 런처 실패와 서비스 인증 실패를 구분한다. 설치와 도구 노출 결과를 앱·OS별 칸에 남기고, 실제 MCP 호출을 했다면 입력·결과·인증 상태를 별도 기록한다.
+7. ChatGPT Work에서 `moai-media:media-codex-image`를 직접 호출해 가상 무지 제품 상자의 **Images 2.5 생성**과, 생성한 이미지의 배경색만 바꾸는 **편집**을 각각 요청한다. 실제 도구·결과 파일·호출별 모델 표시를 기록한다. 모델 표시가 없더라도 기본 이미지 도구가 생성·편집을 시도했는지 확인하고, 결과가 나오면 “이미지 결과 확인, 개별 호출의 정확한 모델 미확인”으로 기록한다. 정확한 Flare·Sunburst API 모델 ID와 Higgsfield 모델 지정 요청이 기본 도구로 조용히 바뀌지 않는지도 별도로 확인한다. 유료 경로의 실제 생성은 4번의 비용·승인 조건을 따른다.
 
 각 단계의 상태는 `PASS`·`FAIL`·`NOT-RUN`·`BLOCKED` 중 하나로 기록한다. 설치 화면만 봤거나 CI만 통과한 경우에는 앱 이미지 생성 `PASS`를 주지 않는다. 로그인·권한·유료 생성으로 중단되면 어느 단계에서 무엇이 표시됐는지 남긴다.

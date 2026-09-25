@@ -4,7 +4,7 @@
 
 ## 연결 경로
 
-- ChatGPT Work의 일반 이미지는 현재 대화에 제공된 이미지 도구로 만듭니다. GPT Image 2.5를 정확히 지정했다면 모델을 확인하고, 확인되지 않으면 설치된 moai-media:media-codex-image의 별도 API 경로와 비용·승인 절차를 따릅니다.
+- ChatGPT Work의 일반 이미지는 현재 대화에 제공된 이미지 도구로 만듭니다. ChatGPT Images 2.5 요청도 현재 대화의 기본 이미지 도구로 생성·편집합니다. 모델 표시가 없으면 개별 호출의 정확한 모델은 미확인으로 보고합니다. Flare·Sunburst API 모델 ID 지정은 설치된 `moai-media:media-codex-image`의 별도 API 경로와 비용·승인 절차를 따릅니다.
 - Higgsfield 지정 요청은 공식 연결의 실제 모델을 확인하고 설치된 경우 moai-media:media-higgsfield-image를 사용합니다.
 - Claude Cowork에서는 설치된 이미지 도구와 인증 상태를 먼저 확인합니다. 연결되지 않았으면 프롬프트와 제작 사양을 제공하고 생성 완료라고 표시하지 않습니다.
 

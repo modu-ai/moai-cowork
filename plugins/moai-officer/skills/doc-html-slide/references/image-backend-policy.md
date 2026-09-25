@@ -12,6 +12,6 @@
 
 Higgsfield 연결은 앱마다 도구 이름과 입력 계약이 다르다. 현재 노출된 공식 연결의 도구 목록·스키마에서 모델 상세와 비용을 확인한다. `moai-media`가 설치돼 있으면 그 안의 `media-higgsfield-core/references/catalog-protocol.md`를 추가로 참고할 수 있다. HTTPS 참조 이미지가 계정 미디어 라이브러리로 업로드되는 연결에서는 견적 호출 전에도 업로드 사실과 대상을 보여주고 동의를 받는다. 크레딧이 드는 생성은 견적과 생성 계획을 보여준 뒤 사용자의 명시적 승인을 받는다.
 
-ChatGPT 기본 이미지 생성 도구가 사용하는 내부 모델 ID는 앱에 표시되지 않을 수 있다. 그때 특정 API 하위 모델을 사용했다고 단정하지 않는다. 사용자가 정확히 GPT Image 2.5를 지정했다면 현재 도구의 모델 표시를 확인한다. 확인할 수 없으면 설치된 `moai-media:media-codex-image`의 별도 API 경로와 비용 승인 조건을 확인하고, 그 경로도 없으면 지정 모델 생성은 미완료로 보고한다. Higgsfield 계정의 GPT Image 2.5를 지정한 경우에는 Higgsfield 연결의 실시간 카탈로그에서 해당 모델과 비용을 확인한다.
+ChatGPT Images 2.5 요청은 현재 대화의 기본 이미지 도구로 생성·편집한다. [OpenAI의 배포 안내](https://openai.com/index/introducing-chatgpt-images-2-5/)와 별개로 개별 호출의 내부 모델 ID는 앱에 표시되지 않을 수 있다. 그때는 결과 이미지와 정확한 모델 미확인을 함께 보고하며 특정 API 하위 모델을 사용했다고 단정하지 않는다. 사용자가 Flare·Sunburst의 정확한 API 모델 ID를 지정했다면 설치된 `moai-media:media-codex-image`의 별도 인증·과금 경로를 확인한다. Higgsfield 계정의 모델을 지정한 경우에는 Higgsfield 연결의 실시간 카탈로그에서 해당 모델과 비용을 확인한다.
 
 생성된 이미지의 숫자·문구는 눈으로 확인한다. 정확도가 필요한 문구는 이미지에 그리지 말고 HTML/SVG 텍스트 계층에 배치한다. 결과 URL이나 파일은 실제 반환값만 `deck.json`에 기록한다.
