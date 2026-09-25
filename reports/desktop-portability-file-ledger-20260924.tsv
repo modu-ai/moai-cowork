@@ -285,8 +285,8 @@ plugins/moai-designer/skills/design-system-library/systems/kraken.md		static_rea
 plugins/moai-designer/skills/design-system-library/systems/lamborghini.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/linear.app.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/lovable.md		static_read
-plugins/moai-designer/skills/design-system-library/systems/mastercard.md		mechanical_scan
-plugins/moai-designer/skills/design-system-library/systems/meta.md		mechanical_scan
+plugins/moai-designer/skills/design-system-library/systems/mastercard.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/meta.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/minimax.md		mechanical_scan
 plugins/moai-designer/skills/design-system-library/systems/mintlify.md		mechanical_scan
 plugins/moai-designer/skills/design-system-library/systems/miro.md		mechanical_scan
