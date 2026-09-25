@@ -895,8 +895,8 @@ plugins/moai-seller/skills/commerce-morning-brief/SKILL.md	seller_skill_review	s
 plugins/moai-seller/skills/commerce-product-detail/SKILL.md		static_read
 plugins/moai-seller/skills/commerce-product-detail/references/product-detail/conversion-formulas.md		static_read
 plugins/moai-seller/skills/commerce-product-detail/references/product-detail/platform-specs.md		static_read
-plugins/moai-seller/skills/commerce-product-detail/references/product-detail/section-templates.md		mechanical_scan
-plugins/moai-seller/skills/commerce-product-detail/references/product-detail/structure-guide.md		mechanical_scan
+plugins/moai-seller/skills/commerce-product-detail/references/product-detail/section-templates.md		static_read
+plugins/moai-seller/skills/commerce-product-detail/references/product-detail/structure-guide.md		static_read
 plugins/moai-seller/skills/commerce-product-image-pipeline/SKILL.md		static_read
 plugins/moai-seller/skills/commerce-product-naming/SKILL.md		static_read
 plugins/moai-seller/skills/commerce-product-photo-brief/SKILL.md		static_read
