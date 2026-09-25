@@ -12,7 +12,7 @@
 | Analytics API | 24 | 통계 API 접근 권한, 조회 기간·응답 형식 |
 | MCP 도구 | 20 | 각 카테고리의 `action` 목록과 매개변수 |
 
-연결 정보는 플러그인의 `.mcp.json`과 `.claude-plugin/plugin.json`의 `userConfig`에서 선언한다. 앱에서 입력 폼이나 도구가 실제로 표시되는지는 호스트별로 확인해야 한다. 직접 설정할 때는 자격증명 파일 `Path.home() / ".moai" / "mcp" / "cafe24.json"`도 읽는다. Windows와 macOS·Linux 모두 사용자 홈 디렉터리를 기준으로 해석한다. 토큰과 비밀값을 문서·채팅·로그에 붙여 넣지 않는다.
+Claude 연결 정보는 플러그인의 `.mcp.json`과 `.claude-plugin/plugin.json`의 `userConfig`에서 선언한다. ChatGPT Work는 `.codex-plugin/plugin.json`의 상대 경로와 `cwd`로 서버를 시작한다. 앱에서 입력 폼이나 도구가 실제로 표시되는지는 호스트별로 확인해야 한다. 직접 설정할 때는 자격증명 파일 `Path.home() / ".moai" / "mcp" / "cafe24.json"`도 읽는다. Windows와 macOS·Linux 모두 사용자 홈 디렉터리를 기준으로 해석한다. 토큰과 비밀값을 문서·채팅·로그에 붙여 넣지 않는다.
 
 ## 앱과 토큰
 

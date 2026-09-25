@@ -5,7 +5,7 @@
 ## 구성
 
 - MCP 서버 키와 실행 파일: `moai-mcp-imweb`
-- 실행: 플러그인의 `.mcp.json`에 지정된 `uv run --directory ${CLAUDE_PLUGIN_ROOT}/mcp-servers/moai-mcp-imweb moai-mcp-imweb`
+- 실행: Claude는 `.mcp.json`의 `${CLAUDE_PLUGIN_ROOT}` 경로를, ChatGPT Work는 `.codex-plugin/plugin.json`의 플러그인 기준 상대 경로와 `cwd`를 사용합니다. 두 설정 모두 `uv`로 `moai-mcp-imweb`을 시작합니다.
 - 도구: `imweb_site_info`, `imweb_member_info`, `imweb_community`, `imweb_promotion`, `imweb_product`, `imweb_order`, `imweb_script`, `imweb_payment`
 - 각 도구는 `action`으로 작업을 고릅니다. 경로·조회 조건은 `params`, 요청 본문은 `body`에 넣습니다. `paginate=True`는 명세에 `page`와 `limit`가 있는 GET 작업에만 사용합니다.
 - 액세스 토큰 만료 시 refresh token을 이용한 갱신을 지원합니다. 초기 앱 등록·인가·토큰 발급은 [연동 안내](./CONNECTORS.md)를 따릅니다.

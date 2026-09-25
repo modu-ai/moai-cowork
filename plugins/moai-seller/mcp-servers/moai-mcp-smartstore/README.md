@@ -4,7 +4,7 @@
 
 ## 연결
 
-플러그인은 `plugins/moai-seller/.mcp.json`의 `uv run --directory ... moai-mcp-smartstore` 경로로 이 서버를 시작한다. 도구·자격증명 입력은 사용하는 데스크톱 앱에서 확인한다. 인증 정보는 `CONNECTORS.md`를 따른다. 현재 계정에 승인된 API 그룹만 호출할 수 있고, 통계는 별도 서비스 신청이 필요할 수 있다.
+Claude는 `plugins/moai-seller/.mcp.json`의 `${CLAUDE_PLUGIN_ROOT}` 경로로, ChatGPT Work는 `.codex-plugin/plugin.json`의 플러그인 기준 상대 경로와 `cwd`로 이 서버를 시작한다. 두 설정 모두 `uv`로 `moai-mcp-smartstore`를 실행한다. 도구·자격증명 입력은 사용하는 데스크톱 앱에서 확인한다. 인증 정보는 `CONNECTORS.md`를 따른다. 현재 계정에 승인된 API 그룹만 호출할 수 있고, 통계는 별도 서비스 신청이 필요할 수 있다.
 
 | 영역 | 도구 예 |
 |---|---|

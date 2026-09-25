@@ -704,8 +704,8 @@ plugins/moai-seller/.codex-plugin/plugin.json		mechanical_scan
 plugins/moai-seller/.mcp.json		mechanical_scan
 plugins/moai-seller/README.md		static_read
 plugins/moai-seller/agents/listing-builder.md	claude_only_tool	static_read
-plugins/moai-seller/agents/margin-auditor.md	claude_only_tool	mechanical_scan
-plugins/moai-seller/mcp-servers/moai-mcp-cafe24/README.md		mechanical_scan
+plugins/moai-seller/agents/margin-auditor.md	claude_only_tool	static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/README.md		static_read
 plugins/moai-seller/mcp-servers/moai-mcp-cafe24/pyproject.toml		mechanical_scan
 plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/__init__.py		mechanical_scan
 plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/_app.py		mechanical_scan
@@ -748,8 +748,8 @@ plugins/moai-seller/mcp-servers/moai-mcp-cafe24/tests/test_auth.py		mechanical_s
 plugins/moai-seller/mcp-servers/moai-mcp-cafe24/tests/test_client_paths.py	new_test	mechanical_scan
 plugins/moai-seller/mcp-servers/moai-mcp-cafe24/uv.lock		mechanical_scan
 plugins/moai-seller/mcp-servers/moai-mcp-imweb/.gitignore		mechanical_scan
-plugins/moai-seller/mcp-servers/moai-mcp-imweb/CONNECTORS.md		mechanical_scan
-plugins/moai-seller/mcp-servers/moai-mcp-imweb/README.md		mechanical_scan
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/CONNECTORS.md		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/README.md		static_read
 plugins/moai-seller/mcp-servers/moai-mcp-imweb/pyproject.toml		mechanical_scan
 plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_core/__init__.py		mechanical_scan
 plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_core/auth.py		mechanical_scan
@@ -784,9 +784,9 @@ plugins/moai-seller/mcp-servers/moai-mcp-imweb/tools/openapi.json		mechanical_sc
 plugins/moai-seller/mcp-servers/moai-mcp-imweb/uv.lock		mechanical_scan
 plugins/moai-seller/mcp-servers/moai-mcp-smartstore/.env.example		mechanical_scan
 plugins/moai-seller/mcp-servers/moai-mcp-smartstore/.gitignore		mechanical_scan
-plugins/moai-seller/mcp-servers/moai-mcp-smartstore/CONNECTORS.md		mechanical_scan
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/CONNECTORS.md		static_read
 plugins/moai-seller/mcp-servers/moai-mcp-smartstore/NOTICE.md		mechanical_scan
-plugins/moai-seller/mcp-servers/moai-mcp-smartstore/README.md		mechanical_scan
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/README.md		static_read
 plugins/moai-seller/mcp-servers/moai-mcp-smartstore/pyproject.toml		mechanical_scan
 plugins/moai-seller/mcp-servers/moai-mcp-smartstore/scripts/check_auth.py		mechanical_scan
 plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_core/__init__.py		mechanical_scan

@@ -1173,3 +1173,26 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 
 - 판매자 `listing-builder` 에이전트와 README를 파일별로 읽었다. 두 파일은 자격증명이 환경변수에만 있거나 파일에는 절대 저장되지 않는다고 설명했지만, 실제 Smartstore·Imweb·Cafe24 서버는 `moai_mcp_core.CredentialStore`를 통해 앱에서 전달된 환경변수를 먼저 읽고, 없으면 개인 저장소 `~/.moai/mcp/<service>.json`을 읽는다. 데스크톱 앱이 연결 설정값을 서버에 전달하지 못할 때의 경로를 안내하되, 저장소·작업 산출물·로그에 비밀값을 적지 않도록 에이전트와 README를 고쳤다. 에이전트는 전용 개인 저장소를 사용자 명시 승인 없이 만들거나 바꾸지 않게 했다.
 - README의 경로 설명도 Claude `.mcp.json`의 `${CLAUDE_PLUGIN_ROOT}`와 ChatGPT Work용 Codex 매니페스트의 상대 경로·`cwd`로 구분했다. 두 파일의 장부 상태를 `static_read`로 바꿨다. 판매자 Claude·Codex·마켓플레이스 버전은 `1.4.16`으로 맞췄고, 이 작업 트리에서 `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 1건`, `git diff --check`는 출력 없이 종료 코드 0이었다. 참고 1건은 판매자 Higgsfield 연결이 Claude에는 MCP로, ChatGPT에는 별도 공식 플러그인으로 제공되는 기존 차이다. 실제 앱 연결 설정값 전달과 로컬 자격증명 저장 성공은 이 정적 검사로 확인되지 않는다.
+
+### 판매자 연결 문서의 호스트별 서버 시작 경로 (2026-09-25)
+
+- 판매자 `margin-auditor` 에이전트와 Cafe24·Imweb·Smartstore의
+  README·CONNECTORS 문서 다섯 개를 각각 읽었다. 세 서버의 README는 Claude의
+  `.mcp.json` 중심으로 실행 경로를 적고 ChatGPT Work의
+  `.codex-plugin/plugin.json` 경로를 설명하지 않았다. 두 매니페스트의 실제
+  `uv` 명령을 대조해 README 세 곳에 Claude의 `${CLAUDE_PLUGIN_ROOT}`와
+  ChatGPT Work의 상대 경로·`cwd`를 나눠 명시했다. 연결 문서 두 개와
+  감사 에이전트는 이번 범위에서 수정할 근거가 없었다. 여섯 파일의 장부
+  상태를 `static_read`로 갱신했다.
+- 판매자 Claude·Codex·마켓플레이스 버전은 `1.4.17`로 올렸다.
+  이 문서 변경은 각 호스트의 설정 내용을 정확히 설명하지만, 실제 앱이
+  설치된 경로를 해석하고 서버를 시작했는지까지 검증하지 않는다.
+- 이 작업 트리에서 `python3 scripts/check-plugin-runtimes.py`는
+  18개 플러그인·오류 0건·기존 참고 1건, `git diff --check`는 출력 없이
+  종료 코드 0이었다. `www` 작업 디렉터리에서
+  `hugo --gc --minify --logLevel warn`은 209페이지를 만들고 경고 없이
+  종료 코드 0이었다. 생성 HTML의 비아카이브 페이지 중 리터럴 `**`가
+  있는 파일은 릴리스 노트 한 곳이었고, 해당 부분은 깨진 굵게가 아니라
+  `<code>**…**</code>` 예시였다. 수정한 README 세 개와 이 보고서에
+  `npx --yes markdownlint-cli2`를 실행하니 종료 코드 1, 네 파일에서
+  741건이었다. `HEAD`의 같은 네 파일을 별도로 검사한 기준값도 741건이다.
