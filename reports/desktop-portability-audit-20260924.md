@@ -1163,3 +1163,8 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 
 - 이 세션의 공식 Higgsfield 플러그인에서 읽기 전용 `models_search({query:"gpt_image_2_5"})`와 `models_get({model_id:"gpt_image_2_5"})`을 호출했다. 두 응답 모두 모델 ID `gpt_image_2_5`를 반환했고, 상세에는 `variant`의 `flare`·`sunburst`, `quality`의 `low`·`medium`·`high`·`xhigh`·`max`, `resolution`의 `1k`·`2k`·`4k`, 참조 이미지의 `image_references` 역할과 지원 화면비 목록이 있었다. 앞서 `models_list({type:"image",limit:20})`로 읽은 첫 페이지에 이 모델이 없었던 사실을 전체 카탈로그 부재로 해석하지 않는다. [Higgsfield의 GPT Image 2.5 소개](https://higgsfield.ai/blog/gpt-image-2-5-higgsfield)는 Flare와 Sunburst 두 변형을 설명한다.
 - `media-gpt-image-prompt`의 Higgsfield 출력 예시에 있는 `model=gpt_image_2_5`, `variant=flare|sunburst`, `quality=medium`, `aspect_ratio`는 이 연결의 모델 상세와 맞는다. 생성 스킬 `media-higgsfield-image`는 호출 시점에 현재 연결의 모델 상세를 조회하도록 돼 있어 이번 확인만으로 스킬 수정은 하지 않았다. 이는 이 세션의 연결에서 읽은 스키마이며 별도 ChatGPT Work·Claude Cowork 앱의 플러그인 설치·인증, 두 변형의 실제 생성·비용, 앱 기본 이미지 모델을 입증하지 않는다.
+
+### Windows `.cmd` MCP 런처 실실행 검사 (2026-09-25)
+
+- 공용 `mcp_launch.py`의 기존 Windows 테스트는 `shutil.which`와 `subprocess.run`을 모의 실행했다. Windows에서 실제 `.cmd` 파일을 찾고 자식 프로세스로 시작하는 경로를 확인하도록, 임시 `portable-launch.cmd`가 종료 코드 7을 돌려주는 운영체제 조건부 테스트를 추가했다. 기존 MCP 교차 플랫폼 CI의 런처 작업이 이 테스트를 실행한다.
+- 로컬 macOS에서 `uv run --python 3.11 --with pytest pytest -q plugins/_shared/mcp-launch/test_mcp_launch.py`는 `25 passed, 1 skipped in 0.05s`였다. [SHA `120241a6`의 MCP 교차 플랫폼 CI](https://github.com/modu-ai/moai-cowork/actions/runs/36087592330)는 완료 상태 `success`였고, Windows 런처 작업 로그에 `26 passed in 0.17s`가 기록됐다. 같은 실행의 macOS·Ubuntu 런처 작업도 `success`였다. 이는 운영체제의 `.cmd` 실행·종료 코드 전달을 확인하지만, 실제 사용자 PC에 `npx`가 설치돼 있는지나 Claude Cowork·ChatGPT Work 앱이 MCP 서버를 시작하는지는 확인하지 않는다.
