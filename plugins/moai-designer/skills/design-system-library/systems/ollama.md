@@ -29,19 +29,19 @@ colors:
 
 typography:
   display-xl:
-    fontFamily: SF Pro Rounded
+    fontFamily: "'SF Pro Rounded', system-ui, sans-serif"
     fontSize: 36px
     fontWeight: 500
     lineHeight: 1.11
     letterSpacing: 0
   display-lg:
-    fontFamily: SF Pro Rounded
+    fontFamily: "'SF Pro Rounded', system-ui, sans-serif"
     fontSize: 30px
     fontWeight: 500
     lineHeight: 1.2
     letterSpacing: 0
   heading-lg:
-    fontFamily: SF Pro Rounded
+    fontFamily: "'SF Pro Rounded', system-ui, sans-serif"
     fontSize: 24px
     fontWeight: 600
     lineHeight: 1.33

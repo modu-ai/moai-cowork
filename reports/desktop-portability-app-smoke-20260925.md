@@ -15,7 +15,7 @@ ChatGPT 쪽은 데스크톱 앱의 **Work 모드 새 대화**에서 검사한다
 
 ## 플러그인별 앱 검사
 
-아래 목록은 `.claude-plugin/marketplace.json`에 등록된 플러그인과 각 플러그인의 `skills/*/SKILL.md`, `.mcp.json`, 두 호스트의 `plugin.json`을 읽어 만든 2026-09-25 정적 스냅샷이다. 버전 열은 작업 트리 `65659c4b`의 마켓플레이스 값이며, 앱 검사 직전 다시 대조한다. `예시 스킬`은 설치 후 목록에서 찾을 항목이며, 여기 적혔다는 사실만으로 앱에서 실행된 것은 아니다. MCP 열은 플러그인 선언에 포함된 서버 키다. `—`는 선언이 없다는 뜻이다. ChatGPT의 `moai-seller`에서 Higgsfield를 쓰려면 별도 공식 플러그인 설치·인증이 필요하다.
+아래 목록은 `.claude-plugin/marketplace.json`에 등록된 플러그인과 각 플러그인의 `skills/*/SKILL.md`, `.mcp.json`, 두 호스트의 `plugin.json`을 읽어 만든 2026-09-25 정적 스냅샷이다. 버전 열은 이 작업 트리의 마켓플레이스 값이며, 앱 검사 직전 다시 대조한다. `예시 스킬`은 설치 후 목록에서 찾을 항목이며, 여기 적혔다는 사실만으로 앱에서 실행된 것은 아니다. MCP 열은 플러그인 선언에 포함된 서버 키다. `—`는 선언이 없다는 뜻이다. ChatGPT의 `moai-seller`에서 Higgsfield를 쓰려면 별도 공식 플러그인 설치·인증이 필요하다.
 
 | 플러그인 | 버전 | 예시 스킬 | Claude MCP | ChatGPT MCP |
 |---|---|---|---|---|
@@ -34,7 +34,7 @@ ChatGPT 쪽은 데스크톱 앱의 **Work 모드 새 대화**에서 검사한다
 | `moai-consultant` | 1.2.7 | `consult-brief` | — | — |
 | `moai-career` | 1.2.6 | `career-claim-audit` | — | — |
 | `moai-tutor` | 1.3.4 | `education-assessment-audit` | — | — |
-| `moai-designer` | 1.4.32 | `design-brand-system` | `higgsfield` | `higgsfield` |
+| `moai-designer` | 1.4.33 | `design-brand-system` | `higgsfield` | `higgsfield` |
 | `moai-pm` | 1.6.7 | `project` | — | — |
 | `moai-threads-poster` | 2.0.5 | `instagram-comments` | `moai-mcp-threads-poster` | 동일 |
 

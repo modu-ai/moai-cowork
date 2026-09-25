@@ -268,7 +268,7 @@ plugins/moai-designer/skills/design-system-library/systems/clickhouse.md		static
 plugins/moai-designer/skills/design-system-library/systems/cohere.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/coinbase.md		mechanical_scan
 plugins/moai-designer/skills/design-system-library/systems/composio.md		mechanical_scan
-plugins/moai-designer/skills/design-system-library/systems/cursor.md		mechanical_scan
+plugins/moai-designer/skills/design-system-library/systems/cursor.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/dell-1996.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/discord.md		mechanical_scan
 plugins/moai-designer/skills/design-system-library/systems/elevenlabs.md		mechanical_scan
@@ -296,12 +296,12 @@ plugins/moai-designer/skills/design-system-library/systems/nike.md		mechanical_s
 plugins/moai-designer/skills/design-system-library/systems/nintendo-2001.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/notion.md		mechanical_scan
 plugins/moai-designer/skills/design-system-library/systems/nvidia.md		mechanical_scan
-plugins/moai-designer/skills/design-system-library/systems/ollama.md		mechanical_scan
-plugins/moai-designer/skills/design-system-library/systems/opencode.ai.md		mechanical_scan
+plugins/moai-designer/skills/design-system-library/systems/ollama.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/opencode.ai.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/pinterest.md		mechanical_scan
 plugins/moai-designer/skills/design-system-library/systems/playstation.md		mechanical_scan
 plugins/moai-designer/skills/design-system-library/systems/posthog.md		mechanical_scan
-plugins/moai-designer/skills/design-system-library/systems/raycast.md		mechanical_scan
+plugins/moai-designer/skills/design-system-library/systems/raycast.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/registry.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/renault.md		mechanical_scan
 plugins/moai-designer/skills/design-system-library/systems/replicate.md		mechanical_scan

@@ -36,49 +36,49 @@ colors:
 
 typography:
   display-xl:
-    fontFamily: Berkeley Mono
+    fontFamily: "'Berkeley Mono', 'IBM Plex Mono', ui-monospace, monospace"
     fontSize: 38px
     fontWeight: 700
     lineHeight: 1.5
     letterSpacing: 0
   heading-md:
-    fontFamily: Berkeley Mono
+    fontFamily: "'Berkeley Mono', 'IBM Plex Mono', ui-monospace, monospace"
     fontSize: 16px
     fontWeight: 700
     lineHeight: 1.5
     letterSpacing: 0
   body-md:
-    fontFamily: Berkeley Mono
+    fontFamily: "'Berkeley Mono', 'IBM Plex Mono', ui-monospace, monospace"
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0
   body-strong:
-    fontFamily: Berkeley Mono
+    fontFamily: "'Berkeley Mono', 'IBM Plex Mono', ui-monospace, monospace"
     fontSize: 16px
     fontWeight: 500
     lineHeight: 1.5
     letterSpacing: 0
   body-tight:
-    fontFamily: Berkeley Mono
+    fontFamily: "'Berkeley Mono', 'IBM Plex Mono', ui-monospace, monospace"
     fontSize: 16px
     fontWeight: 500
     lineHeight: 1
     letterSpacing: 0
   link-md:
-    fontFamily: Berkeley Mono
+    fontFamily: "'Berkeley Mono', 'IBM Plex Mono', ui-monospace, monospace"
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0
   button-md:
-    fontFamily: Berkeley Mono
+    fontFamily: "'Berkeley Mono', 'IBM Plex Mono', ui-monospace, monospace"
     fontSize: 16px
     fontWeight: 500
     lineHeight: 2
     letterSpacing: 0
   caption-md:
-    fontFamily: Berkeley Mono
+    fontFamily: "'Berkeley Mono', 'IBM Plex Mono', ui-monospace, monospace"
     fontSize: 14px
     fontWeight: 400
     lineHeight: 2
@@ -280,7 +280,7 @@ The full Apple Human Interface Guidelines semantic ramp ships with the system. O
 ## Typography
 
 ### Font Family
-**Berkeley Mono** is the proprietary monospaced face used across every text role in the system. It carries weights 400 (regular), 500 (medium), and 700 (bold) and falls back through a long monospace stack — IBM Plex Mono → ui-monospace → SFMono-Regular → Menlo → Monaco → Consolas → Liberation Mono → Courier New.
+**Berkeley Mono** is the proprietary monospaced face used across every text role in the system. It carries weights 400 (regular), 500 (medium), and 700 (bold) and falls back through IBM Plex Mono → ui-monospace → monospace on systems without the licensed face.
 
 The single-font decision is the brand. There is no display face, no body sans, no italic alternative, and no fallback to a proportional font anywhere — even the legal copyright row uses Berkeley Mono at 14px. This is the most aggressive typographic restraint of any site in the marketing-tools category: OpenCode's identity is "the marketing page is a man page."
 
@@ -458,7 +458,7 @@ There is no photography. Visual elements are limited to:
 ## Do's and Don'ts
 
 ### Do
-- Render every text role in Berkeley Mono. The single-font decision is the entire identity.
+- Use Berkeley Mono for every text role when the font is available and licensed; otherwise use the monospaced fallback stack in the typography tokens.
 - Keep `{colors.canvas}` (`#fdfcfc`) as the only body background. Don't introduce gray section bands.
 - Use ASCII bracket markers (`[+]`, `[-]`, `[x]`, `+`, `−`) as bullets, toggles, and section glyphs. They are the brand's only iconography.
 - Anchor the dark `{component.hero-tui-mockup}` exactly once per landing page as the hero centerpiece. Never use the dark surface for body content.
@@ -467,7 +467,7 @@ There is no photography. Visual elements are limited to:
 - Stack content sections at `{spacing.section}` (96px) rhythm with only 1px `{colors.hairline}` rules between them.
 
 ### Don't
-- Don't introduce a sans-serif body font, a display face, or an italic style. Berkeley Mono carries everything.
+- Don't introduce a proportional sans-serif body font, a separate display face, or an italic style. Keep every text role in the monospaced token stack.
 - Don't add drop shadows, gradients, or atmospheric backgrounds. The system is flat-on-cream.
 - Don't replace the ASCII bracket markers with SVG icons. The brackets are the icons.
 - Don't use the semantic accent ramp (`{colors.accent}`, `{colors.warning}`, `{colors.danger}`, `{colors.success}`) on marketing CTAs. They belong to the in-product TUI.

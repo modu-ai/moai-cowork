@@ -39,9 +39,16 @@
 |-----------|-------------------|
 | `typography.display-*.fontFamily` | `fontFamily.display` (display 중복 시 첫 번째) |
 | `typography.body-md.fontFamily` | `fontFamily.sans` |
-| `typography.code.fontFamily` | `fontFamily.mono` |
+| 코드 역할 토큰의 `fontFamily` | `fontFamily.mono` (없으면 본문의 서체 역할 확인) |
 | `typography.display-*.fontSize` | `fontSize.display.xl/lg/md/sm` |
 | `typography.*.letterSpacing` | `letterSpacing` (display 음수 추적 보존) |
+
+`fontFamily`는 첫 서체만 꺼내거나 고정된 `serif`·`sans-serif`를 덧붙이지 않는다.
+YAML의 쉼표로 구분된 **전체 서체 목록**을 JavaScript 문자열로 안전하게
+직렬화해 전달한다. 예를 들어 Ollama display 값은
+`"'SF Pro Rounded', system-ui, sans-serif"`다.
+해당 역할의 토큰이 없으면 시스템 본문의 서체 안내를 확인한다.
+코드 역할도 없으면 `ui-monospace, monospace`를 사용한다.
 
 ### 1.3 rounded → borderRadius
 
@@ -82,9 +89,9 @@
             /* …시스템 토큰 그대로… */
           },
           fontFamily: {
-            display: ['<display-font>', 'serif'],
-            sans:    ['<body-font>', 'sans-serif'],
-            mono:    ['JetBrains Mono', 'ui-monospace', 'monospace'],
+            display: <display-fontFamily-전체-목록의-JS-문자열>,
+            sans:    <body-fontFamily-전체-목록의-JS-문자열>,
+            mono:    <code-fontFamily-전체-목록의-JS-문자열>,
           },
           borderRadius: { md: '8px', lg: '12px', xl: '16px' },
           spacing:      { section: '96px' },

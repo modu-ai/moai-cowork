@@ -1379,3 +1379,15 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 ### 앱 현장 확인표의 버전 기준 정합 (2026-09-25)
 
 - `reports/desktop-portability-app-smoke-20260925.md`의 18개 플러그인 버전을 현재 `.claude-plugin/marketplace.json`과 대조했다. 판매자는 표의 `1.4.15`가 실제 `1.4.31`보다 오래됐고, 디자이너는 `1.4.31`이 실제 `1.4.32`보다 오래됐다. 두 행을 현재 값으로 고치고, 버전 열의 기준 커밋 `65659c4b`를 명시했다. 앱 현장 검사 직전에는 해당 시점의 마켓플레이스와 다시 비교해야 한다. 이 수정은 앱 설치 버전을 확인한 결과가 아니다.
+
+### 디자이너 프로필의 서체 대체 경로 (2026-09-25)
+
+- 플랫폼 언급이 있던 `cursor.md`, `ollama.md`, `opencode.ai.md`, `raycast.md`를 각각 전문 읽었다. Cursor의 `Download for macOS`와 Raycast의 macOS 창 단추는 제품 화면 묘사였고, 플러그인 설치·실행 지침은 아니었다. Ollama와 OpenCode 프로필에서는 본문에 Windows·Linux 또는 라이선스 서체 부재 시 대체 서체를 설명했지만, YAML 제목·본문 토큰에는 각각 `SF Pro Rounded`와 `Berkeley Mono`만 있었다.
+- Ollama의 관련 토큰 3개에 `system-ui, sans-serif`, OpenCode의 텍스트 토큰 8개에 `IBM Plex Mono, ui-monospace, monospace` 대체 순서를 넣었다. OpenCode의 실행 지침 두 곳은 서체가 설치되고 사용권이 있을 때 Berkeley Mono를 쓰고, 그 외에는 모노스페이스 토큰 스택을 쓰도록 맞췄다. 상위 `design-system-library` 스킬도 대상 OS에서 사용할 수 없는 서체와 사용권이 없는 서체를 함께 다루게 했다. 스킬 버전은 `1.1.11`, 디자이너 Claude·Codex·마켓플레이스 버전은 `1.4.33`이다. 앱 현장 확인표의 디자이너 기준 버전도 갱신했다.
+- PyYAML 파싱에서 Ollama 대체 서체 토큰 3개, OpenCode 대체 서체 토큰 8개와 디자이너 버전 세 곳의 `1.4.33` 일치를 확인했다. `python3 scripts/check-plugin-runtimes.py`는 플러그인 18개·오류 0건·기존 판매자 Higgsfield 참고 1건이었다. `git diff --check`는 출력 없이 종료 코드 0이었다. 파일 장부는 1,091개 중 `static_read` 1,045개, `mechanical_scan` 46개다.
+- 수정한 스킬·프로필과 두 보고서에 실행한 `npx --yes markdownlint-cli2`는 종료 코드 1이었다. 출력 끝부분에는 보고서의 기존 긴 줄과 이번 기록의 긴 줄에 대한 `MD013/line-length`가 있었다. 이 형식 검사를 PASS로 세지 않는다.
+- 필수 `mcp__moai__codex_audit(mode="adversarial", target="uncommittedChanges")`의 구조화 판정은 `inconclusive`·`findings: []`였으나 요약은 OpenCode 프로필의 Berkeley Mono 강제 문구와 대체 서체 토큰의 충돌을 `opencode.ai.md:461,470` 및 스킬 `SKILL.md:137` 근거로 지적했다. 해당 문구를 대체 경로에 맞게 고쳤다. 구조화 PASS로 세지 않으며, Windows·Linux 브라우저의 실제 서체 선택과 생성된 HTML 렌더링은 `NOT-RUN`이다.
+- 두 번째 적대적 감사도 구조화 판정은 `inconclusive`·`findings: []`였고, 요약은 `mapping/tailwind.md:84`의 고정 `serif`·`sans-serif` 예시가 새 대체 서체 목록을 버리는 경로를 지적했다. [Tailwind v3 공식 서체 설정](https://v3.tailwindcss.com/docs/font-family)은 쉼표로 구분한 전체 목록을 설정값으로 허용한다. 매핑 문서를 첫 서체 추출 대신 전체 `fontFamily` 값을 JavaScript 문자열로 전달하도록 고쳤다. 코드 역할 토큰이 없을 때의 모노스페이스 대체값도 명시했다.
+- 실제 `tailwindcss@3.4.17` CLI로 두 프로필의 YAML 서체 값을 설정에 넣어 CSS를 생성했다. 최종 검사 출력은 Ollama·OpenCode 각각 `tailwind_exit 0 full_fallback_css True`였다. 첫 검사는 원문과 CSS가 바이트 단위로 같아야 한다고 잘못 가정해 실패했는데, Tailwind가 따옴표를 정리하고 동일한 선택자를 합친 출력 때문이었다. 최종 검사는 생성 CSS의 전체 서체 순서와 선택자를 확인한다. 이는 실제 Windows·Linux 폰트 선택이나 완성 페이지 렌더링을 증명하지 않는다.
+- `mapping/tailwind.md`에 대한 `npx --yes markdownlint-cli2`는 기존 표 정렬·코드 펜스·긴 줄 형식 오류를 포함해 종료 코드 1이었다. 새 서체 목록 안내 문단은 줄바꿈해 긴 줄을 줄였다. 형식 검사 통과로 기록하지 않는다.
+- `reports/desktop-portability-designer-profile-scan-20260925.tsv`는 최초 기계 검사의 해시 스냅샷이다. 이번 작업 트리에서 파일 현재 SHA-256과 대조하니 46개 중 29개가 후속 수정으로 달라졌다. 이 과거 해시를 현재 파일 검증값으로 사용하지 않는다.
