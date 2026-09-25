@@ -321,7 +321,7 @@ plugins/moai-designer/skills/design-system-library/systems/superhuman.md		static
 plugins/moai-designer/skills/design-system-library/systems/tesla.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/theverge.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/together.ai.md		static_read
-plugins/moai-designer/skills/design-system-library/systems/uber.md		mechanical_scan
+plugins/moai-designer/skills/design-system-library/systems/uber.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/vercel.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/vodafone.md		mechanical_scan
 plugins/moai-designer/skills/design-system-library/systems/voltagent.md		static_read
