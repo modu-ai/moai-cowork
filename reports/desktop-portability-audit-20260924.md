@@ -1362,3 +1362,10 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - 아임웹 MCP의 클라이언트, 생성기, 생성된 카테고리 도구 6개와 패키지 진입 파일, 관련 테스트 2개를 파일별로 읽었다. `openapi.json`의 `POST /promotion/shop-coupon` 요청 본문은 네 가지 쿠폰 종류의 `oneOf` 참조로 정의된다. 기존 생성기는 최상위 `properties`만 읽어 이 작업의 본문 모델을 누락했다. 실제 모의 호출은 `AttributeError: 'dict' object has no attribute 'model_dump'`로 실패했다.
 - 생성기가 `oneOf` 변형들의 최상위 필드를 합치고 공통 필수 필드를 유지해 `CreateShopCouponDefinitionBody`를 만들도록 고쳤다. 생성 결과의 도구 입력 스키마에 모델이 들어가는지와 해당 모델의 본문이 HTTP 클라이언트로 전달되는지를 테스트했다. `uv run --no-sync python tools/_generator.py`는 8개 카테고리·138개 작업과 작업 키 충돌 없음, `uv run --no-sync pytest -q`는 `34 passed in 0.38s`를 출력했다. 판매자 플러그인 버전 세 곳은 `1.4.31`로 맞췄다.
 - 장부는 1,091개 중 `static_read` 1,013개, `mechanical_scan` 78개다. 쿠폰 종류별 중첩 필드는 현재 생성 모델에서 딕셔너리이며, 이 테스트는 아임웹 서버의 수락·쿠폰 발행·실계정 인증을 확인하지 않는다. `openapi.json` 전체는 생성 데이터로서 아직 `mechanical_scan`이다.
+
+### 판매자 MCP 잔여 도구와 테스트 파일 검토 (2026-09-25)
+
+- 카페24 도구 등록표의 컬렉션·커뮤니티·고객·디자인·마일리지·알림·프로모션·주문·상품·상점 설정·분석 11개 파일을 각각 끝까지 읽었다. 등록된 관리자 API의 경로·권한·요청 본문 표시와 분석 API의 별도 호스트 사용을 정적으로 확인했다. 아임웹의 생성된 주문·상품 도구 2개 파일도 전체를 읽어 작업 키, 본문 모델, 공통 디스패치 경로를 대조했다. 이 읽기는 각 엔드포인트가 현재 계정에서 허용되는지 확인하는 API 호출은 아니다.
+- 카페24 테스트 3개, 아임웹 테스트 3개, 스마트스토어 테스트 3개와 스마트스토어 설정 예시·무시 목록·고지·인증 확인 스크립트·도구 패키지 초기화 파일, 아임웹 무시 목록을 전체 읽었다. 앞선 `uv run --no-sync pytest -q`의 아임웹 결과는 `34 passed in 0.38s`였고, 이번 읽기 자체에서 테스트를 다시 실행하지 않았다.
+- 이번에 끝까지 읽은 28개 파일만 `static_read`로 바꿨다. 장부는 1,091개 중 `static_read` 1,041개, `mechanical_scan` 50개다. 남은 50개는 디자이너 브랜드 프로필 46개, 판매자 MCP 잠금 파일 3개와 아임웹 생성 입력 `openapi.json` 1개다. 파일별 기계 검사는 이미 기록됐지만, 이들의 전문을 의미 검토했다고 주장하지 않는다.
+- 네이티브 앱 검증을 위해 `computer-use` 스킬의 macOS 진입 절차인 `orca skills get computer-use`를 실행했으나 `/usr/local/bin/orca`가 `Unable to determine Orca.app path from symlink: /usr/local/bin/orca`로 실패했다. 스킬 지침상 그 뒤 다른 실행 경로로 우회하지 않았다. 두 데스크톱 앱의 설치·이미지 생성·MCP 연결과 Windows·Linux 실기는 여전히 `NOT-RUN`이다.
