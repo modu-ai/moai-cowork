@@ -1128,3 +1128,8 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 
 - 판매자 MCP의 Cafe24·Imweb·Smartstore HTTP 클라이언트와 인증 경로를 각각 읽었다. 아임웹 `moai_mcp_imweb/_base.py`의 `_persist_tokens()`는 공용 `TokenStore.save()`가 `False`를 반환해도 아무 신호 없이 끝났다. 새 리프레시 토큰이 돌아온 뒤 파일 저장이 실패하면 현재 프로세스 메모리에는 남지만 다음 실행에서 이전 토큰을 읽을 수 있다. 실패한 쓰기를 실제 파일로 재현한 `test_auth.py::test_토큰_저장_실패를_비밀값_없이_알린다`는 수정 전 `AssertionError: assert 'token persistence failed' in ''`로 실패했다.
 - 저장 실패 시 stderr에 다음 실행의 인증 위험을 경고하고 토큰 값은 출력하지 않도록 했다. 로컬 macOS에서 `uv run --python 3.11 --directory plugins/moai-seller/mcp-servers/moai-mcp-imweb --group dev pytest -q`는 `32 passed in 0.45s`였다. 판매자 Claude·Codex·마켓플레이스 버전은 `1.4.13`으로 맞췄다. 이 경고가 실제 데스크톱 앱 UI에 표시되는지, 실계정의 토큰 회전·재시작이 성공하는지는 확인하지 않았다.
+
+### 카페24 카탈로그 MCP의 첫 실행 (2026-09-25)
+
+- 판매자 `.mcp.json`의 공식 Cafe24 Catalog 연결은 `npx mcp-remote https://mcp-catalog.cafe24.com/api/mcp`였다. [npm의 `npx` 안내](https://docs.npmjs.com/cli/v11/commands/npm-exec/)는 캐시에 없는 패키지 설치 전에 확인을 요청할 수 있고 `-y`로 이 질문을 생략한다고 설명한다. [`mcp-remote` 원저작자 안내](https://github.com/geelen/mcp-remote/blob/main/README.md)도 설치 확인 오류 때 `-y`를 첫 인자로 권한다. 앱이 MCP를 비대화식으로 시작하더라도 환경별 동작에 기대지 않도록 `args` 앞에 `-y`를 추가했다. Codex 매니페스트의 같은 공식 서버는 직접 HTTP URL을 사용하므로 해당 경로는 수정하지 않았다.
+- 판매자 Claude·Codex·마켓플레이스 버전을 `1.4.14`로 맞췄다. 이 변경은 첫 실행의 프롬프트 처리에 대한 설정 보강이다. 새 Windows·Linux·macOS 앱 설치에서 카페24 OAuth와 `tools/list`가 성공했다는 증거는 아니다.
