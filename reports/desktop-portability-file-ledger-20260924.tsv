@@ -699,9 +699,9 @@ plugins/moai-recruiter/skills/hr-resume-screener/SKILL.md		static_read
 plugins/moai-recruiter/skills/hr-resume-screener/tests/test-cases.yaml		static_read
 plugins/moai-recruiter/skills/hr-screening-audit/SKILL.md	new_chatgpt_agent_mapping	static_read
 plugins/moai-recruiter/skills/hr-workflow/SKILL.md	new_chatgpt_agent_mapping	static_read
-plugins/moai-seller/.claude-plugin/plugin.json		mechanical_scan
-plugins/moai-seller/.codex-plugin/plugin.json		mechanical_scan
-plugins/moai-seller/.mcp.json		mechanical_scan
+plugins/moai-seller/.claude-plugin/plugin.json		static_read
+plugins/moai-seller/.codex-plugin/plugin.json		static_read
+plugins/moai-seller/.mcp.json		static_read
 plugins/moai-seller/README.md		static_read
 plugins/moai-seller/agents/listing-builder.md	claude_only_tool	static_read
 plugins/moai-seller/agents/margin-auditor.md	claude_only_tool	static_read
@@ -899,9 +899,9 @@ plugins/moai-seller/skills/commerce-product-detail/references/product-detail/sec
 plugins/moai-seller/skills/commerce-product-detail/references/product-detail/structure-guide.md		mechanical_scan
 plugins/moai-seller/skills/commerce-product-image-pipeline/SKILL.md		static_read
 plugins/moai-seller/skills/commerce-product-naming/SKILL.md		static_read
-plugins/moai-seller/skills/commerce-product-photo-brief/SKILL.md		mechanical_scan
-plugins/moai-seller/skills/commerce-product-photo-brief/references/photo-checklist.md		mechanical_scan
-plugins/moai-seller/skills/commerce-product-photo-brief/tests/test-cases.yaml		mechanical_scan
+plugins/moai-seller/skills/commerce-product-photo-brief/SKILL.md		static_read
+plugins/moai-seller/skills/commerce-product-photo-brief/references/photo-checklist.md		static_read
+plugins/moai-seller/skills/commerce-product-photo-brief/tests/test-cases.yaml		static_read
 plugins/moai-seller/skills/commerce-promotion-planner/SKILL.md		static_read
 plugins/moai-seller/skills/commerce-repurchase-timer/SKILL.md	seller_skill_review	static_read
 plugins/moai-seller/skills/commerce-season-calendar/SKILL.md	seller_skill_review	static_read

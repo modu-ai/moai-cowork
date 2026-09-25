@@ -1,5 +1,7 @@
 name: commerce-product-photo-brief
-version: 1.7.0
+version: 1.7.1
+# 선언적 검토 시나리오. 아래 fixture 파일은 저장소에 없으며 실제 사진 분석은 실행하지 않았다.
+execution_status: NOT-RUN
 test_cases:
   - id: happy_5_photos_electronics
     description: 전자제품 5장 분석 → ProductDNA 추출 + 부족 컷 식별
@@ -10,24 +12,20 @@ test_cases:
       product_dna_extracted: true
       tier_estimated: ["mass", "premium_indie"]
       available_cuts_count: ">= 3"
-      additional_shots_required_count: ">= 2"
+      additional_shots_grounded_in_photos: true
 
   - id: edge_minimum_1_photo
     description: 사진 1장만 있을 때 부족 컷 명확히 안내
     input:
       photos: ["./fixtures/single.jpg"]
     expected:
-      additional_shots_required:
-        - priority: "필수"
-          section: "05_solution"
-        - priority: "권장"
-          section: "07_proof"
-      shoot_recommendation_summary_contains: "최소 2컷 추가 필요"
+      missing_cuts_labeled_by_selected_section: true
+      no_fixed_minimum_shot_count: true
 
   - id: failure_unsupported_format
     description: PSD나 RAW 포맷 입력 시 변환 안내
     input:
       photos: ["./fixtures/raw.cr2"]
     expected:
-      error: "지원하지 않는 포맷 — JPG/PNG로 변환 후 재시도"
+      error: "현재 앱에서 파일을 읽을 수 없음 — 지원 형식 확인 후 다시 첨부 요청"
       action_required: true
