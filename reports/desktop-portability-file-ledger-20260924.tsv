@@ -855,13 +855,13 @@ plugins/moai-seller/skills/commerce-integrated-strategy/references/pricing.md		s
 plugins/moai-seller/skills/commerce-integrated-strategy/references/promotion.md		static_read
 plugins/moai-seller/skills/commerce-integrated-strategy/references/retention.md		static_read
 plugins/moai-seller/skills/commerce-jtbd-persona/SKILL.md		mechanical_scan
-plugins/moai-seller/skills/commerce-live-commerce/SKILL.md		mechanical_scan
-plugins/moai-seller/skills/commerce-live-commerce/references/coupang-live.md		mechanical_scan
-plugins/moai-seller/skills/commerce-live-commerce/references/grip.md		mechanical_scan
-plugins/moai-seller/skills/commerce-live-commerce/references/kakao-shoppinglive.md		mechanical_scan
-plugins/moai-seller/skills/commerce-live-commerce/references/live-script.md		mechanical_scan
-plugins/moai-seller/skills/commerce-live-commerce/references/naver-shoppinglive.md		mechanical_scan
-plugins/moai-seller/skills/commerce-live-commerce/tests/test-cases.yaml		mechanical_scan
+plugins/moai-seller/skills/commerce-live-commerce/SKILL.md		static_read
+plugins/moai-seller/skills/commerce-live-commerce/references/coupang-live.md		static_read
+plugins/moai-seller/skills/commerce-live-commerce/references/grip.md		static_read
+plugins/moai-seller/skills/commerce-live-commerce/references/kakao-shoppinglive.md		static_read
+plugins/moai-seller/skills/commerce-live-commerce/references/live-script.md		static_read
+plugins/moai-seller/skills/commerce-live-commerce/references/naver-shoppinglive.md		static_read
+plugins/moai-seller/skills/commerce-live-commerce/tests/test-cases.yaml		static_read
 plugins/moai-seller/skills/commerce-ltv-cac-architect/SKILL.md	seller_finance_review	mechanical_scan
 plugins/moai-seller/skills/commerce-margin-audit/SKILL.md	new_chatgpt_agent_mapping	static_read
 plugins/moai-seller/skills/commerce-margin-calculator/SKILL.md	seller_finance_review	mechanical_scan
