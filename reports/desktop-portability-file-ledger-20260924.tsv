@@ -329,7 +329,7 @@ plugins/moai-designer/skills/design-system-library/systems/warp.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/webflow.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/wired.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/wise.md		static_read
-plugins/moai-designer/skills/design-system-library/systems/x.ai.md		mechanical_scan
+plugins/moai-designer/skills/design-system-library/systems/x.ai.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/zapier.md		mechanical_scan
 plugins/moai-designer/skills/design-system-prep/SKILL.md	claude_only_tool	static_read
 plugins/moai-designer/skills/design-tokens-transformer/SKILL.md		static_read
