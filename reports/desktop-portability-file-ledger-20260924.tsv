@@ -831,20 +831,20 @@ plugins/moai-seller/skills/commerce-detail-page-image/references/image-prompts.m
 plugins/moai-seller/skills/commerce-detail-page-image/references/sections-spec.md		static_read
 plugins/moai-seller/skills/commerce-detail-page-image/tests/test-cases.yaml		static_read
 plugins/moai-seller/skills/commerce-detail-page-planner/SKILL.md	claude_only_tool	static_read
-plugins/moai-seller/skills/commerce-detail-page-planner/references/category-b2b-saas.md		mechanical_scan
-plugins/moai-seller/skills/commerce-detail-page-planner/references/category-baby-kids.md		mechanical_scan
-plugins/moai-seller/skills/commerce-detail-page-planner/references/category-beauty.md		mechanical_scan
-plugins/moai-seller/skills/commerce-detail-page-planner/references/category-digital-content.md		mechanical_scan
-plugins/moai-seller/skills/commerce-detail-page-planner/references/category-fashion.md		mechanical_scan
-plugins/moai-seller/skills/commerce-detail-page-planner/references/category-food.md		mechanical_scan
-plugins/moai-seller/skills/commerce-detail-page-planner/references/category-luxury.md		mechanical_scan
-plugins/moai-seller/skills/commerce-detail-page-planner/references/category-pet.md		mechanical_scan
-plugins/moai-seller/skills/commerce-detail-page-planner/references/category-sports-leisure.md		mechanical_scan
-plugins/moai-seller/skills/commerce-detail-page-planner/references/category-subscription.md		mechanical_scan
-plugins/moai-seller/skills/commerce-detail-page-planner/references/category-travel.md		mechanical_scan
-plugins/moai-seller/skills/commerce-detail-page-planner/references/copy-patterns.md		mechanical_scan
-plugins/moai-seller/skills/commerce-detail-page-planner/references/photo-checklist.md		mechanical_scan
-plugins/moai-seller/skills/commerce-detail-page-planner/tests/test-cases.yaml	claude_only_tool	mechanical_scan
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-b2b-saas.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-baby-kids.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-beauty.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-digital-content.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-fashion.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-food.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-luxury.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-pet.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-sports-leisure.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-subscription.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-travel.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-planner/references/copy-patterns.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-planner/references/photo-checklist.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-planner/tests/test-cases.yaml	claude_only_tool	static_read
 plugins/moai-seller/skills/commerce-early-fan-builder/SKILL.md	seller_skill_review	static_read
 plugins/moai-seller/skills/commerce-influencer-collab/SKILL.md	seller_skill_review	static_read
 plugins/moai-seller/skills/commerce-integrated-strategy/SKILL.md		static_read
