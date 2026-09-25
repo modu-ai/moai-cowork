@@ -6,7 +6,7 @@ description: >
   "상품 사진 분석해줘", "촬영 브리프 만들어줘", "부족한 컷 알려줘", "어떤 사진이 더 필요해?"처럼 말하면 됩니다.
   형태·소재·색상·시그니처 앵글·포지셔닝(mass/premium_indie/luxury)을 추출하고,
   13섹션별 사용 가능한 컷 매핑 + 추가 촬영 권장 리스트를 산출합니다.
-version: "1.1.3"
+version: "1.1.4"
 ---
 
 # 상품 사진 사전 브리프 (Product Photo Brief)
@@ -174,7 +174,7 @@ ProductDNA, 사진 점검, 추가 촬영, 어떤 사진이 더 필요
 
 - `moai-seller:commerce-detail-page-copy` — 13섹션 카피 (이 스킬의 ProductDNA 활용)
 - `moai-seller:commerce-detail-page-image` — 이미지 생성·합성
-- 부족한 컷의 AI 생성 — ChatGPT Work 기본 이미지 도구 또는 사용자 지정 공식 Higgsfield MCP의 현재 도구. Images 2.5 요청은 `moai-media:media-codex-image`에서 현재 세션의 모델을 확인하고, Flare·Sunburst API 모델 ID 지정 요청은 별도 API 경로를 따른다.
+- 부족한 컷의 AI 생성 — 현재 앱 이미지 도구 또는 호스트에 맞게 인증된 Higgsfield 공식 연결의 도구. Images 2.5 요청은 노출된 모델을 확인하고, Flare·Sunburst API 모델 ID 지정은 별도 API 경로가 있을 때만 진행한다. Higgsfield에 사진을 참조로 줄 때는 별도 업로드 완료를 확인한다.
 - `moai-marketer:marketing-landing-page` — 웹용 상세페이지
 
 ## 이 스킬을 사용하지 말아야 할 때

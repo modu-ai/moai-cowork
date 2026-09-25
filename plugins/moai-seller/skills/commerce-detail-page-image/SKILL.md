@@ -1,22 +1,20 @@
 ---
 name: commerce-detail-page-image
 description: >
-  한국 이커머스 상세페이지 13섹션 이미지를 자동 생성하고 1080×12720 단일 PNG로 합성하는 스킬입니다.
+  한국 이커머스 상세페이지 13섹션 이미지를 생성하고, 실행 환경에 이미지 합성 도구가 있으면 1080×12720 단일 PNG로 합성하는 스킬입니다.
   "상세페이지 이미지 만들어줘", "13섹션 합성 이미지", "상폐 이미지", "1080 12720 합성"처럼 말하면 됩니다.
   commerce-detail-page-copy의 13섹션 카피와 사용자 상품 사진을 받아 섹션별 이미지 프롬프트를 작성하고,
-  ChatGPT에서는 사용 가능한 기본 이미지 도구를 우선 확인하고, Images 2.5 요청은 세션의 모델을 확인합니다. Flare·Sunburst API 모델 ID 지정 요청은 별도 API 경로를 확인합니다. 사용자가 Higgsfield를 지정하면 공식 Higgsfield MCP로 이미지를 생성한 뒤
-  Pillow로 1080×12720 세로 합성 PNG를 직접 조립합니다(합성 로직은 이 문서에 인라인 코드로 포함).
-  외부 패키지는 Pillow 하나만 필요합니다.
-version: "1.1.3"
+  ChatGPT에서는 사용 가능한 기본 이미지 도구를 우선 확인하고, Images 2.5 요청은 세션의 모델을 확인합니다. Flare·Sunburst API 모델 ID 지정 요청은 별도 API 경로를 확인합니다. 사용자가 Higgsfield를 지정하면 호스트에 맞는 공식 연결로 이미지를 생성한 뒤
+  Python과 Pillow가 실행 가능한 환경에서는 1080×12720 세로 합성 PNG를 직접 조립합니다(합성 로직은 이 문서에 인라인 코드로 포함).
+version: "1.1.4"
 ---
 
 # 상세페이지 이미지 합성 (Detail Page Image Composer)
 
 ## 개요
 
-13섹션 감정여정 상세페이지 이미지를 생성하고 세로 합성 PNG로 만드는 스킬입니다.
-호스트에서 실제 사용 가능한 이미지 생성 도구로 섹션 이미지를 만들고,
-Pillow 단일 의존성으로 1080×12720 단일 합성 이미지를 산출합니다.
+13섹션 감정여정 상세페이지 이미지를 생성하고, 합성 도구가 있는 환경에서는 세로 PNG로 만드는 스킬입니다.
+호스트에서 실제 사용 가능한 이미지 생성 도구로 섹션 이미지를 만듭니다. Python과 Pillow가 실행 가능할 때만 1080×12720 단일 합성 이미지를 산출하며, 실행하지 못한 합성은 미완료로 보고합니다.
 
 ## 트리거 키워드
 
@@ -25,11 +23,9 @@ combined.png, 상폐 합성본, 이커머스 이미지 합성
 
 ## 사전 조건
 
-1. **Pillow 설치**: `pip install Pillow` 또는 `uv pip install Pillow`
-   - Python 3.10+ 환경
-   - 다른 의존성 없음 (NumPy 불필요)
+1. **합성 실행 환경 확인**: 현재 앱의 실행 환경에서 Python과 Pillow를 실제 호출할 수 있는지 확인합니다. 버전 문자열만으로 가능 여부를 판정하지 않습니다. 호출할 수 없으면 사용자에게 패키지 설치를 요구하지 않고, 섹션 이미지와 합성 명세를 제공하며 단일 PNG 합성은 미완료로 기록합니다.
 
-2. **이미지 생성 도구 확인**: ChatGPT Work에서는 기본 이미지 도구를 확인한다. Images 2.5 요청은 `moai-media:media-codex-image`에서 세션의 모델을 확인하고, Flare·Sunburst API 모델 ID 지정 요청은 별도 API 경로를 따른다. Higgsfield 지정 시 공식 Higgsfield MCP의 실제 노출 도구를 확인한다.
+2. **이미지 생성 도구 확인**: ChatGPT Work에서는 현재 앱의 기본 이미지 도구를 확인한다. Images 2.5를 명시했으면 노출된 모델을 확인하고, 모델이 보이지 않으면 정확한 버전을 미확인으로 남긴다. Flare·Sunburst API 모델 ID 지정 요청은 별도 API 경로가 실제 연결된 경우에만 따른다. Higgsfield 지정 시 Claude는 공식 MCP, ChatGPT는 별도로 설치·인증한 Higgsfield 공식 플러그인의 실제 도구를 확인한다.
    - 또는 사용자가 별도로 13장의 섹션 이미지를 준비해서 폴더 경로 제공
 
 3. **상품 사진 1-14장**: 실제 상품 레퍼런스 (옵션이지만 권장)
@@ -67,7 +63,7 @@ combined.png, 상폐 합성본, 이커머스 이미지 합성
 
 ### 3단계: 이미지 생성
 
-ChatGPT Work에서 모델을 지정하지 않았고 기본 이미지 생성 도구가 노출되면 그 도구로 진행합니다. Images 2.5 요청은 `moai-media:media-codex-image`에서 세션의 모델을 확인한 뒤 진행하고, Flare·Sunburst API 모델 ID 지정 요청은 별도 API 경로가 확인될 때만 해당 모델로 진행합니다. 사용자가 Higgsfield를 지정했다면 공식 Higgsfield MCP에서 현재 사용할 수 있는 모델·도구를 확인해 진행합니다. 어느 경로도 사용할 수 없으면 생성 불가 섹션을 보고하고 사용자가 준비한 이미지를 받습니다.
+ChatGPT Work에서 기본 이미지 생성 도구가 노출되면 그 도구로 진행합니다. Images 2.5 요청의 정확한 모델은 도구가 표시할 때만 확정하고, Flare·Sunburst API 모델 ID 지정 요청은 별도 API 경로가 확인될 때만 해당 모델로 진행합니다. Higgsfield 지정 시 호스트에 맞는 공식 연결의 모델·도구·비용을 확인하고 유료 호출 전에 사용자 승인을 받습니다. Higgsfield는 채팅 첨부 파일을 생성 도구가 직접 읽지 못하므로 상품 참조 사진은 별도 업로드 완료 또는 기존 자산 확인 후에만 생성 호출에 넘깁니다. 어느 경로도 사용할 수 없으면 생성 불가 섹션을 보고하고 사용자가 준비한 이미지를 받습니다.
 
 생성 전략:
 - 각 섹션 너비: **1080px**
@@ -114,7 +110,8 @@ failed, y = [], 0
 for slug, h in SECTIONS:
     p = sections_dir / f"{slug}.png"
     if p.exists():
-        canvas.paste(fit(Image.open(p).convert("RGB"), WIDTH, h), (0, y))
+        with Image.open(p) as source:
+            canvas.paste(fit(source.convert("RGB"), WIDTH, h), (0, y))
     else:
         failed.append(slug)   # 누락 → 다크 플레이스홀더 그대로 유지
     y += h
@@ -181,14 +178,14 @@ print({"size": f"{WIDTH}x{total_h}", "output": str(output), "failed_sections": f
 
 - `moai-seller:commerce-detail-page-copy` — 13섹션 카피 생성 (이 스킬 입력)
 - `moai-seller:commerce-product-photo-brief` — 상품 사진 사전 분석
-- 13섹션 이미지 생성 — ChatGPT 네이티브 이미지 도구 또는 사용자가 지정한 공식 Higgsfield MCP
+- 13섹션 이미지 생성 — 현재 앱 이미지 도구 또는 호스트에 맞게 인증된 Higgsfield 공식 연결
 - `moai-seller:commerce-marketplace-coupang` — 채널별 이미지 규격 가이드
 
 ## 이 스킬을 사용하지 말아야 할 때
 
 - 카피만 필요할 때: `commerce-detail-page-copy` 단독 사용
 - 단일 상품 컷만 필요할 때: 사용 가능한 이미지 도구 직접 호출
-- 영상 생성: **Higgsfield MCP**(DOP·Soul) 직접 호출
+- 영상 생성: 호스트에 맞게 인증된 Higgsfield 공식 연결에서 해당 도구가 노출될 때만 호출
 - shadcn/ui 기반 웹 상세페이지: `moai-seller:commerce-product-detail`
 
 ## 라이선스

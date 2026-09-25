@@ -8,10 +8,12 @@
 
 Claude Cowork와 ChatGPT Work는 마켓플레이스 등록 권한과 경로가 다릅니다.
 
-- **Claude Cowork**: Settings(또는 Plugins) → Marketplace → +에서 `modu-ai/moai-cowork`를 추가한 뒤 Plugins에서 **moai-seller**를 설치하세요.
+- **Claude Cowork**: Cowork → Customize → Plugins → Personal plugins → **+** → Add marketplace → Add from a repository에서 `modu-ai/moai-cowork`를 추가한 뒤 **moai-seller**를 설치하세요.
 - **ChatGPT Work**: 워크스페이스 관리자가 Workspace settings → Plugins → Add → Import marketplace에서 `https://github.com/modu-ai/moai-cowork`를 가져와야 합니다. 이용자는 권한이 부여된 뒤 Plugins에서 **moai-seller**를 찾아 Install plugin을 누르세요. 외부 서비스 연결은 별도 인증이 필요합니다.
 
 > 앱별 정확한 클릭 경로와 잘 안 될 때 대처법은 [플러그인 설치와 관리](https://cowork.mo.ai.kr/plugins/install/)에 정리해 두었습니다.
+
+이미지 생성은 현재 앱의 이미지 도구를 확인합니다. [OpenAI는 Images 2.5가 ChatGPT Work에 제공된다고 안내](https://openai.com/index/introducing-chatgpt-images-2-5/)하지만, 현재 호출에서 정확히 어떤 모델을 썼는지는 도구에 표시될 때만 확정합니다. Higgsfield를 요청하면 Claude Cowork에서는 공식 MCP 연결과 계정 인증을, ChatGPT Work에서는 **Higgsfield 공식 플러그인의 별도 설치·인증**과 도구 노출을 확인합니다. Higgsfield는 생성 시 크레딧을 차감하므로 비용을 알리고 승인받은 뒤 호출합니다. 상품 참조 사진은 채팅 첨부만으로 생성 도구에 전달되지 않으므로 공식 업로드 창의 완료를 확인합니다. [Higgsfield 공식 연결 안내](https://higgsfield.ai/creator-hub/help-center/integrations/how-do-i-connect-higgsfield-to-ai-agent)를 따릅니다.
 
 ## 스킬
 
@@ -79,7 +81,7 @@ Claude Cowork와 ChatGPT Work는 마켓플레이스 등록 권한과 경로가 �
 
 ## MCP 연동
 
-플러그인 루트 `.mcp.json`에 3개 커머스 MCP 서버가 선언되어 있습니다. 자격증명은 **환경변수로만** 설정하세요(파일에 키를 적지 않습니다).
+플러그인 루트 `.mcp.json`에는 판매자 운영용 자체 MCP 서버 세 개와 카페24 공식 카탈로그, Higgsfield 공식 연결이 선언돼 있습니다. 자체 서버의 자격증명은 앱의 연결 설정에 입력하고 파일에는 적지 않습니다. 공식 연결은 해당 서비스의 계정 인증을 완료해야 사용할 수 있습니다.
 
 | 서버 | 플랫폼 | 필요 환경변수 | 상태 |
 |------|--------|---------------|------|

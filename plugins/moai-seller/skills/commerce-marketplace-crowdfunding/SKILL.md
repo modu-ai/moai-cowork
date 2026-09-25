@@ -6,7 +6,7 @@ description: >
   신상품 출시 또는 한정판을 사전판매·검증 형식으로 런칭하고 싶을 때 유용합니다.
   와디즈(리워드·투자), 텀블벅(창작·문화), 해피빈펀딩(공익) 채널별 차이를 정리하고,
   프로젝트 페이지 카피, 영상 시놉시스, 리워드 가격 구성, 메이커 등록 절차를 안내합니다.
-version: "1.1.0"
+version: "1.1.1"
 ---
 
 # 크라우드펀딩 가이드 (와디즈·텀블벅)
@@ -183,8 +183,8 @@ version: "1.1.0"
 - `moai-seller:commerce-integrated-strategy` — 펀딩 후 채널 확장 전략
 - `moai-seller:commerce-product-photo-brief` — 시연 영상·사진 컷 기획
 - `moai-marketer:marketing-campaign-planner` — 펀딩 외부 캠페인
-- `moai-coworker:ai-slop-reviewer` — 최종 산출물 AI 슬롭 검수 (Post-검수, 필수)
-- `moai-writer:korean-humanize` — 한국어 AI 티 제거 (슬롭 검수 다음 필수)
+- 원본 상품 정보·가격·리워드·배송 약속과 문안을 직접 대조하고 한국어 표현을 검토한다.
+- `moai-coworker:ai-slop-reviewer`·`moai-writer:korean-humanize` — 설치된 경우 선택적으로 표현 검수에 사용한다. 미실행 시 완료로 표시하지 않는다.
 
 ## 이 스킬을 사용하지 말아야 할 때
 

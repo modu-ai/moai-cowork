@@ -150,7 +150,7 @@ Hero 컷 재사용 가능. 또는:
 
 ## AI 이미지 보완 옵션
 
-부족한 컷은 ChatGPT Work의 기본 이미지 도구 또는 사용자가 지정한 공식 Higgsfield MCP 도구가 실제 연결돼 있을 때 보완할 수 있습니다. Images 2.5 요청은 `moai-media:media-codex-image`에서 현재 세션의 모델을 확인하고, Flare·Sunburst API 모델 ID 지정 요청은 별도 API 경로를 따릅니다:
+부족한 컷은 현재 앱의 이미지 도구 또는 호스트에 맞게 인증된 Higgsfield 공식 연결의 도구가 있을 때 보완할 수 있습니다. Images 2.5 요청은 노출된 모델을 확인하고, Flare·Sunburst API 모델 ID 지정 요청은 별도 API 경로가 있을 때만 진행합니다. Higgsfield에서 상품 사진을 참조로 쓰려면 채팅 첨부와 별도로 업로드 완료를 확인합니다:
 - 라이프스타일 컷 (모델·배경 합성)
 - 인포그래픽
 - 일러스트 단계 시퀀스

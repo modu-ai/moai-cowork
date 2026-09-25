@@ -6,7 +6,7 @@ description: >
   commerce-detail-page-copy/commerce-detail-page-image 출력물을 쿠팡 정책에 맞게 검토하고,
   이미지 규격, 금지문구 체크, 검색 키워드 추천, 우수상품 기준 적용,
   로켓배송 vs 판매자배송 분기 가이드를 제공합니다.
-version: "1.1.0"
+version: "1.1.1"
 ---
 
 # 쿠팡 상세페이지 가이드 (Coupang Marketplace)
@@ -135,8 +135,8 @@ version: "1.1.0"
 - `moai-seller:commerce-detail-page-image` — 이미지 합성
 - `moai-seller:commerce-marketplace-naver` — 네이버/오픈마켓 비교
 - `moai-marketer:marketing-seo-audit` — 채널 SEO 일반
-- `moai-coworker:ai-slop-reviewer` — 최종 산출물 AI 슬롭 검수 (Post-검수, 필수)
-- `moai-writer:korean-humanize` — 한국어 AI 티 제거 (슬롭 검수 다음 필수)
+- 원본 상품 정보·가격·혜택·후기 근거와 문안을 직접 대조하고 한국어 표현을 검토한다.
+- `moai-coworker:ai-slop-reviewer`·`moai-writer:korean-humanize` — 설치된 경우 선택적으로 표현 검수에 사용한다. 미실행 시 완료로 표시하지 않는다.
 
 ## 이 스킬을 사용하지 말아야 할 때
 

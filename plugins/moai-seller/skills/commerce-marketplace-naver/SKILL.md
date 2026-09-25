@@ -5,7 +5,7 @@ description: >
   "스마트스토어 등록", "네이버 쇼핑 SEO", "11번가 가이드", "옥션 등록", "오픈마켓 가이드"처럼 말하면 됩니다.
   commerce-detail-page-copy/commerce-detail-page-image 출력물을 4개 오픈마켓(네이버 스마트스토어 + 11번가 + G마켓 + 옥션) 정책에 맞게 검토하고,
   채널별 이미지 규격·검색태그·금지문구·톡톡 카피·후기 운영 가이드를 제공합니다.
-version: "1.1.0"
+version: "1.1.1"
 ---
 
 # 네이버 스마트스토어 + 오픈마켓 가이드
@@ -106,8 +106,8 @@ version: "1.1.0"
 - `moai-seller:commerce-marketplace-coupang` — 쿠팡 비교
 - `moai-marketer:marketing-seo-audit` — 네이버 SEO 일반
 - `moai-marketer:marketing-campaign-planner` — 시즌 캠페인 기획
-- `moai-coworker:ai-slop-reviewer` — 최종 산출물 AI 슬롭 검수 (Post-검수, 필수)
-- `moai-writer:korean-humanize` — 한국어 AI 티 제거 (슬롭 검수 다음 필수)
+- 원본 상품 정보·가격·혜택·후기 근거와 문안을 직접 대조하고 한국어 표현을 검토한다.
+- `moai-coworker:ai-slop-reviewer`·`moai-writer:korean-humanize` — 설치된 경우 선택적으로 표현 검수에 사용한다. 미실행 시 완료로 표시하지 않는다.
 
 ## 이 스킬을 사용하지 말아야 할 때
 

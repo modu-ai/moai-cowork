@@ -11,7 +11,7 @@ description: |
   - "모바일 전용 상세페이지 숏폼 스타일로 만들어줘"
   코드 생성 전에 디자인 톤(색·모드·모서리·효과)을 먼저 묻습니다. 기획은 moai-seller:commerce-detail-page-planner, 카피는 moai-seller:commerce-detail-page-copy, 이미지는 moai-seller:commerce-detail-page-image로 이어집니다.
   [책임 경계] vs 페어 스킬: 이 스킬=코드 산출, moai-seller:commerce-detail-page-copy=13섹션 카피 JSON, moai-marketer:marketing-landing-page=단독 전환 랜딩 1페이지.
-version: "1.1.0"
+version: "1.1.1"
 ---
 
 # 상세 페이지 (Product Detail)
@@ -239,8 +239,8 @@ AI가 생성한 상세 페이지 카피에 포함된 판매량, 평점, 고객 �
 - `moai-marketer:marketing-landing-page` — 랜딩 페이지 (단독 전환 목적)
 - `moai-marketer:content-sns-content` — 소셜미디어 콘텐츠
 - `moai-marketer:content-copywriting` — 광고 카피
-- `moai-coworker:ai-slop-reviewer` — 최종 산출물 AI 슬롭 검수 (Post-검수, 필수)
-- `moai-writer:korean-humanize` — 한국어 AI 티 제거 (슬롭 검수 다음 필수)
+- 원본 상품 정보·가격·효능 근거와 문안을 직접 대조하고 한국어 표현을 검토한다.
+- `moai-coworker:ai-slop-reviewer`·`moai-writer:korean-humanize` — 설치된 경우 선택적으로 표현 검수에 사용한다. 미실행 시 완료로 표시하지 않는다.
 
 ## 이 스킬을 사용하지 말아야 할 때
 
