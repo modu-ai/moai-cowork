@@ -135,7 +135,7 @@
     {
       "name": "moai-designer",
       "source": "./plugins/moai-designer",
-      "version": "1.4.45",
+      "version": "1.4.46",
       "description": "브랜드 디자인 시스템과 DESIGN.md, 디자인 토큰, 로고·비주얼, 모션 랜딩 제작을 돕는 스킬. Claude Design 핸드오프를 읽고 공식 Higgsfield 연결 또는 앱 이미지 도구로 브랜드 이미지 작업을 진행합니다.",
       "displayName": "🎨 디자이너",
       "category": "디자인"

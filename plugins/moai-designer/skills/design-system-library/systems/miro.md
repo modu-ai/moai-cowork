@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Miro-design-analysis
-description: Miro presents itself as the AI-powered visual workspace through a confident, almost playful brand voice — anchored by its signature canary yellow ({colors.brand-yellow}) wordmark over white canvas, broken open by colorful pastel feature tints (rose, teal, coral, orange, mint) that echo the actual sticky-note color palette used on the live whiteboard. Black-pill primary buttons dominate marketing, real Miro-board mockups serve as feature illustrations, and a 4-tier pricing grid leads into a dense comparison table. Roobert PRO carries display headlines; the system supports homepage, pricing, AI Workflows product page, agile vertical, and customer stories surfaces.
+description: Miro presents itself as the AI-powered visual workspace through a confident, almost playful brand voice — anchored by its signature canary yellow ({colors.brand-yellow}) wordmark over white canvas, broken open by colorful pastel feature tints (rose, teal, coral, orange, mint) that echo the actual sticky-note color palette used on the live whiteboard. Black-pill primary buttons dominate marketing, real Miro-board mockups serve as feature illustrations, and a pricing grid leads into a dense comparison table. The reference uses Roobert PRO; reusable tokens default to DM Sans. The system covers homepage, pricing, AI Workflows product page, agile vertical, and customer stories surfaces.
 
 colors:
   primary: "#1c1c1e"
@@ -39,7 +39,7 @@ colors:
   charcoal: "#2c2c34"
   slate: "#555a6a"
   steel: "#6b6f7e"
-  stone: "#8e91a0"
+  stone: "#656977"
   muted: "#a5a8b5"
   on-dark: "#ffffff"
   on-dark-muted: "#a5a8b5"
@@ -47,97 +47,97 @@ colors:
 
 typography:
   hero-display:
-    fontFamily: Roobert PRO
+    fontFamily: DM Sans, Noto Sans, system-ui, sans-serif
     fontSize: 80px
     fontWeight: 500
     lineHeight: 1.05
     letterSpacing: -2px
   display-lg:
-    fontFamily: Roobert PRO
+    fontFamily: DM Sans, Noto Sans, system-ui, sans-serif
     fontSize: 60px
     fontWeight: 500
     lineHeight: 1.10
     letterSpacing: -1.5px
   heading-1:
-    fontFamily: Roobert PRO
+    fontFamily: DM Sans, Noto Sans, system-ui, sans-serif
     fontSize: 48px
     fontWeight: 500
     lineHeight: 1.15
     letterSpacing: -1px
   heading-2:
-    fontFamily: Roobert PRO
+    fontFamily: DM Sans, Noto Sans, system-ui, sans-serif
     fontSize: 36px
     fontWeight: 500
     lineHeight: 1.20
     letterSpacing: -0.5px
   heading-3:
-    fontFamily: Roobert PRO
+    fontFamily: DM Sans, Noto Sans, system-ui, sans-serif
     fontSize: 28px
     fontWeight: 500
     lineHeight: 1.25
   heading-4:
-    fontFamily: Roobert PRO
+    fontFamily: DM Sans, Noto Sans, system-ui, sans-serif
     fontSize: 22px
     fontWeight: 500
     lineHeight: 1.30
   heading-5:
-    fontFamily: Roobert PRO
+    fontFamily: DM Sans, Noto Sans, system-ui, sans-serif
     fontSize: 18px
     fontWeight: 500
     lineHeight: 1.40
   subtitle:
-    fontFamily: Roobert PRO
+    fontFamily: DM Sans, Noto Sans, system-ui, sans-serif
     fontSize: 18px
     fontWeight: 400
     lineHeight: 1.50
   body-md:
-    fontFamily: Roobert PRO
+    fontFamily: DM Sans, Noto Sans, system-ui, sans-serif
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.50
   body-md-medium:
-    fontFamily: Roobert PRO
+    fontFamily: DM Sans, Noto Sans, system-ui, sans-serif
     fontSize: 16px
     fontWeight: 500
     lineHeight: 1.50
   body-sm:
-    fontFamily: Roobert PRO
+    fontFamily: DM Sans, Noto Sans, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 400
     lineHeight: 1.50
   body-sm-medium:
-    fontFamily: Roobert PRO
+    fontFamily: DM Sans, Noto Sans, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 500
     lineHeight: 1.50
   caption:
-    fontFamily: Roobert PRO
+    fontFamily: DM Sans, Noto Sans, system-ui, sans-serif
     fontSize: 13px
     fontWeight: 400
     lineHeight: 1.40
   caption-bold:
-    fontFamily: Roobert PRO
+    fontFamily: DM Sans, Noto Sans, system-ui, sans-serif
     fontSize: 13px
     fontWeight: 600
     lineHeight: 1.40
   micro:
-    fontFamily: Roobert PRO
+    fontFamily: DM Sans, Noto Sans, system-ui, sans-serif
     fontSize: 12px
     fontWeight: 500
     lineHeight: 1.40
   micro-uppercase:
-    fontFamily: Roobert PRO
+    fontFamily: DM Sans, Noto Sans, system-ui, sans-serif
     fontSize: 11px
     fontWeight: 600
     lineHeight: 1.40
     letterSpacing: 0.5px
   button-md:
-    fontFamily: Roobert PRO
+    fontFamily: DM Sans, Noto Sans, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 500
     lineHeight: 1.30
   stat-display:
-    fontFamily: Roobert PRO
+    fontFamily: DM Sans, Noto Sans, system-ui, sans-serif
     fontSize: 64px
     fontWeight: 500
     lineHeight: 1.10
@@ -336,7 +336,7 @@ components:
     padding: "4px 10px"
   badge-tag-purple:
     backgroundColor: "{colors.surface-pricing-featured}"
-    textColor: "{colors.brand-blue}"
+    textColor: "{colors.blue-pressed}"
     typography: "{typography.caption-bold}"
     rounded: "{rounded.full}"
     padding: "4px 10px"
@@ -348,7 +348,7 @@ components:
     padding: "4px 10px"
   badge-success:
     backgroundColor: "{colors.success-accent}"
-    textColor: "{colors.on-primary}"
+    textColor: "{colors.primary}"
     typography: "{typography.caption-bold}"
     rounded: "{rounded.full}"
     padding: "4px 10px"
@@ -440,13 +440,13 @@ components:
 
 Miro positions itself as the AI-powered visual workspace through a confident, slightly playful brand voice. The homepage opens with a stark white canvas anchored by a small canary-yellow Miro wordmark in the top-left, a black-pill primary CTA "Get started free" and a secondary "Book a demo" outline pill — then dramatic real-Miro-board mockup imagery (sticky notes, kanban, mind maps) carries the visual weight. Across deeper surfaces, the system breaks open: pastel feature cards (rose, teal, coral, yellow) echo the actual sticky-note color palette of the live whiteboard product, and customer story cards reuse those tints to differentiate brand vignettes.
 
-Roobert PRO — Miro's custom display face — anchors every typographic surface, from the 80px hero display down to 11px micro labels. The face's slightly rounded, geometric character pairs naturally with the playful product photography and the friendly product positioning. Black-pill primary buttons (`{rounded.full}`) dominate marketing CTAs; the brand color, signature canary yellow ({colors.brand-yellow}), is reserved for the wordmark, top promo banners, and "yellow tag" feature pills — never as a primary CTA. The 4-tier pricing comparison (Free / Starter / Business / Enterprise) leads into the densest surface in the system: a feature comparison table that runs ~80 rows deep across multiple section dividers.
+The reference uses Roobert PRO, whose reuse rights need checking for each output. The reusable YAML defaults to DM Sans with Noto Sans and system sans fallbacks from the 80px hero down to 11px micro labels. Black-pill primary buttons (`{rounded.full}`) dominate marketing CTAs; canary yellow ({colors.brand-yellow}) appears in the wordmark, top promo banners, and feature pills. The pricing comparison leads into a dense feature table.
 
 **Key Characteristics:**
 - Stark white canvas + Miro wordmark in canary yellow ({colors.brand-yellow}) as the recognizable opening signature
 - Black-pill primary CTAs ({colors.primary} + `{rounded.full}`) as the dominant interactive element
 - Pastel feature cards (yellow, rose, coral, teal, mint) that echo the actual sticky-note palette
-- Roobert PRO across every UI surface; geometric, slightly rounded character
+- DM Sans as the reusable default; Roobert PRO only with the required rights
 - Real Miro-board mockup imagery used as feature illustrations
 - 4-tier pricing card grid + dense feature comparison table
 - Massive dark footer ({colors.footer-bg}) with multi-column links + app-store badges
@@ -501,7 +501,7 @@ Roobert PRO — Miro's custom display face — anchors every typographic surface
 ## Typography
 
 ### Font Family
-**Roobert PRO** (primary): Miro's custom geometric sans-serif typeface. Used across every UI surface from oversized 80px hero displays to 11px micro labels. The face has a slightly rounded, friendly character that matches the brand's playful product positioning. Fallbacks: Noto Sans, -apple-system, BlinkMacSystemFont, sans-serif.
+**Reference**: Roobert PRO is the face observed in the source material. Its availability or installation does not establish reuse rights. **Reusable default**: [OFL DM Sans](https://github.com/google/fonts/blob/main/ofl/dmsans/METADATA.pb), then [OFL Noto Sans](https://github.com/google/fonts/blob/main/ofl/notosans/METADATA.pb), then `system-ui, sans-serif`. Load the chosen font and check actual line breaks before claiming a visual match.
 
 ### Hierarchy
 
@@ -524,13 +524,13 @@ Roobert PRO — Miro's custom display face — anchors every typographic surface
 | `{typography.micro}` | 12px | 500 | 1.40 | 0 | Footer microcopy |
 | `{typography.micro-uppercase}` | 11px | 600 | 1.40 | 0.5px | Section dividers in tables |
 | `{typography.button-md}` | 14px | 500 | 1.30 | 0 | Pill button labels |
-| `{typography.stat-display}` | 64px | 500 | 1.10 | -1.5px | "100M+ users" stat callouts |
+| `{typography.stat-display}` | 64px | 500 | 1.10 | -1.5px | Verified current stat callouts |
 
 ### Principles
 - **Tight hero leading** (1.05) creates magazine-grade display headlines on the 80px hero
 - **Negative letter-spacing progression** — display sizes use -2px to -1.5px; smaller headings relax to 0
 - **Stat-display token** (64px / 500) for marketing stat callouts
-- **Single weight scale** — 400 (body), 500 (medium emphasis + headings), 600 (badges and uppercase). Roobert PRO does not use 700 in this system.
+- **Single weight scale** — 400 (body), 500 (medium emphasis + headings), 600 (badges and uppercase). Keep these roles in the loaded default font.
 
 ## Layout
 
@@ -586,7 +586,7 @@ The system runs predominantly flat with strategic depth on hero mockups.
 - Real Miro board mockups render with `{rounded.xl}` (16px) corners and a subtle drop shadow
 - Customer story cards use `{rounded.xxxl}` (28px) corners with full-bleed photography
 - Template card thumbnails use `{rounded.xl}` (16px) with photographic content
-- Customer logos wall presents wordmarks inline at consistent 100px height
+- A customer logo wall can present wordmarks inline at consistent height after current relationships and logo-use rights are confirmed.
 
 ## Components
 
@@ -643,7 +643,7 @@ The system runs predominantly flat with strategic depth on hero mockups.
 **`card-customer-story`** — Customer story card.
 - Background `{colors.canvas}`, rounded `{rounded.xxxl}`, padding `0` (image fills the card), border `1px solid {colors.hairline-soft}`.
 
-**`card-stat`** — Stat-row cell for "100M+ users".
+**`card-stat`** — Stat-row cell. Publish a number only after checking a current source.
 - Background transparent, text `{colors.ink}`, typography `{typography.stat-display}`, padding `{spacing.lg}`.
 
 **`pricing-card`** — Standard pricing tier card.
@@ -687,15 +687,15 @@ The system runs predominantly flat with strategic depth on hero mockups.
 - Background `{colors.surface-yellow}`, text `{colors.yellow-dark}`, typography `{typography.caption-bold}`, rounded `{rounded.full}`, padding `4px 10px`.
 
 **`badge-tag-purple`** — Lavender feature tag chip ("AI agent" tag).
-- Background `{colors.surface-pricing-featured}`, text `{colors.brand-blue}`, typography `{typography.caption-bold}`, rounded `{rounded.full}`, padding `4px 10px`.
+- Background `{colors.surface-pricing-featured}`, text `{colors.blue-pressed}`, typography `{typography.caption-bold}`, rounded `{rounded.full}`, padding `4px 10px`.
 
 **`badge-tag-coral`** — Coral feature tag chip variant.
 - Background `{colors.coral-light}`, text `{colors.coral-dark}`, typography `{typography.caption-bold}`, rounded `{rounded.full}`, padding `4px 10px`.
 
 **`badge-success`** — Green success indicator.
-- Background `{colors.success-accent}`, text `{colors.on-primary}`, typography `{typography.caption-bold}`, rounded `{rounded.full}`, padding `4px 10px`.
+- Background `{colors.success-accent}`, text `{colors.primary}`, typography `{typography.caption-bold}`, rounded `{rounded.full}`, padding `4px 10px`.
 
-**`badge-discount`** — Yellow rectangular discount pill ("Save 15%").
+**`badge-discount`** — Yellow rectangular discount pill. Confirm the current discount before publishing a number.
 - Background `{colors.brand-yellow}`, text `{colors.primary}`, typography `{typography.caption-bold}`, rounded `{rounded.sm}`, padding `2px 6px`.
 
 **`promo-banner`** — Sticky black promo strip ABOVE the top nav.
@@ -723,7 +723,7 @@ The system runs predominantly flat with strategic depth on hero mockups.
 **`faq-accordion-item`** — FAQ panel item.
 - Background `{colors.canvas}`, rounded `{rounded.md}`, padding `{spacing.xl}`, bottom border `1px solid {colors.hairline}`.
 
-**`logo-wall-item`** — Customer logo wordmark cell.
+**`logo-wall-item`** — Customer logo wordmark cell. Confirm the customer relationship and logo-use rights before publishing.
 - Background transparent, text `{colors.steel}`, typography `{typography.body-md-medium}`, padding `{spacing.lg}`.
 
 **`capterra-badge`** — Review/rating badge in the footer.
@@ -759,16 +759,16 @@ The system runs predominantly flat with strategic depth on hero mockups.
 ## Do's and Don'ts
 
 ### Do
-- Reserve `{colors.brand-yellow}` for the wordmark, top promo banner, and "yellow tag" chips
+- Reserve `{colors.brand-yellow}` for the wordmark, top promo banner, yellow tag chips, and the defined featured yellow card.
 - Use `{colors.primary}` (black) as the dominant CTA on all surfaces
 - Pair pastel feature cards (yellow, rose, coral, teal) with white feature cards in the same viewport
 - Apply `{rounded.full}` to every button, every pill tab, every status badge
 - Apply `{rounded.xxxl}` (28px) to pastel feature cards
 - Use real Miro-board mockups as feature illustrations
-- Maintain Roobert PRO across every UI surface
+- Use the default DM Sans across UI surfaces; use Roobert PRO only when the output has the required rights
 
 ### Don't
-- Don't use `{colors.brand-yellow}` on standard CTAs or large background surfaces
+- Don't use `{colors.brand-yellow}` on standard CTAs or generic large background surfaces; the featured yellow card is the defined exception.
 - Don't introduce additional accent colors beyond yellow + brand pastels
 - Don't soften corners on buttons; the pill is a brand signature
 - Don't reduce hero leading below 1.05
@@ -787,10 +787,10 @@ The system runs predominantly flat with strategic depth on hero mockups.
 | Wide Desktop | ≥ 1280px | Full hero presentation, 80px hero display. |
 
 ### Touch Targets
-- Pill buttons render at 40–44px effective height — at WCAG AAA floor
-- Circular icon buttons: 36×36px desktop → 44×44px mobile
-- Form inputs render at 44px height
-- Filter dropdowns render at ~36px tall — bumps to 44px on mobile
+- Pill buttons specify `12px 24px` padding; measure the rendered clickable width, height, and spacing before making a WCAG claim.
+- Circular icon buttons specify 36×36px. Enlarge the interactive target where needed and measure it on each breakpoint.
+- Form inputs specify 44px height; confirm the rendered interactive width and height.
+- Filter dropdown dimensions depend on rendered typography and padding. Measure the final target on desktop and mobile.
 
 ### Collapsing Strategy
 - **Promo banner** stays full-width; truncates at < 480px
