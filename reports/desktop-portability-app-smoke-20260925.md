@@ -2,7 +2,7 @@
 
 기준 브랜치: `WT-cowork-desktop-portability`. 정적 조사와 OS별 MCP 자동 테스트는 `reports/desktop-portability-audit-20260924.md`에 있다. 아래 항목은 **실제 앱에서 아직 실행하지 않았다**. 결과를 적을 때 앱 버전·운영체제·플러그인 버전·화면에 보인 도구 이름과 실행 시각을 함께 남긴다.
 
-[코드 SHA `bf0c5932`의 MCP 교차 플랫폼 CI](https://github.com/modu-ai/moai-cowork/actions/runs/36085903403)는 macOS·Windows·Ubuntu 작업 30개가 성공했다. 이 결과는 아래 앱 현장 확인을 대체하지 않는다.
+[검사 SHA `dfb32cbc`의 MCP 교차 플랫폼 CI](https://github.com/modu-ai/moai-cowork/actions/runs/36086427714)는 macOS·Windows·Ubuntu 작업 30개가 성공했다. 이 결과는 아래 앱 현장 확인을 대체하지 않는다.
 
 | 호스트 | macOS | Windows | Linux |
 |---|---|---|---|
