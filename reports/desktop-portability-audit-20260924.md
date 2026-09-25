@@ -1369,3 +1369,9 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - 카페24 테스트 3개, 아임웹 테스트 3개, 스마트스토어 테스트 3개와 스마트스토어 설정 예시·무시 목록·고지·인증 확인 스크립트·도구 패키지 초기화 파일, 아임웹 무시 목록을 전체 읽었다. 앞선 `uv run --no-sync pytest -q`의 아임웹 결과는 `34 passed in 0.38s`였고, 이번 읽기 자체에서 테스트를 다시 실행하지 않았다.
 - 이번에 끝까지 읽은 28개 파일만 `static_read`로 바꿨다. 장부는 1,091개 중 `static_read` 1,041개, `mechanical_scan` 50개다. 남은 50개는 디자이너 브랜드 프로필 46개, 판매자 MCP 잠금 파일 3개와 아임웹 생성 입력 `openapi.json` 1개다. 파일별 기계 검사는 이미 기록됐지만, 이들의 전문을 의미 검토했다고 주장하지 않는다.
 - 네이티브 앱 검증을 위해 `computer-use` 스킬의 macOS 진입 절차인 `orca skills get computer-use`를 실행했으나 `/usr/local/bin/orca`가 `Unable to determine Orca.app path from symlink: /usr/local/bin/orca`로 실패했다. 스킬 지침상 그 뒤 다른 실행 경로로 우회하지 않았다. 두 데스크톱 앱의 설치·이미지 생성·MCP 연결과 Windows·Linux 실기는 여전히 `NOT-RUN`이다.
+
+### 생성 입력과 브랜드 프로필의 구조 검사 (2026-09-25)
+
+- 세 판매자 MCP의 `uv.lock`을 `tomli`로 각각 전체 파싱했다. 출력은 카페24 `version 1, packages 41`, 아임웹 `version 1, packages 41`, 스마트스토어 `version 1, packages 43`이었다. 아임웹 `openapi.json`은 JSON으로 전체 파싱돼 경로 122개, HTTP 작업 140개, 스키마 315개였다. 생성기의 138개 도구 작업과 차이나는 두 작업은 `GET /oauth2/authorize`와 `POST /oauth2/token`으로, 생성기가 의도적으로 건너뛰고 인증 코드에서 처리하는 `OAuth2.0` 범주다. 파싱은 원격 패키지 설치와 API 계약의 현행성을 증명하지 않는다.
+- `mechanical_scan`으로 남은 디자이너 브랜드 프로필 46개를 파일별로 YAML frontmatter 파싱하고 스킬이 요구하는 `name`·`description`·`colors`를 검사했다. 필수 키 오류 0건, 버전 미고정 `designmd lint` 명령 0건, 셸 래퍼·데스크톱 터미널 설치 명령·절대 호스트 경로 매치 0건이었다. `macOS` 등 플랫폼 이름이 나온 네 파일은 `cursor.md`, `ollama.md`, `opencode.ai.md`, `raycast.md`이며 검사된 문맥은 다운로드 버튼·폰트 폴백·제품 화면 예시다. 세 프로필에 `typography` frontmatter가 없지만, 상위 스킬 137행은 이 키가 일부 시스템에 없을 수 있고 본문을 확인하라고 명시한다. 필수 스키마 오류로 취급하지 않았다.
+- 이 검사는 50개 잔여 파일의 구조화 데이터 파싱과 지정된 위험 패턴을 대상으로 한 기계 검사다. 디자인 문장마다 브랜드 현행성과 시각적 충실도를 독립 확인하거나, 잠금 파일의 모든 전이 의존성에 대해 각 운영체제 설치를 재현한 결과는 아니다. 따라서 장부의 `mechanical_scan` 50개는 `static_read`로 올리지 않았다.
