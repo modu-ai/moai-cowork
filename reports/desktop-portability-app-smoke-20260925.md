@@ -25,7 +25,7 @@ ChatGPT 쪽은 데스크톱 앱의 **Work 모드 새 대화**에서 검사한다
 | `moai-writer` | 1.5.13 | `book-author-bio` | — | — |
 | `moai-story` | 1.2.4 | `story-ad-conti` | `higgsfield` | `higgsfield` |
 | `moai-marketer` | 1.2.23 | `content-blog` | `meta-ads`, `typefully`, `wordpress` | 동일 |
-| `moai-media` | 3.3.13 | `media-asset-production` | `ElevenLabs`, `higgsfield`, `moai-mcp-openai` | 동일 |
+| `moai-media` | 3.3.14 | `media-asset-production` | `ElevenLabs`, `higgsfield`, `moai-mcp-openai` | ChatGPT: `ElevenLabs`, `moai-mcp-openai`; Higgsfield는 공식 플러그인 별도 설치 |
 | `moai-seller` | 1.4.31 | `commerce-ad-claim-compliance-kr` | `moai-mcp-smartstore`, `moai-mcp-imweb`, `moai-mcp-cafe24`, `cafe24-catalog-mcp`, `higgsfield` | 앞의 네 서버 |
 | `moai-officer` | 1.3.8 | `doc-data-audit` | `kordoc` | `kordoc` |
 | `moai-analyst` | 1.3.6 | `data-building-ledger` | `korean-stats`, `archhub`, `dart` | 동일 |
@@ -63,7 +63,7 @@ ChatGPT 쪽은 데스크톱 앱의 **Work 모드 새 대화**에서 검사한다
 | `moai-pm` | NOT-RUN | NOT-RUN | NOT-RUN | NOT-RUN | NOT-RUN | NOT-RUN |
 | `moai-threads-poster` | NOT-RUN | NOT-RUN | NOT-RUN | NOT-RUN | NOT-RUN | NOT-RUN |
 
-`moai-media`의 ChatGPT 선언에는 `higgsfield` 서버 키가 있고, 사용 안내에는 Higgsfield 공식 플러그인의 별도 설치가 나온다. 앱에서 어느 경로가 실제로 인증·도구 노출까지 되는지 확인한 뒤 기록한다. 두 선언의 존재만으로 중복 설치 필요 여부나 결함을 판정하지 않는다.
+`moai-media`의 Claude 선언은 Higgsfield 공식 MCP 주소를 사용한다. ChatGPT 선언에는 이 원격 서버를 싣지 않으며, [Higgsfield 공식 안내](https://higgsfield.ai/creator-hub/help-center/integrations/how-do-i-connect-higgsfield-to-ai-agent)에 따라 사용자가 공식 Higgsfield 플러그인을 별도 설치·인증한다. 앱에서 두 호스트의 실제 인증·도구 노출을 각각 확인해 기록한다.
 
 ### 별도 도구 연결 확인 (2026-09-25)
 
