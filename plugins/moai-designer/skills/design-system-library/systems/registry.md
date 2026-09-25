@@ -59,7 +59,7 @@
 | [`posthog`](posthog.md) | light | `#eeefe9` | `#f7a501` | IBM Plex Sans Variable |
 | [`renault`](renault.md) | light | `#ffffff` | `#ffed00` | NouvelR |
 | [`replicate`](replicate.md) | light | `#f9f7f3` | `#ea2804` | rb-freigeist-neue |
-| [`runwayml`](runwayml.md) | light | `#ffffff` | `#000000` | abcNormal |
+| [`runwayml`](runwayml.md) | light | `#ffffff` | `#000000` | Inter |
 | [`slack`](slack.md) | light | `#ffffff` | `#4a154b` | Salesforce-Avant-Garde |
 | [`superhuman`](superhuman.md) | light | `#ffffff` | `#1b1938` | 'Super Sans VF' |
 | [`together.ai`](together.ai.md) | light | `#ffffff` | `#000000` | The Future |

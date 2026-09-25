@@ -307,7 +307,7 @@ plugins/moai-designer/skills/design-system-library/systems/renault.md		static_re
 plugins/moai-designer/skills/design-system-library/systems/replicate.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/resend.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/revolut.md		static_read
-plugins/moai-designer/skills/design-system-library/systems/runwayml.md		mechanical_scan
+plugins/moai-designer/skills/design-system-library/systems/runwayml.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/sanity.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/sentry.md		mechanical_scan
 plugins/moai-designer/skills/design-system-library/systems/shopify.md		mechanical_scan
