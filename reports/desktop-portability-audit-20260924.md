@@ -1123,3 +1123,8 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - 독립 `mcp__moai__codex_audit(mode="adversarial", target="uncommittedChanges")`의 구조화 판정은 `inconclusive`·`findings: []`였으나 요약은 FAIL과 파일·줄 근거 세 건을 제시했다. `show_characters` 실제 도구 스키마에서 `status: ready|training|failed`와 `next_cursor`를 확인했다. 그래서 Soul 중복 학습 방지를 `ready`만이 아니라 세 상태의 모든 페이지 조회로 넓히고, 업로드 전 견적·상태 도구 확인도 추가했다. 나머지 지적에 따라 3D 참고 문서의 관측 시점을 분명히 했다. 구조화 PASS로 간주하지 않으며 유료 학습·3D 생성은 실행하지 않았다.
 - 변경 후 `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 1건`을 출력했고, 미디어 Claude·Codex·마켓플레이스 버전은 모두 `3.3.11`, 수정한 스킬 버전은 `1.3.4`·`1.3.5`·`1.3.3`이었다. `git diff --check`는 출력 없이 종료 코드 0이었다.
 - macOS 앱 UI 재확인에 `computer-use` 스킬이 지정한 `orca skills get computer-use`를 호출했으나 `Unable to determine Orca.app path from symlink: /usr/local/bin/orca`로 종료 코드 1이었다. 스킬의 실행 파일 대체 금지 규칙에 따라 다른 Orca 바이너리로 우회하지 않았다. 이는 검사 도구의 시작 실패이며 Claude·ChatGPT 앱의 기능 실패가 아니다. 실제 앱 UI 검증은 여전히 `NOT-RUN`이다.
+
+### 아임웹 토큰 저장 실패 신호 (2026-09-25)
+
+- 판매자 MCP의 Cafe24·Imweb·Smartstore HTTP 클라이언트와 인증 경로를 각각 읽었다. 아임웹 `moai_mcp_imweb/_base.py`의 `_persist_tokens()`는 공용 `TokenStore.save()`가 `False`를 반환해도 아무 신호 없이 끝났다. 새 리프레시 토큰이 돌아온 뒤 파일 저장이 실패하면 현재 프로세스 메모리에는 남지만 다음 실행에서 이전 토큰을 읽을 수 있다. 실패한 쓰기를 실제 파일로 재현한 `test_auth.py::test_토큰_저장_실패를_비밀값_없이_알린다`는 수정 전 `AssertionError: assert 'token persistence failed' in ''`로 실패했다.
+- 저장 실패 시 stderr에 다음 실행의 인증 위험을 경고하고 토큰 값은 출력하지 않도록 했다. 로컬 macOS에서 `uv run --python 3.11 --directory plugins/moai-seller/mcp-servers/moai-mcp-imweb --group dev pytest -q`는 `32 passed in 0.45s`였다. 판매자 Claude·Codex·마켓플레이스 버전은 `1.4.13`으로 맞췄다. 이 경고가 실제 데스크톱 앱 UI에 표시되는지, 실계정의 토큰 회전·재시작이 성공하는지는 확인하지 않았다.

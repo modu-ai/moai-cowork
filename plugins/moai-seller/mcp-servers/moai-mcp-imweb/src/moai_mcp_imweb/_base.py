@@ -68,10 +68,17 @@ def _load_persisted_tokens(path: Optional[Path]) -> tuple[Optional[str], Optiona
 
 
 def _persist_tokens(path: Optional[Path], access: Optional[str], refresh: Optional[str]) -> None:
-    """토큰을 저장한다. 실패는 치명적이지 않다(최선 노력)."""
+    """토큰을 저장하고, 실패하면 다음 실행의 인증 위험을 알린다."""
     if not path:
         return
-    token_store(path).save({"access_token": access, "refresh_token": refresh})
+    if not token_store(path).save({"access_token": access, "refresh_token": refresh}):
+        import sys
+
+        print(
+            "[moai-imweb] WARN: token persistence failed — "
+            "새 토큰이 메모리에만 남았습니다. 다음 실행에서 인증이 실패할 수 있습니다.",
+            file=sys.stderr,
+        )
 
 
 def load_config() -> ImwebConfig:
