@@ -893,7 +893,7 @@ plugins/moai-seller/skills/commerce-marketplace-naver/tests/test-cases.yaml		sta
 plugins/moai-seller/skills/commerce-message-compliance-kr/SKILL.md		static_read
 plugins/moai-seller/skills/commerce-morning-brief/SKILL.md	seller_skill_review	static_read
 plugins/moai-seller/skills/commerce-product-detail/SKILL.md		static_read
-plugins/moai-seller/skills/commerce-product-detail/references/product-detail/conversion-formulas.md		mechanical_scan
+plugins/moai-seller/skills/commerce-product-detail/references/product-detail/conversion-formulas.md		static_read
 plugins/moai-seller/skills/commerce-product-detail/references/product-detail/platform-specs.md		static_read
 plugins/moai-seller/skills/commerce-product-detail/references/product-detail/section-templates.md		mechanical_scan
 plugins/moai-seller/skills/commerce-product-detail/references/product-detail/structure-guide.md		mechanical_scan
