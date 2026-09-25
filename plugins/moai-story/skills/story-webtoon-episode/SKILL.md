@@ -8,7 +8,7 @@ description: |
   - "웹툰 연출", "감정 컷 프레임", "인물이 컷 넘게"
   - "세로 스크롤 리듬", "여백 띠", "스크롤 호흡"
   - "회차 플롯", "훅 배치", "클리프행어"
-version: "1.1.1"
+version: "1.1.2"
 ---
 
 # story-webtoon-episode: 회차 플롯 + 컷 분할 + 컷 연출
@@ -103,11 +103,10 @@ version: "1.1.1"
 - `story-webtoon-art` — 컷 지시를 작화 프롬프트로 조립
 - `story-series-bible` — 회차 저장 + 현황표 갱신
 
-### Post (검수 — 텍스트 산출물 정규 체인)
-- `moai-coworker:ai-slop-reviewer` — AI 슬롭 검수 (필수)
-- `moai-writer:korean-humanize` — AI 티 정밀 윤문 (필수)
-
-> ⚠️ 회차 대사·내레이션은 독자가 AI 티에 가장 민감한 산출물. 정규 체인 필수.
+### Post (검수)
+- 기획서·이전 회차·인물 시트와 대사·설정·사건을 직접 대조한다.
+- `moai-coworker:ai-slop-reviewer` — 설치돼 있으면 표현 검수에 추가 사용
+- `moai-writer:korean-humanize` — 설치돼 있으면 한국어 윤문에 추가 사용. 사용했다면 의미를 원문과 다시 대조
 
 ## 8. References
 

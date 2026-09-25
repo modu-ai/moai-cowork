@@ -23,7 +23,7 @@
 | Wobble ⭐ | `a "Wobble Balloon" (wavy/shaky trembling outline)` | 불안·떨리는 목소리 |
 | Fine Spike Aura | `a "Fine Spike Aura" balloon (oval with a fine thin spiky aura outline, NO tail)` | 미묘한 긴장·깨달음(생각 기본형) |
 | Fuzzy/Inner Shock | `a "Fuzzy/Inner Shock" balloon (oval with a thick fuzzy fur-like aura, NO tail)` | 강한 내면 충격 |
-| Soft Cloud Thought | `a soft cloud thought balloon (cloud shape, dotted edge, small bubble tail)` | 소심한 혼잣말 |
+| Soft Cloud Thought | `a soft cloud thought balloon (cloud shape, dotted edge, NO tail)` | 소심한 혼잣말 |
 
 ### 외침 / 감정
 | 이름 | 복붙 스니펫 | 언제 |

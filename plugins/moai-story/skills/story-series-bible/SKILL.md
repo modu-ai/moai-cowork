@@ -9,7 +9,7 @@ description: |
   - "지금까지 몇 화 나왔지", "에피소드 현황표 갱신", "연재 상태 정리"
   - "회차 파일명 어떻게", "제목 공백 처리"
   - (체인 시작/종료) 회차 작성 전 상태 확립, 회차 완료 후 상태 갱신
-version: "1.1.2"
+version: "1.1.3"
 ---
 
 # story-series-bible: 연재 상태 원장
@@ -113,11 +113,12 @@ Step 3. 현황표 갱신 (불변식 — 반드시)
 
 ## 9. 텍스트 산출 후 검수 체인
 
-회차 원고는 텍스트 산출물이므로, 완성 후 정규 검수 체인을 태운다.
+회차 원고의 인물·사건·설정은 접근 가능한 이전 원고와 기획서에 직접 대조한다. 문장 검수 스킬이 설치돼 있으면 추가로 사용할 수 있다.
 
 ```
-원고 초고 → moai-coworker:ai-slop-reviewer (1차 일반 후처리)
-          → moai-writer:korean-humanize (2차 한국어 정밀 윤문)
+원고 초고 → 기획서·이전 회차와 직접 대조
+          → (선택) moai-coworker:ai-slop-reviewer
+          → (선택) moai-writer:korean-humanize
 ```
 
 윤문은 **의미·고유명사·수치·인용을 보존**하며 AI 티만 제거한다(내용 재작성 아님).
@@ -131,7 +132,7 @@ Step 3. 현황표 갱신 (불변식 — 반드시)
 | 규격 참조 | `story-webtoon-spec` | 데뷔 경로·회차 분량·수익화 훅 확인 |
 | 식자 참조 | `story-webtoon-lettering` | 회차 원고의 말풍선·서체·SFX |
 | 연속성 감사 | `story-continuity-auditor` 또는 `story-continuity-audit` | 현재 호스트에 에이전트가 노출되면 이를 사용한다. 없으면 감사 스킬로 원장과 원고를 대조하고 확인하지 못한 범위를 밝힌다. |
-| Post-검수 (텍스트 산출) | `moai-coworker:ai-slop-reviewer` → `moai-writer:korean-humanize` | 원고 텍스트 1차 후처리 → 2차 한국어 정밀 윤문 |
+| Post-검수 (텍스트 산출) | 원자료 직접 대조, 필요 시 `moai-coworker:ai-slop-reviewer`·`moai-writer:korean-humanize` | 인물·사건·설정 확인 후 선택적 문장 검수 |
 
 ## 11. References
 

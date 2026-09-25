@@ -1057,3 +1057,19 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - PDF·PPTX·XLSX 생성, Notion 쓰기, Kordoc 문서 파싱, 뉴스 조회, macOS·Windows·Linux의 Claude Cowork·ChatGPT Work 실제 실행은 이 정적 열람으로 확인되지 않는다.
 - `mcp__moai__codex_audit`의 구조화 판정은 `inconclusive`, `findings: []`였다. 요약에 파일 위치와 함께 나온 지적 중 루브릭 #24가 출처 문구만으로 수치 검증을 통과시킬 여지와 샘플 SVG의 `data-icon`·`data-slot` 누락은 파일을 대조해 고쳤다. 요약의 22px SVG 라벨은 루브릭 기본 24pt 하한에 정적 계산상 못 미친다(22px × 0.75 = 16.5pt, 축소 전). 샘플의 다른 작은 글자도 있어 브라우저에서 레이아웃을 측정하기 전에는 샘플 전체 QA를 PASS로 표시하지 않는다. 감사 요약의 `FAIL` 표현은 구조화 판정으로 바꾸어 기록하지 않는다.
 - 이 작업 트리에서 `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `git diff --check`는 출력 없이 종료 코드 0이었다. Python 단언은 샘플의 `(920-320)/320*100 == 187.5`, JSON·HTML 자막 일치와 아이콘 네 개의 ID·슬롯 일치를 확인했다. Hugo 빌드는 종료 코드 0으로 209페이지였다. `doc-html-slide` 스킬 `1.2.5`, 오피서 Claude·Codex·마켓플레이스 버전 `1.3.7`로 맞췄다. 이는 실제 화면 QA나 세 운영체제 설치 결과가 아니다.
+
+### 스토리 플러그인 진입·이미지 생성 경로 (2026-09-25)
+
+- 매니페스트·MCP 설정·README·두 에이전트와 광고 콘티 스텁, 캐릭터 시트·콘티·표지·웹툰 작화 스킬 및 관련 참고 파일 등 17개 배포 파일을 끝까지 읽고 장부에 `static_read`로 표시했다. 전체 장부는 787개 `static_read`, 304개 `partial`이며, 스토리의 나머지 50개는 아직 부분 검토다.
+- 스토리 `.mcp.json`에는 `https://mcp.higgsfield.ai/mcp`가 등록돼 있지만, 이미지 스킬 네 개는 `moai-media:media-codex-image`를 ChatGPT Work의 기본 생성 경로로 의무화했다. 현재 앱의 기본 이미지 도구를 먼저 확인하고, Higgsfield 요청은 현재 호스트의 공식 연결에서 도구·비용·권한을 확인하도록 고쳤다. `moai-media` 미설치를 기본 이미지 생성의 차단 조건으로 두지 않는다. OpenAI의 [Images 2.5 발표](https://openai.com/index/introducing-chatgpt-images-2-5/)는 ChatGPT Work 제공을 밝히지만, 이 세션의 생성 도구가 정확히 어느 모델로 실행되는지까지 보여주지는 않는다.
+- [Higgsfield의 공식 MCP 안내](https://higgsfield.ai/creator-hub/help-center/integrations/what-is-higgsfield-mcp)는 공식 URL과 MCP 생성의 크레딧 차감을 명시하고, ChatGPT에는 Higgsfield 공식 플러그인을 안내한다. README는 Claude의 공식 MCP와 ChatGPT의 공식 플러그인 경로를 구분했다. 현재 앱에서 연결·계정 인증·실제 모델·비용 조회·이미지 생성은 실행하지 않았다.
+- 스토리 Codex 매니페스트의 고정 스킬 총수 문구와 Claude Cowork의 이전 설치 경로를 고쳤다. 공식 설치 안내와 맞춘 UI 경로는 [Claude 플러그인 도움말](https://support.claude.com/en/articles/13837440-use-plugins-in-claude)에 따른다. 매니페스트 버전과 MCP User-Agent는 `1.2.4`로 맞췄다.
+
+### 스토리 플러그인 나머지 파일별 검토 (2026-09-25)
+
+- 프로젝트 라우터, 영상 프리비즈, 시놉시스·각본·시리즈 바이블, 웹소설·웹툰 기획·회차·레터링·검수·원고 규격의 스킬 및 각각의 참고 문서를 끝까지 읽었다. 스토리 배포 파일 67개는 모두 장부의 `static_read`다. 전체 1091개 중 837개 `static_read`, 254개 `partial`이며, `static_read`는 정적 열람을 뜻하고 앱 실행이나 운영체제별 성공을 뜻하지 않는다.
+- 라우터와 여러 집필 스킬에서 다른 플러그인의 AI 문장 검수 스킬을 설치해야만 작업이 끝나는 경로를 원자료 직접 대조와 선택형 보조 검수로 고쳤다. 웹툰 기획 참고 자료의 옴니버스 통일 주제 의무 문구도 상위 스킬의 선택 조건과 맞췄다. 레터링 참고 자료는 생각 말풍선 예시에 꼬리가 있다고 쓰면서 같은 자료의 금지 조건은 꼬리가 없다고 한 모순을 고쳤다.
+- 웹툰 이미지 검수 스킬은 `moai-media` 필수 재생성 경로를 현재 앱 이미지 도구 또는 활성화된 Higgsfield 공식 연결로 바꿨다. 이미지가 첨부되지 않았는데 “다 좋아”라고 말한 경우 검수가 끝났다고 주장하지 않고 미확인으로 남긴다. 수정 프롬프트의 대조와 재생성 결과 이미지의 실제 재검사를 구분했다.
+- 검토한 참조 파일의 플랫폼 제출 규격·수익화 조건·데뷔 경로는 실제 작품의 현재 플랫폼 공지로 다시 확인해야 한다. 이 세션에서 작품 이미지·실제 생성 도구·연결 인증·유료 크레딧 사용, Claude Cowork와 ChatGPT Work의 macOS·Windows·Linux 실행은 관측하지 않았다.
+- `mcp__moai__codex_audit`의 구조화 판정은 `inconclusive`, `findings: []`였다. 요약에는 구체 file:line 지적 네 건이 있었고 파일 및 [Higgsfield의 참조 이미지 전달 안내](https://higgsfield.ai/creator-hub/help-center/integrations/how-do-i-connect-higgsfield-to-ai-agent)를 대조해 반영했다. Higgsfield는 채팅 첨부 이미지를 생성 도구가 직접 읽지 않으므로 별도 업로드 완료 또는 기존 Asset·Element·Soul 확인 뒤에만 참조로 세게 했다. `moai-lawyer` 필수 인계는 설치 시 보조 자료 정리와 전문가 검토의 `[미확인]` 경로로 바꿨다. Codex·마켓플레이스·MCP 설명의 오래된 `moai-media` 필수 위임 문구와 QC 참고 자료의 재생성 전 시각적 통과 암시도 고쳤다. 요약의 `FAIL` 표현을 구조화 판정으로 바꾸어 기록하지 않는다.
+- 수정 후 `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 0건`, `git diff --check`는 출력 없이 종료 코드 0이었다. Hugo `hugo --gc --minify --logLevel warn`은 종료 코드 0으로 209페이지를 빌드했다. 이 검사들은 실제 참조 이미지 업로드·모델 호출·크레딧 차감이나 두 앱의 운영체제별 설치 성공을 입증하지 않는다.

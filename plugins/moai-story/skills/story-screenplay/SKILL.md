@@ -7,7 +7,7 @@ description: |
   - "시나리오", "대본", "씬 작성"
   - "드라마 대본", "영화 시나리오"
   - "씬 넘버", "S#", "지문", "대사"
-version: "1.1.1"
+version: "1.1.2"
 ---
 
 # story-screenplay: 시나리오 대본
@@ -87,9 +87,10 @@ S#1. [장소] / [낮·밤] / [내·외]
 - `story-conti` — 씬을 프레임 콘티로
 - `story-previz` — 시네마틱 프리비즈
 
-### Post (검수 — 텍스트 산출물 정규 체인)
-- `moai-coworker:ai-slop-reviewer` — AI 슬롭 검수 (필수)
-- `moai-writer:korean-humanize` — AI 티 정밀 윤문 (필수)
+### Post (검수)
+- 원본 시놉시스·인물 설정·대사와 직접 대조한다. 아래 스킬은 설치돼 있으면 문장 검수에 추가로 사용할 수 있다.
+- `moai-coworker:ai-slop-reviewer` — 선택적 표현 검수
+- `moai-writer:korean-humanize` — 선택적 한국어 윤문. 사용했다면 의미를 원문과 다시 대조
 
 ## 8. References
 

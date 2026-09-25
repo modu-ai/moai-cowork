@@ -8,7 +8,7 @@ description: |
   - "드라마 기획서", "영화 시놉", "웹드라마 기획"
   - "인물 소개", "회차 구성", "16부작 구성"
   - "극본공모 제출", "지원사업 서류"
-version: "1.1.1"
+version: "1.1.2"
 ---
 
 # story-synopsis: 영상 시놉시스
@@ -93,9 +93,10 @@ version: "1.1.1"
 - `story-conti` — 콘티 보드
 - `story-ip-pitch` — 2차 저작 피칭(부가)
 
-### Post (검수 — 텍스트 산출물 정규 체인)
-- `moai-coworker:ai-slop-reviewer` — AI 슬롭 검수 (필수)
-- `moai-writer:korean-humanize` — AI 티 정밀 윤문 (필수)
+### Post (검수)
+- 기획 원자료와 현재 제출 공고를 직접 대조한다. 두 문장 검수 스킬은 설치돼 있으면 추가로 사용할 수 있다.
+- `moai-coworker:ai-slop-reviewer` — 선택적 표현 검수
+- `moai-writer:korean-humanize` — 선택적 한국어 윤문. 사용했다면 의미를 원문과 다시 대조
 
 ## 8. References
 

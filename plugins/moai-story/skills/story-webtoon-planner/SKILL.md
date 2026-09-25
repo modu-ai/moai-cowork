@@ -8,7 +8,7 @@ description: |
   - "시리즈 아크 짜줘", "웹툰 시즌 구성", "관통 주제"
   - "네이버웹툰 연재 기획", "카카오웹툰 기획"
   - "웹툰 캐릭터 몇 명", "레귤러 인원", "훅 전략"
-version: "1.1.1"
+version: "1.1.2"
 ---
 
 # story-webtoon-planner: 웹툰 연재 기획
@@ -132,11 +132,10 @@ version: "1.1.1"
 - `story-character-sheet` — 캐릭터 비주얼 시트·일관성 앵커
 - `story-webtoon-episode` — 회차 플롯·컷 분할
 
-### Post (검수 — 텍스트 산출물 정규 체인)
-- `moai-coworker:ai-slop-reviewer` — AI 슬롭 검수 (필수)
-- `moai-writer:korean-humanize` — AI 티 정밀 윤문 (필수)
-
-> ⚠️ 기획서 산문(세계관·주제·아크 서술)은 독자가 아니라 협업자가 읽지만, 이후 회차 대사·내레이션으로 이어지므로 텍스트 정규 체인을 태운다.
+### Post (검수)
+- 기획서의 규격·인물·아크를 원자료와 대조한다. 문장 검수 스킬이 설치돼 있으면 추가로 사용할 수 있다.
+- `moai-coworker:ai-slop-reviewer` — 선택적 표현 검수
+- `moai-writer:korean-humanize` — 선택적 한국어 윤문. 사용했다면 의미를 원문과 다시 대조
 
 ## 8. References
 

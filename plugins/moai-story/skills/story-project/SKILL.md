@@ -9,7 +9,7 @@ description: |
   - "콘티 만들어줘", "광고 스토리보드"
   - "캐릭터 시트", "책 표지 일러스트"
   - "프리비즈", "IP 피칭 문서"
-version: "1.1.3"
+version: "1.1.4"
 ---
 
 # story-project
@@ -32,7 +32,7 @@ version: "1.1.3"
 | 광고 영상 | `story-conti` | moai-story | (광고 콘티 프리셋 내장) → `story-previz` |
 | 표지·일러스트 | `story-cover-art` | moai-story | (단일) |
 | IP 사업화·판권 | `story-ip-pitch` | moai-story | (단일) |
-| 출판 도서 | `moai-writer:book-concept-planner` | moai-writer | 미설치 시 앱의 Settings(또는 Plugins) → Marketplace → +에서 `modu-ai/moai-cowork`를 추가하고 Plugins 화면에서 `moai-writer` Install 안내 후 진행 |
+| 출판 도서 | `moai-writer:book-concept-planner` | moai-writer | 미설치 시 현재 앱의 플러그인 화면에서 `moai-writer` 설치 경로를 확인한 뒤 진행 |
 
 **규격·연재 관리 참조 (진입점이 아닌 상시 참조 허브):**
 
@@ -41,7 +41,7 @@ version: "1.1.3"
 
 **후속 검수 체인 (모든 산출물 공통):**
 
-- AI 티 제거 검수 → `moai-coworker:ai-slop-reviewer` → `moai-writer:korean-humanize` → 최종 검수
+- 원본과 수치·인용·설정을 직접 대조한다. 두 문장 검수 스킬이 설치돼 있으면 추가로 사용한다.
 
 ## 3. 워크플로우
 
@@ -56,7 +56,7 @@ version: "1.1.3"
 
 ## 4. 주의사항
 
-- 이미지 생성이 필요한 스킬(webtoon-art·conti·character-sheet·cover-art·previz)은 생성 실행·크레딧·모델 선택을 `moai-media`에 위임한다. 실행 전 사전 크레딧 고지가 선행된다.
+- 이미지 생성이 필요하면 현재 앱의 기본 이미지 도구를 확인한다. Higgsfield를 지정했으면 현재 호스트의 공식 연결에서 모델·비용·권한을 확인하고 유료 호출 전 비용을 알리고 승인을 받는다. 영상 생성은 실제 노출된 도구가 있을 때만 실행한다.
 - 작품의 장르·대상 독자·플랫폼·기존 원고 또는 캐릭터 설정을 확인한다. 플랫폼·공모전·제작사·판권 조건은 현재 출처를 확인하고, 확인되지 않은 수치를 만들어 넣지 않는다.
 - 다회차 작업에서는 `story-series-bible`의 인물·사건·설정 앵커를 다음 회차에도 유지한다. 제출 전 `story-continuity-audit`으로 텍스트와 권리 자료를 대조한다. 같은 주체의 자기 검수는 독립 감사라고 부르지 않는다.
 - 한 요청에 두 영역이 섞이면 우선순위를 묻고 한쪽씩 진행한다.

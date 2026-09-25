@@ -1,14 +1,14 @@
 ---
 name: story-character-sheet
 description: |
-  캐릭터 시트 스킬 — 인물·동물의 비주얼 시트(외형 8항목)와 일관성 앵커를 설계하고, 이미지 참조 세트의 사양을 정한다. 실제 이미지 생성과 선택한 서비스의 비용 확인은 moai-media에 위임한다.
+  캐릭터 시트 스킬 — 인물·동물의 비주얼 시트(외형 8항목)와 일관성 앵커를 설계하고, 이미지 참조 세트의 사양을 정한다. 실제 이미지 생성은 현재 앱의 이미지 도구를 확인하고, 사용자가 Higgsfield를 지정한 경우에는 이 플러그인의 공식 연결에서 비용을 확인한다.
 
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
   - "캐릭터 시트", "인물 설정", "캐릭터 비주얼"
   - "동물 캐릭터 외형", "펫 캐릭터 시트"
   - "일관성 앵커", "캐릭터 일관성 어떻게"
   - "Soul ID 학습 세트", "레퍼런스 이미지 사양"
-version: "1.1.1"
+version: "1.1.2"
 ---
 
 # story-character-sheet: 캐릭터 비주얼 시트 + 일관성 앵커
@@ -17,11 +17,11 @@ version: "1.1.1"
 
 ## 1. 개요
 
-이 스킬은 **"무엇을, 어떤 외형으로, 무엇을 고정할지"**를 정한다. 실제 이미지 생성이나 Soul ID 학습을 실행하지 않는다. 사용자가 이미지 생성을 요청하면 현재 호스트와 지정한 서비스에 맞는 `moai-media` 경로로 넘긴다.
+이 스킬은 **"무엇을, 어떤 외형으로, 무엇을 고정할지"**를 정한다. 실제 이미지 생성이나 Soul ID 학습을 실행하지 않는다. 사용자가 이미지 생성을 요청하면 현재 앱의 이미지 도구 또는 지정한 Higgsfield 공식 연결을 확인해 실행 단계로 넘긴다.
 
 ## 2. 이 스킬이 하지 않는 것
 
-- **이미지 생성·Soul ID 학습 실행 안 함** — ChatGPT 기본 이미지는 `moai-media:media-codex-image`, 사용자가 Higgsfield 또는 Soul을 지정하면 해당 Higgsfield 스킬로 넘긴다.
+- **이미지 생성·Soul ID 학습 실행 안 함** — ChatGPT에서는 현재 앱에 노출된 기본 이미지 도구를 확인한다. Higgsfield 또는 Soul 지정 시 공식 연결의 실제 도구·비용·권한을 확인한다.
 - **크레딧 수치 단정 안 함** — 사용자가 Higgsfield 경로를 택했을 때만 실제 연결의 비용 확인 결과를 따른다.
 - **컷 프롬프트 조립 안 함** — 컷별 작화 프롬프트는 `story-webtoon-art` 소관. 이 스킬은 캐릭터 참조까지만.
 - **회차 서사 안 씀** — 스토리 본문은 `story-webtoon-episode` / `story-webnovel-writer`.
@@ -53,9 +53,11 @@ version: "1.1.1"
 - 각도 목록: 정면·측면·반측면·표정 변화. (비표준어 "반쯔렴"은 쓰지 않는다 → **반측면**.)
 - 비슷한 두 인물은 구별할 요소를 정한다. 생성 결과에서 혼동이 계속되면 사용자와 앵커 변경을 정한 뒤 참조를 다시 만든다(`references/neutral-base-rule.md`).
 
-### Step 4-생성 실행 — moai-media 위임
+### Step 4-생성 실행 — 현재 앱 도구 확인
 
-ChatGPT Work의 기본 이미지 생성은 `moai-media:media-codex-image`를 사용한다. 사용자가 Higgsfield 계정·모델을 지정하면 `moai-media:media-higgsfield-image`, Soul ID 학습을 명시하면 `moai-media:media-higgsfield-identity`에서 연결·비용·동의 절차를 확인한다. 이 스킬은 참조 사양과 일관성 앵커까지만 정한다.
+ChatGPT Work에서는 현재 앱에 노출된 기본 이미지 도구를 먼저 확인한다. OpenAI가 Images 2.5를 제공한다고 안내하지만, 실제 호출의 모델 표시가 없으면 정확한 모델 사용을 단정하지 않는다. 사용자가 Higgsfield 이미지나 Soul ID 학습을 지정하면 현재 호스트의 Higgsfield 공식 연결에서 해당 도구·비용·권한·동의 절차를 확인한다. 이 스킬은 참조 사양과 일관성 앵커까지만 정한다.
+
+Higgsfield 등 유료 외부 생성은 현재 비용을 사용자에게 알리고 명시적 승인을 받은 뒤에만 실행한다.
 
 > 이미지 도구가 없으면 완성된 캐릭터 참조 프롬프트를 제공하고, 실제 이미지를 만들었다고 표시하지 않는다.
 
@@ -98,9 +100,9 @@ ChatGPT Work의 기본 이미지 생성은 `moai-media:media-codex-image`를 사
 - `story-webtoon-qc` — 일관성 앵커 위반 판정
 
 ### 위임
-- `moai-media:media-codex-image` — ChatGPT 기본 이미지 생성
-- `moai-media:media-higgsfield-image` — 사용자가 Higgsfield 이미지를 명시한 경우
-- `moai-media:media-higgsfield-identity` — Soul ID·일관성 참조를 명시한 경우
+- 현재 앱의 기본 이미지 도구 — 노출과 모델 표시를 확인한 뒤 생성
+- 현재 호스트의 Higgsfield 공식 연결 — 사용자가 이미지를 명시한 경우
+- 현재 호스트의 Higgsfield 공식 연결 — Soul ID·일관성 참조를 명시한 경우
 
 ## 7. References
 

@@ -8,7 +8,7 @@ description: |
   - "문피아 연재", "노벨피아 연재", "조아라 연재"
   - "카카오페이지 소설", "네이버시리즈 소설", "리디 웹소설"
   - "웹소설 연재 구조", "웹소설 태그 전략", "독점/비독점"
-version: "1.1.1"
+version: "1.1.2"
 ---
 
 # story-webnovel-planner: 웹소설 연재 기획
@@ -123,9 +123,10 @@ version: "1.1.1"
 ### 위임
 - `moai-lawyer` — 독점/정산 계약 심화 자문
 
-### Post (검수 — 텍스트 산출물 정규 체인)
-- `moai-coworker:ai-slop-reviewer` — AI 슬롭 검수 (필수)
-- `moai-writer:korean-humanize` — AI 티 정밀 윤문 (필수)
+### Post (검수)
+- 목표 플랫폼의 현재 공식 안내·계약과 기획 내용의 조건을 직접 대조한다. 두 문장 검수 스킬은 설치돼 있으면 추가로 사용할 수 있다.
+- `moai-coworker:ai-slop-reviewer` — 선택적 표현 검수
+- `moai-writer:korean-humanize` — 선택적 한국어 윤문. 사용했다면 의미를 원문과 다시 대조
 
 ## 8. References
 
