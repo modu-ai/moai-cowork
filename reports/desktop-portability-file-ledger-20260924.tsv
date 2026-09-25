@@ -871,10 +871,10 @@ plugins/moai-seller/skills/commerce-marketplace-coupang-ads/SKILL.md		static_rea
 plugins/moai-seller/skills/commerce-marketplace-coupang/SKILL.md		static_read
 plugins/moai-seller/skills/commerce-marketplace-coupang/references/coupang-guidelines.md		static_read
 plugins/moai-seller/skills/commerce-marketplace-coupang/tests/test-cases.yaml		static_read
-plugins/moai-seller/skills/commerce-marketplace-crowdfunding/SKILL.md		mechanical_scan
-plugins/moai-seller/skills/commerce-marketplace-crowdfunding/references/tumblbug.md		mechanical_scan
-plugins/moai-seller/skills/commerce-marketplace-crowdfunding/references/wadiz.md		mechanical_scan
-plugins/moai-seller/skills/commerce-marketplace-crowdfunding/tests/test-cases.yaml		mechanical_scan
+plugins/moai-seller/skills/commerce-marketplace-crowdfunding/SKILL.md		static_read
+plugins/moai-seller/skills/commerce-marketplace-crowdfunding/references/tumblbug.md		static_read
+plugins/moai-seller/skills/commerce-marketplace-crowdfunding/references/wadiz.md		static_read
+plugins/moai-seller/skills/commerce-marketplace-crowdfunding/tests/test-cases.yaml		static_read
 plugins/moai-seller/skills/commerce-marketplace-curation/SKILL.md		mechanical_scan
 plugins/moai-seller/skills/commerce-marketplace-curation/references/29cm.md		mechanical_scan
 plugins/moai-seller/skills/commerce-marketplace-curation/references/kakao-makers.md		mechanical_scan
