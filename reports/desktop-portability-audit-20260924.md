@@ -1168,3 +1168,8 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 
 - 공용 `mcp_launch.py`의 기존 Windows 테스트는 `shutil.which`와 `subprocess.run`을 모의 실행했다. Windows에서 실제 `.cmd` 파일을 찾고 자식 프로세스로 시작하는 경로를 확인하도록, 임시 `portable-launch.cmd`가 종료 코드 7을 돌려주는 운영체제 조건부 테스트를 추가했다. 기존 MCP 교차 플랫폼 CI의 런처 작업이 이 테스트를 실행한다.
 - 로컬 macOS에서 `uv run --python 3.11 --with pytest pytest -q plugins/_shared/mcp-launch/test_mcp_launch.py`는 `25 passed, 1 skipped in 0.05s`였다. [SHA `120241a6`의 MCP 교차 플랫폼 CI](https://github.com/modu-ai/moai-cowork/actions/runs/36087592330)는 완료 상태 `success`였고, Windows 런처 작업 로그에 `26 passed in 0.17s`가 기록됐다. 같은 실행의 macOS·Ubuntu 런처 작업도 `success`였다. 이는 운영체제의 `.cmd` 실행·종료 코드 전달을 확인하지만, 실제 사용자 PC에 `npx`가 설치돼 있는지나 Claude Cowork·ChatGPT Work 앱이 MCP 서버를 시작하는지는 확인하지 않는다.
+
+### 판매자 에이전트의 자격증명 안내와 두 호스트 경로 (2026-09-25)
+
+- 판매자 `listing-builder` 에이전트와 README를 파일별로 읽었다. 두 파일은 자격증명이 환경변수에만 있거나 파일에는 절대 저장되지 않는다고 설명했지만, 실제 Smartstore·Imweb·Cafe24 서버는 `moai_mcp_core.CredentialStore`를 통해 앱에서 전달된 환경변수를 먼저 읽고, 없으면 개인 저장소 `~/.moai/mcp/<service>.json`을 읽는다. 데스크톱 앱이 연결 설정값을 서버에 전달하지 못할 때의 경로를 안내하되, 저장소·작업 산출물·로그에 비밀값을 적지 않도록 에이전트와 README를 고쳤다. 에이전트는 전용 개인 저장소를 사용자 명시 승인 없이 만들거나 바꾸지 않게 했다.
+- README의 경로 설명도 Claude `.mcp.json`의 `${CLAUDE_PLUGIN_ROOT}`와 ChatGPT Work용 Codex 매니페스트의 상대 경로·`cwd`로 구분했다. 두 파일의 장부 상태를 `static_read`로 바꿨다. 판매자 Claude·Codex·마켓플레이스 버전은 `1.4.16`으로 맞췄고, 이 작업 트리에서 `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 1건`, `git diff --check`는 출력 없이 종료 코드 0이었다. 참고 1건은 판매자 Higgsfield 연결이 Claude에는 MCP로, ChatGPT에는 별도 공식 플러그인으로 제공되는 기존 차이다. 실제 앱 연결 설정값 전달과 로컬 자격증명 저장 성공은 이 정적 검사로 확인되지 않는다.

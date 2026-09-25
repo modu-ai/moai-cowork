@@ -81,9 +81,9 @@ Claude Cowork와 ChatGPT Work는 마켓플레이스 등록 권한과 경로가 �
 
 ## MCP 연동
 
-플러그인 루트 `.mcp.json`에는 판매자 운영용 자체 MCP 서버 세 개와 카페24 공식 카탈로그, Higgsfield 공식 연결이 선언돼 있습니다. 자체 서버의 자격증명은 앱의 연결 설정에 입력하고 파일에는 적지 않습니다. 공식 연결은 해당 서비스의 계정 인증을 완료해야 사용할 수 있습니다.
+플러그인 루트 `.mcp.json`에는 판매자 운영용 자체 MCP 서버 세 개와 카페24 공식 카탈로그, Higgsfield 공식 연결이 선언돼 있습니다. 자체 서버의 자격증명은 먼저 앱의 MCP 연결 설정에 입력합니다. 앱이 로컬 서버에 값을 전달하지 못하는 환경에서는 각 서버의 연결 안내에 따라 전용 개인 저장소(`~/.moai/mcp/`)를 사용할 수 있습니다. 저장소·채팅 산출물·로그에 비밀값을 적지 않습니다. 공식 연결은 해당 서비스의 계정 인증을 완료해야 사용할 수 있습니다.
 
-| 서버 | 플랫폼 | 필요 환경변수 | 상태 |
+| 서버 | 플랫폼 | 설정 항목 | 상태 |
 |------|--------|---------------|------|
 | `moai-mcp-smartstore` | 네이버 스마트스토어 | `NAVER_COMMERCE_CLIENT_ID`, `NAVER_COMMERCE_CLIENT_SECRET`, `NAVER_COMMERCE_ACCOUNT_ID`, `NAVER_COMMERCE_TYPE` | 소스 포함, 앱 연결은 미검증 |
 | `moai-mcp-imweb` | 아임웹 OPEN API v3 | `IMWEB_CLIENT_ID`, `IMWEB_CLIENT_SECRET`, `IMWEB_ACCESS_TOKEN`, `IMWEB_REFRESH_TOKEN`, `IMWEB_UNIT_CODE` | 소스 포함, 앱 연결은 미검증 |
@@ -91,7 +91,7 @@ Claude Cowork와 ChatGPT Work는 마켓플레이스 등록 권한과 경로가 �
 
 - MCP 실행에는 `uv`가 필요합니다. 실제 앱 설치·인증·기동은 운영체제별로 확인해야 합니다.
 - 자격증명 발급 절차: 각 서버 디렉토리의 `CONNECTORS.md` / `README.md` 참고
-- 경로는 `${CLAUDE_PLUGIN_ROOT}` 기준이므로 marketplace 설치(캐시 복사) 환경에서도 동작합니다
+- Claude의 `.mcp.json`은 `${CLAUDE_PLUGIN_ROOT}`를, ChatGPT Work의 Codex 매니페스트는 플러그인 기준 상대 경로와 `cwd`를 사용합니다. 각 앱에서 실제 경로 해석과 서버 기동을 확인해야 합니다.
 
 ## Claude 에이전트
 

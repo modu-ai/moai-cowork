@@ -702,8 +702,8 @@ plugins/moai-recruiter/skills/hr-workflow/SKILL.md	new_chatgpt_agent_mapping	sta
 plugins/moai-seller/.claude-plugin/plugin.json		mechanical_scan
 plugins/moai-seller/.codex-plugin/plugin.json		mechanical_scan
 plugins/moai-seller/.mcp.json		mechanical_scan
-plugins/moai-seller/README.md		mechanical_scan
-plugins/moai-seller/agents/listing-builder.md	claude_only_tool	mechanical_scan
+plugins/moai-seller/README.md		static_read
+plugins/moai-seller/agents/listing-builder.md	claude_only_tool	static_read
 plugins/moai-seller/agents/margin-auditor.md	claude_only_tool	mechanical_scan
 plugins/moai-seller/mcp-servers/moai-mcp-cafe24/README.md		mechanical_scan
 plugins/moai-seller/mcp-servers/moai-mcp-cafe24/pyproject.toml		mechanical_scan
