@@ -830,7 +830,7 @@ plugins/moai-seller/skills/commerce-detail-page-image/SKILL.md		mechanical_scan
 plugins/moai-seller/skills/commerce-detail-page-image/references/image-prompts.md		mechanical_scan
 plugins/moai-seller/skills/commerce-detail-page-image/references/sections-spec.md		mechanical_scan
 plugins/moai-seller/skills/commerce-detail-page-image/tests/test-cases.yaml		mechanical_scan
-plugins/moai-seller/skills/commerce-detail-page-planner/SKILL.md	claude_only_tool	mechanical_scan
+plugins/moai-seller/skills/commerce-detail-page-planner/SKILL.md	claude_only_tool	static_read
 plugins/moai-seller/skills/commerce-detail-page-planner/references/category-b2b-saas.md		mechanical_scan
 plugins/moai-seller/skills/commerce-detail-page-planner/references/category-baby-kids.md		mechanical_scan
 plugins/moai-seller/skills/commerce-detail-page-planner/references/category-beauty.md		mechanical_scan
@@ -845,8 +845,8 @@ plugins/moai-seller/skills/commerce-detail-page-planner/references/category-trav
 plugins/moai-seller/skills/commerce-detail-page-planner/references/copy-patterns.md		mechanical_scan
 plugins/moai-seller/skills/commerce-detail-page-planner/references/photo-checklist.md		mechanical_scan
 plugins/moai-seller/skills/commerce-detail-page-planner/tests/test-cases.yaml	claude_only_tool	mechanical_scan
-plugins/moai-seller/skills/commerce-early-fan-builder/SKILL.md	seller_skill_review	mechanical_scan
-plugins/moai-seller/skills/commerce-influencer-collab/SKILL.md	seller_skill_review	mechanical_scan
+plugins/moai-seller/skills/commerce-early-fan-builder/SKILL.md	seller_skill_review	static_read
+plugins/moai-seller/skills/commerce-influencer-collab/SKILL.md	seller_skill_review	static_read
 plugins/moai-seller/skills/commerce-integrated-strategy/SKILL.md		static_read
 plugins/moai-seller/skills/commerce-integrated-strategy/references/channel-mix.md		static_read
 plugins/moai-seller/skills/commerce-integrated-strategy/references/ecommerce-launcher.md		static_read
@@ -863,7 +863,7 @@ plugins/moai-seller/skills/commerce-live-commerce/references/live-script.md		mec
 plugins/moai-seller/skills/commerce-live-commerce/references/naver-shoppinglive.md		mechanical_scan
 plugins/moai-seller/skills/commerce-live-commerce/tests/test-cases.yaml		mechanical_scan
 plugins/moai-seller/skills/commerce-ltv-cac-architect/SKILL.md	seller_finance_review	mechanical_scan
-plugins/moai-seller/skills/commerce-margin-audit/SKILL.md	new_chatgpt_agent_mapping	mechanical_scan
+plugins/moai-seller/skills/commerce-margin-audit/SKILL.md	new_chatgpt_agent_mapping	static_read
 plugins/moai-seller/skills/commerce-margin-calculator/SKILL.md	seller_finance_review	mechanical_scan
 plugins/moai-seller/skills/commerce-margin-calculator/references/end-roas.md	seller_finance_review	mechanical_scan
 plugins/moai-seller/skills/commerce-market-research/SKILL.md		mechanical_scan
@@ -898,15 +898,15 @@ plugins/moai-seller/skills/commerce-product-detail/references/product-detail/pla
 plugins/moai-seller/skills/commerce-product-detail/references/product-detail/section-templates.md		mechanical_scan
 plugins/moai-seller/skills/commerce-product-detail/references/product-detail/structure-guide.md		mechanical_scan
 plugins/moai-seller/skills/commerce-product-image-pipeline/SKILL.md		mechanical_scan
-plugins/moai-seller/skills/commerce-product-naming/SKILL.md		mechanical_scan
+plugins/moai-seller/skills/commerce-product-naming/SKILL.md		static_read
 plugins/moai-seller/skills/commerce-product-photo-brief/SKILL.md		mechanical_scan
 plugins/moai-seller/skills/commerce-product-photo-brief/references/photo-checklist.md		mechanical_scan
 plugins/moai-seller/skills/commerce-product-photo-brief/tests/test-cases.yaml		mechanical_scan
 plugins/moai-seller/skills/commerce-promotion-planner/SKILL.md		mechanical_scan
-plugins/moai-seller/skills/commerce-repurchase-timer/SKILL.md	seller_skill_review	mechanical_scan
-plugins/moai-seller/skills/commerce-season-calendar/SKILL.md	seller_skill_review	mechanical_scan
-plugins/moai-seller/skills/commerce-subscription-strategist/SKILL.md	seller_skill_review	mechanical_scan
-plugins/moai-seller/skills/commerce-workflow/SKILL.md	new_chatgpt_agent_mapping	mechanical_scan
+plugins/moai-seller/skills/commerce-repurchase-timer/SKILL.md	seller_skill_review	static_read
+plugins/moai-seller/skills/commerce-season-calendar/SKILL.md	seller_skill_review	static_read
+plugins/moai-seller/skills/commerce-subscription-strategist/SKILL.md	seller_skill_review	static_read
+plugins/moai-seller/skills/commerce-workflow/SKILL.md	new_chatgpt_agent_mapping	static_read
 plugins/moai-story/.claude-plugin/plugin.json		static_read
 plugins/moai-story/.codex-plugin/plugin.json		static_read
 plugins/moai-story/.mcp.json		static_read
