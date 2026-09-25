@@ -9,6 +9,8 @@
 | Claude Cowork | 미실행 — UI 도구에서 창 확인 불가 | 미실행 — 기기 없음 | 미실행 — 기기 없음, 베타 |
 | ChatGPT Work | 미실행 — UI 도구 접근 제한 | 미실행 — 기기 없음 | 미실행 — 기기 없음, 공개 미리보기 |
 
+macOS 앱 조작 재시도에서 `orca skills get computer-use`는 종료 코드 1과 `Unable to determine Orca.app path from symlink: /usr/local/bin/orca`를 반환했다. 실행기 시작 전 오류라 앱 설치·스킬·MCP의 `FAIL` 근거가 아니다. 아래 앱별 칸은 계속 `NOT-RUN`이다.
+
 Linux 지원 배포판과 기능 제한은 [Claude Desktop 설치 안내](https://support.claude.com/en/articles/10065433-install-claude-desktop) 및 [ChatGPT 릴리스 노트](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)의 현재 내용을 확인한다. 앱 지원은 이 저장소 플러그인의 설치·도구 호출 성공을 보장하지 않는다.
 
 ChatGPT 쪽은 데스크톱 앱의 **Work 모드 새 대화**에서 검사한다. Codex 모드에서 보인 스킬·도구나 이미지 생성 결과를 Work 모드의 `PASS`로 옮기지 않는다. [OpenAI 플러그인 안내](https://learn.chatgpt.com/docs/plugins)는 두 모드의 플러그인 사용을 설명하지만, 실제 설치·연결 상태는 각 대화에서 확인해야 한다.
