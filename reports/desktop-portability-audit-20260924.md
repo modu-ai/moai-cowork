@@ -1334,3 +1334,9 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - `commerce-product-detail/references/product-detail/structure-guide.md`와 `section-templates.md`를 각각 전부 읽었다. 기존 구조 문서는 마켓별 고정 이미지 픽셀·장수·용량, 근거 없는 평점·가격·할인·배송·환불 보증, 브랜드와 무관한 색·폰트·레이아웃, 판매 채널에 HTML·CSS·JS를 업로드하는 절차를 보편 규칙처럼 적었다. 템플릿 문서는 가짜 후기와 도착일·가격을 완성 HTML 및 JSON-LD에 포함하고, 동작 없는 구매 버튼과 특정 Next.js 구조를 기본 산출물로 제공했다. 이는 [상위 스킬](../plugins/moai-seller/skills/commerce-product-detail/SKILL.md)의 마켓 에디터 확인·실제 자료 우선 원칙과 충돌한다.
 - 구조 가이드를 채널별 실제 계정 규격과 기존 디자인 시스템, 확인된 상품 자료에 따른 선택형 정보 순서로 다시 썼다. 섹션 템플릿은 자사몰용 정적 HTML의 안전한 자리표시자 예시와 데이터 연결·렌더링 검증 조건으로 줄였다. 등록 자료, 작성된 파일, 실제 게시·노출·주문은 각각 구분한다. 두 파일을 장부에서 `static_read`로 옮기고 판매자 버전 세 곳을 `1.4.29`로 올렸다.
 - 적대적 감사의 구조화 판정은 `inconclusive`·`findings: []`였고 요약의 정적 리뷰는 PASS였다. 마켓 업로드 경계와 자사몰 HTML의 이스케이프·URL 검증 요구를 확인했으나 실제 페이지 렌더링이나 계정 게시를 실행한 판정은 아니다. 두 파일의 Markdown 검사는 `0 issues in 0 files`, `python3 scripts/check-plugin-runtimes.py`는 플러그인 18개·오류 0건·기존 Higgsfield 참고 1건, `git diff --check`는 출력 없이 종료 코드 0이었다. Hugo는 경고 없이 209페이지를 만들었고 비아카이브·비릴리스 HTML의 리터럴 `**` 파일은 0개였다. 장부는 1,091개 중 `static_read` 957개, `mechanical_scan` 134개다.
+
+### 판매자 MCP 진입점과 설정 정적 검토 (2026-09-25)
+
+- Cafe24, 아임웹, 스마트스토어 MCP의 `pyproject.toml`과 서버 진입점·인증·설정 관련 파일을 각각 전부 읽었다. 이번에 장부를 옮긴 파일은 서버별 7개씩, 총 21개다. 이 검토 범위에서 세 서버 모두 `moai-mcp-<서비스>` 배포 이름, 같은 이름의 실행 스크립트, `moai_mcp_<서비스>` 모듈, 휠 패키지 경로가 대응했다. `tomli`로 세 TOML을 파싱해 이름·스크립트·경로를 검사한 출력은 `cafe24: name/script/package OK`, `imweb: name/script/package OK`, `smartstore: name/script/package OK`였다.
+- `python3 scripts/sync-mcp-core.py --check`는 이 세 서버를 포함한 공통 코어 채택 서버 여섯 곳에 모두 `[정합]`을 출력했다. 공통 코어 복제본 21개는 앞선 검토에서 이미 `static_read`였으므로 이번 장부 수치에는 중복해 더하지 않았다. `git rev-list --count --left-right origin/main...HEAD`는 이 작업 트리에서 `0 125`였다.
+- 장부는 1,091개 중 `static_read` 978개, `mechanical_scan` 113개다. 이 정적 읽기와 패키징 검사로 데스크톱 앱의 MCP 발견·인증·실제 API 호출 또는 Windows·Linux 실행 성공을 확인하지는 않았다. 나머지 MCP 본문과 디자인 시스템 참조문서의 파일별 검토도 계속 필요하다.
