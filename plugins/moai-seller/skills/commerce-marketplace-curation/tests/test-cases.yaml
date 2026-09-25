@@ -1,37 +1,48 @@
 name: commerce-marketplace-curation
-version: 1.8.0
+version: 1.8.1
+# 선언적 검토 시나리오. 실제 파트너 계정과 계약으로 실행한 테스트가 아니다.
+execution_status: NOT-RUN
 test_cases:
-  - id: happy_29cm_lifestyle
-    description: 라이프스타일 브랜드 29CM 추천
+  - id: 29cm_lifestyle_proposal
+    description: 라이프스타일 브랜드의 29CM 제안 초안
     input:
       brand_concept: "미니멀 디자인 도자기"
-      target: "20~30대 라이프스타일"
-      self_mall_revenue_monthly: 30000000
-      instagram_followers: 25000
+      verified_products: ["수제 도자기 컵"]
     expected:
-      recommended_channel: 29cm
-      fit_score: ">= 0.80"
-      proposal_package_fields: ["brand_intro_pdf", "product_catalog", "sales_history", "differentiator"]
+      channel_candidate: 29cm
+      proposal_uses_verified_brand_facts: true
+      application_route_requires_current_official_check: true
+      no_invented_fit_score_or_commission: true
 
-  - id: happy_kakao_makers_limited
-    description: 한정 주문생산형 카카오 메이커스 추천
+  - id: kakao_makers_production_plan
+    description: 주문제작 상품의 메이커스 제안 자료
     input:
-      product: "수제 한과 김장 키트"
-      production_model: "주문생산"
-      season: "11월 한정"
+      product: "수제 도자기"
+      production_model: "주문 후 제작"
     expected:
-      recommended_channel: kakao-makers
-      concept_includes: ["한정성", "스토리"]
+      channel_candidate: kakao-makers
+      production_and_delivery_plan_checked: true
+      no_guaranteed_kakaotalk_exposure: true
+      price_and_quantity_require_source: true
 
-  - id: failure_low_brand_recognition
-    description: 인지도 낮은 브랜드 무신사 입점 시도 시 사전 보강 안내
+  - id: musinsa_new_brand
+    description: 짧은 사업 이력만으로 입점 불가를 단정하지 않음
     input:
       brand_age_months: 3
       instagram_followers: 800
-      monthly_revenue: 5000000
+      product: "직접 제작한 의류"
     expected:
-      blocker: "브랜드 인지도 부족 — 무신사 1차 심사 통과 어려움"
-      action_recommended:
-        - "자사몰 6개월 이상 운영"
-        - "인스타 팔로워 1만+"
-        - "미디어·인플루언서 노출 확보"
+      application_route: "공식 무신사 파트너 입점 페이지"
+      no_automatic_rejection: true
+      no_fixed_follower_threshold: true
+      missing_contract_terms_marked_unverified: true
+
+  - id: copy_only_without_partner_account
+    description: 파트너 계정 없이 입점 소개 문구만 요청
+    input:
+      request: "무신사 입점 소개 문장 한 문단 써줘"
+      verified_facts: ["직접 제작한 의류", "천연 섬유 사용"]
+    expected:
+      copy_draft_provided: true
+      application_and_contract_checks_deferred: true
+      no_invented_sales_or_reviews: true

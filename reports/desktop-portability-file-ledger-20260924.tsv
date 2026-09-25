@@ -875,11 +875,11 @@ plugins/moai-seller/skills/commerce-marketplace-crowdfunding/SKILL.md		static_re
 plugins/moai-seller/skills/commerce-marketplace-crowdfunding/references/tumblbug.md		static_read
 plugins/moai-seller/skills/commerce-marketplace-crowdfunding/references/wadiz.md		static_read
 plugins/moai-seller/skills/commerce-marketplace-crowdfunding/tests/test-cases.yaml		static_read
-plugins/moai-seller/skills/commerce-marketplace-curation/SKILL.md		mechanical_scan
-plugins/moai-seller/skills/commerce-marketplace-curation/references/29cm.md		mechanical_scan
-plugins/moai-seller/skills/commerce-marketplace-curation/references/kakao-makers.md		mechanical_scan
-plugins/moai-seller/skills/commerce-marketplace-curation/references/musinsa.md		mechanical_scan
-plugins/moai-seller/skills/commerce-marketplace-curation/tests/test-cases.yaml		mechanical_scan
+plugins/moai-seller/skills/commerce-marketplace-curation/SKILL.md		static_read
+plugins/moai-seller/skills/commerce-marketplace-curation/references/29cm.md		static_read
+plugins/moai-seller/skills/commerce-marketplace-curation/references/kakao-makers.md		static_read
+plugins/moai-seller/skills/commerce-marketplace-curation/references/musinsa.md		static_read
+plugins/moai-seller/skills/commerce-marketplace-curation/tests/test-cases.yaml		static_read
 plugins/moai-seller/skills/commerce-marketplace-d2c/SKILL.md		mechanical_scan
 plugins/moai-seller/skills/commerce-marketplace-d2c/references/cafe24.md		mechanical_scan
 plugins/moai-seller/skills/commerce-marketplace-d2c/references/d2c-strategy.md		mechanical_scan
