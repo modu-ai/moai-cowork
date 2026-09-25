@@ -746,7 +746,7 @@ plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_core/tokenstore.py	
 plugins/moai-seller/mcp-servers/moai-mcp-cafe24/tests/conftest.py		static_read
 plugins/moai-seller/mcp-servers/moai-mcp-cafe24/tests/test_auth.py		static_read
 plugins/moai-seller/mcp-servers/moai-mcp-cafe24/tests/test_client_paths.py	new_test	static_read
-plugins/moai-seller/mcp-servers/moai-mcp-cafe24/uv.lock		mechanical_scan
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/uv.lock		static_read
 plugins/moai-seller/mcp-servers/moai-mcp-imweb/.gitignore		static_read
 plugins/moai-seller/mcp-servers/moai-mcp-imweb/CONNECTORS.md		static_read
 plugins/moai-seller/mcp-servers/moai-mcp-imweb/README.md		static_read
@@ -780,8 +780,8 @@ plugins/moai-seller/mcp-servers/moai-mcp-imweb/tests/test_client.py		static_read
 plugins/moai-seller/mcp-servers/moai-mcp-imweb/tests/test_gen.py		static_read
 plugins/moai-seller/mcp-servers/moai-mcp-imweb/tests/test_tools.py		static_read
 plugins/moai-seller/mcp-servers/moai-mcp-imweb/tools/_generator.py		static_read
-plugins/moai-seller/mcp-servers/moai-mcp-imweb/tools/openapi.json		mechanical_scan
-plugins/moai-seller/mcp-servers/moai-mcp-imweb/uv.lock		mechanical_scan
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/tools/openapi.json		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/uv.lock		static_read
 plugins/moai-seller/mcp-servers/moai-mcp-smartstore/.env.example		static_read
 plugins/moai-seller/mcp-servers/moai-mcp-smartstore/.gitignore		static_read
 plugins/moai-seller/mcp-servers/moai-mcp-smartstore/CONNECTORS.md		static_read
@@ -818,7 +818,7 @@ plugins/moai-seller/mcp-servers/moai-mcp-smartstore/tests/test_auth.py		static_r
 plugins/moai-seller/mcp-servers/moai-mcp-smartstore/tests/test_client.py		static_read
 plugins/moai-seller/mcp-servers/moai-mcp-smartstore/tests/test_server.py		static_read
 plugins/moai-seller/mcp-servers/moai-mcp-smartstore/tests/test_tools.py		static_read
-plugins/moai-seller/mcp-servers/moai-mcp-smartstore/uv.lock		mechanical_scan
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/uv.lock		static_read
 plugins/moai-seller/skills/commerce-ad-claim-compliance-kr/SKILL.md		static_read
 plugins/moai-seller/skills/commerce-automation-audit/SKILL.md		static_read
 plugins/moai-seller/skills/commerce-coupang-ad-optimizer/SKILL.md	seller_skill_review	static_read
