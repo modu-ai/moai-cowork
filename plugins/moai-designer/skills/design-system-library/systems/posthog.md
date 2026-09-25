@@ -2,7 +2,7 @@
 version: alpha
 name: PostHog-design-analysis
 description: |
-  A playful developer-tools system rendered on a warm cream canvas with hand-drawn hedgehog mascots dotted across every page like marginalia in a sketchbook. The chrome reads like a friendly engineering blog: olive-gray ink (#4d4f46) for body, deep olive-charcoal (#23251d) for headlines, IBM Plex Sans Variable typography in tight 1.43-line-height paragraphs, and a single saturated yellow-orange CTA pill (#f7a501) carrying every primary action. The system actively rejects the genre's typical somber dark-tech aesthetic in favor of a creamy, textbook-illustration sensibility — bordered cards stack on the cream canvas with 4–6px radii, doc sidebars use rounded outline-icon mini-illustrations, and the home page leans on cartoon characters (hedgehogs in lab coats, hedgehogs at terminals, hedgehogs in lounge chairs) as its signature decoration. Code samples and product analytics charts live inside white-on-cream cards with thin olive borders; the contrast between the playful illustration and the data-dense product imagery is the brand's signature voice.
+  A playful developer-tools system rendered on a warm cream canvas with hand-drawn hedgehog mascots dotted across every page like marginalia in a sketchbook. The chrome reads like a friendly engineering blog: olive-gray ink (#4d4f46) for body, deep olive-charcoal (#23251d) for headlines, IBM Plex Sans typography in tight 1.43-line-height paragraphs, and a single saturated yellow-orange CTA pill (#f7a501) carrying every primary action. The system actively rejects the genre's typical somber dark-tech aesthetic in favor of a creamy, textbook-illustration sensibility — bordered cards stack on the cream canvas with 4–6px radii, doc sidebars use rounded outline-icon mini-illustrations, and the home page leans on cartoon characters (hedgehogs in lab coats, hedgehogs at terminals, hedgehogs in lounge chairs) as its signature decoration. Code samples and product analytics charts live inside white-on-cream cards with thin olive borders; the contrast between the playful illustration and the data-dense product imagery is the brand's signature voice.
 
 colors:
   primary: "#f7a501"
@@ -12,11 +12,12 @@ colors:
   ink: "#23251d"
   body: "#4d4f46"
   charcoal: "#33342d"
-  mute: "#6c6e63"
+  mute: "#65675d"
   ash: "#9b9c92"
   stone: "#b6b7af"
   hairline: "#bfc1b7"
   hairline-soft: "#dcdfd2"
+  control-border: "#7f8177"
   on-dark: "#ffffff"
   canvas: "#eeefe9"
   surface-soft: "#e5e7e0"
@@ -24,7 +25,7 @@ colors:
   surface-doc: "#fcfcfa"
   surface-dark: "#23251d"
   link-blue: "#1d4ed8"
-  link-teal: "#1078a3"
+  link-teal: "#0b668a"
   accent-blue: "#2c84e0"
   accent-blue-soft: "#dceaf6"
   accent-red: "#cd4239"
@@ -37,124 +38,124 @@ colors:
 
 typography:
   display-xl:
-    fontFamily: IBM Plex Sans Variable
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 36px
     fontWeight: 700
     lineHeight: 1.5
     letterSpacing: 0
   display-lg:
-    fontFamily: IBM Plex Sans Variable
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 24px
-    fontWeight: 800
+    fontWeight: 700
     lineHeight: 1.33
     letterSpacing: -0.6px
   heading-lg:
-    fontFamily: IBM Plex Sans Variable
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 21px
     fontWeight: 700
     lineHeight: 1.4
     letterSpacing: -0.5px
   heading-md:
-    fontFamily: IBM Plex Sans Variable
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 20px
     fontWeight: 700
     lineHeight: 1.4
     letterSpacing: 0
   heading-sm:
-    fontFamily: IBM Plex Sans Variable
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 18px
     fontWeight: 700
     lineHeight: 1.5
     letterSpacing: 0
     textTransform: uppercase
   heading-sm-mixed:
-    fontFamily: IBM Plex Sans Variable
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 18px
     fontWeight: 600
     lineHeight: 1.56
     letterSpacing: 0
   body-md:
-    fontFamily: IBM Plex Sans Variable
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0
   body-strong:
-    fontFamily: IBM Plex Sans Variable
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 16px
     fontWeight: 600
     lineHeight: 1.5
     letterSpacing: 0
   body-sm:
-    fontFamily: IBM Plex Sans Variable
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 15px
     fontWeight: 400
     lineHeight: 1.71
     letterSpacing: 0
   body-sm-strong:
-    fontFamily: IBM Plex Sans Variable
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 15px
     fontWeight: 600
     lineHeight: 1.71
     letterSpacing: 0
   body-xs:
-    fontFamily: IBM Plex Sans Variable
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 500
     lineHeight: 1.43
     letterSpacing: 0
   caption-md:
-    fontFamily: IBM Plex Sans Variable
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 700
     lineHeight: 1.71
     letterSpacing: 0
   caption-sm:
-    fontFamily: IBM Plex Sans Variable
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 13px
     fontWeight: 500
     lineHeight: 1.5
     letterSpacing: 0
   caption-xs:
-    fontFamily: IBM Plex Sans Variable
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 12px
     fontWeight: 600
     lineHeight: 1.33
     letterSpacing: 0
     textTransform: uppercase
   utility-xs:
-    fontFamily: IBM Plex Sans Variable
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 12px
     fontWeight: 700
     lineHeight: 1.33
     letterSpacing: 0
     textTransform: uppercase
   link-md:
-    fontFamily: IBM Plex Sans Variable
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0
   button-md:
-    fontFamily: IBM Plex Sans Variable
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 700
     lineHeight: 1.5
     letterSpacing: 0
   button-sm:
-    fontFamily: IBM Plex Sans Variable
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 13px
     fontWeight: 500
     lineHeight: 1
     letterSpacing: 0
   code-sm:
-    fontFamily: ui-monospace
+    fontFamily: ui-monospace, SFMono-Regular, Consolas, monospace
     fontSize: 14px
     fontWeight: 400
     lineHeight: 1.43
     letterSpacing: 0
   code-xs:
-    fontFamily: Source Code Pro
+    fontFamily: Source Code Pro, Consolas, monospace
     fontSize: 14px
     fontWeight: 500
     lineHeight: 1.43
@@ -194,6 +195,7 @@ components:
   button-secondary:
     backgroundColor: "{colors.surface-soft}"
     textColor: "{colors.ink}"
+    border: "1px solid {colors.control-border}"
     typography: "{typography.button-md}"
     rounded: "{rounded.md}"
     padding: 8px 16px
@@ -211,6 +213,7 @@ components:
   text-input:
     backgroundColor: "{colors.surface-card}"
     textColor: "{colors.ink}"
+    border: "1px solid {colors.control-border}"
     typography: "{typography.body-md}"
     rounded: "{rounded.md}"
     padding: 8px 12px
@@ -218,10 +221,13 @@ components:
   text-input-focused:
     backgroundColor: "{colors.surface-card}"
     textColor: "{colors.ink}"
+    border: "2px solid {colors.link-blue}"
+    outline: "2px solid {colors.focus-ring}"
     rounded: "{rounded.md}"
   search-input:
     backgroundColor: "{colors.surface-card}"
     textColor: "{colors.ink}"
+    border: "1px solid {colors.control-border}"
     typography: "{typography.body-md}"
     rounded: "{rounded.md}"
     padding: 8px 12px
@@ -229,30 +235,35 @@ components:
   product-card:
     backgroundColor: "{colors.surface-card}"
     textColor: "{colors.ink}"
+    border: "1px solid {colors.control-border}"
     typography: "{typography.body-md}"
     rounded: "{rounded.md}"
     padding: 24px
   doc-card:
     backgroundColor: "{colors.surface-doc}"
     textColor: "{colors.ink}"
+    border: "1px solid {colors.control-border}"
     typography: "{typography.body-md}"
     rounded: "{rounded.md}"
     padding: 24px
   feature-tile:
     backgroundColor: "{colors.surface-card}"
     textColor: "{colors.ink}"
+    border: "1px solid {colors.control-border}"
     typography: "{typography.heading-sm-mixed}"
     rounded: "{rounded.md}"
     padding: 20px
   pricing-tier-card:
     backgroundColor: "{colors.surface-card}"
     textColor: "{colors.ink}"
+    border: "1px solid {colors.control-border}"
     typography: "{typography.body-md}"
     rounded: "{rounded.md}"
     padding: 32px
   hedgehog-mascot-card:
     backgroundColor: "{colors.surface-card}"
     textColor: "{colors.ink}"
+    border: "1px solid {colors.control-border}"
     typography: "{typography.body-md}"
     rounded: "{rounded.md}"
     padding: 24px
@@ -351,29 +362,30 @@ components:
     padding: 32px 24px
   link-inline:
     textColor: "{colors.link-teal}"
+    textDecoration: underline
     typography: "{typography.link-md}"
 ---
 
 ## Overview
 
-PostHog's marketing system is built on the visual contradiction at the heart of the brand: a serious open-source product analytics platform rendered as if it were a friendly engineering sketchbook. The chrome runs on a warm cream canvas (`{colors.canvas}` — `#eeefe9`) — not white — and every page is dotted with hand-drawn hedgehog mascots in lab coats, lounge chairs, terminals, and reading glasses, scattered across the layout like marginalia in a textbook. Type sits in IBM Plex Sans Variable at olive-gray (`{colors.body}` — `#4d4f46`) for body and deep olive-charcoal (`{colors.ink}` — `#23251d`) for headlines, with weights stepped tightly between 400, 600, 700, and 800 to create hierarchy without color. The single saturated yellow-orange pill (`{colors.primary}` — `#f7a501`) is the brand's only loud chromatic moment; everything else is cream, olive, white card, and the occasional pastel callout band.
+PostHog's marketing system is built on the visual contradiction at the heart of the brand: a serious open-source product analytics platform rendered as if it were a friendly engineering sketchbook. The chrome runs on a warm cream canvas (`{colors.canvas}` — `#eeefe9`) — not white — and every page is dotted with hand-drawn hedgehog mascots in lab coats, lounge chairs, terminals, and reading glasses, scattered across the layout like marginalia in a textbook. Type sits in IBM Plex Sans at olive-gray (`{colors.body}` — `#4d4f46`) for body and deep olive-charcoal (`{colors.ink}` — `#23251d`) for headlines, with weights stepped tightly between 400, 600, and 700 to create hierarchy without color. The single saturated yellow-orange pill (`{colors.primary}` — `#f7a501`) is the brand's only loud chromatic moment; everything else is cream, olive, white card, and the occasional pastel callout band.
 
 The system has a distinctive **two-mode body layout**: marketing pages (home, workflows, pricing) lean on alternating-pastel callout bands and feature tiles in white cards on cream, while documentation pages add a sticky 240px left sidebar with a rounded outline-icon section list. Code samples are full-width dark blocks on `{colors.surface-dark}` (the same olive-charcoal that carries body ink, used inverted) inside white doc cards, creating the system's most distinctive visual moment: a dark-on-dark code island floating inside a white card on a cream canvas, with a hedgehog mascot doodled in the margin.
 
-Sections stack at `{spacing.section}` (80px) rhythm with cream canvas continuing edge-to-edge between them. The only color bands that interrupt the cream are pastel `{component.banner-tip-blue}` / `-green` / `-red` / `-purple` callout panels inside doc articles — soft tinted boxes that carry "💡 Tip", "✅ Success", "⚠️ Warning", "📘 Info" inline annotations. There are no decorative gradients, no atmospheric mesh backgrounds, and no full-bleed dark hero chapters; the cream canvas runs uninterrupted top to bottom and the hedgehogs are the entire visual identity.
+Sections stack at `{spacing.section}` (80px) rhythm with cream canvas continuing edge-to-edge between them. The only color bands that interrupt the cream are pastel `{components.banner-tip-blue}` / `-green` / `-red` / `-purple` callout panels inside doc articles — soft tinted boxes that carry visible Tip, Success, Warning, and Info labels. There are no decorative gradients, no atmospheric mesh backgrounds, and no full-bleed dark hero chapters; the cream canvas runs uninterrupted top to bottom and the hedgehogs are the entire visual identity.
 
 **Key Characteristics:**
 - Warm cream canvas (`{colors.canvas}` — #eeefe9) end-to-end with no surface alternation between sections — the page is one continuous sheet
 - Single yellow-orange CTA pill (`{colors.primary}` — #f7a501) with deep olive text (`{colors.on-primary}`) — the brand's only saturated color
-- IBM Plex Sans Variable across every text role with weights 400/500/600/700/800 — no other typeface in the system
+- IBM Plex Sans for prose and controls at weights 400/500/600/700; monospace is reserved for code
 - Hand-drawn hedgehog mascots scattered across the layout as the entire decorative system — no gradients, no mesh, no atmospheric backgrounds
 - 4–8px radius card vocabulary: `{rounded.md}` (6px) for most components, `{rounded.lg}` (8px) for select containers, fully rounded for pill chips
 - Pastel callout banners (`{colors.accent-blue-soft}`, `{colors.accent-green-soft}`, `{colors.accent-red-soft}`, `{colors.accent-purple-soft}`) break up doc article body with soft tinted side rails for tips/warnings/info
-- Documentation pages add a sticky 240px `{component.doc-sidebar}` with rounded outline-icon section nav and an "Ask PostHog AI" CTA at the top
+- Documentation pages add a sticky 240px `{components.doc-sidebar}` with rounded outline-icon section nav and an "Ask PostHog AI" CTA at the top
 
 ## Colors
 
-> **Source pages:** `/` (home), `/pricing` (pricing detail), `/docs/product-analytics` (docs article), `/workflows` (product feature page). The chrome palette is identical across all four pages — only doc-specific accents (callout-banner pastels, code-block dark surface) appear exclusively inside the docs experience.
+> **Source pages:** `/` (home), `/pricing` (pricing detail), `/docs/product-analytics` (docs article), `/workflows` (product feature page). These paths identify the historical reference set; recheck current pages before using exact copy or layout claims.
 
 ### Brand & Accent
 - **PostHog Yellow** (`{colors.primary}` — `#f7a501`): the universal primary CTA. Sticky "Get started — free" pill in the top-right of every nav, hero CTAs, pricing-tier subscribe buttons, footer signup pill. The system's only saturated chromatic moment.
@@ -386,42 +398,43 @@ Sections stack at `{spacing.section}` (80px) rhythm with cream canvas continuing
 - **Surface Card** (`{colors.surface-card}` — `#ffffff`): true white card and tile background sitting on top of the cream canvas. The dominant card surface.
 - **Surface Doc** (`{colors.surface-doc}` — `#fcfcfa`): a faintly cream-warm white used inside doc article body cards — slightly softer than pure white to keep the page tonally unified.
 - **Surface Dark** (`{colors.surface-dark}` — `#23251d`): the deep olive-charcoal used inverted as code-block background. The same hex as `{colors.ink}` — the brand uses one olive-near-black for both text and dark code surfaces.
-- **Hairline** (`{colors.hairline}` — `#bfc1b7`): 1px card border, table rule, footer column dividers.
-- **Hairline Soft** (`{colors.hairline-soft}` — `#dcdfd2`): in-card row divider, soft inset rule.
+- **Hairline** (`{colors.hairline}` — `#bfc1b7`): decorative table rule and footer divider only.
+- **Hairline Soft** (`{colors.hairline-soft}` — `#dcdfd2`): decorative in-card divider only.
+- **Control Border** (`{colors.control-border}` — `#7f8177`): input and card boundaries that must remain visible.
 - **On Dark** (`{colors.on-dark}` — `#ffffff`): primary text on `{colors.surface-dark}` code blocks.
 
 ### Text
 - **Ink** (`{colors.ink}` — `#23251d`): headlines, button text on light, primary nav links — deep olive-charcoal that reads near-black against cream.
 - **Body** (`{colors.body}` — `#4d4f46`): default paragraph text, doc article body, inline link color before hover. The brand's most-used text color.
 - **Charcoal** (`{colors.charcoal}` — `#33342d`): emphasized body text where body is too soft.
-- **Mute** (`{colors.mute}` — `#6c6e63`): metadata, footer link text, in-list secondary annotations.
-- **Ash** (`{colors.ash}` — `#9b9c92`): disabled-state text and lowest-emphasis utility.
-- **Stone** (`{colors.stone}` — `#b6b7af`): least-emphasis caption text and disabled icon color.
+- **Mute** (`{colors.mute}` — `#65675d`): metadata, footer link text, in-list secondary annotations.
+- **Ash** (`{colors.ash}` — `#9b9c92`): disabled-state text only; never essential text.
+- **Stone** (`{colors.stone}` — `#b6b7af`): decorative or disabled icon color only; never essential text.
 
 ### Semantic
 - **Link Blue** (`{colors.link-blue}` — `#1d4ed8`): inline anchor link inside body prose. The system's primary informational link color.
-- **Link Teal** (`{colors.link-teal}` — `#1078a3`): doc-article inline link variant, paired with body text.
-- **Accent Blue** (`{colors.accent-blue}` — `#2c84e0`) + **Accent Blue Soft** (`{colors.accent-blue-soft}` — `#dceaf6`): "💡 Tip / Info" callout banner inside docs.
-- **Accent Red** (`{colors.accent-red}` — `#cd4239`) + **Accent Red Soft** (`{colors.accent-red-soft}` — `#f7d6d3`): "⚠️ Warning / Caution" callout banner.
-- **Accent Green** (`{colors.accent-green}` — `#2c8c66`) + **Accent Green Soft** (`{colors.accent-green-soft}` — `#d9eddf`): "✅ Success / Positive" callout banner.
-- **Accent Purple** (`{colors.accent-purple}` — `#7c44a6`) + **Accent Purple Soft** (`{colors.accent-purple-soft}` — `#e7d8ee`): "📘 Note / Reference" callout banner.
+- **Link Teal** (`{colors.link-teal}` — `#0b668a`): doc-article inline link variant, paired with body text.
+- **Accent Blue** (`{colors.accent-blue}` — `#2c84e0`) + **Accent Blue Soft** (`{colors.accent-blue-soft}` — `#dceaf6`): "Tip / Info" callout banner inside docs.
+- **Accent Red** (`{colors.accent-red}` — `#cd4239`) + **Accent Red Soft** (`{colors.accent-red-soft}` — `#f7d6d3`): "Warning / Caution" callout banner.
+- **Accent Green** (`{colors.accent-green}` — `#2c8c66`) + **Accent Green Soft** (`{colors.accent-green-soft}` — `#d9eddf`): "Success / Positive" callout banner.
+- **Accent Purple** (`{colors.accent-purple}` — `#7c44a6`) + **Accent Purple Soft** (`{colors.accent-purple-soft}` — `#e7d8ee`): "Note / Reference" callout banner.
 - **Focus Ring** (`{colors.focus-ring}` — `rgba(59,130,246,0.5)`): translucent blue browser-default focus ring around interactive elements.
 
 ## Typography
 
 ### Font Family
-**IBM Plex Sans Variable** is the system's primary face — used across every text role on every page at weights 400 (regular), 500 (medium), 600 (semibold), 700 (bold), and 800 (extra-bold). Falls back through `IBM Plex Sans` → `-apple-system` → `system-ui` → broad cross-platform sans stack.
+**IBM Plex Sans** is the primary face for prose and controls at weights 400 (regular), 500 (medium), 600 (semibold), and 700 (bold). Load the licensed font explicitly when available; otherwise use a system sans-serif stack on macOS, Windows, and Linux. The variable font weight axis ends at 700, so do not request synthetic 800.
 
-**ui-monospace** + **Source Code Pro** carry code samples and inline-code chips at 14px / 1.43 line-height. Source Code Pro is the explicit display monospace; ui-monospace handles inline `<code>` chips.
+**ui-monospace** styles code blocks and **Source Code Pro** styles inline `<code>` chips at 14px / 1.43 line-height; both tokens include platform fallbacks.
 
-The brand-distinctive choice is the **mixed weight ladder** (400 / 500 / 600 / 700 / 800) — most chrome lives in the 400–700 band, with weight 800 reserved exclusively for the larger display headlines on home and pricing. This gives the system its "engineering blog" feel: hierarchy is built from weight contrast much more than from size.
+The **mixed weight ladder** is 400 / 500 / 600 / 700. Larger display headlines use 700; code uses monospace. Hierarchy comes from weight and size.
 
 ### Hierarchy
 
 | Token | Size | Weight | Line Height | Letter Spacing | Use |
 |---|---|---|---|---|---|
 | `{typography.display-xl}` | 36px | 700 | 1.5 | 0 | Hero headline ("The new way to build products") |
-| `{typography.display-lg}` | 24px | 800 | 1.33 | -0.6px | Section headline, pricing tier name |
+| `{typography.display-lg}` | 24px | 700 | 1.33 | -0.6px | Section headline, pricing tier name |
 | `{typography.heading-lg}` | 21px | 700 | 1.4 | -0.5px | Sub-section heading, doc-article H2 |
 | `{typography.heading-md}` | 20px | 700 | 1.4 | 0 | Card group title, in-grid heading |
 | `{typography.heading-sm}` | 18px | 700 | 1.5 | 0 (uppercase) | Section eyebrow ("UNDERSTAND PRODUCT USAGE") |
@@ -442,10 +455,10 @@ The brand-distinctive choice is the **mixed weight ladder** (400 / 500 / 600 / 7
 | `{typography.code-xs}` | 14px | 500 | 1.43 | 0 | Inline code chip |
 
 ### Principles
-The hierarchy is explicitly built from weight + size + occasional uppercase transform — there is no italic style, no decorative display variant, no proprietary face. The biggest display moments use weight 800 with -0.6px tracking, and the body settles at 400 with 1.5 line-height; everything else fills the band between. Section eyebrows (`{typography.heading-sm}` and `{typography.utility-xs}`) consistently render uppercase, which gives the doc layout its textbook-chapter feel.
+The hierarchy is explicitly built from weight + size + occasional uppercase transform — there is no italic style, no decorative display variant, no proprietary face. The larger display moments use weight 700 with -0.6px tracking, and the body settles at 400 with 1.5 line-height; everything else fills the band between. Section eyebrows (`{typography.heading-sm}` and `{typography.utility-xs}`) consistently render uppercase, which gives the doc layout its textbook-chapter feel.
 
 ### Note on Font Substitutes
-IBM Plex Sans Variable is open-source and Google-Fonts-hosted. There is no need for a substitute — load it directly. If a substitute is genuinely needed, **Inter** is the closest geometric match at all five weights; pair with Inter's letter-spacing -0.5 to -0.6px on display sizes to approximate Plex's display tracking. For monospace, **JetBrains Mono** is a near-perfect substitute for Source Code Pro at body sizes.
+IBM Plex Sans is available under the [SIL Open Font License](https://github.com/IBM/plex/blob/master/LICENSE.txt). Load it from a trusted source or bundle it with the license; otherwise use a system sans-serif stack. Source Code Pro needs an explicit font load; the monospace tokens include platform fallbacks. If font files are bundled or redistributed, include the required copyright notice and license.
 
 ## Layout
 
@@ -469,8 +482,8 @@ Whitespace is generous on marketing pages and tight on doc pages. The home and w
 | Level | Treatment | Use |
 |---|---|---|
 | 0 — Flat | No border, no shadow | Default for canvas-on-canvas blocks, hero text, body sections |
-| 1 — Hairline border | 1px solid `{colors.hairline}` | Marketing cards, pricing tier cards, doc sidebar items, footer column rules |
-| 2 — Hairline soft | 1px solid `{colors.hairline-soft}` | In-card row divider between adjacent rows |
+| 1 — Hairline border | 1px solid `{colors.control-border}` | Marketing cards, pricing tier cards, input fields, and meaningful boundaries |
+| 2 — Hairline soft | 1px solid `{colors.hairline-soft}` | Decorative in-card row divider only |
 | 3 — Inverted dark code block | `{colors.surface-dark}` fill | Code samples inside doc cards — the system's only "elevated" surface uses color, not shadow |
 
 The system has no drop-shadow elevation in marketing or product chrome. Cards sit flat on cream with thin olive borders. The single inverted moment is the dark code-block surface used inside doc article body cards.
@@ -478,7 +491,7 @@ The system has no drop-shadow elevation in marketing or product chrome. Cards si
 ### Decorative Depth
 Depth comes entirely from illustration and the pastel callout band system, not from CSS effects:
 - **Hand-drawn hedgehog mascots** — characters in various costumes (lab coat, terminal, lounge chair, magnifying glass, hammock, hat) scattered across pages as marginalia. Always rendered as flat color illustrations, never photographs.
-- **Pastel callout banners** — `{component.banner-tip-blue}` / `-green` / `-red` / `-purple` soft tinted side-rail panels inside doc articles, each prefixed with an emoji icon (💡 ✅ ⚠️ 📘) and carrying tip/warning/note copy.
+- **Pastel callout banners** — `{components.banner-tip-blue}` / `-green` / `-red` / `-purple` soft tinted side-rail panels inside doc articles, each carrying a visible text label and tip/warning/note copy; icons, if used, are supplementary.
 - **Code blocks** — full-width dark olive-charcoal panels on `{colors.surface-dark}` with white code text. The system's most cinematic surface, used inside white doc cards.
 - **Outline product icons** in the doc sidebar — small rounded-square mini-illustrations (chart icon, funnel, session-replay icon) mark each major product section.
 
@@ -501,7 +514,7 @@ The radius vocabulary clusters around 4–6px for nearly everything; the only fu
 There is no photography. Visual elements are limited to:
 - **Hedgehog character illustrations** — flat-color cartoon hedgehogs ranging from ~80px (in-card mascot) to ~240px (hero illustration). Always at native aspect, never cropped to a frame.
 - **Outline product icons** in the doc sidebar — 20–24px rounded-square illustrations.
-- **Inline emoji** at 14–16px inside callout banners (💡 ✅ ⚠️ 📘) — used as functional iconography rather than decoration.
+- **Callout labels** in text provide meaning across operating systems; any decorative icon must not carry meaning alone.
 - **Section illustrations** on the home page — small hedgehog vignettes paired with each "Understand product usage" / "Build sticky habits" / "Test before launch" feature row.
 
 ## Components
@@ -516,7 +529,7 @@ There is no photography. Visual elements are limited to:
 - Pressed state lives in `button-primary-pressed` — background drops to `{colors.primary-pressed}`.
 
 **`button-secondary`** — soft alternative on cream canvas
-- Background `{colors.surface-soft}` (`#e5e7e0`), text `{colors.ink}`, type `{typography.button-md}`, padding `8px 16px`, height `40px`, rounded `{rounded.md}`.
+- Background `{colors.surface-soft}` (`#e5e7e0`), text `{colors.ink}`, 1px `{colors.control-border}` border, type `{typography.button-md}`, padding `8px 16px`, height `40px`, rounded `{rounded.md}`.
 - "Talk to sales", "Read docs", "Watch demo" — second-tier actions paired with the yellow primary.
 
 **`button-tertiary`** — ghost text button
@@ -546,8 +559,8 @@ There is no photography. Visual elements are limited to:
 ### Inputs & Forms
 
 **`text-input`** + **`text-input-focused`**
-- Default: background `{colors.surface-card}`, text `{colors.ink}`, 1px solid `{colors.hairline}`, type `{typography.body-md}`, padding `8px 12px`, height `36px`, rounded `{rounded.md}`.
-- Focused: same surface; 2px solid `{colors.accent-blue}` border replaces the 1px hairline + a translucent `{colors.focus-ring}` outline.
+- Default: background `{colors.surface-card}`, text `{colors.ink}`, 1px solid `{colors.control-border}`, type `{typography.body-md}`, padding `8px 12px`, height `36px`, rounded `{rounded.md}`.
+- Focused: same surface; 2px solid `{colors.link-blue}` border replaces the 1px control border + a translucent `{colors.focus-ring}` outline.
 
 **`search-input`** — utility search field (doc sidebar, "Ask PostHog AI")
 - Same dimensions as `text-input` with a magnifier glyph at the left edge in `{colors.mute}`.
@@ -555,29 +568,29 @@ There is no photography. Visual elements are limited to:
 ### Cards & Containers
 
 **`product-card`** — marketing tile / feature card
-- Container: background `{colors.surface-card}` (white), 1px solid `{colors.hairline}`, padding `{spacing.xl}` (24px), rounded `{rounded.md}`.
-- Layout: small hedgehog illustration at top-left, `{typography.heading-sm-mixed}` title, `{typography.body-sm}` description, optional `{component.button-tertiary}` "Learn more →" link.
+- Container: background `{colors.surface-card}` (white), 1px solid `{colors.control-border}`, padding `{spacing.xl}` (24px), rounded `{rounded.md}`.
+- Layout: small hedgehog illustration at top-left, `{typography.heading-sm-mixed}` title, `{typography.body-sm}` description, optional `{components.button-tertiary}` "Learn more →" link.
 
 **`doc-card`** — doc article body card
-- Container: background `{colors.surface-doc}` (`#fcfcfa` warm-white), 1px solid `{colors.hairline}`, padding `{spacing.xl}` (24px), rounded `{rounded.md}`.
+- Container: background `{colors.surface-doc}` (`#fcfcfa` warm-white), 1px solid `{colors.control-border}`, padding `{spacing.xl}` (24px), rounded `{rounded.md}`.
 - Carries article body sections, code blocks, callout banners, and tables inside doc pages.
 
 **`feature-tile`** — small marketing feature tile
-- Container: background `{colors.surface-card}`, 1px solid `{colors.hairline}`, padding `{spacing.lg}` (20px), rounded `{rounded.md}`.
+- Container: background `{colors.surface-card}`, 1px solid `{colors.control-border}`, padding `{spacing.lg}` (20px), rounded `{rounded.md}`.
 - Used in 3-up or 4-up grids on home and workflows pages — paired with a small icon and a 1-line description.
 
 **`pricing-tier-card`** — pricing plan card
-- Container: background `{colors.surface-card}`, 1px solid `{colors.hairline}`, padding `{spacing.xxl}` (32px), rounded `{rounded.md}`.
-- Layout: tier name in `{typography.display-lg}` (24px / 800 / -0.6px), large price + period, feature checklist with check-icon bullets, primary or secondary CTA at bottom.
+- Container: background `{colors.surface-card}`, 1px solid `{colors.control-border}`, padding `{spacing.xxl}` (32px), rounded `{rounded.md}`.
+- Layout: tier name in `{typography.display-lg}` (24px / 700 / -0.6px), large price + period, feature checklist with check-icon bullets, primary or secondary CTA at bottom.
 
 **`hedgehog-mascot-card`** — feature card with margin-anchored hedgehog
-- Same chrome as `{component.product-card}` but with a hand-drawn hedgehog illustration anchored in the right margin or top-right corner — the brand's signature card variant.
+- Same chrome as `{components.product-card}` but with a hand-drawn hedgehog illustration anchored in the right margin or top-right corner — the brand's signature card variant.
 
 ### Callout Banners
 
 **`banner-tip-blue`** + **`banner-tip-green`** + **`banner-tip-red`** + **`banner-tip-purple`**
 - Background `{colors.accent-blue-soft}` / `{colors.accent-green-soft}` / `{colors.accent-red-soft}` / `{colors.accent-purple-soft}`, text `{colors.ink}`, type `{typography.body-md}`, padding `16px 20px`, rounded `{rounded.md}`.
-- Each prefixed with an inline emoji icon (💡 / ✅ / ⚠️ / 📘) followed by an inline label and body copy.
+- Each has a visible text label and body copy; an optional icon is decorative.
 - Only appear inside doc article body. The four-color callout family is the brand's information-architecture vocabulary for inline tips/warnings/info inside long-form documentation.
 
 ### Code
@@ -594,7 +607,7 @@ There is no photography. Visual elements are limited to:
 
 **`primary-nav`**
 - Background `{colors.canvas}` (cream — same as the page), text `{colors.ink}`, height `56px`, type `{typography.body-strong}`, rounded `{rounded.none}`.
-- Layout (desktop): PostHog wordmark + hedgehog logo at left, nav menu cluster ("Pricing · Docs · Community · Company"), right cluster with a search-glyph, "Login" link, and the always-yellow `{component.button-primary}` "Get started — free" pill anchored to the far right.
+- Layout (desktop): PostHog wordmark + hedgehog logo at left, nav menu cluster ("Pricing · Docs · Community · Company"), right cluster with a search-glyph, "Login" link, and the always-yellow `{components.button-primary}` "Get started — free" pill anchored to the far right.
 
 **`sub-nav-strip`** — secondary nav bar (under primary)
 - Background `{colors.surface-soft}`, text `{colors.body}` in `{typography.body-xs}`, height `40px`, rounded `{rounded.none}`.
@@ -617,7 +630,7 @@ There is no photography. Visual elements are limited to:
 ### Inline
 
 **`link-inline`** — body-prose anchor link
-- `{colors.link-teal}` (`#1078a3`) in body prose with no underline by default; underline appears on focus. The brand's primary inline link color.
+- `{colors.link-teal}` (`#0b668a`) in body prose with an underline in every state. The brand's primary inline link color.
 
 ## Do's and Don'ts
 
@@ -625,10 +638,10 @@ There is no photography. Visual elements are limited to:
 - Use `{colors.canvas}` (cream — `#eeefe9`) as the page body. Never substitute pure white as the canvas.
 - Reserve `{colors.primary}` (yellow-orange) for the primary CTA pill only. The "Get started — free" treatment is the brand's anchor.
 - Render the brand wordmark with the hedgehog illustration alongside it, not as a stand-alone wordmark. The hedgehog IS the brand identity.
-- Use IBM Plex Sans Variable across every text role — body 400, emphasis 600/700, display 800.
+- Use IBM Plex Sans for prose and controls — body 400, emphasis 600/700, display 700; use monospace for code.
 - Stack content sections at `{spacing.section}` (80px) rhythm with no decorative dividers between them; let the cream canvas continue uninterrupted.
-- Use `{component.banner-tip-blue}` / `-green` / `-red` / `-purple` only inside doc article body for tip/warning/note panels — keep marketing chrome out of the four-color callout family.
-- Pair every code sample with the dark `{component.code-block}` surface; inline `<code>` chips use `{component.inline-code}` (cream surface-soft chip).
+- Use `{components.banner-tip-blue}` / `-green` / `-red` / `-purple` only inside doc article body for tip/warning/note panels — keep marketing chrome out of the four-color callout family.
+- Pair every code sample with the dark `{components.code-block}` surface; inline `<code>` chips use `{components.inline-code}` (cream surface-soft chip).
 - Anchor a hedgehog mascot illustration in feature tile margins on home and workflows pages — the system's signature decoration.
 
 ### Don't
@@ -638,7 +651,7 @@ There is no photography. Visual elements are limited to:
 - Don't use the four-color callout banner pastels (`{colors.accent-blue-soft}`, `-green`, `-red`, `-purple`) as marketing-card backgrounds. They belong to inline doc content only.
 - Don't substitute the hedgehog illustration with a generic icon set. The character system is the brand.
 - Don't use uppercase transform outside of `{typography.heading-sm}`, `{typography.utility-xs}`, and `{typography.caption-xs}`. Uppercase is reserved for eyebrows and footer category headers.
-- Don't pad cards with 32px+ on all sides except for `{component.pricing-tier-card}`. Standard cards sit at 24px internal padding.
+- Don't pad cards with 32px+ on all sides except for `{components.pricing-tier-card}`. Standard cards sit at 24px internal padding.
 
 ## Responsive Behavior
 
@@ -655,7 +668,7 @@ There is no photography. Visual elements are limited to:
 | mobile-narrow | 320px | Section padding tightens to 32px |
 
 ### Touch Targets
-All interactive elements meet WCAG AA (≥ 40×40px). `{component.button-primary}` and `{component.button-secondary}` sit at 40px height with 16px padding. `{component.text-input}` sits at 36px (just under AAA but above AA at this size). `{component.pill-tab}` is ~32–36px height with 14px padding extending to ~44px tappable via inline padding. Doc-sidebar items use 14px text with ~32px line-height + 6px vertical padding for ~44px tap rows.
+The YAML lists 40px buttons and 36px inputs; rendered target size, spacing, focus visibility, and keyboard operation still need measurement on each layout. Expand smaller interactive targets in the implementation where needed, then check against WCAG 2.2 target-size criteria in the running interface.
 
 ### Collapsing Strategy
 - **Primary nav:** desktop horizontal cluster → tablet hamburger drawer at 768px. The yellow "Get started — free" CTA stays visible at every breakpoint.
@@ -673,15 +686,17 @@ The only "imagery" in the system is hand-drawn hedgehog illustrations rendered a
 ## Iteration Guide
 
 1. Focus on ONE component at a time. Pull its YAML entry and verify every property resolves.
-2. Reference component names and tokens directly (`{colors.primary}`, `{component.button-primary-pressed}`, `{rounded.md}`) — do not paraphrase.
+2. Reference component names and tokens directly (`{colors.primary}`, `{components.button-primary-pressed}`, `{rounded.md}`) — do not paraphrase.
 3. Run `npx --yes -p "@google/design.md@0.4.0" designmd lint DESIGN.md` after edits — `broken-ref`, `contrast-ratio`, and `orphaned-tokens` warnings flag issues automatically.
 4. Add new variants as separate component entries (`-pressed`, `-disabled`, `-focused`) — do not bury them inside prose.
-5. Default body to `{typography.body-md}` (16px / 400 / 1.5); reach for `{typography.body-strong}` for emphasis; reserve `{typography.display-lg}` (24px / 800) strictly for marketing display moments.
+5. Default body to `{typography.body-md}` (16px / 400 / 1.5); reach for `{typography.body-strong}` for emphasis; reserve `{typography.display-lg}` (24px / 700) strictly for marketing display moments.
 6. Keep `{colors.primary}` scarce per viewport — at most one yellow-orange pill per fold.
 7. When introducing a new component, ask whether it can be expressed with the existing card + 6px-radius + cream-canvas vocabulary before adding new tokens. The system's strength is that it almost never needs new ones.
 
 ## Known Gaps
 
+- **Current brand assets and copy** — page text, pricing, mascot poses, wordmark, and illustration reuse rights require current-source and permission checks before publication.
+- **Desktop implementation** — font loading, fallback rendering, real element boundaries, focus visibility, and target sizes on macOS/Windows/Linux have not been observed.
 - **Mobile screenshots not captured** — responsive behavior synthesizes PostHog's mobile pattern (hamburger drawer, single-column grid, doc sidebar accordion) from desktop evidence and the breakpoint stack.
 - **Hover states not documented** by system policy.
 - **In-product app chrome** (PostHog dashboard, charts, session replay player) not in the captured set — the marketing site is documented here, not the in-product analytics interface.
