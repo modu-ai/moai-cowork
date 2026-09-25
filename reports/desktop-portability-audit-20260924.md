@@ -1356,3 +1356,9 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 
 - `client.py`, `tools/_dispatch.py`, `tools/__init__.py`와 관리자 분석·앱·분류·개인화·개인정보·매출통계·배송·공급사·번역 등록표를 파일별로 읽었다. 클라이언트의 Admin/Analytics 호스트 선택, 401 후 한 차례 토큰 갱신, 429 재시도, 경로 파라미터 인코딩과 카테고리별 도구 생성 경로를 확인했다. 실제 카페24 계정 호출, 도구 스키마의 두 데스크톱 앱 노출과 운영체제별 실행은 별도 검증이 필요하다.
 - 긴 등록표를 한꺼번에 출력한 검사에서는 일부 출력이 잘렸다. 끝까지 확인하지 못한 `collection.py`, `community.py` 등은 `static_read`로 옮기지 않았다. 이번에 완전히 읽은 12개 파일만 장부에 반영해 전체 1,091개 중 `static_read` 1,002개, `mechanical_scan` 89개다.
+
+### 아임웹 쿠폰 정의 본문 스키마 복구 (2026-09-25)
+
+- 아임웹 MCP의 클라이언트, 생성기, 생성된 카테고리 도구 6개와 패키지 진입 파일, 관련 테스트 2개를 파일별로 읽었다. `openapi.json`의 `POST /promotion/shop-coupon` 요청 본문은 네 가지 쿠폰 종류의 `oneOf` 참조로 정의된다. 기존 생성기는 최상위 `properties`만 읽어 이 작업의 본문 모델을 누락했다. 실제 모의 호출은 `AttributeError: 'dict' object has no attribute 'model_dump'`로 실패했다.
+- 생성기가 `oneOf` 변형들의 최상위 필드를 합치고 공통 필수 필드를 유지해 `CreateShopCouponDefinitionBody`를 만들도록 고쳤다. 생성 결과의 도구 입력 스키마에 모델이 들어가는지와 해당 모델의 본문이 HTTP 클라이언트로 전달되는지를 테스트했다. `uv run --no-sync python tools/_generator.py`는 8개 카테고리·138개 작업과 작업 키 충돌 없음, `uv run --no-sync pytest -q`는 `34 passed in 0.38s`를 출력했다. 판매자 플러그인 버전 세 곳은 `1.4.31`로 맞췄다.
+- 장부는 1,091개 중 `static_read` 1,013개, `mechanical_scan` 78개다. 쿠폰 종류별 중첩 필드는 현재 생성 모델에서 딕셔너리이며, 이 테스트는 아임웹 서버의 수락·쿠폰 발행·실계정 인증을 확인하지 않는다. `openapi.json` 전체는 생성 데이터로서 아직 `mechanical_scan`이다.

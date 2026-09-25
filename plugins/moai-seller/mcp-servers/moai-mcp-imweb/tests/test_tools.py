@@ -62,6 +62,29 @@ def test_body_dispatch(monkeypatch):
     assert c["json_body"] == {"images": ["u1", "u2"]}
 
 
+def test_coupon_definition_oneof_body_dispatch(monkeypatch):
+    import moai_mcp_imweb.tools.promotion as p
+
+    fake = _patch(monkeypatch, p)
+    body = {
+        "unitCode": "shop-1",
+        "name": "예시 쿠폰",
+        "type": "down",
+        "basicSetting": {},
+        "benefitSetting": {},
+        "operationSetting": {},
+    }
+    p.imweb_promotion(
+        action="create_shop_coupon_definition",
+        body=p.CreateShopCouponDefinitionBody(**body),
+    )
+    assert fake.calls[-1] == {
+        "method": "POST",
+        "path": "/promotion/shop-coupon",
+        "json_body": body,
+    }
+
+
 def test_paginate_routes_to_list_all_pages(monkeypatch):
     import moai_mcp_imweb.tools.order as o
 

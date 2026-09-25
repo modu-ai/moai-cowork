@@ -52,3 +52,9 @@ def test_every_tool_has_actions_and_description():
     for t in _list():
         assert t.description, f"{t.name} missing description"
         assert len(_enum_values(t.inputSchema["properties"]["action"])) >= 1, t.name
+
+
+def test_coupon_definition_body_is_in_input_schema():
+    tool = next(t for t in _list() if t.name == "imweb_promotion")
+    body = tool.inputSchema["properties"]["body"]
+    assert "CreateShopCouponDefinitionBody" in str(body)

@@ -109,6 +109,15 @@ def collect_body(spec, op) -> list[tuple[str, str, bool, str]]:
         return []
     props = sch.get("properties") or {}
     req = sch.get("required") or []
+    if not props and sch.get("oneOf"):
+        variants = [resolve_ref(spec, variant) for variant in sch["oneOf"]]
+        variants = [variant for variant in variants if isinstance(variant, dict)]
+        if variants:
+            props = {}
+            for variant in variants:
+                for name, prop in (variant.get("properties") or {}).items():
+                    props.setdefault(name, prop)
+            req = set.intersection(*(set(variant.get("required") or []) for variant in variants))
     out = []
     for pn, ps in props.items():
         t = body_field_type(ps)
