@@ -1133,3 +1133,9 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 
 - 판매자 `.mcp.json`의 공식 Cafe24 Catalog 연결은 `npx mcp-remote https://mcp-catalog.cafe24.com/api/mcp`였다. [npm의 `npx` 안내](https://docs.npmjs.com/cli/v11/commands/npm-exec/)는 캐시에 없는 패키지 설치 전에 확인을 요청할 수 있고 `-y`로 이 질문을 생략한다고 설명한다. [`mcp-remote` 원저작자 안내](https://github.com/geelen/mcp-remote/blob/main/README.md)도 설치 확인 오류 때 `-y`를 첫 인자로 권한다. 앱이 MCP를 비대화식으로 시작하더라도 환경별 동작에 기대지 않도록 `args` 앞에 `-y`를 추가했다. Codex 매니페스트의 같은 공식 서버는 직접 HTTP URL을 사용하므로 해당 경로는 수정하지 않았다.
 - 판매자 Claude·Codex·마켓플레이스 버전을 `1.4.14`로 맞췄다. 이 변경은 첫 실행의 프롬프트 처리에 대한 설정 보강이다. 새 Windows·Linux·macOS 앱 설치에서 카페24 OAuth와 `tools/list`가 성공했다는 증거는 아니다.
+
+### 한국어 윤문 스크립트의 운영체제별 테스트 경로 (2026-09-25)
+
+- `git ls-files plugins`에서 추적되는 Python·셸·JavaScript/TypeScript 코드 파일은 171개였다. 기존 `.github/workflows/mcp-cross-platform.yml`은 MCP 서버·공용 코어·런처를 macOS·Windows·Ubuntu에서 테스트하지만, `plugins/moai-writer/skills/korean-humanize/references/*.py`와 해당 테스트는 실행하지 않았다. 작업 트리의 `.venv` 파일은 Git 추적 대상이 아니므로 이 수에 넣지 않았다.
+- 파일 교체·UTF-8 처리·게이트 로직을 가진 한국어 윤문 스크립트의 테스트를 같은 OS 매트릭스에 추가하고, 해당 스킬 경로가 바뀔 때 워크플로가 실행되도록 경로 필터를 보강했다. macOS 로컬에서 `uv run --python 3.11 python -m unittest discover -s plugins/moai-writer/skills/korean-humanize/tests -p 'test_*.py' -q`는 `Ran 137 tests in 0.203s`·`OK`였다. 일부 테스트가 의도된 오류 예시와 짧은 값을 stdout/stderr에 출력했지만 종료 코드 0이었다.
+- `actionlint -no-color .github/workflows/mcp-cross-platform.yml`과 `git diff --check`는 출력 없이 종료 코드 0이었다. 이 시점의 로컬 결과는 macOS 측정값이며 Windows·Ubuntu 실행 여부는 새 PR HEAD의 CI 결과로 별도 확인한다. 스크립트가 Claude·ChatGPT 앱에서 호출되고 산출물이 올바르게 전달되는지는 이 자동 테스트로 입증되지 않는다.
