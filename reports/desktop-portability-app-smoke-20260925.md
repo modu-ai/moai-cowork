@@ -65,6 +65,10 @@ ChatGPT 쪽은 데스크톱 앱의 **Work 모드 새 대화**에서 검사한다
 
 `moai-media`의 ChatGPT 선언에는 `higgsfield` 서버 키가 있고, 사용 안내에는 Higgsfield 공식 플러그인의 별도 설치가 나온다. 앱에서 어느 경로가 실제로 인증·도구 노출까지 되는지 확인한 뒤 기록한다. 두 선언의 존재만으로 중복 설치 필요 여부나 결함을 판정하지 않는다.
 
+### 별도 도구 연결 확인 (2026-09-25)
+
+이 Codex 세션에서 Higgsfield 공식 플러그인의 읽기 전용 `mcp__codex_apps__higgsfield_models_list({type:"image",limit:3})`를 호출했다. 응답은 `isError:false`, 이미지 모델 3개(`soul_2`, `soul_cinematic`, `gpt_image_2`), `has_more:true`였다. 이는 현재 세션의 도구 연결과 목록 조회만 확인한다. 목록의 `gpt_image_2`는 이 프로젝트가 요구하는 ChatGPT 기본 **Images 2.5** 모델의 실행 증거가 아니다. Claude Cowork 및 ChatGPT **Work 모드**에서 이 플러그인의 설치·인증·도구 노출이나 실제 생성은 확인하지 않았으므로 위 표와 생성 단계는 모두 `NOT-RUN`으로 유지한다. 유료 생성 호출은 하지 않았다.
+
 ## 각 앱·OS에서 기록할 항목
 
 1. 앱 UI에서 `moai-story`와 `moai-seller`를 설치한다. Claude는 Cowork, ChatGPT는 Work 모드의 새 대화를 연다. 플러그인 카드에 표시된 버전과 스킬·MCP 또는 연결 앱 목록을 기록한다. Claude와 ChatGPT의 설치 절차는 [설치와 관리](../www/content/plugins/install.md)에 있다.
