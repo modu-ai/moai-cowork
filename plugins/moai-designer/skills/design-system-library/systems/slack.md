@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Slack-design-analysis
-description: An inspired interpretation of Slacc's design language — a workplace messaging brand built on a deep aubergine primary, with cream-lavender hero gradients, blue inline links, and pill CTAs. The system pairs a proprietary humanist sans for display with a separate utility sans for body, and stages product UI mockups inside soft pastel-mesh hero composites that act as both decoration and feature explanation.
+description: An inspired interpretation of Slack's design language, with aubergine surfaces, light hero gradients, blue links, and pill controls. Source display and UI faces remain references; portable tokens use OFL Inter and system fallbacks. Product mockups and brand assets require current source and rights checks before reuse.
 
 colors:
   primary: "#4a154b"
@@ -20,97 +20,100 @@ colors:
   surface-aubergine: "#4a154b"
   hairline: "#e6e6e6"
   hairline-strong: "#000000"
+  control-border-light: "#696969"
+  control-border-dark: "#d9bdde"
+  ring-focus: "#767676"
   semantic-error: "#cc4117"
   semantic-success: "#007a5a"
   on-aubergine-mute: "#d9bdde"
 
 typography:
   display-xxl:
-    fontFamily: "Salesforce-Avant-Garde, system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 64px
     fontWeight: 700
     lineHeight: 1.12
     letterSpacing: -0.768px
   display-xl:
-    fontFamily: "Salesforce-Avant-Garde, system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 58px
     fontWeight: 600
     lineHeight: 1.25
     letterSpacing: -0.464px
   display-lg:
-    fontFamily: "Salesforce-Avant-Garde, system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 50px
     fontWeight: 700
     lineHeight: 1.12
     letterSpacing: -0.6px
   display-md:
-    fontFamily: "Salesforce-Avant-Garde, system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 32px
     fontWeight: 700
     lineHeight: 1.25
     letterSpacing: -0.256px
   heading-lg:
-    fontFamily: "Salesforce-Avant-Garde, system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 24px
     fontWeight: 700
     lineHeight: 1.33
     letterSpacing: -0.096px
   heading-md:
-    fontFamily: "Salesforce-Avant-Garde, system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 22px
     fontWeight: 600
     lineHeight: 1.4
     letterSpacing: 0
   heading-sm:
-    fontFamily: "Salesforce-Avant-Garde, system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 18px
     fontWeight: 600
     lineHeight: 1.56
     letterSpacing: -0.0216px
   body-lg:
-    fontFamily: "Salesforce-Sans, system-ui, -apple-system, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 18px
     fontWeight: 400
     lineHeight: 1.55
     letterSpacing: -0.0216px
   body-md:
-    fontFamily: "Salesforce-Sans, system-ui, -apple-system, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.55
     letterSpacing: 0
   body-strong:
-    fontFamily: "Salesforce-Sans, system-ui, -apple-system, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 16px
     fontWeight: 700
     lineHeight: 1.5
     letterSpacing: 0.16px
   button-lg:
-    fontFamily: "Salesforce-Sans, system-ui, -apple-system, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 18px
     fontWeight: 700
     lineHeight: 1.0
     letterSpacing: 0
   button-md:
-    fontFamily: "Salesforce-Sans, system-ui, -apple-system, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 16px
     fontWeight: 700
     lineHeight: 1.38
     letterSpacing: 0.2px
   button-cap:
-    fontFamily: "Salesforce-Sans, system-ui, -apple-system, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 14.4px
     fontWeight: 700
     lineHeight: 1.0
     letterSpacing: 0.144px
   caption:
-    fontFamily: "Salesforce-Sans, system-ui, -apple-system, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 14px
     fontWeight: 400
     lineHeight: 1.43
     letterSpacing: 0.1px
   micro-cap:
-    fontFamily: "Salesforce-Sans, system-ui, -apple-system, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 12px
     fontWeight: 700
     lineHeight: 1.0
@@ -141,6 +144,14 @@ components:
     typography: "{typography.button-md}"
     rounded: "{rounded.pill}"
     padding: 14px 28px
+  button-primary-pill-focused:
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.on-primary}"
+    outline: "2px solid {colors.ring-focus}"
+    outlineOffset: 2px
+    typography: "{typography.button-md}"
+    rounded: "{rounded.pill}"
+    padding: 14px 28px
   button-primary-pill-pressed:
     backgroundColor: "{colors.primary-press}"
     textColor: "{colors.on-primary}"
@@ -153,15 +164,27 @@ components:
     typography: "{typography.button-md}"
     rounded: "{rounded.pill}"
     padding: 10px 30px
+    border: "1px solid {colors.control-border-light}"
   button-outline-aubergine:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.primary}"
     typography: "{typography.button-md}"
     rounded: "{rounded.pill}"
     padding: 14px 28px
+    border: "2px solid {colors.primary}"
   button-outline-on-aubergine:
     backgroundColor: "{colors.surface-aubergine}"
     textColor: "{colors.on-primary}"
+    typography: "{typography.button-md}"
+    rounded: "{rounded.pill}"
+    padding: 14px 28px
+    border: "2px solid {colors.on-primary}"
+  button-outline-on-aubergine-focused:
+    backgroundColor: "{colors.surface-aubergine}"
+    textColor: "{colors.on-primary}"
+    border: "2px solid {colors.on-primary}"
+    outline: "2px solid {colors.ring-focus}"
+    outlineOffset: 2px
     typography: "{typography.button-md}"
     rounded: "{rounded.pill}"
     padding: 14px 28px
@@ -171,6 +194,15 @@ components:
     typography: "{typography.body-md}"
     rounded: "{rounded.sm}"
     padding: 10px 12px
+    border: "1px solid {colors.control-border-light}"
+  text-input-focused:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    typography: "{typography.body-md}"
+    rounded: "{rounded.sm}"
+    padding: 10px 12px
+    border: "2px solid {colors.primary}"
+    outline: "2px solid {colors.primary}"
   pill-cap-shade:
     backgroundColor: "{colors.canvas-cream}"
     textColor: "{colors.ink}"
@@ -183,18 +215,21 @@ components:
     typography: "{typography.body-md}"
     rounded: "{rounded.xl}"
     padding: 32px
+    border: "1px solid {colors.control-border-light}"
   card-pricing-featured:
     backgroundColor: "{colors.surface-aubergine}"
     textColor: "{colors.on-primary}"
     typography: "{typography.body-md}"
     rounded: "{rounded.xl}"
     padding: 32px
+    border: "1px solid {colors.control-border-dark}"
   card-feature-cream:
     backgroundColor: "{colors.canvas-cream}"
     textColor: "{colors.ink}"
     typography: "{typography.body-md}"
     rounded: "{rounded.xl}"
     padding: 32px
+    border: "1px solid {colors.control-border-light}"
   card-aubergine-band:
     backgroundColor: "{colors.surface-aubergine}"
     textColor: "{colors.on-primary}"
@@ -207,6 +242,7 @@ components:
     typography: "{typography.display-lg}"
     rounded: "{rounded.xl}"
     padding: 32px
+    border: "1px solid {colors.control-border-light}"
   nav-bar-light:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.ink}"
@@ -219,12 +255,14 @@ components:
     typography: "{typography.body-md}"
     rounded: "{rounded.xs}"
     padding: 0px
+    textDecoration: underline
   link-on-aubergine:
     backgroundColor: "{colors.surface-aubergine}"
     textColor: "{colors.on-primary}"
     typography: "{typography.body-md}"
     rounded: "{rounded.xs}"
     padding: 0px
+    textDecoration: underline
   footer-aubergine:
     backgroundColor: "{colors.surface-aubergine}"
     textColor: "{colors.on-primary}"
@@ -235,27 +273,27 @@ components:
 
 ## Overview
 
-Slacc's design language centers on a deep aubergine primary (`{colors.primary}`) — the brand's most enduring visual asset — applied as the dominant button color, the footer band, the featured pricing tier, and the brand wordmark. Around that aubergine the system stages an unusually delicate ecosystem: cream-lavender hero canvases with soft pastel-mesh gradients (peachy oranges, lavenders, dusty greens) that pulse behind floating product UI mockups, with the actual interface chrome rendered in fine detail at 3:2 aspect.
+This Slack reference centers on a deep aubergine primary (`{colors.primary}`) for buttons, footer bands, and some pricing surfaces. Cream-lavender hero canvases and product UI mockups provide a lighter counterpoint. Confirm current mockups, logo treatment, and usage rights before publishing.
 
-Typography splits between two proprietary humanist sans families. The display tier runs at 700 weight at sizes 32–64px with negative letter-spacing for tight optical density on hero headlines. The UI tier uses the second family at 400–700 with slightly relaxed leading (1.55) — the brand's body copy reads quietly without competing with the aubergine moments.
+The source display and UI tiers use proprietary Salesforce families. Portable tokens use Inter for both tiers, with a system sans-serif fallback. Check loaded font coverage and line wrapping in the rendered interface.
 
 Buttons are pill-shaped at 90px radius with an unusual amount of horizontal padding (28–30px), giving them a distinctly comfortable, almost over-padded feel. The primary aubergine pill is the only filled button in most contexts; secondary actions use a soft lavender pill (`{colors.canvas-lavender}`) which reads as a gentler echo of the primary surface. Inline links shift to a saturated blue (`{colors.link-blue}`) — the brand's only chromatic departure from the aubergine-and-cream world.
 
 **Key Characteristics:**
-- Single aubergine primary (`{colors.primary}`) reused across CTAs, the featured pricing tier, the footer band, and the wordmark — the brand's chromatic monotheism.
+- Aubergine primary (`{colors.primary}`) reused across CTAs and footer bands; use featured pricing treatment only when the current offer marks a tier.
 - Cream-lavender hero canvas (`{colors.canvas-cream}` / `{colors.canvas-lavender}`) with diffused pastel-mesh atmospheric gradients and floating UI mockups composited above.
 - Pill buttons at `{rounded.pill}` (90px radius) with generous 28–30px horizontal padding — over-padded by SaaS-default standards, deliberately so.
 - Tight negative letter-spacing on display sizes (-0.768px on 64px hero) for editorial-density headlines.
 - Blue inline links (`{colors.link-blue}`) — the only non-aubergine chromatic accent in body type.
-- Pastel-mesh gradient atmospherics: every hero band has a subtle peach-lavender-dusty-green wash behind it; product UI sits on top, never inside, the gradient.
-- Statistics cards rendered in massive aubergine display type (90% / 43 / 87%) on white — quantitative emphasis through scale alone.
+- Pastel-mesh gradients and approved product UI assets may be paired in hero bands when current brand guidance supports them.
+- Statistics cards use large aubergine display type on white; replace example numbers with verified current data before publication.
 
 ## Colors
 
-> **Source pages:** home (`/`), `/features/channels`, `/pricing`, `/contact-sales`.
+> **Source reference:** home, features, pricing, and contact surfaces. Verify current URLs, content, and assets before reuse.
 
 ### Brand & Accent
-- **Aubergine** (`{colors.primary}` — `#4a154b`): The brand's primary surface and CTA color. Deep, warm purple with a hint of ruby — used on filled buttons, the featured pricing tier, the footer band, and the brand wordmark.
+- **Aubergine** (`{colors.primary}` — `#4a154b`): The primary surface and CTA color in this reference. Confirm current featured status and approved wordmark treatment separately.
 - **Aubergine Deep** (`{colors.primary-deep}` — `#481a54`): A near-identical sibling of `{colors.primary}` extracted from a different surface; treat as functionally equivalent.
 - **Aubergine Press** (`{colors.primary-press}` — `#611f69`): Pressed-state lift of the primary, slightly lighter and warmer.
 - **Aubergine Tint** (`{colors.primary-tint}` — `#592466`): Border accent on aubergine-on-aubergine surfaces.
@@ -266,8 +304,9 @@ Buttons are pill-shaped at 90px radius with an unusual amount of horizontal padd
 - **Canvas White** (`{colors.canvas}` — `#ffffff`): Default content surface.
 - **Canvas Cream** (`{colors.canvas-cream}` — `#f4ede4`): Warm off-white used on hero gradients and feature bands. Adds editorial warmth.
 - **Canvas Lavender** (`{colors.canvas-lavender}` — `#f9f0ff`): Pale lavender tint used as the secondary-button surface and as a soft section band.
-- **Surface Aubergine** (`{colors.surface-aubergine}` — `#4a154b`): The primary aubergine reused as a surface — featured pricing tier, footer, dark feature bands.
-- **Hairline** (`{colors.hairline}` — `#e6e6e6`): 1px borders on cards and table dividers.
+- **Surface Aubergine** (`{colors.surface-aubergine}` — `#4a154b`): The primary aubergine reused for footer and dark feature bands, and for a featured pricing tier only when current official data supports one.
+- **Hairline** (`{colors.hairline}` — `#e6e6e6`): decorative table divider only; important light-surface boundaries use `{colors.control-border-light}`.
+- **Control Borders** (`{colors.control-border-light}` / `{colors.control-border-dark}`): visible boundaries on light and aubergine surfaces.
 
 ### Text
 - **Ink** (`{colors.ink}` — `#1d1d1d`): Primary body text on light surfaces. Just shy of pure black.
@@ -283,11 +322,11 @@ Buttons are pill-shaped at 90px radius with an unusual amount of horizontal padd
 
 ### Font Family
 
-The display tier is **Salesforce Avant Garde** — a proprietary humanist sans with broad apertures and a slightly geometric character. When unavailable, fall back to the system font stack (`system-ui, -apple-system, BlinkMacSystemFont`).
+The source display tier uses proprietary Salesforce Avant Garde. Portable tokens use [OFL Inter](https://github.com/google/fonts/blob/main/ofl/inter/METADATA.pb) with `system-ui, sans-serif` fallback on macOS, Windows, and Linux.
 
-The UI tier is **Salesforce Sans** — a separate proprietary face used for body, captions, and button labels. Same fallback chain.
+The source UI tier uses proprietary Salesforce Sans. Portable body, caption, and button tokens use the same Inter stack.
 
-Both faces are proprietary and not freely available. Substitute with **Inter** (open-source via Google Fonts) at matching weights for both display and body — Inter is the closest open analogue across both tiers.
+Use either source face only after confirming the appropriate rights. Check mixed-script wrapping and fallback glyphs in each host.
 
 ### Hierarchy
 
@@ -310,12 +349,12 @@ Both faces are proprietary and not freely available. Substitute with **Inter** (
 | `{typography.micro-cap}` | 12px | 700 | 1.0 | 0.96px | All-caps eyebrow |
 
 ### Principles
-- **Tight tracking on display.** Negative letter-spacing across 32–64px sizes; the proprietary face is wide by default, the negative tracking pulls it into editorial density.
+- **Tight tracking on display.** The portable tokens retain negative tracking across 32–64px sizes; check for clipping at each breakpoint.
 - **Body at 1.55 leading.** Slightly relaxed for marketing readability without crossing into airy / 1.7+ territory.
 - **Caps for eyebrows.** All eyebrows render uppercase with positive 0.96–0.144px tracking depending on size.
 
 ### Note on Font Substitutes
-Use **Inter** (open-source Google Fonts) for both display and UI tiers — Inter at 700 weight with `-0.768px` letter-spacing closely approximates the brand's display behavior. For maximum brand fidelity, **Lato** is a softer humanist alternative that pairs well at body sizes. Avoid System UI fonts on the body — the brand's subtle warmth disappears at default weights.
+The YAML uses Inter with a system fallback throughout. Keep its declared line height and tracking until rendered evidence supports adjustment; confirm font loading and glyph coverage rather than relying on an assumed visual match.
 
 ## Layout
 
@@ -327,7 +366,7 @@ Use **Inter** (open-source Google Fonts) for both display and UI tiers — Inter
 
 ### Grid & Container
 - Marketing pages center in a ~1240px container with edge-bleeding pastel-mesh gradients escaping the container.
-- Pricing collapses 4-up → 2-up → 1-up at 992 / 768 breakpoints.
+- The reference pricing layout collapses from four to fewer columns at narrower widths. Source current plan names, prices, and any recommendation from [Slack's official pricing page](https://join.slack.com/pricing) before publication.
 - Statistics row: 3-column grid with massive 50px aubergine display numerals.
 
 ### Whitespace Philosophy
@@ -370,9 +409,10 @@ The brand uses **product UI screenshots** more than photography. UI mockups sit 
 **`button-primary-pill`** — the dominant CTA system-wide.
 - Background `{colors.primary}`, text `{colors.on-primary}`, type `{typography.button-md}`, padding `14px 28px`, rounded `{rounded.pill}` 90px.
 - Pressed state `button-primary-pill-pressed` shifts background to `{colors.primary-press}`.
+- `{components.button-primary-pill-focused}` adds an offset `{colors.ring-focus}` outline; the dark-canvas outline button has its own focused variant.
 
 **`button-secondary-pill`** — the soft lavender alternative.
-- Background `{colors.canvas-lavender}`, text `{colors.ink}`, padding `10px 30px`, same pill geometry. Used as the second action beside the primary aubergine pill.
+- Background `{colors.canvas-lavender}`, text `{colors.ink}`, `{colors.control-border-light}` boundary, padding `10px 30px`, same pill geometry.
 
 **`button-outline-aubergine`** — outline variant on white surfaces.
 - Background `{colors.canvas}`, text `{colors.primary}`, 2px solid `{colors.primary}` border, same pill shape.
@@ -383,10 +423,10 @@ The brand uses **product UI screenshots** more than photography. UI mockups sit 
 ### Cards & Containers
 
 **`card-pricing`** — standard pricing tier card.
-- Background `{colors.canvas}`, padding `{spacing.xxl}+` (32px), rounded `{rounded.xl}` 16px, 1px `{colors.hairline}` border. Title in `{typography.heading-lg}`, price in `{typography.display-md}`, body in `{typography.body-md}`, CTA pinned to bottom as `button-primary-pill`.
+- Background `{colors.canvas}`, padding 32px, rounded `{rounded.xl}` 16px, 1px `{colors.control-border-light}` border. Title in `{typography.heading-lg}`, current price in `{typography.display-md}`, body in `{typography.body-md}`.
 
 **`card-pricing-featured`** — the inverted aubergine featured tier.
-- Background `{colors.surface-aubergine}`, text `{colors.on-primary}`, otherwise identical to `card-pricing`. The aubergine fill is the brand's signature featured-tier choice.
+- Background `{colors.surface-aubergine}`, text `{colors.on-primary}`, with `{colors.control-border-dark}` boundary. Use only if the current official offer identifies a featured tier, and pair the fill with a text label.
 
 **`card-feature-cream`** — feature explanation card on the cream track.
 - Background `{colors.canvas-cream}`, text `{colors.ink}`, rounded `{rounded.xl}`, padding 32px.
@@ -395,17 +435,17 @@ The brand uses **product UI screenshots** more than photography. UI mockups sit 
 - Background `{colors.surface-aubergine}`, text `{colors.on-primary}`, padding 48px, rounded `{rounded.xl}` 16px.
 
 **`card-stat`** — statistics callout card.
-- Background `{colors.canvas}`, text `{colors.primary}` rendered in `{typography.display-lg}` (50px aubergine numeral). Holds a single percentage/number with a small caption underneath.
+- Background `{colors.canvas}` with `{colors.control-border-light}` boundary; text `{colors.primary}` rendered in `{typography.display-lg}` (50px aubergine numeral). Use only verified current figures and captions.
 
 ### Inputs & Forms
 
 **`text-input`** — standard form field.
-- Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.body-md}`, padding `10px 12px`, rounded `{rounded.sm}` 4px, 1px `{colors.hairline}` border.
+- Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.body-md}`, padding `10px 12px`, rounded `{rounded.sm}` 4px, 1px `{colors.control-border-light}` border. `{components.text-input-focused}` adds a dark border and outline; verify keyboard focus in the rendered layout.
 
 ### Navigation
 
 **`nav-bar-light`** — top nav across all marketing pages.
-- Background `{colors.canvas}`, text `{colors.ink}`, padding `{spacing.lg} {spacing.xxl}`. Logo wordmark on the left, nav items center, two pill buttons on the right (`button-secondary-pill` for "Sign In", `button-primary-pill` for "Try For Free").
+- Background `{colors.canvas}`, text `{colors.ink}`, padding `{spacing.lg} {spacing.xxl}`. The reference layout has a wordmark left, navigation in the centre, and two pill actions right. Verify current labels and approved logo assets.
 
 ### Pills, Tags, and Chips
 
@@ -421,7 +461,7 @@ The brand uses **product UI screenshots** more than photography. UI mockups sit 
 **Aubergine Footer Band** — every marketing page closes with a full-bleed `card-aubergine-band` containing a closing CTA in white type. The band height is generous (~480–600px on desktop) and reads as the page's signature.
 
 **`link-on-light`** — inline links in body copy on light surfaces.
-- Text `{colors.link-blue}` rendered in `{typography.body-md}`. No underline by default; underline appears on hover via the link-hover behavior.
+- Text `{colors.link-blue}` rendered in `{typography.body-md}` with a persistent underline.
 
 **`link-on-aubergine`** — links inside aubergine surfaces.
 - Text `{colors.on-primary}` with persistent underline.
@@ -432,10 +472,10 @@ The brand uses **product UI screenshots** more than photography. UI mockups sit 
 ## Do's and Don'ts
 
 ### Do
-- Reserve `{colors.primary}` aubergine for filled CTAs, the featured pricing tier, and the closing aubergine band — it's the brand's chromatic monotheism.
+- Reserve `{colors.primary}` aubergine for filled CTAs and closing bands; use it for a featured tier only when current official data marks that tier.
 - Use `{rounded.pill}` (90px) for every button across the system — never a rounded-rectangle button.
-- Pair display tiers with negative letter-spacing (`-0.768px` at 64px); the proprietary face needs the tracking pull.
-- Compose hero bands with pastel-mesh gradient backdrop + floating product UI mockup; the gradient is the depth.
+- Pair display tiers with their declared negative letter-spacing (`-0.768px` at 64px); check Inter's rendered wrapping before adjusting it.
+- Use the pastel-mesh gradient with product UI mockups only when current, approved assets are available under [Slack's media-kit guidance](https://join.slack.com/media-kit).
 - Use `{colors.link-blue}` for inline links — it's the only chromatic departure from aubergine and is part of the brand voice.
 
 ### Don't
@@ -458,26 +498,31 @@ The brand uses **product UI screenshots** more than photography. UI mockups sit 
 | Mobile | < 768px | Pricing 1-up; hamburger nav; display-xxl drops 64 → 40px |
 
 ### Touch Targets
-- Pill buttons hit ≥ 48×48px due to the over-padded geometry. WCAG AAA compliant.
-- Form fields stay at the 44px minimum height.
+- Measure rendered button and input target sizes at each breakpoint; padding alone does not establish target-size compliance.
+- Check focus visibility and keyboard operation in the running interface.
 
 ### Collapsing Strategy
 - Display tiers stair-step 64 → 50 → 32 → 28 → 24 across breakpoints.
 - Pastel-mesh gradients re-tile on mobile to prevent the wash from disappearing entirely.
-- Floating product UI mockups crop to the most actionable inner panel on mobile.
-- Pricing tiers stair-step 4 → 2 → 1; aubergine featured tier stays distinguished.
+- If approved product UI mockups are used, crop to the most legible relevant panel on mobile and verify the rendered result.
+- The reference pricing tiers stair-step 4 → 2 → 1. If a current tier is marked featured, preserve its text label and visual treatment.
 - Top nav collapses to hamburger below 768px; menu inherits canvas color.
 
 ### Image Behavior
-Product UI mockups use `srcset` for desktop / tablet / mobile crops; the mobile crop centers on the most actionable inner panel rather than scaling the whole composite down.
+Use responsive product mockups when current, approved assets exist. Verify the focal panel, legibility, alt text, and rights in each crop.
 
 ## Iteration Guide
 
 1. Focus on ONE component at a time.
-2. Reference component names and tokens directly (`{colors.primary}`, `{button-primary-pill}-pressed`, `{rounded.pill}`).
+2. Reference component names and tokens directly (`{colors.primary}`, `{components.button-primary-pill-pressed}`, `{rounded.pill}`).
 3. Run `npx --yes -p "@google/design.md@0.4.0" designmd lint DESIGN.md`
     after edits.
 4. Add new variants as separate entries.
 5. Default body to `{typography.body-md}`; reserve `{typography.body-lg}` for marketing leads.
 6. Keep aubergine scarce — one filled aubergine button per viewport.
-7. Pair every hero band with the pastel-mesh gradient backdrop; bare-canvas heroes read as off-brand.
+7. Use the pastel-mesh hero treatment only when the current brand guidance and approved assets support it; verify the rendered crop and text contrast.
+
+## Known Gaps
+
+- Current Slack pricing, offers, recommendation labels, product screenshots, wordmark, and reuse rights require confirmation before publication.
+- Inter loading and mixed-script wrapping, control and focus rendering, target sizes, and desktop behavior on macOS, Windows, and Linux have not been observed.

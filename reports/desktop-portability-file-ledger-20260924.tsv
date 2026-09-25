@@ -311,7 +311,7 @@ plugins/moai-designer/skills/design-system-library/systems/runwayml.md		static_r
 plugins/moai-designer/skills/design-system-library/systems/sanity.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/sentry.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/shopify.md		static_read
-plugins/moai-designer/skills/design-system-library/systems/slack.md		mechanical_scan
+plugins/moai-designer/skills/design-system-library/systems/slack.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/spacex.md		mechanical_scan
 plugins/moai-designer/skills/design-system-library/systems/spotify.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/starbucks.md		mechanical_scan
