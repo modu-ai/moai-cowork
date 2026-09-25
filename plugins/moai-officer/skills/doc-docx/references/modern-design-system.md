@@ -1,4 +1,4 @@
-# Modern Design System — Claude Brand Theme
+# Modern Design System — Claude 톤 참고 팔레트
 
 Claude 스타일을 사용자가 요청할 때 참고할 수 있는 문서용 팔레트입니다. 일반 문서에는 사용자의 브랜드 지침과 기존 양식을 우선합니다.
 
@@ -181,7 +181,5 @@ Pull Quote (Lora Italic 16pt, Dark) + Blue 좌측 보더 4pt
 
 ## Sources
 
-- Anthropic 공식 브랜드 가이드 — Orange #d97757, Light #faf9f5, Dark #141413
-- Mobbin Claude UI 분석 — Crail #c15f3c, Pampas #f4f3ee
-- 한국 출판·디자인 표준 — Pretendard 가이드라인
-- WCAG 2.1 AA 색 대비 — 4.5:1 최소 기준
+- 이 문서의 색·서체 값은 선택 가능한 예시이며 Anthropic의 현재 공식 브랜드 규격을 검증한 결과가 아니다.
+- 본문 대비는 실제 적용한 색과 배경을 계산해 확인한다.

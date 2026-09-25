@@ -10,9 +10,9 @@ description: |
   - "사업 기획서 docx로 정리해줘"
   - "협조 공문 한 장 작성해줘"
   - "분기 보고서를 깔끔한 톤으로 워드로 뽑아줘"
-  Claude 브랜드 톤 기반 모던 디자인 시스템과 한국 공문서 표준 양식을 함께 지원하며, 텍스트가 끝나면 AI 슬롭 검수로 자연스럽게 다듬을 수 있습니다.
+  사용자 브랜드와 제출처 서식을 우선하고, 요청받은 경우 Claude 톤 예시도 참고할 수 있습니다.
   보고서·문서를 워드(.docx) 파일로 만들 때 사용 가능한 문서 생성 기능을 확인하고 결과 파일을 검증합니다.
-version: "1.1.1"
+version: "1.1.2"
 ---
 
 # 워드 문서 생성기 (DOCX Generator)
@@ -27,11 +27,11 @@ version: "1.1.1"
 
 워드, docx, Word 문서, 계약서, 공문서, 보고서 생성, 문서 편집, 기안문, 제안서, 공문, 협조문, 기획서
 
-## 디자인 시스템 — Claude Modern Doc Theme
+## 디자인 시스템 — 사용자 브랜드 우선
 
-`references/modern-design-system.md`에 자세한 색·타이포·간격·헤딩 위계가 정의되어 있습니다.
+사용자가 제공한 브랜드 지침과 제출처 양식이 우선입니다. 없으면 읽기 쉬운 중립 서식을 고릅니다. Claude 톤을 요청한 경우에만 `references/modern-design-system.md`의 예시 색·타이포·간격을 참고합니다.
 
-### 색 팔레트 (Claude 브랜드 톤)
+### 색 팔레트 (Claude 톤을 요청한 경우의 예시)
 
 | 역할 | 색 | hex | 사용처 |
 |---|---|---|---|
@@ -55,7 +55,7 @@ version: "1.1.1"
 | 캡션 | Pretendard | Inter | 9pt | Regular |
 | 코드/모노 | 구름 산스 코드 | 구름 산스 코드 (Goorm Sans Code) | 10pt | Regular |
 
-\* Lora는 Anthropic 공식 본문 폰트. 인용·발췌 영역에 권장.
+\* Lora는 영문 인용문에 선택할 수 있는 서체 예시입니다. 실제 설치·대체 서체를 확인합니다.
 
 ### 간격·여백
 
@@ -72,18 +72,18 @@ version: "1.1.1"
 
 | 유형 | 디자인 톤 | 권장 팔레트 변형 |
 |---|---|---|
-| 한국 공문서 | 격식·전통 | Classic Mono (Dark + White만) |
-| 기업 보고서 | 신뢰·데이터 중심 | Claude Classic (Orange + Beige + Dark) |
-| 계약서 | 격식·중립 | Mono Strict (Dark + White) |
-| 제안서 | 적극적·시각적 | Claude Coral (Crail + Pampas) |
-| 기획서 | 창의·탐색 | Claude Blue (Blue + Beige) |
-| 사업계획서 | 임팩트·자신감 | Claude Bold (Orange Highlight + Dark) |
+| 한국 공문서 | 제출처 서식·문서 목적 | 기관 양식 또는 중립색 |
+| 기업 보고서 | 사용자 브랜드·가독성 | 중립색, 요청 시 Claude Classic 예시 |
+| 계약서 | 조항 구분·가독성 | 중립색 |
+| 제안서 | 사용자 브랜드·독자 | 브랜드색, 요청 시 Claude Coral 예시 |
+| 기획서 | 사용자 브랜드·독자 | 브랜드색, 요청 시 Claude Blue 예시 |
+| 사업계획서 | 실제 제출 요건·브랜드 | 브랜드색, 요청 시 Claude Bold 예시 |
 
 ### 2단계: 내용 수집 및 구조화
 
 문서 유형별 표준 구조 (references/modern-templates.md 참고):
 
-**공문서**: 수신처·제목·내용(번호 매기기)·발신 기관명·담당자·연락처·날짜 — 두문/본문/결문 구조·항목 번호체계·`붙임 n부. 끝.`·결재란은 `moai-officer:doc-hwp`의 `references/kr-official-forms.md`(한국형 서식 SSOT)를 따르고, 한국형 레이아웃 예시는 `references/templates/korean-report.md`·`references/templates/korean-proposal.md` 참고
+**공문서**: 실제 제출처 양식을 먼저 확인하고, 수신처·제목·본문·발신자·붙임 등 필요한 항목을 채웁니다. 일반 서식 참고는 `doc-hwp`의 `references/kr-official-forms.md`와 이 스킬의 한국형 레이아웃 예시를 사용합니다. 기관 양식이 없는데 모든 공문서에 동일한 결재란·번호 체계를 강제하지 않습니다.
 **계약서**: 갑·을 표시·계약 목적·범위·기간·대금·지적재산권·비밀유지·해지·분쟁 해결·서명란
 **제안서**: 표지·요약(Executive Summary)·현황·제안·기대효과·일정·예산·팀
 **보고서**: 요약·배경·분석·결론·권고·부록
@@ -111,22 +111,19 @@ section.bottom_margin = Cm(2.5)
 section.left_margin = Cm(2.2)
 section.right_margin = Cm(2.2)
 
-# Claude 톤 색
-CLAUDE_ORANGE = RGBColor(0xD9, 0x77, 0x57)
-CLAUDE_DARK = RGBColor(0x14, 0x14, 0x13)
-CLAUDE_MID = RGBColor(0xB0, 0xAE, 0xA5)
+# 중립 예시. 사용자 브랜드·제출처 지정값이 있으면 그것을 적용한다.
+INK = RGBColor(0x14, 0x14, 0x13)
 
 # H1 스타일
 h1 = doc.styles['Heading 1']
-h1.font.name = 'Pretendard'
 h1.font.size = Pt(22)
 h1.font.bold = True
-h1.font.color.rgb = CLAUDE_DARK
+h1.font.color.rgb = INK
 
-# 강조 헤딩 (Primary Orange 사용)
-title = doc.add_heading('2026 Q1 사업 보고서', level=0)
+# 제목 내용은 실제 자료로 채우고, 색은 브랜드 지정값을 우선한다.
+title = doc.add_heading('{문서 제목}', level=0)
 for run in title.runs:
-    run.font.color.rgb = CLAUDE_ORANGE
+    run.font.color.rgb = INK
     run.font.size = Pt(28)
 ```
 
@@ -149,7 +146,7 @@ for run in title.runs:
 3. 헤딩 위계 연속 (H1 → H3 건너뛰기 없음)
 4. 표 경계선 일관 (보더 색·두께 통일)
 5. 폰트 깨짐 없음 (Pretendard·맑은 고딕 시스템 폰트 확인)
-6. 색 대비 4.5:1 이상 (본문 Dark on Light Beige = 13.5:1 PASS)
+6. 실제 적용한 본문색과 배경색의 대비를 계산해 4.5:1 이상인지 확인
 7. 이미지 캡션 일관 (위치·형식)
 8. 단락 간 여백 일관 (수동 빈 줄 사용 금지)
 9. 표 셀 텍스트 줄바꿈 정상 (overflow 없음)
@@ -186,7 +183,7 @@ Anthropic Blue `#6a9bcc` 좌측 보더 4pt + Lora 이탤릭.
 숫자 강조 영역.
 
 ```
-   [37%]          [2.4배]          [₩1.2억]
+   [{증감률}]      [{효율}]         [{절감액}]
    매출 증가      ROI 개선         예상 절감
 ```
 
@@ -220,17 +217,17 @@ Orange 작은 도형 + Mid Gray 가로선 + 섹션 번호.
 ## 사용 예시
 
 - "용역 계약서 DOCX를 작성해 줘 (갑: A사, 을: B사, 계약금 1,000만 원)" → Mono Strict 팔레트
-- "Q1 분기 보고서를 모던 톤으로 만들어 줘" → Claude Classic 팔레트 + Executive Summary Box + Stat Callout 3
-- "스타트업 사업계획서 30페이지" → Claude Bold 팔레트 + 6 패턴 활용
+- "Q1 분기 보고서를 모던 톤으로 만들어 줘" → 브랜드 지침을 확인하고 필요한 요약·수치 블록만 구성
+- "스타트업 사업계획서 30페이지" → 제출 목적·자료에 맞춰 분량과 구조를 정함
 - "행정기관 협조 공문" → Classic Mono 팔레트 + 공문서 표준 양식
-- "내부 기획서를 발표용으로도 쓸 수 있게" → Claude Blue 팔레트 + Pull Quote + Stat Callout
+- "내부 기획서를 발표용으로도 쓸 수 있게" → 발표용 화면과 문서용 페이지 배치를 각각 검토
 
 ## 출력 형식
 
 - **파일 형식**: `.docx` (Microsoft Word 2007+ 호환)
 - **페이지 설정**: A4 (210mm × 297mm)
 - **여백**: 상하 25-30mm, 좌우 22-25mm (문서 유형별)
-- **폰트**: Pretendard (한국) + Inter/Lora (영문) · 공문서는 굴림·맑은 고딕
+- **폰트**: 사용자 브랜드·제출처 서체를 우선하고, 실제 열람 환경의 설치·대체 상태를 확인
 - **색 인코딩**: sRGB
 - **인코딩**: UTF-8
 
@@ -248,19 +245,19 @@ Orange 작은 도형 + Mid Gray 가로선 + 섹션 번호.
 
 ### 공문서 규정 준수
 
-행정안전부 「공문서 작성 규정」 기준 양식을 준수합니다. 격식 공문서에서는 Orange·Blue 강조색을 사용하지 않고 Mono Strict (Dark + White만)로 작성합니다.
+제출처의 현재 양식과 관련 지침을 확인합니다. 격식 공문서에는 사용자·기관 서식에서 허용하지 않은 브랜드 강조색을 임의로 넣지 않습니다.
 
 ### 폰트 및 배포
 
-배포 시 폰트 내장 또는 PDF 변환을 권장합니다. Pretendard는 오픈소스라 임베드 자유. Lora는 Google Fonts 무료.
+서체 이름을 DOCX에 지정하는 것과 글꼴 파일을 문서에 내장하는 것은 다릅니다. 내장을 요청받았다면 현재 도구가 이를 지원하는지와 결과 파일을 확인한 경우에만 완료로 표시합니다. 공유용 PDF도 실제 변환·열람한 경우에만 제공하고, 대체 글꼴과 줄바꿈을 확인합니다.
 
 ### 전자서명
 
-디지털 서명 필드 삽입을 지원합니다. Adobe Acrobat 호환 PDF 변환 후 전자서명을 권장합니다.
+전자서명이 필요하면 현재 사용 가능한 도구가 실제 서명 필드를 만들 수 있는지, 제출처가 어떤 형식을 받는지 확인합니다. 서명 필드나 법적 효력을 생성했다고 확인 없이 보고하지 않습니다.
 
 ### 보안
 
-계약서 등 민감 문서는 비밀번호 보호 설정을 권장합니다. 문서 열기 암호와 편집 암호를 각각 설정할 수 있습니다.
+계약서 등 민감 문서는 전달 대상과 보관 방식을 확인합니다. 암호 보호를 요청받으면 현재 도구에서 실제로 설정·재열람할 수 있을 때만 완료로 표시합니다.
 
 ## 문제 해결
 
@@ -278,11 +275,11 @@ Orange 작은 도형 + Mid Gray 가로선 + 섹션 번호.
 
 ## 관련 스킬 / 자체 검수
 
-문서 생성이 끝나면 산출된 .docx 파일을 다시 열어 플레이스홀더 잔존·페이지/분량 미달·한글 폰트·인코딩 깨짐·표 깨짐을 **자체 검수**하고, 문제가 있으면 자동 수정 후 재생성하며 최종 PASS/FAIL 결과를 보고합니다(검수 항목은 `references/qa-checklist.md` 참고).
+문서 생성이 끝나면 `.docx`를 다시 열어 플레이스홀더·문구·수치·표 내용을 확인합니다. 페이지 배치·글꼴 대체·표 넘침은 실제 렌더링 또는 문서 미리보기로 따로 확인합니다. 확인하지 못한 항목은 `미검증`으로 남기고 최종 PASS에 포함하지 않습니다(`references/qa-checklist.md` 참고).
 
 | 스킬 | 사용 시점 |
 |---|---|
-| `moai-officer:doc-pptx` | 발표용 슬라이드 생성 (같은 Claude 톤 디자인 시스템 공유) |
+| `moai-officer:doc-pptx` | 발표용 슬라이드 생성 (사용자 브랜드를 별도로 확인) |
 | `moai-officer:doc-hwp` | 한컴 한글 문서 생성 (HWPX) |
 | `moai-officer:doc-xlsx` | 엑셀 데이터 시트 |
 | `moai-officer:doc-pdf` | PDF 변환·다국어 PDF |
@@ -294,7 +291,7 @@ Orange 작은 도형 + Mid Gray 가로선 + 섹션 번호.
 
 - **python-docx 공식**: https://python-docx.readthedocs.io/
 - **행정안전부 공문서 작성 규정**: https://www.mois.go.kr/
-- **Anthropic Brand Guidelines**: 본 스킬의 색·타이포는 Anthropic 공식 브랜드 가이드 기반
+- **Claude 톤 예시**: `references/modern-design-system.md`의 색·타이포는 선택형 예시이며 현재 공식 브랜드 규격으로 검증되지 않음
 - **Microsoft Word 파일 형식**: ECMA-376 Office Open XML
 
 ## 상세 레퍼런스

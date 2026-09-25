@@ -583,13 +583,13 @@ plugins/moai-officer/agents/data-auditor.md	claude_only_tool	static_read
 plugins/moai-officer/agents/doc-producer.md	claude_only_tool	static_read
 plugins/moai-officer/skills/doc-data-audit/SKILL.md	new_chatgpt_agent_mapping	static_read
 plugins/moai-officer/skills/doc-design-library/SKILL.md		static_read
-plugins/moai-officer/skills/doc-docx/SKILL.md		partial
-plugins/moai-officer/skills/doc-docx/references/document-generator.md		partial
-plugins/moai-officer/skills/doc-docx/references/modern-design-system.md		partial
-plugins/moai-officer/skills/doc-docx/references/modern-templates.md		partial
-plugins/moai-officer/skills/doc-docx/references/qa-checklist.md		partial
-plugins/moai-officer/skills/doc-docx/references/templates/korean-proposal.md		partial
-plugins/moai-officer/skills/doc-docx/references/templates/korean-report.md		partial
+plugins/moai-officer/skills/doc-docx/SKILL.md		static_read
+plugins/moai-officer/skills/doc-docx/references/document-generator.md		static_read
+plugins/moai-officer/skills/doc-docx/references/modern-design-system.md		static_read
+plugins/moai-officer/skills/doc-docx/references/modern-templates.md		static_read
+plugins/moai-officer/skills/doc-docx/references/qa-checklist.md		static_read
+plugins/moai-officer/skills/doc-docx/references/templates/korean-proposal.md		static_read
+plugins/moai-officer/skills/doc-docx/references/templates/korean-report.md		static_read
 plugins/moai-officer/skills/doc-html-report/SKILL.md		partial
 plugins/moai-officer/skills/doc-html-report/references/design-tokens.md		partial
 plugins/moai-officer/skills/doc-html-report/references/fonts.md		partial
