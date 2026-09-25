@@ -1158,3 +1158,8 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 
 - [OpenAI 플러그인 안내](https://learn.chatgpt.com/docs/plugins)는 데스크톱 앱에서 플러그인을 Chat·Work·Codex에 사용할 수 있다고 설명하고, [MCP 안내](https://learn.chatgpt.com/docs/extend/mcp)는 STDIO 서버를 로컬 명령으로 시작한다고 설명한다. 반면 호스팅된 ChatGPT Work 웹 대화에는 플러그인의 원격 MCP 도구를 안내한다. 따라서 Codex 모드나 웹 대화의 도구 노출을 데스크톱 Work 모드의 결과로 대체하지 않는다. 앱 현장 확인표에 Work 모드를 명시했다.
 - 현재 `.mcp.json`에는 `uv`·`npx`로 시작하는 로컬 서버와 HTTP로 연결하는 원격 서버가 섞여 있다. CI는 필요한 실행 환경을 준비해 테스트했으므로, 비개발자 사용자의 데스크톱 앱에서 두 런처를 찾고 서버를 시작하는지까지 입증하지 않는다. 현장 확인표에는 로컬 실행 파일 없음과 서비스 인증 실패를 별도로 기록하도록 했다. 어느 앱·운영체제에서 실패하는지는 아직 관측하지 못했다.
+
+### Higgsfield의 GPT Image 2.5 모델 상세 재조회 (2026-09-25)
+
+- 이 세션의 공식 Higgsfield 플러그인에서 읽기 전용 `models_search({query:"gpt_image_2_5"})`와 `models_get({model_id:"gpt_image_2_5"})`을 호출했다. 두 응답 모두 모델 ID `gpt_image_2_5`를 반환했고, 상세에는 `variant`의 `flare`·`sunburst`, `quality`의 `low`·`medium`·`high`·`xhigh`·`max`, `resolution`의 `1k`·`2k`·`4k`, 참조 이미지의 `image_references` 역할과 지원 화면비 목록이 있었다. 앞서 `models_list({type:"image",limit:20})`로 읽은 첫 페이지에 이 모델이 없었던 사실을 전체 카탈로그 부재로 해석하지 않는다. [Higgsfield의 GPT Image 2.5 소개](https://higgsfield.ai/blog/gpt-image-2-5-higgsfield)는 Flare와 Sunburst 두 변형을 설명한다.
+- `media-gpt-image-prompt`의 Higgsfield 출력 예시에 있는 `model=gpt_image_2_5`, `variant=flare|sunburst`, `quality=medium`, `aspect_ratio`는 이 연결의 모델 상세와 맞는다. 생성 스킬 `media-higgsfield-image`는 호출 시점에 현재 연결의 모델 상세를 조회하도록 돼 있어 이번 확인만으로 스킬 수정은 하지 않았다. 이는 이 세션의 연결에서 읽은 스키마이며 별도 ChatGPT Work·Claude Cowork 앱의 플러그인 설치·인증, 두 변형의 실제 생성·비용, 앱 기본 이미지 모델을 입증하지 않는다.
