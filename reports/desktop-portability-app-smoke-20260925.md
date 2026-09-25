@@ -34,7 +34,7 @@ ChatGPT 쪽은 데스크톱 앱의 **Work 모드 새 대화**에서 검사한다
 | `moai-consultant` | 1.2.7 | `consult-brief` | — | — |
 | `moai-career` | 1.2.6 | `career-claim-audit` | — | — |
 | `moai-tutor` | 1.3.4 | `education-assessment-audit` | — | — |
-| `moai-designer` | 1.4.66 | `design-brand-system` | `higgsfield` | `higgsfield` |
+| `moai-designer` | 1.4.67 | `design-brand-system` | `higgsfield` | `higgsfield` |
 | `moai-pm` | 1.6.7 | `project` | — | — |
 | `moai-threads-poster` | 2.0.5 | `instagram-comments` | `moai-mcp-threads-poster` | 동일 |
 
