@@ -8,6 +8,7 @@
 from __future__ import annotations
 
 import json
+import os
 import sys
 from pathlib import Path
 from types import SimpleNamespace
@@ -171,6 +172,16 @@ def test_windows_cmd_런처를_찾고_종료코드를_전달한다(monkeypatch):
     env = {"PATH": "C:\\tools"}
     assert mcp_launch.launch_command(["npx", "-y", "tool"], env, windows=True) == 7
     assert seen == {"which": ("npx", "C:\\tools"), "argv": ["C:\\tools\\npx.cmd", "-y", "tool"], "env": env}
+
+
+@pytest.mark.skipif(sys.platform != "win32", reason="Windows .cmd 실행 검사")
+def test_windows_cmd_런처를_실제로_실행한다(tmp_path):
+    launcher = tmp_path / "portable-launch.cmd"
+    launcher.write_text("@echo off\nexit /b 7\n", encoding="ascii")
+    env = dict(os.environ)
+    env["PATH"] = str(tmp_path) + os.pathsep + env.get("PATH", "")
+
+    assert mcp_launch.launch_command(["portable-launch"], env, windows=True) == 7
 
 
 def test_배포된_플러그인_런처가_공용본과_같다():
