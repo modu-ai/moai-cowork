@@ -29,97 +29,97 @@ colors:
 
 typography:
   display-mega:
-    fontFamily: "'Coinbase Display', -apple-system, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+    fontFamily: "'Coinbase Display', Inter, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
     fontSize: 80px
     fontWeight: 400
     lineHeight: 1.0
     letterSpacing: -2px
   display-xl:
-    fontFamily: "'Coinbase Display', sans-serif"
+    fontFamily: "'Coinbase Display', Inter, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
     fontSize: 64px
     fontWeight: 400
     lineHeight: 1.0
     letterSpacing: -1.6px
   display-lg:
-    fontFamily: "'Coinbase Display', sans-serif"
+    fontFamily: "'Coinbase Display', Inter, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
     fontSize: 52px
     fontWeight: 400
     lineHeight: 1.0
     letterSpacing: -1.3px
   display-md:
-    fontFamily: "'Coinbase Display', sans-serif"
+    fontFamily: "'Coinbase Display', Inter, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
     fontSize: 44px
     fontWeight: 400
     lineHeight: 1.09
     letterSpacing: -1px
   display-sm:
-    fontFamily: "'Coinbase Sans', sans-serif"
+    fontFamily: "'Coinbase Sans', Inter, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
     fontSize: 36px
     fontWeight: 400
     lineHeight: 1.11
     letterSpacing: -0.5px
   title-lg:
-    fontFamily: "'Coinbase Sans', sans-serif"
+    fontFamily: "'Coinbase Sans', Inter, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
     fontSize: 32px
     fontWeight: 400
     lineHeight: 1.13
     letterSpacing: -0.4px
   title-md:
-    fontFamily: "'Coinbase Sans', sans-serif"
+    fontFamily: "'Coinbase Sans', Inter, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
     fontSize: 18px
     fontWeight: 600
     lineHeight: 1.33
     letterSpacing: 0
   title-sm:
-    fontFamily: "'Coinbase Sans', sans-serif"
+    fontFamily: "'Coinbase Sans', Inter, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
     fontSize: 16px
     fontWeight: 600
     lineHeight: 1.25
     letterSpacing: 0
   body-md:
-    fontFamily: "'Coinbase Sans', sans-serif"
+    fontFamily: "'Coinbase Sans', Inter, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0
   body-strong:
-    fontFamily: "'Coinbase Sans', sans-serif"
+    fontFamily: "'Coinbase Sans', Inter, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
     fontSize: 16px
     fontWeight: 700
     lineHeight: 1.5
     letterSpacing: 0
   body-sm:
-    fontFamily: "'Coinbase Sans', sans-serif"
+    fontFamily: "'Coinbase Sans', Inter, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
     fontSize: 14px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0
   caption:
-    fontFamily: "'Coinbase Sans', sans-serif"
+    fontFamily: "'Coinbase Sans', Inter, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
     fontSize: 13px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0
   caption-strong:
-    fontFamily: "'Coinbase Sans', sans-serif"
+    fontFamily: "'Coinbase Sans', Inter, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
     fontSize: 12px
     fontWeight: 600
     lineHeight: 1.5
     letterSpacing: 0
   number-display:
-    fontFamily: "'Coinbase Mono', 'Coinbase Sans', monospace"
+    fontFamily: "'Coinbase Mono', 'JetBrains Mono', ui-monospace, monospace"
     fontSize: 18px
     fontWeight: 500
     lineHeight: 1.4
     letterSpacing: 0
   button:
-    fontFamily: "'Coinbase Sans', sans-serif"
+    fontFamily: "'Coinbase Sans', Inter, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
     fontSize: 16px
     fontWeight: 600
     lineHeight: 1.15
     letterSpacing: 0
   nav-link:
-    fontFamily: "'Coinbase Sans', sans-serif"
+    fontFamily: "'Coinbase Sans', Inter, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
     fontSize: 14px
     fontWeight: 500
     lineHeight: 1.4
@@ -351,7 +351,7 @@ The page rhythm rotates three modes: bright white editorial sections, soft-gray 
 ## Typography
 
 ### Font Family
-The system runs **CoinbaseDisplay** (display headlines), **CoinbaseSans** (body, navigation, captions, buttons), **CoinbaseIcons** (icon font), and **CoinbaseMono** for tabular numerical data. Fallback stack: `-apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif`.
+When the licensed fonts are available for use, the system uses **CoinbaseDisplay** for display headlines, **CoinbaseSans** for body text, and **CoinbaseMono** for tabular data. The YAML typography tokens list those fonts first, followed by Inter and system sans for display/body, or JetBrains Mono and system monospace for numbers. Without a license, remove the Coinbase font names from the emitted CSS even if they happen to be installed. CoinbaseIcons is an icon font described by the source profile; do not assume it is installed on the target device.
 
 The display/body split is functional: CoinbaseDisplay carries hero headlines only; CoinbaseSans carries everything else.
 
@@ -379,13 +379,13 @@ The display/body split is functional: CoinbaseDisplay carries hero headlines onl
 ### Principles
 - **Display weight stays at 400.** The single most distinctive typographic choice — signals "calm institutional brand" rather than "trading-platform urgency."
 - **Negative letter-spacing on display only.** Display uses -1px to -2px tracking; body stays at 0.
-- **CoinbaseMono on every number.** Asset prices, percent changes — anything tabular renders in CoinbaseMono.
+- **Monospaced numbers.** Asset prices and percent changes use `{typography.number-display}`, with CoinbaseMono only where its use is licensed and the font is available.
 
 ### Note on Font Substitutes
 CoinbaseDisplay, CoinbaseSans, and CoinbaseMono are licensed Coinbase typefaces.
-- **CoinbaseDisplay → Inter** at weight 400, letter-spacing -1.5%.
-- **CoinbaseSans → Inter** at weight 400/600.
-- **CoinbaseMono → JetBrains Mono** or **Geist Mono** at weight 500.
+- **CoinbaseDisplay → Inter** at weight 400, retaining each typography token's `letterSpacing` until the rendered result is checked.
+- **CoinbaseSans → Inter**, retaining each typography token's weight (including 500 and 700).
+- **CoinbaseMono → JetBrains Mono** at weight 500, followed by system monospace.
 
 ## Layout
 
@@ -513,9 +513,9 @@ Pill for interactive, card-radius (24px) for containers, full circle for icons. 
 ### Do
 - Reserve `{colors.primary}` (Coinbase Blue) for primary CTAs, wordmark, brand-glyph illustrations, inline accent links.
 - Set every CTA as `{rounded.pill}` (100px); every asset glyph as `{rounded.full}`.
-- Keep CoinbaseDisplay headlines at weight 400.
+- Where the licensed font is available, keep CoinbaseDisplay headlines at weight 400; otherwise use the display token's fallback stack.
 - Use the dark/light band rotation as page rhythm.
-- Render every numerical value in CoinbaseMono via `{typography.number-display}`.
+- Render tabular numerical values with `{typography.number-display}` and its licensed-font fallback stack.
 - Pair every dark hero with a layered product-UI mockup card stack.
 
 ### Don't
@@ -539,10 +539,10 @@ Pill for interactive, card-radius (24px) for containers, full circle for icons. 
 | Wide | > 1280px | Content caps at 1200px; hero photography full-bleed. |
 
 ### Touch Targets
-- Primary CTA pill at 44px height — at WCAG AAA.
-- Larger hero pill (`{component.button-pill-cta}`) at 56px — well above AAA.
-- Asset icon circles at 32px — borderline; padded 8px row creates effective 48px tap zone.
-- Search pill at 44px height — at AAA.
+- Primary CTA pill is documented at 44px high; measure both dimensions of the rendered clickable area before claiming the WCAG 2.5.5 AAA 44×44px size target.
+- Larger hero pill (`{component.button-pill-cta}`) is documented at 56px high; its clickable width still needs measuring.
+- Asset icon circles are documented at 32px. The row's `16px 0` padding does not establish whether the icon or the whole row is clickable; measure the actual target and its spacing.
+- Search pill is documented at 44px high; measure both dimensions of its clickable area before claiming the AAA size target.
 
 ### Collapsing Strategy
 - Top nav switches to hamburger sheet below 768px. Sign Up CTA stays visible.
@@ -558,7 +558,7 @@ Pill for interactive, card-radius (24px) for containers, full circle for icons. 
 3. Variants live as separate entries inside the `components:` block.
 4. Use `{token.refs}` everywhere — never inline hex.
 5. Hover state never documented. Only Default and Active/Pressed.
-6. CoinbaseDisplay 400 for display, CoinbaseSans 400/600/700 for body. CoinbaseMono on every number.
+6. Use CoinbaseDisplay 400 for display, CoinbaseSans 400/600/700 for body, and CoinbaseMono for tabular numbers only where licensed fonts are available; otherwise use the YAML fallbacks.
 7. Coinbase Blue stays scarce — one or two blue moments per band.
 
 ## Known Gaps

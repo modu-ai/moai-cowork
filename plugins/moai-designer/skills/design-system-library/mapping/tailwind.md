@@ -44,8 +44,9 @@
 | `typography.*.letterSpacing` | `letterSpacing` (display 음수 추적 보존) |
 
 `fontFamily`는 첫 서체만 꺼내거나 고정된 `serif`·`sans-serif`를 덧붙이지 않는다.
-YAML의 쉼표로 구분된 **전체 서체 목록**을 JavaScript 문자열로 안전하게
-직렬화해 전달한다. 예를 들어 Ollama display 값은
+사용권이 없는 서체명은 설치 여부와 관계없이 목록에서 먼저 제거한다.
+남은 쉼표 구분 서체 목록 전체를 JavaScript 문자열로 안전하게
+직렬화해 전달한다. 예를 들어 사용 가능한 Ollama display 값은
 `"'SF Pro Rounded', system-ui, sans-serif"`다.
 해당 역할의 토큰이 없으면 시스템 본문의 서체 안내를 확인한다.
 코드 역할도 없으면 `ui-monospace, monospace`를 사용한다.
