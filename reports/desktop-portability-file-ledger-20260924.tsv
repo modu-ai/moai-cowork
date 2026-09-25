@@ -616,44 +616,44 @@ plugins/moai-officer/skills/doc-html-report/references/templates/pr.html.tmpl		s
 plugins/moai-officer/skills/doc-html-report/references/templates/status.html.tmpl		static_read
 plugins/moai-officer/skills/doc-html-slide/SKILL.md	claude_only_tool	static_read
 plugins/moai-officer/skills/doc-html-slide/references/deck-manuscript-schema.md		static_read
-plugins/moai-officer/skills/doc-html-slide/references/deck-quality-rubric.md		partial
-plugins/moai-officer/skills/doc-html-slide/references/design-system-links.md		partial
-plugins/moai-officer/skills/doc-html-slide/references/editorial-deck-doctrine.md		partial
-plugins/moai-officer/skills/doc-html-slide/references/html-runtime.md		partial
+plugins/moai-officer/skills/doc-html-slide/references/deck-quality-rubric.md		static_read
+plugins/moai-officer/skills/doc-html-slide/references/design-system-links.md		static_read
+plugins/moai-officer/skills/doc-html-slide/references/editorial-deck-doctrine.md		static_read
+plugins/moai-officer/skills/doc-html-slide/references/html-runtime.md		static_read
 plugins/moai-officer/skills/doc-html-slide/references/image-backend-policy.md		static_read
-plugins/moai-officer/skills/doc-html-slide/references/inline-svg-infographics.md		partial
+plugins/moai-officer/skills/doc-html-slide/references/inline-svg-infographics.md		static_read
 plugins/moai-officer/skills/doc-html-slide/references/pptx-chaining.md		static_read
-plugins/moai-officer/skills/doc-html-slide/samples/deck-sample.html		partial
-plugins/moai-officer/skills/doc-html-slide/samples/deck-sample.json		partial
-plugins/moai-officer/skills/doc-hwp/SKILL.md	hwpx_documentation_review	partial
-plugins/moai-officer/skills/doc-hwp/references/format-converter.md	hwpx_documentation_review	partial
-plugins/moai-officer/skills/doc-hwp/references/guide.md	hwpx_documentation_review	partial
-plugins/moai-officer/skills/doc-hwp/references/kr-official-forms.md	hwpx_documentation_review	partial
-plugins/moai-officer/skills/doc-hwp/references/owpml-spec.md	hwpx_documentation_review	partial
-plugins/moai-officer/skills/doc-hwp/references/templates/base.md	hwpx_documentation_review	partial
-plugins/moai-officer/skills/doc-hwp/references/templates/gonmun.md	hwpx_documentation_review	partial
-plugins/moai-officer/skills/doc-hwp/references/templates/minutes.md	hwpx_documentation_review	partial
-plugins/moai-officer/skills/doc-hwp/references/templates/proposal.md	hwpx_documentation_review	partial
-plugins/moai-officer/skills/doc-hwp/references/templates/report.md	hwpx_documentation_review	partial
-plugins/moai-officer/skills/doc-notion-template/SKILL.md	officer_document_review	partial
-plugins/moai-officer/skills/doc-pdf/SKILL.md	officer_document_review	partial
-plugins/moai-officer/skills/doc-pdf/assets/fonts/LICENSE.txt	officer_document_review	partial
-plugins/moai-officer/skills/doc-pdf/assets/fonts/README.md	officer_document_review	partial
-plugins/moai-officer/skills/doc-pdf/tests/test-cases.yaml	officer_document_review	partial
+plugins/moai-officer/skills/doc-html-slide/samples/deck-sample.html		static_read
+plugins/moai-officer/skills/doc-html-slide/samples/deck-sample.json		static_read
+plugins/moai-officer/skills/doc-hwp/SKILL.md	hwpx_documentation_review	static_read
+plugins/moai-officer/skills/doc-hwp/references/format-converter.md	hwpx_documentation_review	static_read
+plugins/moai-officer/skills/doc-hwp/references/guide.md	hwpx_documentation_review	static_read
+plugins/moai-officer/skills/doc-hwp/references/kr-official-forms.md	hwpx_documentation_review	static_read
+plugins/moai-officer/skills/doc-hwp/references/owpml-spec.md	hwpx_documentation_review	static_read
+plugins/moai-officer/skills/doc-hwp/references/templates/base.md	hwpx_documentation_review	static_read
+plugins/moai-officer/skills/doc-hwp/references/templates/gonmun.md	hwpx_documentation_review	static_read
+plugins/moai-officer/skills/doc-hwp/references/templates/minutes.md	hwpx_documentation_review	static_read
+plugins/moai-officer/skills/doc-hwp/references/templates/proposal.md	hwpx_documentation_review	static_read
+plugins/moai-officer/skills/doc-hwp/references/templates/report.md	hwpx_documentation_review	static_read
+plugins/moai-officer/skills/doc-notion-template/SKILL.md	officer_document_review	static_read
+plugins/moai-officer/skills/doc-pdf/SKILL.md	officer_document_review	static_read
+plugins/moai-officer/skills/doc-pdf/assets/fonts/LICENSE.txt	officer_document_review	static_read
+plugins/moai-officer/skills/doc-pdf/assets/fonts/README.md	officer_document_review	static_read
+plugins/moai-officer/skills/doc-pdf/tests/test-cases.yaml	officer_document_review	static_read
 plugins/moai-officer/skills/doc-pptx/SKILL.md	claude_only_tool	static_read
-plugins/moai-officer/skills/doc-pptx/references/curated-palettes.md	pptx_file_review	partial
-plugins/moai-officer/skills/doc-pptx/references/guide.md	pptx_file_review	partial
-plugins/moai-officer/skills/doc-pptx/references/pptxgen-code-patterns.md	pptx_file_review	partial
-plugins/moai-officer/skills/doc-pptx/references/qa-checklist.md	pptx_file_review	partial
-plugins/moai-officer/skills/doc-pptx/references/report-generator.md	pptx_file_review	partial
-plugins/moai-officer/skills/doc-pptx/references/slide-archetypes.md	pptx_file_review	partial
-plugins/moai-officer/skills/doc-pptx/references/templates/minimal-business.md	pptx_file_review	partial
-plugins/moai-officer/skills/doc-pptx/references/typography-pairings.md	pptx_file_review	partial
-plugins/moai-officer/skills/doc-reader/SKILL.md	officer_skill_review	partial
+plugins/moai-officer/skills/doc-pptx/references/curated-palettes.md	pptx_file_review	static_read
+plugins/moai-officer/skills/doc-pptx/references/guide.md	pptx_file_review	static_read
+plugins/moai-officer/skills/doc-pptx/references/pptxgen-code-patterns.md	pptx_file_review	static_read
+plugins/moai-officer/skills/doc-pptx/references/qa-checklist.md	pptx_file_review	static_read
+plugins/moai-officer/skills/doc-pptx/references/report-generator.md	pptx_file_review	static_read
+plugins/moai-officer/skills/doc-pptx/references/slide-archetypes.md	pptx_file_review	static_read
+plugins/moai-officer/skills/doc-pptx/references/templates/minimal-business.md	pptx_file_review	static_read
+plugins/moai-officer/skills/doc-pptx/references/typography-pairings.md	pptx_file_review	static_read
+plugins/moai-officer/skills/doc-reader/SKILL.md	officer_skill_review	static_read
 plugins/moai-officer/skills/doc-workflow/SKILL.md	new_chatgpt_agent_mapping	static_read
-plugins/moai-officer/skills/doc-xlsx/SKILL.md	officer_skill_review	partial
-plugins/moai-officer/skills/productivity-briefing/SKILL.md	officer_skill_review	partial
-plugins/moai-officer/skills/productivity-time/SKILL.md	officer_skill_review	partial
+plugins/moai-officer/skills/doc-xlsx/SKILL.md	officer_skill_review	static_read
+plugins/moai-officer/skills/productivity-briefing/SKILL.md	officer_skill_review	static_read
+plugins/moai-officer/skills/productivity-time/SKILL.md	officer_skill_review	static_read
 plugins/moai-officer/skills/setup-mcp-connector/SKILL.md	higgsfield_key	static_read
 plugins/moai-pm/.claude-plugin/plugin.json		static_read
 plugins/moai-pm/.codex-plugin/plugin.json		static_read
