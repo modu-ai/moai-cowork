@@ -17,8 +17,9 @@ import os
 import stat
 import tempfile
 import time
+from contextlib import contextmanager
 from pathlib import Path
-from typing import Any
+from typing import Any, Iterator
 
 #: 모든 자체 제작 MCP 서버가 공유하는 토큰 저장 위치.
 DEFAULT_DIR = Path.home() / ".moai" / "mcp"
@@ -54,6 +55,53 @@ class TokenStore:
     def persistent(self) -> bool:
         """마지막 저장이 파일에 기록됐는지. False면 인메모리로만 유지 중이다."""
         return self._persistent
+
+    @contextmanager
+    def refresh_lock(self, timeout: float = 45.0) -> Iterator[None]:
+        """서로 다른 앱의 일회용 리프레시 토큰 갱신을 직렬화한다."""
+        if not self._persistent:
+            yield
+            return
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        lock_path = self.path.with_name(self.path.name + ".lock")
+        with lock_path.open("a+b") as handle:
+            if os.name == "nt":
+                import msvcrt
+
+                handle.seek(0, os.SEEK_END)
+                if handle.tell() == 0:
+                    handle.write(b"\0")
+                    handle.flush()
+
+                def acquire() -> None:
+                    handle.seek(0)
+                    msvcrt.locking(handle.fileno(), msvcrt.LK_NBLCK, 1)
+
+                def release() -> None:
+                    handle.seek(0)
+                    msvcrt.locking(handle.fileno(), msvcrt.LK_UNLCK, 1)
+            else:
+                import fcntl
+
+                def acquire() -> None:
+                    fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
+
+                def release() -> None:
+                    fcntl.flock(handle, fcntl.LOCK_UN)
+
+            deadline = time.monotonic() + timeout
+            while True:
+                try:
+                    acquire()
+                    break
+                except OSError:
+                    if time.monotonic() >= deadline:
+                        raise TimeoutError("토큰 갱신 잠금 대기 시간이 지났습니다")
+                    time.sleep(0.05)
+            try:
+                yield
+            finally:
+                release()
 
     def load(self) -> dict[str, Any]:
         """저장된 토큰을 읽는다. 없거나 깨졌으면 빈 딕셔너리."""

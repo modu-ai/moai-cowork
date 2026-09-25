@@ -21,11 +21,11 @@ Linux 지원 배포판과 기능 제한은 [Claude Desktop 설치 안내](https:
 | `moai-writer` | 1.5.13 | `book-author-bio` | — | — |
 | `moai-story` | 1.2.4 | `story-ad-conti` | `higgsfield` | `higgsfield` |
 | `moai-marketer` | 1.2.22 | `content-blog` | `meta-ads`, `typefully`, `wordpress` | 동일 |
-| `moai-media` | 3.3.11 | `media-asset-production` | `ElevenLabs`, `higgsfield`, `moai-mcp-openai` | 동일 |
-| `moai-seller` | 1.4.14 | `commerce-ad-claim-compliance-kr` | `moai-mcp-smartstore`, `moai-mcp-imweb`, `moai-mcp-cafe24`, `cafe24-catalog-mcp`, `higgsfield` | 앞의 네 서버 |
+| `moai-media` | 3.3.12 | `media-asset-production` | `ElevenLabs`, `higgsfield`, `moai-mcp-openai` | 동일 |
+| `moai-seller` | 1.4.15 | `commerce-ad-claim-compliance-kr` | `moai-mcp-smartstore`, `moai-mcp-imweb`, `moai-mcp-cafe24`, `cafe24-catalog-mcp`, `higgsfield` | 앞의 네 서버 |
 | `moai-officer` | 1.3.7 | `doc-data-audit` | `kordoc` | `kordoc` |
 | `moai-analyst` | 1.3.6 | `data-building-ledger` | `korean-stats`, `archhub`, `dart` | 동일 |
-| `moai-lawyer` | 1.4.15 | `legal-compliance-check` | `korean-law`, `moai-mcp-ip` | 동일 |
+| `moai-lawyer` | 1.4.16 | `legal-compliance-check` | `korean-law`, `moai-mcp-ip` | 동일 |
 | `moai-accountant` | 1.3.8 | `finance-audit` | `dart` | `dart` |
 | `moai-recruiter` | 2.0.8 | `hr-draft-offer` | — | — |
 | `moai-cs` | 1.2.8 | `cs-channel-message` | — | — |
@@ -34,7 +34,7 @@ Linux 지원 배포판과 기능 제한은 [Claude Desktop 설치 안내](https:
 | `moai-tutor` | 1.3.4 | `education-assessment-audit` | — | — |
 | `moai-designer` | 1.4.31 | `design-brand-system` | `higgsfield` | `higgsfield` |
 | `moai-pm` | 1.6.7 | `project` | — | — |
-| `moai-threads-poster` | 2.0.4 | `instagram-comments` | `moai-mcp-threads-poster` | 동일 |
+| `moai-threads-poster` | 2.0.5 | `instagram-comments` | `moai-mcp-threads-poster` | 동일 |
 
 각 칸은 **설치 화면의 플러그인 버전 확인 → 예시 스킬 노출 확인 → 선언된 MCP 또는 연결 앱의 도구 노출 확인**을 한 앱·OS에서 마쳤을 때만 `PASS`로 바꾼다. 서버가 없는 플러그인은 마지막 단계가 해당 없음이다. 연결 도구의 실제 동작은 별도 호출 결과로 기록한다. 앱 설치·로그인부터 막혔다면 `BLOCKED`와 사유를 적는다. 지금까지 아래 칸은 모두 `NOT-RUN`이다.
 

@@ -17,6 +17,33 @@ def test_저장한_토큰을_다시_읽는다(tmp_path):
     assert reloaded.load() == {"access_token": "abc", "refresh_token": "xyz"}
 
 
+def test_갱신_잠금은_다른_클라이언트의_진입을_기다린다(tmp_path):
+    path = tmp_path / "shared.json"
+    first = TokenStore("shared", path=path)
+    second = TokenStore("shared", path=path)
+    started = threading.Event()
+    entered = threading.Event()
+    errors = []
+
+    def wait_for_lock():
+        started.set()
+        try:
+            with second.refresh_lock(timeout=2):
+                entered.set()
+        except Exception as exc:
+            errors.append(exc)
+
+    thread = threading.Thread(target=wait_for_lock)
+    with first.refresh_lock():
+        thread.start()
+        assert started.wait(1)
+        assert not entered.wait(0.1)
+    thread.join(2)
+    assert not thread.is_alive()
+    assert not errors
+    assert entered.is_set()
+
+
 def test_파일이_없으면_빈_딕셔너리(tmp_path):
     store = TokenStore("youtube", path=tmp_path / "없는파일.json")
     assert store.load() == {}

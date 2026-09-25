@@ -107,6 +107,17 @@ class OAuth2Refresher:
 
     def refresh(self) -> str:
         """리프레시 토큰으로 액세스 토큰을 새로 받는다."""
+        try:
+            with self.store.refresh_lock():
+                return self._refresh_under_lock()
+        except (OSError, TimeoutError) as exc:
+            raise AuthError("토큰 갱신 잠금을 확보하지 못했습니다. 토큰을 갱신하지 않았습니다.") from exc
+
+    def _refresh_under_lock(self) -> str:
+        # 다른 앱이 이 객체가 시작된 뒤 토큰을 회전시켰을 수 있다.
+        latest = self.store.load().get("refresh_token")
+        if latest:
+            self._refresh_token = str(latest)
         self._require_credentials()
 
         keys = KEY_STYLES.get(self.config.key_style, KEY_STYLES["snake"])
