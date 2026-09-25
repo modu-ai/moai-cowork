@@ -303,7 +303,7 @@ plugins/moai-designer/skills/design-system-library/systems/playstation.md		stati
 plugins/moai-designer/skills/design-system-library/systems/posthog.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/raycast.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/registry.md		static_read
-plugins/moai-designer/skills/design-system-library/systems/renault.md		mechanical_scan
+plugins/moai-designer/skills/design-system-library/systems/renault.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/replicate.md		mechanical_scan
 plugins/moai-designer/skills/design-system-library/systems/resend.md		mechanical_scan
 plugins/moai-designer/skills/design-system-library/systems/revolut.md		mechanical_scan

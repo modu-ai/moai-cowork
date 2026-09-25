@@ -31,101 +31,102 @@ colors:
   surface-deep: "#111111"
   hairline: "#f2f2f2"
   hairline-strong: "#000000"
+  control-border: "#666666"
   divider-dark: "rgba(255,255,255,0.16)"
   badge-new: "#ffed00"
   link: "#0000ee"
-  error: "#be6464"
-  warning: "#f0ad4e"
-  success: "#8dc572"
+  error: "#a13e3e"
+  warning: "#805000"
+  success: "#276a31"
   info: "#337ab7"
 
 typography:
   display-xl:
-    fontFamily: NouvelR
+    fontFamily: Inter Tight, system-ui, sans-serif
     fontSize: 56px
     fontWeight: 700
-    lineHeight: 0.95
+    lineHeight: 1.15
     letterSpacing: 0
   display-lg:
-    fontFamily: NouvelR
+    fontFamily: Inter Tight, system-ui, sans-serif
     fontSize: 40px
     fontWeight: 700
-    lineHeight: 0.95
+    lineHeight: 1.15
     letterSpacing: 0
   display-md:
-    fontFamily: NouvelR
+    fontFamily: Inter Tight, system-ui, sans-serif
     fontSize: 32px
     fontWeight: 700
-    lineHeight: 0.95
+    lineHeight: 1.15
     letterSpacing: 0
   heading-lg:
-    fontFamily: NouvelR
+    fontFamily: Inter Tight, system-ui, sans-serif
     fontSize: 24px
     fontWeight: 700
-    lineHeight: 0.95
+    lineHeight: 1.15
     letterSpacing: 0
   heading-md:
-    fontFamily: NouvelR
+    fontFamily: Inter Tight, system-ui, sans-serif
     fontSize: 20px
     fontWeight: 700
-    lineHeight: 0.95
+    lineHeight: 1.15
     letterSpacing: 0
   heading-sm:
-    fontFamily: NouvelR
+    fontFamily: Inter Tight, system-ui, sans-serif
     fontSize: 18px
     fontWeight: 700
-    lineHeight: 1.0
+    lineHeight: 1.2
     letterSpacing: 0
   subtitle:
-    fontFamily: NouvelR
+    fontFamily: Inter Tight, system-ui, sans-serif
     fontSize: 19.2px
     fontWeight: 600
     lineHeight: 1.3
     letterSpacing: 0
   body-lg:
-    fontFamily: NouvelR
+    fontFamily: Inter Tight, system-ui, sans-serif
     fontSize: 18px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0
   body-md:
-    fontFamily: NouvelR
+    fontFamily: Inter Tight, system-ui, sans-serif
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.4
     letterSpacing: 0
   body-sm:
-    fontFamily: NouvelR
+    fontFamily: Inter Tight, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 400
     lineHeight: 1.57
     letterSpacing: 0
   button-lg:
-    fontFamily: NouvelR
+    fontFamily: Inter Tight, system-ui, sans-serif
     fontSize: 16px
     fontWeight: 700
-    lineHeight: 1.0
+    lineHeight: 1.2
     letterSpacing: 0
   button-md:
-    fontFamily: NouvelR
+    fontFamily: Inter Tight, system-ui, sans-serif
     fontSize: 14.4px
     fontWeight: 700
-    lineHeight: 1.0
+    lineHeight: 1.2
     letterSpacing: 0.144px
   button-sm:
-    fontFamily: NouvelR
+    fontFamily: Inter Tight, system-ui, sans-serif
     fontSize: 13px
     fontWeight: 600
     lineHeight: 1.2
     letterSpacing: 0.13px
   caption:
-    fontFamily: NouvelR
+    fontFamily: Inter Tight, system-ui, sans-serif
     fontSize: 12px
     fontWeight: 400
     lineHeight: 1.4
     letterSpacing: 0
   overline:
-    fontFamily: NouvelR
+    fontFamily: Inter Tight, system-ui, sans-serif
     fontSize: 10px
     fontWeight: 700
     lineHeight: 1.45
@@ -172,18 +173,21 @@ components:
   button-outline-dark:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.ink}"
+    border: "1px solid {colors.hairline-strong}"
     typography: "{typography.button-md}"
     rounded: "{rounded.xs}"
     padding: 13px 23px
   button-outline-light:
     backgroundColor: "{colors.surface-dark}"
     textColor: "{colors.on-dark}"
+    border: "1px solid {colors.on-dark}"
     typography: "{typography.button-md}"
     rounded: "{rounded.xs}"
     padding: 13px 23px
   button-pill:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.ink}"
+    border: "1px solid {colors.hairline-strong}"
     typography: "{typography.button-sm}"
     rounded: "{rounded.pill}"
     padding: 8px 16px
@@ -191,15 +195,23 @@ components:
   button-icon-square:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.ink}"
+    border: "1px solid {colors.hairline-strong}"
     rounded: "{rounded.xs}"
     size: 40px
   text-input:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.ink}"
+    borderBottom: "1px solid {colors.control-border}"
     typography: "{typography.body-md}"
     rounded: "{rounded.none}"
     padding: 12px 16px
     height: 48px
+  text-input-focused:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    borderBottom: "2px solid {colors.hairline-strong}"
+    outline: "2px solid {colors.hairline-strong}"
+    rounded: "{rounded.none}"
   hero-banner:
     backgroundColor: "{colors.surface-dark}"
     textColor: "{colors.on-dark}"
@@ -238,6 +250,10 @@ components:
     backgroundColor: "{colors.surface-soft}"
     rounded: "{rounded.full}"
     size: 56px
+  configurator-swatch-active:
+    border: "2px solid {colors.hairline-strong}"
+    rounded: "{rounded.full}"
+    size: 56px
   badge-new:
     backgroundColor: "{colors.badge-new}"
     textColor: "{colors.on-primary}"
@@ -274,11 +290,11 @@ the tone — geometric, confident, slightly industrial — and the system follow
 suit. Square corners dominate, hairline borders are rare, and elevation is
 expressed through colour blocking rather than shadow.
 
-The typography is monolithic. Every text on the site is set in **NouvelR**,
-Renault's bespoke display family, with a strong preference for weight 700 at
-display sizes (with a tight `lineHeight: 0.95`) and weight 400 for body. There
-is no secondary serif, no decorative italic, no script — the discipline is
-the signature.
+The reference typography uses **NouvelR**, Renault's bespoke family. The
+portable tokens use **Inter Tight** with an operating-system sans-serif
+fallback at weight 700 for display and 400 for body. Display line height is
+1.15 so mixed-script headings remain readable; check wrapping in the rendered
+interface.
 
 Page rhythm cycles between three surface modes: a **white catalogue mode** for
 listings and configurators (`{colors.canvas}` with hairline-thin
@@ -290,7 +306,7 @@ yellow paint shots) that punctuate the otherwise neutral palette.
 **Key Characteristics:**
 - Two-tone canvas system — `{colors.canvas}` (white) for browsing, `{colors.surface-dark}` (black) for storytelling — switched in full-bleed bands rather than subtle gradations.
 - A single brand accent — `{colors.primary}` Sunlight Yellow — used scarcely on primary CTAs, "NEW" badges, R5 hero photography, and configurator dot indicators.
-- **NouvelR everywhere**, with `{typography.display-xl}` headlines at 56px / weight 700 / `lineHeight: 0.95` so condensed multi-line headlines stack cleanly.
+- **Inter Tight** in the portable tokens, with `{typography.display-xl}` headlines at 56px / weight 700 / `lineHeight: 1.15`; NouvelR requires separate use rights.
 - Square geometry: `{rounded.xs}` (2px) on buttons, `{rounded.none}` on tiles and product cards, `{rounded.pill}` reserved exclusively for sub-nav chips and decorative badges.
 - Photography-first product tiles — vehicle photos full-bleed inside otherwise neutral cards, with copy stacked beneath rather than overlaid.
 - Page-level rhythm cycles white → black → yellow accent → black, with the wordmark and footer always closing on `{colors.surface-dark}`.
@@ -307,8 +323,9 @@ yellow paint shots) that punctuate the otherwise neutral palette.
 - **Surface Soft** (`{colors.surface-soft}` — `#f7f7f7`): subtle elevation step for grouped configurator rows and inactive form fields.
 - **Surface Dark** (`{colors.surface-dark}` — `#000000`): the alternate canvas, used for hero bands, footer, and full-bleed storytelling sections.
 - **Surface Deep** (`{colors.surface-deep}` — `#111111`): a one-step-up elevation inside `{colors.surface-dark}` regions for inset cards and form panels.
-- **Hairline** (`{colors.hairline}` — `#f2f2f2`): the soft 1px divider between rows on white surfaces.
+- **Hairline** (`{colors.hairline}` — `#f2f2f2`): decorative row divider only, never a required control boundary.
 - **Hairline Strong** (`{colors.hairline-strong}` — `#000000`): full-strength dividers on white, plus all card / button outlines.
+- **Control Border** (`{colors.control-border}` — `#666666`): required input boundary on white.
 - **Divider Dark** (`{colors.divider-dark}` — `rgba(255,255,255,0.16)`): the corresponding low-contrast divider used inside `{colors.surface-dark}` regions.
 
 ### Text
@@ -316,15 +333,15 @@ yellow paint shots) that punctuate the otherwise neutral palette.
 - **Body** (`{colors.body}` — `#222222`): secondary body text where pure black would feel too heavy in long paragraphs.
 - **Charcoal** (`{colors.charcoal}` — `#333333`): captions, metadata, and small labels.
 - **Mute** (`{colors.mute}` — `#666666`): supporting text and inactive nav labels.
-- **Ash** (`{colors.ash}` — `#8a8a8a`): placeholder text, disabled labels.
-- **Stone** (`{colors.stone}` — `#c4c4c4`): disabled-state foreground.
+- **Ash** (`{colors.ash}` — `#8a8a8a`): disabled labels only, never essential placeholder text.
+- **Stone** (`{colors.stone}` — `#c4c4c4`): decorative disabled-state foreground only.
 - **On-Dark** (`{colors.on-dark}` — `#ffffff`): primary text on `{colors.surface-dark}` surfaces.
 - **On-Dark Mute** (`{colors.on-dark-mute}` — `rgba(255,255,255,0.72)`): secondary text in dark regions; preserves the brand's high-contrast feel without resorting to mid-grey.
 
 ### Semantic
-- **Error** (`{colors.error}` — `#be6464`): muted desaturated red used for inline form errors. Notably warmer than typical pure-red error states.
-- **Warning** (`{colors.warning}` — `#f0ad4e`): amber alert.
-- **Success** (`{colors.success}` — `#8dc572`): muted green confirmation.
+- **Error** (`{colors.error}` — `#a13e3e`): text for inline form errors on light surfaces.
+- **Warning** (`{colors.warning}` — `#805000`): warning text on light surfaces.
+- **Success** (`{colors.success}` — `#276a31`): confirmation text on light surfaces.
 - **Info** (`{colors.info}` — `#337ab7`): a desaturated mid-blue used in informational chips.
 - **Link** (`{colors.link}` — `#0000ee`): the unstyled-anchor default kept for fallback inline text links — production links inherit `{colors.ink}` and rely on underline/weight rather than colour.
 
@@ -332,50 +349,39 @@ yellow paint shots) that punctuate the otherwise neutral palette.
 
 ### Font Family
 
-The entire system is set in **NouvelR**, Renault's proprietary display
-family, used across navigation, headlines, body, captions, and button
-labels. The family carries a slightly geometric, semi-condensed personality
-with tall x-heights and squared apexes that pair naturally with the diamond
-logomark.
+The source design uses **NouvelR**. The portable default is [Inter Tight under OFL](https://github.com/google/fonts/blob/main/ofl/intertight/METADATA.pb), loaded explicitly when available, with `system-ui, sans-serif` fallback on macOS, Windows, and Linux. Keep NouvelR as a reference only until usage rights are confirmed.
 
-When NouvelR cannot be licensed, suitable open-source substitutes include
-**Inter Tight**, **Manrope**, or **HK Grotesk Semi Condensed** — all share
-the geometric-with-warmth feel and adapt cleanly to weights 400 / 600 / 700.
-Tighten `lineHeight` on display sizes to ~0.95 to match the original; do not
-relax it.
+Inter Tight provides the needed 400 / 600 / 700 weights. Check line breaks and glyph coverage, especially for Korean copy, against the actual loaded font and operating-system fallback.
 
 ### Hierarchy
 
 | Token | Size | Weight | Line Height | Letter Spacing | Use |
 |---|---|---|---|---|---|
-| `{typography.display-xl}` | 56px | 700 | 0.95 | 0 | Hero headlines, campaign titles ("E-TECH ELEKTRİKLİ", "REVOLUTION"). |
-| `{typography.display-lg}` | 40px | 700 | 0.95 | 0 | Secondary section titles. |
-| `{typography.display-md}` | 32px | 700 | 0.95 | 0 | Page-level H1 on sub-pages and configurator panels. |
-| `{typography.heading-lg}` | 24px | 700 | 0.95 | 0 | Section headers, card titles. |
-| `{typography.heading-md}` | 20px | 700 | 0.95 | 0 | Sub-section headers, prominent labels. |
-| `{typography.heading-sm}` | 18px | 700 | 1.0 | 0 | Tile titles, list group headers. |
+| `{typography.display-xl}` | 56px | 700 | 1.15 | 0 | Hero headlines, campaign titles ("E-TECH ELEKTRİKLİ", "REVOLUTION"). |
+| `{typography.display-lg}` | 40px | 700 | 1.15 | 0 | Secondary section titles. |
+| `{typography.display-md}` | 32px | 700 | 1.15 | 0 | Page-level H1 on sub-pages and configurator panels. |
+| `{typography.heading-lg}` | 24px | 700 | 1.15 | 0 | Section headers, card titles. |
+| `{typography.heading-md}` | 20px | 700 | 1.15 | 0 | Sub-section headers, prominent labels. |
+| `{typography.heading-sm}` | 18px | 700 | 1.2 | 0 | Tile titles, list group headers. |
 | `{typography.subtitle}` | 19.2px | 600 | 1.3 | 0 | Lead paragraphs, hero subtitles. |
 | `{typography.body-lg}` | 18px | 400 | 1.5 | 0 | Long-form body. |
 | `{typography.body-md}` | 16px | 400 | 1.4 | 0 | Default body and form fields. |
 | `{typography.body-sm}` | 14px | 400 | 1.57 | 0 | Captions, metadata. |
-| `{typography.button-lg}` | 16px | 700 | 1.0 | 0 | Large CTAs in hero bands. |
-| `{typography.button-md}` | 14.4px | 700 | 1.0 | 0.144px | Default button label across the system. |
+| `{typography.button-lg}` | 16px | 700 | 1.2 | 0 | Large CTAs in hero bands. |
+| `{typography.button-md}` | 14.4px | 700 | 1.2 | 0.144px | Default button label across the system. |
 | `{typography.button-sm}` | 13px | 600 | 1.2 | 0.13px | Sub-nav pills, small in-card actions. |
 | `{typography.caption}` | 12px | 400 | 1.4 | 0 | Footer disclosure, regulatory text. |
 | `{typography.overline}` | 10px | 700 | 1.45 | 0 | Short uppercase labels above titles. |
 
 ### Principles
-- Display sizes always weight 700, always at `lineHeight: 0.95`. The tightness is what makes the brand feel confident rather than corporate.
+- Display sizes always weight 700, always at `lineHeight: 1.15`. The tightness is what makes the brand feel confident rather than corporate.
 - Body copy stays at weight 400 — never 500. The contrast between body and display is part of the system.
 - Button labels carry a tiny positive letter-spacing (`0.144px` on `{typography.button-md}`) — almost imperceptible, but it adds the small bit of mechanical precision the brand wants on CTAs.
 - No italics, no script, no decorative ligatures.
 
 ### Note on Font Substitutes
 
-NouvelR is licensed; substitutes (Inter Tight / Manrope / HK Grotesk Semi
-Condensed) preserve the geometric character but typically render with
-slightly looser line heights at display sizes — clamp display
-`lineHeight` to 0.95 explicitly to match the source.
+NouvelR remains a reference font. Load Inter Tight explicitly if used; when it is unavailable or does not cover a script, the token falls back to the operating-system sans-serif. Recheck layout after font loading rather than forcing the source's tight 0.95 line height.
 
 ## Layout
 
@@ -443,7 +449,7 @@ and used on floating elements like the configurator's sticky summary bar.
 
 **`button-secondary-dark`** — solid black CTA
 - Background `{colors.surface-dark}`, label `{colors.on-dark}`, type `{typography.button-md}`, `rounded: {rounded.xs}`.
-- Equal-weight secondary action paired with `{component.button-primary}`, or the primary action when used on a yellow tile background.
+- Equal-weight secondary action paired with `{components.button-primary}`, or the primary action when used on a yellow tile background.
 
 **`button-outline-dark`** — outlined CTA on light
 - Background `{colors.canvas}`, label `{colors.ink}`, 1px solid `{colors.hairline-strong}`, type `{typography.button-md}`, `rounded: {rounded.xs}`.
@@ -451,7 +457,7 @@ and used on floating elements like the configurator's sticky summary bar.
 
 **`button-outline-light`** — outlined CTA on dark
 - Background `{colors.surface-dark}`, label `{colors.on-dark}`, 1px solid `{colors.on-dark}`, type `{typography.button-md}`, `rounded: {rounded.xs}`.
-- The dark-canvas counterpart to `{component.button-outline-dark}`.
+- The dark-canvas counterpart to `{components.button-outline-dark}`.
 
 **`button-pill`** — sub-nav chip
 - Background `{colors.canvas}`, label `{colors.ink}`, 1px solid `{colors.hairline-strong}`, type `{typography.button-sm}`, `rounded: {rounded.pill}`, height 36px.
@@ -486,8 +492,9 @@ and used on floating elements like the configurator's sticky summary bar.
 ### Inputs & Forms
 
 **`text-input`** — default input
-- Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.body-md}`, 1px bottom border `{colors.hairline-strong}`, `rounded: {rounded.none}`, padding `{spacing.sm} {spacing.md}`, height 48px.
-- Inputs intentionally minimal — borderless on top and sides, single hairline at the bottom — keeping the catalogue feel.
+- Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.body-md}`, 1px bottom border `{colors.control-border}`, `rounded: {rounded.none}`, padding `{spacing.sm} {spacing.md}`, height 48px.
+- Inputs intentionally minimal — borderless on top and sides, single visible rule at the bottom — keeping the catalogue feel.
+- Focused: `{components.text-input-focused}` adds a 2px black bottom border and visible outline; check the rendered focus state with keyboard navigation.
 
 ### Configurator
 
@@ -497,7 +504,7 @@ and used on floating elements like the configurator's sticky summary bar.
 
 **`configurator-swatch`** — circular colour pick
 - Background `{colors.surface-soft}` (or the actual car colour), `rounded: {rounded.full}`, 56×56px.
-- Used for paint colour selection. Active state adds a 1px solid `{colors.hairline-strong}` ring.
+- Used for paint colour selection. Apply `{components.configurator-swatch-active}` on top of the base swatch so its paint-colour fill remains unchanged; the active variant adds a 2px solid `{colors.hairline-strong}` ring. Announce the selected paint in text as well.
 
 ### Navigation
 
@@ -509,7 +516,7 @@ and used on floating elements like the configurator's sticky summary bar.
 - Same height 60px, collapses centre nav into a hamburger icon. Logo stays left, login stays right.
 
 **`sub-nav-pill`** — pill-style sub-nav
-- Pill chips set in a horizontal scroll bar between hero and content body (e.g. "Servis & randevu", "Sahiplik dönemi geçişi", "Kampanyalar"), `{component.button-pill}` styling.
+- Pill chips set in a horizontal scroll bar between hero and content body (e.g. "Servis & randevu", "Sahiplik dönemi geçişi", "Kampanyalar"), `{components.button-pill}` styling.
 
 ### Signature Components
 
@@ -524,14 +531,14 @@ and used on floating elements like the configurator's sticky summary bar.
 ## Do's and Don'ts
 
 ### Do
-- Reserve `{colors.primary}` exclusively for primary CTAs, "yeni"/"NEW" badges, and at most one accent promo tile per band — `{component.promo-tile-yellow}` is intentionally rare.
+- Reserve `{colors.primary}` exclusively for primary CTAs, "yeni"/"NEW" badges, and at most one accent promo tile per band — `{components.promo-tile-yellow}` is intentionally rare.
 - Pair `{colors.primary}` only with `{colors.on-primary}` text. Yellow + white is forbidden.
-- Set everything in **NouvelR** — no secondary serif, no script, no decorative italic.
-- Hold display headlines at `{typography.display-xl}` weight 700 with `lineHeight: 0.95` so they stack tightly on multi-line wraps.
+- Use the portable **Inter Tight** stack for text; use NouvelR only with confirmed rights. Do not add a decorative serif or script.
+- Hold display headlines at `{typography.display-xl}` weight 700 with `lineHeight: 1.15` so they stack tightly on multi-line wraps.
 - Use `{rounded.xs}` (2px) on every standard button — the near-flat corner is part of the brand.
 - Switch full bands between `{colors.canvas}` and `{colors.surface-dark}` for storytelling rhythm. Avoid mid-greys as section backgrounds.
-- Show vehicle photography full-bleed inside `{component.vehicle-card}` with copy stacked beneath, never overlaid.
-- Use `{component.sub-nav-pill}` (`{rounded.pill}`) only for sub-nav and small filter rows — never for primary CTAs.
+- Show vehicle photography full-bleed inside `{components.vehicle-card}` with copy stacked beneath, never overlaid.
+- Use `{components.sub-nav-pill}` (`{rounded.pill}`) only for sub-nav and small filter rows — never for primary CTAs.
 
 ### Don't
 - Don't introduce a secondary accent colour. Yellow is the only brand accent; semantic colours (`{colors.error}`, `{colors.success}`, `{colors.warning}`) are functional, not decorative.
@@ -539,7 +546,7 @@ and used on floating elements like the configurator's sticky summary bar.
 - Don't soften body weights to 500 or 600 — the system relies on the 400 / 700 contrast.
 - Don't apply `{colors.primary}` to body text or large surfaces beyond the single accent tile per band.
 - Don't add atmospheric gradient washes outside the dedicated R5 / E-TECH hero contexts.
-- Don't pair light grey text on white. Body text steps through `{colors.body}`, `{colors.charcoal}`, `{colors.mute}` — `{colors.ash}` and `{colors.stone}` are reserved for placeholders and disabled states.
+- Don't pair light grey text on white. Body text and essential placeholders use `{colors.body}`, `{colors.charcoal}`, or `{colors.mute}`; `{colors.ash}` and `{colors.stone}` are reserved for disabled or decorative states.
 - Don't add drop shadows to vehicle cards or promo tiles — the system is shadow-free at the catalogue level.
 
 ## Responsive Behavior
@@ -556,9 +563,7 @@ and used on floating elements like the configurator's sticky summary bar.
 | Mobile | ≤ 425px | All grids 1-up, hero `{typography.display-xl}` clamps to ~40px, section padding `{spacing.section}` collapses to `{spacing.xxxl}`. |
 
 ### Touch Targets
-- All buttons ship at minimum 44×44px on mobile; default `{component.button-primary}` is 48px tall, comfortably exceeding WCAG AAA.
-- `{component.sub-nav-pill}` (36px) is bumped to 40px tall on mobile via increased vertical padding.
-- `{component.button-icon-square}` (40px) sits at the WCAG AA minimum and remains tappable, but should grow to 44px when used as a primary navigation control.
+- The YAML gives `{components.button-primary}` a 48px height, `{components.button-pill}` a 36px height, and `{components.button-icon-square}` a 40px square. Measure rendered target sizes and spacing on each layout, then enlarge controls where needed for WCAG 2.2 target-size criteria. Check focus visibility and keyboard access in the running interface.
 
 ### Collapsing Strategy
 - Top-level nav collapses to hamburger at < 1024px; the logo and login icon stay anchored.
@@ -570,12 +575,12 @@ and used on floating elements like the configurator's sticky summary bar.
 ### Image Behavior
 - Vehicle photography is served at 1.5× and 2× DPR; below 768px, the system swaps to a portrait-oriented composition where art direction allows.
 - Hero atmospheric gradients (R5, E-TECH) load lazily after primary content; they are not blocking.
-- Lifestyle / commercial photography in `{component.promo-tile-dark}` keeps the same 16:9 framing across breakpoints, cropping inward rather than letterboxing.
+- Lifestyle / commercial photography in `{components.promo-tile-dark}` keeps the same 16:9 framing across breakpoints, cropping inward rather than letterboxing.
 
 ## Iteration Guide
 
-1. Focus on ONE component at a time. Most components share `{rounded.xs}`, `{colors.canvas}` / `{colors.surface-dark}`, and NouvelR — only the role-specific tokens (`{colors.primary}`, `{component.promo-tile-yellow}`) shift between variants.
-2. Reference component names and tokens directly (`{colors.primary}`, `{component.button-primary-pressed}`, `{rounded.pill}`) — do not paraphrase.
+1. Focus on ONE component at a time. Most components share `{rounded.xs}`, `{colors.canvas}` / `{colors.surface-dark}`, and the portable font stack — only the role-specific tokens (`{colors.primary}`, `{components.promo-tile-yellow}`) shift between variants.
+2. Reference component names and tokens directly (`{colors.primary}`, `{components.button-primary-pressed}`, `{rounded.pill}`) — do not paraphrase.
 3. Run `npx --yes -p "@google/design.md@0.4.0" designmd lint DESIGN.md` after edits; the orphaned-tokens warning will catch unused entries before they ship.
 4. Add new variants as separate entries (`-pressed`, `-disabled`, `-outline`) — do not bury them in prose.
 5. Default body type to `{typography.body-md}`; reach for `{typography.subtitle}` only on hero subtitles and lead paragraphs.
@@ -583,7 +588,10 @@ and used on floating elements like the configurator's sticky summary bar.
 
 ## Known Gaps
 
+- Current Renault vehicle imagery, diamond mark, model availability, pricing, campaign copy, and reuse rights have not been checked. Verify current sources and permission before publication.
+- Inter Tight loading, script fallback, focus styling, control dimensions, photo-overlay contrast, and desktop behavior on macOS/Windows/Linux have not been observed.
+
 - Active/pressed visual states are not consistently observable in static surfaces; `button-primary-pressed` documents the extracted darkened-yellow value, but no other component has a pressed variant promoted to the YAML.
 - Drop-shadow values exist in the extracted tokens but are rarely surfaced visually; only the configurator's sticky summary bar uses them on the captured pages.
 - The MyRenault application surfaces (logged-in product) are out of scope for this extraction — only the public marketing canvas is documented.
-- Form-field focus styling is not extracted; the system likely relies on a thicker bottom border at `{colors.ink}`, but this is not visually confirmed on the captured pages.
+- The focus and selected-swatch variants above are implementation guidance; their exact appearance on Renault's current pages has not been confirmed.
