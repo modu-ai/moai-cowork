@@ -6,7 +6,7 @@ description: Mistral AI brands itself with a singular signature — atmospheric 
 colors:
   primary: "#fa520f"
   primary-deep: "#cc3a05"
-  on-primary: "#ffffff"
+  on-primary: "#1f1f1f"
   sunshine-300: "#ffd06a"
   sunshine-500: "#ffb83e"
   sunshine-700: "#ffa110"
@@ -25,7 +25,7 @@ colors:
   charcoal: "#2c2c2c"
   slate: "#4a4a4a"
   steel: "#6a6a6a"
-  stone: "#8a8a8a"
+  stone: "#707070"
   muted: "#a8a8a8"
   hairline: "#e5e5e5"
   hairline-soft: "#ededed"
@@ -39,107 +39,107 @@ colors:
   on-dark-muted: "#a8a8a8"
   on-cream: "#1f1f1f"
   footer-cream: "#fff8e0"
-  link: "#fa520f"
+  link: "#cc3a05"
 
 typography:
   hero-display:
-    fontFamily: PP Editorial Old
+    fontFamily: Newsreader, Georgia, serif
     fontSize: 84px
     fontWeight: 400
     lineHeight: 1.05
     letterSpacing: -1.5px
   display-lg:
-    fontFamily: PP Editorial Old
+    fontFamily: Newsreader, Georgia, serif
     fontSize: 64px
     fontWeight: 400
     lineHeight: 1.10
     letterSpacing: -1px
   heading-1:
-    fontFamily: PP Editorial Old
+    fontFamily: Newsreader, Georgia, serif
     fontSize: 52px
     fontWeight: 400
     lineHeight: 1.15
     letterSpacing: -0.5px
   heading-2:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 36px
     fontWeight: 500
     lineHeight: 1.20
     letterSpacing: -0.5px
   heading-3:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 28px
     fontWeight: 500
     lineHeight: 1.25
   heading-4:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 22px
     fontWeight: 500
     lineHeight: 1.30
   heading-5:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 18px
     fontWeight: 500
     lineHeight: 1.40
   subtitle:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 18px
     fontWeight: 400
     lineHeight: 1.50
   body-md:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.55
   body-md-medium:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 16px
     fontWeight: 500
     lineHeight: 1.55
   body-sm:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 400
     lineHeight: 1.50
   body-sm-medium:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 500
     lineHeight: 1.50
   caption:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 13px
     fontWeight: 400
     lineHeight: 1.40
   caption-bold:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 13px
     fontWeight: 600
     lineHeight: 1.40
   micro:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 12px
     fontWeight: 500
     lineHeight: 1.40
   micro-uppercase:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 11px
     fontWeight: 600
     lineHeight: 1.40
     letterSpacing: 1px
   button-md:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 500
     lineHeight: 1.30
   stat-display:
-    fontFamily: PP Editorial Old
+    fontFamily: Newsreader, Georgia, serif
     fontSize: 56px
     fontWeight: 400
     lineHeight: 1.10
     letterSpacing: -1px
   code-md:
-    fontFamily: JetBrains Mono
+    fontFamily: JetBrains Mono, ui-monospace, monospace
     fontSize: 14px
     fontWeight: 400
     lineHeight: 1.50
@@ -176,7 +176,7 @@ components:
     padding: "10px 20px"
   button-primary-pressed:
     backgroundColor: "{colors.primary-deep}"
-    textColor: "{colors.on-primary}"
+    textColor: "{colors.on-dark}"
   button-primary-disabled:
     backgroundColor: "{colors.hairline}"
     textColor: "{colors.muted}"
@@ -209,7 +209,7 @@ components:
     border: "1px solid {colors.beige-deep}"
   button-link:
     backgroundColor: "transparent"
-    textColor: "{colors.primary}"
+    textColor: "{colors.link}"
     typography: "{typography.body-sm-medium}"
     padding: "0"
   card-base:
@@ -298,7 +298,7 @@ components:
     border: "0 0 2px transparent solid"
   segmented-tab-active:
     backgroundColor: "transparent"
-    textColor: "{colors.primary}"
+    textColor: "{colors.link}"
     typography: "{typography.body-sm-medium}"
     border: "0 0 2px {colors.primary} solid"
   badge-orange:
@@ -388,7 +388,7 @@ components:
     padding: "{spacing.section} {spacing.xxl}"
   footer-link:
     backgroundColor: "transparent"
-    textColor: "{colors.primary}"
+    textColor: "{colors.link}"
     typography: "{typography.body-sm}"
     padding: "{spacing.xxs} 0"
   app-store-badge:
@@ -403,13 +403,13 @@ components:
 
 Mistral AI carries itself with a singular, almost cinematographic visual signature — the homepage opens with "Frontier AI. In your hands." rendered in elegant near-serif display type over a photographic mountain landscape bathed in mustard-orange sunset light. Below the hero, every page closes with the same recognizable element: a horizontal "sunset stripe" gradient band running red→orange→yellow→cream that wraps the foot of the page just above the footer. This stripe is THE brand recognizer — it appears on the homepage, products/studio, solutions/coding, news articles, contact form, and services tier page without exception.
 
-The system pairs PP Editorial Old (a near-serif elegant display face) for hero displays with Inter for everything else (body, headings, UI). Cream-yellow surfaces ({colors.cream}, {colors.surface-cream-soft}) anchor form panels and feature cards; saturated orange ({colors.primary}) carries primary CTAs; the deep mountain photography on the homepage and the dark code mockups inside Le Studio create photographic depth. Cards are rectangular with `{rounded.lg}` (12px) corners — distinctly less playful than Miro's or Mintlify's pill-buttons-everywhere approach. Buttons are also `{rounded.md}` (8px), not pills — Mistral's geometry is more sober and editorial than its peers.
+The reference pairs PP Editorial Old for hero displays with Inter for body and UI. The reusable default pairs Newsreader with Inter; PP Editorial Old requires separate rights for the intended output. Cream-yellow surfaces ({colors.cream}, {colors.surface-cream-soft}) anchor form panels and feature cards; saturated orange ({colors.primary}) carries primary CTAs. Cards use `{rounded.lg}` (12px) corners and buttons use `{rounded.md}` (8px).
 
 **Key Characteristics:**
 - Atmospheric mountain-sunset hero photography (orange-red-yellow gradient sky)
 - Horizontal "sunset stripe" band ({colors.primary} → {colors.sunshine-700} → {colors.yellow-saturated} → {colors.cream}) at every page bottom
 - Cream-yellow surfaces ({colors.cream}, {colors.cream-light}) for form panels and feature cards
-- PP Editorial Old (or similar near-serif) for hero displays; Inter for everything else
+- Newsreader for reusable hero displays and Inter for UI; PP Editorial Old only with the required rights
 - `{rounded.md}` (8px) buttons and `{rounded.lg}` (12px) cards — less playful, more editorial geometry
 - Saturated orange primary CTA ({colors.primary}) carries every action call
 
@@ -456,25 +456,25 @@ The system pairs PP Editorial Old (a near-serif elegant display face) for hero d
 - **On Cream** ({colors.on-cream}): Ink text on cream surfaces
 
 ### Semantic
-- **Link** ({colors.link}): Inline link color (matches primary orange)
+- **Link** ({colors.link}): Darker orange for readable inline links on white and cream
 
 ## Typography
 
 ### Font Family
-**PP Editorial Old** (display): Mistral's signature near-serif elegant display typeface used for hero displays, large numbers, and editorial section openers. Carries a slightly classical, intelligent character that contrasts the contemporary product positioning. Fallbacks: 'Times New Roman', Georgia, serif.
+**Reference**: PP Editorial Old is a [Pangram Pangram typeface](https://pangrampangram.com/blogs/journal/backstage-editorial-old); a trial or installed copy does not establish publishing rights. **Reusable default**: [OFL Newsreader](https://github.com/google/fonts/blob/main/ofl/newsreader/METADATA.pb), then Georgia and serif. Check the loaded face and line breaks before claiming a close visual match.
 
-**Inter** (UI prose): Variable typeface for body, navigation, buttons, labels, captions. Fallbacks: ui-sans-serif, system-ui, -apple-system, sans-serif.
+**Inter** (UI prose): Variable typeface for body, navigation, buttons, labels, captions. The YAML includes `system-ui, sans-serif` fallbacks.
 
-**JetBrains Mono** (code): Monospace for code blocks and IDE mockups. Fallbacks: 'SF Mono', Menlo, Consolas, monospace.
+**JetBrains Mono** (code): Monospace for code blocks and IDE mockups. The YAML includes `ui-monospace, monospace` fallbacks.
 
 ### Hierarchy
 
 | Token | Size | Weight | Line Height | Letter Spacing | Family | Use |
 |---|---|---|---|---|---|---|
-| `{typography.hero-display}` | 84px | 400 | 1.05 | -1.5px | PP Editorial Old | Hero ("Frontier AI. In your hands.") |
-| `{typography.display-lg}` | 64px | 400 | 1.10 | -1px | PP Editorial Old | Section openers |
-| `{typography.heading-1}` | 52px | 400 | 1.15 | -0.5px | PP Editorial Old | Page headlines ("Get in touch with the team.") |
-| `{typography.stat-display}` | 56px | 400 | 1.10 | -1px | PP Editorial Old | Stat callouts ("75%") |
+| `{typography.hero-display}` | 84px | 400 | 1.05 | -1.5px | Newsreader default | Hero ("Frontier AI. In your hands.") |
+| `{typography.display-lg}` | 64px | 400 | 1.10 | -1px | Newsreader default | Section openers |
+| `{typography.heading-1}` | 52px | 400 | 1.15 | -0.5px | Newsreader default | Page headlines ("Get in touch with the team.") |
+| `{typography.stat-display}` | 56px | 400 | 1.10 | -1px | Newsreader default | Verified current stat callouts |
 | `{typography.heading-2}` | 36px | 500 | 1.20 | -0.5px | Inter | Subsection headlines |
 | `{typography.heading-3}` | 28px | 500 | 1.25 | 0 | Inter | Card titles |
 | `{typography.heading-4}` | 22px | 500 | 1.30 | 0 | Inter | Feature tile titles |
@@ -492,11 +492,11 @@ The system pairs PP Editorial Old (a near-serif elegant display face) for hero d
 | `{typography.code-md}` | 14px | 400 | 1.50 | 0 | JetBrains Mono | Code blocks |
 
 ### Principles
-- **Editorial / sans pairing** — PP Editorial Old (near-serif, classical) anchors hero displays; Inter (geometric sans) carries everything else. The contrast IS the brand voice.
+- **Editorial / sans pairing** — Newsreader anchors reusable hero displays; Inter carries the UI. Use PP Editorial Old only when licensed for the output.
 - **Generous body leading** (1.55 on body-md) for editorial readability across long-form pages
 - **Tight hero leading** (1.05 on 84px display) creates magazine-grade typographic display
 - **Negative letter-spacing** progresses with size — display sizes use -1.5px to -0.5px; smaller heads relax to 0
-- **Stat-display token** (56px Editorial) for marketing stat callouts ("75% / 80% / 100%")
+- **Stat-display token** (56px editorial serif) for marketing stat callouts whose values have a current source
 
 ## Layout
 
@@ -552,7 +552,7 @@ The radius scale is sober and editorial — Mistral does NOT use pill buttons. `
 ### Photography Geometry
 - Hero photography is full-bleed atmospheric mountain-sunset imagery with no internal framing
 - IDE/code mockups render with `{rounded.lg}` (12px) corners on dark canvas
-- Customer logos wall presents wordmarks inline at consistent 60–80px height
+- A customer logo wall can present wordmarks inline at a consistent height after customer relationships and logo-use rights are confirmed.
 - Product imagery (Le Studio mockup, agent UI mockups) sits in `{rounded.lg}` panels with subtle border
 
 ## Components
@@ -579,7 +579,7 @@ The radius scale is sober and editorial — Mistral does NOT use pill buttons. `
 - Background `{colors.canvas}`, text `{colors.ink}`, border `1px solid {colors.beige-deep}`, typography `{typography.button-md}`, padding `10px 20px`, rounded `{rounded.md}`.
 
 **`button-link`** — Inline orange text link.
-- Background transparent, text `{colors.primary}`, typography `{typography.body-sm-medium}`, padding `0`. Underline on activation.
+- Background transparent, text `{colors.link}`, typography `{typography.body-sm-medium}`, padding `0`. Underline on activation.
 
 ### Cards & Containers
 
@@ -629,7 +629,7 @@ The radius scale is sober and editorial — Mistral does NOT use pill buttons. `
 
 **`segmented-tab`** + **`segmented-tab-active`** — Underline-style tab navigation.
 - Inactive: text `{colors.steel}`, transparent background, padding `{spacing.sm} {spacing.md}`, no bottom border.
-- Active: text `{colors.primary}`, 2px bottom border in `{colors.primary}`.
+- Active: text `{colors.link}`, 2px bottom border in `{colors.primary}`.
 
 ### Badges & Status
 
@@ -661,13 +661,13 @@ The radius scale is sober and editorial — Mistral does NOT use pill buttons. `
 **`industry-tile`** — Industry-vertical tile in solutions page grid.
 - Background `{colors.canvas}`, rounded `{rounded.lg}`, padding `{spacing.xl}`, border `1px solid {colors.hairline-soft}`.
 
-**`stat-cell`** — Stat-row cell ("75% more / 80% better").
+**`stat-cell`** — Stat-row cell. Populate a numeric claim only after verifying a current source.
 - Background transparent, text `{colors.ink}`, typography `{typography.stat-display}`, padding `{spacing.lg}`.
 
 **`customer-testimonial-card`** — Customer quote card (used inside Le Studio and Solutions pages).
-- Background `{colors.canvas}`, rounded `{rounded.lg}`, padding `{spacing.xxl}`, border `1px solid {colors.hairline-soft}`. Quote in `{typography.body-md}`, attribution in `{typography.body-sm}` `{colors.steel}`.
+- Background `{colors.canvas}`, rounded `{rounded.lg}`, padding `{spacing.xxl}`, border `1px solid {colors.hairline-soft}`. Quote in `{typography.body-md}`, attribution in `{typography.body-sm}` `{colors.steel}`. Verify the quote, attribution, and reuse rights before publishing.
 
-**`logo-wall-item`** — Customer logo wordmark cell.
+**`logo-wall-item`** — Customer logo wordmark cell. Confirm the current relationship and logo-use rights before publishing.
 - Background transparent, text `{colors.steel}`, typography `{typography.body-md-medium}`, padding `{spacing.lg}`.
 
 **`faq-accordion-item`** — FAQ panel.
@@ -687,14 +687,14 @@ The radius scale is sober and editorial — Mistral does NOT use pill buttons. `
 
 **`hero-band-sunset`** — Atmospheric sunset hero band.
 - Background gradient `linear-gradient(135deg, {colors.sunshine-700} 0%, {colors.sunshine-900} 60%, {colors.primary} 100%)` overlaid on photographic mountain landscape.
-- Layout: hero headline left in `{typography.hero-display}` ({colors.ink}), subtitle in `{typography.subtitle}` ({colors.ink-tint}), button row (`button-dark` + `button-secondary`), atmospheric mountain photography right.
+- Layout: hero headline left in `{typography.hero-display}` ({colors.ink}), subtitle in `{typography.subtitle}` ({colors.ink-tint}), button row (`button-dark` + `button-secondary`), atmospheric mountain photography right. Check the actual pixels behind text and controls; move them onto a solid cream panel if the image or gradient reduces contrast.
 
 **`sunset-stripe-band`** — Horizontal closing band at the foot of every page.
 - Multi-stop gradient: `{colors.primary}` → `{colors.sunshine-700}` → `{colors.sunshine-500}` → `{colors.yellow-saturated}` → `{colors.cream}`.
 - Padding `{spacing.lg} 0`. Spans full width, sits above the footer. THIS IS THE BRAND'S MOST RECOGNIZABLE SIGNATURE ELEMENT.
 
 **`cta-banner-cream`** — Page-bottom CTA band on cream surface.
-- Background `{colors.cream}`, text `{colors.ink}`, rounded `{rounded.lg}`, padding `{spacing.section}`. "The next chapter of AI is yours." headline in `{typography.heading-1}` (PP Editorial Old), button row below.
+- Background `{colors.cream}`, text `{colors.ink}`, rounded `{rounded.lg}`, padding `{spacing.section}`. Headline in `{typography.heading-1}` (Newsreader default), button row below.
 
 **`footer-region`** — Cream-tinted multi-column footer.
 - Background `{colors.footer-cream}`, padding `{spacing.section} {spacing.xxl}`.
@@ -702,24 +702,24 @@ The radius scale is sober and editorial — Mistral does NOT use pill buttons. `
 - Bottom: language picker + social icons.
 
 **`footer-link`** — Individual footer link.
-- Background transparent, text `{colors.primary}`, typography `{typography.body-sm}`, padding `{spacing.xxs} 0`.
+- Background transparent, text `{colors.link}`, typography `{typography.body-sm}`, padding `{spacing.xxs} 0`.
 
 ## Do's and Don'ts
 
 ### Do
-- Reserve `{colors.primary}` (saturated orange) for primary CTAs and active states only
+- Reserve `{colors.primary}` (saturated orange) for primary CTAs, active states, and the sunset stripe band.
 - Use the **sunset stripe band** at the foot of every page — it's the brand's most recognizable signature
-- Pair PP Editorial Old (display) with Inter (UI) — never substitute either with a generic alternative
+- Pair Newsreader (display) with Inter (UI) by default; use PP Editorial Old only with publishing rights
 - Apply `{rounded.md}` (8px) to buttons and `{rounded.lg}` (12px) to cards consistently
 - Use cream-yellow surfaces ({colors.cream}) for form panels, feature cards, and footer
 - Anchor heroes with photographic mountain-sunset imagery (or its visual equivalent — atmospheric gradient sky)
-- Use stat-display token (PP Editorial 56px) for stat callouts to maintain editorial character
+- Use the Newsreader-default `stat-display` token (56px) for verified stat callouts to maintain editorial character.
 
 ### Don't
 - Don't use pill-shaped buttons (`{rounded.full}`) — Mistral's geometry is sober and editorial, not playful
 - Don't introduce additional accent colors beyond the orange/yellow/cream sunset palette
 - Don't reduce hero leading below 1.05 — the editorial display needs that magazine-grade tightness
-- Don't replace PP Editorial Old hero displays with Inter — the editorial / sans contrast IS the brand
+- Don't use Inter for the editorial hero role; keep Newsreader or an authorized reference serif distinct from the UI face
 - Don't apply heavy shadows on flat documentation cards; reserve elevation for IDE mockups
 - Don't drop the sunset stripe band from any page bottom — it's the brand's continuity element
 
@@ -728,16 +728,16 @@ The radius scale is sober and editorial — Mistral does NOT use pill buttons. `
 ### Breakpoints
 | Name | Width | Key Changes |
 |---|---|---|
-| Mobile (small) | < 480px | Single column. Hero scales to 40px (PP Editorial). Pill nav collapses to hamburger. Pricing tiers stack 1-up. |
+| Mobile (small) | < 480px | Single column. Hero scales to 40px in the selected display serif. Navigation collapses to hamburger. Pricing tiers stack 1-up. |
 | Mobile (large) | 480 – 767px | Feature tiles 2-up. Hero scales to 52px. |
 | Tablet | 768 – 1023px | 2-column feature grids. Pill-tab nav returns. Hero 64px. |
 | Desktop | 1024 – 1279px | Multi-column layouts. Hero 76px. Stat row at full width. |
 | Wide Desktop | ≥ 1280px | Full 84px hero presentation. |
 
 ### Touch Targets
-- Buttons render at 40–44px effective height — at WCAG AAA floor with `10px 20px` padding
-- Form inputs render at 44px height
-- Pill tabs render at ~32px tall — bumps to 44px on mobile
+- Buttons specify `10px 20px` padding; measure rendered clickable width, height, and spacing before making a WCAG claim.
+- Form inputs specify 44px height; verify the rendered interactive width and height.
+- Pill tab size depends on typography and padding. Measure the final target at each breakpoint.
 
 ### Collapsing Strategy
 - **Promo banner** stays full-width; truncates at < 480px
@@ -752,7 +752,7 @@ The radius scale is sober and editorial — Mistral does NOT use pill buttons. `
 ### Image Behavior
 - Mountain-sunset photography uses 16:9 ratio with full-bleed scaling
 - IDE mockup images maintain aspect ratio across breakpoints
-- Customer logo wall presents wordmarks at consistent 60–80px height
+- Customer logo wall can present authorized, currently verified wordmarks at a consistent height.
 
 ## Iteration Guide
 
@@ -761,7 +761,7 @@ The radius scale is sober and editorial — Mistral does NOT use pill buttons. `
 3. Run `npx --yes -p "@google/design.md@0.4.0" designmd lint DESIGN.md`
     after edits
 4. Add new variants as separate `components:` entries
-5. Default to `{typography.body-md}` for body and `{typography.subtitle}` for emphasis. Hero displays use `{typography.hero-display}` (PP Editorial Old).
+5. Default to `{typography.body-md}` for body and `{typography.subtitle}` for emphasis. Hero displays use `{typography.hero-display}` (Newsreader by default).
 6. Keep `{colors.primary}` confined to primary CTAs, active states, and the sunset stripe band
 7. Cards use `{rounded.lg}` (12px), buttons use `{rounded.md}` (8px). Pills (`{rounded.full}`) reserved for badges only.
 8. Always include the sunset-stripe-band component at the foot of every page mockup.
