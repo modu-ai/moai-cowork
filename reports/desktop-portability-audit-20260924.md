@@ -8,7 +8,7 @@
 
 ## 초기 인벤토리와 내용 검수 상태
 
-`git ls-files plugins`와 파일 경로 분류를 초기 기준 트리에서 실행했다. 당시 플러그인 파일 1049개 중 스킬 225개, 에이전트 28개, 참조 문서 428개, MCP/런처 실행 코드 136개, 플러그인 `.mcp.json` 12개였다. 아래 수량은 초기 범위 기준선이며 이후 추가 파일은 반영하지 않는다. 내용 검수 열만 진행 상태를 갱신한다. 두 매니페스트 쌍은 18개 플러그인 모두에 있다.
+`git ls-files plugins`와 파일 경로 분류를 초기 기준 트리에서 실행했다. 당시 플러그인 파일 1049개 중 스킬 225개, 에이전트 28개, 참조 문서 428개, MCP/런처 실행 코드 136개, 플러그인 `.mcp.json` 12개였다. 아래 표는 **초기 조사 시점의 기록**이므로 이후 추가 파일과 최종 상태를 반영하지 않는다. 현재 파일별 상태는 `reports/desktop-portability-file-ledger-20260924.tsv`가 기준이다. 두 매니페스트 쌍은 18개 플러그인 모두에 있다.
 
 | 플러그인 | 스킬 | 에이전트 | 참조 | 실행 코드 | MCP 설정 | 내용 검수 |
 |---|---:|---:|---:|---:|---:|---|
@@ -30,6 +30,8 @@
 | moai-threads-poster | 5 | 0 | 2 | 16 | 1 | 대기 |
 | moai-tutor | 11 | 2 | 11 | 0 | 0 | 29/29파일 정적 열람, 앱 실행·자료 검증 대기 |
 | moai-writer | 10 | 2 | 17 | 0 | 1 | 48/48파일 정적 열람, 앱 실행 검증 대기 |
+
+현재 장부 1091개 행은 `static_read` 837개와 `mechanical_scan` 254개로 분류돼 있으며 미분류는 0개다. 디자이너 46개 브랜드 참고 프로필과 판매자 208개 파일은 파일별 전체 텍스트·구문·표식 검사까지 수행한 `mechanical_scan`이다. 이 표시는 모든 문장의 의미·현행 정책을 독립 검증했다는 뜻이 아니며, 실제 데스크톱 앱 이미지 생성과 인증은 아래 검증 경계에 남아 있다.
 
 ## 공식 문서와 확인한 개선점
 
@@ -1092,3 +1094,12 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - 필수 `mcp__moai__codex_audit`의 구조화 판정은 `inconclusive`, `findings: []`였다. 요약의 구체 지적 중 상세페이지 기획 사진 체크리스트의 오래된 `media-codex-image` 위임, 프롬프트 참고 문서의 ChatGPT→Higgsfield MCP 표현, Python 3.10 고정 사전 조건은 실제 파일과 대조해 수정했다. 후자의 인라인 코드는 이 작업 트리 Python 3.9.6에서 실제 실행됐다. Codex 설명의 고정 “스킬 30종”도 제거했다.
 - 감사 요약은 사이트 목록 32개에 `commerce-coupang-ad-optimizer`가 빠진 것을 결함으로 보았으나, 해당 SKILL.md에는 `user-invocable: false`와 “구명칭 호환 스텁”이 명시돼 있다. `www/scripts/gen-agent-teams.py`가 이런 스텁을 의도적으로 제외하는 코드와 장부를 대조해, 33개 파일 중 호출 가능한 32개가 사이트에 표시된 것으로 확인했다. 사이트 JSON은 이 생성기를 다시 실행해 현재 frontmatter·MCP 항목과 동기화했다. 요약의 `FAIL` 문구를 구조화 판정으로 바꾸어 기록하지 않는다.
 - 최종 정적 확인에서 판매자 Claude·Codex·마켓플레이스·사이트 카탈로그 버전은 모두 `1.4.12`였고, 사이트의 호출 가능한 스킬 32개·폐기 호환 스텁 1개·Higgsfield 연결 항목이 일치했다. `python3 scripts/check-plugin-runtimes.py`는 오류 0건·위 의도된 호스트 차이 참고 1건, `git diff --check`는 출력 없이 종료 코드 0, Hugo는 209페이지·종료 코드 0이었다. 렌더된 `/plugins/` HTML에서 리터럴 `**`는 0건이었다. `npx --yes markdownlint-cli2`를 판매자 README와 이 보고서에 실행하면 종료 코드 1, 출력 719줄이었다. 줄 길이·표 정렬 등의 지적이 남아 있고 변경 전 같은 파일의 lint 기준값은 이번 검사에서 측정하지 않아 신규 회귀 수를 주장하지 않는다.
+
+### 세 운영체제의 공식 앱 지원과 현장 검사 경계 (2026-09-25)
+
+- [Anthropic의 Claude Desktop 설치 안내](https://support.claude.com/en/articles/10065433-install-claude-desktop)는 Cowork를 macOS·Windows와 Linux 베타에서 제공한다고 밝힌다. Linux 대상은 Ubuntu 22.04 LTS 이상 또는 Debian 12 이상(x64·arm64)이며, Cowork 실행에는 KVM·QEMU·메모리·디스크 조건이 있다. 같은 문서는 Linux에서 컴퓨터 제어와 받아쓰기를 지원하지 않는다고 명시한다. [OpenAI의 ChatGPT 릴리스 노트](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)는 2026-08-14부터 ChatGPT·Codex 데스크톱을 Ubuntu 24.04/26.04 LTS, Debian 13, Fedora 43/44 공개 미리보기로 제공한다고 밝히며, Linux의 브라우저 작업은 가능하지만 다른 데스크톱 앱 제어는 아직 지원하지 않는다고 한다. 이 사실을 `www/content/plugins/install.md`에 반영했다.
+- [OpenAI의 플러그인 안내](https://help.openai.com/en/articles/20001256-plugins-in-chatgpt-and-codex)는 플러그인 설치와 연결 앱 인증을 별개로 설명하고, `.mcp.json`을 선언한 가져온 플러그인이 원격 HTTPS 서버라도 Desktop only로 표시될 수 있다고 한다. 따라서 앱 설치 가능성은 이 저장소 플러그인의 해당 운영체제별 로딩·OAuth·도구 호출 성공 증거가 아니다.
+- 현재 macOS 앱 목록에는 Claude와 ChatGPT가 실행 중으로 나타났으나, UI 읽기 시 Claude는 `cgWindowNotFound`, ChatGPT는 컴퓨터 사용 도구의 `com.openai.codex` 접근 금지 오류가 났다. UI에서 실제 플러그인 설치·이미지 모델 표시·Higgsfield 인증을 관측하지 못했다. 이 두 오류는 앱 기능 실패 판정이 아니라 **이번 관찰 도구의 접근 한계**다. Windows·Linux 실기기 앱은 이 세션에 연결되지 않았다.
+- 설치 문서 수정 후 이 작업 트리의 `hugo --gc --minify --logLevel warn`은 종료 코드 0으로 209페이지를 빌드했다. 렌더된 `www/public/plugins/install/index.html`에는 `Ubuntu 22.04`·`Fedora 43`·`moai-seller`·`2026.09.25`가 있고 리터럴 `**`는 0개였다. `npx --yes markdownlint-cli2 'www/content/**/*.md'`는 종료 코드 1, 출력 3395줄이었고 설치 문서 단독 검사는 18건 지적이었다. 변경 전 같은 범위의 lint 기준값은 이 검사에서 측정하지 않아 회귀 수를 주장하지 않는다. CSS를 건드리지 않았으므로 대비 검사는 이 묶음에 해당하지 않는다.
+- 실제 앱에서 남은 항목은 `reports/desktop-portability-app-smoke-20260925.md`에 호스트·OS별 `NOT-RUN`과 증거 수집 단계로 분리했다. 앱 UI 접근과 Windows·Linux 기기, 외부 서비스 인증·유료 크레딧 호출이 확보되기 전에는 정적 조사와 CI만으로 전체 완료 판정을 하지 않는다.
+- [GitHub Actions MCP cross-platform tests 실행 36080731545](https://github.com/modu-ai/moai-cowork/actions/runs/36080731545)을 `gh run view 36080731545 --json status,conclusion,headSha,jobs`로 확인했다. 대상 SHA는 `8bb6f998aa9387f91f2769b416f7777eff6c9e8a`, 전체 상태는 `completed`·`success`, macOS·Windows·Ubuntu의 MCP 런처·공용 코어·OpenAI·Cafe24·Imweb·Smartstore·법무 IP·Threads·플러그인 배선 등 27개 job이 모두 `success`였다. 이는 해당 SHA의 자동 테스트 증거다. 이후 설치 문서와 조사 기록만 바꾼 변경분의 앱 실행 증거는 아니며, 실제 Claude/ChatGPT 데스크톱 OAuth와 이미지 생성도 측정하지 않았다.

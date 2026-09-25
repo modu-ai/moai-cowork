@@ -4,7 +4,7 @@ weight: 10
 description: "마켓플레이스 등록 → 필요한 코워커 설치 → 확인 → 업데이트·비활성화·제거, 그리고 MCP 자격증명 준비까지 따라 하기."
 geekdocBreadcrumb: true
 date: 2026-08-07T00:00:00+09:00
-lastmod: 2026-09-25T09:08:00+09:00
+lastmod: 2026-09-25T10:10:00+09:00
 ---
 
 플러그인 설치는 크게 두 단계입니다. 먼저 **마켓플레이스를 등록**하고,
@@ -15,6 +15,13 @@ GitHub 마켓플레이스를 가져옵니다.
 이 페이지는 **Claude Cowork 또는 ChatGPT Work 데스크톱 앱**을 기준으로 안내합니다.
 두 앱의 플러그인 설치 상태는 공유되지 않습니다.
 MCP 연동에 필요한 자격증명은 [API 키 넣는 법](mcp/credentials/)을 확인하세요.
+
+두 앱 모두 macOS와 Windows에서 제공됩니다. Linux에서는
+[Claude Desktop의 Cowork가 베타](https://support.claude.com/en/articles/10065433-install-claude-desktop)이며
+Ubuntu 22.04 LTS 이상 또는 Debian 12 이상(x64·arm64)을 안내합니다.
+[ChatGPT 데스크톱은 공개 미리보기](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)로
+Ubuntu 24.04/26.04 LTS, Debian 13, Fedora 43/44를 안내합니다.
+앱이 설치되더라도 각 플러그인의 로컬 도구·외부 계정 연결은 별도로 확인해야 합니다.
 
 ![마켓플레이스 등록에서 설치, 확인, 업데이트로 이어지는 네 단계 흐름](/infographics/install-manage-flow.png)
 
@@ -112,7 +119,7 @@ Plugins 화면에서 각 코워커별로 업데이트·비활성화·제거를 �
 | `moai-marketer` | Meta Ads | 브라우저 로그인 (키 불필요) |
 | `moai-marketer` | 게시 채널 (typefully·wordpress) | 브라우저 로그인 (키 불필요) |
 | `moai-media` | Higgsfield·ElevenLabs | Higgsfield는 브라우저 로그인 ([설정 가이드](higgsfield-setup/)) · ElevenLabs는 API 키 |
-| `moai-story` · `moai-designer` | Higgsfield | 브라우저 로그인 ([설정 가이드](higgsfield-setup/)) |
+| `moai-story` · `moai-designer` · `moai-seller` | Higgsfield | Claude는 공식 MCP, ChatGPT는 Higgsfield 공식 플러그인을 연결·인증 ([설정 가이드](higgsfield-setup/)) |
 | `moai-accountant` · `moai-analyst` · `moai-coworker` | DART 전자공시 | OpenDART 인증키 |
 | `moai-analyst` | KOSIS·건축물대장(archhub) | 없음 (공용키 탑재) |
 | `moai-lawyer` | 국가법령정보 | 법제처 OC 키 |
