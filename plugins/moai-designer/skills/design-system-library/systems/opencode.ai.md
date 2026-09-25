@@ -488,7 +488,7 @@ There is no photography. Visual elements are limited to:
 | mobile | 640px | Single-column everything; hero display drops 38px → ~28px; section padding tightens |
 
 ### Touch Targets
-All interactive elements meet WCAG AA at the ~36–40px height range. `{component.button-primary}` sits at ~36px with 20px horizontal padding. `{component.text-input}` and `{component.textarea}` sit at ~40px. `{component.button-tab}` rows in the install-method strip sit at ~32–36px depending on label length but extend to a full 44px tappable cell via inline padding. Footer links use `{typography.caption-md}` (14px) but receive ~28px line-height (caption-md is 2.0) plus 8px vertical padding for a comfortable ~44px tappable row.
+`{component.button-primary}` is documented at ~36px high with 20px horizontal padding; `{component.text-input}` and `{component.textarea}` are ~40px high. The `{component.button-tab}` token combines 16px text at line-height 2 with 8px vertical padding, yielding a 48px nominal box before other CSS. Footer links use `{typography.caption-md}` (14px) with ~28px line-height and 8px vertical padding, yielding an estimated ~44px row. Verify the actual clickable box, including both dimensions and neighboring targets, in the rendered layout before claiming WCAG 2.5.8 AA or 2.5.5 AAA. Token arithmetic alone does not prove the clickable cell size.
 
 ### Collapsing Strategy
 - **Primary nav:** desktop horizontal cluster → tablet-narrow hamburger drawer at 768px. The dark "Download" CTA stays visible at all widths.

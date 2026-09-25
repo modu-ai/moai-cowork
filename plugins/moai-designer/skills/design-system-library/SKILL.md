@@ -11,7 +11,7 @@ description: |
   - "Notion / Linear / Stripe 스타일로 리포트"
   - "어두운 테마 / 따뜻한 화이트 테마로"
   - "Claude Design에 올릴 디자인 시스템 자료 정리"
-version: "1.1.11"
+version: "1.1.12"
 ---
 
 # design-system-library — 브랜드 디자인 시스템 SSOT
@@ -137,7 +137,7 @@ version: "1.1.11"
 2. **토큰 로드** — `systems/<name>.md`의 YAML frontmatter에서 실제로 있는 토큰을 읽는다. 일부 시스템에는 `typography`·`rounded`·`spacing`·`components`가 없으므로 본문 분석에서 필요한 값을 확인한다. 본문에도 없는 값은 임의로 채우거나 원본 토큰이라고 표시하지 않는다. 대상 OS에 없거나 사용권이 없는 서체는 토큰과 본문의 대체 서체 안내를 확인해 렌더링한다.
 3. **토큰 매핑** — `mapping/tailwind.md` 규칙을 참고하고, CTA·배지의 배경과 글자색 대비를 실제 계산
 4. **shadcn vanilla 매핑** — 산출물 구조 카드/버튼/테이블을 `components/` 참조 마크업으로 치환
-5. **단일 파일 렌더** — 대상 환경에 필요한 CSS와 마크업을 포함해 출력하고 브라우저에서 확인. Play CDN은 개발 미리보기일 때만 사용
+5. **단일 파일 렌더** — 대상 환경에 필요한 CSS와 마크업을 포함해 출력하고 브라우저에서 확인. 클릭 영역의 실제 가로·세로와 인접 요소 간격을 측정한 뒤에만 WCAG 2.5.8 AA 또는 2.5.5 AAA의 대상 크기 충족을 주장한다. Play CDN은 개발 미리보기일 때만 사용
 
 디자인 시스템 파일을 수정해 `DESIGN.md` 형식을 점검할 때는 Node.js 18 이상과 npm이 실제로 있는 환경에서 `npx --yes -p "@google/design.md@0.4.0" designmd lint DESIGN.md`를 쓴다. [원저작자 안내](https://github.com/google-labs-code/design.md)는 Windows에서 점이 들어간 실행 이름이 마크다운 연결 프로그램으로 열릴 수 있어 `designmd` 별칭을 권한다. 이 명령은 macOS·Windows·Linux에서 같은 별칭을 사용한다. 앱에 실행 환경이 없으면 lint를 실행했다고 보고하지 않는다.
 

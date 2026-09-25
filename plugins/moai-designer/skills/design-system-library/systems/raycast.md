@@ -630,7 +630,7 @@ There is no traditional photography. Visual elements are limited to:
 | mobile-narrow | 320px | Section padding tightens to 48px |
 
 ### Touch Targets
-All interactive elements meet WCAG AA at 36px+. `{component.button-primary}` and `{component.button-tertiary}` sit at 36px height with 16px padding. `{component.text-input}` sits at 36px. `{component.store-search-bar}` sits at 44px (above AAA). `{component.pill-tab}` is ~24–28px height with 10px padding extending to 36–40px tappable via inline padding (above AA but below AAA — intentional, the chips are compact). `{component.install-button}` sits at ~32px height with 14px padding.
+`{component.button-primary}` and `{component.button-tertiary}` are documented at 36px high with 16px padding; `{component.text-input}` is 36px high and `{component.store-search-bar}` is 44px high. The `{component.pill-tab}` token combines 14px text at line-height 1.6 with 4px vertical padding, yielding a ~30px nominal box before other CSS; `{component.install-button}` is documented at ~32px high. Measure the rendered clickable width and height, plus neighboring-target spacing where needed, before claiming WCAG 2.5.8 AA. A 44px search-bar height alone does not prove the 44×44px WCAG 2.5.5 AAA size target.
 
 ### Collapsing Strategy
 - **Primary nav:** desktop horizontal cluster → tablet hamburger drawer at 768px. The white "Download" CTA stays visible at every breakpoint.

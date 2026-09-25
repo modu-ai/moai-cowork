@@ -1391,3 +1391,12 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - 실제 `tailwindcss@3.4.17` CLI로 두 프로필의 YAML 서체 값을 설정에 넣어 CSS를 생성했다. 최종 검사 출력은 Ollama·OpenCode 각각 `tailwind_exit 0 full_fallback_css True`였다. 첫 검사는 원문과 CSS가 바이트 단위로 같아야 한다고 잘못 가정해 실패했는데, Tailwind가 따옴표를 정리하고 동일한 선택자를 합친 출력 때문이었다. 최종 검사는 생성 CSS의 전체 서체 순서와 선택자를 확인한다. 이는 실제 Windows·Linux 폰트 선택이나 완성 페이지 렌더링을 증명하지 않는다.
 - `mapping/tailwind.md`에 대한 `npx --yes markdownlint-cli2`는 기존 표 정렬·코드 펜스·긴 줄 형식 오류를 포함해 종료 코드 1이었다. 새 서체 목록 안내 문단은 줄바꿈해 긴 줄을 줄였다. 형식 검사 통과로 기록하지 않는다.
 - `reports/desktop-portability-designer-profile-scan-20260925.tsv`는 최초 기계 검사의 해시 스냅샷이다. 이번 작업 트리에서 파일 현재 SHA-256과 대조하니 46개 중 29개가 후속 수정으로 달라졌다. 이 과거 해시를 현재 파일 검증값으로 사용하지 않는다.
+
+### 디자이너 프로필의 클릭 영역 등급 표현 (2026-09-25)
+
+- [W3C WCAG 2.2의 2.5.8 AA 기준](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum)은 기본 24×24 CSS px와 간격·동등 기능·인라인 등 예외를 두고, [2.5.5 AAA 기준](https://www.w3.org/WAI/WCAG22/Understanding/target-size-enhanced)은 기본 44×44 CSS px를 요구한다. 높이만으로 어느 등급도 확정할 수 없다. 실제 클릭 영역과 인접 요소를 렌더링해서 확인해야 한다.
+- 전문을 읽은 Cursor·Ollama·OpenCode·Raycast 프로필의 `Touch Targets`에서 높이와 가로 패딩만으로 AA·AAA를 단정한 문장을 수정했다. 특히 Ollama의 36×80px는 44×44px AAA 크기 기준을 충족하지 않는다. 상위 `design-system-library` 스킬의 출력 단계에도 실제 클릭 영역의 두 치수와 간격을 측정한 뒤에만 등급을 주장하도록 적었다. 스킬 버전은 `1.1.12`, 디자이너의 두 매니페스트와 마켓플레이스는 `1.4.34`로 맞추고 앱 현장 확인표도 같은 버전으로 갱신했다.
+- `mcp__moai__codex_audit`의 구조화 판정은 `inconclusive`·`findings: []`였으나 요약은 OpenCode의 탭 높이 추정과 Raycast의 칩 높이 추정이 각 YAML 토큰과 불일치한다고 파일·줄 근거를 제시했다. 토큰을 대조해 OpenCode의 명목 높이는 `16px × 2 + 8px × 2 = 48px`, Raycast는 `14px × 1.6 + 4px × 2 = 30.4px`임을 확인하고 설명을 바로잡았다. 실제 CSS와 클릭 영역은 아직 측정하지 않았다. 구조화 PASS로 기록하지 않는다.
+- 두 번째 감사도 구조화 판정은 `inconclusive`였고, 요약은 Cursor 프로필이 명목 높이를 이미 측정한 세로 치수처럼 취급하며 가로만 확인하도록 읽히는 점을 `cursor.md:513-514`에서 지적했다. Cursor의 AA·AAA 안내 모두 렌더링된 클릭 영역의 가로·세로 측정을 요구하도록 수정했다. 두 감사의 구조화 PASS는 없다.
+- 파일 장부에서 아직 `mechanical_scan`인 브랜드 프로필은 42개이며, 그중 35개에는 대상 크기 관련 키워드가 있다. 이 숫자는 내용 결함 수가 아니라 다음 개별 검토 범위다. 이번 네 파일의 수정만으로 다른 프로필의 접근성 설명이나 두 데스크톱 앱에서의 렌더링을 검증했다고 주장하지 않는다.
+- `python3 scripts/check-plugin-runtimes.py`는 플러그인 18개·오류 0건·기존 판매자 Higgsfield 참고 1건이었다. 버전 세 곳은 `1.4.34`, 스킬 frontmatter는 `1.1.12`, 네 프로필 YAML은 모두 파싱됐고 앱 현장 확인표 버전도 일치했다. `git diff --check`는 출력 없이 종료 코드 0이었다. 수정 파일의 Markdown lint는 기존 형식 문제와 보고서 긴 줄을 포함해 종료 코드 1이므로 통과로 세지 않는다.
