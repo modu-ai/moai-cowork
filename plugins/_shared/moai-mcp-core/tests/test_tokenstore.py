@@ -3,7 +3,10 @@
 from __future__ import annotations
 
 import json
+import subprocess
+import sys
 import threading
+from pathlib import Path
 
 from moai_mcp_core import tokenstore
 from moai_mcp_core.tokenstore import TokenStore
@@ -42,6 +45,35 @@ def test_갱신_잠금은_다른_클라이언트의_진입을_기다린다(tmp_p
     assert not thread.is_alive()
     assert not errors
     assert entered.is_set()
+
+
+def test_갱신_잠금은_다른_프로세스도_막는다(tmp_path):
+    path = tmp_path / "shared.json"
+    source = (
+        "import sys\n"
+        "from pathlib import Path\n"
+        "from moai_mcp_core.tokenstore import TokenStore\n"
+        "try:\n"
+        "    with TokenStore('shared', path=Path(sys.argv[1])).refresh_lock(timeout=0.2):\n"
+        "        print('acquired')\n"
+        "except TimeoutError:\n"
+        "    print('blocked')\n"
+    )
+
+    def child_result():
+        result = subprocess.run(
+            [sys.executable, "-c", source, str(path)],
+            cwd=Path(__file__).resolve().parents[1],
+            capture_output=True,
+            text=True,
+            timeout=10,
+            check=True,
+        )
+        return result.stdout.strip()
+
+    with TokenStore("shared", path=path).refresh_lock():
+        assert child_result() == "blocked"
+    assert child_result() == "acquired"
 
 
 def test_파일이_없으면_빈_딕셔너리(tmp_path):
