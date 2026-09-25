@@ -1,14 +1,14 @@
 ---
 version: alpha
 name: Superhuman-design-analysis
-description: An inspired interpretation of Superhumon's design language — a fast-email productivity brand split between an editorial dark hero (deep indigo navy with violet-sky atmospheric backdrop and a portrait subject) and a quiet white content body with off-warm-grey ink. The system uses a single proprietary variable display sans, heavy weight 460–540 with tight tracking, and a deep-teal closing CTA band that breaks the indigo/white rhythm with a warm dark interlude. Buttons are tight rounded rectangles, pricing is sober and dense, and the brand reads more like a high-end newsletter than a SaaS app.
+description: A historical Superhuman Mail marketing reference with indigo, white, and teal surfaces. Current Superhuman spans Mail, Grammarly, Docs, and Go; verify live pages, assets, and pricing before reuse. Portable tokens use OFL Inter Variable.
 
 colors:
   primary: "#1b1938"
   primary-deep: "#0e0c1f"
   on-primary: "#ffffff"
   ink: "#292827"
-  ink-mute: "#73706d"
+  ink-mute: "#66615e"
   ink-faint: "#9a9794"
   canvas: "#ffffff"
   canvas-soft: "#fafaf8"
@@ -17,78 +17,80 @@ colors:
   surface-teal-mid: "#155555"
   hairline: "#e8e4dd"
   hairline-dark: "#3f3a52"
+  control-border-light: "#767676"
+  control-border-dark: "#a29db3"
   on-dark-mute: "#bcbac9"
   on-dark-faint: "#5a5772"
 
 typography:
   display-xxl:
-    fontFamily: "'Super Sans VF', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 64px
     fontWeight: 540
-    lineHeight: 0.96
+    lineHeight: 1.15
     letterSpacing: 0
   display-xl:
-    fontFamily: "'Super Sans VF', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 48px
     fontWeight: 460
-    lineHeight: 0.96
+    lineHeight: 1.15
     letterSpacing: -1.32px
   display-lg:
-    fontFamily: "'Super Sans VF', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 28px
     fontWeight: 540
     lineHeight: 1.14
     letterSpacing: -0.63px
   display-md:
-    fontFamily: "'Super Sans VF', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 22px
     fontWeight: 460
     lineHeight: 1.1
     letterSpacing: -0.315px
   heading-lg:
-    fontFamily: "'Super Sans VF', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 20px
     fontWeight: 460
     lineHeight: 1.2
     letterSpacing: -0.4px
   body-lg:
-    fontFamily: "'Super Sans VF', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 18px
     fontWeight: 540
     lineHeight: 1.5
     letterSpacing: -0.135px
   body-md:
-    fontFamily: "'Super Sans VF', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 16px
     fontWeight: 460
     lineHeight: 1.5
     letterSpacing: 0
   body-strong:
-    fontFamily: "'Super Sans VF', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 18.72px
     fontWeight: 700
     lineHeight: 1.5
     letterSpacing: 0
   button-md:
-    fontFamily: "'Super Sans VF', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 16px
     fontWeight: 700
-    lineHeight: 1.0
+    lineHeight: 1.3
     letterSpacing: 0
   button-cap:
-    fontFamily: "'Super Sans VF', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 14px
     fontWeight: 600
-    lineHeight: 1.0
+    lineHeight: 1.3
     letterSpacing: 0
   caption:
-    fontFamily: "'Super Sans VF', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 14px
     fontWeight: 460
     lineHeight: 1.4
     letterSpacing: 0
   micro:
-    fontFamily: "'Super Sans VF', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 12px
     fontWeight: 540
     lineHeight: 1.4
@@ -137,6 +139,7 @@ components:
     typography: "{typography.button-md}"
     rounded: "{rounded.md}"
     padding: 12px 20px
+    border: "1px solid {colors.control-border-light}"
   button-on-teal:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.surface-teal-deep}"
@@ -149,24 +152,36 @@ components:
     typography: "{typography.body-md}"
     rounded: "{rounded.sm}"
     padding: 10px 12px
+    border: "1px solid {colors.control-border-light}"
+  text-input-focused:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    typography: "{typography.body-md}"
+    rounded: "{rounded.sm}"
+    padding: 10px 12px
+    border: "2px solid {colors.primary}"
+    outline: "2px solid {colors.primary}"
   card-feature-light:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.ink}"
     typography: "{typography.body-md}"
     rounded: "{rounded.lg}"
     padding: 32px
+    border: "1px solid {colors.control-border-light}"
   card-pricing:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.ink}"
     typography: "{typography.body-md}"
     rounded: "{rounded.lg}"
     padding: 32px
+    border: "1px solid {colors.control-border-light}"
   card-pricing-featured:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.on-primary}"
     typography: "{typography.body-md}"
     rounded: "{rounded.lg}"
     padding: 32px
+    border: "1px solid {colors.control-border-dark}"
   card-teal-band:
     backgroundColor: "{colors.surface-teal-deep}"
     textColor: "{colors.on-primary}"
@@ -185,6 +200,7 @@ components:
     typography: "{typography.button-cap}"
     rounded: "{rounded.full}"
     padding: 8px 16px
+    border: "1px solid {colors.control-border-light}"
   nav-bar-dark:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.on-primary}"
@@ -203,6 +219,7 @@ components:
     typography: "{typography.body-md}"
     rounded: "{rounded.xs}"
     padding: 0px
+    textDecoration: underline
   footer-light:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.ink-mute}"
@@ -213,26 +230,28 @@ components:
 
 ## Overview
 
-Superhumon's marketing pages open in an editorial dark register: a deep indigo navy `{colors.primary}` (`#1b1938`) canvas overlaid with a soft violet-and-sky atmospheric backdrop and a half-bleed portrait subject (often a person looking off-frame, photographed at twilight). Headlines render in `{typography.display-xxl}` (Super Sans VF at 64px / weight 540) with negative tracking, set in white over the indigo. A single rounded-rectangle CTA button anchors each band — never two, never three.
+> **Scope:** This is an older Superhuman Mail marketing reference, not a current design contract for the [Superhuman suite](https://superhuman.com/plans), which now includes Mail, Grammarly, Docs, and Go. The company [describes Super Sans, Super Serif, and Super Mono](https://blog.superhuman.com/docs-new-visual-identity/) as its newer custom family. The deployable tokens below use [OFL Inter Variable](https://github.com/google/fonts/blob/main/ofl/inter/METADATA.pb) with system fallbacks. Check current screens, pricing, image and logo rights, font loading, and mixed-script layout before publication.
 
-The body of every page flips to white. `{colors.canvas}` (`#ffffff`) takes over below the hero, with body type in `{colors.ink}` (`#292827` — a slightly warm dark grey, never pure black) and feature rows alternating between white and `{colors.canvas-soft}` (a barely-tinted off-white). Pricing tiers sit on this white surface; the featured tier inverts to the indigo navy, completing the brand's binary polarity.
+The older Mail reference pairs an indigo `{colors.primary}` canvas with violet atmosphere and an optional portrait. Portable `{typography.display-xxl}` uses Inter at 64px / weight 540. Use only permitted imagery and check text contrast for every actual crop; choose the number of actions from the current task.
 
-Every page closes with a **deep-teal CTA band** (`{colors.surface-teal-deep}` — `#0e3030`). The teal is a single chromatic interlude: rich, almost-black green-blue, that breaks up what would otherwise be an indigo/white-only page. The teal band always contains the closing CTA in `{typography.display-lg}` paired with a single white-pill button.
+The reference body can shift to white. `{colors.canvas}` (`#ffffff`) takes over below the hero, with body type in `{colors.ink}` (`#292827` — a slightly warm dark grey, never pure black) and feature rows alternating between white and `{colors.canvas-soft}` (a barely-tinted off-white). Pricing tiers sit on this white surface; the featured tier inverts to the indigo navy, completing the brand's binary polarity.
 
-Typography runs **Super Sans VF** — a proprietary variable display sans — at unusual mid-weights (460, 540, 600). The variable axes let the brand pick precise sub-default weights that read as warmer and more human than typical 400/500/700 SaaS scales. Display sizes use negative letter-spacing of -1.32px to -0.315px depending on size; line-heights are unusually tight (0.96 on 48px display).
+Some older Mail pages use a **deep-teal CTA band** (`{colors.surface-teal-deep}` — `#0e3030`). When supported by the current page, it can hold a closing CTA in `{typography.display-lg}` with a white button.
+
+The source uses a custom Super Sans family. Portable tokens use OFL Inter Variable at 460 / 540 / 600 where the loaded font supports those weights. Display tracking should be checked after loading; the largest line heights are 1.15 to avoid clipping.
 
 **Key Characteristics:**
 - Three-canvas system: indigo navy (`{colors.primary}`) for hero, white (`{colors.canvas}`) for body, deep teal (`{colors.surface-teal-deep}`) for closing CTA.
 - Half-bleed portrait subject in the hero with violet-sky atmospheric backdrop — the brand uses a person looking off-frame as a recurring visual.
-- Single CTA per band; the marketing pages never crowd actions.
-- Super Sans VF at sub-default weights (460, 540, 600) — the brand's typographic warmth signature.
-- Tight line-heights (0.96) on display sizes — vertical compression as editorial density.
+- Keep actions focused; confirm the current page flow before setting CTA count.
+- Portable Inter Variable uses 460 / 540 / 600 weights where available.
+- Portable large display line height is 1.15; check wrapping in the rendered page.
 - Off-warm-grey body ink (`#292827`) — never pure black; the brand's quiet warmth.
 - Pill-shaped on-hero CTA in pale violet (`{colors.surface-violet-soft}`); rounded-rectangle CTAs everywhere else.
 
 ## Colors
 
-> **Source pages:** home (`/`), `/products/go-ai-assistant`, `/contact-sales`, `/plans`.
+> **Historical reference paths:** home, product, sales, and plans. Confirm current suite routes and prices through the official site before reuse.
 
 ### Brand & Accent
 - **Primary Indigo Navy** (`{colors.primary}` — `#1b1938`): The brand's primary surface and CTA color. Hero canvas, filled rounded-rectangle button, featured pricing tier.
@@ -244,49 +263,49 @@ Typography runs **Super Sans VF** — a proprietary variable display sans — at
 ### Surface
 - **Canvas** (`{colors.canvas}` — `#ffffff`): Default body background.
 - **Canvas Soft** (`{colors.canvas-soft}` — `#fafaf8`): Barely-warm off-white for alternating feature-row bands.
-- **Hairline** (`{colors.hairline}` — `#e8e4dd`): 1px borders, slightly warm grey.
-- **Hairline Dark** (`{colors.hairline-dark}` — `#3f3a52`): 1px borders on dark surfaces.
+- **Hairline** (`{colors.hairline}` — `#e8e4dd`): decorative divider only, not a required control boundary.
+- **Hairline Dark** (`{colors.hairline-dark}` — `#3f3a52`): decorative dark divider only. Control borders use `{colors.control-border-light}` (`#767676`) on white and `{colors.control-border-dark}` (`#a29db3`) on dark surfaces.
 
 ### Text
 - **Ink** (`{colors.ink}` — `#292827`): Default body text. Warm dark grey, never pure black.
-- **Ink Mute** (`{colors.ink-mute}` — `#73706d`): Secondary text, captions.
-- **Ink Faint** (`{colors.ink-faint}` — `#9a9794`): Tertiary / disabled text.
+- **Ink Mute** (`{colors.ink-mute}` — `#66615e`): Secondary text, captions.
+- **Ink Faint** (`{colors.ink-faint}` — `#9a9794`): Decorative or disabled treatment only; do not use for required text.
 - **On Primary** (`{colors.on-primary}` — `#ffffff`): Text on dark navy / teal surfaces.
-- **On Dark Mute** (`{colors.on-dark-mute}` — translucent white): Secondary text on dark.
-- **On Dark Faint** (`{colors.on-dark-faint}` — translucent white): Tertiary text on dark.
+- **On Dark Mute** (`{colors.on-dark-mute}` — `#bcbac9`): Secondary text on dark.
+- **On Dark Faint** (`{colors.on-dark-faint}` — `#5a5772`): Decorative or disabled treatment only; it measures 2.45:1 on indigo.
 
 ## Typography
 
 ### Font Family
 
-The display and UI tier is **Super Sans VF** — a proprietary variable sans (variable axes for weight, with the brand using sub-default 460 / 540 / 600 weights). Fallback chain is the system font stack.
+The source custom family is a reference only. Deploy the declared Inter Variable stack with system fallbacks; verify loading and redistribution terms.
 
-For substitution use **Inter Variable** (open-source) at weight 460 / 540 / 600 — Inter's variable axes match Super Sans VF's behavior closely. Avoid fixed-weight Inter at 400 / 500 / 600 — the brand specifically picks the in-between weights.
+Inter Variable supports intermediate weights, but its metrics differ from the source face. Check each weight and line break on macOS, Windows, and Linux.
 
 ### Hierarchy
 
 | Token | Size | Weight | Line Height | Letter Spacing | Use |
 |---|---|---|---|---|---|
-| `{typography.display-xxl}` | 64px | 540 | 0.96 | 0 | Hero headline |
-| `{typography.display-xl}` | 48px | 460 | 0.96 | -1.32px | Section opener on light surfaces |
+| `{typography.display-xxl}` | 64px | 540 | 1.15 | 0 | Hero headline |
+| `{typography.display-xl}` | 48px | 460 | 1.15 | -1.32px | Section opener on light surfaces |
 | `{typography.display-lg}` | 28px | 540 | 1.14 | -0.63px | Sub-section / feature title |
 | `{typography.display-md}` | 22px | 460 | 1.1 | -0.315px | Card title |
 | `{typography.heading-lg}` | 20px | 460 | 1.2 | -0.4px | Compact card title |
 | `{typography.body-lg}` | 18px | 540 | 1.5 | -0.135px | Marketing body lead |
 | `{typography.body-md}` | 16px | 460 | 1.5 | 0 | Default UI body |
 | `{typography.body-strong}` | 18.72px | 700 | 1.5 | 0 | Emphasized body |
-| `{typography.button-md}` | 16px | 700 | 1.0 | 0 | Rounded-rectangle button label |
-| `{typography.button-cap}` | 14px | 600 | 1.0 | 0 | Compact button label |
+| `{typography.button-md}` | 16px | 700 | 1.3 | 0 | Rounded-rectangle button label |
+| `{typography.button-cap}` | 14px | 600 | 1.3 | 0 | Compact button label |
 | `{typography.caption}` | 14px | 460 | 1.4 | 0 | Helper, footnote |
 | `{typography.micro}` | 12px | 540 | 1.4 | 0 | Pill label, fine print |
 
 ### Principles
 - **Sub-default weights.** The brand picks 460 / 540 / 600 instead of 400 / 500 / 700 — a quiet warmth in the typography that distinguishes it from default SaaS systems.
-- **Tight display leading.** 0.96 on 48–64px display — the type stacks unusually compact.
+- **Display leading.** Portable 48–64px tokens use 1.15; verify mixed-script line boxes and wrapping.
 - **Negative tracking on display sizes.** -1.32px at 48px scaling proportionally — tightens the variable letterforms into editorial density.
 
 ### Note on Font Substitutes
-**Inter Variable** (open-source via Google Fonts) is the recommended substitute. Set `font-variation-settings: "wght" 540` for display, 460 for body — Inter's variable axes match. Avoid fixed-weight Inter; the in-between weights are the brand's signature.
+Use the declared Inter Variable weights when loaded; browser `font-weight` normally selects the variable axis. Do not assume the source face's metrics or force `font-variation-settings` across the whole page.
 
 ## Layout
 
@@ -299,7 +318,7 @@ For substitution use **Inter Variable** (open-source) at weight 460 / 540 / 600 
 ### Grid & Container
 - Hero spans full viewport width with the violet-sky backdrop edge-to-edge; content centers in a ~960px column.
 - Body content centers in ~960–1100px.
-- Pricing collapses 3-up → 2-up → 1-up at 1024 / 768 breakpoints.
+- Reflow the current plan cards to fit the actual content and viewport; the older Mail reference used 3-up → 2-up → 1-up.
 
 ### Whitespace Philosophy
 The brand uses generous editorial whitespace on both polarities — dark hero and white body. Section gaps tend toward 96px; the teal closing band gets up to 128px of vertical air. The whitespace itself is part of the brand's "considered, slow-tempo" feel.
@@ -324,7 +343,7 @@ The hero's depth is the **violet-sky atmospheric backdrop** — a soft indigo-to
 |---|---|---|
 | `{rounded.xs}` | 4px | Hairline tags |
 | `{rounded.sm}` | 6px | Form inputs |
-| `{rounded.md}` | 8px | Buttons (the brand's signature button shape — rounded rectangle, never pill) |
+| `{rounded.md}` | 8px | Rounded-rectangle buttons; a separate hero pill is available |
 | `{rounded.lg}` | 12px | Pricing cards, feature cards |
 | `{rounded.xl}` | 16px | Modal dialogs, large feature cards |
 | `{rounded.full}` | 9999px | Pill tabs in feature row, hero CTA |
@@ -344,7 +363,7 @@ The hero uses **half-bleed portrait subjects** — a person photographed at twil
 - Background `{colors.surface-violet-soft}`, text `{colors.primary}`, same typography, padding 12px 20px, rounded `{rounded.full}`. The pill shape only appears on the hero — body CTAs use the rounded rectangle.
 
 **`button-secondary-outline`** — outline alternative on white.
-- Background `{colors.canvas}`, text `{colors.ink}`, 1px solid `{colors.hairline-dark}` border, same shape as `button-primary-dark`.
+- Background `{colors.canvas}`, text `{colors.ink}`, 1px solid `{colors.control-border-light}` border, same shape as `button-primary-dark`; provide a separate visible keyboard-focus ring.
 
 **`button-on-teal`** — CTA inside the closing teal band.
 - Background `{colors.canvas}`, text `{colors.surface-teal-deep}`, rounded-rectangle, same typography.
@@ -352,15 +371,15 @@ The hero uses **half-bleed portrait subjects** — a person photographed at twil
 ### Cards & Containers
 
 **`card-feature-light`** — feature card on white.
-- Background `{colors.canvas}`, padding `{spacing.xxl}`, rounded `{rounded.lg}`, 1px `{colors.hairline}` border.
+- Background `{colors.canvas}`, padding `{spacing.xxl}`, rounded `{rounded.lg}`, 1px `{colors.control-border-light}` border.
 
 **`card-pricing`** — standard pricing tier card.
-- Background `{colors.canvas}`, padding `{spacing.xxl}`, rounded `{rounded.lg}`, 1px `{colors.hairline}` border.
+- Background `{colors.canvas}`, padding `{spacing.xxl}`, rounded `{rounded.lg}`, 1px `{colors.control-border-light}` border.
 
 **`card-pricing-featured`** — inverted indigo featured tier.
 - Background `{colors.primary}`, text `{colors.on-primary}`, otherwise identical to `card-pricing`.
 
-**`card-teal-band`** — the closing CTA band on every page.
+**`card-teal-band`** — an optional closing CTA treatment from the older Mail reference.
 - Background `{colors.surface-teal-deep}`, text `{colors.on-primary}`, padding `{spacing.huge}` 64px, rounded `{rounded.lg}` 12px (often radius-less in practice when full-bleed). Holds a single closing headline in `{typography.display-lg}` and a `button-on-teal`.
 
 **`card-feature-row`** — alternating feature-row card on the body.
@@ -369,12 +388,12 @@ The hero uses **half-bleed portrait subjects** — a person photographed at twil
 ### Inputs & Forms
 
 **`text-input`** — standard form input.
-- Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.body-md}`, padding `{spacing.sm}+ {spacing.md}` (10px 12px), rounded `{rounded.sm}` 6px, 1px `{colors.hairline}` border.
+- Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.body-md}`, padding 10px 12px, rounded `{rounded.sm}` 6px, 1px `{colors.control-border-light}` border. `{components.text-input-focused}` adds a dark border and outline; verify the rendered focus state.
 
 ### Navigation
 
 **`nav-bar-dark`** — top nav over the indigo hero.
-- Background `{colors.primary}`, text `{colors.on-primary}`, padding `{spacing.lg} {spacing.xl}`. Logo on the left, nav center, "Get Started" `button-on-dark-pill` on the right.
+- Background `{colors.primary}`, text `{colors.on-primary}`, padding `{spacing.lg} {spacing.xl}`. The historical layout puts a logo left and a CTA right; take the current wording, structure, and approved logo from the live product page.
 
 **`nav-bar-light`** — top nav on body / pricing pages.
 - Background `{colors.canvas}`, text `{colors.ink}`, otherwise same structure with `button-primary-dark` on the right.
@@ -386,9 +405,9 @@ The hero uses **half-bleed portrait subjects** — a person photographed at twil
 
 ### Signature Components
 
-**Half-Bleed Portrait Hero** — a person photographed at twilight, occupying the right half of the indigo hero with violet-sky atmospheric backdrop behind. Type and CTA sit on the left side. The portrait is the brand's recurring visual signature.
+**Half-Bleed Portrait Hero** — a historical Mail composition, with type left and a portrait right. Use it only when a current approved image and crop support readable text; it is not required for the present suite.
 
-**Closing Teal Band** — every page closes with a `card-teal-band` containing a `{typography.display-lg}` closing headline and a single `button-on-teal`. The teal is the page's resolving chord.
+**Closing Teal Band** — use a `card-teal-band` only when the current page needs a closing CTA. Verify the live brand context first.
 
 **`link-on-light`** — inline links on body.
 - Text `{colors.ink}` rendered in `{typography.body-md}` with persistent underline.
@@ -399,18 +418,18 @@ The hero uses **half-bleed portrait subjects** — a person photographed at twil
 ## Do's and Don'ts
 
 ### Do
-- Pair every hero with the violet-sky atmospheric backdrop and a half-bleed portrait subject when possible.
+- Use an approved portrait only where the current page supports one; verify rights and text contrast for each crop.
 - Render display tiers at sub-default weights (460 / 540) — the warmth is the typographic signature.
-- Use rounded-rectangle CTAs at 8px radius everywhere except the hero (where pill-shaped is the rule).
-- Close every marketing page with a deep-teal CTA band.
+- Use rounded-rectangle CTAs for this historical body reference; the hero pill is an optional variant.
+- Use the deep-teal CTA treatment only when supported by the current page design.
 - Use warm dark grey `{colors.ink}` for body text — never pure black.
-- Apply tight 0.96 line-height on display sizes; the editorial compression is the brand.
+- Use the declared 1.15 line height for large portable display tokens; check the rendered result.
 
 ### Don't
 - Don't use pill-shaped buttons in the body of the page; the pill is hero-only.
-- Don't bump display weight above 540 unless using `body-strong` (700) for emphasized inline body.
+- Keep the two large display tokens at their declared 460/540 weights unless rendered evidence supports a change; body and button weights have separate roles.
 - Don't render body text in pure black — the warm grey `#292827` is part of the brand.
-- Don't omit the closing teal band — every marketing page closes with it.
+- Check the current site before reusing the older Mail closing-band pattern.
 - Don't introduce additional accent colors beyond indigo, violet-soft, teal, and the off-warm-greys.
 
 ## Responsive Behavior
@@ -419,24 +438,24 @@ The hero uses **half-bleed portrait subjects** — a person photographed at twil
 
 | Name | Width | Key Changes |
 |---|---|---|
-| Wide | ≥ 1440px | Half-bleed portrait at full scale; teal band 128px tall |
-| Desktop | 1024–1440px | Default content max-width; pricing 3-up |
-| Tablet | 768–1023px | Pricing 2-up; portrait crops tighter |
-| Mobile | < 768px | Pricing 1-up; hamburger nav; display drops 64 → 36px |
+| Wide | ≥ 1440px | Historical Mail composition; verify portrait and closing band against the current page |
+| Desktop | 1024–1440px | Historical Mail layout; choose current suite pricing structure from the live page |
+| Tablet | 768–1023px | Reflow actual plan cards and verify any permitted portrait crop |
+| Mobile | < 768px | Stack actual plan cards; measure nav and display wrapping |
 
 ### Touch Targets
-- Buttons hit ≥ 44×44px on mobile via 12px vertical padding × 16px line-height. WCAG AAA.
-- Form fields stay at the 44px minimum height.
+- Measure rendered button target sizes and spacing at each breakpoint; padding does not prove compliance.
+- Measure rendered form targets and focus visibility in the running interface.
 
 ### Collapsing Strategy
 - Display tiers stair-step 64 → 48 → 36 → 28 → 22px.
 - Half-bleed portrait crops to head-and-shoulders on mobile; atmospheric backdrop simplifies.
-- Pricing tiers stair-step 3-up → 2-up → 1-up.
+- Reflow the actual current plan cards; do not infer the suite plan count from the older Mail layout.
 - Top nav collapses to hamburger below 768px.
 - Closing teal band reduces vertical padding from 128 → 64px on mobile.
 
 ### Image Behavior
-Hero portrait uses `srcset` with desktop / mobile crops — desktop favors the full half-bleed composition; mobile crops to head-and-shoulders.
+If current permitted portrait imagery is available, provide responsive crops and verify alt text, focal point, text contrast, and rights at each breakpoint.
 
 ## Iteration Guide
 
@@ -446,4 +465,10 @@ Hero portrait uses `srcset` with desktop / mobile crops — desktop favors the f
     after edits.
 4. Default body to `{typography.body-md}`; reserve `{typography.body-lg}` for marketing leads.
 5. Keep the three-canvas rhythm (indigo / white / teal) — adding a fourth canvas color breaks the system.
-6. The closing teal band is non-negotiable — every marketing page resolves there.
+6. Use a closing teal band only when the current page and product flow support it.
+
+## Known Gaps
+
+- This historical Mail palette does not establish the current suite design, prices, product claims, or page routes. Verify them against official current pages.
+- Portraits, logos, screenshots, and custom Super fonts require asset-specific rights checks before reuse.
+- Inter loading, mixed-script wrapping, photo contrast, focus visibility, target size, and behavior in Claude Cowork or ChatGPT Work on macOS, Windows, and Linux have not been observed.
