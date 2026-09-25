@@ -2,7 +2,7 @@
 """플러그인이 네 실행 환경 모두에서 동작하는지 기계적으로 검사한다.
 
     Claude 데스크톱 · Claude Code CLI · Codex 데스크톱 · Codex CLI
-    (그리고 그 각각이 macOS 와 Windows)
+    (그리고 그 각각이 macOS, Windows, Linux)
 
     python3 scripts/check-plugin-runtimes.py            # 전체
     python3 scripts/check-plugin-runtimes.py moai-seller
@@ -349,6 +349,11 @@ def check_plugin(plugin: Path, report: Report) -> None:
     manifest = check_codex_manifest(name, plugin, report)
     if manifest is None:
         return
+    claude_manifest = read_json(plugin / ".claude-plugin" / "plugin.json")
+    if not isinstance(claude_manifest, dict):
+        report.error(name, ".claude-plugin/plugin.json 이 없거나 객체가 아닙니다")
+    elif claude_manifest.get("version") != manifest.get("version"):
+        report.error(name, ".claude-plugin 과 .codex-plugin 의 version 이 다릅니다")
     check_skill_frontmatter(name, plugin, report)
     claude = check_claude_wiring(name, plugin, report)
     codex = check_codex_wiring(name, plugin, manifest, report)
@@ -385,7 +390,8 @@ def check_marketplaces(plugins: list[Path], report: Report) -> None:
             source_path = source.get("path") if isinstance(source, dict) else source
             if source_path != f"./plugins/{name}":
                 report.error(label, f"{name}: 마켓플레이스 source.path 가 실제 디렉터리와 다릅니다")
-            version = (read_json(PLUGINS_DIR / name / ".codex-plugin" / "plugin.json") or {}).get("version")
+            version_path = ".claude-plugin" if label == "Claude" else ".codex-plugin"
+            version = (read_json(PLUGINS_DIR / name / version_path / "plugin.json") or {}).get("version")
             if label == "Claude" and entry.get("version") != version:
                 report.error(label, f"{name}: 마켓플레이스 version 이 플러그인 {version} 와 다릅니다")
             if label == "Codex" and "version" in entry:

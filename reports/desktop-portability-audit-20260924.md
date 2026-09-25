@@ -1687,6 +1687,12 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - **주장:** 이 작업 트리에서 Git이 추적하는 플러그인 파일은 모두 파일별 장부에 포함됐다. 장부의 `static_read`는 파일 내용을 열람·분류했다는 상태이며, 모든 문장의 사실성이나 앱·OS별 작동을 통과시켰다는 판정이 아니다.
 - **근거·기준 트리:** `git ls-files plugins`와 장부의 경로 열을 집합으로 비교한 출력은 `tracked 1091 ledger 1091 missing 0 extra 0`이었다. 장부 상태 집계는 `1091 Counter({'static_read': 1091})`였다. 마켓플레이스 18개 항목을 두 호스트의 매니페스트와 앱 확인표 버전에 대조한 출력은 `marketplace 18 errors 0 []`였다. 이는 이 격리 작업 트리의 수정 중 측정이며 다른 체크아웃의 기준값을 가져온 것이 아니다.
 - **빈틈:** `reports/desktop-portability-app-smoke-20260925.md`의 Claude Cowork·ChatGPT Work × macOS·Windows·Linux 설치, 스킬 호출, GPT Images 2.5 정확한 내부 모델, 공식 Higgsfield 인증·생성·크레딧 차감은 모두 `NOT-RUN`이다. CI와 정적 도구 스키마 대조로 해당 앱의 실사용을 대신하지 않는다.
+
+## 양쪽 매니페스트 버전 검사 보강 (2026-09-25)
+
+- **주장·기준 트리:** 이 격리 작업 트리의 `scripts/check-plugin-runtimes.py`는 Claude·Codex 플러그인 매니페스트 버전 불일치와 Claude 마켓플레이스 버전 불일치를 각각 검사한다. 기존 코드는 Claude 마켓플레이스 버전을 Codex 매니페스트와 대조해 Claude 매니페스트의 단독 드리프트를 놓칠 수 있었다.
+- **근거:** 수정 후 `python3 scripts/check-plugin-runtimes.py`는 `검사한 플러그인 18개 — 오류 0건, 참고 1건`을 출력했다. `moai-media`의 Claude 매니페스트 버전을 메모리에서만 `0.0.0`으로 바꾼 사례는 `check_plugin`에서 `version 이 다릅니다`, `check_marketplaces`에서 `Claude: moai-media: 마켓플레이스 version` 오류를 각각 냈다. `git diff --check`는 출력 없이 종료 코드 0이었다.
+- **빈틈·남은 위험:** 이 검사는 버전 메타데이터의 일치만 확인한다. 앱의 플러그인 설치·업데이트, 스킬 실행, MCP 인증과 이미지 생성은 확인하지 않았다.
 - **남은 위험:** 앱 버전·배포판·로그인·권한·로컬 런처와 유료 서비스 상태에 따라 결과가 달라질 수 있다. 현장 확인표에 실제 도구명·화면 모델 표시·생성물·오류를 기록한 뒤 조합별 판정을 내려야 한다.
 
 macOS 앱 조작 경로를 확인하려고 `orca skills get computer-use`를 실행했으나 종료 코드 1과 `Unable to determine Orca.app path from symlink: /usr/local/bin/orca`가 나왔다. 컴퓨터 사용 스킬의 실행기 교체 금지 지침에 따라 다른 명령으로 앱을 조작하지 않았다. 이 결과는 로컬 Orca 실행기 진입 실패이며 Claude Cowork·ChatGPT Work의 설치나 플러그인 호출 실패를 뜻하지 않는다.
