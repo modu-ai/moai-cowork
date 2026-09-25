@@ -1139,3 +1139,10 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - `git ls-files plugins`에서 추적되는 Python·셸·JavaScript/TypeScript 코드 파일은 171개였다. 기존 `.github/workflows/mcp-cross-platform.yml`은 MCP 서버·공용 코어·런처를 macOS·Windows·Ubuntu에서 테스트하지만, `plugins/moai-writer/skills/korean-humanize/references/*.py`와 해당 테스트는 실행하지 않았다. 작업 트리의 `.venv` 파일은 Git 추적 대상이 아니므로 이 수에 넣지 않았다.
 - 파일 교체·UTF-8 처리·게이트 로직을 가진 한국어 윤문 스크립트의 테스트를 같은 OS 매트릭스에 추가하고, 해당 스킬 경로가 바뀔 때 워크플로가 실행되도록 경로 필터를 보강했다. macOS 로컬에서 `uv run --python 3.11 python -m unittest discover -s plugins/moai-writer/skills/korean-humanize/tests -p 'test_*.py' -q`는 `Ran 137 tests in 0.203s`·`OK`였다. 일부 테스트가 의도된 오류 예시와 짧은 값을 stdout/stderr에 출력했지만 종료 코드 0이었다.
 - `actionlint -no-color .github/workflows/mcp-cross-platform.yml`과 `git diff --check`는 출력 없이 종료 코드 0이었다. 이 시점의 로컬 결과는 macOS 측정값이며 Windows·Ubuntu 실행 여부는 새 PR HEAD의 CI 결과로 별도 확인한다. 스크립트가 Claude·ChatGPT 앱에서 호출되고 산출물이 올바르게 전달되는지는 이 자동 테스트로 입증되지 않는다.
+
+### 후속 검사: 플러그인 참조와 이미지 모델 계약 (2026-09-25)
+
+- 현재 작업 트리 `4e53ffc3`에서 `plugins/*/skills/*/SKILL.md` 안의 백틱 표기 `moai-플러그인:스킬` 참조를 파일 경로로 대조했다. 149개 스킬 파일에서 621개 참조를 찾았고 대상 `plugins/<플러그인>/skills/<스킬>/SKILL.md`가 없는 것은 0개였다. 이 검사는 그 표기 형태의 파일 존재만 확인하며 실제 앱에서 스킬이 로드·호출됐다는 증거는 아니다.
+- 판매자 기계 검사표의 `shell_eval:1`은 Cafe24 `_dispatch.py`의 Python `exec(compile(...))`을 가리킨다. 해당 소스는 로컬 엔드포인트 레지스트리로 카테고리별 FastMCP 함수 서명을 생성한다. 셸 명령 실행 표식으로 해석하지 않는다. 이 확인이 레지스트리 내용의 안전성 전체를 증명하지는 않는다.
+- [OpenAI 공식 이미지 생성 안내](https://developers.openai.com/api/docs/guides/image-generation)는 Image API의 모델 ID `gpt-image-2.5-flare`와 `gpt-image-2.5-sunburst`, `low`부터 `max`와 `auto`까지의 품질, 16의 배수·긴 변 3840 이하·가로세로 비율 3:1 이하의 사용자 지정 크기를 명시한다. 이 작업 트리 `moai-mcp-openai/server.py`의 두 모델 ID와 크기·품질 검사값은 그 계약에 맞는다. 이는 코드 대조이며 실제 계정의 모델 접근 권한·과금·이미지 생성 성공은 미확인이다.
+- `gh run list --branch WT-cowork-desktop-portability`에서 SHA `4e53ffc3`의 MCP 교차 플랫폼 실행 `36084896590`과 DESIGN.md CLI 실행 `36084896587`이 모두 `success`로 완료된 것을 확인했다. 같은 SHA의 `gh pr checks 10`은 성공 36개였지만 CodeRabbit 설명은 `Review skipped: draft pull request`였다. 따라서 코드 리뷰 수행 증거로 세지 않는다. 이 자동 검사도 앱 설치·OAuth·모델 실행의 증거가 아니다.
