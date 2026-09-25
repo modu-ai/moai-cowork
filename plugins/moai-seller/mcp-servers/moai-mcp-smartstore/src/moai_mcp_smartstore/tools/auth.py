@@ -20,7 +20,7 @@ def smartstore_test_connection() -> dict:
 
 @mcp.tool()
 def smartstore_config_status() -> dict:
-    """네이버 커머스 API 자격증환경변수 설정 상태를 반환한다 (API 미호출, 비밀키 원문 제외).
+    """네이버 커머스 API 자격증명 설정 상태를 반환한다 (API 미호출, 비밀키 원문 제외).
 
     Returns:
         {"configured": bool, "type": "SELF"|"SELLER", "base_url": str,

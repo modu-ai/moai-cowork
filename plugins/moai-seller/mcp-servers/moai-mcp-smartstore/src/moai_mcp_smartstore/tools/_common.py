@@ -12,13 +12,6 @@ from urllib.parse import quote
 from ..client import get_client
 from ..config import Config
 
-_NOT_CONFIGURED_MSG = (
-    "네이버 커머스 API 자격증명이 설정되지 않았습니다. "
-    "NAVER_COMMERCE_CLIENT_ID, NAVER_COMMERCE_CLIENT_SECRET 환경변수를 설정하세요. "
-    "발급 절차는 CONNECTORS.md 참고."
-)
-
-
 def segment(value: Any) -> str:
     """Keep a tool argument inside one API path segment."""
     if value is None:
@@ -45,7 +38,11 @@ def call(
         미설정: {"ok": False, "error": "not_configured", "message": ...}
     """
     if not Config.from_env().is_configured:
-        return {"ok": False, "error": "not_configured", "message": _NOT_CONFIGURED_MSG}
+        return {
+            "ok": False,
+            "error": "not_configured",
+            "message": f"{Config.setup_hint()} 연결 절차는 CONNECTORS.md를 참고하세요.",
+        }
 
     ep = endpoint or f"{method} {path}"
     try:

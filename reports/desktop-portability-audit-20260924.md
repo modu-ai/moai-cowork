@@ -1340,3 +1340,9 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - Cafe24, 아임웹, 스마트스토어 MCP의 `pyproject.toml`과 서버 진입점·인증·설정 관련 파일을 각각 전부 읽었다. 이번에 장부를 옮긴 파일은 서버별 7개씩, 총 21개다. 이 검토 범위에서 세 서버 모두 `moai-mcp-<서비스>` 배포 이름, 같은 이름의 실행 스크립트, `moai_mcp_<서비스>` 모듈, 휠 패키지 경로가 대응했다. `tomli`로 세 TOML을 파싱해 이름·스크립트·경로를 검사한 출력은 `cafe24: name/script/package OK`, `imweb: name/script/package OK`, `smartstore: name/script/package OK`였다.
 - `python3 scripts/sync-mcp-core.py --check`는 이 세 서버를 포함한 공통 코어 채택 서버 여섯 곳에 모두 `[정합]`을 출력했다. 공통 코어 복제본 21개는 앞선 검토에서 이미 `static_read`였으므로 이번 장부 수치에는 중복해 더하지 않았다. `git rev-list --count --left-right origin/main...HEAD`는 이 작업 트리에서 `0 125`였다.
 - 장부는 1,091개 중 `static_read` 978개, `mechanical_scan` 113개다. 이 정적 읽기와 패키징 검사로 데스크톱 앱의 MCP 발견·인증·실제 API 호출 또는 Windows·Linux 실행 성공을 확인하지는 않았다. 나머지 MCP 본문과 디자인 시스템 참조문서의 파일별 검토도 계속 필요하다.
+
+### 스마트스토어 MCP의 연결 안내 (2026-09-25)
+
+- 스마트스토어 MCP 클라이언트와 공통 호출 도구, 주문·상품·문의·물류·판매자·정산·솔루션·통계 도구 및 관련 테스트를 각각 전부 읽었다. `_common.py`의 자격증명 누락 응답은 환경변수 설정만 요구했지만, 실제 `Config.from_env()`는 `CredentialStore`를 통해 앱 연결 설정의 값과 사용자 자격증명 파일을 모두 읽는다. 누락 응답이 `Config.setup_hint()`의 현재 운영체제 경로와 누락된 키를 표시하도록 바꿨고, 설정 상태 도구의 오타를 고쳤다. 판매자 플러그인 버전은 Claude·Codex·마켓플레이스 모두 `1.4.30`이다.
+- `uv run --no-sync pytest -q tests/test_tools.py`를 스마트스토어 MCP 디렉터리에서 실행해 `7 passed in 0.28s`를 확인했다. 새 단언은 누락 응답에 앱 MCP 연결 설정과 자격증명 파일이 함께 안내되는지 확인한다. `python3 scripts/check-plugin-runtimes.py`는 플러그인 18개·오류 0건·기존 Higgsfield 참고 1건, `git diff --check`는 출력 없이 종료 코드 0이었다.
+- 장부는 1,091개 중 `static_read` 990개, `mechanical_scan` 101개다. 테스트는 모의 클라이언트와 현재 macOS 개발 환경에서 실행됐다. 실제 스마트스토어 자격증명, Windows·Linux 파일 경로와 권한, Claude Cowork·ChatGPT Work의 연결 화면은 검증하지 않았다.

@@ -57,6 +57,9 @@ def test_tool_returns_not_configured_without_credentials(clean_env):
     assert result["ok"] is False
     assert result["error"] == "not_configured"
     assert "message" in result
+    assert "MCP 연결 설정" in result["message"]
+    assert "저장 파일:" in result["message"]
+    assert "smartstore.json" in result["message"]
 
 
 def test_tool_routes_through_client_when_configured(clean_env, monkeypatch):
