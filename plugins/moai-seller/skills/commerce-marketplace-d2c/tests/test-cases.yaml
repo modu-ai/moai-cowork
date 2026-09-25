@@ -1,30 +1,42 @@
 name: commerce-marketplace-d2c
-version: 1.8.0
+version: 1.8.1
+execution_status: NOT-RUN
 test_cases:
-  - id: happy_imweb_new_brand
-    description: 신생 패션 브랜드 아임웹 가이드
+  - id: simple_comparison_without_account
+    description: 계정이 없어도 카페24와 아임웹의 조건부 비교를 제공
     input:
-      stage: "신규 런칭"
-      category: fashion
-      team: "1인 운영"
+      request: "신규 브랜드인데 카페24와 아임웹 중 어디가 좋아?"
+      seller_account: false
     expected:
-      channel_recommended: imweb
-      reason_includes: ["디자인 자유도", "노코드"]
-      checklist_count: ">= 6"
+      includes: ["필요 기능", "현재 플랜", "결제·배송 비용"]
+      no_guaranteed_choice_by_brand_size: true
 
-  - id: edge_cafe24_vs_imweb
-    description: 카페24 vs 아임웹 결정 비교
+  - id: imweb_retired_plan
+    description: 폐지된 아임웹 Free와 이전 플랜 가격을 현재 조건으로 제시하지 않음
     input:
-      revenue_target: "월 1억+"
-      developer_available: true
+      request: "아임웹 무료 플랜으로 쇼핑몰 열 수 있어?"
     expected:
-      channel_recommended: cafe24
-      reason_includes: ["커스터마이징", "앱스토어"]
+      includes: ["14일 무료 체험", "Starter", "Pro", "Global"]
+      excludes_as_current: ["Free 요금제", "Lite 월 8,800원"]
 
-  - id: failure_no_business_registration
-    description: 사업자등록 없이 PG 가입 시도
+  - id: no_business_registration
+    description: 사업자 자료가 없어도 사이트 설계 초안은 작성
     input:
+      request: "사업자등록 전인데 사이트부터 설계하고 싶어"
       business_registered: false
     expected:
-      blocker: "통신판매업 신고 + 사업자등록 필수"
-      action_required: ["사업자등록", "통신판매업 신고"]
+      draft_available: true
+      payment_activation_requires_current_pg_check: true
+      no_universal_reporting_claim: true
+
+  - id: cost_comparison_missing_contract
+    description: PG 계약이 없어도 요청한 가정별 예시를 제공하고 실제 비용은 확정하지 않음
+    input:
+      request: "자사몰이 마켓보다 얼마나 싸? 가정해서라도 예시로 계산해 줘"
+      pg_contract: null
+      marketplace_contract: null
+    expected:
+      result: assumption_labeled_scenario
+      includes: ["가정", "산식", "미확인 항목"]
+      no_confirmed_savings_claim: true
+      missing_inputs_include: ["PG 계약", "마켓 수수료", "배송", "광고"]

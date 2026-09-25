@@ -880,11 +880,11 @@ plugins/moai-seller/skills/commerce-marketplace-curation/references/29cm.md		sta
 plugins/moai-seller/skills/commerce-marketplace-curation/references/kakao-makers.md		static_read
 plugins/moai-seller/skills/commerce-marketplace-curation/references/musinsa.md		static_read
 plugins/moai-seller/skills/commerce-marketplace-curation/tests/test-cases.yaml		static_read
-plugins/moai-seller/skills/commerce-marketplace-d2c/SKILL.md		mechanical_scan
-plugins/moai-seller/skills/commerce-marketplace-d2c/references/cafe24.md		mechanical_scan
-plugins/moai-seller/skills/commerce-marketplace-d2c/references/d2c-strategy.md		mechanical_scan
-plugins/moai-seller/skills/commerce-marketplace-d2c/references/imweb.md		mechanical_scan
-plugins/moai-seller/skills/commerce-marketplace-d2c/tests/test-cases.yaml		mechanical_scan
+plugins/moai-seller/skills/commerce-marketplace-d2c/SKILL.md		static_read
+plugins/moai-seller/skills/commerce-marketplace-d2c/references/cafe24.md		static_read
+plugins/moai-seller/skills/commerce-marketplace-d2c/references/d2c-strategy.md		static_read
+plugins/moai-seller/skills/commerce-marketplace-d2c/references/imweb.md		static_read
+plugins/moai-seller/skills/commerce-marketplace-d2c/tests/test-cases.yaml		static_read
 plugins/moai-seller/skills/commerce-marketplace-naver-ads/SKILL.md		static_read
 plugins/moai-seller/skills/commerce-marketplace-naver/SKILL.md		static_read
 plugins/moai-seller/skills/commerce-marketplace-naver/references/naver-smartstore.md		static_read
