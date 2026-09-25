@@ -292,7 +292,7 @@ plugins/moai-designer/skills/design-system-library/systems/mintlify.md		static_r
 plugins/moai-designer/skills/design-system-library/systems/miro.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/mistral.ai.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/mongodb.md		static_read
-plugins/moai-designer/skills/design-system-library/systems/nike.md		mechanical_scan
+plugins/moai-designer/skills/design-system-library/systems/nike.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/nintendo-2001.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/notion.md		mechanical_scan
 plugins/moai-designer/skills/design-system-library/systems/nvidia.md		mechanical_scan
