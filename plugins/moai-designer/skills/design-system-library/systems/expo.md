@@ -7,7 +7,7 @@ colors:
   primary: "#000000"
   primary-active: "#1a1a1a"
   text-link: "#0d74ce"
-  text-link-secondary: "#476cff"
+  text-link-secondary: "#3b60e6"
   ink: "#171717"
   body: "#60646c"
   body-strong: "#171717"
@@ -274,7 +274,7 @@ The brand's strongest visual signature is the **device-mockup hero** — a cente
 
 **Key Characteristics:**
 - Pure white canvas with sky-blue gradient atmospheric backdrop in hero only.
-- Single primary CTA: pure black pill at `{rounded.md}` (8px) — compact developer-tool dialect.
+- Single primary CTA: pure black button at `{rounded.md}` (8px) — compact developer-tool dialect.
 - Text-link blue (`{colors.text-link}`) for inline links only — never on a CTA.
 - Inter as the single sans family — no custom display typeface.
 - JetBrains Mono on every code surface.
@@ -288,7 +288,7 @@ The brand's strongest visual signature is the **device-mockup hero** — a cente
 - **Black** (`{colors.primary}` — #000000): Primary CTA fill. Used scarcely.
 - **Black Active** (`{colors.primary-active}` — #1a1a1a): Press state.
 - **Text Link Blue** (`{colors.text-link}` — #0d74ce): Inline body links inside long-form copy. Scoped narrowly — never on CTAs.
-- **Legal Link Blue** (`{colors.text-link-secondary}` — #476cff): Inline links inside legal copy footer.
+- **Legal Link Blue** (`{colors.text-link-secondary}` — #3b60e6): Inline links inside legal copy footer; the token is darkened for readable small text on white.
 - **Bright Cyan** (`{colors.accent-link-bright}` — #47c2ff): Used very sparingly inside docs widget links.
 
 ### Surface
@@ -413,13 +413,13 @@ Compact developer-ergonomic radii — 8px CTAs, 12px cards. Pill geometry is res
 
 ### Buttons
 
-**`button-primary`** — Pure black pill. Background `{colors.primary}`, text `{colors.on-primary}`, type `{typography.button}` (14px / 500), padding 10px × 18px, height 40px, rounded `{rounded.md}` (8px).
+**`button-primary`** — Pure black button. Background `{colors.primary}`, text `{colors.on-primary}`, type `{typography.button}` (14px / 500), padding 10px × 18px, height 40px, rounded `{rounded.md}` (8px).
 
 **`button-primary-active`** — Press state. Background `{colors.primary-active}`.
 
 **`button-secondary`** — White card with 1px hairline-strong border. Background `{colors.surface-card}`, text `{colors.ink}`, 1px `{colors.hairline-strong}` border.
 
-**`button-tertiary-text`** — Inline blue text link. Background transparent, text `{colors.text-link}`.
+**`button-tertiary-text`** — Text-only blue link action. Background transparent, text `{colors.text-link}`; it is not a filled CTA.
 
 ### Hero & Device Mockup
 
@@ -463,7 +463,7 @@ Compact developer-ergonomic radii — 8px CTAs, 12px cards. Pill geometry is res
 
 ### CTA / Footer
 
-**`cta-band`** — Pre-footer band. Background `{colors.canvas}`, centered display headline in `{typography.display-lg}`, single black pill CTA. 96px padding.
+**`cta-band`** — Pre-footer band. Background `{colors.canvas}`, centered display headline in `{typography.display-lg}`, single black `{rounded.md}` CTA. 96px padding.
 
 **`footer-light`** — Closing white footer. Background `{colors.canvas}`, text `{colors.body}`. 5-column link list. 64×48px padding.
 
@@ -473,7 +473,7 @@ Compact developer-ergonomic radii — 8px CTAs, 12px cards. Pill geometry is res
 
 ### Do
 - Reserve `{colors.primary}` (black) for primary CTAs.
-- Use `{colors.text-link}` (blue) for inline body links only — never on CTAs or buttons.
+- Use `{colors.text-link}` (blue) for inline body links and the text-only `{components.button-tertiary-text}` action, never as a filled CTA color.
 - Set every CTA at `{rounded.md}` (8px) — developer dialect.
 - Use Inter at weight 600 for display, 400 for body.
 - Render every code surface in JetBrains Mono.
@@ -481,7 +481,7 @@ Compact developer-ergonomic radii — 8px CTAs, 12px cards. Pill geometry is res
 
 ### Don't
 - Don't introduce a saturated brand action color. Black is the only CTA fill.
-- Don't use blue (`{colors.text-link}`) on a CTA. Inline links only.
+- Don't use blue (`{colors.text-link}`) as a filled CTA color; reserve it for links and text-only actions.
 - Don't drop display below weight 600 or above 700.
 - Don't use full pills on CTAs — pills are for badges only.
 - Don't replicate the sky-blue gradient backdrop outside the hero.
@@ -499,8 +499,8 @@ Compact developer-ergonomic radii — 8px CTAs, 12px cards. Pill geometry is res
 | Wide | > 1280px | Content caps at 1200px. |
 
 ### Touch Targets
-- Primary CTA at 40px height — at WCAG AA, padded for AAA.
-- Search input 44px — at AAA.
+- Primary CTA is documented at 40px high. Measure both dimensions of its rendered clickable area and, if undersized, check spacing or an applicable exception before claiming WCAG 2.5.8 AA. Horizontal padding cannot make a 40px-high target meet the WCAG 2.5.5 AAA 44×44px size target.
+- The YAML defines `{components.text-input}` at 44px high, but no search-input component. Measure the rendered text input's clickable width and height before making a target-size claim.
 
 ### Collapsing Strategy
 - Top nav switches to hamburger below 768px.

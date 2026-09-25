@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Figma-design-analysis
-description: "A confident black-and-white editorial frame interrupted by oversized, hand-cut pastel color blocks. The marketing canvas is rigorously monochrome — figmaSans variable type, pure white surfaces, pure black ink, pill-shaped CTAs — while each story section drops the page into a saturated lime, lavender, cream, mint, or pink panel that reads like a sticky note placed on a clean desk. The result is a design system that feels both technical and joyful — a tool for serious work, made by people who like color."
+description: "A confident black-and-white editorial frame interrupted by oversized, hand-cut pastel color blocks. The reference uses Figma Sans; this reusable profile defaults to Inter variable type, pure white surfaces, pure black ink, and pill-shaped CTAs. Each story section drops the page into a saturated lime, lavender, cream, mint, or pink panel that reads like a sticky note placed on a clean desk."
 
 colors:
   primary: "#000000"
@@ -10,7 +10,7 @@ colors:
   canvas: "#ffffff"
   inverse-canvas: "#000000"
   inverse-ink: "#ffffff"
-  on-inverse-soft: "#ffffff"
+  inverse-icon-surface: "#707090"
   hairline: "#e6e6e6"
   hairline-soft: "#f1f1f1"
   surface-soft: "#f7f7f5"
@@ -27,84 +27,84 @@ colors:
 
 typography:
   display-xl:
-    fontFamily: figmaSans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 86px
     fontWeight: 340
     lineHeight: 1.00
     letterSpacing: -1.72px
     fontFeature: kern
   display-lg:
-    fontFamily: figmaSans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 64px
     fontWeight: 340
     lineHeight: 1.10
     letterSpacing: -0.96px
     fontFeature: kern
   headline:
-    fontFamily: figmaSans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 26px
     fontWeight: 540
     lineHeight: 1.35
     letterSpacing: -0.26px
     fontFeature: kern
   subhead:
-    fontFamily: figmaSans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 26px
     fontWeight: 340
     lineHeight: 1.35
     letterSpacing: -0.26px
     fontFeature: kern
   card-title:
-    fontFamily: figmaSans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 24px
     fontWeight: 700
     lineHeight: 1.45
     letterSpacing: 0
     fontFeature: kern
   body-lg:
-    fontFamily: figmaSans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 20px
     fontWeight: 330
     lineHeight: 1.40
     letterSpacing: -0.14px
     fontFeature: kern
   body:
-    fontFamily: figmaSans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 18px
     fontWeight: 320
     lineHeight: 1.45
     letterSpacing: -0.26px
     fontFeature: kern
   body-sm:
-    fontFamily: figmaSans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 16px
     fontWeight: 330
     lineHeight: 1.45
     letterSpacing: -0.14px
     fontFeature: kern
   link:
-    fontFamily: figmaSans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 20px
     fontWeight: 480
     lineHeight: 1.40
     letterSpacing: -0.10px
     fontFeature: kern
   button:
-    fontFamily: figmaSans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 20px
     fontWeight: 480
     lineHeight: 1.40
     letterSpacing: -0.10px
     fontFeature: kern
   eyebrow:
-    fontFamily: figmaMono
+    fontFamily: JetBrains Mono, ui-monospace, monospace
     fontSize: 18px
     fontWeight: 400
     lineHeight: 1.30
     letterSpacing: 0.54px
     fontFeature: kern
   caption:
-    fontFamily: figmaMono
+    fontFamily: JetBrains Mono, ui-monospace, monospace
     fontSize: 12px
     fontWeight: 400
     lineHeight: 1.00
@@ -162,14 +162,14 @@ components:
     rounded: "{rounded.full}"
     size: 40px
   button-icon-circular-inverse:
-    backgroundColor: "{colors.on-inverse-soft}"
+    backgroundColor: "{colors.inverse-icon-surface}"
     textColor: "{colors.inverse-ink}"
     typography: "{typography.button}"
     rounded: "{rounded.full}"
     size: 40px
   button-magenta-promo:
     backgroundColor: "{colors.accent-magenta}"
-    textColor: "{colors.on-primary}"
+    textColor: "{colors.ink}"
     typography: "{typography.button}"
     rounded: "{rounded.pill}"
     padding: 10px 18px
@@ -272,7 +272,7 @@ components:
 
 ## Overview
 
-Figma's marketing canvas is, at the system level, an editor-clean black-and-white frame. The chrome — top nav, body type, footer, primary CTA — is monochrome. Headlines are oversized `{typography.display-xl}` set in `figmaSans` with aggressive negative tracking, body copy hovers around weight 320–340 of the same variable family, and small mono `{typography.eyebrow}` and `{typography.caption}` labels (figmaMono, all-caps, positive tracking) act as section markers. Every CTA is a pill — `{rounded.pill}` — and the primary action across the entire site is the same black `{components.button-primary}` paired with the same white `{components.button-secondary}`.
+Figma's marketing canvas is, at the system level, an editor-clean black-and-white frame. The chrome — top nav, body type, footer, primary CTA — is monochrome. Headlines are oversized `{typography.display-xl}` set in `Inter` with aggressive negative tracking, body copy hovers around weight 320–340 of the same variable family, and small mono `{typography.eyebrow}` and `{typography.caption}` labels (JetBrains Mono, all-caps, positive tracking) act as section markers. Every CTA is a pill — `{rounded.pill}` — and the primary action across the entire site is the same black `{components.button-primary}` paired with the same white `{components.button-secondary}`.
 
 What makes the design unique is what happens **between** those monochrome bookends: the page repeatedly drops into oversized pastel **color-block sections** — lime, lavender, cream, mint, pink, coral, and a deep navy — that span the full content width with `{rounded.lg}` corners and `{spacing.xxl}` interior padding. These blocks are where the storytelling lives. They aren't accents tucked into a card; they take over a whole viewport's worth of vertical space, like a designer arranging giant sticky notes on a clean wall. FigJam is the most pastel-saturated, the home page rotates through the full set, and the pricing page ends with a lime FAQ panel — same vocabulary, different rhythm per route.
 
@@ -282,9 +282,9 @@ This is a system built on contrast: the monochrome chrome makes the color blocks
 - Monochrome system core: `{colors.primary}` (black) and `{colors.canvas}` (white) carry every CTA, every body line, every footer link.
 - Oversized pastel **color-block sections** (`{colors.block-lime}`, `{colors.block-lilac}`, `{colors.block-cream}`, `{colors.block-mint}`, `{colors.block-pink}`, `{colors.block-coral}`, `{colors.block-navy}`) define the narrative rhythm of every long-form page.
 - Pill is the only button shape — `{rounded.pill}` for text CTAs, `{rounded.full}` for icon buttons. No square buttons anywhere.
-- `figmaSans` variable typeface used at unusually fine weight increments (320, 330, 340, 450, 480, 540) — the type system reads as a single voice that flexes rather than a multi-weight family.
+- Inter variable typeface used at unusually fine weight increments (320, 330, 340, 450, 480, 540) — the type system reads as a single voice that flexes rather than a multi-weight family.
 - Tight negative letter-spacing on display sizes (-1.72px at 86px, -0.96px at 64px) creates a confident editorial cadence.
-- `figmaMono` reserved for category labels, eyebrows, and captions — always uppercase, positive tracking — to flag taxonomy without competing with display type.
+- JetBrains Mono reserved for category labels, eyebrows, and captions — always uppercase, positive tracking — to flag taxonomy without competing with display type.
 - Color-block page rhythm (home): white hero → marquee strip → white feature → lime systems block → navy ship-products block → coral developer block → white template grid → white footer.
 
 ## Colors
@@ -313,7 +313,7 @@ This is a system built on contrast: the monochrome chrome makes the color blocks
 ### Text
 - **Ink** ({colors.ink}): All headline, body, and caption type on light surfaces. There is no softer mid-gray text role on marketing — body copy is always black at weight 320–340, and weight (not opacity) carries the hierarchy.
 - **Inverse Ink** ({colors.inverse-ink}): Type on inverse-canvas surfaces (footer, marquee strip, navy color block).
-- **On-Inverse Soft** ({colors.on-inverse-soft}): White used at ~16% opacity for circular icon-button surfaces against dark sections (token captures the base color; the translucency is applied at render time).
+- **Inverse Icon Surface** ({colors.inverse-icon-surface}): Solid slate surface for inverse icon buttons, distinguishable from black and navy sections. A translucent treatment requires a rendered contrast check before use.
 
 ### Semantic
 - **Success Green** ({colors.semantic-success}): Comparison-table checkmarks on pricing. Used as a glyph fill, not a surface.
@@ -323,8 +323,8 @@ This is a system built on contrast: the monochrome chrome makes the color blocks
 
 ### Font Family
 
-- **figmaSans** — Figma's proprietary variable typeface; fallback stack `figmaSans Fallback, SF Pro Display, system-ui, helvetica`. Variable weight axis is exercised at unusually fine increments (320, 330, 340, 450, 480, 540, 700) — the design system reads as a single voice modulating rather than a stepped weight family.
-- **figmaMono** — Proprietary monospace; fallback `figmaMono Fallback, SF Mono, menlo`. Used exclusively for eyebrow labels and captions, always uppercase with positive letter-spacing.
+- **Sans default** — `Inter, system-ui, sans-serif`. The reference uses Figma Sans; use it only when its license permits this project. Inter variable weights preserve the documented fine increments (320, 330, 340, 450, 480, 540, 700).
+- **Mono default** — `JetBrains Mono, ui-monospace, monospace`. The reference uses Figma Sans Mono; use it only when its license permits this project. Reserve mono for uppercase eyebrows and captions with positive letter-spacing.
 
 OpenType `kern` is enabled across every role.
 
@@ -342,19 +342,19 @@ OpenType `kern` is enabled across every role.
 | `{typography.body-sm}` | 16px | 330 | 1.45 | -0.14px | Card body, footer link list |
 | `{typography.link}` | 20px | 480 | 1.40 | -0.10px | Inline link emphasis |
 | `{typography.button}` | 20px | 480 | 1.40 | -0.10px | All pill buttons, primary and secondary |
-| `{typography.eyebrow}` | 18px | 400 | 1.30 | 0.54px | figmaMono uppercase section eyebrows |
-| `{typography.caption}` | 12px | 400 | 1.00 | 0.60px | figmaMono uppercase captions, footer column heads |
+| `{typography.eyebrow}` | 18px | 400 | 1.30 | 0.54px | JetBrains Mono uppercase section eyebrows |
+| `{typography.caption}` | 12px | 400 | 1.00 | 0.60px | JetBrains Mono uppercase captions, footer column heads |
 
 ### Principles
 
 - **Weight, not size, carries hierarchy on body copy.** A 20px paragraph at weight 330 sits next to a 20px link at weight 480 — the eye reads emphasis without scale change.
 - **Negative letter-spacing scales with size.** Display-xl pulls -1.72px; subhead pulls only -0.26px. Body copy stays near-zero. The result is editorial-feeling display type without sacrificing readability at body size.
-- **Mono is taxonomy, not body.** figmaMono is reserved for eyebrows and captions — never used to set a paragraph.
+- **Mono is taxonomy, not body.** JetBrains Mono is reserved for eyebrows and captions — never used to set a paragraph.
 - **Tight line-heights on display, generous on body.** Display sizes run 1.00–1.10; body runs 1.40–1.45. The contrast reinforces that headlines are graphics and body copy is for reading.
 
-### Note on Font Substitutes
+### Reference Font Use
 
-If implementing without access to figmaSans / figmaMono, suitable open-source substitutes are **Inter** (or **Geist**) for the sans, and **JetBrains Mono** (or **Geist Mono**) for the mono. Inter at variable weights closely matches the fine-grained weight axis figmaSans uses; expect to manually adjust line-heights down by ~0.02 to compensate for Inter's slightly taller x-height.
+Figma Sans and Figma Sans Mono are reference fonts, not bundled assets. The tokens use openly available Inter and JetBrains Mono by default. If licensed reference fonts are substituted, check the rendered line breaks, spacing, and contrast before adopting them.
 
 ## Layout
 
@@ -434,10 +434,10 @@ Figma's marketing system is shadow-light by design — the color blocks substitu
 - Background `{colors.surface-soft}`, text `{colors.ink}`, rounded `{rounded.full}`, size 40px.
 
 **`button-icon-circular-inverse`** — Same shape, used on inverse-canvas / dark color blocks.
-- Background `{colors.on-inverse-soft}` (translucent white), text `{colors.inverse-ink}`, rounded `{rounded.full}`, size 40px.
+- Background `{colors.inverse-icon-surface}`, text `{colors.inverse-ink}`, rounded `{rounded.full}`, size 40px.
 
 **`button-magenta-promo`** — Saturated pink pill used only inside promotional surfaces such as the lilac "Save your spot" Release Notes banner. Reserved for moments where Figma's product team wants the CTA to pop against an already-colored panel.
-- Background `{colors.accent-magenta}`, text `{colors.on-primary}`, type `{typography.button}`, rounded `{rounded.pill}`, padding 10px 18px.
+- Background `{colors.accent-magenta}`, text `{colors.ink}`, type `{typography.button}`, rounded `{rounded.pill}`, padding 10px 18px.
 
 ### Pricing Tabs
 
@@ -510,20 +510,20 @@ The defining surface of Figma's marketing. Each is a full-content-width panel wi
 
 - Reserve `{colors.primary}` for genuine primary CTAs and selected states (e.g., `pricing-tab-selected`). Don't use it as a decorative accent.
 - When introducing a story section, choose **one** color block from the `{colors.block-*}` family and let it span full content width with `{rounded.lg}` corners and `{spacing.xxl}` interior padding.
-- Keep type in `figmaSans` at variable weights — pick from 320, 330, 340, 480, 540, 700 to express hierarchy. Avoid intermediate weights outside this set.
-- Use `figmaMono` only for eyebrows and captions, always uppercase, with the documented positive letter-spacing.
+- Keep Inter at variable weights — pick from 320, 330, 340, 480, 540, 700 to express hierarchy. Avoid intermediate weights outside this set.
+- Use JetBrains Mono only for eyebrows and captions, always uppercase, with the documented positive letter-spacing.
 - Compose every CTA as a pill (`{rounded.pill}`) and every icon button as a circle (`{rounded.full}`).
 - Allow the page to **return to white canvas** between every two color blocks so each block reads as deliberate.
 - Pair `button-primary` and `button-secondary` whenever a section needs both a primary action and a sales / secondary action — the black-and-white pair is the brand signature.
 
 ### Don't
 
-- Don't introduce mid-gray text. Body hierarchy comes from `figmaSans` weight, not from opacity.
+- Don't introduce mid-gray text. Body hierarchy comes from Inter weight, not from opacity.
 - Don't add drop shadows to color-block sections — the color is the depth device.
 - Don't introduce new accent colors outside the documented `{colors.block-*}` palette and `{colors.accent-magenta}`. Adding, e.g., a saturated brand orange would break the system.
 - Don't combine more than one color block visible inside a single viewport — Figma's pacing always lets the white canvas separate them.
 - Don't square off CTAs. Square buttons read as a different brand.
-- Don't put `figmaMono` in body copy — it's a taxonomy tool, not a reading typeface.
+- Don't put JetBrains Mono in body copy — it's a taxonomy tool, not a reading typeface.
 - Don't replace the `pricing-tab-selected` black fill with a colored tab; the brand pattern is "selected = primary surface".
 
 ## Responsive Behavior
@@ -543,9 +543,9 @@ The defining surface of Figma's marketing. Each is a full-content-width panel wi
 
 ### Touch Targets
 
-- Pill buttons (`button-primary`, `button-secondary`) maintain a minimum 44px tap height across all viewports — achieved by combining `{typography.button}` 20px line-height with the documented vertical padding.
-- Circular icon buttons (`button-icon-circular`) are 40px on desktop and grow to 44px on touch viewports.
-- Form input minimum tap target on `/contact/` is 48px high.
+- Measure rendered button targets at each viewport; the token padding and line-height alone do not establish their actual target dimensions.
+- Circular icon buttons specify 40px in the tokens. Increase the interactive target where needed and verify its rendered dimensions.
+- Measure form input targets after layout; no minimum target size is defined in the tokens.
 
 ### Collapsing Strategy
 
