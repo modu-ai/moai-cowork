@@ -810,7 +810,8 @@ The system runs predominantly flat with strategic depth on hero mockups.
 
 1. Focus on ONE component at a time
 2. Reference component names and tokens directly
-3. Run `npx -p "@google/design.md" designmd lint DESIGN.md` after edits
+3. Run `npx --yes -p "@google/design.md@0.4.0" designmd lint DESIGN.md`
+    after edits
 4. Add new variants as separate `components:` entries
 5. Default to `{typography.body-md}` for body and `{typography.subtitle}` for emphasis
 6. Keep `{colors.brand-yellow}` confined to wordmark, promo banner, and yellow-tag chips

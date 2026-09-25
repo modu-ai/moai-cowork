@@ -603,7 +603,7 @@ Drop shadows exist in the extracted tokens but are restrained — used sparingly
 
 1. Focus on ONE component at a time. Most interactive elements share `{rounded.full}` and the `{colors.canvas}` / `{colors.surface-card}` pair — only the role-specific tokens (`{colors.primary}`, `{component.code-block}`) shift between variants.
 2. Reference component names and tokens directly (`{colors.primary}`, `{component.button-primary-pressed}`, `{rounded.lg}`) — do not paraphrase.
-3. Run `npx -p "@google/design.md" designmd lint DESIGN.md` after edits; orphaned-tokens warnings will catch unused entries.
+3. Run `npx --yes -p "@google/design.md@0.4.0" designmd lint DESIGN.md` after edits; orphaned-tokens warnings will catch unused entries.
 4. Add new variants as separate entries (`-pressed`, `-disabled`, `-featured`) — do not bury them in prose.
 5. Default body type to `{typography.body-md}`; reach for `{typography.subtitle}` only on hero subtitles.
 6. Keep `{colors.primary}` scarce — if more than one orange element appears per viewport, ask whether one should drop to `{colors.surface-dark}` instead.

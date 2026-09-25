@@ -732,7 +732,7 @@ The system runs predominantly flat. Elevation is reserved for sticky panels, dro
 
 1. Focus on ONE component at a time. The system has high internal consistency.
 2. Reference component names and tokens directly (`{colors.primary}`, `{component-name}-pressed`, `{rounded.full}`) — do not paraphrase.
-3. Run `npx -p "@google/design.md" designmd lint DESIGN.md` after edits to catch broken refs and contrast issues.
+3. Run `npx --yes -p "@google/design.md@0.4.0" designmd lint DESIGN.md` after edits to catch broken refs and contrast issues.
 4. Add new variants as separate `components:` entries (`-pressed`, `-disabled`, `-active`).
 5. Default to `{typography.body-md}` for body and `{typography.subtitle}` for emphasis. Headlines step down `hero-display → display-lg → heading-lg → heading-md → heading-sm`.
 6. Keep brand colors (coral, magenta, blue, purple) confined to product-card identity. If a brand color appears on a standard button or generic surface, ask whether it earned that surface.

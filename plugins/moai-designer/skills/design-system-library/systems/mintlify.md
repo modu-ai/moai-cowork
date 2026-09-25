@@ -837,7 +837,7 @@ The radius scale is tightly disciplined — the brand never uses a corner soften
 
 1. Focus on ONE component at a time. The system has high internal consistency.
 2. Reference component names and tokens directly (`{colors.primary}`, `{component-name}-pressed`, `{rounded.full}`) — do not paraphrase.
-3. Run `npx -p "@google/design.md" designmd lint DESIGN.md` after edits to catch broken refs and contrast issues.
+3. Run `npx --yes -p "@google/design.md@0.4.0" designmd lint DESIGN.md` after edits to catch broken refs and contrast issues.
 4. Add new variants as separate `components:` entries (`-pressed`, `-disabled`, `-focused`, `-active`).
 5. Default to `{typography.body-md}` for body and `{typography.subtitle}` for emphasis. Headlines step down `hero-display → display-lg → heading-1 → heading-2 → heading-3 → heading-4 → heading-5`.
 6. Keep `{colors.brand-green}` confined to accent moments. If it appears on a generic surface, ask whether it earned that role.

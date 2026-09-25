@@ -357,7 +357,8 @@ Marketing photography uses `srcset` for desktop / tablet / mobile with art-direc
 
 1. Focus on ONE component at a time.
 2. Reference component names and tokens directly (`{colors.canvas-night}`, `{button-ghost-on-dark}`, `{rounded.pill}`).
-3. Run `npx -p "@google/design.md" designmd lint DESIGN.md` after edits.
+3. Run `npx --yes -p "@google/design.md@0.4.0" designmd lint DESIGN.md`
+    after edits.
 4. Add new variants as separate entries.
 5. Default body to `{typography.body-md}`; reserve `{typography.body-lg}` for marketing leads.
 6. The black-and-white-only rule is load-bearing — adding a brand accent color breaks the system.

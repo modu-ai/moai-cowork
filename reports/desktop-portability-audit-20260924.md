@@ -1261,3 +1261,17 @@ Seller 시장조사·상품명·프로모션 기획 스킬을 각각 읽고 수�
 - 광고 스킬 두 파일을 실제 계정에 보이는 광고 유형·기능, 같은 기간·귀속 기준의 보고서와 상품별 공헌이익을 확인하는 절차로 고쳤다. 자동규칙·예산·입찰·제외 키워드는 고정 정답이 아니라 검증과 승인 대상이다. 두 스킬 버전은 `1.1.1`, 판매자 Claude·Codex·마켓플레이스 버전은 `1.4.21`로 맞췄다. 다섯 파일의 장부 상태를 `static_read`로 바꿔 전체 1,091개 중 `static_read` 898개, `mechanical_scan` 193개다. 실제 광고 계정의 기능·과금·성과와 조정 실행은 미확인이다.
 - 필수 적대적 감사의 구조화 판정은 다시 `inconclusive`·`findings: []`였고 요약은 파일·줄 근거 한 건으로 FAIL을 냈다. 네이버 스킬의 승인 단계가 예산·입찰·제외 설정만 열거해 소재 교체를 빠뜨린 점을 실제 본문에서 확인했다. 소재·캠페인 구성을 포함한 모든 광고 계정 변경으로 승인 범위를 넓혔다. 실제 광고 계정에서 승인 흐름을 실행한 것은 아니다.
 - 수정 후 두 광고 스킬의 Markdown 검사는 `0 issues in 0 files`, `python3 scripts/check-plugin-runtimes.py`는 플러그인 18개·오류 0건·기존 참고 1건이었다. `git diff --check`는 출력 없이 종료 코드 0, `www`의 Hugo 빌드는 경고 없이 209페이지를 만들었다. 이 검사로 실제 광고 계정 권한이나 캠페인 변경 성공을 주장하지 않는다.
+
+### 디자인 시스템 프로필의 npm 검사 명령 (2026-09-25)
+
+- `design-system-library/systems/`의 프로필 77개에서 호스트·운영체제·명령·경로 관련 문구를 파일별로 검색했다. 30개 프로필의 Iteration Guide가 같은 `npx -p "@google/design.md" designmd lint DESIGN.md` 명령을 안내했다. 스킬 본문에도 같은 명령이 있었다. [npm 공식 `npm exec` 문서](https://docs.npmjs.com/cli/v11/commands/npm-exec/)에 따르면 설치되지 않은 패키지를 대화식으로 실행할 때 확인 프롬프트가 나타날 수 있고, `--yes`를 주면 프롬프트를 건너뛴다. 비TTY 실행은 npm이 이미 `--yes`로 취급한다. 30개 프로필과 스킬 본문의 명령을 `npx --yes -p "@google/design.md@0.4.0" designmd lint DESIGN.md`로 고쳤다.
+- 이 작업 트리에서 `npm view @google/design.md version bin --json --silent`는 버전 `0.4.0`과 `designmd` 실행 파일을 반환했다. 첫 감사는 확인 창을 없애면서 패키지 버전을 고정하지 않은 문제를 `SKILL.md:142`와 프로필 줄 근거로 지적했다. 이에 31곳 모두 검증한 버전으로 고정했다. 두 번째 감사는 Node.js 요구 버전 누락과 아래 줄 길이 근거 오류를 지적했다. `npm view @google/design.md@0.4.0 engines --json --silent`가 `>=18.0.0`을 반환해 스킬 본문에 Node.js 18 이상을 명시했다. 실제 프로젝트의 `DESIGN.md`에 lint를 실행하거나 데스크톱 앱 안에서 npm 실행 환경을 확인한 것은 아니다.
+- `design-system-library` 스킬 버전은 `1.1.10`, 디자이너 Claude·Codex·마켓플레이스 버전은 `1.4.32`로 맞췄다. 77개 프로필 중 전체 본문을 읽지 않은 46개는 명령 검색·해당 줄 확인만 했으므로 장부의 `mechanical_scan`을 유지한다. 현재 장부 전체는 1,091개 중 `static_read` 898개, `mechanical_scan` 193개다.
+- 버전 고정 후 `npx --yes -p '@google/design.md@0.4.0' designmd --help`는 종료 코드 0으로 `design.md v0.4.0`의 `lint` 명령을 출력했다. 수정된 명령은 스킬 본문과 30개 프로필에서 31곳, 버전 미고정 명령은 0곳이었다. `git diff --check`는 출력 없이 종료 코드 0이었다. 프로필 77개와 스킬 본문의 Markdown 검사에는 기존 형식 문제를 포함해 78개 파일에서 10,538건이 있었다. 원본 명령 줄 31개 중 20개만 80자를 넘었고, 고정 버전까지 더하면 다른 11개가 처음으로 80자를 넘는다. 이 11곳의 문장을 줄바꿈했다. 변경 후 같은 검사의 집계도 10,538건·종료 코드 1이며, 새 명령 줄의 줄 길이는 80자 이하 또는 기존에 이미 80자 초과였다.
+- 적대적 감사 두 번의 구조화 판정은 차례로 `inconclusive`, `fail`이었다. 각 요약의 파일·줄 근거 지적은 위의 버전 고정, Node.js 18 이상 조건, 줄 길이 보고 정정과 11개 줄바꿈으로 반영했다. 수정 뒤 감사 PASS를 받았다고 주장하지 않는다.
+
+### 판매자 MCP에 포함된 공유 코어 복제본 대조 (2026-09-25)
+
+- 카페24·아임웹·스마트스토어 MCP의 `src/moai_mcp_core/` 파일을 공유 코어 `plugins/_shared/moai-mcp-core/moai_mcp_core/`의 같은 이름 파일과 하나씩 대조했다. 세 서버의 각 7개 파일, 총 21개는 맨 앞 생성 안내 3줄을 제외한 본문 전체가 정본과 바이트 단위로 같았다. 공유 코어의 대응 7개 파일은 앞서 전체를 읽어 `static_read`로 기록했다. 21개 복제본도 동일한 본문에 대한 검토로 장부 상태를 `static_read`로 바꿨다.
+- 복제본 대조는 배포 환경에서 어느 모듈이 실제 import되는지, 세 MCP의 인증과 도구 호출이 데스크톱 앱에서 성공하는지를 검증하지 않는다. 장부 전체는 1,091개 중 `static_read` 919개, `mechanical_scan` 172개다.
+- 이 작업 트리에서 카페24 `uv run --locked --group dev pytest -q tests/test_auth.py tests/test_client_paths.py`는 `12 passed`, 아임웹 `uv run --locked --group dev pytest -q tests`는 `32 passed`, 스마트스토어 `uv run --locked --extra dev pytest -q tests`는 `28 passed`였다. 이는 로컬 단위 테스트 결과이며 판매자 계정 연결이나 데스크톱 호스트의 stdio 서버 기동을 검증하지 않는다.
