@@ -1,343 +1,60 @@
 ---
 name: setup-mcp-connector
 description: |
-  [책임 경계] Drive·Notion·Higgsfield 3커넥터 인증·환경변수·트러블슈팅 가이드 전담. 페어 moai-seller:commerce-morning-brief(MCP 매장 데이터 호출)와 명확히 구분 — 본 스킬은 커넥터 설치·인증 단계, 페어는 인증 이후 실제 MCP 호출 결과물.
-  다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
-  "MCP 커넥터 연결", "Drive 인증 방법", "Notion Integration Token 어디서", "Higgsfield 연결", "Windows MAX_PATH 오류", "한글 파일명 30자 오류", "computer:// 링크 안 열려요", "커넥터 3개 연결 방법", "MCP 3커넥터 인증", "커넥터 오류 해결".
-version: "1.1.3"
+  Claude Cowork와 ChatGPT Work에서 Google Drive·Notion·Higgsfield 등의 외부 앱과
+  설치된 MoAI 플러그인의 MCP 연결·인증 상태를 확인하고 문제를 좁혀 안내합니다.
+  앱 설치, 계정 연결, 도구 노출, 실제 읽기 호출을 각각 구분합니다.
+version: "1.1.4"
 ---
 
-# MCP 커넥터 셋업 가이드
+# 외부 앱과 MCP 연결 확인
 
-## 개요
+사용자가 연결하려는 **서비스와 앱**을 먼저 확인한다. 이 스킬은 연결을 안내하며, 다른 플러그인이나 계정 권한이 이미 있다고 가정하지 않는다. `moai-officer` 플러그인 자체의 `.mcp.json`에는 `kordoc`만 선언돼 있다. 다른 기관 데이터 서버는 해당 플러그인을 설치하고 연결해야 한다.
 
-Drive·Notion·Higgsfield 3커넥터 + 한국 공공데이터·문서·법령 **5 MCP**(kordoc·dart·korean-stats·archhub·**korean-law**)를 Cowork에 연결하는 단계별 가이드를 제공합니다. 인증 흐름, API 키 입력, 1회 호출 검증, 트러블슈팅까지 셋업 전 과정을 다룹니다.
+## 공통 절차
 
-**셋업 완료 체크리스트**
-- Drive·Notion·Higgsfield — 인증 성공 + 1회 호출 성공 (Drive: 폴더 list / Notion: 공유 페이지 read / Higgsfield: 모델 list)
-- kordoc — Node.js 18+ 확인 + 1회 문서 파싱 성공 (키 불필요)
-- dart(korean-dart-mcp) — Node.js 20.19+ + OpenDART 키 + 1회 공시 검색 성공
-- korean-stats — 1회 자연어 통계 조회 성공 (키 불필요, 공용키 hosted)
-- archhub — 1회 건축물 종합카드 조회 성공 (키 불필요, 공용키 hosted)
-- korean-law — 법제처 OC 키 + 1회 법령 검색 성공 (law.go.kr 무료 발급, 사용자마다 키 필요)
+1. 현재 앱의 Plugins 또는 Apps/Connectors 화면에서 필요한 플러그인·앱이 보이는지 확인한다. 관리형 워크스페이스에서 사용이 막혀 있으면 관리자 설정을 확인한다.
+2. 서비스가 계정 연결을 요구하면 앱 화면에서 대상 계정과 요청 권한을 확인하고 인증한다. 플러그인 설치와 서비스 계정 인증은 별도 단계다. API 키·토큰을 채팅에 붙여 넣게 하지 않는다.
+3. 현재 대화에 실제로 노출된 도구 이름과 입력 형식을 읽는다. 목록에 없는 도구 이름이나 과거의 고정된 인자 형식으로 호출하지 않는다.
+4. 사용자의 자료 중 공개해도 되는 대상이나 무해한 읽기 호출 하나로 응답을 확인한다. 단순히 `connected` 표시만 보았으면 `설정 표시 확인`, 도구 목록만 보았으면 `도구 노출 확인`, 호출이 성공했을 때만 `읽기 호출 확인`이라고 적는다. 계정별 쓰기 권한과 실제 생성·게시 가능 여부는 각각 별도로 확인한다.
+5. 실패하면 앱·플러그인 설치, 워크스페이스 허용, 계정 선택, 서비스 권한, 도구 노출, 실제 호출 중 어느 단계인지 분리해 보고한다. 확인하지 못한 단계는 `미확인`으로 둔다.
 
----
+## 서비스별 안내
 
-## 트리거 키워드
+| 서비스 | 현재 앱에서 확인할 것 | 읽기 검증 예 |
+|---|---|---|
+| Google Drive | Plugins 또는 Apps/Connectors의 Google Drive 연결, 계정과 허용 범위 | 접근 권한이 있는 파일 또는 폴더 목록 |
+| Notion | Notion 연결, 선택한 워크스페이스와 허용된 페이지 | 접근 권한이 있는 페이지 읽기 |
+| Higgsfield | 공식 Higgsfield 플러그인 또는 MCP 연결, 계정 권한 | 현재 노출된 읽기 전용 모델·계정 도구가 있으면 호출 |
+| `kordoc` | `moai-officer` 설치와 `kordoc` 도구 노출 | 사용자가 제공한 문서의 읽기·파싱 |
 
-MCP 커넥터 연결, Drive 인증, Notion Integration Token, Higgsfield 계정 연결, 3커넥터 설치, computer:// 링크, MAX_PATH 오류, 한글 파일명 오류, OAuth redirect URI
+Higgsfield 생성 모델, 크레딧, 비용과 입력 형식은 **현재 연결**에서 확인한다. 모델 조회 도구가 없으면 계정 연결만으로 특정 모델을 쓸 수 있다고 약속하지 않는다. 이미지·영상 생성은 사용자가 요청한 모델과 비용을 확인한 뒤 해당 앱의 승인 절차를 따른다. 상세 생성 절차는 `moai-media:media-higgsfield-image` 또는 `moai-media:media-higgsfield-video`가 설치돼 있을 때 참고한다.
 
----
+Google Drive와 Notion의 읽기·쓰기 가능 범위는 앱, 워크스페이스, 계정 권한에 따라 다르다. 읽기 호출 성공을 쓰기 권한의 증거로 쓰지 않는다.
 
-## 워크플로우
+## 다른 플러그인의 데이터 서버
 
-### Step 1 — 사전 준비물
+| 데이터 | 담당 플러그인 | 확인할 것 |
+|---|---|---|
+| KOSIS 통계·건축물대장·OpenDART | `moai-analyst` | 해당 플러그인 설치, 각 서버 연결, 필요한 인증과 실제 조회 |
+| 법령·판례 | `moai-lawyer` | `korean-law` 연결과 법제처 OC 인증, 현재 도구 스키마와 원문 조회 |
+| 한국 특허·상표 및 해외 IP | `moai-lawyer` | `moai-mcp-ip` 연결, 기관별 자격증명과 실제 인증·검색 |
 
-커넥터 연결 전에 아래 계정을 미리 생성해 두세요:
-- Google 계정 (Drive)
-- Notion 계정
-- Higgsfield 계정 (생성할 때는 크레딧 잔액도 확인)
+위 서버가 `moai-officer`에 자동 등록된다고 설명하지 않는다. 각 플러그인의 README와 현재 매니페스트에서 서비스별 설정을 확인한다. 기관 공식 데이터와 이를 중계하는 제3자 MCP의 운영 주체를 구분한다. 해당 플러그인이 없거나 도구가 보이지 않으면 연결 완료로 표시하지 않는다.
 
-> **[HARD] 인증 정보 보안 수칙**: 다른 커넥터가 API 키를 요구하더라도 키 원문을 채팅이나 공유 문서에 붙여넣지 마세요. 해당 커넥터가 지정한 인증 화면이나 비밀 값 설정 경로로만 입력하세요. Higgsfield 공식 연결은 계정 로그인과 OAuth 승인으로 진행합니다.
+## 앱 화면에서 해결하기
 
----
+- **Claude Cowork**: Customize의 Plugins와 Connectors에서 설치·연결 상태, 계정과 권한을 확인한다. 원격 사용자 지정 MCP는 Claude 계정의 커넥터 설정을 거치며, 외부에서 접근 가능한 서버가 필요하다.
+- **ChatGPT Work**: Plugins 또는 Apps에서 설치와 계정 연결 상태를 따로 확인한다. 관리형 워크스페이스에서는 관리자 허용 여부도 확인한다.
+- **macOS·Windows**: 두 OS 모두 현재 앱 화면에 표시된 절차를 우선한다. 로컬 실행기가 필요한 서버에서 실패하면 해당 플러그인의 설치 요구사항과 앱 오류를 확인한다. 경로 길이·한글 파일명·브라우저 캐시를 확인 전 원인으로 단정하지 않는다.
+- **Linux**: 사용 중인 앱·호스트가 해당 OS를 실제 지원하는지 공식 안내에서 먼저 확인한다. 지원 여부를 확인하지 않은 데스크톱 앱 실행을 보장하지 않는다.
 
-### Connector A — Google Drive
+`CLAUDE.md`에 Markdown 목록을 붙여 넣어도 새 슬래시 명령이 등록되지는 않는다. 존재하지 않는 `--check` 명령이나 임의의 셸 설치 절차를 사용자에게 안내하지 않는다. 현재 연결 상태를 이 절차대로 확인해 표로 보고한다.
 
-**목적**: Cowork 폴더 마운트 + 파일 접근 (drive.readonly, drive.file 권한)
+## 결과 표
 
-**인증 방법**: Cowork 앱 → 커넥터 추가 → Google Drive → OAuth 로그인
+| 서비스·앱 | 플러그인/앱 표시 | 계정 인증 | 도구 노출 | 실제 읽기 호출 | 남은 확인 |
+|---|---|---|---|---|---|
+| 사용자 요청 대상 | 확인/미확인 | 확인/미확인/불필요 | 확인/미확인 | 성공/실패/미실행 | 단계와 조치 |
 
-**필수 권한**
-- `drive.readonly` — 파일 읽기
-- `drive.file` — Cowork가 생성한 파일 접근
-
-**인증 단계**
-1. Cowork 앱 → 설정 → MCP 커넥터 → Google Drive 선택
-2. "Google 계정으로 연결" 클릭
-3. Google OAuth 화면에서 계정 선택 + 권한 허용
-4. 연결 완료 후 Drive 폴더 list 1회 호출로 검증
-
-**1회 호출 검증**: 폴더 목록이 응답에 나타나면 성공
-
----
-
-### Connector B — Notion
-
-**목적**: 작업 결과물 Notion 페이지 읽기·쓰기
-
-**인증 방법**: Cowork 앱 → 커넥터 추가 → Notion → OAuth 인증
-
-**인증 단계**
-1. Cowork 앱 → 설정 → MCP 커넥터 → Notion 선택
-2. "Notion으로 연결" 클릭
-3. Notion OAuth 화면에서 워크스페이스 선택 + 페이지 접근 권한 허용
-4. 연결 완료 후 공유 페이지 read 1회 호출로 검증
-
-**1회 호출 검증**: 공유 페이지 내용이 응답에 나타나면 성공
-
----
-
-### Connector C — Higgsfield
-
-**목적**: 광고 영상 생성 등 미디어 작업 (이미지·영상 생성 모델 호출)
-
-**인증 방법**: 공식 연결의 계정 로그인 및 OAuth 승인. ChatGPT Work에서는 공식 Higgsfield 플러그인, Claude Cowork에서는 공식 Higgsfield MCP 연결을 현재 앱 UI에서 선택한다.
-
-**사전 확인 사항**
-- Higgsfield 워크스페이스 크레딧 충전 여부 확인 (잔액 부족 시 인증은 성공해도 생성 호출이 실패할 수 있음)
-- 예상 사용량 가늠: 영상 1편(5-10초) 기준 크레딧 소모량을 미리 확인
-- 비용 한도: 워크스페이스 설정에서 사용 한도를 지정해 예상 외 과금 방지
-
-**인증 단계**
-1. 현재 앱의 Plugins 또는 Connectors 화면에서 공식 Higgsfield 연결을 선택한다.
-2. 표시되는 Higgsfield 로그인·권한 승인 절차를 완료한다. 채팅에 토큰이나 API 키를 붙여넣지 않는다.
-3. 연결 완료 후 현재 세션에 노출된 모델 목록 조회 도구를 1회 호출해 검증한다.
-
-**1회 호출 검증**: 사용 가능한 모델 목록이 응답에 나타나면 성공
-
----
-
-## 한국 공공데이터·문서·법령 MCP (5종)
-
-Cowork 플러그인은 한국 공공데이터·공문서·법령 처리를 위한 5개 MCP를 추가로 지원합니다. 각 MCP의 사전 준비와 1회 호출 검증을 다룹니다. chrisryugj 제작 5개 MCP는 모두 MIT 라이선스입니다.
-
-### Connector D — kordoc (한국 공문서 파서)
-
-**목적**: HWP 3.0/5.x·HWPX·HWPML·PDF·XLSX·DOCX → 마크다운 변환. 표 완벽 재현, 신구대조표, 양식 자동 채우기, DRM 배포용 복호화, OCR 연동. `moai-officer:doc-reader` 스킬이 호출.
-
-**사전 준비물**: **API 키 불필요**. Node.js 18+만 필요.
-
-**설치 단계**
-1. Node.js 18+ 설치 확인: `node --version` (v18 이상이어야 함)
-2. `.mcp.json`에 이미 등록됨(`command: npx`, `args: ["-y", "kordoc", "mcp"]`)
-3. 첫 호출 시 npm이 kordoc 패키지를 다운로드(약 10-30초), 이후 캐시 적중
-
-**1회 호출 검증**: 임의 HWP/PDF 파일로 `parse_document` 호출 → 마크다운 응답이 오면 성공
-
-> Windows 환경에서 한컴 오피스가 설치된 경우 DRM 배포용 HWP/HWPX COM fallback이 추가로 동작합니다(선택).
-
----
-
-### Connector E — dart / korean-dart-mcp (OpenDART 전자공시)
-
-**목적**: OpenDART 83개 API를 15 도구로 압축. 공시·재무·지분·XBRL(`markdown_full` 전체 계정 + 계산 검증) + 버핏급 애널리스트 프레임(`insider_signal`·`disclosure_anomaly`·`buffett_quality_snapshot`) + HWP/PDF 첨부 마크다운화(kordoc 엔진) + 90일 자동분할. 회사명/종목코드/corp_code 자동 해결(SQLite FTS, 첫 기동 시 11.6만건 덤프 약 5-10초).
-
-**사전 준비물**
-- **Node.js 20.19+** (LTS 권장) — `node --version`으로 확인
-- **OpenDART 인증키**(40자, 무료, 일 20,000건)
-
-**인증 키 발급 절차**
-1. https://opendart.fss.or.kr 접속 → 회원가입
-2. 로그인 후 인증키 신청 → 이메일로 40자 인증키 즉시 수신
-3. 환경변수 `DART_API_KEY`에 등록
-
-**인증 단계**
-1. 발급받은 40자 키를 `${CLAUDE_PLUGIN_DATA}/moai-credentials.env`의 `DART_API_KEY` 항목에 입력
-2. 첫 기동 시 corp_code 덤프(11.6만건, 약 5-10초) 대기
-3. 1회 호출 검증으로 `resolve_corp_code("삼성전자")` → corp_code 반환 확인
-
-**1회 호출 검증**: 회사명으로 corp_code가 반환되면 성공
-
-> **대안 — setup 마법사**: `npx -y korean-dart-mcp setup` 실행 시 대화형 마법사가 키 입력부터 클라이언트 설정 파일 자동 패치까지 처리(macOS/Linux/Windows 공용). Windows는 `cmd /c npx` 래핑 자동 적용.
-
-> **주의**: 첫 기동에 5-10초가 걸리는 corp_code 덤프 다운로드 중이므로 timeout 여유를 두세요. `MODULE_NOT_FOUND` 에러 시 `npm uninstall -g korean-dart-mcp` 후 `npx -y korean-dart-mcp@latest setup`으로 재시도.
-
----
-
-### Connector F — korean-stats (KOSIS 국가데이터처 통계)
-
-**목적**: KOSIS 통계를 자연어 한 줄로 조회. 14도구, 92 키워드 + 100+ 자연어 별칭, 17 시도 + 230+ 자치구·시군 라우팅, 시계열 추세/순위, 출처(통계표 ID) 자동 인용, 추계/잠정치 구분. `moai-analyst:data-public`가 자연어 조회 우선 라우팅.
-
-**사전 준비물**: **API 키 불필요**. 공용키가 탑재된 remote 커넥터(URL만 등록).
-
-**설치 단계**
-1. `.mcp.json`에 이미 등록됨(`type: http`, `url: https://mcp.gomdori.app/stats`)
-2. 인터넷 연결만 있으면 바로 사용
-
-**1회 호출 검증**: `quick_stats("광진구 고용률")` → 통계 수치 + 출처(통계표 ID) 응답 시 성공
-
-> 자치구 단위 데이터가 KOSIS에 없으면 임의로 광역시도 값을 자치구 값인 척 답하지 않고 명시적으로 "광역시도 데이터로 대체했다"고 안내합니다. 동명 중복(부산 중구 vs 서울 중구)은 광역시를 같이 말해야 정확히 구분됩니다.
-
----
-
-### Connector G — archhub (국토교통부 건축HUB)
-
-**목적**: 건축물대장·건축인허가·주택인허가 + 법정동코드 + 한 필지 종합카드·층별 구성·동 단위 통계·노후건축물·철거멸실(석면)·인허가 파이프라인·공시가격 시계열. 11도구. `moai-analyst:data-building-ledger` 스킬이 호출.
-
-**사전 준비물**: **API 키 불필요**. 공용키가 탑재된 remote 커넥터(URL만 등록).
-
-**설치 단계**
-1. `.mcp.json`에 이미 등록됨(`type: http`, `url: https://mcp.gomdori.app/archhub`)
-2. 인터넷 연결만 있으면 바로 사용
-
-**1회 호출 검증**: `find_region("광진구 자양동")` → sigungu_code/bdong_code 반환 후 `building_profile` 호출 → 종합카드 응답 시 성공
-
-> archhub는 `[NOT_FOUND]`(데이터 없음)·`[EXTERNAL_API_ERROR]`(upstream 오류) 프리픽스로 환각을 차단합니다. data.go.kr 공식 API 실측값만 제공하며, 소유자 정보(개인정보)·위반건축물 조회는 범위 밖입니다.
-
----
-
-### Connector H — korean-law (법제처 국가법령정보)
-
-**목적**: 국가법령정보(법제처) 법령·판례·행정규칙·자치법규·조약·해석례(국세청) 원문 조회와 인용검증 도구를 `moai-lawyer:legal-law-research` 스킬에서 사용.
-
-**사전 준비물**: **법제처 Open API OC 키(사용자마다 발급)**. Claude hosted 연결은 Node.js가 필요 없으며, ChatGPT Work의 로컬 서버 경로는 Node.js 20.19 이상과 uv가 필요합니다.
-
-**발급 절차**
-1. law.go.kr(또는 법제처 Open API 신청 페이지) 접속 → 회원가입·로그인
-2. Open API 사용 신청 → 신청서 작성
-3. OC 키 즉시 발급(무료)
-
-**인증**: Claude Cowork에서는 `moai-lawyer` 설치 시 민감정보 입력란 `KOREAN_LAW_OC`에 키를 입력합니다. `.mcp.json`은 `${user_config.KOREAN_LAW_OC}`을 hosted URL에 보간합니다. ChatGPT Work에서는 본인 컴퓨터의 `~/.moai/mcp/korean-law.json`에 `{"LAW_OC":"발급받은_키"}`를 저장합니다. Windows 경로는 `C:\Users\사용자이름\.moai\mcp\korean-law.json`입니다. 키를 채팅에 적거나 저장소에 넣지 마세요.
-
-**1회 호출 검증**: `search_law(query="근로기준법")` → 법령 검색 응답 시 성공
-
-> **주의**: 인증서 오류가 나면 서버·프록시의 인증서 설정을 확인하세요. 법령 원문과 인용은 `moai-lawyer:legal-law-research`의 출처 대조 기준에 따라 검증합니다.
-
----
-
-## 트러블슈팅
-
-### T1 — Windows MAX_PATH 260자 초과 오류
-
-**증상**: Cowork 폴더 마운트 실패, 경로 관련 오류 메시지
-
-**원인**: Windows 기본 MAX_PATH 260자 제한. 한글 파일명이 포함된 긴 경로에서 자주 발생.
-
-**해결 방법**
-1. 폴더를 드라이브 루트 가까운 위치로 이동 (예: `C:\cowork\` 또는 `D:\cw\`)
-2. 한글 파일명 30자 룰: 폴더명·파일명을 30자 이내로 유지
-3. 필요 시 Windows Registry로 MAX_PATH 제한 해제 (관리자 권한 필요)
-
-**해결이 어려운 경우 (대체 경로)**: 위 방법으로 해결되지 않으면 로컬 폴더 마운트 대신 Google Drive 커넥터(Connector A)로 파일에 접근하는 임시 경로를 사용할 수 있습니다.
-
----
-
-### T2 — `computer://` 링크 안 열림
-
-**증상**: Cowork가 제공하는 `computer://` 링크를 클릭해도 열리지 않음
-
-**해결 방법**
-1. Chrome 시크릿 모드로 재시도
-2. 브라우저 기본 프로토콜 핸들러 확인 (설정 → 기본 앱 → 링크 처리)
-3. Cowork 앱 재시작 후 재시도
-
----
-
-### T3 — OAuth 인증 실패 (Drive·Notion)
-
-**증상**: OAuth 화면에서 "접근 거부" 또는 redirect 오류
-
-**해결 방법**
-1. Chrome 시크릿 모드에서 재시도 (캐시된 세션 충돌 방지)
-2. Google 계정이 workspace 계정인 경우: 관리자 승인이 필요할 수 있음
-3. OAuth redirect URI 문제: Cowork 앱 버전 업데이트 후 재시도
-4. 팝업 차단 해제 확인 (브라우저 설정 → 팝업 허용)
-
----
-
-### T4 — Higgsfield 계정 연결 실패
-
-**증상**: 계정 연결이 완료되지 않거나 "Unauthorized" 오류
-
-**해결 방법**
-1. 현재 앱의 Higgsfield 연결 상태를 확인하고, 필요한 경우 계정 로그인·권한 승인을 다시 진행한다.
-2. 연결 뒤 모델 목록 조회가 되는지 확인한다. 크레딧 잔액은 별도로 확인한다. 잔액 부족을 인증 실패로 단정하지 않는다.
-
----
-
-## 슬래시 커맨드 등록 안내
-
-커넥터 셋업을 마친 뒤, 프로젝트 CLAUDE.md에 아래와 같은 슬래시 커맨드를 등록하면 자주 쓰는 스킬을 빠르게 호출할 수 있습니다:
-
-```markdown
-## 슬래시 커맨드
-
-- `/morning-brief` — 아침 브리핑 (commerce-morning-brief)
-- `/detail-copy` — 상세페이지 카피 (commerce-detail-page-copy)
-- `/channel-msg` — 채널 메시지 (cs-channel-message)
-```
-
-프로젝트 폴더의 `CLAUDE.md`에 위 블록을 붙여넣어 등록합니다.
-
----
-
-## 사전 점검 체크리스트 (`--check` 옵션)
-
-사전 준비물 기준으로 3커넥터 + 5 MCP 가입·인증·사전준비 상태를 체크하는 옵션입니다.
-
-```
-/setup-mcp-connector --check
-```
-
-출력 예시:
-```
-[✅] Google Drive — 계정 확인 완료
-[✅] Notion — 계정 확인 완료
-[⚠️] Higgsfield — 워크스페이스 크레딧 충전 미확인 (충전 후 재시도)
-[✅] kordoc — Node.js 18+ 확인 (키 불필요)
-[⚠️] dart — OpenDART 키 미등록 (opendart.fss.or.kr 발급 필요)
-[⚠️] dart — Node.js 20.19+ 미충족 (현재 v18.x)
-[✅] korean-stats — 공용키 hosted (키 불필요)
-[✅] archhub — 공용키 hosted (키 불필요)
-[⚠️] korean-law — 법제처 OC 키 미등록 (law.go.kr 무료 발급, 사용자마다 키 필요)
-```
-
----
-
-## 사용 예시
-
-**예시 1**
-> "Drive MCP 연결하는 방법 알려줘"
-
-→ Connector A (Google Drive) 인증 단계 제공 + 1회 호출 검증 안내
-
-**예시 2**
-> "Windows에서 Cowork 마운트가 안 돼요"
-
-→ T1 (MAX_PATH 오류) 해결 방법 제공 + 대체 경로 안내
-
----
-
-## 출력 형식
-
-- 단계별 인증 가이드 (Markdown)
-- 트러블슈팅 해결 방법 (번호 목록)
-- `--check` 옵션: 3커넥터 상태 체크리스트 (`.md` 파일 저장 가능)
-
----
-
-## 셋업 완료 체크리스트
-
-| 커넥터 / MCP | 인증 방법 | 1회 호출 검증 |
-|--------|-----------|---------------|
-| Google Drive | OAuth (drive.readonly, drive.file) | 폴더 list 응답 |
-| Notion | OAuth (워크스페이스 연결) | 공유 페이지 read 응답 |
-| Higgsfield | 공식 계정 연결/OAuth | 모델 list 응답 |
-| kordoc | 키 불필요 (Node.js 18+) | parse_document 마크다운 응답 |
-| dart (korean-dart-mcp) | OpenDART 키 (40자, 무료/일 20,000건) | resolve_corp_code 응답 |
-| korean-stats | 공용키 hosted (키 불필요) | quick_stats 통계 수치 응답 |
-| archhub | 공용키 hosted (키 불필요) | find_region + building_profile 응답 |
-| korean-law | 법제처 OC 키 (무료, 사용자마다 발급) | search_law 법령 검색 응답 |
-
-3커넥터 + 5 MCP 모두 인증 성공 + 1회 호출 성공이면 셋업이 완료된 것입니다.
-
----
-
-## 관련 스킬
-
-- `moai-seller:commerce-morning-brief` — 인증 완료 후 매장 데이터 아침 브리핑 + 신규 주문 통합 요약 (주문 요약 모드)
-- `moai-media:media-higgsfield-image` / `moai-media:media-higgsfield-video` — Higgsfield 커넥터 인증 완료 후 이미지·영상 생성
-- `moai-officer:doc-reader` — kordoc MCP 인증 완료 후 HWP/HWPX/PDF/XLSX/DOCX 파싱
-- `moai-analyst:data-public` — korean-stats MCP 자연어 KOSIS 통계 우선 라우팅 + dart MCP 연계
-- `moai-analyst:data-building-ledger` — archhub MCP 건축물대장·인허가 실체 데이터 조회
-- `moai-lawyer:legal-law-research` — korean-law MCP 법령·판례·인용검증·행위시법 조회
-
----
-
-## 이 스킬을 사용하지 말아야 할 때
-
-- 이미 3커넥터가 모두 연결된 경우 → `moai-seller:commerce-morning-brief` 직접 호출 (전체 브리핑 또는 주문 요약 모드)
-- MCP 호출 결과물(아침 브리핑·주문 요약) 생성이 목적인 경우 → `moai-seller` 스킬 사용
-- Cowork 앱 설치 자체가 안 되는 경우 → Cowork 공식 지원 채널 문의 (본 스킬 범위 외)
-- 광고 플랫폼 커넥터 (Meta 광고 등) 연결 → `moai-marketer:marketing-meta-ads-manager` 스킬 참조
+공식 앱 안내: [Claude 플러그인](https://support.claude.com/en/articles/13837440-use-plugins-in-claude) · [Claude 커넥터](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities) · [ChatGPT 플러그인](https://help.openai.com/en/articles/20001256-plugins-in-chatgpt-and-codex) · [ChatGPT 연결 앱](https://help.openai.com/en/articles/11487775-connected-apps-in-chatgpt).

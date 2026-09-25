@@ -13,7 +13,7 @@ description: |
   현재 설치된 design-system-library 브랜드 토큰 중 테마를 고릅니다. getdesign.md 링크는 공식 브랜드 규격이 아닌 외부 참고 자료입니다.
   PDF 배포본이 필요하면 브라우저 `?print-pdf` 인쇄 모드를 쓰거나, 생성한 HTML을 moai-officer:doc-pdf로 넘겨 변환하세요 (weasyprint를 직접 설치·호출하지 말 것).
   [책임 경계] vs moai-officer:doc-pptx: 이 스킬=브라우저에서 바로 열리는 단일 .html 슬라이드 덱(편집 가능 .pptx는 doc-pptx 체이닝으로 산출). vs moai-media:media-notebooklm-slide-prompt: 저 스킬=NotebookLM 입력용 프롬프트(파일 생성 없음). vs moai-officer:doc-html-report: 저 스킬=연속 스크롤 문서/보고서(슬라이드 덱이 아님).
-version: "1.2.3"
+version: "1.2.4"
 ---
 
 # doc-html-slide — 단일 파일 HTML 슬라이드 덱 생성기
@@ -24,12 +24,12 @@ version: "1.2.3"
 
 **핵심 원칙**:
 - 단일 `.html` 파일 — 외부 빌드 단계·런타임 SPA 의존 없이 `file://`로 즉시 오픈
-- 인포그래픽은 LLM이 인라인 SVG로 직접 저작 — 한국어 숫자·라벨 100% 정확, 확대 선명, 재현 가능
+- 인포그래픽은 인라인 SVG로 직접 작성 — 숫자·라벨은 원자료와 대조하고 확대 렌더를 확인
 - 실사·일러스트 이미지는 앱 기본 이미지 도구 또는 사용자가 지정한 Higgsfield 연결로 생성 (`references/image-backend-policy.md`)
 - 설치된 design-system-library 브랜드 토큰 적용 — getdesign.md 참고 링크 제공
-- 편집 가능 PPTX 산출은 `doc-pptx`(moai-coworker) 체이닝으로 위임 — 자체 구현하지 않음(중복·책임 모호화 방지)
+- 편집 가능 PPTX 산출은 이 플러그인의 `doc-pptx` 지침과 현재 사용 가능한 생성 도구로 수행
 
-**원고 SSOT**: 모든 덱은 구조화 원고 `deck.json`(title/bullets/chart-data/image-path/layout-key/notes)을 단일 진실 원천으로 둡니다. HTML 렌더와 (체이닝 시) doc-pptx PPTX 렌더 양쪽이 같은 원고를 소비합니다 — 픽셀→OOXML 역매핑이 아니라 원고→객체 직접 생성이 "편집 가능 PPTX"의 보증 기구입니다.
+**원고 SSOT**: 모든 덱은 구조화 원고 `deck.json`(title/bullets/chart-data/image-path/layout-key/notes)을 단일 진실 원천으로 둡니다. PPTX도 요청받았다면 같은 원고를 참고해 각 요소를 편집 가능한 객체로 만들고 실제 파일에서 확인합니다. 원고를 공유한다는 사실만으로 PPTX 편집 가능성이 보장되지는 않습니다.
 
 ---
 
@@ -80,7 +80,7 @@ version: "1.2.3"
 
 > 생성 전에 현재 앱에서 해당 도구가 실제로 노출됐는지 확인합니다 — [`references/image-backend-policy.md`](references/image-backend-policy.md).
 
-한국어 텍스트가 이미지에 들어가면 `moai-media:media-gpt-image-prompt`로 따옴표·등장 횟수·추가 텍스트 금지를 지시한 뒤 선택한 이미지 도구로 생성합니다. 정확해야 하는 문구는 HTML/SVG 텍스트로 올립니다.
+한국어 텍스트가 이미지에 들어가면 따옴표·등장 횟수·추가 텍스트 금지를 프롬프트에 명시합니다. `moai-media:media-gpt-image-prompt`가 설치돼 있으면 이를 참고할 수 있습니다. 정확해야 하는 문구는 HTML/SVG 텍스트로 올립니다.
 
 ### 5. design-system-library 토큰 적용
 design_system을 지정했다면 현재 설치된 `systems/<name>.md`의 토큰을 확인해 CSS에 적용합니다. Tailwind Play CDN을 쓰면 연결이 필요하므로 사용 여부를 산출물에 명시합니다. 미지정이어도 폰트·이미지 URL이 남아 있을 수 있어 오프라인 파일을 별도로 확인합니다.
@@ -91,10 +91,10 @@ design_system을 지정했다면 현재 설치된 `systems/<name>.md`의 토큰�
 - **[HARD] 슬라이드 바깥에 제작 메타를 렌더하지 않는다.** 장수·해상도·도식 개수·사용 폰트 같은 **제작 메타는 산출물이 아니라 작업 메모**다. (카운터·진행바·발표자 노트 같은 덱 조작 UI는 여기 해당하지 않는다 — 루브릭 §제작 메타 판정.) 필요하면 HTML 주석(`<!-- -->`)이나 `deck.json`에 남기고, 화면에 찍히는 자리에는 두지 않는다 — 수강생·고객에게 그대로 보인다. 루브릭 #34가 이를 hard-fail로 검사한다.
 - 아이콘은 `deck.json`의 `icon` + `icon_reason` 쌍을 그대로 따른다(스키마 §아이콘 슬롯 계약). 렌더 단계에서 임의로 대체하지 않는다.
 
-### 7. AI 슬롭 후처리 (의무)
-모든 슬라이드 카피·speaker notes 텍스트에 `ai-slop-reviewer` → `korean-humanize` 체인 적용. 본 스킬의 필수 후처리 규칙(배포 전 반드시 통과).
+### 7. 슬라이드 카피 검수
+모든 슬라이드 카피·speaker notes를 원자료와 대조해 숫자·인용·고유명사·주장의 강도가 유지되는지 직접 확인합니다. `moai-coworker:ai-slop-reviewer`와 `moai-writer:korean-humanize`가 설치돼 있으면 문장 검수에 추가로 사용할 수 있습니다. 두 스킬이 없어도 원문 대조를 생략하지 않습니다.
 
-**슬라이드 카피 QA 체크리스트 — 구조적 슬롭 S1 패턴 3종 (헤드라인·카피 필수 탐지)**: 두 게이트가 반드시 잡아야 할 한국어 구조 패턴. 단어 사전이 아닌 문장 구조 수준에서 탐지합니다.
+**슬라이드 카피 QA 체크리스트 — 구조적 슬롭 S1 패턴 3종**: 헤드라인·카피를 직접 읽으며 아래 표현을 검토합니다. 문맥상 필요한 표현까지 기계적으로 삭제하지 않습니다.
 
 | # | 패턴 | 탐지 신호 | [나쁜 예] | 수정 |
 |---|------|----------|-----------|------|
@@ -103,13 +103,13 @@ design_system을 지정했다면 현재 설치된 `systems/<name>.md`의 토큰�
 | 3 | **"A에서 B로" 전환 공식** | "X에서 Y로" 전환 공식 도입 | [나쁜 예] "엑셀에서 노션으로, 바뀐 것" (전환 공식) | 전환 공식 대신 구체적 사례로 시작 |
 
 ### 8. PPTX 산출 (선택, export_pptx: true 시)
-`deck.json` 원고를 `doc-pptx`(moai-coworker)에 전달하며 체이닝. doc-pptx가 pptxgenjs로 편집 가능 OOXML `.pptx` 생성(원고→객체 직접 생성). doc-html-slide 자체는 PPTX 생성 로직을 구현하지 않습니다. 체이닝 규약: [`references/pptx-chaining.md`](references/pptx-chaining.md).
+`deck.json` 원고를 이 플러그인의 `doc-pptx` 작업에 전달합니다. 현재 호스트에서 실제 PPTX 생성 도구가 없으면 요청한 PPTX는 미완료로 표시합니다. 생성했다면 텍스트·차트·도형이 편집 가능한 객체인지 파일을 열어 확인합니다. 체이닝 규약: [`references/pptx-chaining.md`](references/pptx-chaining.md).
 
 ### 9. 정량 QA 채점 (의무)
 
-**[HARD] 산출된 HTML을 브라우저에서 렌더해 [`references/deck-quality-rubric.md`](references/deck-quality-rubric.md)의 34개 기준으로 채점한다.** 이 단계는 §7과 같은 등급의 필수 게이트이며, 눈으로 훑어보는 것으로 갈음하지 않는다 — 루브릭은 DOM 실측(`getBoundingClientRect`·computed `font-size`·명도대비 계산)을 요구하고, 그 수치가 곧 증거다.
+**[HARD] 산출된 HTML을 브라우저에서 렌더해 [`references/deck-quality-rubric.md`](references/deck-quality-rubric.md)의 기준을 확인한다.** 이 단계는 §7의 원자료 대조와 함께 수행하며, 눈으로 훑어보는 것으로 갈음하지 않는다 — 루브릭은 DOM 실측(`getBoundingClientRect`·computed `font-size`·명도대비 계산)을 요구하고, 그 수치가 곧 증거다.
 
-> **왜 (의무)로 못 박는가.** 이 루브릭이 참고 문서 목록에만 걸려 있고 워크플로 어느 단계에서도 호출되지 않던 시기에, 실제 산출 덱에서 본문 텍스트 14종 중 12종이 hard-fail 하한(#9)에 미달한 채 배포된 사례가 있다. 같은 덱의 한국어 카피는 우수했다 — §7이 워크플로 안에 "(의무)"로 있었기 때문이다. **게이트는 존재만으로 작동하지 않고, 파이프라인에 걸려 있을 때만 작동한다.**
+> 정량 검수는 실제 렌더링과 측정값이 있어야 수행했다고 보고할 수 있습니다. 브라우저 도구가 없어 측정하지 못한 항목은 `미실행`으로 남깁니다.
 
 **hard 기준 9개(실패군 8종) — 한 건이라도 걸리면 반려하고 고쳐서 다시 렌더한다.** (#32와 #33은 둘 다 아이콘 문제라 하나의 실패군으로 보고하되 각각 확인한다.) 이 플러그인에는 자동 채점기나 `qa-config.json`이 포함되어 있지 않다. 현재 사용 가능한 브라우저 도구로 측정하고, 측정하지 못한 항목은 PASS로 표시하지 않는다.
 
@@ -196,16 +196,16 @@ design_system을 지정했다면 현재 설치된 `systems/<name>.md`의 토큰�
 ## 체인 통합
 
 ```
-[원고/콘텐츠 스킬] → moai-coworker:ai-slop-reviewer → moai-writer:korean-humanize → moai-officer:doc-html-slide
+[원고와 근거 확인] → 원문 대조·문장 검수 → moai-officer:doc-html-slide
                                                                             ↓ (export_pptx: true)
                                                                 moai-officer:doc-pptx
 ```
 
 이미지 필요 시 분기:
 ```
-doc-html-slide → moai-media:media-codex-image → ChatGPT 기본 이미지 생성 (기본)
-           → moai-media:media-higgsfield-image → 공식 Higgsfield 연결 (명시 요청 시)
-           → moai-media:media-gpt-image-prompt → 선택한 이미지 도구에 프롬프트 전달
+doc-html-slide → 현재 앱의 이미지 생성 도구 (기본)
+           → 공식 Higgsfield 연결 (명시 요청 시)
+           → 설치된 moai-media 스킬은 모델·프롬프트 세부 지침에 활용
 ```
 
 design_system 적용은 design-system-library에서 자동 로드 — 별도 선행 스킬 호출 불필요.
@@ -244,7 +244,7 @@ AI 슬라이드 스킬 스타트업 사업계획서 10장 슬라이드로 만들
 ## 하지 않는 것
 
 - 연속 스크롤 문서는 `moai-officer:doc-html-report`가 맡습니다 — 본 스킬은 슬라이드 시퀀스(16:9 페이지) 전용입니다.
-- 편집 가능 .pptx 직접 생성은 하지 않습니다 — `doc-pptx`(moai-coworker) 체이닝으로 위임합니다.
+- 편집 가능 .pptx 생성 지침은 이 플러그인의 `doc-pptx`가 맡습니다.
 - NotebookLM 입력용 프롬프트는 `moai-media:media-notebooklm-slide-prompt`가 맡습니다.
 - React/Vue/webpack/vite 같은 빌드 단계·런타임 SPA 의존을 도입하지 않습니다 — `file://` 즉시 오픈이 원칙입니다.
 - [`references/image-backend-policy.md`](references/image-backend-policy.md)의 이미지 생성 경로를 따릅니다.
@@ -259,10 +259,10 @@ AI 슬라이드 스킬 스타트업 사업계획서 10장 슬라이드로 만들
 - [`references/html-runtime.md`](references/html-runtime.md) — 자체 vanilla JS 덱 런타임 (네비게이션·풀스크린·`?print-pdf`·speaker notes, 0의존)
 - [`references/inline-svg-infographics.md`](references/inline-svg-infographics.md) — 인라인 SVG 인포그래픽 패턴 (차트·다이어그램·KPI, 한국어 숫자/라벨 정확 렌더)
 - [`references/image-backend-policy.md`](references/image-backend-policy.md) — 앱 기본 이미지 생성과 Higgsfield 연결 선택 규칙
-- [`references/pptx-chaining.md`](references/pptx-chaining.md) — doc-pptx 체이닝 규약 (편집 가능 PPTX 보증 기구)
+- [`references/pptx-chaining.md`](references/pptx-chaining.md) — PPTX 생성 가능 도구와 편집 가능성 확인 절차
 - [`references/design-system-links.md`](references/design-system-links.md) — 시스템 → getdesign.md 링크 매핑표
 - [`references/deck-quality-rubric.md`](references/deck-quality-rubric.md) — 슬라이드 정량 QA 루브릭 (6카테고리 가중합 + hard-fail, HTML/DOM 재해석, doc-pptx와 공유)
-- [`references/editorial-deck-doctrine.md`](references/editorial-deck-doctrine.md) — 에디토리얼 덱 독트린 (13-슬롯 레이아웃 어휘 + overflow=0, 마침표 액션타이틀 카피 규칙 — 의무 슬롭 체인 보완)
+- [`references/editorial-deck-doctrine.md`](references/editorial-deck-doctrine.md) — 에디토리얼 덱의 레이아웃·문구·오버플로 점검 항목
 
 ### 샘플
 - [`samples/deck-sample.json`](samples/deck-sample.json) — 8장 비즈니스 발표 원고 (deck.json SSOT)
@@ -271,10 +271,10 @@ AI 슬라이드 스킬 스타트업 사업계획서 10장 슬라이드로 만들
 ### 이웃 스킬 (체이닝)
 - `moai-officer:doc-design-library` — 브랜드 토큰 참고
 - `moai-officer:doc-pptx` — 편집 가능 .pptx 생성 (체이닝)
-- `moai-media:media-codex-image` — ChatGPT 기본 이미지 생성
-- `moai-media:media-higgsfield-image` — 명시 요청 시 Higgsfield 이미지 생성
-- `moai-media:media-gpt-image-prompt` — GPT Image 2.5 이미지 프롬프트 빌더 (한국어 문구 규칙 포함)
-- `moai-coworker:ai-slop-reviewer` → `moai-writer:korean-humanize` — 의무 후처리 체인
+- `moai-media:media-codex-image` — 설치돼 있으면 정확한 OpenAI 이미지 모델 선택 지침
+- `moai-media:media-higgsfield-image` — 설치돼 있으면 Higgsfield 생성 지침
+- `moai-media:media-gpt-image-prompt` — 설치돼 있으면 이미지 프롬프트 지침
+- `moai-coworker:ai-slop-reviewer` · `moai-writer:korean-humanize` — 설치돼 있으면 보조 문장 검수
 
 ## 자체 검수
 

@@ -4,14 +4,14 @@
 
 | `image_backend` | 선택 조건 | 실행 |
 |---|---|---|
-| `native` (기본) | 일반 이미지 요청 | 현재 앱이 제공하는 기본 이미지 생성 도구 사용. ChatGPT에서는 `moai-media:media-codex-image` 지침을 따른다 |
-| `higgsfield` | 사용자가 Higgsfield를 지정 | `moai-media:media-higgsfield-image`를 통해 현재 세션에 노출된 공식 Higgsfield 플러그인 또는 MCP 사용 |
+| `native` (기본) | 일반 이미지 요청 | 현재 앱이 제공하는 기본 이미지 생성 도구 사용. `moai-media:media-codex-image`가 설치돼 있으면 세부 모델 선택 지침을 참고한다 |
+| `higgsfield` | 사용자가 Higgsfield를 지정 | 현재 세션에 노출된 공식 Higgsfield 플러그인 또는 MCP 사용. `moai-media:media-higgsfield-image`가 설치돼 있으면 생성 지침을 참고한다 |
 | `svg-only` | 비트맵 이미지가 필요 없거나 생성 도구가 없음 | 이미지 생성을 생략하고 SVG 장식으로 구성 |
 
 기존 원고의 `codex` 값은 `native`로 해석한다. 이 값 때문에 별도 Codex CLI를 실행하거나 인증 파일을 읽지 않는다. Claude Cowork에서는 현재 앱에 이미지 생성 도구가 노출돼 있는지 확인한다. 없으면 `svg-only`로 전환하기 전에 사용자에게 결과의 차이를 알린다.
 
-Higgsfield 연결은 앱마다 도구 이름과 입력 계약이 다르다. 생성 전에 `media-higgsfield-core/references/catalog-protocol.md`의 연결 프로필을 확인하고, 모델 상세와 비용을 해당 프로필의 도구로 조회한다. HTTPS 참조 이미지가 계정 미디어 라이브러리로 업로드되는 연결에서는 견적 호출 전에도 업로드 사실과 대상을 보여주고 동의를 받는다. 크레딧이 드는 생성은 견적과 생성 계획을 보여준 뒤 사용자의 명시적 승인을 받는다.
+Higgsfield 연결은 앱마다 도구 이름과 입력 계약이 다르다. 현재 노출된 공식 연결의 도구 목록·스키마에서 모델 상세와 비용을 확인한다. `moai-media`가 설치돼 있으면 그 안의 `media-higgsfield-core/references/catalog-protocol.md`를 추가로 참고할 수 있다. HTTPS 참조 이미지가 계정 미디어 라이브러리로 업로드되는 연결에서는 견적 호출 전에도 업로드 사실과 대상을 보여주고 동의를 받는다. 크레딧이 드는 생성은 견적과 생성 계획을 보여준 뒤 사용자의 명시적 승인을 받는다.
 
-ChatGPT 기본 이미지 생성 도구가 사용하는 내부 모델 ID는 앱에 표시되지 않을 수 있다. 그때 특정 API 하위 모델을 사용했다고 단정하지 않는다. 사용자가 Higgsfield의 GPT Image 2.5를 지정한 경우에만 Higgsfield 경로에서 실시간 카탈로그를 조회한다.
+ChatGPT 기본 이미지 생성 도구가 사용하는 내부 모델 ID는 앱에 표시되지 않을 수 있다. 그때 특정 API 하위 모델을 사용했다고 단정하지 않는다. 사용자가 정확히 GPT Image 2.5를 지정했다면 현재 도구의 모델 표시를 확인한다. 확인할 수 없으면 설치된 `moai-media:media-codex-image`의 별도 API 경로와 비용 승인 조건을 확인하고, 그 경로도 없으면 지정 모델 생성은 미완료로 보고한다. Higgsfield 계정의 GPT Image 2.5를 지정한 경우에는 Higgsfield 연결의 실시간 카탈로그에서 해당 모델과 비용을 확인한다.
 
 생성된 이미지의 숫자·문구는 눈으로 확인한다. 정확도가 필요한 문구는 이미지에 그리지 말고 HTML/SVG 텍스트 계층에 배치한다. 결과 URL이나 파일은 실제 반환값만 `deck.json`에 기록한다.

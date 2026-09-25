@@ -4,7 +4,7 @@ weight: 10
 description: "마켓플레이스 등록 → 필요한 코워커 설치 → 확인 → 업데이트·비활성화·제거, 그리고 MCP 자격증명 준비까지 따라 하기."
 geekdocBreadcrumb: true
 date: 2026-08-07T00:00:00+09:00
-lastmod: 2026-09-25T00:00:00+09:00
+lastmod: 2026-09-25T09:08:00+09:00
 ---
 
 플러그인 설치는 크게 두 단계입니다. 먼저 **마켓플레이스를 등록**하고,
@@ -22,12 +22,16 @@ MCP 연동에 필요한 자격증명은 [API 키 넣는 법](mcp/credentials/)�
 
 ### Claude Cowork 앱에서 등록
 
-Claude Cowork 앱의 설정(또는 플러그인) 화면에서 마켓플레이스 주소를 추가합니다.
+Claude Cowork 앱의 **Customize → Plugins**에서 개인 마켓플레이스를 추가합니다.
+[Claude의 현재 설치 안내](https://support.claude.com/en/articles/13837440-use-plugins-in-claude)에
+따른 경로입니다.
 
-1. 앱을 열고 **Settings** (또는 **Plugins**) 메뉴로 이동
-2. **Marketplace** 섹션에서 **+** 로 저장소를 추가하고 `modu-ai/moai-cowork` 입력 후 **Add**
+1. 앱의 **Cowork** 탭을 열고 **Customize → Plugins**로 이동
+2. **Personal plugins**의 **+** → **Add marketplace** →
+   **Add from a repository** 선택
+3. `modu-ai/moai-cowork`를 입력하고 추가
 
-{{< screenshot-request "Claude Cowork 앱의 설정(또는 플러그인) 화면 — 마켓플레이스에서 + 로 저장소를 추가하고 modu-ai/moai-cowork를 입력해 추가 버튼을 누르는 화면" >}}
+{{< screenshot-request "Claude Cowork의 Customize → Plugins에서 저장소를 추가하는 화면" >}}
 
 등록이 완료되면 **moai-cowork** 마켓플레이스가 목록에 보이고, 이제 이 가게의 플러그인 목록을 앱에서 볼 수 있습니다.
 
@@ -58,7 +62,8 @@ ChatGPT의 GitHub 마켓플레이스 가져오기는 **워크스페이스 관리
 
 마켓플레이스 등록 후에는 Plugins 화면에서 코워커를 선택하고 설치할 수 있습니다.
 
-1. Claude는 **Plugins**, ChatGPT Work는 **Plugins Directory** 열기
+1. Claude는 **Cowork → Customize → Plugins**, ChatGPT Work는 계정에
+   표시되는 **Plugins** 또는 **Apps** 열기
 2. **moai-cowork** 마켓플레이스에서 원하는 코워커 선택 (예: `moai-marketer`, `moai-seller`, `moai-coworker`)
 3. **+** 또는 **Install** 선택
 
@@ -131,7 +136,8 @@ Plugins 화면에서 각 코워커별로 업데이트·비활성화·제거를 �
 
 ### Sources
 
-- Claude Code 플러그인 공식 문서: <https://code.claude.com/docs/en/plugins>
+- Claude Cowork 플러그인 설치: <https://support.claude.com/en/articles/13837440-use-plugins-in-claude>
+- Claude 조직용 마켓플레이스: <https://support.claude.com/en/articles/13837433-manage-plugins-for-your-organization>
 - OpenAI 플러그인 빌드 가이드: <https://developers.openai.com/plugins/build/plugins>
 - OpenAI GitHub 마켓플레이스 가져오기: <https://help.openai.com/en/articles/20001504-importing-and-syncing-plugin-marketplaces-from-github>
 - OpenAI 플러그인 사용 가이드: <https://learn.chatgpt.com/docs/plugins?surface=app>
