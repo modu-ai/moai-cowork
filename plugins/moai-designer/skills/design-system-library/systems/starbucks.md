@@ -1,14 +1,14 @@
 ---
 version: alpha
 name: Starbucks-design-analysis
-description: 'Warm, confident retail flagship with four-tier Starbucks Green on warm-neutral cream canvas, full-pill buttons, and gold reserved for Rewards ceremony.'
+description: 'An inspired Starbucks retail palette with warm neutrals and green surfaces. Verify current Rewards details and licensed assets; use portable fonts and measured contrast.'
 colors:
   primary: "#00754a"
-  primary-active: "#00754a"
+  primary-active: "#005c3b"
   ink: "#1e3932"
   body: "#1e3932"
   muted: "#595959"
-  hairline: "#d4e9e2"
+  hairline: "#767676"
   canvas: "#f2f0eb"
   surface-soft: "#edebe9"
   surface-card: "#edebe9"
@@ -17,23 +17,25 @@ colors:
 
 # Design System Inspired by Starbucks
 
+> **Source and portability boundary:** The [Starbucks Creative Expression guide](https://creative.starbucks.com/) is a high-level brand reference, not permission to reuse its logo, photography, product names, or custom fonts. Its [typography guide](https://creative.starbucks.com/typography/) names SoDo Sans, Lander, and Pike. The deployable stack here uses [OFL Inter](https://github.com/google/fonts/blob/main/ofl/inter/METADATA.pb) for sans text and [OFL Lora](https://github.com/google/fonts/blob/main/ofl/lora/METADATA.pb) for optional editorial serif, with `system-ui, sans-serif` and `Georgia, serif` fallbacks. Check font loading and mixed-script layout on each target OS. Product, price, nutrition, Rewards, and asset rights must be checked at publication.
+
 ## 1. Visual Theme & Atmosphere
 
-Starbucks' design system is a **warm, confident retail flagship** wearing the green of their storefront apron across every surface. The canvas alternates between a neutral-warm cream (`#f2f0eb`) and a ceramic off-white (`#edebe9`) — colors that reference actual store materials: the paper napkins, the café walls, the wood finishes — while the signature **Starbucks Green** (`#006241`) anchors the brand moment on hero bands, CTAs, and the Rewards experience. The greens come in four calibrated shades (Starbucks, Accent, House, Uplift) each mapped to a specific surface role, and gold (`#cba258`) appears only around Rewards-status ceremony — not as a general accent.
+This inspired profile uses warm neutrals and a family of greens. The [official color guide](https://creative.starbucks.com/color/) names Starbucks, Accent, Light, and House greens. The hex values and page compositions below are reference values; confirm current usage before publishing. Gold is a decorative Rewards accent in this interpretation, not a required brand color.
 
-Typography carries most of the brand voice. The proprietary **SoDoSans** typeface (custom to Starbucks) sits across nearly every surface with a tight `-0.16px` letter-spacing — it reads confident and friendly rather than fashion-magazine severe. What's unusual: the Rewards page switches to a warm serif (`"Lander Tall", "Iowan Old Style", Georgia`) for specific headline moments, subtly echoing the nostalgic feel of a coffeehouse chalkboard. And the Careers pages use a handwritten script (`"Kalam", "Comic Sans MS", cursive`) for personal cup-name touches. Three typefaces, three contexts — the system is disciplined about when each appears.
+Typography carries most of the brand voice. The source guide names **SoDo Sans** for body copy. Portable UI instructions in this profile use Inter with tracking checked after font load — it reads confident and friendly rather than fashion-magazine severe. The official guide names Lander as an expressive serif and Pike as a condensed face. Optional editorial serif here uses Lora; site-specific Careers handwriting needs separate verification.
 
-The surfaces breathe through rounded geometry. Every button is a 50px full-pill. Cards take a 12px rounded-rectangle. The "Frap" floating CTA — a 56px circular order button in Green Accent (`#00754A`) — is the product's signature depth move: it floats bottom-right with a layered shadow stack (`0 0 6px rgba(0,0,0,0.24)` base + `0 8px 12px rgba(0,0,0,0.14)` ambient) and compresses via `scale(0.95)` on press. Elevations are otherwise restrained — card shadows stay at a whispered `0.14/0.24` alpha, global nav gets a quiet three-layer shadow stack. The whole system feels like clean café signage: legible, warm, and never shouting.
+The layout reference uses pill buttons, rounded cards, and restrained shadows. The floating order CTA and pressed scale are examples to verify against the current interface; do not force them into every screen.
 
 **Key Characteristics:**
-- Four-tier green brand system (Starbucks / Accent / House / Uplift) each mapped to a distinct surface role — not a single "brand green"
+- The official guide names Starbucks, Accent, Light, and House greens; Uplift is an interpretation in this profile, not an official tier
 - Gold reserved for Rewards-status moments only; never a general-purpose accent
 - Warm-neutral canvas (`#f2f0eb` / `#edebe9`) instead of cold white — references café materials
-- Custom proprietary typeface (SoDoSans) with tight `-0.16px` letter-spacing as the universal voice
-- Context-specific type switches: serif (Lander Tall) for Rewards, script (Kalam) for Careers cup-names
-- Full-pill buttons (`50px` radius) universal, `scale(0.95)` active press the signature micro-interaction
-- Floating "Frap" circular CTA (`56px`, Green Accent fill, layered shadow stack) — the product's signature elevation element
-- Gift-card surfaces designed as **photographed physical product** — every card is a distinct illustrated photograph rather than a generated graphic
+- Source guide names SoDo Sans; portable sans text uses Inter with tracking checked in the rendered layout
+- The source guide also names Lander and Pike; optional portable serif uses Lora
+- Pill buttons and pressed-scale feedback are optional reference treatments; measure their rendered targets and focus states
+- Floating order circular CTA (`56px`, Green Accent fill, layered shadow stack) — the product's signature elevation element
+- Gift-card surfaces need current approved artwork and rights checks; examples are not reusable assets
 - 12px card radius + whisper-soft shadows keep content cards flat-plus-hint-of-lift
 - Rem-based spacing scale anchored at 1.6rem (~16px) = `--space-3`, stepping to 6.4rem (~64px)
 
@@ -41,19 +43,19 @@ The surfaces breathe through rounded geometry. Every button is a 50px full-pill.
 
 ## 2. Color Palette & Roles
 
-**Source pages analyzed:** homepage, rewards, gift cards, product detail (Pink Energy Drink), product nutrition (Cold Brew).
+**Historical reference surfaces:** homepage, Rewards, gift cards, and product details. Confirm current content and URLs before publication.
 
 ### Primary
 
 - **Starbucks Green** (`#006241`): The historic brand green. Used on h1 headings, primary section headers on the Rewards page, and as the main brand signal wherever a single dominant color is needed.
-- **Green Accent** (`#00754A`): A slightly brighter, more luminous green. The primary filled-CTA color ("Explore our afternoon menu", "See the spring menu") and the fill of the floating Frap circular button.
+- **Green Accent** (`#00754A`): A slightly brighter, more luminous green. The primary filled-CTA color (current, verified CTAs) and the fill of the floating floating order circular button.
 - **House Green** (`#1E3932`): The deep near-black brand green. Footer surface, feature-band backgrounds, reward-status dark surfaces, and the headline "Free coffee is just the beginning" hero band on Rewards.
-- **Green Uplift** (`#2b5148`): A secondary mid-dark green used sparingly on decorative accents and dark-gradient moments.
+- **Green Uplift** (`#2b5148`): An interpretation-only mid-dark green for optional decorative accents; it is not a named official brand tier.
 - **Green Light** (`#d4e9e2`): A pale mint wash used for form-valid-state tints and light green utility surfaces.
 
 ### Secondary & Accent
 
-- **Gold** (`#cba258`): Reserved almost exclusively for Rewards-status ceremony — Gold-tier callouts, partnership badges (SkyMiles, Bonvoy), and premium-feeling accents. Never a general-purpose brand color.
+- **Gold** (`#cba258`): Decorative Rewards accent in this inspired palette. Use as text only on a verified dark surface; on white it measures 2.37:1.
 - **Gold Light** (`#dfc49d`): Softer gold for background washes on gold-tier sections.
 - **Gold Lightest** (`#faf6ee`): Cream-gold page-surface wash used under partnership sections on the Rewards page — ties the gold accent back into the warm neutral system.
 
@@ -94,10 +96,10 @@ No structural gradient tokens observed. Surface hierarchy is solid-color-block t
 
 ### Font Family
 
-- **Primary:** `SoDoSans, "Helvetica Neue", Helvetica, Arial, sans-serif` — Starbucks' proprietary corporate typeface, used across nearly every surface
-- **Loading Fallback:** `"Helvetica Neue", Helvetica, Arial, sans-serif` — what users see before SoDoSans loads
-- **Rewards Serif:** `"Lander Tall", "Iowan Old Style", Georgia, serif` — used on specific Rewards-page headline moments for a warm editorial feel
-- **Careers Script:** `"Kalam", "Comic Sans MS", cursive` — used exclusively for Careers-page "cup name" decorative touches, referencing the hand-written names on Starbucks cups
+- **Source reference:** SoDo Sans, Lander, and Pike are named by the official guide; their reuse rights are not established here.
+- **Portable sans:** `Inter, system-ui, sans-serif`; confirm font loading and spacing in the running interface.
+- **Optional portable editorial serif:** `Lora, Georgia, serif`; source guide identifies Lander, but this profile does not distribute it.
+- **Decorative handwriting:** Source-specific treatment is unverified; use an approved asset and an accessible text alternative if needed.
 
 No OpenType stylistic sets explicitly activated at `:root`.
 
@@ -127,7 +129,7 @@ No OpenType stylistic sets explicitly activated at `:root`.
 
 ### Principles
 
-- **Tight negative tracking (`-0.01em`)** is applied almost universally — the entire product reads slightly compressed, which gives SoDoSans its confident presence without feeling squeezed.
+- Check `-0.01em` tracking in the rendered Inter stack; keep letter spacing readable for mixed scripts.
 - **Weight shifts carry hierarchy, not size shifts.** H1 and H2 share the same 24px/36px size; only weight (600 vs 400) and color (Starbucks-Green vs Text Black) separate them.
 - **Size tokens use rem, anchored to `1rem = 10px`** on this site (via a `font-size: 62.5%` root trick). So `1.6rem` = 16px, `2.4rem` = 24px, etc. The scale is semantic (textSize-1 through textSize-10), not arbitrary pixel values.
 - **Context-specific typeface swaps** — serif on Rewards, script on Careers — are deliberate and localized. Never mix them with the primary sans within the same surface.
@@ -135,14 +137,14 @@ No OpenType stylistic sets explicitly activated at `:root`.
 
 ### Note on Font Substitutes
 
-SoDoSans is proprietary to Starbucks (licensed from House Industries, not publicly available). Reasonable open-source substitutes:
+The source guide names SoDo Sans; this profile does not establish redistribution rights. Portable sans options include:
 - **Inter** (Google Fonts) — similar humanist geometric proportions, wide weight range
 - **Manrope** — slightly rounder, similar confident feel
 - **Nunito Sans** — warmer, good for a "café" brand substitute
 
 If substituting, verify the tight `-0.01em` / `-0.16px` tracking still reads well; some open-source fonts need `-0.005em` instead.
 
-Lander Tall (the Rewards serif) is custom — open-source substitutes: **Iowan Old Style** (already in fallback), **Lora**, or **Source Serif Pro**. Kalam (Careers script) is available on Google Fonts directly.
+The portable optional serif is Lora. Check any other source font and its license before loading it.
 
 ## 4. Component Stylings
 
@@ -154,7 +156,7 @@ Lander Tall (the Rewards serif) is custom — open-source substitutes: **Iowan O
 - Border: `1px solid #00754A`
 - Radius: `50px` (full pill)
 - Padding: `7px 16px`
-- Font: SoDoSans, 16px, weight 600, letter-spacing `-0.01em`
+- Font: Inter, 16px, weight 600, letter-spacing `-0.01em`
 - Active state: `transform: scale(0.95)` via `--buttonActiveScale`
 - Transition: `all 0.2s ease`
 
@@ -179,7 +181,7 @@ Lander Tall (the Rewards serif) is custom — open-source substitutes: **Iowan O
 - Radius: `50px`, Padding: `7px 16px`
 - Font: 14px, weight 600
 
-**5. Green-on-Green Inverted — "See the spring menu"**
+**5. Green-on-Green Inverted — a current, verified CTA**
 - Background: `#ffffff`
 - Text: `#00754A`
 - Border: `1px solid #ffffff`
@@ -197,15 +199,15 @@ Lander Tall (the Rewards serif) is custom — open-source substitutes: **Iowan O
 - No border, `50px` radius, `7px 16px` padding, 14px / weight 400
 - Slightly brighter than Green Accent — reserved for the consent-banner Agree action
 
-**8. Frap — Floating Circular Order Button**
+**8. floating order — Floating Circular Order Button**
 - Background: `#00754A` (Green Accent)
 - Icon: `#ffffff`
 - Size: `5.6rem / 56px` (standard), `4rem / 40px` (mini variant)
 - Radius: `50%` (full circle)
-- Fixed bottom-right, `-0.8rem` touch offset for extra tap comfort
+- A bottom-right position and `-0.8rem` offset are reference geometry only; measure the actual hit area and screen-edge clearance
 - Shadow stack: base `0 0 6px rgba(0,0,0,0.24)` + ambient `0 8px 12px rgba(0,0,0,0.14)`
 - Active state: ambient shadow fades to `0 8px 12px rgba(0,0,0,0)`
-- This is the product's signature elevation element — it floats over every scrolled surface
+- Show a floating order control only when the current product flow and viewport layout support it
 
 **9. Full-width Feedback Tab — "Provide feedback"**
 - Background: `#00754A`
@@ -220,6 +222,7 @@ Lander Tall (the Rewards serif) is custom — open-source substitutes: **Iowan O
 **Content Card (default)**
 - Background: `#ffffff` (`--cardBackgroundColor`)
 - Radius: `12px` (`--cardBorderRadius`)
+- Border: `1px solid #767676` where the card edge must be perceivable without its shadow
 - Shadow: `0px 0px .5px 0px rgba(0,0,0,0.14), 0px 1px 1px 0px rgba(0,0,0,0.24)` (`--cardBoxShadow`)
 - Used for: feature cards, menu-item tiles, reward-status panels
 
@@ -229,17 +232,18 @@ Lander Tall (the Rewards serif) is custom — open-source substitutes: **Iowan O
 - Shadow: lighter than default card — these are treated like physical cards laid on the canvas
 - Labeled by category above the card grid (Spring, Thank You, Birthday, Celebration, Mother's Day, Appreciation, Encouragement, Milestones, Anytime)
 
-**Rewards Status Cards (Rewards page signature)**
-- Three-column grid: Bronze / Gold / Silver-ish — each a dark-green (`#1E3932`) panel with:
-  - Colored gradient/color header ring
+**Rewards Status Cards (current US program requires verification)**
+- The [current official US terms](https://www.starbucks.com/terms/rewards/) name Green, Gold, and Reserve levels. Confirm the user's region and current benefits before creating a live card.
+- If the current product needs tier cards, use the officially documented Green / Gold / Reserve levels (US program, launched March 2026) and verify region-specific terms before publication. Each panel may use dark green (`#1E3932`) with:
+  - Solid-color header ring with verified text contrast
   - Numbered "Level" badge
-  - Status title in large SoDoSans weight 600
+  - Status title in large Inter weight 600
   - Stars / benefits list in white/translucent-white text
   - Bottom "As you earn more stars…" progression caption
 
 **Partnership Card (Rewards)**
 - Background: `#faf6ee` (Gold Lightest) warm-cream surface
-- Content: partner logos ("SkyMiles", "Bonvoy") centered, with descriptive text below
+- Content: partner logos (current verified partners) centered, with descriptive text below
 - Radius and shadow follow default card spec
 
 **Dropdown Menu (Account dropdown, top-nav)**
@@ -262,6 +266,7 @@ Lander Tall (the Rewards serif) is custom — open-source substitutes: **Iowan O
 - Label horizontal offset: `12px` from left
 - Active label translate: up to `-12px` with `-50%` Y translation
 - Field padding: `12px`
+- Visible boundary: `1px solid #767676` on white; show a distinct focus ring and text label
 - Form horizontal padding: `1.6rem`
 - Validation: valid-field gets `rgba(green-light, 0.33)` tint; invalid-field gets `rgba(red, 0.05)` tint
 - Transition: `0.3s option-label-marker-expansion cubic-bezier(0.32, 2.32, 0.61, 0.27)` on checked-input
@@ -276,7 +281,7 @@ Lander Tall (the Rewards serif) is custom — open-source substitutes: **Iowan O
 - Fixed position with progressive heights: `64px` xs → `72px` mobile → `83px` tablet → `99px` desktop
 - Shadow stack: `0 1px 3px rgba(0,0,0,0.1), 0 2px 2px rgba(0,0,0,0.06), 0 0 2px rgba(0,0,0,0.07)` — three-layer soft lift
 - Left: Starbucks wordmark logo, offsetting by `99px` (md) / `131px` (lg) from left edge
-- Primary links inline in SoDoSans weight 400–600: Menu · Rewards · Gift Cards
+- Primary links inline in Inter weight 400–600: Menu · Rewards · Gift Cards
 - Right: Find a store link + Sign in (outlined) + Join now (black filled)
 
 **Sub-nav (second bar, e.g., Rewards internal)**
@@ -285,7 +290,7 @@ Lander Tall (the Rewards serif) is custom — open-source substitutes: **Iowan O
 
 **Mobile Nav**
 - Collapses to a hamburger drawer below tablet breakpoint
-- Frap floating button persists at bottom-right regardless of nav state
+- floating order button appears only when it does not cover navigation or other controls
 
 ### Image Treatment
 
@@ -316,10 +321,10 @@ Dark-green modal card at top of page with "Agree" (green-filled) and "Manage pre
 
 ### Product Detail Components (PDP signature cluster)
 
-A repeating component cluster used on menu product pages (e.g., `/menu/product/40498/iced` for a drink detail, `/menu/product/.../nutrition` for nutrition facts). These extend the component inventory without changing tokens.
+A historical component reference from menu product pages. URLs, available options, and product content may change; build live details from the current catalog.
 
 **Size Options Selector**
-- Horizontal row of 4 cup-icon buttons (Tall / Grande / Venti / Trenta)
+- Use the sizes available for the current product and region; the historical reference used cup-icon buttons
 - Each item: cup silhouette icon on top, size name below (16/700 in Starbucks-Green), fluid-ounce caption (13/400 in Text Black Soft)
 - Active state: a green circular ring outline (`2px solid #00754A`) around the selected cup icon
 - Inactive: no ring, same typography
@@ -329,18 +334,18 @@ A repeating component cluster used on menu product pages (e.g., `/menu/product/4
 
 **Add-in / Milk Select (outlined rectangle)**
 - Background: `#ffffff`
-- Border: `1px solid #d6dbde` (Input Border)
+- Border: `1px solid #767676` on white (visible input boundary)
 - Radius: `4px`
 - Full-width in its column
 - Floating label above top border: "Add-ins" / "Milk" / "Add-ins" — 13/700 in Text Black, uppercase, `0.325px` letter-spacing
 - Value displayed centered (e.g., "Ice", "Coconut", "Strawberry Fruit Inclusions scoop"): 16/400 Text Black
 - Chevron-down icon right side in Text Black Soft
-- Focus: border shifts to Green Accent (`#00754A`)
+- Focus: Green Accent (`#00754A`) outline separated from the visible border; verify in the running interface
 
 **Numeric Stepper**
 - Embedded inside an Add-in row when a quantity is required (e.g., Strawberry Fruit Inclusions scoop)
 - `−` minus button + count number + `+` plus button, all inline right of the label
-- Buttons: circular `32×32px` with `1px solid #d6dbde` border, neutral gray icon
+- Buttons: circular controls sized and spaced to meet the target platform requirements, with a visible border and accessible names
 - Count number: 16/700 Text Black centered
 
 **Customize Button**
@@ -349,7 +354,7 @@ A repeating component cluster used on menu product pages (e.g., `/menu/product/4
 - Border: `1.5px solid #00754A`
 - Radius: `50px` (full pill)
 - Padding: `14px 40px` (generously larger than default pills — this is a secondary primary action)
-- Label: "Customize" with a gold sparkle ✨ icon inset left
+- Label: "Customize" with a textual label; any decorative icon needs an approved asset and accessible name
 - Used for: entering the drink-customization flow after size/milk selection
 
 **Add to Order Button (PDP)**
@@ -360,14 +365,14 @@ A repeating component cluster used on menu product pages (e.g., `/menu/product/4
 - Pinned top-right of product card and/or aligned right within the store-availability band
 - Same scale(0.95) active behavior as other primary CTAs
 
-**Rewards Cost Pill — "200★ item"**
+**Rewards Cost Pill — a verified Rewards redemption item**
 - Background: transparent
 - Border: `1px solid #cba258` (Gold)
 - Text: `#cba258` (Gold)
 - Radius: `50px` (full pill)
 - Padding: `4px 12px`
-- Content: "200★ item" where `★` is a small filled star glyph — indicates the Rewards Stars required to redeem this item
-- Font: Proxima Nova 13/700 with `0.5px` letter-spacing
+- Content: use the current eligible item and redemption amount from official data; do not hard-code a Star cost
+- Font: Inter 13/700 with `0.5px` letter-spacing
 - Used only on products that are Rewards-redeemable
 
 **Product Description Band**
@@ -375,7 +380,7 @@ A repeating component cluster used on menu product pages (e.g., `/menu/product/4
 - Contains top-to-bottom:
   1. Rewards Cost Pill (gold) if applicable
   2. Product description body copy in white (16/400/1.5)
-  3. Nutritional summary inline ("140 calories, 25g sugar, 2.5g fat") with info-icon tooltip — 14/700 white
+  3. Nutritional summary inline (current verified nutrition data) with info-icon tooltip — 14/700 white
   4. "Full nutrition & ingredients list" outlined-white-on-green pill button
 - Padding: `32px` vertical
 - Appears beneath the primary product header band
@@ -384,9 +389,9 @@ A repeating component cluster used on menu product pages (e.g., `/menu/product/4
 - Two-column layout on the Nutrition page
 - Left column: "Ingredients" header + list or "Not available for this item" placeholder text block with an explanatory paragraph in Text Black Soft 14/400
 - Right column: "Nutrition" header + label/value rows
-- Each row: nutrient label (Proxima Nova 14/400) on the left, value (e.g., "140 calories", "25g", "205 mg**") on the right, separated by a `1px solid #e7e7e7` hairline below
+- Each row: nutrient label (Inter 14/400) on the left, value (e.g., a current verified calorie value, a current verified nutrient value, a current verified amount) on the right, separated by a `1px solid #e7e7e7` hairline below
 - Footnote for caffeine/asterisk markers in 13/400 Text Black Soft at the bottom
-- Reusable pattern for nutrition facts regulation-compliant tables
+- Layout reference only; verify current nutrition data and applicable labeling requirements before publication
 
 **Store Availability Selector**
 - Appears on dark-green feature band above the size-options row
@@ -397,15 +402,15 @@ A repeating component cluster used on menu product pages (e.g., `/menu/product/4
 - Height: ~48px
 
 **PDP Breadcrumb**
-- "Menu / Refreshers / Pink Energy Drink" trail above the product title
+- a current, verified product breadcrumb trail above the product title
 - Separator: `/` slash character in Text Black Soft
 - Current page is unlinked, prior pages are underlined green-accent links
-- Font: 14/400 Proxima Nova
+- Font: 14/400 Inter
 - Appears on all PDP pages
 
 **Back Chevron Link (PDP nutrition / detail sub-pages)**
 - "← Back" text link above section headings on the nutrition page
-- Text in Green Accent (`#00754A`) 14/700 Proxima Nova
+- Text in Green Accent (`#00754A`) 14/700 Inter
 - Left chevron `<` in the same green
 - Alternative to full breadcrumb on deep sub-pages
 
@@ -424,7 +429,7 @@ Rem-based semantic scale (anchored `1rem = 10px`):
 | `--space-5` | `3.2rem` | 32px | Major between-section spacing |
 | `--space-6` | `4rem` | 40px | Large gaps, outer gutter lg, header crate |
 | `--space-7` | `4.8rem` | 48px | Section-to-section spacing |
-| `--space-8` | `5.6rem` | 56px | Very large breathing — Frap height |
+| `--space-8` | `5.6rem` | 56px | Very large breathing — floating order height |
 | `--space-9` | `6.4rem` | 64px | Widest section padding |
 
 **Gutter tokens:**
@@ -432,7 +437,7 @@ Rem-based semantic scale (anchored `1rem = 10px`):
 - `--outerGutterMedium: 2.4rem` (24px, tablet)
 - `--outerGutterLarge: 4.0rem` (40px, desktop)
 
-**Universal rhythm constant:** `1.6rem` (16px) appears across every page as the default outer gutter, card padding baseline, and text size 3 body — the system's most frequent spacing unit.
+**Spacing reference:** `1.6rem` maps to 16px only when the root font size is 10px. Use the actual root size or pixel values rather than assuming this conversion in a new project.
 
 ### Grid & Container
 
@@ -452,7 +457,7 @@ Whitespace carries the feeling of "plenty of space in the café." Section paddin
 | `12px` | Cards, modals, menu-item tiles (`--cardBorderRadius`) |
 | `12px 12px 0 0` | Full-width feedback tab (top-rounded only) |
 | `50px` | All buttons — full-pill radius (`--buttonBorderRadius`) |
-| `50%` | Circular icons, Frap floating button, avatar thumbnails |
+| `50%` | Circular icons, floating order button, avatar thumbnails |
 | Specialty | `3.3333%/5.298%` elliptical for Starbucks-Visa-Card mockups (`--svcRoundedCorners`) |
 
 ## 6. Depth & Elevation
@@ -461,12 +466,12 @@ Whitespace carries the feeling of "plenty of space in the café." Section paddin
 |-------|-----------|-----|
 | Card | `0 0 0.5px rgba(0,0,0,0.14), 0 1px 1px rgba(0,0,0,0.24)` | Default content cards — a whisper-soft dual-shadow |
 | Global Nav | `0 1px 3px rgba(0,0,0,0.1), 0 2px 2px rgba(0,0,0,0.06), 0 0 2px rgba(0,0,0,0.07)` | Triple-layer soft lift on the fixed top bar |
-| Frap Base | `0 0 6px rgba(0,0,0,0.24)` | Base halo around the floating circular CTA |
-| Frap Ambient | `0 8px 12px rgba(0,0,0,0.14)` | Stacked directional ambient — floats the Frap forward |
+| floating order Base | `0 0 6px rgba(0,0,0,0.24)` | Base halo around the floating circular CTA |
+| floating order Ambient | `0 8px 12px rgba(0,0,0,0.14)` | Stacked directional ambient — floats the control forward |
 | Gift Card | Light drop shadow around illustrated photograph | Physical-card feel for gift tiles |
 | Starbucks Card (SVC) | `drop-shadow(0 4px 1px rgba(0,0,0,0.11)) drop-shadow(0 0 2px rgba(0,0,0,0.24))` | Stacked SVG drop shadows for Starbucks Card visuals |
 
-**Shadow philosophy:** Whisper-soft, layered over solid — the system never reaches for a single heavy drop shadow. Instead, it stacks 2–3 low-alpha shadows with different offsets to simulate real-world ambient + direct lighting. The Frap button is the most elevated element on any page.
+**Shadow philosophy:** Whisper-soft, layered over solid — the system never reaches for a single heavy drop shadow. Instead, it stacks 2–3 low-alpha shadows with different offsets to simulate real-world ambient + direct lighting. A floating order button may have a stronger elevation when the current flow calls for it.
 
 ### Decorative Depth
 
@@ -478,25 +483,25 @@ Whitespace carries the feeling of "plenty of space in the café." Section paddin
 
 ### Do
 - Use Neutral Warm (`#f2f0eb`) or Ceramic (`#edebe9`) as page canvas instead of pure white — the warm cream is the signature
-- Map the green tiers to their intended surface role — Starbucks Green for headings, Green Accent for CTAs, House Green for deep bands, Uplift for decorative
-- Keep tracking tight at `-0.01em` / `-0.16px` on SoDoSans across the whole system
-- Use 50px full-pill radius on every button without exception
-- Apply `transform: scale(0.95)` as the universal button active state
+- Map the documented greens to the intended surface roles; treat Uplift as an optional interpretation rather than an official brand tier
+- Check Inter tracking in rendered headings and body text, especially mixed-script content
+- Use pill geometry where it suits the control; verify labels, focus, and target sizes
+- Use pressed-scale feedback only if the resulting target remains usable and motion preferences are respected
 - Reserve Gold for Rewards-status ceremony moments only
-- Use SoDoSans for nearly everything; switch to Lander Tall serif only for Rewards editorial headlines; reserve Kalam script for Careers "cup name" moments
+- Use Inter for portable sans text; optional editorial serif uses Lora. Check any source-specific script treatment separately
 - Layer 2–3 low-alpha shadows instead of one heavier drop shadow for elevation
-- Use the Frap circular CTA as the persistent floating order entry on every shopping surface
+- Use a floating order entry only when current product flow calls for it; keep it clear of other controls
 - Let the cream canvas breathe between content cards — use whitespace, not dividers
 
 ### Don't
 - Don't use pure white as the page canvas — the warm cream temperature is load-bearing
-- Don't pick "one brand green" — the four-green system is intentional; using only `#006241` everywhere flattens the brand
+- Keep the green family present; the exact mix depends on the current context and source assets
 - Don't use Gold as a general-purpose accent — it's a Rewards signal only
-- Don't square the corners on buttons — the 50px pill is universal
+- Match corner shape to the control role; the reference uses pills for prominent CTAs
 - Don't introduce gradient fills — the system is color-block throughout
 - Don't weight-contrast h1 and h2 by size — the hierarchy comes from weight + color (600 Starbucks-Green vs 400 Text Black)
 - Don't use pure black for body text — `rgba(0,0,0,0.87)` matches the warm canvas
-- Don't skip the `scale(0.95)` active feedback on buttons — it's a signature micro-interaction
+- Provide visible hover, active, and keyboard-focus states; use scale only where it does not reduce target usability
 - Don't stack single heavy shadows; always layer 2–3 low-alpha ones
 - Don't introduce serifs or scripts into the main shopping flow — they belong to Rewards and Careers contexts respectively
 
@@ -516,9 +521,9 @@ Inferred from component width tokens and progressive nav heights:
 
 ### Touch Targets
 
-- Pill buttons at `7px 16px` padding measure ~32px tall — below 44px WCAG AAA minimum for touch-only surfaces. On mobile, button padding may be visually expanded to meet the minimum.
-- Frap floating circular button at `56px` is well above minimum.
-- Frap uses `--frapTouchOffset: calc(-1 * .8rem)` to extend tap area 8px beyond visual edge.
+- Measure actual rendered button targets and spacing at each breakpoint; padding alone does not establish touch-target compliance.
+- Check the floating button's actual target and clearance from system UI on each device.
+- Verify any extended hit area in the running UI; negative offsets do not prove a larger target.
 - Form float-label inputs grow their label font size on mobile (1.6rem base vs 1.9rem desktop) — easier to tap and read at arm's-length.
 
 ### Collapsing Strategy
@@ -556,23 +561,23 @@ Inferred from component width tokens and progressive nav heights:
 
 ### Example Component Prompts
 
-1. "Create a primary Starbucks CTA pill button with Green Accent (`#00754A`) background, white text 'Explore our afternoon menu', SoDoSans font at 16px weight 600 with `-0.01em` letter-spacing, `50px` border-radius (full pill), `7px 16px` padding. Apply `transform: scale(0.95)` as the active state with a `0.2s ease` transition."
+1. "Create a primary Starbucks CTA pill button with Green Accent (`#00754A`) background, white text 'Explore our afternoon menu', Inter font at 16px weight 600 with `-0.01em` letter-spacing, `50px` border-radius (full pill), `7px 16px` padding. Apply `transform: scale(0.95)` as the active state with a `0.2s ease` transition."
 
 2. "Design a content card with White (`#ffffff`) background at `12px` border-radius, layered shadow `0 0 0.5px rgba(0,0,0,0.14), 0 1px 1px rgba(0,0,0,0.24)`. Pad contents `16–24px` (`--space-3` to `--space-4`). Place on a Neutral Warm (`#f2f0eb`) page canvas with `16px` gap to siblings."
 
-3. "Build the Frap floating circular order button — `56px` diameter, Green Accent (`#00754A`) fill, white shopping-bag icon centered. Layered shadow: `0 0 6px rgba(0,0,0,0.24)` + `0 8px 12px rgba(0,0,0,0.14)`. Fixed position bottom-right with `-0.8rem` touch offset. Active state collapses the ambient shadow to `0 8px 12px rgba(0,0,0,0)` with `scale(0.95)`."
+3. "If the current order flow needs a floating CTA, use a 56px circular Green Accent control with an approved icon and accessible name. Verify its target, focus ring, clearance from system UI, and reduced-motion behavior on every breakpoint."
 
-4. "Build a dark-green feature band — full-width section with House Green (`#1E3932`) background. Left column: white SoDoSans h2 at 24px weight 600, followed by a Text White Soft (`rgba(255,255,255,0.70)`) body paragraph and a CTA row with two buttons (White-filled with Green Accent text for primary, Outlined-on-Dark white border for secondary). Right column: product photography. Split ratio 40/60, stacked vertically below `768px`."
+4. "Build a dark-green feature band — full-width section with House Green (`#1E3932`) background. Left column: white Inter h2 at 24px weight 600, followed by a Text White Soft (`rgba(255,255,255,0.70)`) body paragraph and a CTA row with two buttons (White-filled with Green Accent text for primary, Outlined-on-Dark white border for secondary). Right column: product photography. Split ratio 40/60, stacked vertically below `768px`."
 
-5. "Create a Rewards status card — House Green (`#1E3932`) panel with `12px` border-radius, colored gradient top stripe (Bronze/Silver/Gold tier). Title in SoDoSans 24px weight 600 in white. Benefits list as white bullets with `rgba(255,255,255,0.70)` secondary captions. Bottom progression text in Text White Soft. Stack 3 panels in a grid at `lg+`, single column on mobile."
+5. "Create a Rewards status card — House Green (`#1E3932`) panel with `12px` border-radius, a tier heading based on the current Green, Gold, or Reserve level (US program). Title in Inter 24px weight 600 in white. Benefits list as white bullets with `rgba(255,255,255,0.70)` secondary captions. Bottom progression text in Text White Soft. Stack 3 panels in a grid at `lg+`, single column on mobile."
 
-6. "Design a gift-card tile — card radius matches `12px`, fills with an illustrated photograph (hand-drawn watercolor-painted feel) as the entire surface. Subtle drop shadow makes it feel like a physical card on the cream canvas. Group under a category label ('Spring', 'Thank You', 'Birthday') in SoDoSans 24px weight 400 above the grid."
+6. "Design a gift-card tile with a `12px` radius and current approved artwork whose reuse rights are confirmed. Preserve its aspect ratio, provide accessible text, and use current category names from the catalog. A subtle shadow may separate it from the cream canvas."
 
-7. "Create a Starbucks commerce-product-detail header — House Green (`#1E3932`) band with breadcrumb 'Menu / Refreshers / Pink Energy Drink' in 14/400 white above the product title in SoDoSans 32/700 uppercase white. Product photograph centered below title. Below photo: a 4-up size selector row — each cup-icon button shows a vertical cup silhouette, size name ('Tall' / 'Grande' / 'Venti' / 'Trenta') in 16/700 white, and fluid-ounce in 13/400 Text White Soft. Selected size wraps the cup icon in a `2px solid #00754A` circular ring."
+7. "Create a product-detail header using current approved product data and photography. Use a House Green band with white text, a verified breadcrumb and product title, and a size selector whose names, options, and prices come from the current catalog. Give the selected size a visible ring and an accessible selected state."
 
-8. "Build a Starbucks customize flow — under the size selector, 3 stacked outlined-rectangle input rows (white bg, `1px solid #d6dbde` border, `4px` radius). Each has a floating label ('Add-ins', 'Milk', 'Add-ins') above the top border in 13/700 Text Black uppercase. Value centered (e.g., 'Ice', 'Coconut'). Right side: chevron-down in Text Black Soft. For the scoop row, embed a numeric stepper (`−` `1` `+` with circular `32px` outlined buttons). Below all three fields: outlined green 'Customize' pill with gold sparkle icon, `50px` radius, `14px 40px` padding. Pair with a Green Accent filled 'Add to Order' pill in the same row."
+8. "Build a customizable product form with clearly labeled fields, visible input borders and focus rings, and a numeric stepper whose buttons have accessible names and measured targets. Use current catalog options and approved icons."
 
-9. "Design a Starbucks product description band — full-width House Green (`#1E3932`) below product header. Top: a gold-outlined '200★ item' Rewards Cost Pill (`50px` radius, `4px 12px` padding, gold `#cba258` border and text). Below: product description in white 16/400/1.5. Nutritional inline summary in white 14/700 ('140 calories, 25g sugar, 2.5g fat') with info-icon tooltip. Outlined-white-on-green pill button 'Full nutrition &amp; ingredients list'. 32px vertical padding."
+9. "Design a House Green product description band with a Rewards item marker only when current eligibility and redemption data support it. Show verified nutrition values and ingredient links. Keep the gold marker on the dark surface and check the rendered contrast."
 
 10. "Create a Starbucks nutrition facts table — two-column layout inside a White card. Left column: 'Ingredients' header (24/400 Text Black), followed by ingredient list or 'Not available for this item' placeholder paragraph in 14/400 Text Black Soft. Right column: 'Nutrition' header, then label/value rows (nutrient name left, value right) separated by `1px solid #e7e7e7` hairlines. Typography: labels in 14/400 Text Black, values in 14/700 Text Black right-aligned. Footnote asterisk markers in 13/400 Text Black Soft at the bottom."
 
@@ -581,16 +586,16 @@ Inferred from component width tokens and progressive nav heights:
 When refining existing screens generated with this design system:
 1. Focus on ONE component at a time
 2. Reference specific color names and hex codes from this document
-3. Use natural language descriptions ("warm cream canvas," "four-tier green system") alongside exact values
-4. Preserve the 50px pill + `scale(0.95)` active state universally
+3. Use natural descriptions ("warm cream canvas," "green family") alongside exact reference values
+4. Keep pill geometry where appropriate and verify target size, focus, and active feedback
 5. Check that greens are mapped to their correct role (Green Accent for CTA, Starbucks Green for heading, House Green for band)
 6. Don't introduce gradients — the system is color-block
-7. Keep SoDoSans tracking at `-0.01em` / `-0.16px` across the board
+7. Check Inter spacing after font loading and at each target breakpoint
 
 ### Known Gaps
 
-- SoDoSans is a proprietary typeface not available on Google Fonts — when implementing publicly, use Inter or Manrope as a substitute and document the swap
-- Lander Tall (Rewards serif) is also custom — substitute with Iowan Old Style, Lora, or Source Serif Pro
+- SoDo Sans, Lander, and Pike are source references. Portable text uses Inter and optional Lora; confirm loading and license obligations.
+- Current Rewards details, product content, photography, logos, and font loading need live verification on each target platform.
 - Specific per-component animation timings beyond the few documented (`--duration: 0.4s`, `--iconTransition: all ease-out 0.2s`, `--expanderDuration: 300ms`) are not captured for every interactive surface
 - Form error-state full styling (red border weight, icon placement) visible on the tint token but not exhaustively extracted
 - Careers-page specific components (cup-name card, search radio grid) are referenced in token names but not covered by this extraction
