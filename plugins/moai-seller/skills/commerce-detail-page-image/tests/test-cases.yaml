@@ -1,5 +1,5 @@
 name: commerce-detail-page-image
-version: 1.1.1
+version: 1.1.5
 # 검토 시나리오. 입력 fixture와 실행기가 없는 상태에서는 테스트 통과를 주장할 수 없습니다.
 test_cases:
   - id: all_sections
@@ -14,3 +14,12 @@ test_cases:
       failed_sections: [07_proof, 11_compare]
       completed_status: false
       placeholders_are_draft_only: true
+  - id: channel_export
+    input:
+      channel: naver-smartstore
+      current_channel_image_rules: null
+    expected:
+      original_size: 1080x12720
+      upload_ready: false
+      missing_inputs_reported: ["현재 채널 이미지 규격"]
+      upload_result: "NOT-RUN"

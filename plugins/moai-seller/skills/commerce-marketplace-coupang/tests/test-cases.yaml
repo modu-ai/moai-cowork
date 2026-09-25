@@ -1,34 +1,27 @@
 name: commerce-marketplace-coupang
-version: 1.7.0
+version: 1.1.2
+# 검토 시나리오. 실행기·실계정 fixture가 없으므로 통과 결과가 아닙니다.
 test_cases:
-  - id: happy_electronics_rocket
-    description: 전자제품 로켓배송 등록 정상 가이드
+  - id: unverified_image_upload
     input:
-      product_name: "X200 무선이어폰"
-      category: "디지털/가전"
-      delivery_type: rocket
-      detail_image_path: "./combined.png"
+      channel: coupang
+      detail_image: "./combined.png"
+      current_image_rules: null
     expected:
-      title_optimized_under_50: true
-      forbidden_phrases_count: 0
-      search_tags_count: 20
-      checklist_all_passed: true
-
-  - id: edge_food_compliance_warning
-    description: 식품 카테고리에서 의학적 표현 발견 시 경고
+      upload_ready: false
+      fixed_image_limit: false
+      required_check: "현재 계정의 상세설명 이미지 제한과 실제 미리보기"
+  - id: delivery_type_without_contract
     input:
-      copy_excerpt: "이 비타민제는 면역력을 증강시켜 감기를 예방합니다."
-      category: "식품/건기식"
+      delivery_type: rocket_growth
+      contract: null
     expected:
-      forbidden_phrases_found:
-        - phrase: "예방합니다"
-          reason: "건강기능식품법 위반 가능 — 질병 예방 단정 표현"
-      compliance_warning: true
-
-  - id: failure_oversize_image
-    description: 메인 이미지가 5MB 초과 시 실패
+      fixed_fee_or_delivery_promise: false
+      missing_contract_reported: true
+  - id: unsupported_health_claim
     input:
-      main_image_size_mb: 7.5
+      category: food
+      copy_excerpt: "모든 질병을 예방합니다"
     expected:
-      image_check.file_size_check: "OVER_5MB"
-      action: "이미지 압축 후 재업로드 필요"
+      publish_as_is: false
+      current_rule_and_product_evidence_check: true

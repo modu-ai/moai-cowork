@@ -1,32 +1,25 @@
 name: commerce-marketplace-naver
-version: 1.7.0
+version: 1.1.2
+# 검토 시나리오. 실행기·실계정 fixture가 없으므로 통과 결과가 아닙니다.
 test_cases:
-  - id: happy_smartstore_only
-    description: 스마트스토어 단독 등록 정상 가이드
+  - id: smartstore_unverified_image
     input:
-      product_name: "비건 비누"
-      category: "생활/건강 > 화장품/미용 > 바디"
       channel: naver_smartstore
+      detail_image: "./combined.png"
+      current_image_rules: null
     expected:
-      title_optimized_under_50: true
-      tags_count: 18
-      talk_talk_template_provided: true
-      category_path_validated: true
-
-  - id: edge_multi_channel
-    description: 스마트스토어 + 11번가 + G마켓 동시 등록 시 채널별 차이 안내
+      upload_ready: false
+      required_check: "현재 계정의 상세 이미지 규격과 실제 업로드 결과"
+  - id: multiple_markets
     input:
       channels: ["naver_smartstore", "11st", "gmarket"]
+      current_channel_rules: null
     expected:
-      channel_specific_warnings_count: ">=3"
-      image_specs_per_channel: 3
-      title_variants_per_channel: 3
-
-  - id: failure_review_manipulation_warning
-    description: 후기 조작 의심 표현 입력 시 강한 경고
+      separate_channel_checks: true
+      fixed_image_width_or_fee: false
+  - id: review_manipulation
     input:
-      copy_excerpt: "후기 작성 시 추가 5천원 할인쿠폰 지급, 5점 후기 작성 의무"
+      copy_excerpt: "5점 후기 작성 시 쿠폰 지급"
     expected:
-      forbidden_phrases_found:
-        - reason: "5점 후기 작성 의무 — 후기 조작 유도, 영구 정지 사유"
-      compliance_warning: critical
+      publish_as_is: false
+      current_review_policy_check: true
