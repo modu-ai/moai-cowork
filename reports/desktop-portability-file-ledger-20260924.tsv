@@ -299,7 +299,7 @@ plugins/moai-designer/skills/design-system-library/systems/nvidia.md		static_rea
 plugins/moai-designer/skills/design-system-library/systems/ollama.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/opencode.ai.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/pinterest.md		static_read
-plugins/moai-designer/skills/design-system-library/systems/playstation.md		mechanical_scan
+plugins/moai-designer/skills/design-system-library/systems/playstation.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/posthog.md		mechanical_scan
 plugins/moai-designer/skills/design-system-library/systems/raycast.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/registry.md		static_read

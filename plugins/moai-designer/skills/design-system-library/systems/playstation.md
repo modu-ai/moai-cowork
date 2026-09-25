@@ -2,7 +2,7 @@
 version: alpha
 name: PlayStation-design-analysis
 description: |
-  A three-surface marketing system organized around alternating black, white, and PlayStation Blue chapters that scroll past the viewer like a console launch trailer. Each section has a single editorial purpose — hero photography, console product render, PS Plus tier callout, news strip — and each owns one of three full-bleed canvas modes. The chrome is unusually quiet for a gaming brand: bright PlayStation Blue (`#0070d1`) carries every primary CTA as a fully-rounded pill, the proprietary SST face renders display copy at a signature weight 300 (light) for an airy, premium feel, and a crisp 8px-radius secondary card system carries product info on either canvas mode. The system never decorates — no gradient backgrounds on chrome, no atmospheric mesh, no drop shadows beyond a faint section-divide. Imagery does all the heavy lifting: console glamour shots, game key art, and PS Plus tier illustrations occupy 60-90% of every section, with copy compressed into a small editorial slot.
+  A reference marketing system with alternating black, white, and PlayStation Blue chapters, rounded CTAs, and product imagery. The source-reference display face is PlayStation SST; distribution defaults use OFL Roboto at weight 300 for display and OFL Inter for body and controls. Game art, console images, wordmarks, and pricing require current source and usage-right checks before publication.
 
 colors:
   primary: "#0070d1"
@@ -33,6 +33,8 @@ colors:
   surface-dark-elevated: "#121314"
   surface-dark-card: "#181818"
   hairline-light: "#f3f3f3"
+  card-border-light: "#898989"
+  card-border-dark: "#6b6b6b"
   hairline-dark: "rgba(229,229,229,0.2)"
   on-dark: "#ffffff"
   on-dark-mute: "#cccccc"
@@ -44,85 +46,85 @@ colors:
 
 typography:
   display-xl:
-    fontFamily: PlayStation SST
+    fontFamily: Roboto, Arial, sans-serif
     fontSize: 54px
     fontWeight: 300
     lineHeight: 1.25
     letterSpacing: -0.1px
   display-lg:
-    fontFamily: PlayStation SST
+    fontFamily: Roboto, Arial, sans-serif
     fontSize: 44px
     fontWeight: 300
     lineHeight: 1.25
     letterSpacing: 0.1px
   display-md:
-    fontFamily: PlayStation SST
+    fontFamily: Roboto, Arial, sans-serif
     fontSize: 35px
     fontWeight: 300
     lineHeight: 1.25
     letterSpacing: 0
   heading-xl:
-    fontFamily: PlayStation SST
+    fontFamily: Roboto, Arial, sans-serif
     fontSize: 28px
     fontWeight: 300
     lineHeight: 1.25
     letterSpacing: 0.1px
   heading-lg:
-    fontFamily: PlayStation SST
+    fontFamily: Roboto, Arial, sans-serif
     fontSize: 22px
     fontWeight: 300
     lineHeight: 1.25
     letterSpacing: 0.1px
   heading-md:
-    fontFamily: PlayStation SST
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 18px
     fontWeight: 600
     lineHeight: 1
     letterSpacing: 0
   body-md:
-    fontFamily: PlayStation SST
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 18px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0.1px
   body-strong:
-    fontFamily: PlayStation SST
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 18px
     fontWeight: 500
     lineHeight: 1.25
     letterSpacing: 0.4px
   body-sm:
-    fontFamily: PlayStation SST
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0
   caption-md:
-    fontFamily: PlayStation SST
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0
   caption-sm:
-    fontFamily: PlayStation SST
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 12px
     fontWeight: 500
     lineHeight: 1.5
     letterSpacing: 0
   link-md:
-    fontFamily: PlayStation SST
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 18px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0
   button-lg:
-    fontFamily: PlayStation SST
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 18px
     fontWeight: 700
     lineHeight: 1.25
     letterSpacing: 0.45px
   button-md:
-    fontFamily: PlayStation SST
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 700
     lineHeight: 1.25
@@ -177,6 +179,7 @@ components:
     rounded: "{rounded.full}"
     padding: 12px 28px
     height: 48px
+    border: "1px solid {colors.mute-light}"
   button-secondary-dark:
     backgroundColor: "transparent"
     textColor: "{colors.on-dark}"
@@ -184,6 +187,7 @@ components:
     rounded: "{rounded.full}"
     padding: 12px 28px
     height: 48px
+    border: "1px solid {colors.on-dark-mute}"
   button-disabled:
     backgroundColor: "{colors.surface-soft}"
     textColor: "{colors.ash-light}"
@@ -195,33 +199,39 @@ components:
     rounded: "{rounded.sm}"
     padding: 12px 16px
     height: 48px
+    border: "1px solid {colors.mute-light}"
   text-input-focused:
     backgroundColor: "{colors.canvas-light}"
     textColor: "{colors.ink}"
     rounded: "{rounded.sm}"
+    border: "2px solid {colors.primary}"
   filter-pill:
     backgroundColor: "{colors.surface-filter}"
     textColor: "{colors.ink}"
     typography: "{typography.button-md}"
     rounded: "{rounded.full}"
     padding: 8px 16px
+    border: "1px solid {colors.mute-light}"
   filter-pill-active:
     backgroundColor: "{colors.canvas-light}"
     textColor: "{colors.ink}"
     typography: "{typography.button-md}"
     rounded: "{rounded.full}"
+    border: "2px solid {colors.primary-active}"
   product-card:
     backgroundColor: "{colors.surface-card}"
     textColor: "{colors.ink}"
     typography: "{typography.body-md}"
     rounded: "{rounded.md}"
     padding: 24px
+    border: "1px solid {colors.card-border-light}"
   product-card-dark:
     backgroundColor: "{colors.surface-dark-card}"
     textColor: "{colors.on-dark}"
     typography: "{typography.body-md}"
     rounded: "{rounded.md}"
     padding: 24px
+    border: "1px solid {colors.card-border-dark}"
   game-tile:
     backgroundColor: "{colors.surface-dark-elevated}"
     textColor: "{colors.on-dark}"
@@ -234,6 +244,7 @@ components:
     typography: "{typography.body-md}"
     rounded: "{rounded.md}"
     padding: 32px
+    border: "1px solid {colors.card-border-light}"
   hero-band-blue:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.on-primary}"
@@ -258,13 +269,16 @@ components:
     typography: "{typography.heading-xl}"
     rounded: "{rounded.md}"
     padding: 48px 32px
+    accentGradient: "linear-gradient(90deg, {colors.ps-plus-gold-start}, {colors.ps-plus-gold-mid}, {colors.ps-plus-gold-end})"
+    accentPlacement: top
   carousel-paddle:
-    backgroundColor: "rgba(255,255,255,0.16)"
+    backgroundColor: "{colors.surface-dark-elevated}"
     textColor: "{colors.on-dark}"
     rounded: "{rounded.full}"
     size: 48px
+    border: "1px solid {colors.on-dark-mute}"
   pagination-dot:
-    backgroundColor: "{colors.ash-dark}"
+    backgroundColor: "{colors.mute-light}"
     rounded: "{rounded.full}"
     size: 8px
   pagination-dot-active:
@@ -302,6 +316,7 @@ components:
     rounded: "{rounded.full}"
     padding: 12px 24px
     height: 56px
+    border: "1px solid {colors.mute-light}"
   support-row:
     backgroundColor: "{colors.canvas-light}"
     textColor: "{colors.ink}"
@@ -311,33 +326,38 @@ components:
   link-inline:
     textColor: "{colors.link-light}"
     typography: "{typography.link-md}"
+    textDecoration: underline
+  link-inline-on-dark:
+    textColor: "{colors.link-dark}"
+    typography: "{typography.link-md}"
+    textDecoration: underline
 ---
 
 ## Overview
 
-PlayStation's marketing system reads like a console launch trailer scrolling past the viewer in chapters. Each section is a full-bleed band — pure black `{colors.canvas-dark}`, true white `{colors.canvas-light}`, or PlayStation Blue `{colors.primary}` — and each chapter owns one editorial moment: hero console photography, a games-coming-soon strip, the PlayStation Plus tier banner, the "30 Years of PlayStation" anniversary band, the news strip from the PlayStation Blog. There is no decorative chrome between chapters; the section background change IS the divider. Sections stack at `{spacing.section}` (96px) rhythm with the next band's color taking over the page edge-to-edge.
+The design reference alternates full-bleed bands of `{colors.canvas-dark}`, `{colors.canvas-light}`, and `{colors.primary}`. A section can carry console imagery, a game rail, a PlayStation Plus tier banner, or news. The background change separates chapters, with `{spacing.section}` (96px) as the documented spacing token. Recheck current campaigns and assets before using historical examples.
 
-The system has two distinct surface modes that alternate down the page: a **dark canvas mode** for editorial product moments (hero, "ON PLAYSTATION" band, marathon game pages) and a **light canvas mode** for utility surfaces (PS5 games listing, support pages, news index). Both modes use the same chrome vocabulary — fully-rounded `{rounded.full}` pill buttons, 8px-radius `{rounded.md}` cards, the proprietary PlayStation SST face — only the surface and on-surface colors change. The third surface mode is the **PlayStation Blue band** (`{colors.primary}` — `#0070d1`) reserved for the highest-priority moments: the Marathon launch CTA strip, the footer, and any "Action Required" banner.
+Dark and light modes share `{rounded.full}` buttons and `{rounded.md}` cards. The YAML uses Roboto and Inter as distribution fonts while retaining the source-reference type weights. `{colors.primary}` (`#0070d1`) is the third surface mode for high-priority bands such as a CTA strip or footer.
 
-The typography is the system's most distinctive choice. PlayStation SST renders display headlines at **weight 300** (light) — unusual for a gaming brand that could easily reach for bold geometric display faces. The light weight gives the chrome an airy, almost editorial quality that lets the imagery speak; copy is information rather than decoration. Heading sizes drop in tight increments (54 → 44 → 35 → 28 → 22 → 18) and body settles at 18px with 1.5 line-height for comfortable long-form reading on support and games pages.
+The display hierarchy keeps **weight 300** through 54, 44, 35, 28, and 22px roles; Roboto supplies that weight by default. Body copy uses Inter at 18px and 1.5 line height. Check wrapping and readability with the chosen language and loaded fonts.
 
 **Key Characteristics:**
 - Three-canvas chapter system: `{colors.canvas-dark}` (black), `{colors.canvas-light}` (white), `{colors.primary}` (PlayStation Blue) alternating down the page
 - PlayStation Blue (`{colors.primary}` — `#0070d1`) is the universal primary CTA — fully-rounded pill at `{rounded.full}` (9999px)
 - Commerce orange (`{colors.commerce}` — `#d53b00`) is the secondary CTA reserved for "Buy now" / "Pre-order" / store actions
-- PlayStation SST display tier renders at **weight 300** with -0.1px to +0.4px tracking — the brand's signature airy editorial voice
+- Roboto distribution display tier renders at **weight 300** with the token tracking; PlayStation SST is the source-reference face
 - 8px-radius (`{rounded.md}`) for product cards and feature panels; 4px-radius (`{rounded.sm}`) for inputs; pills (`{rounded.full}`) for every CTA
-- Game tiles, console renders, and PS Plus tier illustrations occupy 60-90% of each section — imagery does the storytelling
+- Game tiles, console renders, and tier illustrations carry the main visual content when current assets and rights are available
 - Color-block page rhythm (one observed band sequence): dark hero → light console showcase → dark "Great PS4 & PS5 games" rail → light "Discover PlayStation Plus" tier band → light "30 years of PlayStation" callout → dark "ON PLAYSTATION" band → light news strip → blue footer
 
 ## Colors
 
-> **Source pages:** `/en-tr/` (home), `/en-tr/ps5/games/` (PS5 games listing), `/en-tr/games/marathon/` (single game page), `/tr-tr/support/account/` (support center). The chrome palette is identical across all four pages; the support page uses the light-canvas mode exclusively while marketing pages alternate.
+> **Source-reference paths:** `/en-tr/`, `/en-tr/ps5/games/`, `/en-tr/games/marathon/`, `/tr-tr/support/account/`. These are not a current live-page verification.
 
 ### Brand & Accent
-- **PlayStation Blue** (`{colors.primary}` — `#0070d1`): the brand's universal primary. Every primary CTA pill, the active filter chip, the footer surface, badge fills, and inline link color on dark surfaces.
+- **PlayStation Blue** (`{colors.primary}` — `#0070d1`): filled primary CTA, footer surface, and info badge. The active filter pill uses a white fill with `{colors.primary-active}` border; inline links on dark use `{colors.link-dark}`.
 - **PlayStation Blue Pressed** (`{colors.primary-pressed}` — `#0064b7`): pressed state for the primary pill — also doubles as the inline link color on light surfaces.
-- **PlayStation Blue Active** (`{colors.primary-active}` — `#004d8d`): deeply-pressed state for the primary button.
+- **PlayStation Blue Active** (`{colors.primary-active}` — `#004d8d`): darker blue used for the selected filter-pill border; the primary button's pressed state uses `{colors.primary-pressed}`.
 - **Commerce Orange** (`{colors.commerce}` — `#d53b00`): the secondary CTA reserved for store/buy/pre-order actions. The only warm color in the system.
 - **Commerce Orange Pressed** (`{colors.commerce-pressed}` — `#aa2f00`): pressed state for commerce buttons.
 - **Marathon Yellow** (`{colors.marathon-yellow}` — `#deff20`): a single high-saturation game-page accent extracted from Marathon's product palette — used only inside the dedicated `/marathon/` game page chrome and not part of the system's general accent vocabulary.
@@ -355,15 +375,16 @@ The typography is the system's most distinctive choice. PlayStation SST renders 
 
 ### Text
 - **Ink** (`{colors.ink}` — `#000000`): primary text on `{colors.canvas-light}`. Headlines, button text, support body.
-- **Ink Deep** (`{colors.ink-deep}` — `#121314`): warmer near-black for in-card titles on dark surfaces and deep-shadow gradients.
+- **Ink Deep** (`{colors.ink-deep}` — `#121314`): dark panel and gradient tone; use `{colors.on-dark}` for readable titles on dark cards.
 - **Ink Elevated** (`{colors.ink-elevated}` — `#181818`): the lightest of the dark-canvas inks, used for elevated card backgrounds.
 - **Body Light** (`{colors.body-light}` — `rgba(0,0,0,0.6)`): translucent body text on light canvas — the system's default paragraph color.
 - **Mute Light** (`{colors.mute-light}` — `#6b6b6b`): metadata text and footer link captions on light canvas.
-- **Ash Light** (`{colors.ash-light}` — `#cccccc`): disabled-state text and lowest-emphasis utility on light surfaces.
+- **Ash Light** (`{colors.ash-light}` — `#cccccc`): disabled-state text or decorative rule only; use `{colors.mute-light}` for essential utility text on white.
 - **On Dark** (`{colors.on-dark}` — `#ffffff`): primary text on `{colors.canvas-dark}` — headlines, button text on dark hero bands.
 - **Body Dark** (`{colors.body-dark}` — `rgba(255,255,255,0.7)`): translucent body text on dark canvas.
 - **On Dark Mute** (`{colors.on-dark-mute}` — `#cccccc`): secondary text and disabled state on dark surfaces.
 - **Mute Dark** (`{colors.mute-dark}` — `rgba(229,229,229,0.55)`): captions and metadata on dark canvas.
+- **Card Borders** (`{colors.card-border-light}`, `{colors.card-border-dark}`): visible boundaries for cards against their matching light or dark canvases.
 
 ### Semantic
 - **Warning** (`{colors.warning}` — `#c81b3a`): validation errors and destructive confirmation copy.
@@ -371,13 +392,14 @@ The typography is the system's most distinctive choice. PlayStation SST renders 
 - **Link Dark** (`{colors.link-dark}` — `#53b1ff`): inline body-prose anchor link on dark canvas — a brightened blue for dark-mode legibility.
 
 ### Brand Gradient
-- **PlayStation Plus Gold Gradient** — a horizontal three-stop gold gradient `{colors.ps-plus-gold-start}` (`#ffce21`) → `{colors.ps-plus-gold-mid}` (`#f5a623`) → `{colors.ps-plus-gold-end}` (`#ee8e00`) that anchors the PS Plus banner on the home page. The only gradient in the system; reserved exclusively for PS Plus chrome.
+- **PlayStation Plus Gold Gradient** — a horizontal three-stop gold gradient `{colors.ps-plus-gold-start}` (`#ffce21`) → `{colors.ps-plus-gold-mid}` (`#f5a623`) → `{colors.ps-plus-gold-end}` (`#ee8e00`) placed at the top of the PS Plus banner. Gold is reserved for this banner; the separate dark chapter gradient uses no gold.
 
 ## Typography
 
 ### Font Family
-- **PlayStation SST** is the proprietary brand sans-serif used across every text role on the site. It carries weights 300 (light), 400 (regular), 500 (medium), 600 (semibold), and 700 (bold), and falls back through `sst` → `Arial` → `Helvetica`. The brand's distinctive choice is using **weight 300 (light) for display headlines** — unusual for a gaming brand and the source of the system's editorial, airy character.
-- **SST** appears as a secondary cut for in-product surfaces, falling back to Helvetica → Arial.
+- **Roboto** is the distribution default for display and light headings at weight 300, with `Arial, sans-serif` fallback. [Google Fonts lists Roboto under OFL](https://github.com/google/fonts/blob/main/ofl/roboto/METADATA.pb).
+- **Inter** is the distribution default for body, labels, links, and buttons at their token weights, with `system-ui, sans-serif` fallback. [Google Fonts lists Inter under OFL](https://github.com/google/fonts/blob/main/ofl/inter/METADATA.pb).
+- **PlayStation SST / SST** are source-reference faces. Use them only when the font files and intended usage rights are available.
 
 ### Hierarchy
 
@@ -402,12 +424,7 @@ The typography is the system's most distinctive choice. PlayStation SST renders 
 The hierarchy works on a 1.25-line-height ladder almost exclusively — even body sits at 1.5 instead of the typical 1.6 — which keeps long-form support pages tight and console showcases efficient. The weight contrast between display (300) and button (700) is dramatic: a single 18px chrome line might host a heavyweight CTA next to a feather-light 22px headline, giving the system its editorial gaming-magazine feel.
 
 ### Note on Font Substitutes
-PlayStation SST is proprietary. The closest open-source substitutes:
-- **Roboto Light (300)** for the display tier — its slightly looser letter-spacing matches SST's display optical fit.
-- **Inter** at weights 400/500/600 for body and chrome — the closest geometric sans match for SST's body cut.
-- **Source Sans Pro Light (300)** as an alternative for the display tier when Roboto reads too utilitarian.
-
-When substituting, preserve the +0.1px to +0.45px tracking on display and button tiers — the spacing is part of what makes PlayStation SST feel premium at the light weight.
+The YAML already specifies Roboto and Inter. Keep each token's weight and letter-spacing, then check wrapping and line breaks in the rendered layout. No metric-equivalence to the source-reference face is assumed.
 
 ## Layout
 
@@ -432,7 +449,7 @@ Whitespace is structural and band-defined. The 96px `{spacing.section}` between 
 | Level | Treatment | Use |
 |---|---|---|
 | 0 — Flat | No border, no shadow | Default for hero bands, footer, full-bleed sections — the dominant treatment |
-| 1 — Hairline divider | 1px solid `{colors.hairline-light}` or `{colors.hairline-dark}` | Card borders, support row dividers, footer column rules |
+| 1 — Divider or card border | `{colors.hairline-light}` / `{colors.hairline-dark}` for decorative rules; `{colors.card-border-light}` / `{colors.card-border-dark}` for card boundaries | Support rows, footer rules, cards |
 | 2 — Soft active shadow | `0 4px 12px rgba(0,0,0,0.16)` | Active/pressed CTAs, lifted product card |
 | 3 — Section gradient | Soft top-to-bottom darkening from `{colors.surface-dark-elevated}` to `{colors.canvas-dark}` | "ON PLAYSTATION" band — only place a gradient appears on chrome |
 
@@ -483,11 +500,11 @@ The radius vocabulary works on a 4 / 8 / pill rhythm for chrome with structural 
 - Pressed state lives in `button-commerce-pressed` — background drops to `{colors.commerce-pressed}`.
 
 **`button-secondary-light`** — outline variant on light canvas
-- Background transparent, text `{colors.ink}`, 1px solid `{colors.ash-light}` border, type `{typography.button-lg}`, padding `12px 28px`, height ~48px, rounded `{rounded.full}`.
+- Background transparent, text `{colors.ink}`, 1px solid `{colors.mute-light}` border, type `{typography.button-lg}`, padding `12px 28px`, height 48px, rounded `{rounded.full}`.
 - Lower-emphasis CTA on white surfaces ("Learn more →", "Watch trailer").
 
 **`button-secondary-dark`** — outline variant on dark canvas
-- Background transparent, text `{colors.on-dark}`, 1px solid `{colors.hairline-dark}`, type `{typography.button-lg}`, padding `12px 28px`, height ~48px, rounded `{rounded.full}`.
+- Background transparent, text `{colors.on-dark}`, 1px solid `{colors.on-dark-mute}` border, type `{typography.button-lg}`, padding `12px 28px`, height 48px, rounded `{rounded.full}`.
 - Same role as the light variant but inverted for use on `{colors.canvas-dark}` hero bands.
 
 **`button-disabled`**
@@ -496,37 +513,37 @@ The radius vocabulary works on a 4 / 8 / pill rhythm for chrome with structural 
 ### Filter & Tab Chips
 
 **`filter-pill`** + **`filter-pill-active`**
-- Default: background `{colors.surface-filter}` (translucent), text `{colors.ink}`, type `{typography.button-md}`, padding `8px 16px`, rounded `{rounded.full}`.
-- Active: background flips to `{colors.canvas-light}` (opaque white) — the chip "lifts" from the translucent default.
+- Default: background `{colors.surface-filter}` (translucent), text `{colors.ink}`, 1px `{colors.mute-light}` border, type `{typography.button-md}`, padding `8px 16px`, rounded `{rounded.full}`.
+- Active: background flips to `{colors.canvas-light}` with a 2px `{colors.primary-active}` border. Check the selected state in the rendered filter strip.
 - Used in the PS5 games filter strip ("All", "Coming Soon", "PlayStation VR2", "Recently Released").
 
 ### Inputs & Forms
 
 **`text-input`** + **`text-input-focused`**
-- Default: background `{colors.canvas-light}`, text `{colors.ink}`, 1px solid `{colors.ash-light}`, type `{typography.body-md}`, padding `12px 16px`, height ~48px, rounded `{rounded.sm}` (4px).
-- Focused: 2px solid `{colors.primary}` border, no halo (relies on the border weight increase as the focus signal).
+- Default: background `{colors.canvas-light}`, text `{colors.ink}`, 1px solid `{colors.mute-light}`, type `{typography.body-md}`, padding `12px 16px`, height 48px, rounded `{rounded.sm}` (4px).
+- Focused: 2px solid `{colors.primary}` border. Verify its visibility beside adjacent controls in the rendered form.
 
 **`support-search-bar`** — the support-page signature search field
-- Background `{colors.canvas-light}`, text `{colors.ink}`, type `{typography.body-md}`, padding `12px 24px`, height ~56px, rounded `{rounded.full}`.
+- Background `{colors.canvas-light}`, text `{colors.ink}`, 1px `{colors.mute-light}` border, type `{typography.body-md}`, padding `12px 24px`, height 56px, rounded `{rounded.full}`.
 - Sits at the top of the support page hero with a magnifier icon at the left edge and "Search the support center" placeholder.
 
 ### Cards & Containers
 
 **`product-card`** — light-canvas product/feature card
-- Container: background `{colors.surface-card}` (`#f5f7fa` cool-blue-tinted), 1px solid `{colors.hairline-light}` (rare; usually borderless), padding `{spacing.lg}` (24px), rounded `{rounded.md}` (8px).
+- Container: background `{colors.surface-card}` (`#f5f7fa`), 1px solid `{colors.card-border-light}`, padding `{spacing.lg}` (24px), rounded `{rounded.md}` (8px).
 - Used for the "PlayStation Store" sale callout, news cards, and PS Plus tier comparison cards on light canvas.
 
 **`product-card-dark`** — dark-canvas product card
-- Container: background `{colors.surface-dark-card}` (`#181818`), padding `{spacing.lg}`, rounded `{rounded.md}`.
+- Container: background `{colors.surface-dark-card}` (`#181818`), 1px solid `{colors.card-border-dark}`, padding `{spacing.lg}`, rounded `{rounded.md}`.
 - Used for game-detail cards and dark-canvas feature panels.
 
 **`game-tile`** — game/console thumbnail tile
 - Container: background `{colors.surface-dark-elevated}`, padding 0, rounded `{rounded.md}`.
-- Layout: 16:9 cover art at full bleed inside the radius, with title + platform tag overlaid at the bottom-left in `{typography.body-sm}`.
+- Layout: 16:9 cover art at full bleed inside the radius, with title + platform tag overlaid at the bottom-left in `{typography.body-sm}`. Check text contrast against every final crop and add an opaque backing if needed.
 - Used in the "Great PS4 & PS5 games" rail and the PS5 games listing grid.
 
 **`feature-card`** — light-canvas marketing card
-- Container: background `{colors.canvas-light}`, padding `{spacing.xl}` (32px), rounded `{rounded.md}`.
+- Container: background `{colors.canvas-light}`, 1px solid `{colors.card-border-light}`, padding `{spacing.xl}` (32px), rounded `{rounded.md}`.
 - Used for the "PlayStation Store" hero card and similar feature panels with a small product icon, title, body, and CTA.
 
 **`hero-band-blue`** — the PlayStation Blue full-bleed band
@@ -542,31 +559,31 @@ The radius vocabulary works on a 4 / 8 / pill rhythm for chrome with structural 
 - The console showcase band ("Discover all PS5 consoles and accessories") and the support page top.
 
 **`ps-plus-banner`** — PlayStation Plus tier callout
-- Background `{colors.surface-dark-elevated}` with the `{colors.ps-plus-gold-start}` → `{colors.ps-plus-gold-end}` gold gradient as a horizontal accent bar across the top, text `{colors.on-dark}` in `{typography.heading-xl}`, padding `48px 32px`, rounded `{rounded.md}`.
+- Background `{colors.surface-dark-elevated}` with the YAML's three-stop gold accent gradient across the top, text `{colors.on-dark}` in `{typography.heading-xl}`, padding `48px 32px`, rounded `{rounded.md}`. Use it only with current PlayStation Plus art and rights.
 - The "Discover PlayStation Plus" full-width banner on the home page.
 
 **`carousel-paddle`** — circular carousel control
-- Background `rgba(255,255,255,0.16)`, icon `{colors.on-dark}`, rounded `{rounded.full}`, size 48px.
+- Background `{colors.surface-dark-elevated}`, icon `{colors.on-dark}`, 1px `{colors.on-dark-mute}` border, rounded `{rounded.full}`, size 48px. Check its visibility against each game image.
 - Anchored to the left/right edge of the game tile carousel.
 
 **`pagination-dot`** + **`pagination-dot-active`**
-- 8px circle at `{rounded.full}`. Default fill `{colors.ash-dark}`; active fill `{colors.on-dark}`.
+- 8px circle at `{rounded.full}`. Default fill `{colors.mute-light}` on dark; active fill `{colors.on-dark}`. Verify the state contrast in the rendered carousel.
 - Carousel position indicator below the game tile rail.
 
 ### Inline
 
 **`badge-info`** — small info tag
 - Background `{colors.primary}`, text `{colors.on-primary}` in `{typography.caption-sm}`, padding `4px 10px`, rounded `{rounded.full}`.
-- "New", "Pre-order", "Coming Soon" labels overlaid on game tiles.
+- "New", "Pre-order", and "Coming Soon" labels may overlay game tiles when current product data supports each status; check the full badge boundary against every image crop.
 
 **`link-inline`** — body-prose anchor link
-- `{colors.link-light}` text on light canvas / `{colors.link-dark}` on dark canvas, no underline by default. Inline body links inside support article paragraphs.
+- `{components.link-inline}` uses underlined `{colors.link-light}` text on light canvas; `{components.link-inline-on-dark}` uses underlined `{colors.link-dark}` on dark canvas.
 
 ### Navigation
 
 **`primary-nav`**
 - Background `{colors.canvas-dark}`, text `{colors.on-dark}`, height ~48px, type `{typography.body-strong}`, rounded `{rounded.none}`.
-- Layout (desktop): PlayStation P-logo at far-left, centered nav row ("Games · PS5 · PS4 · PS VR2 · Subscriptions · Hardware · Mobile · News · Shop · Support"), right cluster (search-glyph + locale + cart icon + user-avatar circle).
+- Layout reference (desktop): logo at left, centered nav, utility controls at right. Verify current labels, available features, and logo rights before publication.
 
 **`sub-nav`** — secondary nav strip
 - Background `{colors.canvas-dark}`, text `{colors.on-dark}` in `{typography.caption-md}`, height ~40px, rounded `{rounded.none}`.
@@ -579,7 +596,7 @@ The radius vocabulary works on a 4 / 8 / pill rhythm for chrome with structural 
 
 **`footer-section`**
 - Background `{colors.primary}` (PlayStation Blue), text `{colors.on-primary}` in `{typography.caption-md}`, padding `{spacing.xxl}` (48px) vertical.
-- Layout: large PlayStation wordmark at top-left, multi-column link grid (locale selector, store links, account, support, social), bottom row with terms / privacy fine-print in `{typography.caption-sm}`.
+- Layout reference: authorized wordmark at top-left, multi-column link grid, terms and privacy text at the bottom. Verify current labels and destinations before publication.
 - The footer's blue surface is the system's "we're done — return to the brand" anchor.
 
 ### Support-page-specific
@@ -593,17 +610,17 @@ The radius vocabulary works on a 4 / 8 / pill rhythm for chrome with structural 
 ### Do
 - Reserve `{colors.primary}` (PlayStation Blue) for primary CTAs and the footer surface only. The blue band is precious — at most one full-bleed blue band per page.
 - Reserve `{colors.commerce}` (orange) for store/buy/pre-order CTAs only. It is never used on marketing chrome or hero pills.
-- Use PlayStation SST at weight 300 for display headings (54 / 44 / 35 / 28 / 22). The light weight is the brand voice.
+- Use the distribution default Roboto at weight 300 for display headings (54 / 44 / 35 / 28 / 22); use PlayStation SST only with the necessary font rights.
 - Stack content sections at `{spacing.section}` (96px) rhythm with the next band's surface color taking over the page edge-to-edge — no decorative dividers between bands.
 - Use `{rounded.full}` (9999px) on every CTA pill and `{rounded.md}` (8px) on every product card. The two-radius vocabulary is the entire shape system aside from inputs.
-- Pair full-bleed game key art and console renders inside dark or light bands; let imagery occupy 60-90% of the band's vertical height.
-- Use `{component.ps-plus-banner}` with the gold gradient exclusively for the PlayStation Plus tier callout — never decorate other components with the gold.
+- Pair authorized game art and console renders with dark or light bands; check every image crop and any overlaid text for contrast.
+- Use `{components.ps-plus-banner}` with the gold gradient exclusively for the PlayStation Plus tier callout — never decorate other components with the gold.
 
 ### Don't
 - Don't introduce drop shadows on resting cards. The system is flat-on-canvas; cards lift only on press.
 - Don't replace `{colors.primary}` with another shade of blue. The brand blue is precise — `#0070d1` for default and `#0064b7` for pressed.
 - Don't use `{colors.commerce}` (orange) on marketing/hero CTAs. It's reserved exclusively for store actions.
-- Don't introduce a sans-serif body font, italic, or monospace style. PlayStation SST carries every text role.
+- Keep Inter as the distribution body font. Use a source-reference PlayStation SST face only with the necessary rights and recheck line breaks.
 - Don't soften pill geometry. CTAs are always `{rounded.full}` — no medium-radius buttons.
 - Don't use the gold PS Plus gradient on anything that isn't the PS Plus banner. It is a tier-specific brand asset.
 - Don't put a gradient on chrome. The only allowed gradient is the gold PS Plus accent and the soft top-to-bottom darkening of the "ON PLAYSTATION" band.
@@ -623,7 +640,7 @@ The radius vocabulary works on a 4 / 8 / pill rhythm for chrome with structural 
 | mobile-narrow | 320px | Section padding tightens to 32px; hero further scales to ~28px |
 
 ### Touch Targets
-All interactive elements meet WCAG AAA (≥ 44×44px). `{component.button-primary}` and `{component.button-commerce}` sit at 48px height with 28px horizontal padding (effective ~48×100px tappable). `{component.text-input}` sits at 48px. `{component.support-search-bar}` sits at 56px. `{component.filter-pill}` is ~36–40px height with 16px padding extending to 44px tappable via inline padding. `{component.carousel-paddle}` is exactly 48×48 circular.
+The primary and commerce buttons specify 48px height, text input 48px, support search bar 56px, and carousel paddle 48px diameter. Filter pills have padding without an explicit minimum height. Measure rendered hit areas, including any additional padding, before claiming target-size conformance.
 
 ### Collapsing Strategy
 - **Primary nav:** desktop horizontal cluster → tablet hamburger drawer at 768px. The right-cluster icons (search, cart, account) stay visible at every breakpoint.
@@ -644,7 +661,7 @@ All interactive elements meet WCAG AAA (≥ 44×44px). `{component.button-primar
 ## Iteration Guide
 
 1. Focus on ONE component at a time. Pull its YAML entry and verify every property resolves.
-2. Reference component names and tokens directly (`{colors.primary}`, `{component.button-primary-pressed}`, `{rounded.full}`) — do not paraphrase.
+2. Reference component names and tokens directly (`{colors.primary}`, `{components.button-primary-pressed}`, `{rounded.full}`) — do not paraphrase.
 3. Run `npx --yes -p "@google/design.md@0.4.0" designmd lint DESIGN.md` after edits — `broken-ref`, `contrast-ratio`, and `orphaned-tokens` warnings flag issues automatically.
 4. Add new variants as separate component entries (`-pressed`, `-disabled`) — do not bury them inside prose.
 5. Default body to `{typography.body-md}` (18px / 400 / 1.5); reach for `{typography.display-xl}` strictly for the page-top hero headline; use `{typography.body-strong}` for primary nav links.
@@ -659,3 +676,4 @@ All interactive elements meet WCAG AAA (≥ 44×44px). `{component.button-primar
 - **PlayStation Store** in-store browsing surfaces (PDP / cart / checkout) are not in the captured set — those use a more dense data-table layout that this document does not describe.
 - **Game-page-specific theming** — the `/marathon/` page uses `{colors.marathon-yellow}` as a chapter accent. Other game pages may pull in their own per-title brand colors that vary outside the documented system.
 - **Form validation states** (success / error inline messages) not present in the captured surfaces beyond the `{colors.warning}` color token.
+- **Current pages and asset rights not checked** — validate campaign dates, game art, console imagery, wordmarks, product availability, prices, and destinations before publication.
