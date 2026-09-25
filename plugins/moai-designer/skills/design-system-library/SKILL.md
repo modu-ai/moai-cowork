@@ -11,14 +11,14 @@ description: |
   - "Notion / Linear / Stripe 스타일로 리포트"
   - "어두운 테마 / 따뜻한 화이트 테마로"
   - "Claude Design에 올릴 디자인 시스템 자료 정리"
-version: "1.1.8"
+version: "1.1.9"
 ---
 
-# design-system-library — 75개 브랜드 디자인 시스템 SSOT
+# design-system-library — 브랜드 디자인 시스템 SSOT
 
 ## 목적과 범위
 
-글로벌 브랜드 75종(56개 풍부 분석 + 19개 경량 토큰)의 디자인 시스템(token 기반 분석 결과)을 단일 진실 원천(single source of truth)으로 보관하고, HTML 산출물에 적용 가능한 형태로 제공합니다.
+글로벌 브랜드의 디자인 시스템(token 기반 분석 결과)을 단일 진실 원천(single source of truth)으로 보관하고, HTML 산출물에 적용 가능한 형태로 제공합니다.
 
 **두 가지 소비 경로**:
 1. **doc-html-report / HTML 문서 렌더** — 별도 `moai-officer`가 설치되고 해당 스킬을 사용할 수 있을 때 `design_system` 파라미터로 시스템 선택 → 토큰을 산출물 형식에 맞는 CSS와 HTML로 렌더
@@ -55,7 +55,7 @@ version: "1.1.8"
 
 ---
 
-## 전체 75개 카탈로그
+## 전체 카탈로그
 
 [`systems/registry.md`](systems/registry.md) 참조 — 분류(light/warm/dark) · 캔버스 · primary 색 · 폰트 · 무드 메타 포함.
 
@@ -134,7 +134,7 @@ version: "1.1.8"
 ## 워크플로우
 
 1. **시스템 선택** — 사용자 명시 또는 산출물 성격 기반 자동 추천(위 휴리스틱)
-2. **토큰 로드** — `systems/<name>.md`의 YAML frontmatter(colors/typography/rounded/spacing/components) 파싱
+2. **토큰 로드** — `systems/<name>.md`의 YAML frontmatter에서 실제로 있는 토큰을 읽는다. 일부 시스템에는 `typography`·`rounded`·`spacing`·`components`가 없으므로 본문 분석에서 필요한 값을 확인한다. 본문에도 없는 값은 임의로 채우거나 원본 토큰이라고 표시하지 않는다.
 3. **토큰 매핑** — `mapping/tailwind.md` 규칙을 참고하고, CTA·배지의 배경과 글자색 대비를 실제 계산
 4. **shadcn vanilla 매핑** — 산출물 구조 카드/버튼/테이블을 `components/` 참조 마크업으로 치환
 5. **단일 파일 렌더** — 대상 환경에 필요한 CSS와 마크업을 포함해 출력하고 브라우저에서 확인. Play CDN은 개발 미리보기일 때만 사용
@@ -180,7 +180,7 @@ Claude Design에 올릴 디자인 시스템 자료를 Linear 스타일 기반으
 
 ## 참고 문서
 
-- [`systems/registry.md`](systems/registry.md) — 75개 전체 카탈로그 인덱스
+- [`systems/registry.md`](systems/registry.md) — 전체 카탈로그 인덱스
 - [`systems/anthropic-claude.md`](systems/anthropic-claude.md) · [`systems/clickhouse.md`](systems/clickhouse.md) · [`systems/clay.md`](systems/clay.md) — 기본 3테마 상세 토큰 (claude.md는 `CLAUDE.md` 자동 로드 회피를 위해 `anthropic-claude.md`로 명명)
 - [`systems/keynote-editorial-dark.md`](systems/keynote-editorial-dark.md) — 프리미엄 에디토리얼 키노트 레시피(다크, no_box·거대숫자 3단·4모서리·단일 accent). 일반 다크 팔레트가 아닌 슬라이드 구성 계약
 - [`references/korean-design-systems.md`](references/korean-design-systems.md) — 한국 기업 공개 디자인시스템 + 무료 한글 폰트 서베이 (당근 SEED·채널톡 Bezier·KRDS·Pretendard + 토스/브랜드 라이선스 함정 경고)
