@@ -1,15 +1,15 @@
 ---
 version: alpha
 name: Intercom-design-analysis
-description: "An editorial customer-service marketing canvas built around a soft cream-white ground, charcoal type set in Saans (Intercom's proprietary geometric sans), and a single confident Fin Orange (#ff5600) reserved for the Fin AI brand. Cards live as floating white tiles with thin hairline borders and minimal radii (8–16px). Display headlines run Saans at weight 500 with measured negative tracking. The system reads as a careful, product-led publication: product screenshots dominate, ornament is rare, and the only place chromatic energy enters is the Fin Orange CTA."
+description: "An editorial customer-service marketing canvas built around a soft cream-white ground, charcoal type inspired by the reference's licensed Saans and set in Inter by default, and a single confident Fin Orange (#ff5600) reserved for the Fin AI brand. Cards live as floating white tiles with thin hairline borders and modest radii (8–16px). Display headlines default to Inter at weight 500 with measured negative tracking. Product screenshots dominate and ornament is rare."
 
 colors:
   primary: "#111111"
   on-primary: "#ffffff"
   ink: "#111111"
   ink-muted: "#626260"
-  ink-subtle: "#7b7b78"
-  ink-tertiary: "#9c9fa5"
+  ink-subtle: "#656565"
+  ink-tertiary: "#6c6d6e"
   canvas: "#f5f1ec"
   surface-1: "#ffffff"
   surface-2: "#ebe7e1"
@@ -32,79 +32,79 @@ colors:
 
 typography:
   display-xl:
-    fontFamily: Saans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 72px
     fontWeight: 500
     lineHeight: 1.05
     letterSpacing: -2.0px
   display-lg:
-    fontFamily: Saans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 56px
     fontWeight: 500
     lineHeight: 1.10
     letterSpacing: -1.4px
   display-md:
-    fontFamily: Saans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 40px
     fontWeight: 500
     lineHeight: 1.15
     letterSpacing: -0.8px
   headline:
-    fontFamily: Saans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 28px
     fontWeight: 500
     lineHeight: 1.20
     letterSpacing: -0.5px
   card-title:
-    fontFamily: Saans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 22px
     fontWeight: 500
     lineHeight: 1.25
     letterSpacing: -0.3px
   subhead:
-    fontFamily: Saans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 20px
     fontWeight: 400
     lineHeight: 1.40
     letterSpacing: -0.2px
   body-lg:
-    fontFamily: Saans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 18px
     fontWeight: 400
     lineHeight: 1.50
     letterSpacing: -0.1px
   body:
-    fontFamily: Saans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.50
     letterSpacing: 0
   body-sm:
-    fontFamily: Saans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 400
     lineHeight: 1.50
     letterSpacing: 0
   caption:
-    fontFamily: Saans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 12px
     fontWeight: 400
     lineHeight: 1.40
     letterSpacing: 0
   button:
-    fontFamily: Saans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 15px
     fontWeight: 500
     lineHeight: 1.20
     letterSpacing: 0
   eyebrow:
-    fontFamily: Saans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 500
     lineHeight: 1.30
     letterSpacing: 0
   mono:
-    fontFamily: SaansMono
+    fontFamily: JetBrains Mono, ui-monospace, monospace
     fontSize: 13px
     fontWeight: 400
     lineHeight: 1.50
@@ -156,7 +156,7 @@ components:
     padding: 10px 18px
   button-fin:
     backgroundColor: "{colors.fin-orange}"
-    textColor: "{colors.on-primary}"
+    textColor: "{colors.ink}"
     typography: "{typography.button}"
     rounded: "{rounded.md}"
     padding: 10px 18px
@@ -205,6 +205,8 @@ components:
   text-input-focused:
     backgroundColor: "{colors.surface-1}"
     textColor: "{colors.ink}"
+    outlineColor: "{colors.ink}"
+    outlineWidth: 2px
     typography: "{typography.body}"
     rounded: "{rounded.md}"
     padding: 10px 14px
@@ -217,6 +219,8 @@ components:
   pricing-tab-selected:
     backgroundColor: "{colors.surface-1}"
     textColor: "{colors.ink}"
+    borderColor: "{colors.ink}"
+    borderWidth: 2px
     typography: "{typography.button}"
     rounded: "{rounded.pill}"
     padding: 8px 16px
@@ -256,7 +260,7 @@ components:
 
 Intercom's marketing canvas is a soft cream-white ground (`{colors.canvas}` ≈ #f5f1ec) — not pure white. The warmth is the brand's signal: this is editorial, calm, and product-focused, not bright SaaS. On top of the cream canvas sit white floating cards (`{colors.surface-1}`), thin hairline dividers (`{colors.hairline}`), and charcoal type (`{colors.ink}` #111111).
 
-Display type is **Saans** — Intercom's proprietary geometric sans — set at weight 500 with measured negative letter-spacing (-2.0px on 72px display). Body type is the same family at weight 400. The single proprietary mono is **SaansMono**, used sparingly for code snippets and product UI screenshots embedded in the marketing surface.
+The reference display uses **Saans**, a licensed Displaay typeface. The default tokens use **Inter** at weight 500 with measured negative letter-spacing (-2.0px on 72px display). Body type is the same family at weight 400. The reference mono is **Saans Mono**; the default is **JetBrains Mono**, used sparingly for code snippets and product UI screenshots embedded in the marketing surface.
 
 The single chromatic accent is **Fin Orange** (`{colors.fin-orange}` #ff5600) — Intercom's AI-product brand color. It surfaces on the Fin product CTA, the Fin badge in pricing, and a few inline emphasis moments. It is NOT a system primary; the system primary is charcoal `{colors.ink}`. Intercom also maintains a small **report palette** (`{colors.report-blue}`, `{colors.report-green}`, `{colors.report-pink}`, `{colors.report-lime}`) used inside in-product analytics surfaces shown in mockups.
 
@@ -265,7 +269,7 @@ The page rhythm is heavy on **product mockups**: every section's payload is a hi
 **Key Characteristics:**
 - **Cream canvas** (`{colors.canvas}` #f5f1ec) is the brand's defining surface — neither white nor gray, deliberately warm.
 - Product-screenshot-led page rhythm: every section centers a product mockup card, marketing chrome stays minimal.
-- **Saans** proprietary sans-serif carries the entire hierarchy; SaansMono for code-only contexts.
+- Inter is the reusable default sans; the reference uses licensed Saans. JetBrains Mono is the default for code-only contexts.
 - **Charcoal** `{colors.ink}` (#111111) is the system primary — buttons, headlines, body type all sit on charcoal.
 - **Fin Orange** (`{colors.fin-orange}` #ff5600) is the AI product color — used on the Fin CTA and Fin badge, never decoratively.
 - Display tracking pulls aggressively negative (-2.0px on 72px); body stays at 0.
@@ -294,8 +298,8 @@ The page rhythm is heavy on **product mockups**: every section's payload is a hi
 ### Text
 - **Ink** ({colors.ink}): All headlines, body type, button labels — charcoal #111111.
 - **Ink Muted** ({colors.ink-muted}): Secondary type at #626260 — meta info, deselected pricing tabs.
-- **Ink Subtle** ({colors.ink-subtle}): Tertiary type at #7b7b78 — footer columns, helper text.
-- **Ink Tertiary** ({colors.ink-tertiary}): Quaternary type at #9c9fa5 — disabled, footnotes.
+- **Ink Subtle** ({colors.ink-subtle}): Tertiary type at #656565 — footer columns and helper text on cream or white.
+- **Ink Tertiary** ({colors.ink-tertiary}): Quaternary type at #6c6d6e — footnotes on cream or white. Disabled controls may use a separate treatment when applicable.
 - **Inverse Ink** ({colors.inverse-ink}): White on black — quote-strip type.
 - **Inverse Ink Muted** ({colors.inverse-ink-muted}): Light gray on black — quote-strip meta.
 
@@ -313,8 +317,8 @@ The report palette appears INSIDE product UI mockups — these are Intercom's in
 
 ### Font Family
 
-- **Saans** — Intercom's proprietary geometric sans, fallback `Saans Fallback, ui-sans-serif, system-ui`. Carries display, body, eyebrow, and button.
-- **SaansMono** — Proprietary mono, fallback `SaansMono Fallback, ui-monospace`. Used inside code snippets shown in product mockups.
+- **Sans default** — `Inter, system-ui, sans-serif` across display, body, eyebrow, and button. The reference uses Saans from Displaay; deploy it only with the required license.
+- **Mono default** — `JetBrains Mono, ui-monospace, monospace` for code snippets shown in product mockups. The reference uses Saans Mono, subject to its license.
 
 The same family carries the entire hierarchy. Hierarchy is carried by size + weight + tracking, not by family change.
 
@@ -334,19 +338,19 @@ The same family carries the entire hierarchy. Hierarchy is carried by size + wei
 | `{typography.caption}` | 12px | 400 | 1.40 | 0 | Captions, meta |
 | `{typography.button}` | 15px | 500 | 1.20 | 0 | Pill / square button labels |
 | `{typography.eyebrow}` | 14px | 500 | 1.30 | 0 | Section eyebrow (sentence case) |
-| `{typography.mono}` | 13px | 400 | 1.50 | 0 | SaansMono for code in mockups |
+| `{typography.mono}` | 13px | 400 | 1.50 | 0 | JetBrains Mono for code in mockups |
 
 ### Principles
 
-- **Weight 500 carries display.** Saans at 500 reads as confident without bold.
+- **Weight 500 carries display.** Inter is the default; the reference uses Saans at this weight.
 - **Negative letter-spacing scales with size.** -2.0px at 72px (≈3% of size), down to 0 on body.
 - **Line-heights tighten on display, relax on body.** 1.05 at display-xl, 1.50 at body.
-- **No mono on chrome.** SaansMono lives in product UI; marketing chrome stays in Saans.
+- **No mono on chrome.** JetBrains Mono stays in product UI mockups; marketing chrome uses Inter by default.
 - **Eyebrow uses sentence case** at 14px / 500 weight — no all-caps tracking.
 
 ### Note on Font Substitutes
 
-If implementing without Saans, suitable substitutes include **Söhne** (paid), **Inter** (free, weight 500), or **Geist Sans** (free). Inter at weight 500 is the closest free substitute; SaansMono can be approximated with **JetBrains Mono** at weight 400.
+The default tokens already use openly available Inter and JetBrains Mono. [Displaay lists Saans as a licensed retail family](https://displaay.net/typeface/saans); its [license terms](https://displaay.net/help/licenses) distinguish desktop, web, and app use. Check the intended use before applying the reference faces, then inspect rendered line breaks and spacing.
 
 ## Layout
 
@@ -420,13 +424,13 @@ Intercom resists drop shadows. Depth is communicated by the white-on-cream surfa
 - Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.button}`, rounded `{rounded.md}`, padding 10px 18px.
 
 **`button-fin`** — Fin Orange CTA — reserved for Fin AI product CTAs.
-- Background `{colors.fin-orange}`, text `{colors.on-primary}`, type `{typography.button}`, rounded `{rounded.md}`, padding 10px 18px.
+- Background `{colors.fin-orange}`, text `{colors.ink}`, type `{typography.button}`, rounded `{rounded.md}`, padding 10px 18px.
 
 ### Pricing Tabs
 
 **`pricing-tab-default`** + **`pricing-tab-selected`** — Pill-toggle on `/pricing`.
 - Default: `{colors.canvas}` background, `{colors.ink-muted}` text, rounded `{rounded.pill}`.
-- Selected: `{colors.surface-1}` white background, `{colors.ink}` text — selected = lift onto white.
+- Selected: `{colors.surface-1}` white background, `{colors.ink}` text, and a 2px charcoal border to distinguish the tab from the cream track.
 
 ### Cards & Containers
 
@@ -445,7 +449,7 @@ Intercom resists drop shadows. Depth is communicated by the white-on-cream surfa
 **`testimonial-card`** — Customer quote with avatar + name + company.
 - Background `{colors.surface-1}`, text `{colors.ink}`, type `{typography.body-lg}`, rounded `{rounded.lg}`, padding 32px.
 
-**`startup-discount-card`** — The "Startups get 90% off" tinted card.
+**`startup-discount-card`** — Tinted startup offer card; confirm any current discount before publishing copy.
 - Background `{colors.surface-2}`, text `{colors.ink}`, type `{typography.body}`, rounded `{rounded.lg}`, padding 32px.
 
 **`customer-logo-tile`** — Small tile in the customer marquee.
@@ -458,6 +462,7 @@ Intercom resists drop shadows. Depth is communicated by the white-on-cream surfa
 
 **`text-input`** + **`text-input-focused`** — Form fields on contact and search overlays.
 - Background `{colors.surface-1}`, text `{colors.ink}`, type `{typography.body}`, rounded `{rounded.md}`, padding 10px 14px.
+- Focused state adds a 2px charcoal outline. Verify that it surrounds the rendered interactive field.
 
 ### FAQ
 
@@ -481,7 +486,7 @@ Intercom resists drop shadows. Depth is communicated by the white-on-cream surfa
 - Reserve `{colors.canvas}` cream as the system's anchor surface — never replace with pure white.
 - Lift cards from cream onto white (`{colors.surface-1}`) for hierarchy.
 - Use **`button-fin`** Fin Orange ONLY on Fin AI product CTAs and Fin badges.
-- Pair Saans display at weight 500 with body at 400.
+- Pair Inter display at weight 500 with body at 400 by default; use Saans only with rights for the intended output.
 - Use product UI screenshots as the protagonist of every section.
 - Use `{rounded.lg}` 12px for cards and `{rounded.xl}` 16px for product mockup tiles.
 - Apply negative tracking proportionally to display sizes.
@@ -511,9 +516,9 @@ Intercom resists drop shadows. Depth is communicated by the white-on-cream surfa
 
 ### Touch Targets
 
-- CTAs hold ≥40px tap height across viewports.
-- Pricing tab pills hold ≥40px tap height.
-- Form inputs hold ≥44px tap target on touch.
+- Measure rendered CTA clickable width, height, and spacing at each viewport; token padding alone does not establish a minimum target.
+- Measure pricing-tab targets after layout; the YAML does not define a 40px minimum.
+- Measure form input targets on touch viewports; the YAML does not define a 44px minimum.
 
 ### Collapsing Strategy
 
@@ -544,4 +549,4 @@ Intercom resists drop shadows. Depth is communicated by the white-on-cream surfa
 - Form-field error and validation styling is not visible on the inspected pages.
 - Dark mode is not documented because the marketing site does not ship a dark theme.
 - The helpdesk / inbox product surfaces show in-product UI states that aren't formal marketing chrome.
-- Saans and SaansMono are proprietary; an open-source substitute (Inter, Söhne, Geist) is acceptable.
+- Saans and Saans Mono require the applicable license. The defaults are Inter and JetBrains Mono; Söhne also requires a separate license.

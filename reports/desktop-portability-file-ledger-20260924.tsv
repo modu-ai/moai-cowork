@@ -278,8 +278,8 @@ plugins/moai-designer/skills/design-system-library/systems/figma.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/framer.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/hashicorp.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/hp.md		static_read
-plugins/moai-designer/skills/design-system-library/systems/ibm.md		mechanical_scan
-plugins/moai-designer/skills/design-system-library/systems/intercom.md		mechanical_scan
+plugins/moai-designer/skills/design-system-library/systems/ibm.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/intercom.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/keynote-editorial-dark.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/kraken.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/lamborghini.md		static_read
