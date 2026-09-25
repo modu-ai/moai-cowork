@@ -271,7 +271,7 @@ plugins/moai-designer/skills/design-system-library/systems/composio.md		static_r
 plugins/moai-designer/skills/design-system-library/systems/cursor.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/dell-1996.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/discord.md		static_read
-plugins/moai-designer/skills/design-system-library/systems/elevenlabs.md		mechanical_scan
+plugins/moai-designer/skills/design-system-library/systems/elevenlabs.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/expo.md		mechanical_scan
 plugins/moai-designer/skills/design-system-library/systems/ferrari.md		mechanical_scan
 plugins/moai-designer/skills/design-system-library/systems/figma.md		mechanical_scan
