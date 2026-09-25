@@ -267,7 +267,7 @@ plugins/moai-designer/skills/design-system-library/systems/clay.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/clickhouse.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/cohere.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/coinbase.md		static_read
-plugins/moai-designer/skills/design-system-library/systems/composio.md		mechanical_scan
+plugins/moai-designer/skills/design-system-library/systems/composio.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/cursor.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/dell-1996.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/discord.md		mechanical_scan
