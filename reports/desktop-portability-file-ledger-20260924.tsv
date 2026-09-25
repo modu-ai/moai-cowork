@@ -276,7 +276,7 @@ plugins/moai-designer/skills/design-system-library/systems/expo.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/ferrari.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/figma.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/framer.md		static_read
-plugins/moai-designer/skills/design-system-library/systems/hashicorp.md		mechanical_scan
+plugins/moai-designer/skills/design-system-library/systems/hashicorp.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/hp.md		static_read
 plugins/moai-designer/skills/design-system-library/systems/ibm.md		mechanical_scan
 plugins/moai-designer/skills/design-system-library/systems/intercom.md		mechanical_scan

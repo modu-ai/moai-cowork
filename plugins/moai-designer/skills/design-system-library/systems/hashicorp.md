@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: HashiCorp-design-analysis
-description: "An enterprise-infrastructure marketing canvas built around a near-black ground (#000000) and a system of per-product accent colors — Terraform purple, Vault yellow, Consul pink, Waypoint cyan, Vagrant blue — that act as identity tokens rather than decorative palette. Display type is hashicorpSans set in 600/700 with tight 1.17–1.21 line-heights; body type runs the same family at 500 weight with relaxed 1.50–1.71 line-heights. Cards live as charcoal surfaces with 1px translucent gray borders; product showcase cards lift into per-product chromatic gradients. The system reads as confident, technical, and intentionally multi-product — every section quietly signals which HashiCorp tool it represents."
+description: "An enterprise-infrastructure marketing canvas built around a black ground (#000000) and a system of per-product accent colors — Terraform purple, Vault yellow, Consul red, Waypoint cyan, Vagrant blue — that act as identity tokens rather than decoration. The reference uses hashicorpSans for display; this reusable profile defaults to Inter at 600/700 with tight 1.17–1.21 line-heights, while body type runs at 500 weight with relaxed 1.50–1.71 line-heights. Cards use charcoal surfaces with 1px translucent gray borders; product showcase cards use solid per-product colors."
 
 colors:
   primary: "#000000"
@@ -9,7 +9,7 @@ colors:
   accent-blue: "#2b89ff"
   ink: "#ffffff"
   ink-muted: "#b2b6bd"
-  ink-subtle: "#656a76"
+  ink-subtle: "#858a95"
   canvas: "#000000"
   surface-1: "#15181e"
   surface-2: "#1f232b"
@@ -19,7 +19,7 @@ colors:
   inverse-canvas: "#ffffff"
   inverse-ink: "#000000"
   product-terraform: "#7b42bc"
-  product-terraform-bright: "#911ced"
+  product-terraform-bright: "#a83fee"
   product-vault: "#ffcf25"
   product-consul: "#e62b1e"
   product-waypoint: "#14c6cb"
@@ -37,73 +37,73 @@ colors:
 
 typography:
   display-xl:
-    fontFamily: hashicorpSans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 80px
     fontWeight: 700
     lineHeight: 1.17
     letterSpacing: -2.5px
   display-lg:
-    fontFamily: hashicorpSans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 56px
     fontWeight: 700
     lineHeight: 1.18
     letterSpacing: -1.6px
   display-md:
-    fontFamily: hashicorpSans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 40px
     fontWeight: 600
     lineHeight: 1.19
     letterSpacing: -1.0px
   headline:
-    fontFamily: hashicorpSans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 28px
     fontWeight: 600
     lineHeight: 1.21
     letterSpacing: -0.6px
   card-title:
-    fontFamily: hashicorpSans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 22px
     fontWeight: 600
     lineHeight: 1.18
     letterSpacing: -0.4px
   subhead:
-    fontFamily: hashicorpSans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 20px
     fontWeight: 600
     lineHeight: 1.35
     letterSpacing: -0.2px
   body-lg:
-    fontFamily: hashicorpSans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 18px
     fontWeight: 500
     lineHeight: 1.69
     letterSpacing: 0
   body:
-    fontFamily: hashicorpSans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 16px
     fontWeight: 500
     lineHeight: 1.50
     letterSpacing: 0
   body-sm:
-    fontFamily: hashicorpSans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 500
     lineHeight: 1.71
     letterSpacing: 0
   caption:
-    fontFamily: hashicorpSans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 13px
     fontWeight: 500
     lineHeight: 1.38
     letterSpacing: 0.2px
   button:
-    fontFamily: hashicorpSans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 600
     lineHeight: 1.29
     letterSpacing: 0
   eyebrow:
-    fontFamily: hashicorpSans
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 12px
     fontWeight: 600
     lineHeight: 1.23
@@ -229,6 +229,8 @@ components:
   text-input-focused:
     backgroundColor: "{colors.surface-1}"
     textColor: "{colors.ink}"
+    borderColor: "{colors.accent-blue}"
+    borderWidth: 2px
     typography: "{typography.body}"
     rounded: "{rounded.md}"
     padding: 10px 14px
@@ -265,16 +267,16 @@ components:
 
 ## Overview
 
-HashiCorp's marketing canvas is a near-black ground that serves a multi-product portfolio without ever feeling generic. The dominant surface is `{colors.canvas}` (pure black) layered with `{colors.surface-1}` charcoal cards and 1px translucent gray hairlines. The chrome is monochrome — white pill-rounded buttons (`{components.button-primary}`), white type, gray secondary type — but the system is held together by a **palette of per-product accent colors** that signal which HashiCorp tool a given section belongs to: Terraform purple, Vault yellow, Consul red, Waypoint cyan, Vagrant blue, Nomad green, Boundary coral.
+HashiCorp's marketing canvas is a near-black ground that serves a multi-product portfolio without ever feeling generic. The dominant surface is `{colors.canvas}` (pure black) layered with `{colors.surface-1}` charcoal cards and 1px translucent gray hairlines. The chrome is monochrome — white rounded-rectangle buttons (`{components.button-primary}`), white type, gray secondary type — but the system is held together by a **palette of per-product accent colors** that signal which HashiCorp tool a given section belongs to: Terraform purple, Vault yellow, Consul red, Waypoint cyan, Vagrant blue, Nomad green, Boundary coral.
 
-Display type is **hashicorpSans** at weights 600/700 with tight line-heights (1.17–1.21); body type is the same family at 500 weight with deliberately relaxed line-heights (1.50–1.71) — the contrast feels editorial, not enterprise-templated. CTAs use small `{rounded.md}` 8px corners rather than pills, which keeps the system reading as developer-facing rather than consumer-y.
+The reference uses **hashicorpSans**; the default tokens use **Inter** at weights 600/700 with tight line-heights (1.17–1.21); body type is the same family at 500 weight with deliberately relaxed line-heights (1.50–1.71) — the contrast feels editorial, not enterprise-templated. CTAs use small `{rounded.md}` 8px corners rather than pills, which keeps the system reading as developer-facing rather than consumer-y.
 
 The signature device is the **product-card** family — each HashiCorp product gets its own colored card variant on the home and infrastructure pages, lifting Terraform into a violet ground, Vault into yellow, Waypoint into cyan. These aren't decorative gradients — they're identity surfaces. A reader scrolling the page can tell which product a section is about from the corner of their eye.
 
 **Key Characteristics:**
 - Black-canvas marketing system: `{colors.canvas}` is the surface for hero, body, pricing, comparison tables, and footer alike.
-- **Per-product color identity**: Terraform `{colors.product-terraform}`, Vault `{colors.product-vault}`, Waypoint `{colors.product-waypoint}`, Vagrant `{colors.product-vagrant}`, Consul `{colors.product-consul}`, Nomad `{colors.product-nomad}`, Boundary `{colors.product-boundary}` — each with its own button + card variant.
-- Display headlines run hashicorpSans 600/700 with line-height 1.17–1.21 (tight); body runs the same family at 500 with 1.50–1.71 (relaxed) — the proportional gap is the brand's voice.
+- **Per-product color identity**: Terraform `{colors.product-terraform}`, Vault `{colors.product-vault}`, Waypoint `{colors.product-waypoint}`, Vagrant `{colors.product-vagrant}`, Consul `{colors.product-consul}`, Nomad `{colors.product-nomad}`, Boundary `{colors.product-boundary}`. The YAML defines button and card variants for Terraform, Vault, and Waypoint; other variants are guidance only.
+- Display headlines run Inter 600/700 by default with line-height 1.17–1.21 (tight); body runs the same family at 500 with 1.50–1.71 (relaxed) — the proportional gap is the brand's voice.
 - CTA shape is `{rounded.md}` 8px — not a pill — keeping the system reading as developer-tool rather than consumer-app.
 - Charcoal surface lift (canvas → surface-1 → surface-2) instead of shadow-driven elevation.
 - 1px translucent gray hairlines (`rgba(178,182,189,0.1)`) define cards and dividers — the borders are felt more than seen.
@@ -302,13 +304,13 @@ The signature device is the **product-card** family — each HashiCorp product g
 ### Text
 - **Ink** ({colors.ink}): All headline and emphasized body type — pure white.
 - **Ink Muted** ({colors.ink-muted}): Secondary type at #b2b6bd — meta info, footer columns.
-- **Ink Subtle** ({colors.ink-subtle}): Tertiary type at #656a76 — form helper text, timestamps, footnotes.
+- **Ink Subtle** ({colors.ink-subtle}): Tertiary type at #858a95 — form helper text, timestamps, footnotes; calculated above 4.5:1 on `{colors.canvas}`, `{colors.surface-1}`, and `{colors.surface-2}`. Check other surfaces separately.
 
 ### Per-Product Identity (signature)
 HashiCorp's marketing isn't held together by a single accent color — it's held together by a system of product-specific accents, each used to mark which tool a section represents.
 
 - **Terraform Purple** ({colors.product-terraform}): Terraform sections, terraform CTAs, the violet 3D cube on the home hero.
-- **Terraform Bright** ({colors.product-terraform-bright}): Saturated highlight — link emphasis on Terraform pages.
+- **Terraform Bright** ({colors.product-terraform-bright}): Saturated highlight for link emphasis on black Terraform pages; the reusable token is lightened for regular-text contrast.
 - **Vault Yellow** ({colors.product-vault}): Vault sections and CTAs.
 - **Consul Red** ({colors.product-consul}): Consul sections.
 - **Waypoint Cyan** ({colors.product-waypoint}): Waypoint sections, deep variant `{colors.product-waypoint-deep}` for hover/active.
@@ -328,9 +330,9 @@ HashiCorp's marketing isn't held together by a single accent color — it's held
 
 ### Font Family
 
-- **hashicorpSans** — HashiCorp's proprietary marketing typeface. Geometric, clean, slightly humanist. Fallback stack `__hashicorpSans_Fallback_96f0ca` (system font), then `-apple-system, BlinkMacSystemFont, Segoe UI, helvetica, arial`.
+- **Sans default** — `Inter, system-ui, sans-serif` across all roles. The reference uses HashiCorp Sans, whose reuse rights are unverified here. Add it to deployed output only when the intended use is authorized; check rendered line breaks after substitution.
 
-The same family carries display, body, button, and caption — no separate display + body pairing. Hierarchy is carried by weight (500 body / 600 emphasis / 700 display) and by a deliberate line-height contrast (tight on display, relaxed on body).
+The default sans stack carries display, body, button, and caption — no separate display + body pairing. Hierarchy is carried by weight (500 body / 600 emphasis / 700 display) and by a deliberate line-height contrast (tight on display, relaxed on body).
 
 ### Hierarchy
 
@@ -346,7 +348,7 @@ The same family carries display, body, button, and caption — no separate displ
 | `{typography.body}` | 16px | 500 | 1.50 | 0 | Default body |
 | `{typography.body-sm}` | 14px | 500 | 1.71 | 0 | Card body, footer columns |
 | `{typography.caption}` | 13px | 500 | 1.38 | 0.2px | Meta, comparison cell labels |
-| `{typography.button}` | 14px | 600 | 1.29 | 0 | Pill / square CTA buttons |
+| `{typography.button}` | 14px | 600 | 1.29 | 0 | Rounded-rectangle CTA buttons |
 | `{typography.eyebrow}` | 12px | 600 | 1.23 | 0.6px | Uppercase section eyebrows |
 
 ### Principles
@@ -358,7 +360,7 @@ The same family carries display, body, button, and caption — no separate displ
 
 ### Note on Font Substitutes
 
-If implementing without hashicorpSans, suitable open-source substitutes include **Inter** (closest geometric character set), **Geist Sans**, or **IBM Plex Sans**. Inter at weights 500 / 600 / 700 closely approximates hashicorpSans's proportions; expect to manually adjust line-heights down by ~0.02 to match.
+The tokens already use Inter with a system fallback. Preserve the documented 500 / 600 / 700 weight hierarchy, then check line breaks and spacing in the rendered output. A repository or design-system code license does not by itself establish permission to redistribute a separate brand font.
 
 ## Layout
 
@@ -476,7 +478,7 @@ The product chromatic level isn't a "modal lift" — it's an identity device. A 
 
 **`text-input`** + **`text-input-focused`** — Form fields on pricing seat-count and contact forms.
 - Background `{colors.surface-1}`, text `{colors.ink}`, type `{typography.body}`, rounded `{rounded.md}`, padding 10px 14px.
-- Focused state retains the same surface; the focus ring is a 1px `{colors.accent-blue}` outline.
+- Focused state retains the same surface and adds a 2px solid `{colors.accent-blue}` border. Verify the rendered focus indication around the complete input.
 
 ### Pills & Chips
 
@@ -524,7 +526,7 @@ The product chromatic level isn't a "modal lift" — it's an identity device. A 
 - Don't use a product accent color for a CTA on a page that isn't about that product. Terraform purple on the Vault page is a brand violation.
 - Don't combine multiple product accents in the same viewport — the system says "this section is about THIS tool", and mixing accents breaks that signal.
 - Don't add drop shadows on dark; surface lift carries elevation.
-- Don't replace `hashicorpSans` with a display-only sans for headlines and a different family for body. The brand is held together by one family across the full hierarchy.
+- Keep one sans stack across the full hierarchy. Use HashiCorp Sans only when the intended use is authorized.
 
 ## Responsive Behavior
 
@@ -540,9 +542,9 @@ The product chromatic level isn't a "modal lift" — it's an identity device. A 
 
 ### Touch Targets
 
-- CTA buttons (`button-primary`, `button-secondary`) maintain ≥40px tap height across viewports.
-- Product pills are 24px tall on desktop and grow to 28px on touch viewports.
-- Form inputs hold ≥44px tap target on touch viewports.
+- Measure the rendered clickable width, height, and spacing of CTA buttons at each viewport; padding tokens alone do not prove a minimum target size.
+- Product-pill tokens specify padding but no target dimensions. If a pill is interactive, measure its rendered clickable area.
+- Measure form input targets after layout; the YAML does not define a 44px minimum.
 
 ### Collapsing Strategy
 
