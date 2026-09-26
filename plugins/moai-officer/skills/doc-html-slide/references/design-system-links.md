@@ -1,6 +1,6 @@
 # 디자인 시스템 → getdesign.md 링크 매핑표
 
-[`moai-officer:doc-design-library`](../../../moai-designer/skills/design-system-library/SKILL.md)의 75개 브랜드 시스템을 [`getdesign.md`](https://getdesign.md) 상세 페이지에 매핑합니다. 스킬이 design_system 선택 안내 시 각 토큰 옆에 링크를 표시해, 사용자가 클릭(또는 복사)하여 팔레트·타이포그래피·무드를 직접 미리볼 수 있게 합니다.
+현재 설치된 [`moai-designer:design-system-library`](../../../moai-designer/skills/design-system-library/SKILL.md)의 브랜드 시스템에 대한 [`getdesign.md`](https://getdesign.md) 참고 링크입니다. 이 사이트는 브랜드 공식 규격이 아닌 독립 분석이며, 아래 링크는 먼저 해당 브랜드의 목록 페이지를 엽니다. 상세 디자인은 목록에서 다시 선택합니다. 링크와 토큰 값은 사용 전에 확인합니다.
 
 ## URL 패턴
 
@@ -8,7 +8,7 @@
 https://getdesign.md/<slug>
 ```
 
-`/designs/<slug>`는 404입니다 — **루트 슬러그**가 정상 경로입니다.
+`/<slug>`는 목록 페이지입니다. 확인한 `claude`와 `clickhouse`의 상세 분석은 각각 `/<slug>/design-md`에 있었습니다. 나머지 슬러그도 열어서 확인합니다.
 
 ## 매핑 규칙
 
@@ -25,7 +25,7 @@ https://getdesign.md/<slug>
 | `clickhouse` | dark | `#0a0a0a` | `#faff69` | Inter | https://getdesign.md/clickhouse |
 | `clay` | light | `#fffaf0` | `#0a0a0a` | Plain Black | https://getdesign.md/clay |
 
-## LIGHT (48개)
+## LIGHT
 
 | design_system | Primary | getdesign.md |
 |---------------|---------|--------------|
@@ -76,14 +76,14 @@ https://getdesign.md/<slug>
 | `webflow` | `#146ef5` | https://getdesign.md/webflow |
 | `wired` | `#0000ee` | https://getdesign.md/wired |
 
-## WARM (2개)
+## WARM
 
 | design_system | Primary | getdesign.md |
 |---------------|---------|--------------|
 | `playstation` | `#0070d1` | https://getdesign.md/playstation |
 | `revolut` | `#494fdf` | https://getdesign.md/revolut |
 
-## DARK (25개)
+## DARK
 
 | design_system | Primary | getdesign.md |
 |---------------|---------|--------------|
@@ -122,7 +122,7 @@ design_system 선택 안내 시 각 옵션에 getdesign.md 링크를 함께 표�
 2. clickhouse (dark tech)        → https://getdesign.md/clickhouse
 3. notion (light minimalism)     → https://getdesign.md/notion
 4. spotify (dark bold)           → https://getdesign.md/spotify
-나머지 71개: design-system-links.md 매핑표 참조
+다른 테마: design-system-links.md 매핑표 참조
 ```
 
-> getdesign.md는 74종 DESIGN.md 분석 컬렉션(2026-06 기준)으로, 본 저장소 75개 시스템은 거의 1:1로 대응합니다(56개 풍부 분석 + 19개 경량 토큰). 일부 슬러그는 브랜드 표기 정규화(`.ai`→`-ai`, `xAI`→`xai`, `linear.app`→`linear` 등)가 필요합니다. 링크가 깨지면 getdesign.md 홈(https://getdesign.md)에서 검색 후 본 표의 슬러그를 업데이트하세요.
+> 테마 목록과 외부 사이트는 바뀔 수 있습니다. 일부 슬러그는 브랜드 표기 정규화(`.ai`→`-ai`, `xAI`→`xai`, `linear.app`→`linear` 등)가 필요합니다. 링크가 깨지면 getdesign.md 홈(https://getdesign.md)에서 검색하고 현재 설치된 토큰을 확인하세요.

@@ -28,4 +28,4 @@ GET https://kosis.kr/openapi/Param/statisticsParameterData.do
 
 ## API 키 로드 함수 (참조)
 
-키는 `${CLAUDE_PLUGIN_DATA}/moai-credentials.env`에서 `KEY=VALUE` 형식으로 로드한다(예: `os.environ` 또는 파일 파싱). 별도 init-protocol 모듈에 의존하지 않는다.
+키는 사용자가 앱의 연결 설정 또는 실행 환경에 등록한 값으로 읽는다. 환경변수 경로에서는 `DATA_GO_KR_API_KEY` 또는 `KOSIS_API_KEY`를 사용한다. 키를 채팅에서 수집하거나 플러그인 폴더에 저장하지 않는다. 두 API 모두 요청 URL에 키가 포함될 수 있으므로 URL 전체를 결과나 진단 로그에 출력하지 않는다.

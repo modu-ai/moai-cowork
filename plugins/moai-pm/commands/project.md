@@ -9,9 +9,8 @@ Use Skill("moai-pm:project") with arguments: $ARGUMENTS
 
 ---
 
-> **ChatGPT Work(Codex)에서는** 슬래시 명령이 없습니다 — Codex 플러그인 규격은 `skills/`·`hooks/`·
-> `.mcp.json`만 지원하고 `commands/`는 지원하지 않습니다. 기능은 그대로 있으니 자연어로 부르세요:
+> 데스크톱 앱에 이 단축 명령이 표시되지 않으면 같은 요청을 자연어로 전달하세요:
 >
 > > 새 프로젝트 시작해줘 — 지침이랑 에이전트 만들어줘
 >
-> 이 커맨드는 Claude Cowork 전용 단축키이며, 실제 일은 위 `Skill(...)`이 합니다.
+> 실행은 설치된 `moai-pm:project` 스킬이 담당합니다.

@@ -2,7 +2,7 @@
 
 검증 항목:
   (a) create_container 가 TEXT/IMAGE/VIDEO 각각 올바른 파라미터를 송신
-  (b) 500 UTF-8 바이트 초과 시 ValueError (이모지·한글 바이트 계산 포함)
+  (b) 500자 초과 시 ValueError (한글·이모지는 바이트 수로 제한하지 않음)
   (c) publish 가 올바른 엔드포인트/creation_id 호출
   (d) 4xx 응답이 ThreadsAPIError 로 파싱
   (e) get_profile / refresh_token 동작
@@ -47,6 +47,7 @@ def test_create_container_text_sends_correct_params():
 
     req = captured[0]
     assert req.method == "POST"
+    assert req.url.host == "graph.threads.net"
     assert req.url.path == "/v1.0/UID/threads"
     q = dict(req.url.params)
     assert q["media_type"] == "TEXT"
@@ -123,15 +124,14 @@ def test_create_container_rejects_unknown_media_type():
         client.create_container("GIF")
 
 
-# --- (b) 500 UTF-8 바이트 제한 --------------------------------------------------
-def test_text_over_500_bytes_raises():
+# --- (b) 500자 제한 ------------------------------------------------------------
+def test_text_over_500_characters_raises():
     client = _make_client(lambda req: httpx.Response(200, json={"id": "X"}))
-    # ASCII 501자 = 501바이트 → 제한 초과
     with pytest.raises(ValueError, match="500"):
         client.create_container("TEXT", text="A" * 501)
 
 
-def test_text_at_exactly_500_bytes_is_allowed():
+def test_text_at_exactly_500_characters_is_allowed():
     captured: list[httpx.Request] = []
 
     def handler(req):
@@ -139,26 +139,23 @@ def test_text_at_exactly_500_bytes_is_allowed():
         return httpx.Response(200, json={"id": "C1"})
 
     client = _make_client(handler)
-    # ASCII 500자 = 500바이트 → 경계값 통과
     cid = client.create_container("TEXT", text="A" * 500)
     assert cid == "C1"
     assert dict(captured[0].url.params)["text"] == "A" * 500
 
 
-def test_text_korean_byte_count_enforced():
+def test_text_korean_uses_character_count():
     client = _make_client(lambda req: httpx.Response(200, json={"id": "X"}))
-    # 한국어 168자 = 504바이트 → 초과 (한글 1자 = 3바이트)
-    assert len(("가" * 168).encode("utf-8")) == 504
+    assert client.create_container("TEXT", text="가" * 500) == "X"
     with pytest.raises(ValueError, match="500"):
-        client.create_container("TEXT", text="가" * 168)
+        client.create_container("TEXT", text="가" * 501)
 
 
-def test_text_emoji_byte_count_enforced():
+def test_text_emoji_uses_character_count():
     client = _make_client(lambda req: httpx.Response(200, json={"id": "X"}))
-    # 이모지 126자 = 504바이트 → 초과 (이모지 1자 = 4바이트)
-    assert len(("🚀" * 126).encode("utf-8")) == 504
+    assert client.create_container("TEXT", text="🚀" * 500) == "X"
     with pytest.raises(ValueError, match="500"):
-        client.create_container("TEXT", text="🚀" * 126)
+        client.create_container("TEXT", text="🚀" * 501)
 
 
 # --- (c) publish ----------------------------------------------------------------

@@ -9,9 +9,8 @@ description: |
   - "이 기능 스킬로 만들고 싶어", "스킬 제작"
   - "Vibe 스킬 추가", "새 플러그인 스킬"
   - meta-skill-template으로 시작한 스킬의 체계적 생성이 필요할 때
-  - /harness 커맨드의 new 단계로 진입할 때
 user-invocable: false
-version: "1.1.0"
+version: "1.1.3"
 ---
 
 # Skill Builder — 6-Phase 스킬 생성 워크플로우
@@ -32,7 +31,7 @@ harness 오픈소스의 6-Phase 스킬 생성 워크플로우를 모두의 코�
 
 ```
 Phase 1: Requirements   → 사용자 의도 분석, 트리거 키워드 정의
-Phase 1.5: Research     → 공식 자료·베스트 프랙티스 외부 조사 (WebSearch + Context7)  ★ v1.6.0
+Phase 1.5: Research     → 공식 자료·베스트 프랙티스 외부 조사 (현재 앱의 검색 기능, 관련 공식 문서 우선)
 Phase 2: Architecture   → 에이전트 패턴 선택 (6종 중 매핑)
 Phase 3: Skill Draft    → meta-skill-template 기반 SKILL.md 초안 + ## 출처 섹션
 Phase 4: Test Gen       → 테스트 프롬프트 2-3개 + 기대 출력 정의
@@ -56,7 +55,7 @@ Phase 6: Review         → 품질 게이트 통과 확인, 파일 배치
 | 출력 | "어떤 산출물을 기대하나?" | 제안서 DOCX 파일 |
 | 복잡도 | "스킬이 얼마나 복잡한가?" | Standard (50-150줄) |
 
-**출력물:** 요구사항 문서 (인메모리, AskUserQuestion으로 확인)
+**출력물:** 요구사항 요약. 확인이 필요한 항목은 현재 앱의 질문 기능 또는 대화로 묻고, 질문 기능이 없는 하위 실행은 누락 항목을 상위에 반환합니다.
 
 ### Phase 1.5: Research (외부 자료 조사) ★ v1.6.0 신설
 
@@ -71,15 +70,14 @@ Phase 6: Review         → 품질 게이트 통과 확인, 파일 배치
 
 **조사 절차:**
 
-1. **WebSearch 2-4회 (병렬 권장)**
+1. **현재 앱에서 사용 가능한 검색·문서 열람 기능으로 조사**
    - 한국어 쿼리 1-2회: `"<도메인> <핵심 키워드> <연도>"` 형식 (예: "한국 채용절차법 NCS 2026")
    - 영어 쿼리 1-2회 (글로벌 베스트 프랙티스 인용 시): `"<topic> best practice <year>"` 형식
    - 검색 결과의 최신성 확인 (2년 이내 자료 우선)
 
-2. **Context7 MCP (라이브러리·SDK·CLI 관련 스킬일 때)**
-   - `resolve-library-id` → `get-library-docs` 순서
-   - 최신 API/CLI 변경사항·deprecation 확인
-   - 학습 데이터 cutoff 보완
+2. **라이브러리·SDK·CLI 관련 스킬일 때**
+   - 공식 문서와 릴리스 노트에서 현재 API·CLI와 폐기된 기능을 확인
+   - Context7 MCP가 연결된 경우에는 보조 자료로 활용하고 원저작자 문서와 대조
 
 3. **도메인별 공식 출처 화이트리스트 (우선 인용):**
 
@@ -105,7 +103,7 @@ Phase 6: Review         → 품질 게이트 통과 확인, 파일 배치
 **금지:**
 - 출처 없는 정량 수치 인용 (반드시 출처 명시 또는 `[추정]` 태그)
 - 한국 도메인 스킬에 한국 공식 출처 누락
-- 라이브러리·SDK 관련 스킬에 Context7 MCP 미사용 (가용 시)
+- 라이브러리·SDK 관련 스킬에서 공식 문서 확인 없이 도구 가용성만으로 API를 단정
 - 구버전 자료 인용 (3년 초과 시 최신 자료 재검색)
 
 **스킵 조건 (Phase 1.5 생략 가능):**
@@ -137,8 +135,8 @@ Phase 6: Review         → 품질 게이트 통과 확인, 파일 배치
 **필수 적용:**
 
 1. meta-skill-template의 필수 섹션 구조 사용
-2. Frontmatter는 `name`, `description`만 포함 (metadata 금지)
-3. 트리거 키워드는 기존 73개 스킬과 중복되지 않도록 검사
+2. Frontmatter에는 `name`, `description`, `version`을 포함하고 현재 앱·플러그인 포맷의 지원 필드를 확인
+3. 트리거 키워드는 대상 플러그인의 실제 스킬 목록과 대조해 중복을 검사
 4. 사용 예시 최소 2개 포함
 5. 관련 스킬 섹션에 before/after/alternative 관계 명시
 6. **`## 출처` 섹션 의무**: Phase 1.5에서 수집한 URL·인용을 markdown hyperlink로 명시 (Phase 1.5 적용 스킬)
@@ -156,24 +154,33 @@ Phase 6: Review         → 품질 게이트 통과 확인, 파일 배치
 **테스트 구성:**
 
 ```yaml
-tests:
-  - name: "happy-path"
+skill: <skill-name>
+version: 0.1.0
+test_cases:
+  - id: TC-001
+    name: "happy-path"
     prompt: "<대표적인 사용 프롬프트>"
-    expected_output:
-      format: "<출력 형식>"
-      contains: ["<필수 포함 내용>"]
-      not_contains: ["<금지 내용>"]
+    assertions:
+      - type: format
+        value: "<markdown|json|text|html>"
+      - type: contains
+        value: "<필수 포함 내용>"
+      - type: not_contains
+        value: "<금지 내용>"
 
-  - name: "edge-case"
+  - id: TC-002
+    name: "edge-case"
     prompt: "<경계 조건 프롬프트>"
-    expected_output:
-      handles_gracefully: true
-      fallback_behavior: "<설명>"
+    assertions:
+      - type: handles_gracefully
+        value: true
 
-  - name: "complex-input"
+  - id: TC-003
+    name: "complex-input"
     prompt: "<복잡한 입력 프롬프트>"
-    expected_output:
-      completeness: "모든 요구사항 충족"
+    assertions:
+      - type: contains
+        value: "<복잡한 입력에서 반드시 반영할 항목>"
 ```
 
 **출력물:** `<skill-dir>/tests/test-cases.yaml`
@@ -189,7 +196,7 @@ tests:
 | Clarity | 25% | 사용자 이해 가능성 |
 | Efficiency | 20% | 토큰 대비 품질 |
 
-**통과 기준:** 가중 평균 >= 0.70, 모든 차원 >= 0.50
+**통과 기준:** 실행 결과가 관측됐을 때 기존 스킬은 가중 평균 >= 0.70, 신규 스킬은 >= 0.75이며 모든 차원은 >= 0.50입니다. 실행하지 못한 검사는 `NOT-RUN`으로 표시합니다.
 
 **미달 시:** Phase 3으로 돌아가서 부족한 차원을 보완합니다. 최대 3회 반복.
 
@@ -201,13 +208,13 @@ tests:
 
 **체크리스트:**
 
-- [ ] Frontmatter 형식 준수 (name, description만, metadata 없음)
+- [ ] Frontmatter 형식 준수 (`name`, `description`, `version`과 현재 런타임이 지원하는 필드)
 - [ ] 필수 섹션 모두 존재 (개요, 트리거, 워크플로우, 예시, 출력, 주의사항, 관련 스킬)
 - [ ] 트리거 키워드가 기존 스킬과 중복되지 않음
-- [ ] plugin.json 버전이 업데이트 필요한 경우 안내
+- [ ] 수정한 스킬의 `version`, 양쪽 `plugin.json`, 마켓플레이스 버전을 같은 변경에서 갱신
 - [ ] 스킬 체인 관계가 프로젝트의 스킬 체인 정의와 일치 (해당 시)
 - [ ] 테스트 케이스가 생성됨
-- [ ] 루브릭 스코어 0.70 이상 통과
+- [ ] 실제 실행 결과를 바탕으로 기존 스킬 0.70 이상, 신규 스킬 0.75 이상 통과. 미실행 검사는 `NOT-RUN`
 - [ ] **`## 출처` 섹션 존재** (Phase 1.5 적용 스킬, `--skip-research` 미지정 시)
 - [ ] **정량 수치 모두 출처 또는 `[추정]` 태그** (Phase 1.5 적용 스킬)
 
@@ -233,7 +240,7 @@ tests:
 
 - 기존 스킬 수정이 아닌 **신규 스킬 생성**에만 사용합니다
 - 플러그인 디렉토리(`moai-*`)가 존재하는지 사전 확인이 필요합니다
-- 스킬 생성 후 plugin.json 버전 bump는 릴리스 절차에서 일괄 처리합니다
+- 스킬을 생성·수정하면 해당 플러그인의 Claude·Codex 매니페스트와 마켓플레이스 버전을 함께 갱신합니다.
 - 트리거 키워드 중복 시 기존 스킬의 description을 확인하여 명확히 구분해야 합니다
 
 ## 한국어 예시 카피 작성 규칙 (슬롭 방지)
@@ -256,11 +263,9 @@ tests:
 | meta-skill-tester | after | 생성된 스킬의 테스트 실행 + 루브릭 스코어링 |
 | ai-slop-reviewer | after | 스킬 본문의 AI 패턴 검수 (선택) |
 
-## 관련 커맨드
+## 실행 진입점
 
-| 커맨드 | 설명 |
-|--------|------|
-| `/harness` | new→test→review 자동 연쇄 (이 스킬 + meta-skill-tester + ai-slop-reviewer 오케스트레이션) |
+현재 앱에 이 스킬이 노출돼 있으면 자연어로 스킬 제작을 요청합니다. `meta-skill-tester`의 검증과 `ai-slop-reviewer`의 문체 검수는 각 스킬이 노출된 경우에만 연결합니다. 이 플러그인은 별도 `/harness` 명령을 제공하지 않습니다.
 
 ---
 
@@ -268,6 +273,6 @@ Source: revfactory/harness 6-Phase workflow (Apache 2.0) + MoAI adaptation
 
 ## Changelog
 
-- **1.6.0** (2026-05-01): Phase 1.5 Research 신설 — 외부 자료 조사(WebSearch·Context7) 의무화, 도메인별 공식 출처 화이트리스트 추가, `## 출처` 섹션 의무화 + 정량 수치 출처/`[추정]` 태그 강제
-- **1.5.x**: skill-forge → meta-skill-builder 이름 변경
+- **재정립 전 1.6.0** (2026-05-01): Phase 1.5 Research 신설 — 외부 자료 조사(WebSearch·Context7) 의무화, 도메인별 공식 출처 화이트리스트 추가, `## 출처` 섹션 의무화 + 정량 수치 출처/`[추정]` 태그 강제
+- **재정립 전 1.5.x**: skill-forge → meta-skill-builder 이름 변경
 - **이전**: harness 6-Phase 워크플로우 흡수

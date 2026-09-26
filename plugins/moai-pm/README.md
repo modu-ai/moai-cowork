@@ -10,7 +10,7 @@
 /project <자연어 지시>
 ```
 
-Claude Cowork(Desktop) 프로젝트 초기화 — 소크라테스 인터뷰 → 설치된 AI 코워커 인벤토리 스캔 → **프로젝트 전용 커스텀 에이전트·스킬 체인 설계** → `AGENTS.md`(폴더 지침 정본, ≤500라인) + `CLAUDE.md`(`@AGENTS.md` 포인터) + `.claude/agents/` + `.moai/` 스캐폴드 생성 → **사용하면서 재귀적 자가 개선**
+Claude Cowork·ChatGPT Work 프로젝트 초기화 — 소크라테스 인터뷰 → 현재 호스트의 AI 코워커 인벤토리 확인 → **프로젝트 전용 커스텀 에이전트·스킬 체인 설계** → `AGENTS.md`(폴더 지침 정본, ≤500라인) + `CLAUDE.md`(`@AGENTS.md` 포인터) + `.claude/agents/`·`.codex/agents/` + `.moai/` 스캐폴드 생성 → **사용하면서 재귀적 자가 개선**
 
 ```
                         ┌───────────────────────┐
@@ -21,8 +21,8 @@ Claude Cowork(Desktop) 프로젝트 초기화 — 소크라테스 인터뷰 → 
                                     ▼
                      ┌──────────────────────────┐
                      │ 🪿 Cowork 셋업            │
-                     │ 모든 Claude Cowork        │
-                     │ (Desktop) 업무 — 지침 +   │
+                     │ 데스크톱 코워커 업무      │
+                     │ 두 호스트의 지침 +        │
                      │ 커스텀 에이전트 +         │
                      │ 재귀적 자가 개선          │
                      └──────────────────────────┘
@@ -34,28 +34,7 @@ Claude Cowork(Desktop) 프로젝트 초기화 — 소크라테스 인터뷰 → 
 
 ## AI 코워커 ('MoAI-Cowork, 모두의 코워크')
 
-전부 `modu-ai/moai-cowork` 마켓플레이스 하나에서 설치합니다. 정확한 로스터·스킬 수는 마켓플레이스 카탈로그(`.claude-plugin/marketplace.json`)가 정본입니다 — 아래는 역할 요약입니다.
-
-| AI 코워커 | 플러그인 | 무엇을 하나요 |
-|---------|---------|---------------|
-| 🧑‍💼 코워커 | `moai-coworker` | 범용 비즈니스 실무 + 라이프스타일 |
-| ✍️ 작가 | `moai-writer` | 출판 기획·집필(book-*) |
-| 🎬 스토리 크리에이터 | `moai-story` | 웹툰·웹소설·시나리오·IP(story-*) |
-| 📣 마케터 | `moai-marketer` | 캠페인·콘텐츠 |
-| 🎨 미디어 크리에이터 | `moai-media` | 이미지·영상·오디오 생성 |
-| 🛒 셀러 | `moai-seller` | 이커머스(스마트스토어·아임웹·카페24 MCP) |
-| 🗂️ 사무관 | `moai-officer` | 오피스 문서 |
-| 📊 데이터 애널리스트 | `moai-analyst` | 공공데이터·데이터 시각화 |
-| ⚖️ 법무 담당 | `moai-lawyer` | 계약·법령·판례·특허 |
-| 💰 재무·세무 담당 | `moai-accountant` | 재무제표·결산·세금 |
-| 🤝 인사·채용 담당 | `moai-recruiter` | 채용·이력서·면접·평가 |
-| 🎧 CS매니저 | `moai-cs` | 고객지원·CRM·VOC 분석 |
-| 🧭 컨설턴트 | `moai-consultant` | 사업계획·시장분석·경영 진단 |
-| 🎯 커리어코치 | `moai-career` | 이력서·면접·이직(구직자 편) |
-| 🎓 튜터 | `moai-tutor` | 커리큘럼·평가·논문 |
-| 🎨 디자이너 | `moai-designer` | 브랜드·디자인 시스템·Claude Design |
-| 📸 SNS 크리에이터 | `moai-threads-poster` | Threads·Instagram 자율 발행 |
-| 📋 PM | `moai-pm`(본 플러그인) | `/project` 단일 진입점 제공 |
+`modu-ai/moai-cowork` 마켓플레이스에서 필요한 AI 코워커를 설치합니다. 플러그인 목록과 역할의 정본은 `.claude-plugin/marketplace.json`이며, PM은 현재 앱에 실제로 설치·노출된 스킬을 확인해 프로젝트에 맞는 팀을 꾸립니다.
 
 PM은 직접 일하지 않습니다. **누가 이 일에 맞는지 찾아 팀을 꾸리는 안내자** 역할만 합니다.
 
@@ -63,33 +42,10 @@ PM은 직접 일하지 않습니다. **누가 이 일에 맞는지 찾아 팀을
 
 ## 설치
 
-### ① 마켓플레이스 등록 (최초 1회만)
+Claude Cowork와 ChatGPT Work는 마켓플레이스 등록 권한과 경로가 다릅니다.
 
-'MoAI-Cowork, 모두의 코워크' AI 코워커는 `modu-ai/moai-cowork` 마켓플레이스 하나에 들어있습니다. **Claude Cowork**와 **ChatGPT Work** 두 데스크톱 앱 모두 설정(Settings) 또는 플러그인(Plugins) 메뉴 → 마켓플레이스(Marketplace)에서 이 주소를 추가하면 됩니다.
-
-터미널에 익숙하다면:
-
-    claude plugin marketplace add modu-ai/moai-cowork   # Claude Cowork CLI
-    codex plugin marketplace add modu-ai/moai-cowork    # ChatGPT Work CLI
-
-### ② 플러그인 추가
-
-**가장 쉬운 방법** — 플러그인(Plugins) 메뉴를 열고 `moai-cowork` 마켓플레이스에서 원하는 코워커를 찾아 **Install**을 누르세요.
-
-**터미널에서 직접** 설치하려면:
-
-    # Claude Cowork CLI
-    claude plugin install moai-pm@moai-cowork           # PM 허브 (필수)
-    claude plugin install moai-coworker@moai-cowork     # 범용 실무 코어 (권장)
-
-    # ChatGPT Work CLI
-    codex plugin add moai-pm@moai-cowork
-    codex plugin add moai-coworker@moai-cowork
-
-    # 필요한 전문가 코워커 추가: moai-writer / moai-story / moai-marketer / moai-media /
-    # moai-seller / moai-officer / moai-analyst / moai-lawyer / moai-accountant /
-    # moai-recruiter / moai-cs / moai-consultant / moai-career / moai-tutor /
-    # moai-designer / moai-threads-poster
+- **Claude Cowork**: Settings(또는 Plugins) → Marketplace → +에서 `modu-ai/moai-cowork`를 추가한 뒤 Plugins에서 **moai-pm**를 설치하세요.
+- **ChatGPT Work**: 워크스페이스 관리자가 Workspace settings → Plugins → Add → Import marketplace에서 `https://github.com/modu-ai/moai-cowork`를 가져와야 합니다. 이용자는 권한이 부여된 뒤 Plugins에서 **moai-pm**를 찾아 Install plugin을 누르세요. 외부 서비스 연결은 별도 인증이 필요합니다.
 
 > 처음엔 PM + 코워커만 설치해도 충분합니다. 나중에 다른 코워커가 필요해지면 셋업 중 **Gap Detection**이 감지해 설치를 안내한 뒤, 완료되면 "이어서 진행"이라고 말해 이어서 진행합니다.
 
@@ -133,7 +89,7 @@ PM이 먼저 인사하고 무엇을 할지 묻습니다. "온라인 클래스 �
 |------|------|
 | `./AGENTS.md` | 프로젝트 지침 정본(≤500라인) — 워크플로우 표 + 8개 HARD 규칙 + evolution-log |
 | `./CLAUDE.md` | Claude용 포인터 — `@AGENTS.md` 임포트 한 줄(본문 복제 없음) |
-| `./.claude/agents/*.md` | 프로젝트 전용 커스텀 에이전트(자가 개선 대상) |
+| `./.claude/agents/*.md` · `./.codex/agents/*.toml` | 각 호스트용 프로젝트 전용 커스텀 에이전트(자가 개선 대상) |
 | `./.moai/config.json` | 플러그인·커넥터·API 키 참조 |
 | `./.moai/credentials.env` | API 키 안내(프로젝트 격리, GUIDANCE 전용 — 실제 값은 기록하지 않음) |
 

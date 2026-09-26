@@ -155,9 +155,11 @@ main:
     sub:
       - name: 릴리스 홈
         ref: /releases
+      - name: v1.2.6
+        ref: /releases/v1.2.6
+        isNew: true
       - name: v1.2.5
         ref: /releases/v1.2.5
-        isNew: true
       - name: v1.2.4
         ref: /releases/v1.2.4
       - name: v1.2.3

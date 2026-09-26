@@ -3,8 +3,9 @@ version: alpha
 name: Mastercard-design-analysis
 description: 'Warm editorial magazine on putty-cream canvas with extreme border-radius, circular image orbits with traced-orange arcs, and ink-black CTAs.'
 colors:
-  primary: "#cf4500"
-  primary-active: "#cf4500"
+  primary: "#141413"
+  primary-active: "#262627"
+  consent-orange: "#cf4500"
   ink: "#141413"
   body: "#141413"
   muted: "#5a5854"
@@ -12,7 +13,25 @@ colors:
   canvas: "#f3f0ee"
   surface-soft: "#fcfbfa"
   surface-card: "#fcfbfa"
-  on-primary: "#ffffff"
+  on-primary: "#f3f0ee"
+typography:
+  display-xl:
+    fontFamily: Sofia Sans, Arial, sans-serif
+    fontSize: 64px
+    fontWeight: 500
+    lineHeight: 1
+    letterSpacing: -1.28px
+  display-lg:
+    fontFamily: Sofia Sans, Arial, sans-serif
+    fontSize: 36px
+    fontWeight: 500
+    lineHeight: 1.22
+    letterSpacing: -0.72px
+  body-md:
+    fontFamily: Sofia Sans, Arial, sans-serif
+    fontSize: 16px
+    fontWeight: 450
+    lineHeight: 1.4
 ---
 
 # Design System Inspired by Mastercard
@@ -23,7 +42,7 @@ Mastercard's experience reads like a warm, editorial magazine built from soft st
 
 The second gesture is **orbit and trajectory**. Circular image masks don't sit still — they're connected by thin, hand-drawn-feeling orange arcs that span entire viewport widths, implying a constellation of services rather than a list. Each circle has a small attached "satellite" — a white micro-CTA holding an arrow icon — docked onto its perimeter like a moon. This is the most distinctive thing about Mastercard's current design language: the circles feel like they're in motion even though the page is still.
 
-Typography is rendered entirely in **MarkForMC**, Mastercard's proprietary geometric sans. Headlines are set at a medium weight (500) with tight negative letter-spacing (-2%), giving them confidence without shouting. Body copy runs at the same family in a slightly lighter weight (450) — a weight you rarely see on the web, chosen because it reads softer than regular 400 without feeling thin. The whole system — warm cream surfaces, pill shapes, circular portraits, traced-orange orbits, black CTAs — feels simultaneously institutional (a 60-year-old payments network) and editorial (a modern brand magazine), which is exactly the tension Mastercard wants to hold.
+The reference uses **MarkForMC**, a licensed geometric sans. This reusable profile defaults to **Sofia Sans** with Arial and a generic sans fallback. Headlines use weight 500 and tight negative letter-spacing (-2%); body copy uses weight 450 when the variable font is loaded. The warm cream surfaces, pill shapes, circular portraits, traced-orange orbits, and black CTAs create the editorial rhythm.
 
 **Key Characteristics:**
 - Warm cream canvas (`#F3F0EE`) replaces traditional white — every surface is tinted, never sterile
@@ -72,9 +91,8 @@ Mastercard uses no programmatic gradients in the core UI. The visual impression 
 ## 3. Typography Rules
 
 ### Font Family
-- **Primary**: `MarkForMC` — Mastercard's proprietary geometric sans. Every headline, body paragraph, button, nav link, and footer link on the page.
-- **Secondary**: `MarkOffcForMC` — an "Official" cut used in a minority of contexts (legal text, some forms).
-- **Fallback stack**: `SofiaSans, Arial, sans-serif` — Sofia Sans is a reasonable open-source stand-in; Arial is the final web-safe fallback.
+- **Reference**: `MarkForMC` and `MarkOffcForMC` are licensed Mastercard faces. Use them only if the intended output is authorized.
+- **Reusable default**: `Sofia Sans, Arial, sans-serif` across headings, body, buttons, navigation, and footer. Load the OFL Sofia Sans variable font to preserve weight 450; otherwise check the rendered fallback weight and line breaks.
 
 ### Hierarchy
 
@@ -91,15 +109,15 @@ Mastercard uses no programmatic gradients in the core UI. The visual impression 
 | Footer column header | 12–14px | 700 | 14px | 0.56px (+4%) | Uppercase, muted gray, short tracking |
 
 ### Principles
-- **Weight 450 is load-bearing**. Most brands use 400/500/700; Mastercard uses 450 for body copy, which creates an unusually soft reading tone. Replacing it with 400 flattens the identity.
+- **Weight 450 shapes the body tone** when a variable font supporting it is loaded. Verify the actual rendered weight before treating this as a visual match.
 - **Tight negative tracking on headlines** (-2%) gives display text its editorial density — the words lock together rather than breathe.
 - **Uppercase tracking only on the eyebrow scale** (14px / 700 / +4% tracking). Don't use uppercase anywhere else; no shouty section titles.
 - **One-font system**. Resist the urge to add a second typeface for contrast. The contrast comes from scale, weight, and letter-spacing, not from a serif or display accent.
 - **Line-height ratio drops with size**. H1 is 1:1, H3 is 1.2, body is 1.4. Tight display, comfortable reading.
 
 ### Note on Font Substitutes
-MarkForMC is proprietary and licensed. When rebuilding a matching aesthetic without access to the original:
-- **Sofia Sans** (Google Fonts) is the closest open-source match — it's already in Mastercard's declared fallback stack.
+MarkForMC is licensed. The reusable default uses [Sofia Sans, an OFL variable family](https://github.com/google/fonts/blob/main/ofl/sofiasans/METADATA.pb), with a weight axis that includes 450.
+- **Sofia Sans** is the default open-source substitute. The original site extraction listed it as a fallback; that does not grant rights to MarkForMC.
 - **Inter** at weights 450/500/700 works as a generic stand-in; expect slightly taller x-height and looser letter shapes.
 - **Neue Haas Grotesk** or **Geist** can approximate the geometric feel for commercial projects.
 - Whichever substitute is used, preserve the **-2% letter-spacing on headlines** and the **450 body weight** (use `font-weight: 450` with variable fonts, or substitute `font-weight: 400` and tighten the letter-spacing by ~-0.5% to compensate).
@@ -114,7 +132,7 @@ MarkForMC is proprietary and licensed. When rebuilding a matching aesthetic with
 - Border: 1.5px solid Ink Black (same as bg, creates crisp edge)
 - Radius: 20px
 - Padding: 6px 24px
-- Font: MarkForMC 16px / weight 500 / letter-spacing -0.32px
+- Font: Sofia Sans by default, 16px / weight 500 / letter-spacing -0.32px
 - Default: as above; solid warm-black pill on cream canvas
 - Active / pressed: subtle inward-shrink or 2px offset (not a hover variant)
 - Use for: all marketing CTAs in the page body ("Learn more", "Explore", "Discover")
@@ -125,7 +143,7 @@ MarkForMC is proprietary and licensed. When rebuilding a matching aesthetic with
 - Border: 1.5px solid Ink Black
 - Radius: 20px
 - Padding: 6px 24px
-- Font: MarkForMC 16px / weight 450 / line-height 20.8px
+- Font: Sofia Sans by default, 16px / weight 450 / line-height 20.8px
 - Default: white-on-cream pill with crisp ink outline
 - Active / pressed: subtle compression
 - Use for: secondary actions paired with a primary, or standalone utility CTAs
@@ -136,7 +154,7 @@ MarkForMC is proprietary and licensed. When rebuilding a matching aesthetic with
 - Border: 0
 - Radius: 24px
 - Padding: 1px 30px (very tight vertical, wide horizontal)
-- Font: MarkForMC 13px / weight 400 / letter-spacing 0.13px
+- Font: Sofia Sans by default, 13px / weight 400 / letter-spacing 0.13px
 - Default: as above; bright rust pill with white text
 - Use for: cookie consent, privacy preference, and other legally-distinct confirmations. **Do not** use this orange for marketing CTAs — it reads as a compliance color.
 
@@ -186,7 +204,7 @@ MarkForMC is proprietary and licensed. When rebuilding a matching aesthetic with
 - Large inline CTA inside: Ink Pill button, oversized (padding 16px 40px, radius 40px)
 
 **Ghost Watermark Text Block**
-- Font: MarkForMC 72–128px / weight 500 / tight -2% tracking
+- Font: Sofia Sans by default, 72–128px / weight 500 / tight -2% tracking
 - Color: Canvas Cream slightly darkened (`#E8E2DA` or similar — cream-on-cream)
 - Position: layered behind portrait circles, bleeding off the viewport edge
 - Purpose: sets section theme without competing with foreground copy
@@ -301,7 +319,7 @@ Mastercard uses shadows as **atmospheric cushioning**, not directional light. Th
 - Use Canvas Cream (`#F3F0EE`) as the default body background — never pure white
 - Mask service/feature imagery as perfect circles, not rectangles or rounded rectangles
 - Attach a white satellite CTA to the bottom-right of each circular portrait
-- Set headlines in MarkForMC weight 500 with -2% letter-spacing
+- Set headlines in Sofia Sans by default at weight 500 with -2% letter-spacing; use MarkForMC only with the required rights
 - Use weight 450 (not 400) for body paragraphs
 - Keep primary CTAs as Ink Black pills (20px radius) with cream text
 - Use Signal Orange only on consent, legal, or compliance actions
@@ -332,7 +350,7 @@ Mastercard uses shadows as **atmospheric cushioning**, not directional light. Th
 | Wide | ≥ 1440px | Content max-width caps at ~1280px; gutters grow symmetrically; orbital lines extend further |
 
 ### Touch Targets
-All interactive elements comfortably exceed 44×44px. The satellite CTA (circle + arrow) is ~50–60px. The nav pill buttons are ~48px tall. Mobile hamburger and search are 48×48px. No link or button drops below 40px in any breakpoint.
+The documented satellite CTA diameter is about 50–60px, while icon-only controls can be 40px. Measure the rendered clickable width, height, and spacing of every interactive target at each breakpoint before claiming a WCAG target-size result. The outer navigation pill height does not establish the target dimensions of its individual links.
 
 ### Collapsing Strategy
 - **Nav**: full pill → compact pill with hamburger. Pill shape is preserved across breakpoints — always rounded, always floating.
@@ -359,8 +377,8 @@ Circular portraits scale proportionally (maintaining the perfect circle at every
 - Footer: "Ink Black (`#141413`) with White text"
 
 ### Example Component Prompts
-- "Create a circular portrait card 300px in diameter, with a square photograph cropped to a perfect circle. Attach a 56px white satellite button with a dark arrow icon at the bottom-right, so it protrudes ~40% outside the portrait. Below the portrait, add an eyebrow label with a Light Signal Orange dot and uppercase 'SERVICES' text in MarkForMC weight 700 at 14px. Below the eyebrow, set a 24px / weight 500 title in Ink Black."
-- "Design a primary CTA button: Ink Black (`#141413`) background, Canvas Cream (`#F3F0EE`) text, 20px border-radius, 6px vertical and 24px horizontal padding, MarkForMC font at 16px weight 500 with -2% letter-spacing."
+- "Create a circular portrait card 300px in diameter, with a square photograph cropped to a perfect circle. Attach a 56px white satellite button with a dark arrow icon at the bottom-right, so it protrudes ~40% outside the portrait. Below the portrait, add an eyebrow label with a Light Signal Orange dot and uppercase 'SERVICES' text in Sofia Sans weight 700 at 14px. Below the eyebrow, set a 24px / weight 500 title in Ink Black."
+- "Design a primary CTA button: Ink Black (`#141413`) background, Canvas Cream (`#F3F0EE`) text, 20px border-radius, 6px vertical and 24px horizontal padding, Sofia Sans font at 16px weight 500 with -2% letter-spacing."
 - "Build a floating navigation pill: white background with `rgba(0, 0, 0, 0.04) 0px 4px 24px 0px` shadow, 999px border-radius, ~16px vertical and 40px horizontal internal padding. Position it 24px below the viewport top, centered, with the Mastercard logo at the left, five primary links centered with 48px gap, and a circular 48px search button at the right."
 - "Create a hero media frame: 40px border-radius on all corners, full viewport width minus 48px gutters, ~60% viewport height, dark background for video content. Place it directly on the cream canvas with no shadow."
 - "Design a footer: Ink Black (`#141413`) background, white text, 4-column link grid with uppercase muted column headers at 14px weight 700 +4% tracking. Include a large conversational H2 above the grid, a 1px white-at-30%-opacity horizontal divider below, and a bottom row with copyright, legal small-print links, a pill-shaped country selector, and four social icons."
@@ -375,7 +393,7 @@ When refining existing screens generated with this design system:
 6. Default backgrounds to Canvas Cream (`#F3F0EE`), not white — this single change shifts the entire mood toward Mastercard
 
 ### Known Gaps
-- The live page uses MarkForMC, a proprietary licensed typeface. Sofia Sans is the closest open-source substitute and is listed in Mastercard's own fallback stack.
+- The reference page uses licensed MarkForMC. The default is Sofia Sans; verify the loaded font and rendered weight before claiming a close visual match.
 - Tablet breakpoint specifics (768–1023px) were inferred from desktop and mobile captures; intermediate layouts may vary per section.
 - The exact "whisper" cream tone used for ghost-watermark headlines behind circular portraits reads between `#E8E2DA` and `#D1CDC7` in captures; the precise value varies per section.
 - Third-party consent orange (`#CF4500`) is Mastercard's documented consent signal and should not be confused with any marketing CTA color.

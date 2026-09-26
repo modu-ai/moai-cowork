@@ -118,6 +118,8 @@ class TestReporting:
         hint = CredentialStore("svc", path=path).setup_hint(["MISSING"])
         assert "MISSING" in hint
         assert str(path) in hint
+        assert "MCP 연결 설정" in hint
+        assert "Claude" not in hint
 
     def test_전부_설정되면_안내문이_없다(self, creds_file):
         path = creds_file({"HAVE": "v"})

@@ -1,34 +1,23 @@
 # CS매니저 (moai-cs)
 
-고객지원·CRM 전담 AI 코워커입니다. 티켓 분류, 응답 초안, 에스컬레이션 처리, 지식베이스 작성부터 VOC 분석, 채널별 CRM 메시지까지 고객 접점 실무 스킬 6종을 하나의 플러그인으로 제공합니다. 슬래시 명령을 외울 필요 없이 자연어로 요청하면 매칭되는 스킬이 자동 호출됩니다.
+고객지원·CRM 전담 AI 코워커입니다. 티켓 분류, 응답 초안, 에스컬레이션 처리, 지식베이스 작성부터 VOC 분석, 채널별 CRM 메시지까지 고객 접점 실무 스킬을 하나의 플러그인으로 제공합니다. 슬래시 명령을 외울 필요 없이 자연어로 요청하면 매칭되는 스킬이 자동 호출됩니다.
 
 **이런 분께 추천**: 온라인 셀러 · CS 담당자 · 1인 사업자
 
 ## 설치
 
-`modu-ai/moai-cowork` 마켓플레이스 하나에서 설치합니다. **Claude Cowork**와 **ChatGPT Work** 두 데스크톱 앱 모두 같은 방식입니다.
+Claude Cowork와 ChatGPT Work는 마켓플레이스 등록 권한과 경로가 다릅니다.
 
-**가장 쉬운 방법** — 설정(Settings) 또는 플러그인(Plugins) 메뉴 → 마켓플레이스(Marketplace)에서 주소 `modu-ai/moai-cowork`를 추가한 뒤, 플러그인 목록에서 `moai-cs`를 찾아 **Install**을 누르세요.
-
-**터미널에 익숙하다면 (대안)**
-
-```bash
-# Claude Cowork CLI
-claude plugin marketplace add modu-ai/moai-cowork
-claude plugin install moai-cs@moai-cowork
-
-# ChatGPT Work CLI
-codex plugin marketplace add modu-ai/moai-cowork
-codex plugin add moai-cs@moai-cowork
-```
+- **Claude Cowork**: Settings(또는 Plugins) → Marketplace → +에서 `modu-ai/moai-cowork`를 추가한 뒤 Plugins에서 **moai-cs**를 설치하세요.
+- **ChatGPT Work**: 워크스페이스 관리자가 Workspace settings → Plugins → Add → Import marketplace에서 `https://github.com/modu-ai/moai-cowork`를 가져와야 합니다. 이용자는 권한이 부여된 뒤 Plugins에서 **moai-cs**를 찾아 Install plugin을 누르세요. 외부 서비스 연결은 별도 인증이 필요합니다.
 
 > 앱별 정확한 클릭 경로와 잘 안 될 때 대처법은 [플러그인 설치와 관리](https://cowork.mo.ai.kr/plugins/install/)에 정리해 두었습니다.
 
-## 스킬 6종
+## 스킬
 
-호출 형식: `/moai-cs:business-<스킬명>` — 예: `/moai-cs:cs-ticket-triage`. 자연어 요청("이 문의 분류해줘")으로도 자동 매칭됩니다.
+호출 형식: `/moai-cs:cs-<스킬명>` — 예: `/moai-cs:cs-ticket-triage`. 자연어 요청("이 문의 분류해줘")으로도 자동 매칭됩니다.
 
-### 티켓·응대 (4종)
+### 티켓·응대
 
 | 스킬 | 역할 |
 |------|------|
@@ -37,14 +26,18 @@ codex plugin add moai-cs@moai-cowork
 | `cs-escalation` | 불만 에스컬레이션 레벨 배정 · VIP 응대 · 주간 CS 요약 보고서 |
 | `cs-kb-article` | FAQ · 사용자 가이드 · 트러블슈팅 문서 · 정책 안내문 (Zendesk·Freshdesk·카카오비즈니스 형식) |
 
-### VOC·채널 메시지 (2종)
+### VOC·채널 메시지
 
 | 스킬 | 역할 |
 |------|------|
-| `cs-voc-triage` | 멀티채널 리뷰 통합 분석 + VOC 3축 분류 · KTAS 5단계 우선순위 트리아지 |
+| `cs-voc-triage` | 멀티채널 리뷰 통합 분석 + 안전·법적 시한 우선 확인과 VOC 3축 분류 |
 | `cs-channel-message` | NCM 프레임워크 기반 검색·광고·CRM·앱 푸시 채널별 메시지 15종 + 운영 카피 생성 |
+| `cs-workflow` | 복합 고객지원 요청의 자료 확인과 작업 연결 |
+| `cs-quality-audit` | 응답·분류·VOC·FAQ의 근거와 개인정보 검수 |
 
-## 에이전트 2종
+## Claude 에이전트
+
+ChatGPT Work에서는 같은 작업 경로를 `cs-workflow`와 `cs-quality-audit` 스킬로 제공합니다.
 
 | 에이전트 | 등급 | 역할 |
 |----------|------|------|

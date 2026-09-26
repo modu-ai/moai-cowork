@@ -12,7 +12,7 @@ import pytest
 import respx
 from httpx import Response
 
-from moai_mcp_imweb._base import _load_persisted_tokens, _persist_tokens
+from moai_mcp_imweb._base import _load_persisted_tokens, _persist_tokens, load_config
 from moai_mcp_imweb.auth import ImwebAuthError, refresh_access_token
 
 TOKEN_URL = "https://openapi.imweb.me/oauth2/token"
@@ -56,6 +56,18 @@ def test_갱신_결과가_파일에_남는다(cfg, tmp_path):
     assert _load_persisted_tokens(path) == ("a2", "r2")
 
 
+def test_재시작하면_저장된_회전_토큰을_환경변수보다_우선한다(tmp_path, monkeypatch):
+    path = tmp_path / "tokens.json"
+    _persist_tokens(path, "fresh-access", "rotated-refresh")
+    monkeypatch.setenv("IMWEB_TOKEN_FILE", str(path))
+    monkeypatch.setenv("IMWEB_ACCESS_TOKEN", "stale-access")
+    monkeypatch.setenv("IMWEB_REFRESH_TOKEN", "stale-refresh")
+
+    config = load_config()
+    assert config.access_token == "fresh-access"
+    assert config.refresh_token == "rotated-refresh"
+
+
 @respx.mock
 def test_리프레시_토큰을_안_주면_기존_값을_유지한다(cfg, tmp_path):
     """아임웹은 회전할 수도, 안 할 수도 있다. 안 주면 쓰던 것을 계속 쓴다."""
@@ -80,12 +92,16 @@ def test_자격증명이_없으면_요청_전에_막는다(cfg):
         refresh_access_token(replace(cfg, refresh_token=""))
 
 
-def test_토큰_저장은_실패해도_예외를_올리지_않는다(tmp_path):
-    """저장 실패가 API 호출 실패로 번지면 안 된다."""
+def test_토큰_저장_실패를_비밀값_없이_알린다(tmp_path, capsys):
+    """저장 실패가 API 호출을 막지는 않되, 다음 실행의 인증 위험을 알린다."""
     blocker = tmp_path / "blocked"
     blocker.write_text("파일", encoding="utf-8")
 
-    _persist_tokens(blocker / "t.json", "a", "r")  # 예외 없이 통과해야 한다
+    _persist_tokens(blocker / "t.json", "access-secret-test", "refresh-secret-test")
+    warning = capsys.readouterr().err
+    assert "token persistence failed" in warning
+    assert "access-secret-test" not in warning
+    assert "refresh-secret-test" not in warning
 
 
 def test_경로가_없으면_저장도_조회도_조용히_넘어간다():

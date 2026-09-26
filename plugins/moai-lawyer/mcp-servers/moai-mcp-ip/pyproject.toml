@@ -1,0 +1,29 @@
+[project]
+name = "moai-mcp-ip"
+version = "0.1.0"
+description = "특허·상표 공식 데이터 MCP — KIPRIS Plus(한국)·USPTO ODP/TSDR(미국)·JPO 특허정보취득 API(일본)·EPO OPS(유럽). 자격증명 확인 게이트 포함."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+authors = [{ name = "modu-ai" }]
+keywords = ["mcp", "patent", "trademark", "kipris", "uspto", "jpo", "epo", "특허", "상표", "model-context-protocol"]
+dependencies = [
+    # 다른 자체 서버와 같은 선(1.x, FastMCP)으로 고정한다.
+    "mcp>=1.2.0,<2.0",
+    "httpx>=0.27.0",
+]
+
+[project.scripts]
+moai-mcp-ip = "moai_mcp_ip.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/moai_mcp_core", "src/moai_mcp_ip"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+]

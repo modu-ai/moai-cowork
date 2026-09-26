@@ -9,11 +9,11 @@
 :class:`ThreadsAPIError` 로 변환된다.
 
 참고 (reference, verified from official docs):
-  - Base URL: ``https://graph.threads.com/v1.0/``
+  - Base URL: ``https://graph.threads.net/v1.0/``
   - 인증 (auth): OAuth 2.0 Bearer, ``access_token`` 쿼리/폼 파라미터
   - 권한 (permissions): ``threads_basic`` (전 엔드포인트), ``threads_content_publish`` (발행)
   - 레이트리밋 (rate limit): 24시간 250 포스트
-  - 텍스트 제한: 500 (이모지·한글은 UTF-8 바이트 단위로 계산)
+  - 텍스트 제한: 500자. 로컬 사전 검사는 Python 문자 수 기준이다.
 """
 
 from __future__ import annotations
@@ -22,11 +22,10 @@ from typing import Any, Optional
 
 import httpx
 
-DEFAULT_BASE_URL = "https://graph.threads.com/v1.0"
+DEFAULT_BASE_URL = "https://graph.threads.net/v1.0"
 DEFAULT_TIMEOUT = 30.0
-# Threads 텍스트 예산: 500. 이모지·한글은 UTF-8 바이트 단위로 소비한다.
-# Threads text budget: 500, counted as UTF-8 bytes (emoji/Korean consume multiple bytes).
-TEXT_MAX_BYTES = 500
+# Meta는 일반 게시글의 한도를 500자로 안내한다. UTF-8 바이트 수가 아니다.
+TEXT_MAX_CHARS = 500
 
 _VALID_MEDIA_TYPES = {"TEXT", "IMAGE", "VIDEO", "CAROUSEL"}
 
@@ -65,7 +64,7 @@ class ThreadsClient:
     Args:
         access_token: OAuth 2.0 액세스 토큰 (Bearer).
         threads_user_id: Threads 사용자 ID (컨테이너/발행 경로에 사용).
-        base_url: Graph API 베이스 URL (기본값 ``https://graph.threads.com/v1.0``).
+        base_url: Graph API 베이스 URL (기본값 ``https://graph.threads.net/v1.0``).
         client: 주입할 :class:`httpx.Client` (테스트용; 미지정 시 기본 클라이언트 생성).
             주입한 클라이언트는 호출자가 소유하며 :meth:`close` 로 닫지 않는다.
     """
@@ -107,7 +106,7 @@ class ThreadsClient:
         ``POST /{threads_user_id}/threads``
 
         검증 (validation):
-          - ``media_type=TEXT``  → ``text`` 필수, 500 UTF-8 바이트 이하
+          - ``media_type=TEXT``  → ``text`` 필수, 500자 이하
           - ``media_type=IMAGE`` → ``image_url`` 필수 (공개 URL)
           - ``media_type=VIDEO`` → ``video_url`` 필수 (공개 URL)
           - ``media_type=CAROUSEL`` → 풀 캐러셀 플로우는 M2+, 단일 아이템은
@@ -236,18 +235,14 @@ def _validate_media_type(media_type: str) -> None:
 
 
 def _validate_text_budget(text: Optional[str]) -> None:
-    """텍스트가 주어졌을 때 500 UTF-8 바이트 예산을 검사 (enforce 500-byte budget).
-
-    이모지·한글은 멀티바이트로 계산된다 — 예산은 문자 수가 아닌 UTF-8 바이트 수다.
-    """
+    """텍스트가 주어졌을 때 Meta의 500자 한도를 사전 검사한다."""
     if text is None:
         return
-    n = len(text.encode("utf-8"))
-    if n > TEXT_MAX_BYTES:
+    n = len(text)
+    if n > TEXT_MAX_CHARS:
         raise ValueError(
-            f"텍스트가 {TEXT_MAX_BYTES} UTF-8 바이트 제한을 초과합니다 "
-            f"(text exceeds the {TEXT_MAX_BYTES}-byte UTF-8 limit): 현재 (now) {n}바이트. "
-            "이모지·한글은 바이트 단위로 계산됩니다 (emoji/Korean count as multi-byte)."
+            f"텍스트가 {TEXT_MAX_CHARS}자 제한을 초과합니다 "
+            f"(text exceeds the {TEXT_MAX_CHARS}-character limit): 현재 {n}자."
         )
 
 

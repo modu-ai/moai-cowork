@@ -9,11 +9,11 @@
 
 ## 1. 무엇인가
 
-Virality Predictor는 완성된 영상 크리에이티브를 **주의(attention)의 객관적 대리 지표**로 평가한다. 사람에게 물어보지 않고 영상 자체에서 훅 강도·유지력·주의 분산 위험을 추정한다.
+Virality Predictor는 완성된 영상 크리에이티브의 훅·주의·유지력을 **모형 기반 추정치**로 평가한다. 실제 게시 성과나 시청자 반응을 보장하는 점수는 아니다. [Higgsfield 제품 안내](https://higgsfield.ai/apps/virality-predictor)는 최대 15초 클립을 입력으로 설명한다. 긴 영상은 전체 결과를 단정하지 말고 분석할 구간을 먼저 정한다.
 
 기술 식별자는 `brain_activity`지만, **사용자에게는 "바이럴 예측기"라는 제품명으로 부른다.** 내부 id를 노출하지 않는다.
 
-입력은 영상 1개, 출력은 텍스트 리포트다. 프롬프트는 필요 없다.
+입력은 영상 1개, 출력은 점수 리포트다. 프롬프트는 필요 없다. 현재 연결에 Virality Predictor 또는 `brain_activity` 제출 도구가 실제 노출됐는지 확인한다. 이 세션의 ChatGPT 공식 플러그인에는 장면별 `video_analysis_create`는 보였지만 Virality Predictor 제출 도구는 보이지 않았다. 두 결과를 같은 점수로 취급하지 않는다.
 
 ---
 

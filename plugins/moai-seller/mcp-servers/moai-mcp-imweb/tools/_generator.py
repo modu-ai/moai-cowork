@@ -109,6 +109,15 @@ def collect_body(spec, op) -> list[tuple[str, str, bool, str]]:
         return []
     props = sch.get("properties") or {}
     req = sch.get("required") or []
+    if not props and sch.get("oneOf"):
+        variants = [resolve_ref(spec, variant) for variant in sch["oneOf"]]
+        variants = [variant for variant in variants if isinstance(variant, dict)]
+        if variants:
+            props = {}
+            for variant in variants:
+                for name, prop in (variant.get("properties") or {}).items():
+                    props.setdefault(name, prop)
+            req = set.intersection(*(set(variant.get("required") or []) for variant in variants))
     out = []
     for pn, ps in props.items():
         t = body_field_type(ps)
@@ -265,8 +274,8 @@ def render_module(tag, slug, tool_name, label, ops):
     out.append("    _pp_val = {k: _params[k] for k in _pp if k in _params}")
     out.append("    _qp_val = {k: _params[k] for k in _qp if k in _params}")
     out.append("    _client = get_client()")
-    out.append('    if paginate and _method == "GET":')
-    out.append("        return _client.list_all_pages(_path, params=_qp_val or None)")
+    out.append('    if paginate and _method == "GET" and "page" in _qp and "limit" in _qp:')
+    out.append("        return _client.list_all_pages(_path, path_params=_pp_val or None, params=_qp_val or None)")
     out.append("    _kw = {}")
     out.append('    if _pp_val:\n        _kw["path_params"] = _pp_val')
     out.append('    if _qp_val:\n        _kw["params"] = _qp_val')

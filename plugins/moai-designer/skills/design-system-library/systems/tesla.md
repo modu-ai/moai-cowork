@@ -143,7 +143,7 @@ All buttons use barely-rounded rectangles (4px border-radius) — creating a sha
 - Overflow: hidden (clips image to rounded corners)
 - Text: white label in top-left corner ("Sport Sedan", "Midsize SUV")
 - Size: large format, approximately 2:1 aspect ratio
-- No shadow, no border, no overlay gradient — text relies on image darkness for contrast
+- No shadow, no border, no overlay gradient — check text contrast on each crop; add a local text backing when the image alone is too light
 
 ### Inputs & Forms
 - Background: transparent
@@ -257,15 +257,15 @@ Tesla's approach to elevation is essentially "none." The site avoids box-shadows
 | Large Desktop | >1440px | Content remains centered, hero photography scales to fill wider viewports, max-width container for nav panel content |
 
 ### Touch Targets
-- Primary CTA buttons: 200px × 40px minimum (well above 44×44px WCAG requirement)
-- Nav buttons: minimum 32px height with 4px 16px padding — adequate touch targets
+- Primary CTA buttons: 200px × 40px minimum; the 40px height does not meet the WCAG 2.5.5 enhanced 44×44px target, so enlarge to 44px when that AAA criterion applies
+- Nav buttons: minimum 32px height with 4px 16px padding — check each rendered target against WCAG 2.5.8 minimum size or spacing exceptions
 - Carousel arrows: ~44px square white semi-transparent buttons at viewport edges
 - Text links ("Learn", "Order"): 14px text with adequate line-height spacing for touch
 
 ### Collapsing Strategy
 - **Navigation**: Horizontal category buttons (Vehicles, Energy, Charging, Discover, Shop) collapse to a hamburger/drawer menu on mobile
 - **Hero CTA pair**: Side-by-side buttons on desktop stack vertically on mobile
-- **Category cards**: 2-up horizontal layout collapses to single-column full-width on mobile
+- **Category cards**: 2-up horizontal layout collapses to single-column full-width on mobile; check white-label contrast against each image crop and add a local backing if needed
 - **Vehicle grid**: 3-column grid in desktop nav panel becomes 2-column on tablet, single-column on mobile
 - **Spacing**: Section vertical padding remains generous (viewport-height sections) but horizontal padding reduces
 
@@ -288,10 +288,10 @@ Tesla's approach to elevation is essentially "none." The site avoids box-shadows
 - Dark surface: "Carbon Dark (#171A20)"
 
 ### Example Component Prompts
-- "Create a hero section with a full-viewport background image, centered 'Model Y' title in Universal Sans Display at 40px weight 500 in white, a subtitle line below, and two buttons side by side: a primary Electric Blue (#3E6AE1) 'Order Now' button and a secondary white 'View Inventory' button, both with 4px border-radius and 40px height"
+- "Create a hero section with a full-viewport background image, centered 'Model Y' title in Universal Sans Display at 40px weight 500 in white, a subtitle line below, and two buttons side by side: a primary Electric Blue (#3E6AE1) 'Order Now' button and a secondary white 'View Inventory' button, both with 4px border-radius and 40px height (44px when the WCAG 2.5.5 AAA target applies)"
 - "Design a navigation bar with a spaced-letter wordmark on the left, five text buttons (14px, weight 500, Carbon Dark #171A20) centered, and three icon buttons on the right, all on a white background with no shadow or border"
 - "Build a vehicle card grid with 3 columns, each card showing a transparent-background car image above a model name (17px, weight 500, Carbon Dark) and two text links (14px, weight 400, Pewter #5C5E62) labeled 'Learn' and 'Order', on a pure white surface with no borders or shadows"
-- "Create a category card with full-bleed landscape photography, 12px border-radius, overflow hidden, and a white text label ('Sport Sedan') positioned in the top-left corner with no overlay gradient"
+- "Create a category card with full-bleed landscape photography, 12px border-radius, overflow hidden, and a white text label ('Sport Sedan') positioned in the top-left corner with no overlay gradient; check the label against the final image crop and add a local text backing if needed"
 - "Design a persistent bottom bar with a chat input ('Ask a Question' placeholder), a send icon, and a secondary CTA ('Schedule a Drive Today') with a teal icon, anchored to the viewport bottom on a white background"
 
 ### Iteration Guide

@@ -8,12 +8,12 @@ Threads 클라이언트(threads_api.py) 와 같은 2단계 발행 모델을 따�
   2. :meth:`InstagramClient.publish`          → 컨테이너 발행       (``POST /{ig_user_id}/media_publish``)
 
 Threads 와의 주요 차이 (key differences vs Threads):
-  - 호스트 (host): ``graph.facebook.com`` (Facebook Login for Business) — ``graph.threads.com`` 아님.
+  - 호스트 (host): ``graph.facebook.com`` (Facebook Login for Business) — ``graph.threads.net`` 아님.
   - 이미지 (images): **JPEG-only**. Threads 와 달리 PNG 를 허용하지 않는다 (빠른 실패 휴리스틱).
   - 미디어 타입: ``IMAGE`` | ``VIDEO`` | ``REELS``. **TEXT-only 게시 없음** (캡션은 미디어에 붙음).
   - REELS: ``share_to_feed`` 플래그 지원.
   - VIDEO/REELS 발행: ``media_publish`` 전에 컨테이너 상태가 ``FINISHED`` 가 될 때까지 폴링 필수.
-  - 스케줄링: **서버 측 스케줄링 파라미터가 없다** — 큐가 유일한 예약 경로 (REQ-INST-009).
+  - 스케줄링: 본 클라이언트는 즉시 발행만 한다. 예약은 사용 중인 앱의 지원 여부를 확인한다 (REQ-INST-009).
 
 모든 HTTP 호출은 주입 가능한 :class:`httpx.Client` 로 수행한다 (테스트에서 가짜 transport 주입).
 non-2xx 응답은 :class:`InstagramAPIError` 로 변환된다 (``ThreadsAPIError`` 와 동일 필드 세트).
@@ -334,15 +334,15 @@ class InstagramClient:
         data = self._request("GET", f"/{self._ig_user_id}/content_publishing_limit", params=params)
         return data if isinstance(data, dict) else {"_raw": data}
 
-    # ------------------------------------------------------------------ comments (permission: manage_comments)
+    # ------------------------------------------------------------------ comments (permission: instagram_manage_comments)
     def comments_list(self, media_id: str) -> dict[str, Any]:
         """미디어의 댓글 목록 조회 (list comments on a media object).
 
-        ``manage_comments`` 권한 필요 (REQ-INST-018). 엔드포인트 경로는 run-phase 검증 대상.
+        ``instagram_manage_comments`` 권한 필요 (REQ-INST-018). 엔드포인트 경로는 run-phase 검증 대상.
         """
         # @MX:TODO: [AUTO] comments 엔드포인트 경로(/{media-id}/comments 등) 는 run-phase 에서 현행
         #   Meta "Instagram Graph API Reference" 로 검증 필요 (acceptance.md §D.4, spec REQ-INST-018).
-        #   권한 게이트(manage_comments) 가 부여된 경우에만 호출되며, 경로가 확정되면 본 마커를 지운다.
+        #   권한 게이트(instagram_manage_comments) 가 부여된 경우에만 호출되며, 경로가 확정되면 본 마커를 지운다.
         if not media_id:
             raise ValueError("media_id 가 필요합니다 (media_id is required)")
         params = {"access_token": self._access_token}
@@ -352,7 +352,7 @@ class InstagramClient:
     def comments_reply(self, comment_id: str, text: str) -> dict[str, Any]:
         """댓글에 답글 작성 (reply to a comment).
 
-        ``manage_comments`` 권한 필요 (REQ-INST-018). 엔드포인트 경로는 run-phase 검증 대상.
+        ``instagram_manage_comments`` 권한 필요 (REQ-INST-018). 엔드포인트 경로는 run-phase 검증 대상.
         """
         # @MX:TODO: [AUTO] comments_reply 엔드포인트/파라미터 검증 필요 (run-phase, acceptance.md §D.4).
         if not comment_id:
@@ -366,7 +366,7 @@ class InstagramClient:
     def comments_hide(self, comment_id: str) -> dict[str, Any]:
         """댓글 숨김 토글 (hide a comment).
 
-        ``manage_comments`` 권한 필요 (REQ-INST-018). 엔드포인트 경로는 run-phase 검증 대상.
+        ``instagram_manage_comments`` 권한 필요 (REQ-INST-018). 엔드포인트 경로는 run-phase 검증 대상.
         """
         # @MX:TODO: [AUTO] comments_hide 엔드포인트/파라미터 검증 필요 (run-phase, acceptance.md §D.4).
         if not comment_id:

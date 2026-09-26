@@ -1,14 +1,14 @@
 # 말풍선 사전 (세로 스크롤 웹툰용)
 
-> **누가 읽나 — 이 스킬이다. 말풍선을 직접 그리지 않는다.** 장면 감정 → 아래에서 **이름 고르기** → 그 **영어 스니펫을 컷 프롬프트에 그대로 복붙.** 그림은 이미지 모델이 그린다. 해석·번역하지 말고 스니펫을 그대로 쓴다(이름이 곧 작동 토큰).
+> 이 사전은 말풍선 형태를 설명하는 프롬프트 예시다. 실제 형태와 한글 가독성은 사용한 이미지 모델의 결과로 확인한다.
 
 ## 0. 원칙
 
-- **이름이 형태를 강제** — 이름 속 형태 단어("Spike")는 프롬프트로 못 뺀다. 빼려면 그 단어 없는 이름을 쓴다.
+- **이름과 형태를 함께 제시** — 이름만으로 특정 형태가 보장되지는 않는다.
 - **과분류 금지** — 비슷한 건 큰 갈래로 수렴. 감정 라벨(Angry/Rage…)은 형태에 매핑하고 따로 항목을 만들지 않는다.
-- **열림 원칙** — 사전은 바닥선(보장)이지 천장(규격)이 아니다. 모델이 더 나으면 자유 확장 가능, 판단은 사용자.
+- **열림 원칙** — 사전은 출발점이며 결과가 더 읽기 쉬우면 조정할 수 있다.
 - **점선구름 = 소심한 혼잣말 전용** / 생각 기본형은 Fine Spike Aura.
-- **클린 원고 역획득** — 완성본 → 말풍선 제거(원본 비율 유지)로 수정 안전망을 만든다.
+- **클린 원고 보존** — 말풍선을 넣기 전 원본 컷을 보관한다. 사후 제거가 원본 복원을 보장하지는 않는다.
 
 ## 1. 코어 (거의 모든 웹툰에 쓰임)
 
@@ -23,7 +23,7 @@
 | Wobble ⭐ | `a "Wobble Balloon" (wavy/shaky trembling outline)` | 불안·떨리는 목소리 |
 | Fine Spike Aura | `a "Fine Spike Aura" balloon (oval with a fine thin spiky aura outline, NO tail)` | 미묘한 긴장·깨달음(생각 기본형) |
 | Fuzzy/Inner Shock | `a "Fuzzy/Inner Shock" balloon (oval with a thick fuzzy fur-like aura, NO tail)` | 강한 내면 충격 |
-| Soft Cloud Thought | `a soft cloud thought balloon (cloud shape, dotted edge, small bubble tail)` | 소심한 혼잣말 |
+| Soft Cloud Thought | `a soft cloud thought balloon (cloud shape, dotted edge, NO tail)` | 소심한 혼잣말 |
 
 ### 외침 / 감정
 | 이름 | 복붙 스니펫 | 언제 |
@@ -110,7 +110,7 @@
 - **컷 안 고정(contained)** — `keep this balloon inside the panel` : 대사가 그 컷의 사건에 묶일 때.
 - **여백 띠 활용(스크롤 전환)** — 컷과 컷 사이 세로 빈 띠에 나레이션/독백을 얹어 장면을 넘긴다. `place this narration in the vertical gap band between panels` : 시간·장소 전환의 호흡.
 - **여백 띠 침범 금지(원칙)** — 말풍선이 **아래 컷의 그림 영역을 덮어** 스크롤 리듬을 깨뜨리면 안 된다. 큰 외침이라도 여백 띠 안에서 키우고, 다음 컷 그림 위로 흘러내리지 않게 한다. `do NOT let the balloon spill over into the next panel's artwork`.
-- **1화면 동시 노출 상한** — 모바일 세로 뷰포트 한 화면(스크롤 한 눈)에 **말풍선은 2~3개를 넘기지 않게** 배치한다. 한 화면에 대사가 몰리면 읽기 순서가 무너진다. 대사가 많으면 컷을 세로로 더 쪼개 여러 화면에 나눈다.
+- **1화면 가독성** — 실제 모바일 크기로 축소해 말풍선의 수·글자 크기·읽기 순서를 확인한다. 필요하면 컷을 나누거나 대사를 줄인다.
 - **읽기 순서** — 세로 웹툰은 기본 위→아래. 한 컷/한 화면에 2풍선이면 순서를 명시: `top balloon FIRST, bottom balloon SECOND`, 각자 꼬리 입 쪽.
 
 ## 5. 큰 글씨 배분
@@ -126,7 +126,7 @@
 
 - **수렴:** Cave Echo → Echo · Smoke·Dream → Soft Cloud · Slime → Dripping.
 - **제외:** Speed(풍선 형태 아님 — 화살표/속도선의 클린 효과로 처리).
-- **손글씨체:** 본문 금지 — 효과음·특수 요소에만. 서체 규칙은 `korean-lettering.md`.
+- **손글씨체:** 본문에 쓰려면 실제 크기의 가독성과 작품의 서체 규칙을 확인한다. 참고는 `korean-lettering.md`.
 
 ## 출처
 

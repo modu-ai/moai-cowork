@@ -606,7 +606,7 @@
             "name": "qnaNoList",
             "required": true,
             "in": "query",
-            "description": "답글을 조회할 Q&A 번호 목록(최소 1개, 최대 10개)",
+            "description": "답글을 조회할 Q&A 번호 목록. 반복 query 또는 쉼표로 구분해 요청합니다. 최소 1개, 최대 10개",
             "schema": {
               "type": "array",
               "items": {
@@ -1202,7 +1202,7 @@
             "name": "reviewNoList",
             "required": true,
             "in": "query",
-            "description": "답글을 조회할 구매평 번호 목록(최소 1개, 최대 10개)",
+            "description": "답글을 조회할 구매평 번호 목록. 반복 query 또는 쉼표로 구분해 요청합니다. 최소 1개, 최대 10개",
             "schema": {
               "type": "array",
               "items": {
@@ -1549,6 +1549,16 @@
             }
           },
           {
+            "name": "recommendCode",
+            "required": false,
+            "in": "query",
+            "description": "추천인 코드",
+            "schema": {
+              "example": "0ESZUKXC",
+              "type": "string"
+            }
+          },
+          {
             "name": "joinTimeRangeType",
             "required": false,
             "in": "query",
@@ -1687,6 +1697,44 @@
             }
           },
           {
+            "name": "memberCodes",
+            "required": false,
+            "in": "query",
+            "description": "회원 코드 목록. 반복 query 또는 쉼표로 구분해 요청합니다. memberCode와 함께 사용할 수 없습니다. 최대 100개",
+            "schema": {
+              "minItems": 1,
+              "maxItems": 100,
+              "uniqueItems": true,
+              "example": [
+                "m20250402e3b6987310679",
+                "m20250402e3b6987310680"
+              ],
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "memberUids",
+            "required": false,
+            "in": "query",
+            "description": "회원 UID 목록. 반복 query 또는 쉼표로 구분해 요청합니다. memberUid와 함께 사용할 수 없습니다. 최대 100개",
+            "schema": {
+              "minItems": 1,
+              "maxItems": 100,
+              "uniqueItems": true,
+              "example": [
+                "user1@imweb.me",
+                "user2@imweb.me"
+              ],
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
             "name": "smsAgree",
             "required": false,
             "in": "query",
@@ -1737,6 +1785,25 @@
               "example": "01012345678",
               "type": "string"
             }
+          },
+          {
+            "name": "callnums",
+            "required": false,
+            "in": "query",
+            "description": "회원 전화번호 목록. 반복 query 또는 쉼표로 구분해 요청합니다. callnum과 함께 사용할 수 없습니다. 최대 100개",
+            "schema": {
+              "minItems": 1,
+              "maxItems": 100,
+              "uniqueItems": true,
+              "example": [
+                "01012345678",
+                "01087654321"
+              ],
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
           }
         ],
         "responses": {
@@ -1786,6 +1853,16 @@
       "get": {
         "operationId": "MemberInfoController_readMemberInfoListByCursor",
         "parameters": [
+          {
+            "name": "recommendCode",
+            "required": false,
+            "in": "query",
+            "description": "추천인 코드",
+            "schema": {
+              "example": "0ESZUKXC",
+              "type": "string"
+            }
+          },
           {
             "name": "joinTimeRangeType",
             "required": false,
@@ -3345,7 +3422,7 @@
             }
           },
           {
-            "description": "접근이 필요한 권한을 공백으로 구분하여 전달\n \n  - site-info:read: 사이트 정보 읽기\n- site-info:write: 사이트 정보 읽기∙쓰기\n- member-info:read: 회원 정보 읽기\n- member-info:write: 회원 정보 읽기∙쓰기\n- promotion:read: 프로모션 읽기\n- promotion:write: 프로모션 읽기∙쓰기\n- community:read: 커뮤니티 읽기\n- community:write: 커뮤니티 읽기∙쓰기\n- product:read: 상품 읽기\n- product:write: 상품 읽기∙쓰기\n- order:read: 주문 읽기\n- order:write: 주문 읽기∙쓰기\n- payment:read: 결제 읽기\n- payment:write: 결제 읽기∙쓰기\n- script:read: 스크립트 읽기\n- script:write: 스크립트 읽기∙쓰기\n- statistics:read: 통계 읽기\n- statistics:write: 통계 읽기∙쓰기",
+            "description": "접근이 필요한 권한을 공백으로 구분하여 전달\n \n  - site-info:read: 사이트 정보 읽기\n- site-info:write: 사이트 정보 읽기∙쓰기\n- member-info:read: 회원 정보 읽기\n- member-info:write: 회원 정보 읽기∙쓰기\n- promotion:read: 프로모션 읽기\n- promotion:write: 프로모션 읽기∙쓰기\n- community:read: 커뮤니티 읽기\n- community:write: 커뮤니티 읽기∙쓰기\n- product:read: 상품 읽기\n- product:write: 상품 읽기∙쓰기\n- order:read: 주문 읽기\n- order:write: 주문 읽기∙쓰기\n- payment:read: 결제 읽기\n- payment:write: 결제 읽기∙쓰기\n- script:read: 스크립트 읽기\n- script:write: 스크립트 읽기∙쓰기\n- analytics:read: 통계 데이터 읽기",
             "name": "scope",
             "in": "query",
             "required": true,
@@ -3980,6 +4057,7 @@
                 "JAPANESE_CONVENIENCE_STORE",
                 "PAYVERSE",
                 "KAKAOPAY_DIRECT",
+                "PREPAID_CARD",
                 "ETC"
               ],
               "x-enumNames": [
@@ -4010,6 +4088,7 @@
                 "일본 편의점 결제",
                 "페이버스",
                 "카카오페이(직연동)",
+                "한국선불카드",
                 "기타 외부 결제"
               ]
             }
@@ -4146,7 +4225,7 @@
             }
           },
           "default": {
-            "description": "## Error List Up \n statusCode | errorCode | message \n |---|---|---|\n  500 |10000 | 아임웹 내부 서버에서 에러가 발생했습니다.\n  400 |10001 | 잘못된 입력으로 요청하였습니다.\n  400 |10003 | 잘못된 데이터로 요청하였습니다.\n  400 |10004 | 잘못된 입력으로 요청하였습니다.\n  400 |30096 | 주문 정보를 찾을 수 없습니다.\n  400 |30098 | 클라이언트 정보가 올바르지 않습니다.\n  400 |30099 | 요청한 scope가 올바르지 않습니다.\n  401 |30101 | 토큰이 유효하지 않습니다.\n  401 |30102 | 토큰이 만료되었습니다.\n  403 |30103 | 권한이 부족합니다.\n  400 |30104 | 유닛 코드가 유효하지 않습니다.\n  401 |30105 | 인증 정보가 유효하지 않습니다."
+            "description": "## Error List Up \n statusCode | errorCode | message \n |---|---|---|\n  500 |10000 | 아임웹 내부 서버에서 에러가 발생했습니다.\n  400 |10001 | 잘못된 입력으로 요청하였습니다.\n  400 |10003 | 잘못된 데이터로 요청하였습니다.\n  400 |10004 | 잘못된 입력으로 요청하였습니다.\n  400 |30096 | 주문 정보를 찾을 수 없습니다.\n  400 |30098 | 클라이언트 정보가 올바르지 않습니다.\n  400 |30099 | 요청한 scope가 올바르지 않습니다.\n  401 |30101 | 토큰이 유효하지 않습니다.\n  401 |30102 | 토큰이 만료되었습니다.\n  403 |30103 | 권한이 부족합니다.\n  400 |30104 | 유닛 코드가 유효하지 않습니다.\n  401 |30105 | 인증 정보가 유효하지 않습니다.\n  400 |30273 | 미연동 상품이 포함된 주문은 조회되지 않습니다."
           }
         },
         "security": [
@@ -4370,7 +4449,7 @@
             }
           },
           "default": {
-            "description": "## Error List Up \n statusCode | errorCode | message \n |---|---|---|\n  500 |10000 | 아임웹 내부 서버에서 에러가 발생했습니다.\n  400 |10001 | 잘못된 입력으로 요청하였습니다.\n  400 |10003 | 잘못된 데이터로 요청하였습니다.\n  400 |10004 | 잘못된 입력으로 요청하였습니다.\n  400 |30060 | 주문이 존재하지 않습니다.\n  400 |30098 | 클라이언트 정보가 올바르지 않습니다.\n  400 |30099 | 요청한 scope가 올바르지 않습니다.\n  401 |30101 | 토큰이 유효하지 않습니다.\n  401 |30102 | 토큰이 만료되었습니다.\n  403 |30103 | 권한이 부족합니다.\n  400 |30104 | 유닛 코드가 유효하지 않습니다.\n  401 |30105 | 인증 정보가 유효하지 않습니다."
+            "description": "## Error List Up \n statusCode | errorCode | message \n |---|---|---|\n  500 |10000 | 아임웹 내부 서버에서 에러가 발생했습니다.\n  400 |10001 | 잘못된 입력으로 요청하였습니다.\n  400 |10003 | 잘못된 데이터로 요청하였습니다.\n  400 |10004 | 잘못된 입력으로 요청하였습니다.\n  400 |30060 | 주문이 존재하지 않습니다.\n  400 |30098 | 클라이언트 정보가 올바르지 않습니다.\n  400 |30099 | 요청한 scope가 올바르지 않습니다.\n  401 |30101 | 토큰이 유효하지 않습니다.\n  401 |30102 | 토큰이 만료되었습니다.\n  403 |30103 | 권한이 부족합니다.\n  400 |30104 | 유닛 코드가 유효하지 않습니다.\n  401 |30105 | 인증 정보가 유효하지 않습니다.\n  400 |30273 | 미연동 상품이 포함된 주문은 조회되지 않습니다."
           }
         },
         "security": [
@@ -4437,7 +4516,7 @@
             }
           },
           "default": {
-            "description": "## Error List Up \n statusCode | errorCode | message \n |---|---|---|\n  500 |10000 | 아임웹 내부 서버에서 에러가 발생했습니다.\n  400 |10001 | 잘못된 입력으로 요청하였습니다.\n  400 |10003 | 잘못된 데이터로 요청하였습니다.\n  400 |10004 | 잘못된 입력으로 요청하였습니다.\n  400 |30060 | 주문이 존재하지 않습니다.\n  400 |30097 | 주문 섹션 정보를 찾을 수 없습니다.\n  400 |30098 | 클라이언트 정보가 올바르지 않습니다.\n  400 |30099 | 요청한 scope가 올바르지 않습니다.\n  401 |30101 | 토큰이 유효하지 않습니다.\n  401 |30102 | 토큰이 만료되었습니다.\n  403 |30103 | 권한이 부족합니다.\n  400 |30104 | 유닛 코드가 유효하지 않습니다.\n  401 |30105 | 인증 정보가 유효하지 않습니다."
+            "description": "## Error List Up \n statusCode | errorCode | message \n |---|---|---|\n  500 |10000 | 아임웹 내부 서버에서 에러가 발생했습니다.\n  400 |10001 | 잘못된 입력으로 요청하였습니다.\n  400 |10003 | 잘못된 데이터로 요청하였습니다.\n  400 |10004 | 잘못된 입력으로 요청하였습니다.\n  400 |30060 | 주문이 존재하지 않습니다.\n  400 |30097 | 주문 섹션 정보를 찾을 수 없습니다.\n  400 |30098 | 클라이언트 정보가 올바르지 않습니다.\n  400 |30099 | 요청한 scope가 올바르지 않습니다.\n  401 |30101 | 토큰이 유효하지 않습니다.\n  401 |30102 | 토큰이 만료되었습니다.\n  403 |30103 | 권한이 부족합니다.\n  400 |30104 | 유닛 코드가 유효하지 않습니다.\n  401 |30105 | 인증 정보가 유효하지 않습니다.\n  400 |30273 | 미연동 상품이 포함된 주문은 조회되지 않습니다."
           }
         },
         "security": [
@@ -4506,7 +4585,7 @@
             }
           },
           "default": {
-            "description": "## Error List Up \n statusCode | errorCode | message \n |---|---|---|\n  500 |10000 | 아임웹 내부 서버에서 에러가 발생했습니다.\n  400 |10001 | 잘못된 입력으로 요청하였습니다.\n  400 |10003 | 잘못된 데이터로 요청하였습니다.\n  400 |10004 | 잘못된 입력으로 요청하였습니다.\n  400 |30060 | 주문이 존재하지 않습니다.\n  400 |30098 | 클라이언트 정보가 올바르지 않습니다.\n  400 |30099 | 요청한 scope가 올바르지 않습니다.\n  401 |30101 | 토큰이 유효하지 않습니다.\n  401 |30102 | 토큰이 만료되었습니다.\n  403 |30103 | 권한이 부족합니다.\n  400 |30104 | 유닛 코드가 유효하지 않습니다.\n  401 |30105 | 인증 정보가 유효하지 않습니다."
+            "description": "## Error List Up \n statusCode | errorCode | message \n |---|---|---|\n  500 |10000 | 아임웹 내부 서버에서 에러가 발생했습니다.\n  400 |10001 | 잘못된 입력으로 요청하였습니다.\n  400 |10003 | 잘못된 데이터로 요청하였습니다.\n  400 |10004 | 잘못된 입력으로 요청하였습니다.\n  400 |30060 | 주문이 존재하지 않습니다.\n  400 |30098 | 클라이언트 정보가 올바르지 않습니다.\n  400 |30099 | 요청한 scope가 올바르지 않습니다.\n  401 |30101 | 토큰이 유효하지 않습니다.\n  401 |30102 | 토큰이 만료되었습니다.\n  403 |30103 | 권한이 부족합니다.\n  400 |30104 | 유닛 코드가 유효하지 않습니다.\n  401 |30105 | 인증 정보가 유효하지 않습니다.\n  400 |30273 | 미연동 상품이 포함된 주문은 조회되지 않습니다."
           }
         },
         "security": [
@@ -4582,7 +4661,7 @@
             }
           },
           "default": {
-            "description": "## Error List Up \n statusCode | errorCode | message \n |---|---|---|\n  500 |10000 | 아임웹 내부 서버에서 에러가 발생했습니다.\n  400 |10001 | 잘못된 입력으로 요청하였습니다.\n  400 |10003 | 잘못된 데이터로 요청하였습니다.\n  400 |10004 | 잘못된 입력으로 요청하였습니다.\n  400 |30060 | 주문이 존재하지 않습니다.\n  400 |30092 | 주문 섹션아이템 정보를 찾을 수 없습니다.\n  400 |30098 | 클라이언트 정보가 올바르지 않습니다.\n  400 |30099 | 요청한 scope가 올바르지 않습니다.\n  401 |30101 | 토큰이 유효하지 않습니다.\n  401 |30102 | 토큰이 만료되었습니다.\n  403 |30103 | 권한이 부족합니다.\n  400 |30104 | 유닛 코드가 유효하지 않습니다.\n  401 |30105 | 인증 정보가 유효하지 않습니다."
+            "description": "## Error List Up \n statusCode | errorCode | message \n |---|---|---|\n  500 |10000 | 아임웹 내부 서버에서 에러가 발생했습니다.\n  400 |10001 | 잘못된 입력으로 요청하였습니다.\n  400 |10003 | 잘못된 데이터로 요청하였습니다.\n  400 |10004 | 잘못된 입력으로 요청하였습니다.\n  400 |30060 | 주문이 존재하지 않습니다.\n  400 |30092 | 주문 섹션아이템 정보를 찾을 수 없습니다.\n  400 |30098 | 클라이언트 정보가 올바르지 않습니다.\n  400 |30099 | 요청한 scope가 올바르지 않습니다.\n  401 |30101 | 토큰이 유효하지 않습니다.\n  401 |30102 | 토큰이 만료되었습니다.\n  403 |30103 | 권한이 부족합니다.\n  400 |30104 | 유닛 코드가 유효하지 않습니다.\n  401 |30105 | 인증 정보가 유효하지 않습니다.\n  400 |30273 | 미연동 상품이 포함된 주문은 조회되지 않습니다."
           }
         },
         "security": [
@@ -4792,6 +4871,11 @@
         "security": [
           {
             "access-token": []
+          },
+          {
+            "oauth2": [
+              "order:write"
+            ]
           }
         ],
         "summary": "주문 섹션 배송 처리",
@@ -4863,6 +4947,11 @@
         "security": [
           {
             "access-token": []
+          },
+          {
+            "oauth2": [
+              "order:write"
+            ]
           }
         ],
         "summary": "주문 섹션아이템 배송 처리",
@@ -8094,6 +8183,11 @@
         "security": [
           {
             "access-token": []
+          },
+          {
+            "oauth2": [
+              "product:write"
+            ]
           }
         ],
         "summary": "상품 옵션 수정",
@@ -8120,7 +8214,7 @@
             "name": "prodNos",
             "required": true,
             "in": "query",
-            "description": "조회할 상품 번호 리스트",
+            "description": "조회할 상품 번호 리스트. 반복 query 또는 쉼표로 구분해 요청합니다.",
             "schema": {
               "minItems": 1,
               "maxItems": 10,
@@ -8176,6 +8270,124 @@
           }
         ],
         "summary": "상품 옵션 일괄 조회",
+        "tags": [
+          "Product"
+        ]
+      }
+    },
+    "/products/custom-attribute-definitions": {
+      "get": {
+        "description": "현재 사이트에서 상품에 사용할 수 있는 커스텀 속성 정의를 생성순으로 조회합니다.",
+        "operationId": "ProductController_readProductCustomAttributeDefinitions",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "조회 성공",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "description": "상태 코드",
+                      "example": 200
+                    },
+                    "data": {
+                      "type": "object",
+                      "$ref": "#/components/schemas/ReadProductCustomAttributeDefinitionsResponseDto"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "## Error List Up \n statusCode | errorCode | message \n |---|---|---|\n  500 |10000 | 아임웹 내부 서버에서 에러가 발생했습니다.\n  400 |10001 | 잘못된 입력으로 요청하였습니다.\n  400 |10003 | 잘못된 데이터로 요청하였습니다.\n  400 |10004 | 잘못된 입력으로 요청하였습니다.\n  400 |30098 | 클라이언트 정보가 올바르지 않습니다.\n  400 |30099 | 요청한 scope가 올바르지 않습니다.\n  401 |30101 | 토큰이 유효하지 않습니다.\n  401 |30102 | 토큰이 만료되었습니다.\n  403 |30103 | 권한이 부족합니다.\n  400 |30104 | 유닛 코드가 유효하지 않습니다.\n  401 |30105 | 인증 정보가 유효하지 않습니다."
+          }
+        },
+        "security": [
+          {
+            "access-token": []
+          },
+          {
+            "oauth2": [
+              "product:read",
+              "product:write"
+            ]
+          }
+        ],
+        "summary": "상품 커스텀 속성 정의 목록 조회",
+        "tags": [
+          "Product"
+        ]
+      }
+    },
+    "/products/custom-attribute-values": {
+      "get": {
+        "description": "최대 100개 상품의 저장된 커스텀 속성값을 요청 순서대로 조회합니다. 미입력 속성은 생략하고 제거된 선택지는 별도로 표시합니다.",
+        "operationId": "ProductController_readProductCustomAttributeValues",
+        "parameters": [
+          {
+            "name": "prodNos",
+            "required": true,
+            "in": "query",
+            "description": "커스텀 속성값을 조회할 상품 번호. 반복 query 또는 쉼표로 구분해 최대 100개까지 요청할 수 있습니다.",
+            "schema": {
+              "minItems": 1,
+              "maxItems": 100,
+              "uniqueItems": true,
+              "example": [
+                205,
+                101
+              ],
+              "type": "array",
+              "items": {
+                "type": "number",
+                "maximum": 9007199254740991,
+                "minimum": 1
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "조회 성공",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "description": "상태 코드",
+                      "example": 200
+                    },
+                    "data": {
+                      "type": "object",
+                      "$ref": "#/components/schemas/ReadProductCustomAttributeValuesResponseDto"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "## Error List Up \n statusCode | errorCode | message \n |---|---|---|\n  500 |10000 | 아임웹 내부 서버에서 에러가 발생했습니다.\n  400 |10001 | 잘못된 입력으로 요청하였습니다.\n  400 |10003 | 잘못된 데이터로 요청하였습니다.\n  400 |10004 | 잘못된 입력으로 요청하였습니다.\n  404 |30016 | 상품이 존재하지 않습니다.\n  400 |30098 | 클라이언트 정보가 올바르지 않습니다.\n  400 |30099 | 요청한 scope가 올바르지 않습니다.\n  401 |30101 | 토큰이 유효하지 않습니다.\n  401 |30102 | 토큰이 만료되었습니다.\n  403 |30103 | 권한이 부족합니다.\n  400 |30104 | 유닛 코드가 유효하지 않습니다.\n  401 |30105 | 인증 정보가 유효하지 않습니다."
+          }
+        },
+        "security": [
+          {
+            "access-token": []
+          },
+          {
+            "oauth2": [
+              "product:read",
+              "product:write"
+            ]
+          }
+        ],
+        "summary": "상품 커스텀 속성값 일괄 조회",
         "tags": [
           "Product"
         ]
@@ -8543,6 +8755,11 @@
         "security": [
           {
             "access-token": []
+          },
+          {
+            "oauth2": [
+              "product:write"
+            ]
           }
         ],
         "summary": "상품 옵션 상세 수정",
@@ -9685,7 +9902,7 @@
             "name": "pointValue",
             "required": false,
             "in": "query",
-            "description": "포인트 검색 값 (gte/lte: 하나의 포인트, between: 두 개의 포인트)<br>\n      예시\n      [1000] 또는 [1000, 2000]",
+            "description": "포인트 검색 값 (gte/lte: 하나의 포인트, between: 두 개의 포인트)<br>\n      반복 query 또는 쉼표로 구분해 요청<br>\n      예시\n      [1000] 또는 [1000, 2000]",
             "schema": {
               "minItems": 1,
               "maxItems": 2,
@@ -9837,7 +10054,7 @@
             "name": "memberUids",
             "required": false,
             "in": "query",
-            "description": "회원 아이디 목록",
+            "description": "회원 아이디 목록. 반복 query 또는 쉼표로 구분해 요청합니다.",
             "schema": {
               "example": [
                 "imweb1@imweb.me",
@@ -11788,8 +12005,7 @@
               "payment:write": "결제 읽기∙쓰기",
               "script:read": "스크립트 읽기",
               "script:write": "스크립트 읽기∙쓰기",
-              "statistics:read": "통계 읽기",
-              "statistics:write": "통계 읽기∙쓰기"
+              "analytics:read": "통계 데이터 읽기"
             }
           }
         }
@@ -12963,11 +13179,6 @@
             "description": "작성자",
             "example": "홍길동"
           },
-          "pass": {
-            "type": "object",
-            "description": "비회원 구매평 비밀번호",
-            "example": "123456"
-          },
           "body": {
             "type": "string",
             "description": "구매평 내용",
@@ -13227,11 +13438,6 @@
             "type": "string",
             "description": "작성자",
             "example": "홍길동"
-          },
-          "pass": {
-            "type": "string",
-            "description": "비회원 구매평 비밀번호",
-            "example": "1234"
           },
           "body": {
             "type": "string",
@@ -15027,6 +15233,20 @@
             "description": "상품명",
             "example": "T-shirt"
           },
+          "prodUrl": {
+            "type": "string",
+            "format": "uri",
+            "description": "상품 상세페이지 URL",
+            "example": "https://example.imweb.me/shop_view?idx=1",
+            "nullable": true
+          },
+          "prodImageUrl": {
+            "type": "string",
+            "format": "uri",
+            "description": "상품 이미지 URL",
+            "example": "https://cdn-optimized.imweb.me/upload/S2024012430f7813d2ddaf/14216d3e7caa1.png",
+            "nullable": true
+          },
           "baseItemPrice": {
             "type": "number",
             "description": "상품 원가 (할인 전)",
@@ -15101,6 +15321,8 @@
           "prodNo",
           "prodCode",
           "prodName",
+          "prodUrl",
+          "prodImageUrl",
           "baseItemPrice",
           "itemPrice",
           "count",
@@ -16319,7 +16541,8 @@
               "ETC",
               "PAYVERSE",
               "TOSSPAY",
-              "KAKAOPAY"
+              "KAKAOPAY",
+              "KPC"
             ],
             "x-enumNames": [
               "무통장입금",
@@ -16341,7 +16564,8 @@
               "기타",
               "페이버스",
               "토스페이",
-              "카카오페이"
+              "카카오페이",
+              "한국선불카드"
             ],
             "description": "결제 PG사"
           },
@@ -16383,6 +16607,7 @@
               "JAPANESE_CONVENIENCE_STORE",
               "PAYVERSE",
               "KAKAOPAY_DIRECT",
+              "PREPAID_CARD",
               "ETC"
             ],
             "x-enumNames": [
@@ -16413,6 +16638,7 @@
               "일본 편의점 결제",
               "페이버스",
               "카카오페이(직연동)",
+              "한국선불카드",
               "기타 외부 결제"
             ],
             "description": "결제 수단 코드"
@@ -16579,13 +16805,17 @@
               "IMWEB",
               "NAVERPAY_ORDER",
               "TALKCHECKOUT",
-              "SMARTSTORE"
+              "SMARTSTORE",
+              "KAKAO_GIFT",
+              "COUPANG"
             ],
             "x-enumNames": [
               "아임웹",
               "네이버페이-주문형",
               "톡체크아웃-주문형",
-              "스마트스토어"
+              "스마트스토어",
+              "카카오톡선물하기",
+              "쿠팡"
             ],
             "description": "판매 채널"
           },
@@ -16906,13 +17136,17 @@
               "IMWEB",
               "NAVERPAY_ORDER",
               "TALKCHECKOUT",
-              "SMARTSTORE"
+              "SMARTSTORE",
+              "KAKAO_GIFT",
+              "COUPANG"
             ],
             "x-enumNames": [
               "아임웹",
               "네이버페이-주문형",
               "톡체크아웃-주문형",
-              "스마트스토어"
+              "스마트스토어",
+              "카카오톡선물하기",
+              "쿠팡"
             ],
             "description": "판매 채널"
           },
@@ -21936,6 +22170,179 @@
           "optionValueList",
           "isRequire",
           "prodNo"
+        ]
+      },
+      "ProductCustomAttributeDefinitionDataDto": {
+        "type": "object",
+        "properties": {
+          "attributeCode": {
+            "type": "string",
+            "description": "커스텀 속성의 불변 식별 코드",
+            "example": "at202608310000000000001"
+          },
+          "key": {
+            "type": "string",
+            "description": "사이트 내 커스텀 속성 Key",
+            "example": "material"
+          },
+          "displayName": {
+            "type": "string",
+            "description": "커스텀 속성 표시 이름",
+            "example": "소재"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "TEXT",
+              "NUMBER",
+              "DATE",
+              "URL",
+              "SELECT",
+              "JSON"
+            ],
+            "description": "커스텀 속성 데이터 유형",
+            "example": "SELECT"
+          },
+          "selectionMode": {
+            "type": "string",
+            "enum": [
+              "SINGLE",
+              "MULTIPLE"
+            ],
+            "description": "SELECT 선택 방식. 비선택 타입은 null입니다.",
+            "example": "MULTIPLE",
+            "nullable": true
+          },
+          "options": {
+            "description": "현재 선택 가능한 선택지 목록. 비선택 타입은 빈 배열입니다.",
+            "maxItems": 100,
+            "example": [
+              "면",
+              "울"
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "attributeCode",
+          "key",
+          "displayName",
+          "type",
+          "selectionMode",
+          "options"
+        ]
+      },
+      "ReadProductCustomAttributeDefinitionsResponseDto": {
+        "type": "object",
+        "properties": {
+          "customAttributeDefinitions": {
+            "description": "사이트의 현재 상품 커스텀 속성 정의 목록. 정의가 없으면 빈 배열입니다.",
+            "maxItems": 10,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductCustomAttributeDefinitionDataDto"
+            }
+          }
+        },
+        "required": [
+          "customAttributeDefinitions"
+        ]
+      },
+      "ProductCustomAttributeValueDataDto": {
+        "type": "object",
+        "properties": {
+          "attributeCode": {
+            "type": "string",
+            "description": "커스텀 속성 정의의 attributeCode",
+            "example": "at202608310000000000001"
+          },
+          "value": {
+            "description": "저장된 속성값. 정의의 type에 따라 문자열, 숫자, 문자열 배열, JSON 객체 또는 JSON 배열로 반환됩니다.",
+            "oneOf": [
+              {
+                "type": "string",
+                "example": "면"
+              },
+              {
+                "type": "number",
+                "example": 123.45
+              },
+              {
+                "type": "array",
+                "items": {},
+                "example": [
+                  "울",
+                  "면"
+                ]
+              },
+              {
+                "type": "object",
+                "additionalProperties": true,
+                "example": {
+                  "enabled": true,
+                  "note": null
+                }
+              }
+            ]
+          },
+          "unavailableOptionValues": {
+            "description": "현재 정의에서 제거되어 새로 선택할 수 없는 선택지 값",
+            "maxItems": 100,
+            "example": [
+              "울"
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "attributeCode",
+          "value",
+          "unavailableOptionValues"
+        ]
+      },
+      "ProductCustomAttributeValuesByProductDataDto": {
+        "type": "object",
+        "properties": {
+          "prodNo": {
+            "type": "number",
+            "description": "상품 번호",
+            "example": 205
+          },
+          "customAttributeValues": {
+            "description": "상품에 실제 저장된 커스텀 속성값. 미입력 속성은 포함하지 않습니다.",
+            "maxItems": 10,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductCustomAttributeValueDataDto"
+            }
+          }
+        },
+        "required": [
+          "prodNo",
+          "customAttributeValues"
+        ]
+      },
+      "ReadProductCustomAttributeValuesResponseDto": {
+        "type": "object",
+        "properties": {
+          "products": {
+            "description": "요청한 순서의 상품별 커스텀 속성값 목록",
+            "minItems": 1,
+            "maxItems": 100,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductCustomAttributeValuesByProductDataDto"
+            }
+          }
+        },
+        "required": [
+          "products"
         ]
       },
       "ReadOneShopProductResponseDto": {

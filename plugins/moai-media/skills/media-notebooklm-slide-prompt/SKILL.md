@@ -12,7 +12,7 @@ description: |
   - "슬라이드 이미지 프롬프트", "나노바나나 슬라이드", "Nano Banana 슬라이드"
   - "본문 MD를 NotebookLM 프롬프트로 변환", "강연용 슬라이드 자료 만들어줘"
   - "PPT 발표 자료 프롬프트", "발표 슬라이드 통째로 생성"
-version: "1.1.0"
+version: "1.1.2"
 ---
 
 # media-notebooklm-slide-prompt — NotebookLM 슬라이드 데크 + 나노바나나 이미지 프롬프트 빌더
@@ -28,11 +28,11 @@ version: "1.1.0"
 | 구분 | media-notebooklm-slide-prompt | doc-pptx |
 |---|---|---|
 | 산출물 | NotebookLM 소스 정리 + Studio Prompt 텍스트 + 슬라이드별 이미지 프롬프트 | 편집 가능한 `.pptx` 파일 (pptxgenjs 코드) |
-| 결과물을 어디서 보나 | NotebookLM Studio가 슬라이드를 생성 | PowerPoint·Keynote에서 바로 열림 |
+| 결과물을 어디서 보나 | NotebookLM Studio에서 생성하고 PDF·PPTX로 내려받을 수 있음 | PowerPoint·Keynote에서 바로 열림 |
 | 입력 | 강연·강의 본문 MD | 보고서·기획 내용 + 디자인 요구 |
 | 언제 쓰나 | "NotebookLM으로 발표자료 만들 프롬프트가 필요" | "지금 바로 열리는 PPT 파일이 필요" |
 
-요약: **NotebookLM에 넣을 준비물(소스·대본·구조·이미지 프롬프트)을 만드는 빌더**가 이 스킬입니다. 실제 `.pptx` 파일이 필요하면 `moai-officer:doc-pptx`를 호출하세요. "PPT 파일로 뽑아줘"는 `moai-officer:doc-pptx`, "NotebookLM 슬라이드 프롬프트 만들어줘"는 이 스킬입니다.
+요약: **NotebookLM에 넣을 준비물(소스·대본·구조·이미지 프롬프트)을 만드는 빌더**가 이 스킬입니다. NotebookLM에서 만든 데크도 현재 도움말에 따라 `.pptx`로 내려받을 수 있습니다. NotebookLM을 거치지 않고 바로 편집할 PPT 파일을 요청했다면, 해당 스킬이 설치된 경우 `moai-officer:doc-pptx`로 연결합니다. 사용자가 선택한 제작 경로를 확인하지 않고 바꾸지 않습니다.
 
 ## 트리거 키워드
 
@@ -66,7 +66,7 @@ version: "1.1.0"
 
 ### Phase 1 — Intake & Interview
 
-본문 MD가 첨부되어 있는지 확인. 없으면 한 줄로 요약된 주제·핵심 포인트라도 받는다. 누락된 선택 항목은 AskUserQuestion 한 라운드(3~4질문 이내)로 묶어서 묻는다:
+본문 MD가 첨부되어 있는지 확인. 없으면 한 줄로 요약된 주제·핵심 포인트라도 받는다. 직접 실행에서 필수 입력이 빠졌을 때만 현재 앱의 질문 채널로 한 번에 묻는다. 하위 에이전트 실행에서는 질문 도구가 보이더라도 상위 오케스트레이터에 필요한 입력을 명시한 blocker를 반환한다. 직접 실행에서도 질문 채널이 없으면 같은 blocker를 반환한다. 선택 항목만 빠졌다면 기본값을 표시하고 진행한다. 비동기 질문 도구의 즉시 반환을 사용자 답변으로 간주하지 않는다. 이미 충분한 정보가 있으면 바로 작성한다:
 
 1. 슬라이드 매수 목표는?
 2. Detailed Deck vs Presenter Slides 중 어느 쪽?
@@ -80,7 +80,7 @@ NotebookLM Studio의 **공식 4축**에 정확히 매핑한다:
 | 축 | 매핑 |
 |---|---|
 | **Format** | `Detailed Deck`(읽기용·풀텍스트) 또는 `Presenter Slides`(발표용·키 토킹 포인트) — 인터뷰 답변 기반 |
-| **Length** | `short` / `default` / `long` — 슬라이드 매수 목표 기준 자동 매핑 (≤10 = short, 11~18 = default, ≥19 = long) |
+| **Length** | `short` / `default` / `long` — 사용자가 고른 값을 우선한다. 장수 목표만 있으면 길이를 제안하되, 이 세 옵션이 정확한 장수를 보장한다고 말하지 않는다 |
 | **Output language** | 기본 한국어. 청중이 다국어면 명시 |
 | **Prompt 본문** | 아래 6블록 템플릿 |
 
@@ -146,7 +146,7 @@ NotebookLM Studio의 **공식 4축**에 정확히 매핑한다:
 ```
 ````
 
-> **공식 출처 사용 시 주의** — NotebookLM은 노트북에 업로드된 소스만 활용한다. 본문 MD를 노트북 **소스로 먼저 업로드**한 뒤, 위 Prompt를 Studio의 슬라이드 데크 Prompt 칸에 입력한다. Prompt 칸에 본문을 통째로 붙여 넣지 않는다.
+> **입력 순서** — 본문 MD를 노트북 **소스로 먼저 업로드**한 뒤, 위 Prompt를 Studio의 슬라이드 데크 Prompt 칸에 입력한다. Prompt 칸에는 제작 지침을 넣는다. 생성된 슬라이드를 수정할 때는 현재 도움말에 따라 슬라이드별 수정 지시를 쓰며, 그 수정에는 소스가 반영되지 않을 수 있다.
 
 ### Phase 3 — 나노바나나 이미지 프롬프트 생성 (슬라이드별)
 
@@ -208,9 +208,9 @@ Consistency tag: series="harness-lecture", palette="teal-amber-dim", lighting="v
   1. 메타 (세션·청중·매수·포맷)
   2. **Part A — NotebookLM Studio 입력값 + Prompt 본문**
   3. **Part B — 슬라이드별 나노바나나 이미지 프롬프트 (5~8슬라이드)**
-  4. 사용 절차 (NotebookLM에 본문 업로드 → Prompt 붙여넣기 → 생성 → 표지·핵심 슬라이드 이미지는 별도 Gemini/Nano Banana Pro로 생성 후 NotebookLM에서 revise로 교체)
+  4. 사용 절차 (NotebookLM에 본문 업로드 → Prompt 붙여넣기 → 생성 → 필요하면 슬라이드별 수정 지시 입력). 별도 생성 이미지를 슬라이드에 직접 가져올 수 있다고 안내하지 않는다.
 
-체인 종료 직전 `moai-coworker:ai-slop-reviewer`를 호출해 클리셰·번역투를 제거한다.
+체인 종료 직전 `moai-coworker:ai-slop-reviewer`가 현재 앱에 설치·노출돼 있으면 추가 검수를 요청한다. 없으면 이 스킬의 체크리스트로 클리셰·번역투·사실성·출처를 직접 확인한다.
 
 ## 사용 예시
 
@@ -220,7 +220,7 @@ Consistency tag: series="harness-lecture", palette="teal-amber-dim", lighting="v
 사용자: "S0 도입 본문을 NotebookLM 슬라이드 프롬프트로 만들어줘"
 ```
 
-→ 본문 MD를 읽고 매수·포맷·시각 톤·강조 슬라이드 4가지를 AskUserQuestion 한 라운드로 묻는다.  
+→ 본문 MD를 읽고 필요한 매수·포맷·시각 톤·강조 슬라이드를 직접 실행의 질문 채널로 한 번에 묻는다. 하위 에이전트에서 필수 답변이 필요하거나 직접 실행에 질문 채널이 없으면 blocker를 반환한다.
 → 답변 수신 후 Part A + Part B를 한 마크다운 파일로 산출.
 
 ### 예 2 — 매수·톤 직접 지정
@@ -249,7 +249,7 @@ Consistency tag: series="harness-lecture", palette="teal-amber-dim", lighting="v
 - [ ] 종횡비가 16:9로 통일되었는가? (강연 슬라이드 기본)
 - [ ] 실존 인물 얼굴, 저작권 캐릭터, 브랜드 로고가 직접 묘사되지 않았는가?
 - [ ] 클리셰("혁신적", "차세대", "재정의하는", "결론적으로")가 NotebookLM Prompt에 없는가?
-- [ ] AI 슬롭 후처리(ai-slop-reviewer) 실행 예정인가?
+- [ ] 현재 앱에 ai-slop-reviewer가 있으면 추가 검수를 요청하고, 없으면 클리셰·번역투·사실성·출처를 직접 점검했는가?
 
 ## 체이닝 권장
 
@@ -259,14 +259,14 @@ media-notebooklm-slide-prompt
 moai-coworker:ai-slop-reviewer
 ```
 
-본 스킬은 텍스트 산출물이므로 체인 종료 직전 `moai-coworker:ai-slop-reviewer`로 후처리한다.
+본 스킬은 텍스트 산출물이다. 체인 종료 직전 `moai-coworker:ai-slop-reviewer`가 현재 앱에 노출될 때만 후처리를 요청한다. 그렇지 않으면 위 체크리스트로 직접 검수한다.
 
 실제 이미지 생성은 별도 단계로 분리되어 있다. 사용자는 산출된 5-Component 프롬프트를 다음 도구 중 하나로 실행한다:
 
 - Gemini 앱 (모바일·웹)
 - Google AI Studio
 - Vertex AI
-- (MoAI 사용자) `moai-media:media-higgsfield-image` 스킬에 그대로 전달
+- (MoAI 사용자) Gemini 생성을 요청했다면 현재 앱의 Gemini 생성 연결을 확인하고, 없으면 생성 미완료와 프롬프트를 제공. 사용자가 Higgsfield를 명시했을 때만 `moai-media:media-higgsfield-image`에서 해당 Gemini 모델의 노출 여부와 비용·승인 절차를 확인
 
 ## 안티패턴 (하지 말 것)
 
@@ -290,7 +290,7 @@ moai-coworker:ai-slop-reviewer
         ↓
 [references/slide-style-library.md "스타일 매칭 가이드"] 카테고리 매핑
         ↓
-[AskUserQuestion] 카테고리 내 1~3 스타일 후보 제시 (영문 프롬프트 + 추천 상황 동봉)
+[직접 실행의 질문 채널] 필수 선택이면 카테고리 내 1~3 스타일 후보 제시. 하위 에이전트이거나 직접 실행에 채널이 없으면 필요한 선택을 blocker로 반환
         ↓
 [Phase 3] 선택된 스타일의 영문 프롬프트 키워드를 모든 슬라이드 `Style:` 필드에 동일 적용
 ```
@@ -302,7 +302,7 @@ moai-coworker:ai-slop-reviewer
 - Nano Banana(Gemini Image) 프롬프트 작성 가이드 — Google DeepMind  
   <https://deepmind.google/models/gemini-image/prompt-guide/>
 - Nano Banana Pro / Gemini 3 Pro Image 발표 — Google Blog  
-  <https://blog.google/innovation-and-ai/products/higgsfield-image-pro/>
+  <https://blog.google/innovation-and-ai/products/nano-banana-pro/>
 - Nano Banana 이미지 생성 — Google AI for Developers  
   <https://ai.google.dev/gemini-api/docs/image-generation>
 

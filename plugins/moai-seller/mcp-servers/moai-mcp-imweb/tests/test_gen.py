@@ -1,4 +1,4 @@
-"""Verify generator output: 8 category tools, 136 actions, uniform signature."""
+"""Verify generator output: 8 category tools, 138 actions, uniform signature."""
 
 from __future__ import annotations
 
@@ -8,7 +8,7 @@ import moai_mcp_imweb.tools  # noqa: F401  (registers tools)
 from moai_mcp_imweb._app import mcp
 
 EXPECTED_TOOLS = 8
-EXPECTED_ACTIONS = 136  # 138 operations minus 2 OAuth2 (authorize/token) handled internally
+EXPECTED_ACTIONS = 138  # 140 operations minus 2 OAuth2 (authorize/token) handled internally
 
 
 def _list():
@@ -52,3 +52,9 @@ def test_every_tool_has_actions_and_description():
     for t in _list():
         assert t.description, f"{t.name} missing description"
         assert len(_enum_values(t.inputSchema["properties"]["action"])) >= 1, t.name
+
+
+def test_coupon_definition_body_is_in_input_schema():
+    tool = next(t for t in _list() if t.name == "imweb_promotion")
+    body = tool.inputSchema["properties"]["body"]
+    assert "CreateShopCouponDefinitionBody" in str(body)

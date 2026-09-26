@@ -1,212 +1,43 @@
 ---
 name: design-workflow
 description: |
-  통합 디자인 워크플로 스킬 — Path A(Claude Design 핸드오프 번들 가져오기, 필요시 Figma 추출기 경유)와 .moai/design/(research·system·spec)에서 design-brief 컨텍스트 로딩을 처리합니다. DTCG 토큰을 검증하고 브랜드 컨텍스트 헌법 우선순위를 보장합니다. /moai design 워크플로에 사용 — 일반 디자인 시스템 문서용이 아닙니다.
-
-  Use for the /moai design workflow: Path A Claude Design handoff-bundle import (via Figma extractor when needed), design-brief context loading from .moai/design/, DTCG token validation, and brand-context constitutional priority.
+  디자인 자료를 프로젝트의 브랜드 기준과 함께 읽고, 확인된 토큰과 자산을
+  구현에 전달합니다. 프로젝트 설정이 있을 때만 MoAI 전용 경로를 사용합니다.
 user-invocable: false
-version: "1.1.2"
+version: "1.1.3"
 ---
 
-> ⚠️ **개발 런타임 전용** — 이 스킬은 MoAI-ADK(Claude Code) 환경을 전제한다. Claude Cowork(Desktop)에서는 `.moai/config` 의존으로 동작하지 않을 수 있다. Desktop 사용자는 `cd-*` 체인(design-brief → design-prompt-builder → design-slop-check)을 사용한다.
+# 디자인 자료 연결
 
-# Design Workflow (`design-workflow`)
+Claude Cowork와 ChatGPT Work 모두에서 사용할 수 있는 디자인 자료 정리 흐름이다. MoAI 프로젝트의 `.moai/design/` 경로와 `/moai design` 설정은 해당 프로젝트에 실제 존재할 때만 적용한다. 현재 플러그인에 포함된 `config/design.yaml`과 `rules/moai/design/constitution.md`는 프로젝트에 복사된 설정·규칙의 존재를 대신 증명하지 않는다.
 
-Unified `/moai design` workflow skill. Handles two complementary responsibilities:
+## 자료 선택
 
-1. **Design artifact import** — Path A (Claude Design handoff bundle, ZIP/HTML) and Path
-   B1 (Figma extractor via meta-harness). Produces DTCG-validated design tokens at
-   `.moai/design/tokens.json` for `expert-frontend` consumption.
-2. **Design-brief context loading** — Auto-loads human-authored briefs from `.moai/design/`
-   (`spec.md`, `system.md`, `research.md`) into the orchestrator prompt before
-   `expert-frontend` or `design-brand-system` runs.
+1. 사용자가 제공한 화면, 디자인 파일, 토큰, 코드, 브랜드 가이드를 확인한다. 요청 목표와 사용 가능한 자료에 맞춰 경로를 고른다.
+2. Claude Design 결과가 있으면 실제 내보낸 파일의 구조와 사용권을 검사한다. 특정 `manifest.json`, ZIP 구조나 버전 `1.0`이 공식 내보내기의 보편 형식이라고 가정하지 않는다. 현재 설치된 MoAI 수입기가 별도 형식을 요구하면 그 형식과 입력을 확인한 뒤에만 적용한다.
+3. Figma 파일은 접근 가능한 공식 연결·권한·파일 구조를 확인한 뒤 추출한다. 동적 추출기 생성이나 인증 토큰을 기본 경로로 강제하지 않는다. 비밀 토큰 값은 문서와 산출물에 저장하지 않는다.
+4. 디자인 파일이 없어도 사용자의 브랜드 자산과 브리프로 시작할 수 있다. `design-system-prep`, `design-brand-system`, `design-copywriting` 등 필요한 스킬만 사용한다.
 
-Brand context (`.moai/project/brand/`) is the constitutional parent across all paths — no
-path may override brand constraints (design constitution §3.1, §3.3).
+## 프로젝트 문맥
 
-## Quick Reference
+- 프로젝트에 `.moai/project/brand/`가 있고 실제 내용이 있으면 사용자의 현재 브랜드 기준으로 읽는다. 디자인 자료와 충돌하면 출처와 차이를 제시하고 사용자 결정을 받는다.
+- 프로젝트에 `.moai/config/sections/design.yaml`이 있으면 그 파일의 `design_docs` 설정을 읽는다. 없으면 자동 로드나 토큰 예산을 적용했다고 주장하지 않는다.
+- `.moai/design/spec.md`, `system.md`, `research.md`가 실제로 있고 내용이 있을 때만 읽는다. `_TBD_`로 된 틀은 근거로 쓰지 않는다. 길이를 줄여야 하면 `spec` → `system` → `research` 순서로 보존하되, 읽지 않은 부분을 분명히 표시한다.
+- 작업 대상 프로젝트가 MoAI 전용 예약 경로를 사용한다면 [디자인 규칙](../../rules/moai/design/constitution.md)의 현재 목록을 확인한다. 이 파일의 경로 표기가 실제 설치 구조와 다르면 사용자가 지정한 프로젝트 경로를 따른다. 사람 손으로 쓴 파일은 덮어쓰지 않는다.
 
-**Reserved output paths** (design constitution §3.2, must not collide with human files):
-`tokens.json`, `components.json`, `assets/`, `import-warnings.json`, `brief/BRIEF-*.md`,
-`copy.json`, `path-selection.json` — all under `.moai/design/`.
+## 가져오기와 안전성
 
-**Path selection** (presented via AskUserQuestion when `/moai design` needs choice):
-1. **Path A — Claude Design** (권장) — handoff bundle (ZIP or HTML)
-2. **Path B1 — Figma** — meta-harness generates `moai-harness-figma-extractor` dynamically
+받은 ZIP은 압축을 풀기 전에 엔트리 목록과 확장 후 크기를 확인한다. 절대 경로, 상위 경로 이동, 심볼릭 링크, 장치 파일, 실행 가능한 스크립트와 중첩 압축은 거부한다. 추출 대상 디렉터리 밖으로 쓰지 않는다. 이미지·SVG·폰트는 형식과 권리를 확인하고, SVG 안의 스크립트나 외부 참조를 무해하다고 가정하지 않는다. 형식이 불명확하면 원본을 보존하고 지원 가능한 자료만 별도로 다룬다.
 
-Selection persisted to `.moai/design/path-selection.json`.
+토큰은 실제 파싱 결과를 `design-tokens-transformer`로 검증한다. 값이 빠지거나 이름이 충돌하면 임의의 브랜드 값을 생성하지 않는다. 구성요소와 카피도 제공된 자료에서 확인한 것만 추출한다.
 
-**Context-loading priority order** (REQ-2 / AC-4 from absorbed design-context skill):
-`spec > system > research`. When token budget exceeded, drop in REVERSE priority — never
-drop `spec`. Default `token_budget: 20000` from `design.yaml design_docs.token_budget`.
+## 산출과 검증
 
-**Token estimation**: `estimated_tokens = ceiling(char_count / 4) * 1.10`.
+- 대상 프로젝트의 기존 구조를 확인하고 필요한 파일만 쓴다. 생성 경로와 원본 경로의 대응표를 남긴다.
+- 원본 자산의 값과 변환된 토큰을 비교하고, 실제 실행한 파서·빌드·화면 검사만 통과로 보고한다.
+- Claude Design에서 준비한 자료와 실제 업로드·적용·게시 상태를 구분한다. 업로드는 `design-sync-upload`의 현재 UI 절차를 따른다.
+- 데이터나 자산을 읽지 못한 경우, 형식 미지원과 미확인 사항을 다음 작업과 함께 보고한다.
 
-## Implementation Guide
+## 관련 스킬
 
-### Part 1 — Path A: Claude Design Handoff Bundle
-
-**Supported formats (Phase 1)**:
-- `ZIP` — Claude Design export with `manifest.json`, `tokens.json`, `components/`, `assets/`
-- `HTML` — single-file Claude Design export
-
-**Unsupported (Phase 2 roadmap)**: DOCX, PPTX, PDF, Canva link — return
-`DESIGN_IMPORT_UNSUPPORTED_FORMAT` and guide to Path B.
-
-**Version whitelist**: Check `manifest.json` `format_version` against
-`supported_bundle_versions` in `.moai/config/sections/design.yaml`. Current default: `["1.0"]`.
-Mismatch → `DESIGN_IMPORT_UNSUPPORTED_VERSION`.
-
-**Parsing flow**:
-1. Receive bundle file path from orchestrator
-2. Validate file existence → `DESIGN_IMPORT_NOT_FOUND` if missing
-3. Validate format (extension + magic bytes: `PK\x03\x04` for ZIP, DOCTYPE/`<html` for HTML)
-4. **Security scan before extraction** — list ZIP entries; reject executables (`.sh`, `.exe`,
-   `.bat`, `.cmd`, `.ps1`, `.py`, `.rb`, `.pl`), symlinks, path traversal (`../`, `..\`),
-   absolute paths → `DESIGN_IMPORT_SECURITY_REJECT`
-5. Read `manifest.json`, validate version
-6. Extract: `tokens.json` → `.moai/design/tokens.json`; `components/` → `components.json`;
-   `assets/**` → `.moai/design/assets/`; `copy.json` → `.moai/design/copy.json`
-7. Validate token structure (required keys: `colors`, `typography`, `spacing`); missing
-   keys → warning, not failure
-8. Report extraction results
-
-**Expected ZIP structure**: `manifest.json` (format_version, claude_design_version,
-created_at) + `tokens.json` (colors, typography, spacing, radii, shadows) + optional
-`components/` (HTML or JSON specs) + optional `assets/` (images, fonts, icons) + optional
-`copy.json` (structured copy).
-
-**Output token schema** (normalized to MoAI): top-level keys `colors`, `typography`,
-`spacing`, `radii`, `shadows`, plus `source: "claude-design-bundle"` and `bundle_version`.
-
-**Field normalization** (silent rename, logged in import-warnings.json):
-`primary_color`/`brand_color` → `colors.primary`; `heading_font` →
-`typography.fontFamily.heading`; `base_spacing` → `spacing.base`.
-
-**Asset safety**: Validate image MIME (png, jpg, gif, webp, svg, ico) and font formats
-(woff2, woff, ttf, otf). Reject nested ZIPs. Strip script tags from SVG metadata.
-
-### Part 2 — Path B1: Figma Extractor (Meta-Harness)
-
-**Prerequisite**: the harness policy `moai-meta-harness`. Path B1 does NOT ship a
-static Figma skill — it is generated dynamically. When user selects Path B1, invoke
-`moai-meta-harness` to generate `.claude/skills/harness-figma-extractor/SKILL.md`
-(project-scoped and user-owned via `harness-*` prefix — `moai update` never
-overwrites). Meta-harness Phase 5 (Customization) collects via Socratic interview:
-Figma file ID, page selectors mapping pages to token categories, credential reference
-(env var name like `FIGMA_TOKEN`; value NEVER stored in skill file). Generated extractor
-produces `tokens.json` + `components.json` at `.moai/design/`; DTCG validation runs before
-`expert-frontend` consumption.
-
-### Part 3 — Design-Brief Context Loading
-
-Auto-loads human-authored briefs during Phase B2.5 of `/moai design` when
-`design_docs.auto_load_on_design_command: true`. Can also be invoked standalone with
-explicit `dir` argument.
-
-**Configuration resolution**: Read `design_docs` from `.moai/config/sections/design.yaml`.
-If absent, use compiled-in defaults:
-- `dir: .moai/design`
-- `auto_load_on_design_command: true`
-- `token_budget: 20000`
-- `priority: [spec, system, research]`
-
-Log `design_docs not configured — using defaults` when key absent.
-
-**Bare-token → filename mapping**:
-- `spec` → `<dir>/spec.md`
-- `system` → `<dir>/system.md`
-- `research` → `<dir>/research.md`
-
-**Steps**:
-1. **Directory check**: Glob `<dir>/`. Missing → emit header only and log
-   `design docs not initialized — run /moai init or SPEC-DESIGN-DOCS-001 to create`.
-2. **Auto-load gate**: From Phase B2.5, check `auto_load_on_design_command`. False → skip.
-3. **Parallel Read**: Issue all candidate file Reads in a single batched parallel tool-call set.
-4. **Filter `_TBD_` files**: A file with only scaffold content (lines blank, `_TBD_`,
-   headings without bodies, or `<!--`/`>` comments) is skipped. Log
-   `skip: <token> — _TBD_ only`.
-5. **Token budget enforcement**: Include in priority order until cumulative
-   `estimated_tokens` would exceed budget. Overflow → drop lowest priority (`research`
-   first, then `system`; never `spec`). Single file too large → truncate at nearest
-   `##`/`###` boundary and append `> truncated: <filename> at char_offset=N`.
-6. **Build output block** — first non-empty line MUST be exactly `## Design Context (from
-   .moai/design/)`. For each file, prepend `> source: .moai/design/<filename>` then
-   content (or truncated).
-7. **Warnings section** (when unreadable files encountered): append
-   `> warnings: [<token1> unreadable: <reason>, ...]` after the content.
-
-**All-`_TBD_` case**: header-only output + log
-`design docs present but all are _TBD_ — no content loaded`.
-
-### Error Codes (Path A)
-
-- `DESIGN_IMPORT_NOT_FOUND` — bundle path missing → guide to Path B
-- `DESIGN_IMPORT_UNSUPPORTED_FORMAT` — non-ZIP/HTML → guide to Path B
-- `DESIGN_IMPORT_UNSUPPORTED_VERSION` — version not in whitelist. Required stderr (all 3
-  lines mandatory): `Detected bundle version: v<N>`; `Supported versions: <list from
-  design.yaml>`; `Switch to path B: run /moai design and select 'Code-based brand design'`.
-- `DESIGN_IMPORT_SECURITY_REJECT` — executables/symlinks/traversal/absolute paths
-  detected. List offending entries. Do NOT create `.moai/design/` directory.
-- `DESIGN_IMPORT_MISSING_MANIFEST` — ZIP without `manifest.json` → guide to Path B
-
-**Fallback guidance** appended to every error: instruct user to run `/moai design` and
-select "Code-based brand design (design-brand-system)" after ensuring
-`.moai/project/brand/visual-identity.md` is complete.
-
-### Partial Bundle Recovery
-
-Valid bundle missing optional components → extract what's available, log warnings to
-`.moai/design/import-warnings.json`, proceed with partial output. Never silent failure.
-
-### Part 4 — 번들 없이 브랜드에서 바로 시작하는 경로
-
-핸드오프 번들도 Figma도 없이 **브랜드 자산에서 곧장 디자인을 만드는** 요청이면 아래 순서로 진행합니다.
-`design.yaml`(`.moai/config/sections/design.yaml`) 값을 따르고 임계값을 코드에 박지 않습니다.
-
-1. `design-system-prep` + `design-brand-system` — 브랜드 자산 → DESIGN.md + DTCG 토큰 (WCAG 2.1 AA)
-2. `design-copywriting` — 브랜드 톤에 맞춘 카피 (생성 시점부터 AI 슬롭 회피)
-3. `design-iteration-loop` — Builder-Evaluator 품질 루프 (최대 5회, pass_threshold 0.75, 4차원 채점)
-
-UX 프롬프트 패턴이 필요하면 `design-prompt-builder`를 함께 씁니다.
-
-## Works Well With
-
-`design-brand-system` (Path B fallback / context consumer), `design-handoff`
-(produces `claude-design-handoff/` for Path A), `design-iteration-loop` (uses tokens +
-context as baseline), `moai-meta-harness` (generates figma extractor for Path B1),
-`expert-frontend` (primary consumer), `.claude/rules/moai/design/constitution.md` (brand
-priority + reserved paths).
-
-## Common Rationalizations
-
-- "Skip security scan for trusted bundles" — "trusted" is unverifiable. Scan every bundle, no exceptions.
-- "Drop spec.md when budget tight" — spec.md is priority 1, never dropped. Drop research → system → escalate.
-- "_TBD_ files contain useful context" — `_TBD_` means scaffold-only. Skip to avoid polluting the prompt.
-- "Path B1 needs a hardcoded Figma extractor" — Path B1 uses meta-harness generation. Static Figma skill prohibited.
-- "Brand context is one input among many" — brand context is the constitutional parent; conflicts resolve in favor of brand.
-
-## Red Flags
-
-- Bundle parse proceeds without security scan
-- ZIP entries containing `../`, symlinks, or executables accepted
-- `manifest.json` version validation bypassed
-- Design context block missing canonical header `## Design Context (from .moai/design/)`
-- `spec.md` dropped when budget exceeded (priority violation)
-- Figma API token value stored inside skill file (only env var name allowed)
-- Output written outside `.moai/design/` reserved path set
-
-## Verification
-
-- [ ] Path A security scan rejects fixture with `..` and symlinks
-- [ ] Path A produces `.moai/design/tokens.json` with normalized schema
-- [ ] Path B1 invocation triggers `moai-meta-harness` (no static skill)
-- [ ] Context-load output starts with `## Design Context (from .moai/design/)`
-- [ ] Budget truncation appends `> truncated: <filename> at char_offset=N`
-- [ ] All-`_TBD_` case emits header + log only
-- [ ] DTCG validation runs on Path A and Path B1 outputs
-- [ ] the DTCG frozen-guard CI test references this skill name
-
-REQ coverage: (internal provenance omitted)..003, (Path A); REQ-1..16 (context).
-
-<!-- absorbed from design-workflow-import + design-workflow-context per the skill consolidation policy -->
+`design-system-prep`, `design-brand-system`, `design-tokens-transformer`, `design-sync-upload`, `design-brief`.

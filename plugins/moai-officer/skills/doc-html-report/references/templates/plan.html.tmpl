@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
   <style>
     /* ============================================================
@@ -52,7 +52,7 @@
       background: var(--ivory);
       color: var(--g700);
       font-family: var(--sans);
-      font-size: 15px;
+      font-size: 16px;
       line-height: 1.6;
       padding: 56px 32px 120px;
       -webkit-font-smoothing: antialiased;
@@ -69,7 +69,7 @@
       font-size: 12px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--g500);
+      color: var(--g700);
       margin-bottom: 12px;
     }
 
@@ -97,7 +97,7 @@
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: var(--g500);
+      color: var(--g700);
       display: block;
       margin-bottom: 6px;
     }
@@ -134,7 +134,7 @@
 
     .sec-intro {
       font-size: 14.5px;
-      color: var(--g500);
+      color: var(--g700);
       max-width: 720px;
       margin-bottom: 28px;
     }
@@ -166,7 +166,7 @@
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: var(--g500);
+      color: var(--g700);
       margin-bottom: 6px;
     }
 
@@ -176,7 +176,7 @@
       font-weight: 600;
     }
 
-    .sum-cell .v.accent { color: var(--clay); }
+    .sum-cell .v.accent { color: var(--g700); border-bottom: 2px solid var(--clay); }
 
     /* ============================================================
        마일스톤 타임라인 (수직형)
@@ -197,7 +197,7 @@
       text-align: right;
       font-family: var(--mono);
       font-size: 12px;
-      color: var(--g500);
+      color: var(--g700);
       padding-top: 4px;
     }
 
@@ -243,7 +243,7 @@
 
     .milestone .body p {
       font-size: 14px;
-      color: var(--g500);
+      color: var(--g700);
       margin-bottom: 10px;
       max-width: 620px;
     }
@@ -279,7 +279,7 @@
     }
 
     .diagram svg { display: block; min-width: 760px; }
-    .caption { font-size: 13px; color: var(--g500); margin-top: 12px; }
+    .caption { font-size: 13px; color: var(--g700); margin-top: 12px; }
 
     /* ============================================================
        리스크 매트릭스 테이블
@@ -379,7 +379,7 @@
     .metric-target {
       font-family: var(--mono);
       font-size: 12px;
-      color: var(--g500);
+      color: var(--g700);
     }
 
     .metric-current {
@@ -398,7 +398,7 @@
       border-top: 1px solid var(--g300);
       font-family: var(--mono);
       font-size: 12px;
-      color: var(--g500);
+      color: var(--g700);
     }
 
     /* ============================================================
@@ -440,7 +440,7 @@
          헤더
          eyebrow: 예) "실행 계획 · 제품팀"
          title: 계획 제목
-         goal_html: 목표 요약 HTML
+         goal_html: 변수명은 유지하되 HTML로 해석하지 않는 목표 요약 텍스트
     ======================================================== -->
     <header class="page-head">
       <div class="eyebrow">{{eyebrow}}</div>
@@ -493,7 +493,7 @@
 
     <!-- ========================================================
          데이터 흐름 다이어그램
-         diagram_svg: 완성된 SVG 코드 (viewBox 포함)
+         diagram_svg: 검증된 데이터로 별도 작성해 직접 삽입할 SVG 위치. 단순 변수 치환은 SVG를 이스케이프하므로 이 슬롯만으로 그림이 생기지 않음
          diagram_caption: 캡션 텍스트
     ======================================================== -->
     <section aria-label="데이터 흐름">

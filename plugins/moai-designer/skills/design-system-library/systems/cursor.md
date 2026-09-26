@@ -510,8 +510,8 @@ The system uses **hairline-only depth**. No drop shadows, no elevation tiers. Ca
 | Wide | > 1280px | Content caps at 1200px. |
 
 ### Touch Targets
-- Primary CTA at 40px height — at WCAG AA, padded for AAA.
-- Download CTA at 44px — at AAA.
+- Primary CTA is documented at 40px high; measure both dimensions of its rendered clickable area and, if undersized, check spacing or an applicable exception before claiming WCAG 2.5.8 AA.
+- Download CTA is documented at 44px high; measure both dimensions of its rendered clickable area before claiming the WCAG 2.5.5 AAA 44×44px size target.
 
 ### Collapsing Strategy
 - Top nav switches to hamburger below 768px.

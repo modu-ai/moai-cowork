@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import os
 import tempfile
+from pathlib import Path
 
 import pytest
 
@@ -22,7 +23,7 @@ from moai_mcp_threads_poster import server
 def _clean_env(monkeypatch):
     """각 테스트마다 Threads/Instagram 자격증명/딜레이 환경변수를 비우고 싱글톤을 초기화.
 
-    CLAUDE_PLUGIN_ROOT(스타일 프로필 기본 경로 해석용) 도 함께 정리한다.
+    CLAUDE_PLUGIN_ROOT(이전 저장 경로 읽기용) 도 함께 정리한다.
     Instagram 자격증명(IG_ACCESS_TOKEN / IG_USER_ID) 과 IG 싱글톤도 정리.
     """
     for key in (
@@ -120,9 +121,8 @@ def test_partial_creds_token_only_still_none(monkeypatch):
 
 # === 문체 프로필 도구 (style profile — additive) ==================================
 # threads_style_save / threads_style_load 는 Threads 자격증명 불필요한 로컬 파일 I/O.
-# 테스트는 반드시 tmp 경로(path= 명시 or CLAUDE_PLUGIN_ROOT=tmp) 를 써서 실제 플러그인
-# .data/ 에 쓰지 않도록 한다. _clean_env(autouse) 가 CLAUDE_PLUGIN_ROOT 를 지우므로,
-# 기본 경로 테스트는 명시적으로 CLAUDE_PLUGIN_ROOT 를 tmp 로 재설정한다.
+# 테스트는 반드시 tmp 경로(path= 명시 또는 Path.home 패치)를 써서
+# 실제 사용자 프로필에 쓰지 않도록 한다.
 
 
 def test_style_save_explicit_path_writes_file(tmp_path):
@@ -143,18 +143,24 @@ def test_style_save_creates_missing_parent_dirs(tmp_path):
     assert p.read_text(encoding="utf-8") == "문체 프로필"
 
 
-def test_style_save_default_path_uses_claude_plugin_root(tmp_path, monkeypatch):
-    # CLAUDE_PLUGIN_ROOT 를 tmp 로 잡으면 기본 경로가 그 아래로 해석된다.
-    root = tmp_path / "pluginroot"
-    monkeypatch.setenv("CLAUDE_PLUGIN_ROOT", str(root))
+def test_style_save_default_path_uses_user_home(tmp_path, monkeypatch):
+    monkeypatch.setattr(Path, "home", classmethod(lambda cls: tmp_path))
     out = server.threads_style_save("- 톤: 반말", path=None)
     assert out["saved"] is True
-    # 경로가 tmp root 아래 .data/style-profile.md
-    assert str(root) in out["path"]
-    assert out["path"].endswith("style-profile.md")
+    assert out["path"] == str(tmp_path / ".moai" / "mcp" / "threads-style-profile.md")
     assert os.path.exists(out["path"])
-    # 실제 플러그인 .data/ 를 건드리지 않았는지 확인 (tmp 밖에 파일이 생기지 않음).
     assert os.path.dirname(out["path"]).startswith(str(tmp_path))
+
+
+def test_style_default_path_is_user_data_not_plugin_root(tmp_path, monkeypatch):
+    monkeypatch.setattr(Path, "home", classmethod(lambda cls: tmp_path))
+    plugin_root = tmp_path / "installed-plugin"
+    monkeypatch.setenv("CLAUDE_PLUGIN_ROOT", str(plugin_root))
+
+    saved = server.threads_style_save("내 문체", path=None)
+    assert saved["path"] == str(tmp_path / ".moai" / "mcp" / "threads-style-profile.md")
+    assert server.threads_style_load(path=None)["profile"] == "내 문체"
+    assert not plugin_root.exists()
 
 
 def test_style_save_rejects_non_string_profile():
@@ -181,14 +187,26 @@ def test_style_load_reads_back_what_was_saved(tmp_path):
 
 
 def test_style_save_then_load_roundtrip_default_path(tmp_path, monkeypatch):
-    # 기본 경로로 save → load 라운드트립 (CLAUDE_PLUGIN_ROOT=tmp).
-    monkeypatch.setenv("CLAUDE_PLUGIN_ROOT", str(tmp_path / "pluginroot"))
+    monkeypatch.setattr(Path, "home", classmethod(lambda cls: tmp_path))
     saved = server.threads_style_save("라운드트립 본문", path=None)
     assert saved["saved"] is True
     loaded = server.threads_style_load(path=None)
     assert loaded["exists"] is True
     assert loaded["profile"] == "라운드트립 본문"
     assert loaded["path"] == saved["path"]
+
+
+def test_style_load_reads_legacy_plugin_file_when_user_file_absent(tmp_path, monkeypatch):
+    monkeypatch.setattr(Path, "home", classmethod(lambda cls: tmp_path))
+    plugin_root = tmp_path / "old-plugin"
+    monkeypatch.setenv("CLAUDE_PLUGIN_ROOT", str(plugin_root))
+    legacy = plugin_root / "mcp-servers" / "threads-poster" / ".data" / "style-profile.md"
+    legacy.parent.mkdir(parents=True)
+    legacy.write_text("기존 문체", encoding="utf-8")
+
+    loaded = server.threads_style_load(path=None)
+    assert loaded["profile"] == "기존 문체"
+    assert loaded["path"] == str(legacy)
 
 
 def test_style_tools_do_not_require_threads_creds():

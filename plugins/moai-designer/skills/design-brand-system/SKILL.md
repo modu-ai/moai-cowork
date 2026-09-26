@@ -1,237 +1,40 @@
 ---
 name: design-brand-system
 description: |
-  웹 프로젝트의 브랜드 정합 시각 디자인 시스템 전문가. 히어로 우선 레이아웃 체이닝, WCAG 2.1 AA 접근성, Lighthouse 80점 이상, 브랜드 정체성 파일에서 디자인 토큰 추출을 보장합니다. 색상 팔레트, 타이포그래피, 여백, 컴포넌트 사양을 다룹니다.
-
-  Use for brand-aligned visual design systems: color palettes, typography, spacing systems, hero-first layout, component specs, design tokens, visual identity, and WCAG 2.1 AA accessibility enforcement.
+  제공된 브랜드 자료와 화면 목적을 바탕으로 웹 시각 디자인 토큰과 컴포넌트 사양을 만듭니다.
+  색상·서체·간격·레이아웃·접근성 검토가 필요할 때 사용하세요.
+  Claude Cowork와 ChatGPT Work에서는 사용자 자료를 바로 입력으로 받고, MoAI 프로젝트에서는 기존 브랜드 파일을 함께 확인합니다.
 user-invocable: false
-version: "1.1.1"
+version: "1.1.2"
 ---
 
-> ⚠️ **개발 런타임 전용** — 이 스킬은 MoAI-ADK(Claude Code) 환경을 전제한다. Claude Cowork(Desktop)에서는 `.moai/config` 의존으로 동작하지 않을 수 있다. Desktop 사용자는 `moai-coworker:collab-brand-identity`(브랜드 아이덴티티 산출물)를 사용한다.
+# 브랜드 디자인 시스템
 
-# design-brand-system
+사용자의 브랜드 색·서체·로고 사용 규칙과 화면 목적에서 재사용 가능한 시각 규칙을 만든다. 입력이 없다면 브랜드를 창작해 확정하지 않고 필요한 선택지와 확인 질문을 제시한다.
 
-Visual design system skill for brand-aligned web projects. Absorbed from the retired v2.x `*-design-system` capability (per the design-system absorption policy) at v1.0.0. Enforces hero-first chaining, WCAG 2.1 AA contrast, and structured design token output for downstream implementation.
+## 입력 확인
 
----
+1. 제공된 브랜드 가이드, 디자인 파일, 실제 화면, 카피와 대상 사용자를 확인한다. 접근할 수 없는 파일을 읽었다고 말하지 않는다.
+2. MoAI 프로젝트에서 `.moai/project/brand/visual-identity.md`가 있으면 이를 브랜드 기준으로 사용하고 `.moai/config/sections/design.yaml`의 설정을 확인한다. 데스크톱 앱에 이 파일들이 없으면 사용자 제공 자료를 기준으로 작업한다.
+3. 브랜드 자료끼리 충돌하면 해당 값과 출처를 나란히 보여주고 결정이 필요한 항목으로 남긴다. 한 자료를 임의로 우선시하지 않는다.
+4. Figma 파일은 실제 접근 가능한 연결 또는 사용자가 제공한 내보내기 파일로 읽는다. URL만 있다는 이유로 토큰 추출 완료를 주장하지 않는다.
 
-## Quick Reference
+## 산출물
 
-### Entry Conditions
+요청 범위에 맞게 다음 중 필요한 항목을 작성한다.
 
-Before generating design output, verify:
+- **색상**: 브랜드 원색, 배경·표면, 텍스트, 상태색과 실제 사용 쌍
+- **타이포그래피**: 사용 가능한 서체, 크기·굵기·행간과 언어별 폴백
+- **간격과 형태**: 레이아웃 폭, 간격 척도, 반경·경계선·그림자
+- **컴포넌트**: 버튼·입력·카드·내비게이션 등의 상태, 사용 맥락, 키보드 포커스와 반응형 동작
+- **토큰**: 합의된 값만 JSON 또는 요청한 CSS 형식으로 표현하고 값의 출처를 붙임
 
-1. `.moai/project/brand/visual-identity.md` exists and contains no `_TBD_` markers.
-2. Copy scope is defined (from `design-copywriting` JSON output or inline brief).
-3. Target framework is confirmed (from `.moai/config/sections/design.yaml` `default_framework`).
+히어로, 모바일 뷰포트, 그리드 칸 수, 프레임워크, 다크 모드, 성능 점수는 프로젝트 요구와 실제 검증 환경에 따라 정한다. 브랜드가 흰 배경이나 특정 색을 명시했다는 이유로 배제하지 않는다. 기존 디자인 시스템이 있으면 그 측정값과 명명법을 우선 확인한다.
 
-If `visual-identity.md` has unresolved `_TBD_` markers, stop and request brand interview completion.
+## 접근성 검토
 
-If the defined color palette conflicts with generated design tokens, execution halts and a conflict report is returned (see Error Handling below).
+웹 콘텐츠라면 [W3C WCAG 2.2](https://www.w3.org/TR/WCAG22/)에서 적용할 성공 기준과 수준을 확인한다. 실제 전경·배경 조합의 명도 대비를 계산하고 작은 텍스트, 큰 텍스트, UI 경계·상태를 해당 기준에 맞춰 평가한다. 토큰만으로 키보드 동작, 스크린리더 출력, 전체 페이지 준수나 Lighthouse 점수를 보장하지 않는다. 구현된 화면이 있으면 해당 환경에서 별도로 검사하고 결과를 기록한다.
 
-### Figma Integration
+브랜드 색 조합이 필요한 기준을 충족하지 못하면 사용 쌍·계산값·필요 기준과 조정안을 제시한다. 새 색은 브랜드 승인 전까지 제안값으로 둔다. 애니메이션은 사용자 설정과 `prefers-reduced-motion`을 고려한다.
 
-Figma integration is disabled by default. Check `.moai/config/sections/design.yaml`:
-
-```
-figma:
-  enabled: false
-```
-
-If `figma.enabled: true` and a public Figma file URL is provided, extract design tokens from the Figma file. Otherwise use `visual-identity.md` as the sole source of truth.
-
----
-
-## Implementation Guide
-
-### Hero-First Chaining
-
-The hero section establishes the visual tone for the entire site. All subsequent sections chain from it:
-
-1. Extract hero background color, typography, and spacing from `visual-identity.md`.
-2. Derive complementary section colors using the established contrast ratio rules.
-3. Apply consistent spacing scale across all sections (do not reset per section).
-4. Navigation and footer inherit hero's typographic scale.
-
-Hero section requirements:
-- CTA button is visible above the fold on mobile (375px viewport, 667px height).
-- Headline contrast ratio against background: minimum 4.5:1 (WCAG AA).
-- Hero image or background: never pure white (#FFFFFF) unless brand explicitly specifies.
-
-### Design Token Extraction
-
-Extract and output the following token categories from `visual-identity.md`:
-
-**Color tokens**:
-- `color.primary`: Brand primary color (hex or OKLCH)
-- `color.primary.foreground`: Text on primary background (must pass 4.5:1 contrast)
-- `color.secondary`: Secondary brand color
-- `color.accent`: Call-to-action and highlight color
-- `color.neutral.*`: Scale from 50 to 950 (gray shades)
-- `color.semantic.success`, `color.semantic.warning`, `color.semantic.error`: Status colors
-- `color.background`: Page background
-- `color.surface`: Card and component background
-
-**Typography tokens**:
-- `font.family.sans`: Primary sans-serif stack
-- `font.family.mono`: Code and technical content
-- `font.size.*`: Scale: xs (12px), sm (14px), base (16px), lg (18px), xl (20px), 2xl (24px), 3xl (30px), 4xl (36px)
-- `font.weight.normal`, `font.weight.medium`, `font.weight.bold`, `font.weight.black`
-- `line.height.tight` (1.25), `line.height.normal` (1.5), `line.height.relaxed` (1.75)
-
-**Spacing tokens**:
-- Base unit: 4px
-- Scale: `space.1` (4px) through `space.24` (96px), following 4px grid
-- `space.section`: Vertical section padding (default 80px desktop, 48px mobile)
-- `space.container.max`: Maximum content width (default 1280px)
-- `space.container.padding`: Horizontal page padding (default 24px mobile, 48px desktop)
-
-**Border radius tokens**:
-- `radius.sm` (4px), `radius.md` (8px), `radius.lg` (12px), `radius.xl` (16px), `radius.full` (9999px)
-
-**Shadow tokens**:
-- `shadow.sm`, `shadow.md`, `shadow.lg`, `shadow.xl`
-
-Output all tokens as a structured JSON file compatible with CSS custom properties and Tailwind CSS v4 theme configuration.
-
----
-
-### WCAG 2.1 AA Compliance
-
-All color combinations must pass these contrast ratios:
-
-| Use case | Minimum ratio | Requirement |
-| --- | --- | --- |
-| Body text (< 18px or < 14px bold) | 4.5:1 | WCAG AA |
-| Large text (>= 18px or >= 14px bold) | 3:1 | WCAG AA |
-| UI components and graphical objects | 3:1 | WCAG AA |
-| Focus indicators | 3:1 | WCAG AA |
-
-If the brand's `visual-identity.md` specifies a color combination that fails contrast, execution halts and a conflict report is returned. The report includes:
-- Failing pair (foreground + background)
-- Actual contrast ratio
-- Minimum required ratio
-- Three alternative foreground colors that pass the required ratio
-
-**AI slop detection** — Reject these visual patterns without brand justification:
-- Purple gradient (#8B5CF6 to #6D28D9) as primary visual element
-- White card (`#FFFFFF`) on light gray (`#F9FAFB`) background without border or shadow
-- Generic stock icon sets (feather-icons, heroicons without customization)
-
----
-
-### Component Specifications
-
-Define the following component specifications in the design output:
-
-**Button**:
-- Primary: `color.primary` background, `color.primary.foreground` text
-- Secondary: `color.secondary` background or transparent with border
-- Destructive: `color.semantic.error` background
-- States: default, hover (10% darker), focus (3px outline in `color.accent`), disabled (40% opacity)
-- Size: sm (h-8), md (h-10, default), lg (h-12)
-- Touch target: minimum 44x44px on mobile
-
-**Card**:
-- Background: `color.surface`
-- Border: 1px solid `color.neutral.200` (light mode)
-- Radius: `radius.lg`
-- Padding: `space.6` (24px)
-- Shadow: `shadow.sm` (default), `shadow.md` (on hover)
-
-**Navigation**:
-- Height: 64px desktop, 56px mobile
-- Background: transparent on hero, solid on scroll
-- Logo: maximum 32px height
-- Links: `font.size.sm`, `font.weight.medium`
-- Mobile: hamburger menu trigger at 768px breakpoint
-
-**Section layout**:
-- Vertical padding: `space.section` (see spacing tokens)
-- Max content width: `space.container.max`
-- Horizontal padding: `space.container.padding`
-- Alternating backgrounds: `color.background` and `color.surface` for visual rhythm
-
----
-
-### Layout Grid
-
-Default responsive grid:
-- Mobile (< 768px): 4 columns, 16px gutter, 24px margin
-- Tablet (768px - 1024px): 8 columns, 24px gutter, 32px margin
-- Desktop (>= 1024px): 12 columns, 32px gutter, 48px margin
-
-Hero layout options (select based on `visual-identity.md` preference):
-- `centered`: Content centered, full-width background image or gradient
-- `split-left`: Copy left (7 cols), visual right (5 cols)
-- `split-right`: Visual left (5 cols), copy right (7 cols)
-
----
-
-### Error Handling
-
-**Color palette conflict**: When generated design tokens conflict with `visual-identity.md` defined palette, halt execution and return:
-
-```
-BRAND_DESIGN_CONFLICT: Color token mismatch detected.
-- Defined in visual-identity.md: <color>
-- Generated token: <color>
-- Conflict: <explanation>
-- Resolution options: [list 2-3 adjustments]
-```
-
-**WCAG contrast failure**: When brand colors fail contrast requirements, halt and return the conflict report described in the WCAG section. Do not generate fallback colors silently.
-
-**Missing identity file**: When `visual-identity.md` does not exist or contains only `_TBD_` values, return:
-
-```
-BRAND_DESIGN_MISSING_IDENTITY: visual-identity.md is incomplete.
-- Unresolved markers found: <list of _TBD_ fields>
-- Action required: Run brand interview via /moai design
-```
-
----
-
-## Advanced Patterns
-
-### Dark Mode Support
-
-When brand context specifies dark mode support:
-- Define `color.*.dark` variants for each semantic color
-- Use CSS `prefers-color-scheme` for automatic switching
-- Ensure all token pairs pass contrast in both modes
-- Navigation and cards must have distinct dark mode backgrounds
-
-### Animation and Interaction
-
-Keep interaction guidelines minimal and purposeful:
-- Transition duration: 150ms (micro), 300ms (standard), 500ms (entrance)
-- Easing: `ease-out` for entrances, `ease-in` for exits, `ease-in-out` for state changes
-- Avoid animations that trigger on scroll by default (accessibility)
-- Respect `prefers-reduced-motion` media query
-
-### Performance Budget
-
-Generated design must meet:
-- Lighthouse Performance >= 80
-- Lighthouse Accessibility >= 90
-- Lighthouse Best Practices >= 80
-- Lighthouse SEO >= 80
-- Core Web Vitals: LCP < 2.5s, CLS < 0.1
-- Font files: maximum 2 custom font families, subset to used character ranges
-
----
-
-## Works Well With
-
-- `design-copywriting`: Copy length constraints inform layout choices
-- `design-workflow`: Replaces code-based design when Claude Design bundle is available (Path A handler)
-- `design-iteration-loop`: Design Quality dimension evaluates token compliance and WCAG
-- `moai-domain-uiux`: Extends with accessibility audit patterns
-
----
-
-Source: Absorbed from the retired v2.x `*-design-system` capability v1.0.0 (per the design-system absorption policy) on 2026-04-20.
-REQ coverage: (internal provenance omitted)
-Version: 0.1.0
+후속 구현은 실제 프로젝트의 프레임워크와 토큰 구조에 맞춘다. 마감 결과에는 확인한 값, 제안값, 미검증 동작을 구분한다.

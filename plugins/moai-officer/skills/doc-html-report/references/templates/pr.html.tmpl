@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
   <style>
     /* ============================================================
@@ -67,7 +67,7 @@
       font-size: 12px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--g500);
+      color: var(--g700);
       margin-bottom: 12px;
     }
 
@@ -87,13 +87,13 @@
       gap: 18px;
       font-family: var(--mono);
       font-size: 12.5px;
-      color: var(--g500);
+      color: var(--g700);
       margin-bottom: 18px;
     }
 
     .pr-meta .stat strong { color: var(--slate); font-weight: 600; }
-    .pr-meta .add { color: var(--olive); }
-    .pr-meta .del { color: var(--clay); }
+    .pr-meta .add { color: var(--g700); }
+    .pr-meta .del { color: var(--g700); }
 
     /* ============================================================
        레이아웃: 본문 + 우측 TOC
@@ -145,7 +145,7 @@
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: var(--g500);
+      color: var(--g700);
       margin-bottom: 10px;
     }
 
@@ -156,8 +156,8 @@
       padding: 4px 0;
     }
 
-    .toc a:hover { color: var(--clay); }
-    .toc .sub { padding-left: 12px; color: var(--g500); font-size: 12.5px; }
+    .toc a:hover { color: var(--g700); text-decoration: underline; }
+    .toc .sub { padding-left: 12px; color: var(--g700); font-size: 12.5px; }
 
     /* ============================================================
        TL;DR 배너
@@ -177,7 +177,7 @@
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: var(--g500);
+      color: var(--g700);
       margin-bottom: 8px;
     }
 
@@ -211,11 +211,11 @@
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: var(--g500);
+      color: var(--g700);
       margin-bottom: 10px;
     }
 
-    .ba .after .k { color: var(--olive); }
+    .ba .after .k { color: var(--g700); }
 
     .ba ul {
       list-style: none;
@@ -225,7 +225,7 @@
       font-size: 13.5px;
     }
 
-    .ba li::before { content: "·"; color: var(--g500); margin-right: 8px; }
+    .ba li::before { content: "·"; color: var(--g700); margin-right: 8px; }
     .ba .after li::before { color: var(--olive); }
 
     /* ============================================================
@@ -292,8 +292,8 @@
     .badge.del { background: #F3D9CC; color: #8A3B1E; }
 
     .file summary .stat { font-family: var(--mono); font-size: 12px; }
-    .file summary .stat .add { color: var(--olive); }
-    .file summary .stat .del { color: var(--clay); }
+    .file summary .stat .add { color: var(--g700); }
+    .file summary .stat .del { color: var(--g700); }
 
     .file .file-body { padding: 18px 20px 22px; }
 
@@ -324,7 +324,7 @@
       font-family: var(--mono);
       font-size: 13px;
       font-weight: 600;
-      color: var(--paper);
+      color: var(--slate);
       background: var(--clay);
       width: 26px;
       height: 26px;
@@ -337,7 +337,7 @@
     }
 
     .focus .t { font-weight: 600; color: var(--slate); font-size: 15px; margin-bottom: 2px; }
-    .focus .d { font-size: 13.5px; color: var(--g500); }
+    .focus .d { font-size: 13.5px; color: var(--g700); }
     .focus .d code { font-size: 12.5px; }
 
     /* ============================================================
@@ -386,7 +386,7 @@
     }
 
     .test .label { color: var(--slate); }
-    .test .note { color: var(--g500); font-size: 13px; margin-top: 2px; }
+    .test .note { color: var(--g700); font-size: 13px; margin-top: 2px; }
 
     /* ============================================================
        롤아웃 단계
@@ -426,20 +426,20 @@
       font-family: var(--mono);
       font-size: 22px;
       font-weight: 600;
-      color: var(--clay);
+      color: var(--g700);
       margin-bottom: 6px;
     }
 
     .rollout .step .when {
       font-family: var(--mono);
       font-size: 11px;
-      color: var(--g500);
+      color: var(--g700);
       text-transform: uppercase;
       letter-spacing: 0.05em;
       margin-bottom: 8px;
     }
 
-    .rollout .step .d { font-size: 13px; color: var(--g500); }
+    .rollout .step .d { font-size: 13px; color: var(--g700); }
 
     /* ============================================================
        푸터
@@ -450,7 +450,7 @@
       border-top: 1px solid var(--g300);
       font-family: var(--mono);
       font-size: 12px;
-      color: var(--g500);
+      color: var(--g700);
     }
 
     /* ============================================================
@@ -517,7 +517,7 @@
 
         <!-- ========================================================
              Why (Before / After)
-             why_html: 서술 HTML
+             why_html: 변수명은 유지하되 HTML로 해석하지 않는 서술 텍스트
              ba_before: [{text}], ba_after: [{text}]
         ======================================================== -->
         <section id="why">
@@ -555,7 +555,7 @@
                 </span>
               </summary>
               <div class="file-body">
-                <p class="why">{{{why_html}}}</p>
+                <p class="why">{{why_html}}</p>
               </div>
             </details>
             {{/files}}

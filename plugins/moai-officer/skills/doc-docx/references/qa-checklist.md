@@ -1,6 +1,6 @@
 # DOCX QA Checklist — 10단계 검수
 
-DOCX 결과물 출력 직전 다음 10단계를 점검합니다. 자동 검수 + 시각 검수가 함께 진행됩니다.
+DOCX 결과물을 실제로 저장한 뒤 가능한 항목을 점검합니다. 아래 코드는 항목별 참고 예시이며 통합 검사나 시각 검수의 실행 증거가 아닙니다.
 
 ## 자동 검수 (코드 레벨)
 
@@ -23,7 +23,9 @@ if remaining:
         print(f"  - {text}... → {vars}")
 ```
 
-### 2. 페이지 번호 모든 페이지 표기
+### 2. 바닥글의 페이지 번호 필드 확인
+
+필드가 있다는 것과 모든 페이지에 정상 렌더링된다는 것은 다릅니다. 최종 PDF나 문서 미리보기에서 직접 확인합니다.
 
 ```python
 for section in doc.sections:
@@ -64,7 +66,7 @@ for i, table in enumerate(doc.tables):
         print(f"⚠️ 표 {i}의 보더 스타일이 일관되지 않음 ({len(borders)} 종)")
 ```
 
-### 5. 폰트 일관성 (Pretendard 등 외 다른 폰트 사용 확인)
+### 5. 사용자가 지정한 서체와 실제 설치 서체 확인
 
 ```python
 allowed_fonts = {'Pretendard', '맑은 고딕', '굴림', 'Inter', 'Lora',
@@ -75,7 +77,7 @@ for p in doc.paragraphs:
         if run.font.name:
             used_fonts.add(run.font.name)
 
-unexpected = used_fonts - allowed_fonts
+unexpected = used_fonts - allowed_fonts  # 예시 목록이며 사용자 브랜드 서체는 별도로 허용
 if unexpected:
     print(f"⚠️ 예상 외 폰트 사용: {unexpected}")
 ```
@@ -88,10 +90,10 @@ if unexpected:
 
 | 조합 | 대비 비율 | WCAG AA |
 |---|---|---|
-| Dark `#141413` on White `#ffffff` | 18.4:1 | ✅ PASS |
-| Dark `#141413` on Light Beige `#faf9f5` | 13.5:1 | ✅ PASS |
-| Orange `#d97757` on White | 3.7:1 | ⚠️ 본문 NG (헤딩에만) |
-| Mid Gray `#b0aea5` on White | 2.3:1 | ❌ FAIL (캡션이라도 권장 X) |
+| Dark `#141413` on White `#ffffff` | 실제 계산 필요 | 본문 후보 |
+| Dark `#141413` on Light Beige `#faf9f5` | 실제 계산 필요 | 본문 후보 |
+| Orange `#d97757` on White | 실제 계산 필요 | 강조색 후보 |
+| Mid Gray `#b0aea5` on White | 실제 계산 필요 | 작은 본문에는 사용 전 확인 |
 
 캡션에는 Mid Gray 대신 **Dark 0.7 투명도** 또는 **#6e6e6e** 권장.
 
@@ -99,7 +101,7 @@ if unexpected:
 
 - 모든 이미지 아래에 캡션 (그림 1: ..., Figure 1: ...)
 - 캡션 정렬 (가운데 또는 좌측 통일)
-- 캡션 폰트 (9pt Mid Gray) 통일
+- 캡션 폰트와 색을 통일하고 실제 배경과의 대비를 확인
 
 ### 8. 단락 간 여백 일관성
 
@@ -119,7 +121,7 @@ for p in doc.paragraphs:
 - overflow로 셀이 잘리지 않음
 - 표 너비가 페이지 너비를 초과하지 않음
 
-수동 확인 또는 LibreOffice CLI로 변환 후 PDF 시각 확인:
+LibreOffice가 이미 설치된 환경에서는 PDF로 변환해 시각 확인할 수 있습니다. 없는 환경에서는 현재 앱의 문서 미리보기를 사용합니다:
 ```bash
 libreoffice --headless --convert-to pdf output.docx
 ```
@@ -161,30 +163,9 @@ for p in doc.paragraphs:
 
 ---
 
-## 자동 검수 통합 스크립트
+## 결과 기록
 
-전체 10단계를 한 번에 실행:
-
-```python
-def qa_docx(filepath: str) -> dict:
-    """DOCX 10단계 검수 — passed·warnings 보고."""
-    doc = Document(filepath)
-    report = {'passed': [], 'warnings': [], 'errors': []}
-
-    # 1. 플레이스홀더
-    # 2. 페이지 번호
-    # 3. 헤딩 위계
-    # 4. 표 보더
-    # 5. 폰트
-    # 6. 색 대비 (수동 권장)
-    # 7. 캡션 일관성
-    # 8. 빈 단락
-    # 9. 표 overflow (수동)
-    # 10. AI 슬롭
-
-    # ... (위 코드 통합)
-    return report
-```
+실제로 실행한 검사와 미리보기 결과를 항목별로 기록합니다. 문서 도구나 렌더러가 없어서 확인하지 못한 항목은 `미검증`으로 남깁니다. 예시 코드를 복사한 것만으로 자동 검수가 완료된 것으로 표시하지 않습니다.
 
 ## 통과 기준
 
@@ -201,4 +182,4 @@ def qa_docx(filepath: str) -> dict:
 | 9. 표 overflow | 없음 (필수) |
 | 10. AI 슬롭 | 0건 또는 의도된 사용 (권장) |
 
-**필수 6개 모두 통과 시 출력**. 권장 4개 중 1개 이상 실패 시 사용자 확인.
+실제로 확인한 항목만 통과로 표시합니다. 필수 항목을 확인하지 못했다면 최종 파일과 함께 미검증 범위를 명시합니다.

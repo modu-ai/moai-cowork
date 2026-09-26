@@ -3,15 +3,16 @@
 > `media-higgsfield-identity` | Soul Character 학습에 넣을 사진의 품질 기준과 실패 원인.
 > Element 경로에는 적용되지 않는다(Element는 1장이면 충분하다).
 
-**Evidence tier:** 2차 (Higgsfield 공식 스킬 `higgsfield-soul-id` v0.12.0, MIT — `references/photo-guide.md` · `references/troubleshooting.md` 기반)
+**Evidence tier:** 1차 (Higgsfield 공식 CLI 스킬 `higgsfield-soul-id` v0.12.0 및 웹 도움말). 사진 품질 기준은 CLI 스킬의 `references/photo-guide.md` · `references/troubleshooting.md` 기반.
 
 ---
 
 ## 1. 수량
 
-- 최소 5장, 최대 20장.
-- **권장 8~12장.** 이 구간이 identity 포착과 학습 비용의 균형점이다.
-- 20장을 채우려고 비슷한 사진을 늘리는 것은 역효과다 — 다양성이 수량보다 중요하다.
+- **공식 CLI 스킬:** 5~20장. 해당 스킬은 8~12장을 권장한다.
+- **Higgsfield 웹 도움말:** 20~80장. 웹 학습 화면의 기준이다.
+- **MCP·ChatGPT 연결:** 현재 노출된 학습 도구의 스키마나 연결별 공식 안내에서 제한을 먼저 확인한다. 확인하지 못하면 5~19장만으로 학습을 제출하지 않는다.
+- 수량을 맞추려고 비슷한 사진을 늘리지 않는다. 다양한 각도와 조명을 확보한다.
 
 ---
 
@@ -59,8 +60,10 @@
 | 증상 | 원인 | 조치 |
 |---|---|---|
 | `Minimum Basic plan required` | 무료 플랜 | 유료 플랜 필요를 사용자에게 알린다. 제출 전에 알리는 것이 낫다 |
-| `Training failed` | 사진 5장 미만 / 지나치게 단조로움 / 선글라스·모자 가림 / 단체 사진 / 이미지가 아닌 업로드 타입 | 사진을 교체하고 재학습 |
+| `Training failed` | 선택한 연결의 최소 수량 미달 / 지나치게 단조로움 / 선글라스·모자 가림 / 단체 사진 / 이미지가 아닌 업로드 타입 | 연결별 제한과 사진 품질을 확인하고 재학습 |
 | 학습이 오래 걸림 | 정상 (약 10분, 큐 상황에 따라 더 걸릴 수 있음) | 조용히 대기. 진행 상황을 반복 보고하지 않는다 |
 | 인증 만료 | 세션 만료 | MCP 커넥터 재인증 |
 
-> 제출 **전** 점검이 제출 후 진단보다 싸다. 5장 미만이거나 전부 같은 각도면, 학습을 걸기 전에 그 사실을 사용자에게 알린다.
+> 제출 **전** 연결별 수량 제한과 사진 품질을 확인한다. 제한 미확인 또는 같은 각도 사진뿐이라면 학습을 걸기 전에 사용자에게 알린다.
+
+출처: [공식 CLI 스킬](https://github.com/higgsfield-ai/skills/blob/main/higgsfield-soul-id/SKILL.md) · [공식 웹 도움말](https://higgsfield.ai/creator-hub/help-center/ai-models/how-do-i-create-and-use-a-soul-id-character)

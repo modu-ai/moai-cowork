@@ -2,10 +2,11 @@
 version: alpha
 name: NVIDIA-design-analysis
 description: |
-  An engineering-grade marketing system organized around two surface modes — a deep black canvas for hero and footer chapters and a flat paper-white canvas for body content — connected by a single, almost violently saturated NVIDIA Green accent that carries every CTA, every active tab, and the small decorative corner squares that mark out cards. The system is unapologetically angular: 2px radius across every surface, tight bold sans-serif typography in NVIDIA's proprietary EMEA cut, and a hairline gray rule that separates dense multi-column technical content. There is no decorative gradient, no atmospheric mesh, no soft drop shadow — just black, white, gray, and green stacked into a structured editorial grid that scales from product cards to massive industry landing pages without bending its rules.
+  A reference marketing system with dark hero and footer chapters, white body content, angular controls, and NVIDIA Green for primary actions on dark surfaces. Inter is the distribution font; NVIDIA-EMEA remains a source-reference face requiring usage rights. Darker green supports text and outlines on white surfaces.
 
 colors:
   primary: "#76b900"
+  primary-text: "#3f7300"
   on-primary: "#000000"
   primary-dark: "#5a8d00"
   ink: "#000000"
@@ -14,6 +15,7 @@ colors:
   surface-soft: "#f7f7f7"
   surface-elevated: "#1a1a1a"
   hairline: "#cccccc"
+  card-border: "#919191"
   hairline-strong: "#5e5e5e"
   body: "#1a1a1a"
   mute: "#757575"
@@ -25,7 +27,7 @@ colors:
   blue-700: "#0046a4"
   error: "#e52020"
   error-deep: "#650b0b"
-  warning: "#df6500"
+  warning: "#8a4200"
   warning-bright: "#ef9100"
   success-deep: "#3f8500"
   accent-yellow-pale: "#feeeb2"
@@ -36,110 +38,110 @@ colors:
 
 typography:
   display-xl:
-    fontFamily: NVIDIA-EMEA
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 48px
     fontWeight: 700
     lineHeight: 1.25
     letterSpacing: 0
   display-lg:
-    fontFamily: NVIDIA-EMEA
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 36px
     fontWeight: 700
     lineHeight: 1.25
     letterSpacing: 0
   heading-xl:
-    fontFamily: NVIDIA-EMEA
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 24px
     fontWeight: 700
     lineHeight: 1.25
     letterSpacing: 0
   heading-lg:
-    fontFamily: NVIDIA-EMEA
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 22px
     fontWeight: 400
     lineHeight: 1.75
     letterSpacing: 0
   heading-md:
-    fontFamily: NVIDIA-EMEA
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 20px
     fontWeight: 700
     lineHeight: 1.25
     letterSpacing: 0
   heading-sm:
-    fontFamily: NVIDIA-EMEA
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 18px
     fontWeight: 700
     lineHeight: 1.4
     letterSpacing: 0
   card-title:
-    fontFamily: NVIDIA-EMEA
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 17px
     fontWeight: 700
     lineHeight: 1.47
     letterSpacing: 0
   body-md:
-    fontFamily: NVIDIA-EMEA
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0
   body-strong:
-    fontFamily: NVIDIA-EMEA
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 16px
     fontWeight: 700
     lineHeight: 1.5
     letterSpacing: 0
   body-sm:
-    fontFamily: NVIDIA-EMEA
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 15px
     fontWeight: 400
     lineHeight: 1.67
     letterSpacing: 0
   button-lg:
-    fontFamily: NVIDIA-EMEA
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 18px
     fontWeight: 700
     lineHeight: 1.25
     letterSpacing: 0
   button-md:
-    fontFamily: NVIDIA-EMEA
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 16px
     fontWeight: 700
     lineHeight: 1.25
     letterSpacing: 0
   button-sm:
-    fontFamily: NVIDIA-EMEA
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 14.4px
     fontWeight: 700
     lineHeight: 1
     letterSpacing: 0.144px
   link-md:
-    fontFamily: NVIDIA-EMEA
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 15px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0
   caption-md:
-    fontFamily: NVIDIA-EMEA
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 700
     lineHeight: 1.43
     letterSpacing: 0
     textTransform: uppercase
   caption-sm:
-    fontFamily: NVIDIA-EMEA
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 12px
     fontWeight: 400
     lineHeight: 1.25
     letterSpacing: 0
   caption-xs:
-    fontFamily: NVIDIA-EMEA
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 11px
     fontWeight: 700
     lineHeight: 1
     letterSpacing: 0
   utility-xs:
-    fontFamily: NVIDIA-EMEA
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 10px
     fontWeight: 700
     lineHeight: 1.5
@@ -181,13 +183,15 @@ components:
     typography: "{typography.button-md}"
     rounded: "{rounded.sm}"
     padding: 11px 13px
+    border: "2px solid {colors.primary-text}"
   button-outline-on-dark:
     backgroundColor: "transparent"
     textColor: "{colors.on-dark}"
     typography: "{typography.button-md}"
     rounded: "{rounded.sm}"
+    border: "1px solid {colors.on-dark}"
   button-ghost-link:
-    textColor: "{colors.primary}"
+    textColor: "{colors.primary-text}"
     typography: "{typography.button-md}"
     rounded: "{rounded.none}"
   button-disabled:
@@ -212,10 +216,12 @@ components:
     rounded: "{rounded.sm}"
     padding: 12px 16px
     height: 44px
+    border: "1px solid {colors.mute}"
   text-input-focused:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.ink}"
     rounded: "{rounded.sm}"
+    border: "2px solid {colors.primary-text}"
   search-input:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.ink}"
@@ -223,24 +229,28 @@ components:
     rounded: "{rounded.sm}"
     padding: 10px 16px
     height: 40px
+    border: "1px solid {colors.mute}"
   product-card:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.ink}"
     typography: "{typography.card-title}"
     rounded: "{rounded.sm}"
     padding: 24px
+    border: "1px solid {colors.card-border}"
   feature-card:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.ink}"
     typography: "{typography.body-md}"
     rounded: "{rounded.sm}"
     padding: 32px
+    border: "1px solid {colors.card-border}"
   resource-card:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.ink}"
     typography: "{typography.card-title}"
     rounded: "{rounded.sm}"
     padding: 24px
+    border: "1px solid {colors.card-border}"
   hero-card-dark:
     backgroundColor: "{colors.surface-dark}"
     textColor: "{colors.on-dark}"
@@ -259,6 +269,8 @@ components:
     typography: "{typography.display-lg}"
     rounded: "{rounded.sm}"
     padding: 32px
+    border: "1px solid {colors.card-border}"
+    statColor: "{colors.primary-text}"
   corner-square:
     backgroundColor: "{colors.primary}"
     rounded: "{rounded.none}"
@@ -306,27 +318,28 @@ components:
 
 ## Overview
 
-NVIDIA's marketing system is built like a piece of engineering documentation that learned graphic design — every page is a structured cascade of dense, factual information arranged on a paper-white grid, framed top and bottom by deep black hero/footer chapters. There is exactly one accent color in the entire system, and it is doing all the work: NVIDIA Green (`{colors.primary}` — `#76b900`), used for every primary CTA, every active tab, every link affordance on dark surfaces, and the small decorative corner squares that mark out card containers. Nothing else competes for attention.
+This marketing reference uses white content grids between dark hero and footer chapters. NVIDIA Green (`{colors.primary}` — `#76b900`) works as a filled action on dark surfaces and as a decorative corner square. `{colors.primary-text}` supplies a darker green for links and outlines on white surfaces.
 
-The system's character comes from extreme typographic restraint and an almost punishingly angular geometry. Every container, button, and image uses `{rounded.sm}` (2px) — a token that's barely-there but never zero, giving the system the precise, technical feel of CAD output rather than warm consumer software. Cards sit on plain `{colors.canvas}` with a hairline `{colors.hairline}` border (no shadow, no elevation), separated by tight 8px-base spacing rhythm. Long-form pages stack 6–10 of these cards into multi-column technical grids without ever introducing decorative breaks.
+The system uses restrained type and angular geometry. Buttons, cards, and inputs use `{rounded.sm}` (2px). White cards on `{colors.canvas}` use a 1px `{colors.card-border}` edge so their boundary remains visible without shadow; lighter `{colors.hairline}` is for decorative dividers. Long-form pages can stack these cards in multi-column grids.
 
 The black-canvas hero and footer chapters are the system's "headline moments" — a single full-bleed photographic or 3D-rendered image with `{typography.display-xl}` headline copy laid in white, a single green CTA button, and a small green corner square as the only ornamentation. Everything else is subordinate.
 
 **Key Characteristics:**
-- Single-accent system: `{colors.primary}` carries every CTA, active state, and decorative motif. The rest is monochrome black/white/gray.
+- Green accent family: `{colors.primary}` on dark surfaces and `{colors.primary-text}` for small text or outlines on white.
 - Two-mode surface architecture: `{colors.surface-dark}` for hero/footer chapters; `{colors.canvas}` for body — alternating in a predictable rhythm down the page
 - Hyper-angular geometry: `{rounded.sm}` (2px) on every interactive element. There are no pill buttons, no rounded cards, no soft chrome.
-- NVIDIA-EMEA proprietary sans-serif at weights 400 and 700, scaled across a 12-tier hierarchy from `{typography.utility-xs}` (10px) up to `{typography.display-xl}` (48px)
-- Card library leans on hairline `{colors.hairline}` borders and `{colors.surface-soft}` backgrounds rather than shadows for separation
-- Signature decorative element: the small `{component.corner-square}` (~12px green square) anchored to one corner of resource and feature cards
+- Inter distribution sans-serif at weights 400 and 700, scaled from `{typography.utility-xs}` (10px) up to `{typography.display-xl}` (48px); NVIDIA-EMEA is the source-reference face
+- White cards use `{colors.card-border}` for visible boundaries; `{colors.hairline}` stays decorative
+- Signature decorative element: the small `{components.corner-square}` (~12px green square) anchored to one corner of resource and feature cards
 - Dense multi-column footer with 4–6 link columns on `{colors.surface-dark}` — every page closes with the same structured global navigation
 
 ## Colors
 
-> **Source pages:** `/tr-tr/` (primary homepage), `/en-eu/industries/healthcare-life-sciences/`, `/en-eu/solutions/ai/`, `/en-eu/ai/foundry/`. The chrome palette is identical across all four — only photography and copy vary.
+> **Source-reference paths:** `/tr-tr/`, `/en-eu/industries/healthcare-life-sciences/`, `/en-eu/solutions/ai/`, `/en-eu/ai/foundry/`. These paths are not a current live-page verification.
 
 ### Brand & Accent
-- **NVIDIA Green** (`{colors.primary}` — `#76b900`): the brand. Every primary CTA, every active state, every link affordance on dark surfaces, every corner square, and the brand wordmark itself.
+- **NVIDIA Green** (`{colors.primary}` — `#76b900`): filled CTA on dark surfaces and decorative corner square. Verify rights before using the brand wordmark or photography.
+- **Green for Light Surfaces** (`{colors.primary-text}` — `#3f7300`): small links, numbers, focus and outline borders on white or soft surfaces.
 - **NVIDIA Green Dark** (`{colors.primary-dark}` — `#5a8d00`): pressed state for the primary button — a single notch deeper than the brand green.
 - **Accent Green Pale** (`{colors.accent-green-pale}` — `#bff230`): rare highlight tint used in editorial callouts and decorative micro-blocks; never on chrome.
 
@@ -335,22 +348,23 @@ The black-canvas hero and footer chapters are the system's "headline moments" �
 - **Soft Surface** (`{colors.surface-soft}` — `#f7f7f7`): breadcrumb strip, sub-nav, side-by-side comparison panels, alternating row backgrounds.
 - **Black Canvas** (`{colors.surface-dark}` — `#000000`): hero chapter, dark CTA strips, footer, primary nav. The system's "frame" color.
 - **Surface Elevated** (`{colors.surface-elevated}` — `#1a1a1a`): nested dark panels inside the footer (column dividers, fine-print bar).
-- **Hairline** (`{colors.hairline}` — `#cccccc`): 1px card border, table rule, divider between footer link sections.
+- **Hairline** (`{colors.hairline}` — `#cccccc`): decorative table rule and divider.
+- **Card Border** (`{colors.card-border}` — `#919191`): 1px boundary for white cards on a white page.
 - **Hairline Strong** (`{colors.hairline-strong}` — `#5e5e5e`): 1px divider on dark surfaces (footer column rules, dark-mode card edges).
 
 ### Text
 - **Ink** (`{colors.ink}` — `#000000`): headlines and body text on `{colors.canvas}`.
 - **Body** (`{colors.body}` — `#1a1a1a`): long-form paragraph text where pure black is too heavy.
 - **Mute** (`{colors.mute}` — `#757575`): metadata, breadcrumb separators, footer copyright.
-- **Stone** (`{colors.stone}` — `#898989`): least-emphasis text and disabled state.
-- **Ash** (`{colors.ash}` — `#a7a7a7`): disabled icon color and faint utility text.
+- **Stone** (`{colors.stone}` — `#898989`): decorative or disabled use on white; do not use for essential small text there.
+- **Ash** (`{colors.ash}` — `#a7a7a7`): disabled icon and label only.
 - **On Dark** (`{colors.on-dark}` — `#ffffff`): primary text on `{colors.surface-dark}`.
 - **On Dark Mute** (`{colors.on-dark-mute}` — `rgba(255,255,255,0.7)`): secondary footer link text and dark-canvas body copy.
 
 ### Semantic
 - **Error** (`{colors.error}` — `#e52020`): validation messages, destructive confirmation.
 - **Error Deep** (`{colors.error-deep}` — `#650b0b`): pressed state for error buttons; hover-pressed validation icons.
-- **Warning** (`{colors.warning}` — `#df6500`): caution callouts, deprecated documentation banners.
+- **Warning** (`{colors.warning}` — `#8a4200`): caution text on white or soft callouts.
 - **Warning Bright** (`{colors.warning-bright}` — `#ef9100`): inverse warning on dark canvas.
 - **Success Deep** (`{colors.success-deep}` — `#3f8500`): positive confirmation where NVIDIA Green's saturation would clash.
 - **Link Blue** (`{colors.link-blue}` — `#0046a4`): inline anchor link color on light canvas — the only blue in the system, reserved for prose-embedded hyperlinks.
@@ -364,8 +378,9 @@ The black-canvas hero and footer chapters are the system's "headline moments" �
 ## Typography
 
 ### Font Family
-- **NVIDIA-EMEA** is the proprietary brand sans-serif used across every text role on the site. It carries weights 400 (regular) and 700 (bold) and falls back to Arial → Helvetica.
-- **Font Awesome 6 Pro** and **Font Awesome 6 Sharp** are used exclusively for iconography (chevrons, social glyphs, breadcrumb separators, search/menu icons) at sizes 14–22px.
+- **Inter** is the distribution default for every text role, at token weights 400 and 700 with `system-ui, sans-serif` fallbacks. [Google Fonts lists Inter under OFL](https://github.com/google/fonts/blob/main/ofl/inter/METADATA.pb).
+- **NVIDIA-EMEA** is the source-reference face. Use it only when the font files and intended usage rights are available.
+- **Font Awesome 6 Pro/Sharp** are source-reference icon names. Use an icon set with verified redistribution rights for generated assets.
 
 NVIDIA's type system is unusually flat: most chrome and body roles render at the same line-height (1.25–1.5) with the only meaningful variation coming from weight (400 vs 700) and size. The system relies on weight contrast — not size jumps and not color tinting — to establish hierarchy, which gives marketing copy and technical documentation an editorial newspaper feel.
 
@@ -373,7 +388,7 @@ NVIDIA's type system is unusually flat: most chrome and body roles render at the
 
 | Token | Size | Weight | Line Height | Letter Spacing | Use |
 |---|---|---|---|---|---|
-| `{typography.display-xl}` | 48px | 700 | 1.25 | 0 | Hero headline on `{component.hero-card-dark}` |
+| `{typography.display-xl}` | 48px | 700 | 1.25 | 0 | Hero headline on `{components.hero-card-dark}` |
 | `{typography.display-lg}` | 36px | 700 | 1.25 | 0 | Section headline ("Explore Our AI Solutions"), large stat callouts |
 | `{typography.heading-xl}` | 24px | 700 | 1.25 | 0 | Sub-section title, dark CTA-strip headline |
 | `{typography.heading-lg}` | 22px | 400 | 1.75 | 0 | Long-form intro paragraph that doubles as a heading |
@@ -393,10 +408,10 @@ NVIDIA's type system is unusually flat: most chrome and body roles render at the
 | `{typography.utility-xs}` | 10px | 700 | 1.5 | 0 | Legal fine-print bar at the very bottom (uppercase) |
 
 ### Principles
-The typography is brand-locked: NVIDIA-EMEA is used at every level, no serif, no display variant, no monospace, no italic. Hierarchy is built almost entirely from size and weight — color is reserved for emphasis (`{colors.primary}` on links over dark, `{colors.link-blue}` on light) and never used to separate type tiers.
+The distribution uses one Inter family across text roles. Hierarchy comes from size and weight; green links use `{colors.primary}` on dark surfaces and `{colors.primary-text}` on light, while `{colors.link-blue}` remains an inline prose-link option.
 
 ### Note on Font Substitutes
-NVIDIA-EMEA is proprietary. The closest open-source pairing is **Inter** (weights 400/700) — its x-height and stroke contrast match NVIDIA-EMEA's optical metrics within ~2% at body sizes. **Arial** is the official documented fallback and is acceptable for any system where Inter is unavailable. Avoid Helvetica Now or Helvetica Neue substitutes; their slightly tighter cap heights drift away from the brand's geometry.
+Inter is the distribution default and the YAML keeps each role's 400/700 weight. Compare line breaks and locale coverage in the rendered layout before replacing it with a licensed source-reference face.
 
 ## Layout
 
@@ -404,7 +419,7 @@ NVIDIA-EMEA is proprietary. The closest open-source pairing is **Inter** (weight
 - **Base unit:** 8px
 - **Tokens (front matter):** `{spacing.xxs}` (2px) · `{spacing.xs}` (4px) · `{spacing.sm}` (8px) · `{spacing.md}` (12px) · `{spacing.lg}` (16px) · `{spacing.xl}` (24px) · `{spacing.xxl}` (32px) · `{spacing.section}` (64px)
 - **Universal section rhythm:** every page in the set uses `{spacing.section}` (64px) as the vertical gap between major content blocks. Card grids use `{spacing.xl}` (24px) gutters; in-card padding sits at `{spacing.xl}` to `{spacing.xxl}` depending on density.
-- **Hero chapter padding:** 80px vertical / 48px horizontal — the largest spacing in the system, reserved for `{component.hero-card-dark}`.
+- **Hero chapter padding:** 80px vertical / 48px horizontal — the largest spacing in the system, reserved for `{components.hero-card-dark}`.
 
 ### Grid & Container
 - **Max width:** ~1280px content area at desktop, with 24px gutters that grow to ~48px at ultrawide.
@@ -422,16 +437,16 @@ Whitespace is structural, not atmospheric. Sections butt against each other with
 | Level | Treatment | Use |
 |---|---|---|
 | 0 — Flat | No border, no shadow | Canvas-on-canvas blocks, hero chapter content, footer column body |
-| 1 — Hairline border | 1px solid `{colors.hairline}` | All cards on `{colors.canvas}`, table cells, comparison panels |
+| 1 — Card border | 1px solid `{colors.card-border}` | White cards on `{colors.canvas}`; `{colors.hairline}` is for decorative rules |
 | 2 — Hairline strong | 1px solid `{colors.hairline-strong}` | Dividers on `{colors.surface-dark}` (footer column rules, dark-card edges) |
 | 3 — Soft shadow | `0 0 5px 0 rgba(0,0,0,0.3)` | Sticky nav bottom edge when scrolled, sticky CTA bar — used very sparingly |
 
-NVIDIA's system has effectively no drop-shadow elevation in card or content surfaces. The only "shadow" in the extracted tokens is a subtle 5px ambient on sticky chrome bars. Cards do not lift; cards are flat rectangles with hairline borders.
+NVIDIA's system has effectively no drop-shadow elevation in card or content surfaces. The only "shadow" in the extracted tokens is a subtle 5px ambient on sticky chrome bars. Cards do not lift; white cards use visible flat borders.
 
 ### Decorative Depth
 Depth in NVIDIA's system comes from photography and 3D-rendered hero imagery rather than from CSS effects:
 - **Hero imagery:** full-bleed photographic or rendered scenes (data-center hardware, neural-net visualizations, life-sciences microscopy) sit behind hero copy with a dark gradient overlay for legibility.
-- **Decorative corner squares:** the small `{component.corner-square}` (~12px solid `{colors.primary}` square) anchored to the top-left or bottom-right corner of resource and feature cards — the system's only consistent ornamental device.
+- **Decorative corner squares:** the small `{components.corner-square}` (~12px solid `{colors.primary}` square) anchored to the top-left or bottom-right corner of resource and feature cards — the system's only consistent ornamental device.
 - **Editorial 3D accents:** isometric or wireframe 3D renderings appear as illustration-style fills inside long-form articles, never as chrome.
 
 ## Shapes
@@ -461,11 +476,11 @@ The system is aggressively angular. Outside of avatar/icon circles, no element e
 
 **`button-primary`** — the universal NVIDIA CTA
 - Background `{colors.primary}`, text `{colors.on-primary}`, type `{typography.button-md}`, padding `11px 24px`, height `44px`, rounded `{rounded.sm}`.
-- The single most-repeated component in the system: hero CTA, dark CTA strip, "Learn More" on every card group, "Sign Up" / "Get Started" on every long-form page bottom.
+- Use for the leading action on a dark hero or CTA strip. On white cards, use `{components.button-ghost-link}` or `{components.button-outline}` instead.
 - Pressed state lives in `button-primary-active` — background drops to `{colors.primary-dark}` (`#5a8d00`) with the same text color.
 
 **`button-outline`** — secondary on light canvas
-- Background transparent, text `{colors.ink}`, 2px solid `{colors.primary}` border, type `{typography.button-md}`, padding `11px 13px`, rounded `{rounded.sm}`.
+- Background transparent, text `{colors.ink}`, 2px solid `{colors.primary-text}` border, type `{typography.button-md}`, padding `11px 13px`, rounded `{rounded.sm}`.
 - The system's most distinctive secondary CTA: a clear pane bordered in NVIDIA Green. Used for "Read the Documentation", "Watch the Video", "Compare Products" — second-tier actions that still earn the brand color.
 
 **`button-outline-on-dark`** — outline on `{colors.surface-dark}`
@@ -473,7 +488,7 @@ The system is aggressively angular. Outside of avatar/icon circles, no element e
 - White-on-black variant used in dark hero/footer CTA strips paired with a primary green button.
 
 **`button-ghost-link`** — inline arrow link
-- Text `{colors.primary}` with a small right-arrow icon, type `{typography.button-md}`, no background, no border, rounded `{rounded.none}`.
+- Text `{colors.primary-text}` with a small right-arrow icon, type `{typography.button-md}`, no background, no border, rounded `{rounded.none}` on white or soft surfaces.
 - "Learn More →" affordance sitting at the bottom of resource cards and long-form section blocks. The arrow is uppercase and bold per `{typography.caption-md}`-equivalent treatment.
 
 **`button-disabled`**
@@ -492,8 +507,8 @@ The system is aggressively angular. Outside of avatar/icon circles, no element e
 ### Inputs & Forms
 
 **`text-input`** + **`text-input-focused`**
-- Default: background `{colors.canvas}`, text `{colors.ink}`, 1px solid `{colors.hairline}`, type `{typography.body-md}`, padding `12px 16px`, height `44px`, rounded `{rounded.sm}`.
-- Focused: same surface, border becomes 2px solid `{colors.primary}` — the green border is the only focus signal in the system.
+- Default: background `{colors.canvas}`, text `{colors.ink}`, 1px solid `{colors.mute}`, type `{typography.body-md}`, padding `12px 16px`, height `44px`, rounded `{rounded.sm}`.
+- Focused: same surface, border becomes 2px solid `{colors.primary-text}`. Verify its visibility beside neighboring controls in the rendered form.
 
 **`search-input`**
 - Used in the global search overlay — same treatment as `text-input` but at 40px height with a magnifier glyph at left.
@@ -501,30 +516,30 @@ The system is aggressively angular. Outside of avatar/icon circles, no element e
 ### Cards
 
 **`product-card`**
-- Container: background `{colors.canvas}`, 1px solid `{colors.hairline}`, padding `{spacing.xl}` (24px), rounded `{rounded.sm}`.
-- Layout: 16:9 product image at top, `{typography.card-title}` title, `{typography.body-sm}` description, `{component.button-ghost-link}` "Learn More →" affordance at bottom.
-- The `{component.corner-square}` sits at the top-left corner.
+- Container: background `{colors.canvas}`, 1px solid `{colors.card-border}`, padding `{spacing.xl}` (24px), rounded `{rounded.sm}`.
+- Layout: 16:9 product image at top, `{typography.card-title}` title, `{typography.body-sm}` description, `{components.button-ghost-link}` "Learn More →" affordance at bottom.
+- The `{components.corner-square}` sits at the top-left corner.
 
 **`feature-card`**
-- Container: background `{colors.canvas}`, 1px solid `{colors.hairline}`, padding `{spacing.xxl}` (32px), rounded `{rounded.sm}`.
-- Layout: icon (Font Awesome at 22–24px) at top in `{colors.primary}` followed by `{typography.heading-md}` title and `{typography.body-md}` body.
+- Container: background `{colors.canvas}`, 1px solid `{colors.card-border}`, padding `{spacing.xxl}` (32px), rounded `{rounded.sm}`.
+- Layout: an icon from a licensed set at 22–24px in `{colors.primary-text}` on white, followed by `{typography.heading-md}` title and `{typography.body-md}` body.
 - Used in 3-up or 4-up grids that explain product capabilities ("Agentic AI", "Data Science", "Inference", "Conversational AI").
 
 **`resource-card`**
-- Container: background `{colors.canvas}`, 1px solid `{colors.hairline}`, padding `{spacing.xl}`, rounded `{rounded.sm}`.
-- Header strip: `{component.badge-tag}` document-type label.
+- Container: background `{colors.canvas}`, 1px solid `{colors.card-border}`, padding `{spacing.xl}`, rounded `{rounded.sm}`.
+- Header strip: `{components.badge-tag}` document-type label.
 - Body: 3:2 thumbnail, `{typography.card-title}` title, `{typography.body-sm}` description.
-- Footer: ghost-link "Read More →" with right-pointing chevron in `{colors.primary}`.
+- Footer: ghost-link "Read More →" with right-pointing chevron in `{colors.primary-text}` on white.
 
 **`callout-stat`**
-- Background `{colors.canvas}` with 1px hairline `{colors.hairline}`, padding `{spacing.xxl}`, rounded `{rounded.sm}`.
-- Massive `{typography.display-lg}` (36px) numeric in `{colors.primary}` followed by `{typography.body-md}` caption underneath ("4× faster training", "60% lower cost", etc.). Used inside long-form industry pages.
+- Background `{colors.canvas}` with 1px `{colors.card-border}`, padding `{spacing.xxl}`, rounded `{rounded.sm}`.
+- Large `{typography.display-lg}` (36px) numeric in `{colors.primary-text}` followed by `{typography.body-md}` caption underneath. Supply any performance value and comparison only from a current, attributable source.
 
 ### Hero & CTA Strips
 
 **`hero-card-dark`**
 - Background `{colors.surface-dark}` with full-bleed 16:9 photographic/3D image and dark gradient overlay; copy slot at left.
-- `{typography.display-xl}` headline `{colors.on-dark}`, `{typography.heading-lg}` subhead, single `{component.button-primary}` CTA (sometimes paired with `{component.button-outline-on-dark}`).
+- `{typography.display-xl}` headline `{colors.on-dark}`, `{typography.heading-lg}` subhead, single `{components.button-primary}` CTA (sometimes paired with `{components.button-outline-on-dark}`). Check text contrast against each image crop and add an opaque dark text area if needed.
 - Anchors the top of every primary landing page.
 
 **`cta-strip-dark`**
@@ -545,7 +560,7 @@ The system is aggressively angular. Outside of avatar/icon circles, no element e
 
 **`primary-nav`**
 - Background `{colors.surface-dark}`, text `{colors.on-dark}`, height 64px, type `{typography.body-strong}`, rounded `{rounded.none}`.
-- Layout: NVIDIA wordmark at left, centered nav row ("Products / Solutions / Industries / Resources / Support / Company"), right cluster (search-glyph + "Login" button + green CTA "Get Started").
+- Layout reference: wordmark at left, centered nav row ("Products / Solutions / Industries / Resources / Support / Company"), right cluster (search glyph + "Login" button + green CTA "Get Started"). Verify wordmark usage rights and current labels before publication.
 
 **`breadcrumb-bar`**
 - Background `{colors.surface-soft}`, text `{colors.body}`, height 48px, type `{typography.caption-md}` (uppercase).
@@ -573,22 +588,22 @@ The system is aggressively angular. Outside of avatar/icon circles, no element e
 ## Do's and Don'ts
 
 ### Do
-- Reserve `{colors.primary}` for primary CTAs, active states, decorative corner squares, and the NVIDIA wordmark itself. Treat it as a precious resource.
+- Reserve `{colors.primary}` for filled CTAs on dark surfaces and decorative corner squares; use `{colors.primary-text}` for actionable text, icons, and outlines on white. Use a wordmark only with verified rights.
 - Stack hero/footer chapters in `{colors.surface-dark}` and body sections in `{colors.canvas}` — alternate them in a predictable rhythm down the page.
-- Anchor a `{component.corner-square}` to one corner of every reusable card. It is the system's identity tag.
-- Use `{rounded.sm}` (2px) on every interactive element. Never go to 0, never go past 4.
+- Anchor a `{components.corner-square}` to one corner of every reusable card. It is the system's identity tag.
+- Use `{rounded.sm}` (2px) on button and input chrome; `{components.button-ghost-link}` is the link exception at `{rounded.none}`.
 - Build hierarchy from font weight (400 vs 700) and size, not from color tinting. Body text stays `{colors.ink}` or `{colors.body}` regardless of context.
 - Stack content sections at `{spacing.section}` (64px) rhythm with no decorative dividers between them.
-- Pair `{component.button-primary}` (green fill) with `{component.button-outline}` (green border) for primary + secondary action pairs.
+- On dark sections, pair `{components.button-primary}` with `{components.button-outline-on-dark}`. On white sections, use `{components.button-outline}` and a text link for a lower-emphasis action.
 
 ### Don't
 - Don't introduce drop shadows on cards or content surfaces. The only allowed shadow is the 5px ambient on sticky chrome.
-- Don't substitute `{colors.success-deep}`, `{colors.accent-green-pale}`, or any other green for `{colors.primary}` in CTAs. The brand green is precise.
+- Keep filled dark-surface CTAs at `{colors.primary}`. On white, use `{colors.primary-text}` for outlines and link text; do not use `{colors.accent-green-pale}` for an actionable label.
 - Don't use `{colors.link-blue}` outside of inline body-prose links. It is not a button color, not a chrome color.
-- Don't soften the geometry. No pill buttons, no rounded cards, no `{rounded.lg}` or higher anywhere except avatars and social icons.
-- Don't pad the hero `{component.hero-card-dark}` symmetrically. Copy hugs the left third; imagery fills the right.
+- Don't soften the geometry. Use `{rounded.sm}` on buttons, cards, and inputs; reserve `{rounded.none}` for structural sections and `{rounded.xs}` for decorative strips. Circles belong to avatars and social icons.
+- Don't pad the hero `{components.hero-card-dark}` symmetrically. Copy hugs the left third; imagery fills the right.
 - Don't add a second accent color for variety. The system is intentionally one-color.
-- Don't put `{component.button-primary}` on a `{colors.canvas}` background where green-on-white would clash with photo content — use `{component.button-outline}` instead and reserve fill for dark surfaces.
+- On `{colors.canvas}`, use `{components.button-outline}` with its darker green border; reserve `{components.button-primary}` for dark surfaces.
 
 ## Responsive Behavior
 
@@ -605,7 +620,7 @@ The system is aggressively angular. Outside of avatar/icon circles, no element e
 | mobile-narrow | 320px | Hero `{typography.display-xl}` scales from 48px → 32px |
 
 ### Touch Targets
-All interactive elements meet WCAG AA (≥ 44×44px). `{component.button-primary}` sits at 44px height with 24px horizontal padding. `{component.text-input}` sits at 44px. `{component.pill-tab}` sits at ~40px height with extended hit-target padding to 44px. `{component.button-outline}` matches the 44px standard. Footer links are 18–20px line-height with 8–12px vertical padding to keep tap targets at ~36–44px depending on link length.
+The primary button and text-input tokens specify 44px height; search input specifies 40px. Pill tabs, outline buttons, and footer links have no verified minimum hit area in this profile. Measure the rendered controls, including any extra hit-area padding, before claiming target-size conformance.
 
 ### Collapsing Strategy
 - **Primary nav:** desktop center cluster → tablet hamburger drawer at 768px.
@@ -624,11 +639,11 @@ All interactive elements meet WCAG AA (≥ 44×44px). `{component.button-primary
 ## Iteration Guide
 
 1. Focus on ONE component at a time. Pull its YAML entry from the front matter and verify every property resolves.
-2. Reference component names and tokens directly (`{colors.primary}`, `{component.button-primary-active}`, `{rounded.sm}`) — do not paraphrase.
-3. Run `npx @google/design.md lint DESIGN.md` after edits — `broken-ref`, `contrast-ratio`, and `orphaned-tokens` warnings flag issues automatically.
+2. Reference component names and tokens directly (`{colors.primary}`, `{components.button-primary-active}`, `{rounded.sm}`) — do not paraphrase.
+3. Run `npx --yes -p "@google/design.md@0.4.0" designmd lint DESIGN.md` after edits — `broken-ref`, `contrast-ratio`, and `orphaned-tokens` warnings flag issues automatically.
 4. Add new variants as separate component entries (`-active`, `-disabled`, `-focused`) — do not bury them inside prose.
 5. Default body to `{typography.body-md}`; reach for `{typography.body-strong}` for emphasis; reserve `{typography.display-xl}` strictly for hero chapter headlines.
-6. Keep `{colors.primary}` scarce per viewport — if more than one solid-green CTA appears in the same fold, neutralize one to `{component.button-outline}`.
+6. Keep `{colors.primary}` scarce per viewport — if more than one solid-green CTA appears in the same fold, neutralize one to `{components.button-outline}`.
 7. When introducing a new component, ask whether it can be expressed with the existing card + 2px-radius + corner-square + green-CTA vocabulary before adding new tokens. The system's strength is that it almost never needs new ones.
 
 ## Known Gaps
@@ -638,3 +653,4 @@ All interactive elements meet WCAG AA (≥ 44×44px). `{component.button-primary
 - **Dialog / modal styling** beyond the locale-selector overlay not visible in the captured surfaces.
 - **Form field styling** for full sign-up / contact forms is not present in the captured surfaces — only inline search and basic text inputs are documented.
 - **Login / authenticated chrome** not in the captured pages.
+- **Current site and usage rights not checked** — validate page layout, fonts, icons, photography, wordmark, and any numeric or product claims against current sources before publishing.

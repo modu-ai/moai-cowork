@@ -7,7 +7,7 @@ shadcn `Button`(variant: default / secondary / ghost / destructive)를 React 없
 ### default (primary CTA)
 
 ```html
-<button class="inline-flex h-10 items-center rounded-md bg-primary px-5 text-sm font-medium text-white hover:bg-primary-active focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-canvas">
+<button class="inline-flex h-10 items-center rounded-md bg-primary px-5 text-sm font-medium text-on-primary hover:bg-primary-active hover:text-on-primary-active focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-canvas">
   Action
 </button>
 ```
@@ -31,7 +31,7 @@ shadcn `Button`(variant: default / secondary / ghost / destructive)를 React 없
 ### destructive
 
 ```html
-<button class="inline-flex h-10 items-center rounded-md bg-error px-5 text-sm font-medium text-white hover:opacity-90">
+<button class="inline-flex h-10 items-center rounded-md bg-error px-5 text-sm font-medium text-on-error hover:opacity-90 focus-visible:ring-2 focus-visible:ring-error">
   삭제
 </button>
 ```
@@ -39,13 +39,13 @@ shadcn `Button`(variant: default / secondary / ghost / destructive)를 React 없
 ### pill (일부 브랜드 — starbucks · mastercard · lovable 등 full-radius)
 
 ```html
-<button class="inline-flex h-10 items-center rounded-full bg-primary px-6 text-sm font-medium text-white hover:bg-primary-active">
+<button class="inline-flex h-10 items-center rounded-full bg-primary px-6 text-sm font-medium text-on-primary hover:bg-primary-active hover:text-on-primary-active focus-visible:ring-2 focus-visible:ring-primary">
   주문하기
 </button>
 ```
 
 ## 토큰 메모
 
-- `bg-primary` / `hover:bg-primary-active` — CTA 기본 쌍. 다크 테마(clickhouse)에서는 primary가 electric yellow, text는 canvas(near-black)가 되어야 가독성 확보 → 그 시스템에선 `text-ink`(=white 정의) 대신 명시적 대비 색 사용.
+- `text-on-primary`·`hover:text-on-primary-active`·`text-on-error`는 각 배경과 실제 대비를 계산해 토큰으로 제공한다. Claude primary 위 흰색은 3.28:1, ClickHouse primary 위 흰색은 1.07:1이라 두 시스템 모두 `text-white` 고정이 안 된다. Claude hover coral 위 검정도 3.65:1이라 hover에는 흰색을 쓴다. 오류색도 별도 확인한다.
 - `focus-visible:ring-*` — 키보드 접근성. ring 색은 `primary` 권장.
 - pill 브랜드는 시스템 frontmatter `rounded.pill` / `rounded.full` 토큰이 있을 때만 `rounded-full` 사용(자동 매핑은 §1.3).

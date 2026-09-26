@@ -29,19 +29,19 @@ colors:
 
 typography:
   display-xl:
-    fontFamily: SF Pro Rounded
+    fontFamily: "'SF Pro Rounded', system-ui, sans-serif"
     fontSize: 36px
     fontWeight: 500
     lineHeight: 1.11
     letterSpacing: 0
   display-lg:
-    fontFamily: SF Pro Rounded
+    fontFamily: "'SF Pro Rounded', system-ui, sans-serif"
     fontSize: 30px
     fontWeight: 500
     lineHeight: 1.2
     letterSpacing: 0
   heading-lg:
-    fontFamily: SF Pro Rounded
+    fontFamily: "'SF Pro Rounded', system-ui, sans-serif"
     fontSize: 24px
     fontWeight: 600
     lineHeight: 1.33
@@ -506,7 +506,7 @@ There is no photography. The only image-like elements are:
 | mobile | 640px | Hero headline drops from `{typography.display-xl}` (36px) to ~28px; install-snippet wraps; section padding tightens |
 
 ### Touch Targets
-All interactive elements meet WCAG AA at the 36–40px height range. `{component.button-primary}` and `{component.button-secondary}` sit at 36px height with 20px horizontal padding, giving an effective tappable area of ~36×80px which exceeds the 44×44px AAA threshold via the inline padding. `{component.text-input}` sits at 40px. `{component.search-pill}` sits at 36px height with 16px padding. Footer links use `{typography.caption-sm}` (12px) but receive ~12px line-height + ~8px vertical padding for a tappable row of ~32–36px.
+`{component.button-primary}` and `{component.button-secondary}` are documented at 36px high with 20px horizontal padding, for an estimated 36×80px target. Horizontal padding does not make the 36px height meet the WCAG 2.5.5 AAA 44×44px size target. `{component.text-input}` is documented at 40px high and `{component.search-pill}` at 36px. Footer links use `{typography.caption-sm}` (12px) with an estimated 32–36px row height. Measure each rendered clickable area and, where a dimension is below 24px, its spacing or applicable exception before claiming WCAG 2.5.8 AA. Check both dimensions against 44px before claiming the AAA size target.
 
 ### Collapsing Strategy
 - **Primary nav:** desktop horizontal → tablet-narrow hamburger drawer at 768px. The black "Download" CTA stays visible at all widths; it never collapses into the menu.
@@ -524,7 +524,7 @@ The only image asset is the llama mascot (raster PNG at multiple resolutions: 16
 
 1. Focus on ONE component at a time. Pull its YAML entry from the front matter and verify every property resolves.
 2. Reference component names and tokens directly (`{colors.primary}`, `{component.button-primary-active}`, `{rounded.full}`) — do not paraphrase.
-3. Run `npx @google/design.md lint DESIGN.md` after edits — `broken-ref`, `contrast-ratio`, and `orphaned-tokens` warnings flag issues automatically.
+3. Run `npx --yes -p "@google/design.md@0.4.0" designmd lint DESIGN.md` after edits — `broken-ref`, `contrast-ratio`, and `orphaned-tokens` warnings flag issues automatically.
 4. Add new variants as separate component entries (`-active`, `-disabled`, `-focused`) — do not bury them inside prose.
 5. Default body to `{typography.body-md}`; reach for `{typography.body-sm}` for footer/utility text; reserve `{typography.display-xl}` strictly for the page-top headline.
 6. Keep `{colors.primary}` scarce per viewport — there should be at most one black pill per fold (counting nav, hero CTA, and pricing-card CTA together). The design's restraint is the design.

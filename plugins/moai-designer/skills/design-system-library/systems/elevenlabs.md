@@ -1,7 +1,8 @@
 ---
 version: alpha
 name: ElevenLabs-design-analysis
-description: A voice-AI brand whose marketing surfaces read like a quietly editorial print magazine. The base canvas is off-white (`#f5f5f5`) holding warm near-black ink (`#292524`); the brand voltage is photographic, not chromatic — soft pastel atmospheric gradient orbs (mint → peach → lavender → sky) drift through the page as the only "color" moments. Display runs Waldenburg Light at weight 300 — the editorial signature. Inter carries body, navigation, captions. CTAs are subtle: a near-black ink pill is the primary, a transparent outline is the secondary. The brand trusts atmospheric photography and modest type weights to do all of the brand work; there is no neon accent, no saturated CTA color, no developer-tools dark canvas.
+description: >-
+  A voice-AI brand whose marketing surfaces read like a quietly editorial print magazine. The base canvas is off-white (`#f5f5f5`) holding warm near-black ink (`#292524`); the brand voltage is photographic, not chromatic — soft pastel atmospheric gradient orbs (mint → peach → lavender → sky) drift through the page as the only "color" moments. The source display uses Waldenburg Light at weight 300; this reusable profile defaults to Cormorant Garamond at the same weight. Inter carries body, navigation, captions. CTAs are subtle: a near-black ink pill is the primary, a transparent outline is the secondary. The brand trusts atmospheric photography and modest type weights to do all of the brand work; there is no neon accent, no saturated CTA color, no developer-tools dark canvas.
 
 colors:
   primary: "#292524"
@@ -34,31 +35,31 @@ colors:
 
 typography:
   display-mega:
-    fontFamily: "'Waldenburg', 'Times New Roman', serif"
+    fontFamily: "'Cormorant Garamond', 'Times New Roman', serif"
     fontSize: 64px
     fontWeight: 300
     lineHeight: 1.05
     letterSpacing: -1.92px
   display-xl:
-    fontFamily: "'Waldenburg', serif"
+    fontFamily: "'Cormorant Garamond', 'Times New Roman', serif"
     fontSize: 48px
     fontWeight: 300
     lineHeight: 1.08
     letterSpacing: -0.96px
   display-lg:
-    fontFamily: "'Waldenburg', serif"
+    fontFamily: "'Cormorant Garamond', 'Times New Roman', serif"
     fontSize: 36px
     fontWeight: 300
     lineHeight: 1.17
     letterSpacing: -0.36px
   display-md:
-    fontFamily: "'Waldenburg', serif"
+    fontFamily: "'Cormorant Garamond', 'Times New Roman', serif"
     fontSize: 32px
     fontWeight: 300
     lineHeight: 1.13
     letterSpacing: -0.32px
   display-sm:
-    fontFamily: "'Waldenburg', serif"
+    fontFamily: "'Cormorant Garamond', 'Times New Roman', serif"
     fontSize: 24px
     fontWeight: 300
     lineHeight: 1.2
@@ -256,14 +257,14 @@ components:
 
 ElevenLabs reads like a quietly editorial print magazine that happens to be a voice-AI product. The base canvas is off-white `{colors.canvas}` (#f5f5f5) holding warm near-black ink `{colors.ink}` (#0c0a09). The brand voltage is **photographic, not chromatic**: soft pastel atmospheric gradient orbs (mint, peach, lavender, sky, rose) drift through the page as the only "color" moments. There is no neon accent, no saturated CTA color, no dark-canvas dev-tools atmosphere.
 
-Type pairs **Waldenburg Light** (custom serif at weight 300) for display with **Inter** for body, navigation, captions. The display weight at 300 is the editorial signature — never bold, never heavy.
+The source design pairs **Waldenburg Light** (custom serif at weight 300) for display with **Inter** for body, navigation, and captions. This reusable profile defaults to Cormorant Garamond for display; add Waldenburg to output CSS only when its use is licensed. The display weight at 300 is the editorial signature — never bold, never heavy.
 
 CTAs are subtle: a near-black ink pill (`{component.button-primary}`) is the primary, a transparent outline (`{component.button-outline}`) is the secondary. The brand trusts atmospheric photography and modest type weights to carry brand work.
 
 **Key Characteristics:**
 - Off-white canvas, warm near-black ink. No saturated CTA color.
 - Single primary action: ink pill at `{rounded.pill}`. Atmospheric gradients carry visual brand voltage.
-- Display runs Waldenburg Light at weight 300 — editorial magazine voice.
+- Display keeps the source's weight 300 with Cormorant Garamond by default or licensed Waldenburg Light.
 - Body runs Inter at 400 with subtle letter-spacing (+0.15-0.18px).
 - Pastel gradient orbs (5 tokens: mint, peach, lavender, sky, rose) used as atmospheric brand decoration only.
 - Soft pill geometry (`{rounded.pill}` for CTAs, `{rounded.xl}` for cards).
@@ -315,7 +316,7 @@ These appear ONLY as soft radial-gradient atmospheric orbs inside `{component.gr
 ## Typography
 
 ### Font Family
-**Waldenburg Light** is the licensed display serif at weight 300. **Inter** carries body, navigation, captions, and buttons. Fallback: `'Times New Roman', serif` for Waldenburg, `sans-serif` for Inter.
+**Waldenburg Light** is the licensed source display serif at weight 300. The default YAML uses **Cormorant Garamond**, then `'Times New Roman', serif`; **Inter** carries body, navigation, captions, and buttons with `sans-serif` fallback. Only a licensed renderer may add Waldenburg ahead of Cormorant Garamond.
 
 ### Hierarchy
 
@@ -337,12 +338,12 @@ These appear ONLY as soft radial-gradient atmospheric orbs inside `{component.gr
 | `{typography.nav-link}` | 15px | 500 | 1.4 | 0 | Top-nav menu |
 
 ### Principles
-- **Display weight stays at 300.** Waldenburg Light is the editorial signature. Never bold display copy.
+- **Display weight stays at 300.** Preserve the editorial signature with the default Cormorant Garamond stack or licensed Waldenburg. Never bold display copy.
 - **Subtle letter-spacing on body.** Inter at +0.15-0.18px tracking — slightly looser than default Inter for a more editorial feel.
-- **Negative letter-spacing on display.** Waldenburg pulls -0.32px to -1.92px tighter on display sizes.
+- **Negative letter-spacing on display.** Keep each display token's -0.32px to -1.92px value and check the rendered substitute before changing it.
 
 ### Note on Font Substitutes
-Waldenburg is licensed. Open-source substitute: **EB Garamond** at weight 300 (slightly more humanist) or **GT Sectra** (closer to Waldenburg's modernity). Use Inter directly for body — it's the same family ElevenLabs uses.
+Waldenburg requires a license. [Cormorant Garamond is available under the SIL Open Font License](https://github.com/google/fonts/blob/main/ofl/cormorantgaramond/METADATA.pb) and is the default display substitute at weight 300. [GT Sectra is sold by Grilli Type](https://www.grillitype.com/typefaces); it is not an open-source substitute and requires its own license. Use Inter for body as specified by the YAML.
 
 ## Layout
 
@@ -453,7 +454,7 @@ The system uses **hairline + soft drop**. Cards float above the off-white canvas
 
 ### Do
 - Reserve `{colors.primary}` (ink pill) for primary CTAs.
-- Use Waldenburg Light at weight 300 for every display headline. Never bold.
+- Use the display token at weight 300 for every headline. Add Waldenburg Light only when its use is licensed; never bold.
 - Use Inter at +0.15-0.18px tracking for body — the editorial dialect.
 - Use atmospheric gradient orbs (mint/peach/lavender/sky/rose) as decoration only.
 - Use the pill shape for every CTA and badge.
@@ -478,8 +479,8 @@ The system uses **hairline + soft drop**. Cards float above the off-white canvas
 | Wide | > 1280px | Content caps at 1200px. |
 
 ### Touch Targets
-- Primary pill at 40px height — at WCAG AA, padded for AAA.
-- Voice icon circles 32px — padded row creates effective 48px tap zone.
+- Primary pill is documented at 40px high. Measure both dimensions of its rendered clickable area and, if undersized, check spacing or an applicable exception before claiming WCAG 2.5.8 AA. Horizontal padding cannot make a 40px-high target meet the WCAG 2.5.5 AAA 44×44px size target.
+- Voice icon circles are documented at 32px. The row's `12px 0` padding does not prove the row is clickable or that the icon has a 48px target; measure the actual target and its spacing.
 
 ### Collapsing Strategy
 - Top nav switches to hamburger below 768px.
@@ -493,12 +494,12 @@ The system uses **hairline + soft drop**. Cards float above the off-white canvas
 3. Variants live as separate entries.
 4. Use `{token.refs}` everywhere — never inline hex.
 5. Hover state never documented.
-6. Waldenburg 300 for display, Inter 400/500 for body.
+6. Use the display token at weight 300 with Cormorant Garamond by default and Waldenburg only when licensed; use Inter 400/500 for body.
 7. Gradient orbs scoped to atmospheric decoration.
 
 ## Known Gaps
 
-- Waldenburg is a licensed typeface; EB Garamond / GT Sectra are documented substitutes.
+- Waldenburg and GT Sectra require separate licenses; Cormorant Garamond is the default open-source display substitute.
 - Animation timings (orb drift, waveform pulse, hero entrance) out of scope.
 - In-product surfaces (voice library editor, agent playground) only partially captured via marketing mockups.
 - Form validation states beyond focus not visible on captured surfaces.

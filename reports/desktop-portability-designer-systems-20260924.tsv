@@ -1,0 +1,76 @@
+path	lines	name	color_tokens	typography_tokens	primary	canvas	on_primary	source_urls	status
+plugins/moai-designer/skills/design-system-library/systems/airbnb.md	87	Airbnb-design-analysis	17	8	#ff5a5f	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/airtable.md	87	Airtable-design-analysis	17	8	#2d7ff9	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/anthropic-claude.md	589	Claude-design-analysis	25	14	#cc785c	#faf9f5	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/apple.md	87	Apple-design-analysis	17	8	#0071e3	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/binance.md	87	Binance-design-analysis	17	8	#f0b90b	#161619	#161616	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/bmw-m.md	87	BMW M-design-analysis	17	8	#1c69d4	#161619	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/bmw.md	87	BMW-design-analysis	17	8	#1c69d4	#161619	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/bugatti.md	87	Bugatti-design-analysis	17	8	#1f4fa0	#161619	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/cal.md	87	Cal.com-design-analysis	17	8	#111827	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/clay.md	541	Clay-design-analysis	29	13	#0a0a0a	#fffaf0	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/clickhouse.md	544	ClickHouse-design-analysis	24	15	#faff69	#0a0a0a	#0a0a0a	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/cohere.md	451	Cohere-design-analysis	23	12	#17171c	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/coinbase.md	570	Coinbase-design-analysis	22	16	#0052ff	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/composio.md	506	Composio-design-analysis	22	14	#0007cd	#0f0f0f	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/cursor.md	537	Cursor-design-analysis	22	14	#f54e00	#f7f7f4	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/dell-1996.md	87	Dell (1996)-design-analysis	17	8	#007db8	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/discord.md	546	Discord Analysis	13	10	#5865f2	#0a0d3a	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/elevenlabs.md	505	ElevenLabs-design-analysis	27	14	#292524	#f5f5f5	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/expo.md	526	Expo-design-analysis	28	14	#000000	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/ferrari.md	531	Ferrari-design-analysis	26	13	#da291c	#181818	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/figma.md	578	Figma-design-analysis	20	12	#000000	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/framer.md	544	Framer-design-analysis	17	12	#ffffff	#090909	#000000	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/hashicorp.md	575	HashiCorp-design-analysis	30	12	#000000	#000000	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/hp.md	87	HP-design-analysis	17	8	#0096d6	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/ibm.md	550	IBM-design-analysis	21	13	#0f62fe	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/intercom.md	546	Intercom-design-analysis	25	13	#111111	#f5f1ec	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/kraken.md	142	Kraken-design-analysis	10	0	#7132f5	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/lamborghini.md	305	Lamborghini-design-analysis	10	0	#ffc000	#000000	#000000	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/linear.app.md	87	Linear-design-analysis	17	8	#7c84ec	#16161a	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/lovable.md	315	Lovable-design-analysis	10	0	#1c1c1c	#f7f4ed	#fcfbf8	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/mastercard.md	382	Mastercard-design-analysis	10	0	#cf4500	#f3f0ee	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/meta.md	683	Meta-design-analysis	27	15	#0064e0	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/minimax.md	746	MiniMax-design-analysis	28	15	#0a0a0a	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/mintlify.md	852	Mintlify-design-analysis	32	20	#0a0a0a	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/miro.md	825	Miro-design-analysis	40	18	#1c1c1e	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/mistral.ai.md	773	Mistral AI-design-analysis	36	19	#fa520f	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/mongodb.md	767	MongoDB-design-analysis	34	18	#00ed64	#ffffff	#001e2b	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/nike.md	575	Nike-design-analysis	23	13	#111111	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/nintendo-2001.md	87	Nintendo (2001)-design-analysis	17	8	#e60012	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/notion.md	498	Notion Analysis	21	11	#0075de	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/nvidia.md	640	NVIDIA-design-analysis	28	18	#76b900	#ffffff	#000000	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/ollama.md	539	Ollama-design-analysis	21	13	#000000	#ffffff	#ffffff	1	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/opencode.ai.md	521	OpenCode-design-analysis	28	8	#201d1d	#fdfcfc	#fdfcfc	1	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/pinterest.md	597	Pinterest-design-analysis	31	14	#e60023	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/playstation.md	661	PlayStation-design-analysis	36	14	#0070d1		#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/posthog.md	690	PostHog-design-analysis	29	20	#f7a501	#eeefe9	#23251d	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/raycast.md	668	Raycast-design-analysis	31	15	#ffffff	#07080a	#000000	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/renault.md	589	Renault-design-analysis	25	15	#ffed00	#ffffff	#000000	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/replicate.md	616	Replicate-design-analysis	26	17	#ea2804	#f9f7f3	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/resend.md	585	Resend-design-analysis	28	14	#fcfdff	#000000		0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/revolut.md	636	Revolut-design-analysis	35	16	#494fdf		#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/runwayml.md	517	Runwayml-design-analysis	17	13	#000000	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/sanity.md	662	Sanity-design-analysis	23	19	#0b0b0b	#0b0b0b	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/sentry.md	551	Sentry-design-analysis	21	16	#150f23		#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/shopify.md	516	Shopify-design-analysis	22	15	#000000		#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/slack.md	482	Slack-design-analysis	19	15	#4a154b	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/spacex.md	364	Spacex-design-analysis	13	8	#000000		#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/spotify.md	263	Spotify-design-analysis	10	0	#1ed760	#121212	#121212	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/starbucks.md	597	Starbucks-design-analysis	10	0	#00754a	#f2f0eb	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/stripe.md	87	Stripe-design-analysis	17	8	#635bff	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/supabase.md	87	Supabase-design-analysis	17	8	#3ecf8e	#1c1c1c	#161616	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/superhuman.md	448	Superhuman-design-analysis	15	12	#1b1938	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/tesla.md	303	Tesla-design-analysis	10	0	#3e6ae1	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/theverge.md	356	Theverge-design-analysis	10	0	#3cffd0	#131313	#131313	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/together.ai.md	633	Together AI-design-analysis	13	14	#000000	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/uber.md	636	Uber-design-analysis	13	13	#000000	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/vercel.md	87	Vercel-design-analysis	17	8	#ffffff	#000000	#161616	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/vodafone.md	538	Vodafone-design-analysis	8	17	#e60000	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/voltagent.md	87	VoltAgent-design-analysis	17	8	#00d992	#161619	#161616	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/warp.md	87	Warp-design-analysis	17	8	#01a2ff	#161619	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/webflow.md	87	Webflow-design-analysis	17	8	#146ef5	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/wired.md	87	WIRED-design-analysis	17	8	#0000ee	#ffffff	#ffffff	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/wise.md	544	Wise-design-analysis	22	14	#9fe870	#ffffff	#0e0f0c	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/x.ai.md	465	xAI-design-analysis	18	11	#ffffff	#0a0a0a	#0a0a0a	0	parsed; brand facts and runtime unverified
+plugins/moai-designer/skills/design-system-library/systems/zapier.md	537	Zapier-design-analysis	10	16	#ff4f00	#fffefb	#fffefb	0	parsed; brand facts and runtime unverified

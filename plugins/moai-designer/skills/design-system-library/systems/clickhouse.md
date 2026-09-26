@@ -10,8 +10,8 @@ colors:
   ink: "#ffffff"
   body: "#cccccc"
   body-strong: "#e6e6e6"
-  muted: "#888888"
-  muted-soft: "#5a5a5a"
+  muted: "#949494"
+  muted-soft: "#888888"
   hairline: "#2a2a2a"
   hairline-strong: "#3a3a3a"
   canvas: "#0a0a0a"
@@ -325,8 +325,8 @@ Type voice runs **Inter** at confident weights — 700 for display headlines (wi
 - **Ink / On Dark** (`{colors.on-dark}` — #ffffff): All headline and primary text.
 - **Body** (`{colors.body}` — #cccccc): Default running-text color.
 - **Body Strong** (`{colors.body-strong}` — #e6e6e6): Emphasized paragraphs.
-- **Muted** (`{colors.muted}` — #888888): Footer links, captions, breadcrumbs.
-- **Muted Soft** (`{colors.muted-soft}` — #5a5a5a): Tertiary text — fine print.
+- **Muted** (`{colors.muted}` — #949494): Footer links, captions, breadcrumbs.
+- **Muted Soft** (`{colors.muted-soft}` — #888888): Tertiary text — fine print on dark surfaces.
 - **On Primary / On Yellow** (`{colors.on-primary}` / `{colors.on-yellow}` — #0a0a0a): Black text on yellow CTAs and yellow CTA bands. The high-contrast yellow + black combo is the brand action signal.
 
 ### Semantic / Accent
@@ -510,7 +510,7 @@ The system uses no drop shadows. Depth comes from the contrast between black can
 
 ### Touch Targets
 - `{component.button-primary}` at minimum 40 × 40px.
-- `{component.button-icon-circular}` at exactly 36 × 36 — slightly under WCAG 44, visually centered.
+- `{component.button-icon-circular}` at exactly 36 × 36 — check WCAG 2.5.8 AA size/spacing in the rendered layout; enlarge to 44 × 44 where the 2.5.5 AAA target applies.
 - `{component.text-input}` height is 40px.
 
 ### Collapsing Strategy

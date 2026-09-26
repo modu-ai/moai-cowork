@@ -1,13 +1,13 @@
 # Gemini 3 Pro Image — Parameter Cheatsheet
 
-Google AI Studio / Vertex AI / Gemini API에서 사용하는 파라미터.
+Google AI Studio·Vertex AI·Gemini API의 설정 화면과 요청 형식은 다릅니다. 이 문서는 값의 뜻을 설명하며, 필드 경로는 아래 API별 항목을 따릅니다.
 
 ## 모델 선택
 
 | 모델 ID | 별명 | 용도 |
 |---|---|---|
-| `gemini-3-pro-image-preview` (권장) | Nano Banana Pro | 최종 납품, 고품질, 4K, 복잡 구도 |
-| `gemini-3.1-flash-image-preview` | Nano Banana 2 | 초안, A/B, 비용 효율, 1K-2K |
+| `gemini-3-pro-image` | Nano Banana Pro | 복잡한 이미지 작업, 최대 4K |
+| `gemini-3.1-flash-image` | Nano Banana 2 | 일반 이미지 작업, 최대 4K |
 
 ## aspect_ratio
 
@@ -25,7 +25,9 @@ Google AI Studio / Vertex AI / Gemini API에서 사용하는 파라미터.
 | `21:9` | 시네마틱 울트라와이드 | ✅ · ✅ |
 | `1:4`·`4:1`·`1:8`·`8:1` | 극단 비율 (배너·스트립) | ❌ Pro · ✅ Flash 전용 |
 
-## resolution
+## image_size
+
+Gemini 이미지 요청의 크기는 `1K`·`2K`·`4K` 중에서 고릅니다. 아래 `512`는 Gemini 3.1 Flash Image 전용입니다. 실제 필드 경로는 Interactions API와 GenerateContent API가 다르며, 앱 UI의 이름도 현재 화면에서 확인합니다.
 
 | 값 | 픽셀 어림 | Pro | Flash |
 |---|---|---|---|
@@ -34,23 +36,20 @@ Google AI Studio / Vertex AI / Gemini API에서 사용하는 파라미터.
 | `2K` (권장 production) | 약 2048 | ✅ | ✅ |
 | `4K` | 약 4096 | ✅ | ✅ |
 
-## mode (Google AI Studio UI 선택지)
+## 모델과 추론 설정
 
-| 모드 | 동작 | 권장 |
+| 선택 | 동작 | 권장 |
 |---|---|---|
-| `Fast` (Gemini 3.1 Flash Image) | 빠른 추론, 적은 latency | 초안 탐색, A/B |
-| `Thinking` (Gemini 3 Pro Image) | reasoning 추가, 정확도 우선 | 최종 production, 복잡 구도, 텍스트 정확도 |
+| Gemini 3.1 Flash Image | 처리량·속도 우선 | 초안 탐색, A/B |
+| Gemini 3 Pro Image | 복잡한 제작에 적합 | 최종 자산, 복잡 구도, 텍스트 검수 |
+
+두 모델을 공통 `mode=Thinking` API 값으로 전환하지 않습니다. Gemini 3.1 Flash Image의 추론 수준은 API에서 `generation_config.thinking_level`의 `minimal`·`high`로 조절할 수 있습니다. Pro의 추론은 모델 특성으로 설명하고 지원되지 않은 전환 값을 만들지 않습니다.
 
 ## reference images
 
-- 최대 **14개** 첨부 가능.
+- 총 최대 **14개**를 섞을 수 있습니다. Gemini 3 Pro Image는 그중 고충실도 객체 이미지 최대 6개, 캐릭터 일관성 이미지 최대 5개, 스타일 참조 이미지 최대 3개까지 지원합니다. Gemini 3.1 Flash Image의 유형별 한도는 객체 10개·캐릭터 4개이며 공식 표에 별도의 스타일 참조 칸은 없습니다.
 - 지원 MIME: `image/png`, `image/jpeg`, `image/webp`, `image/heic`, `image/heif`.
-- 권장 사용:
-  - 1번째: 메인 스타일·미학 방향
-  - 2번째: 캐릭터·핵심 피사체 (있는 경우)
-  - 3번째: 구도·레이아웃 영감
-  - 4-8번째: 부수적 스타일·색감·무드
-  - 9-14번째: 추가 디테일 (적게 쓸수록 좋음)
+- 권장 사용: 각 이미지에 피사체·캐릭터·스타일·구도 중 맡길 역할을 적고, 유형별 한도를 넘기지 않습니다. 이미지 순서 자체의 우선순위는 공식 보장으로 취급하지 않습니다.
 
 상세는 `references/reference-images.md`.
 
@@ -58,9 +57,7 @@ Google AI Studio / Vertex AI / Gemini API에서 사용하는 파라미터.
 
 데이터 시각화·인포그래픽·지도·통계 그래프에 활성화 권장. Gemini가 Google Search를 사용해 사실 데이터를 가져옴.
 
-활성화 방법 (Google AI Studio):
-- "Use Google Search" 체크박스 활성화
-- 프롬프트에 "based on current 2026 data" 같은 시간 명시 권장
+활성화 방법: 현재 앱의 Google Search 도구 지원을 확인합니다. API에서는 이미지 프롬프트와 별도로 `google_search` 도구를 설정합니다. 기준 날짜와 확인할 공식 출처를 프롬프트에 적습니다.
 
 주의: 결과는 항상 별도 검증. 모델이 정보를 잘못 해석할 수 있음.
 
@@ -73,41 +70,30 @@ Google AI Studio / Vertex AI / Gemini API에서 사용하는 파라미터.
 
 긴 텍스트 + 다중 reference 이미지를 함께 사용할 때 토큰 budget 주의.
 
-## API 호출 예 (Python · Vertex AI)
+## API 호출
 
-```python
-from vertexai.preview.generative_models import GenerativeModel, Part
+이 스킬은 프롬프트 텍스트만 만듭니다. 다음은 **서로 다른 요청 형식**의 설정 위치입니다.
 
-model = GenerativeModel("gemini-3-pro-image-preview")
-response = model.generate_content(
-    [
-        "<5-component 프롬프트>",
-        Part.from_uri("gs://bucket/ref1.png", mime_type="image/png"),
-        Part.from_uri("gs://bucket/ref2.png", mime_type="image/png"),
-    ],
-    generation_config={
-        "aspect_ratio": "1:1",
-        "resolution": "2K",
-    },
-)
-```
+| 경로 | 16:9·2K 이미지 설정 예 | 공식 문서 |
+|---|---|---|
+| Interactions API | `response_format={"type":"image","aspect_ratio":"16:9","image_size":"2K"}` | [이미지 생성 가이드](https://ai.google.dev/gemini-api/docs/image-generation#aspect-ratios-and-image-size) |
+| GenerateContent REST | `generationConfig.responseFormat.image={"aspectRatio":"16:9","imageSize":"2K"}` | [GenerateContent 이미지 가이드](https://ai.google.dev/gemini-api/docs/generate-content/image-generation#generate-images-up-to-4k-resolution) |
+
+SDK 언어별 필드 이름과 Vertex AI 설정은 해당 경로의 현재 공식 문서에서 확인합니다. 한 경로의 설정을 다른 경로에 그대로 복사하지 않습니다.
 
 ## SynthID 워터마크
 
 - 모든 출력 이미지에 **자동 imperceptible 워터마크 삽입** (Google 정책).
 - 워터마크 비활성화 불가.
 - SynthID 검증 도구로 "Gemini로 생성·편집됐는지" 판별 가능.
-- 상업적 사용 가능 (유료 사용자).
+- 사용권과 공개 조건은 현재 서비스 약관·계정 조건에서 확인합니다.
 
-## 비용 (Vertex AI 기준, 2026.04)
+## 비용
 
-상세 가격은 공식 가격 페이지 확인. 일반적으로:
-- Flash: Pro 대비 약 절반 비용
-- Thinking Mode: 추가 reasoning 토큰 비용 발생
-- Reference 이미지: 입력 토큰에 포함
+모델·해상도·입력 이미지·서비스에 따라 현재 가격이 달라집니다. 생성 전에 해당 계정의 공식 가격 화면에서 확인합니다.
 
 ## 출처
 
-- [Google AI for Developers — Gemini 3 Pro Image Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview)
+- [Google AI for Developers — Gemini image generation](https://ai.google.dev/gemini-api/docs/image-generation)
 - [Google Cloud Documentation — Gemini 3 Pro Image (Vertex AI)](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-pro-image)
 - [Google AI Studio — Gemini 3 Pro Image](https://aistudio.google.com/models/gemini-3-pro-image)

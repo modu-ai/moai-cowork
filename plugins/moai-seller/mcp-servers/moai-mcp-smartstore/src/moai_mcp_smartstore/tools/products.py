@@ -8,7 +8,7 @@ from __future__ import annotations
 from typing import Any
 
 from ..server import mcp
-from ._common import call
+from ._common import call, segment
 
 
 # ============================================================
@@ -31,8 +31,8 @@ def product_get_origin(origin_product_no: str) -> dict:
     """원상품 1건 상세 조회. GET /v2/products/origin-products/{originProductNo}"""
     return call(
         "GET",
-        f"/v2/products/origin-products/{origin_product_no}",
-        endpoint=f"GET /v2/products/origin-products/{origin_product_no}",
+        f"/v2/products/origin-products/{segment(origin_product_no)}",
+        endpoint=f"GET /v2/products/origin-products/{segment(origin_product_no)}",
     )
 
 
@@ -41,8 +41,8 @@ def product_get_channel(channel_product_no: str) -> dict:
     """채널 상품 1건 상세 조회. GET /v2/products/channel-products/{channelProductNo}"""
     return call(
         "GET",
-        f"/v2/products/channel-products/{channel_product_no}",
-        endpoint=f"GET /v2/products/channel-products/{channel_product_no}",
+        f"/v2/products/channel-products/{segment(channel_product_no)}",
+        endpoint=f"GET /v2/products/channel-products/{segment(channel_product_no)}",
     )
 
 
@@ -62,9 +62,9 @@ def product_update_origin(origin_product_no: str, body: dict[str, Any]) -> dict:
     """원상품 수정(전체 본문). PUT /v2/products/origin-products/{originProductNo}"""
     return call(
         "PUT",
-        f"/v2/products/origin-products/{origin_product_no}",
+        f"/v2/products/origin-products/{segment(origin_product_no)}",
         body=body,
-        endpoint=f"PUT /v2/products/origin-products/{origin_product_no}",
+        endpoint=f"PUT /v2/products/origin-products/{segment(origin_product_no)}",
     )
 
 
@@ -73,9 +73,9 @@ def product_update_channel(channel_product_no: str, body: dict[str, Any]) -> dic
     """채널 상품 수정(전체 본문). PUT /v2/products/channel-products/{channelProductNo}"""
     return call(
         "PUT",
-        f"/v2/products/channel-products/{channel_product_no}",
+        f"/v2/products/channel-products/{segment(channel_product_no)}",
         body=body,
-        endpoint=f"PUT /v2/products/channel-products/{channel_product_no}",
+        endpoint=f"PUT /v2/products/channel-products/{segment(channel_product_no)}",
     )
 
 
@@ -84,8 +84,8 @@ def product_delete_origin(origin_product_no: str) -> dict:
     """원상품 삭제(비가역). DELETE /v2/products/origin-products/{originProductNo}"""
     return call(
         "DELETE",
-        f"/v2/products/origin-products/{origin_product_no}",
-        endpoint=f"DELETE /v2/products/origin-products/{origin_product_no}",
+        f"/v2/products/origin-products/{segment(origin_product_no)}",
+        endpoint=f"DELETE /v2/products/origin-products/{segment(origin_product_no)}",
     )
 
 
@@ -94,8 +94,8 @@ def product_delete_channel(channel_product_no: str) -> dict:
     """채널 상품 삭제(비가역). DELETE /v2/products/channel-products/{channelProductNo}"""
     return call(
         "DELETE",
-        f"/v2/products/channel-products/{channel_product_no}",
-        endpoint=f"DELETE /v2/products/channel-products/{channel_product_no}",
+        f"/v2/products/channel-products/{segment(channel_product_no)}",
+        endpoint=f"DELETE /v2/products/channel-products/{segment(channel_product_no)}",
     )
 
 
@@ -112,7 +112,7 @@ def product_change_status(origin_product_no: str, body: dict[str, Any]) -> dict:
     """
     return call(
         "PUT",
-        f"/v1/products/origin-products/{origin_product_no}/change-status",
+        f"/v1/products/origin-products/{segment(origin_product_no)}/change-status",
         body=body,
     )
 
@@ -125,7 +125,7 @@ def product_update_stock(origin_product_no: str, body: dict[str, Any]) -> dict:
     """
     return call(
         "PUT",
-        f"/v1/products/origin-products/{origin_product_no}/option-stock",
+        f"/v1/products/origin-products/{segment(origin_product_no)}/option-stock",
         body=body,
     )
 
@@ -165,13 +165,13 @@ def category_list() -> dict:
 @mcp.tool()
 def category_get(category_id: str) -> dict:
     """카테고리 1건 상세(표시명/속성/상위경로). GET /v1/categories/{categoryId}"""
-    return call("GET", f"/v1/categories/{category_id}")
+    return call("GET", f"/v1/categories/{segment(category_id)}")
 
 
 @mcp.tool()
 def category_subcategories(category_id: str) -> dict:
     """특정 카테고리의 하위 카테고리만 조회. GET /v1/categories/{categoryId}/sub-categories"""
-    return call("GET", f"/v1/categories/{category_id}/sub-categories")
+    return call("GET", f"/v1/categories/{segment(category_id)}/sub-categories")
 
 
 @mcp.tool()
@@ -216,7 +216,7 @@ def seller_notice_list(params: dict[str, Any] | None = None) -> dict:
 @mcp.tool()
 def seller_notice_get(seller_notice_id: str) -> dict:
     """판매자 공지사항 1건 조회. GET /v1/contents/seller-notices/{sellerNoticeId}"""
-    return call("GET", f"/v1/contents/seller-notices/{seller_notice_id}")
+    return call("GET", f"/v1/contents/seller-notices/{segment(seller_notice_id)}")
 
 
 @mcp.tool()
@@ -228,13 +228,13 @@ def seller_notice_create(body: dict[str, Any]) -> dict:
 @mcp.tool()
 def seller_notice_update(seller_notice_id: str, body: dict[str, Any]) -> dict:
     """판매자 공지사항 수정(전체 본문). PUT /v1/contents/seller-notices/{sellerNoticeId}"""
-    return call("PUT", f"/v1/contents/seller-notices/{seller_notice_id}", body=body)
+    return call("PUT", f"/v1/contents/seller-notices/{segment(seller_notice_id)}", body=body)
 
 
 @mcp.tool()
 def seller_notice_delete(seller_notice_id: str) -> dict:
     """판매자 공지사항 삭제. DELETE /v1/contents/seller-notices/{sellerNoticeId}"""
-    return call("DELETE", f"/v1/contents/seller-notices/{seller_notice_id}")
+    return call("DELETE", f"/v1/contents/seller-notices/{segment(seller_notice_id)}")
 
 
 # ============================================================
@@ -282,5 +282,5 @@ def inspection_restore(channel_product_no: str) -> dict:
     """검수 수정 요청 상품 복원(재노출). PUT /v1/product-inspections/channel-product/{id}/restore"""
     return call(
         "PUT",
-        f"/v1/product-inspections/channel-product/{channel_product_no}/restore",
+        f"/v1/product-inspections/channel-product/{segment(channel_product_no)}/restore",
     )

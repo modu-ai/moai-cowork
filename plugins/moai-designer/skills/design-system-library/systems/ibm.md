@@ -8,7 +8,7 @@ colors:
   on-primary: "#ffffff"
   ink: "#161616"
   ink-muted: "#525252"
-  ink-subtle: "#8c8c8c"
+  ink-subtle: "#6f6f6f"
   canvas: "#ffffff"
   surface-1: "#f4f4f4"
   surface-2: "#e0e0e0"
@@ -28,79 +28,79 @@ colors:
 
 typography:
   display-xl:
-    fontFamily: IBM Plex Sans
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 76px
     fontWeight: 300
     lineHeight: 1.17
     letterSpacing: -0.5px
   display-lg:
-    fontFamily: IBM Plex Sans
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 60px
     fontWeight: 300
     lineHeight: 1.17
     letterSpacing: -0.4px
   display-md:
-    fontFamily: IBM Plex Sans
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 42px
     fontWeight: 300
     lineHeight: 1.20
     letterSpacing: 0
   headline:
-    fontFamily: IBM Plex Sans
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 32px
     fontWeight: 400
     lineHeight: 1.25
     letterSpacing: 0
   card-title:
-    fontFamily: IBM Plex Sans
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 24px
     fontWeight: 400
     lineHeight: 1.33
     letterSpacing: 0
   subhead:
-    fontFamily: IBM Plex Sans
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 20px
     fontWeight: 400
     lineHeight: 1.40
     letterSpacing: 0
   body-lg:
-    fontFamily: IBM Plex Sans
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 18px
     fontWeight: 400
     lineHeight: 1.50
     letterSpacing: 0
   body:
-    fontFamily: IBM Plex Sans
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.50
     letterSpacing: 0.16px
   body-sm:
-    fontFamily: IBM Plex Sans
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 400
     lineHeight: 1.29
     letterSpacing: 0.16px
   body-emphasis:
-    fontFamily: IBM Plex Sans
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 600
     lineHeight: 1.29
     letterSpacing: 0.16px
   caption:
-    fontFamily: IBM Plex Sans
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 12px
     fontWeight: 400
     lineHeight: 1.33
     letterSpacing: 0.32px
   button:
-    fontFamily: IBM Plex Sans
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 400
     lineHeight: 1.29
     letterSpacing: 0.16px
   eyebrow:
-    fontFamily: IBM Plex Sans
+    fontFamily: IBM Plex Sans, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 400
     lineHeight: 1.29
@@ -146,6 +146,8 @@ components:
   button-tertiary:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.primary}"
+    borderColor: "{colors.primary}"
+    borderWidth: 1px
     typography: "{typography.button}"
     rounded: "{rounded.none}"
     padding: 12px 16px
@@ -194,18 +196,26 @@ components:
   text-input:
     backgroundColor: "{colors.surface-1}"
     textColor: "{colors.ink}"
+    borderBottomColor: "{colors.hairline-strong}"
+    borderBottomWidth: 1px
     typography: "{typography.body}"
     rounded: "{rounded.none}"
     padding: 11px 16px
   text-input-focused:
     backgroundColor: "{colors.surface-1}"
     textColor: "{colors.ink}"
+    borderBottomColor: "{colors.primary}"
+    borderBottomWidth: 2px
+    outlineColor: "{colors.primary}"
+    outlineWidth: 2px
     typography: "{typography.body}"
     rounded: "{rounded.none}"
     padding: 11px 16px
   text-input-error:
     backgroundColor: "{colors.surface-1}"
     textColor: "{colors.ink}"
+    borderBottomColor: "{colors.semantic-error}"
+    borderBottomWidth: 2px
     typography: "{typography.body}"
     rounded: "{rounded.none}"
     padding: 11px 16px
@@ -224,6 +234,8 @@ components:
   product-tab-selected:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.ink}"
+    borderBottomColor: "{colors.primary}"
+    borderBottomWidth: 2px
     typography: "{typography.body-emphasis}"
     rounded: "{rounded.none}"
     padding: 16px 20px
@@ -294,14 +306,14 @@ The system reaches for color rarely — IBM Blue marks links, primary CTAs, and 
 - **Surface 1** ({colors.surface-1}): Light gray (#f4f4f4) — input fields, alternate-row stripes, subtle section bands.
 - **Surface 2** ({colors.surface-2}): Slightly darker gray (#e0e0e0) — disabled fields, hairline-as-fill for separators.
 - **Hairline** ({colors.hairline}): 1px borders on cards, inputs, dividers.
-- **Hairline Strong** ({colors.hairline-strong}): 1px charcoal underline on focused inputs (Carbon's signature focus treatment).
+- **Hairline Strong** ({colors.hairline-strong}): 1px charcoal underline on default inputs; focus replaces it with the primary blue.
 - **Inverse Canvas** ({colors.inverse-canvas}): Charcoal #161616 — footer surface.
 - **Inverse Surface 1** ({colors.inverse-surface-1}): One step lighter than inverse canvas — footer column dividers, hovered footer items.
 
 ### Text
 - **Ink** ({colors.ink}): All headlines and emphasized body type — charcoal #161616.
 - **Ink Muted** ({colors.ink-muted}): Secondary type at #525252 — meta, sub-headlines, footer body.
-- **Ink Subtle** ({colors.ink-subtle}): Tertiary type at #8c8c8c — disabled, helper text, captions.
+- **Ink Subtle** ({colors.ink-subtle}): Tertiary type at #6f6f6f — helper text and captions on white or light gray. Disabled controls may use a separate state treatment when applicable.
 - **Inverse Ink** ({colors.inverse-ink}): White on charcoal — footer headings.
 - **Inverse Ink Muted** ({colors.inverse-ink-muted}): Light gray on charcoal — footer body.
 
@@ -315,7 +327,7 @@ The system reaches for color rarely — IBM Blue marks links, primary CTAs, and 
 
 ### Font Family
 
-- **IBM Plex Sans** — IBM's open-source proprietary typeface (free for any use). Geometric, slightly humanist, designed specifically for enterprise UI. Fallback: `Helvetica Neue, Arial, sans-serif`.
+- **IBM Plex Sans** — IBM’s open-source typeface under the SIL Open Font License. The default stack is `IBM Plex Sans, system-ui, sans-serif`, so the profile remains usable if the font is not loaded. Bundle or serve the font only with its license notice.
 
 The same family carries display, body, and caption — there is no display + body pairing. Hierarchy is carried by **size + weight** rather than by family change. Plex Sans is also free / open-source under the SIL Open Font License — making it the easiest custom face on this list to substitute for in implementation.
 
@@ -377,7 +389,7 @@ Carbon uses precise alignment to a 4-pixel grid as its whitespace system. Sectio
 | 0 (flat) | No shadow, no border | Default for body type, hero text, footer body |
 | 1 (hairline) | 1px `{colors.hairline}` border on canvas | Feature cards, inputs, list items |
 | 2 (surface lift) | `{colors.surface-1}` background on canvas | Alternate-row banners, hovered cards |
-| 3 (focus ring) | 2px `{colors.primary}` outline + 1px `{colors.hairline-strong}` underline | Focused input, focused button |
+| 3 (focus ring) | 2px `{colors.primary}` outline + 2px `{colors.primary}` underline | Focused input, focused button |
 
 Carbon resists drop shadows on marketing — depth is carried by surface change and 1px hairlines. The exception is product / app surfaces (Carbon documents shadow tokens for elevated panels), but the marketing site barely uses them.
 
@@ -419,7 +431,7 @@ The brand commits to flat 0px corners. The other tokens exist for product / mobi
 - Background `{colors.ink}`, text `{colors.inverse-ink}`, type `{typography.button}`, padding 12px 16px, rounded `{rounded.none}`.
 
 **`button-tertiary`** — White button with blue 1px border + blue text. Used for tertiary CTAs.
-- Background `{colors.canvas}`, text `{colors.primary}`, type `{typography.button}`, rounded `{rounded.none}`, padding 12px 16px. (Border in implementation: 1px `{colors.primary}`.)
+- Background `{colors.canvas}`, text `{colors.primary}`, 1px `{colors.primary}` border, type `{typography.button}`, rounded `{rounded.none}`, padding 12px 16px.
 
 **`button-ghost`** — Plain text + chevron, no background until hover.
 - Background `{colors.canvas}`, text `{colors.primary}`, type `{typography.button}`, rounded `{rounded.none}`, padding 12px 16px.
@@ -454,8 +466,8 @@ The brand commits to flat 0px corners. The other tokens exist for product / mobi
 
 **`text-input`** + **`text-input-focused`** + **`text-input-error`** — Carbon's input chrome.
 - Background `{colors.surface-1}`, text `{colors.ink}`, type `{typography.body}`, rounded `{rounded.none}`, padding 11px 16px.
-- Focus state replaces the bottom 1px hairline with a 2px `{colors.primary}` underline (Carbon's signature focus treatment).
-- Error state adds 2px `{colors.semantic-error}` bottom underline.
+- Default state has a 1px `{colors.hairline-strong}` underline. Focus replaces it with a 2px `{colors.primary}` underline and adds a 2px outline around the input.
+- Error state adds a 2px `{colors.semantic-error}` bottom underline.
 
 **`newsletter-input`** — The "Stay connected" newsletter capture on the home page.
 - Background `{colors.surface-1}`, text `{colors.ink}`, type `{typography.body}`, rounded `{rounded.none}`, padding 11px 16px. Adjacent submit is `button-primary`.
@@ -515,9 +527,9 @@ The brand commits to flat 0px corners. The other tokens exist for product / mobi
 
 ### Touch Targets
 
-- Carbon spec: 48px minimum tap target. Buttons and inputs hold 48px on touch viewports.
-- Top-nav links grow from 36px to 48px tap height on touch.
-- Tab strip rows hold 48px tap height.
+- Measure the rendered clickable width, height, and spacing of buttons and inputs on touch viewports. Token padding alone does not establish a minimum target.
+- The top nav token specifies a 48px bar, not the dimensions of each link target; measure the links separately.
+- Measure tab targets after layout; the YAML does not define a 48px minimum.
 
 ### Collapsing Strategy
 
@@ -537,7 +549,8 @@ The brand commits to flat 0px corners. The other tokens exist for product / mobi
 1. Focus on ONE component at a time and reference it by its `components:` token name.
 2. Default body to `{typography.body}` at weight 400 with `letter-spacing: 0.16px`. Don't remove the tracking.
 3. When introducing a new section, decide whether it sits on `{colors.canvas}` (default) or on `{colors.surface-1}` (alternate band). The two-surface rhythm is the rhythm.
-4. Run `npx @google/design.md lint DESIGN.md` after edits.
+4. Run `npx --yes -p "@google/design.md@0.4.0" designmd lint DESIGN.md`
+    after edits.
 5. Add new variants as separate component entries (`button-primary-pressed`, `text-input-error`, `text-input-focused`).
 6. Treat IBM Blue as scarce: links, primary CTA, CTA banner, focus underline. Anything beyond that is drift.
 7. Resist rounded corners. If a designer pushes for 4px rounding, the brand is shifting away from Carbon.

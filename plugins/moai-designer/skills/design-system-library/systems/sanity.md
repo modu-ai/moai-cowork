@@ -1,7 +1,8 @@
 ---
 version: alpha
 name: Sanity-design-analysis
-description: An inspired interpretation of Saniti's design language — a dark-first, content-platform marketing system that pairs an oversized editorial display sans (waldenburgNormal) with IBM Plex Mono for technical eyebrows. The site reads like a software-engineering trade journal: near-black `{colors.canvas}` reading bands, white text, a single signature coral-red accent (`{colors.brand}`) reserved for the highest-priority action, and a deliberate light-theme inversion on commercial pages (pricing) where dense feature tables demand maximum legibility. Display sizes climb to 112px with tightly-cut negative tracking; rounded pills coexist with sharply-cut 3–6px application-grade radii from the Studio screenshots, signalling the dual identity of "marketing brand" and "developer tool."
+description: >-
+  An inspired interpretation of Sanity's design language — a dark-first, content-platform marketing system that pairs an oversized editorial display sans (waldenburgNormal) with IBM Plex Mono for technical eyebrows. The site reads like a software-engineering trade journal: near-black `{colors.canvas}` reading bands, white text, a single signature coral-red accent (`{colors.brand}`) reserved for the highest-priority action, and a deliberate light-theme inversion on commercial pages (pricing) where dense feature tables demand maximum legibility. Display sizes climb to 112px with tightly-cut negative tracking; rounded pills coexist with sharply-cut 3–6px application-grade radii from the Studio screenshots, signalling the dual identity of "marketing brand" and "developer tool."
 
 colors:
   primary: "#0b0b0b"
@@ -342,9 +343,9 @@ components:
 
 ## Overview
 
-Saniti's marketing surface is built around a single, high-conviction idea: a content platform should look like an editorial property. The homepage opens onto a near-black `{colors.canvas}` page where a 112px display headline ("Structure powers intelligence") fills the entire viewport with `{typography.display-mega}` set in the proprietary `waldenburgNormal` sans, cut at -4.48px tracking. White type sits on this dark stage like ink on a printed broadside. A single coral-red accent (`{colors.brand}`) appears sparingly — never on backgrounds, only on a few key CTAs and the brand dot — keeping the page feeling sober rather than promotional.
+Sanity's marketing surface is built around a single, high-conviction idea: a content platform should look like an editorial property. The homepage opens onto a near-black `{colors.canvas}` page where a 112px display headline ("Structure powers intelligence") fills the entire viewport with `{typography.display-mega}` set in the proprietary `waldenburgNormal` sans, cut at -4.48px tracking. White type sits on this dark stage like ink on a printed broadside. A single coral-red accent (`{colors.brand}`) appears sparingly on a few key CTAs, the brand dot, and occasional feature cards — keeping the page feeling sober rather than promotional.
 
-The system runs in two modes that share the same type system but invert canvas. The dark mode (homepage, content-agent, studio-marketing) is the brand voice: oversized headlines, sparse white body, deep-navy slate accents, and IBM Plex Mono eyebrows lending technical credibility. The light mode (pricing) is the commercial voice: white canvas, black ink, dense 4-tier comparison tables, and the same coral-red `{colors.brand}` reused as the featured pricing tier's accent. Switching between the two modes mid-document is part of the page rhythm — Saniti treats colour theme as section-scoped, not page-scoped.
+The system runs in two modes that share the same type system but invert canvas. The dark mode (homepage, content-agent, studio-marketing) is the brand voice: oversized headlines, sparse white body, deep-navy slate accents, and IBM Plex Mono eyebrows lending technical credibility. The light mode (pricing) is the commercial voice: white canvas, black ink, dense 4-tier comparison tables, and the same coral-red `{colors.brand}` reused as the featured pricing tier's accent. Switching between the two modes mid-document is part of the page rhythm — Sanity treats colour theme as section-scoped, not page-scoped.
 
 Two type families do all the work: `waldenburgNormal` for every running text role (display through caption), and `ibmPlexMono` reserved exclusively for technical eyebrows and small-caps labels. Display sizes range from 112px down to 38px in a continuous editorial scale; tracking tightens aggressively on display (-4.48px at 112px) and relaxes to neutral on body (16px). OpenType variants are switched on across the marketing copy (`cv01`, `cv11`, `cv12`, `cv13`, `ss07`) — characters like the single-storey `g` and rounded `t` give the headlines a humanist, slightly literary feel.
 
@@ -380,7 +381,7 @@ Two type families do all the work: `waldenburgNormal` for every running text rol
 - **Slate** (`{colors.slate}` — `#3c4758`) / **Slate Soft** (`{colors.slate-soft}` — `#505b6c`): Cool blue-grey neutrals used for secondary-link text and de-emphasized rule lines on dark.
 - **Mute** (`{colors.mute}` — `#797979`): Mid-grey mono caption colour, footer eyebrows.
 - **Ash** (`{colors.ash}` — `#b9b9b9`): Default body text on dark surfaces.
-- **On Primary** (`{colors.on-primary}` — `#ffffff`): Headline colour on dark surfaces; ink colour on `{colors.brand}` and `{colors.ink}` filled buttons.
+- **On Primary** (`{colors.on-primary}` — `#ffffff`): Headline colour on dark surfaces and text on `{colors.ink}` filled buttons. Use `{colors.ink}` for text on `{colors.brand}` buttons and cards.
 
 ### Semantic
 - **Link Blue** (`{colors.link-blue}` — `#0052ef`): Inline link colour on light surfaces; standard hyperlink hue.
@@ -456,7 +457,7 @@ The dark canvas does most of the visual work — generous negative space lets th
 The system avoids heavy drop shadows. Depth is delivered primarily by tonal surface stepping (canvas → canvas-soft → canvas-light) and by the polarity flip between dark and light surfaces. The two extracted shadow values are reserved for very rare lift cues — most cards sit flush.
 
 ### Decorative Depth
-- **Polarity flip as drama.** Saniti's strongest depth cue is the inversion between dark and light sections. The eye reads a hard edge between two adjacent sections (one canvas, one canvas-light) as a strong layout statement.
+- **Polarity flip as drama.** Sanity's strongest depth cue is the inversion between dark and light sections. The eye reads a hard edge between two adjacent sections (one canvas, one canvas-light) as a strong layout statement.
 - **Brand-card flash.** A single feature card filled with `{colors.brand}` mid-section creates a visual anchor without a shadow or border — the colour change is the depth cue.
 
 ## Shapes
@@ -504,7 +505,7 @@ The system avoids heavy drop shadows. Depth is delivered primarily by tonal surf
 
 **`nav-bar-dark`** — the persistent dark top bar
 - Background `{colors.canvas}`, height ~64px, padding `{spacing.lg}` horizontal, white text.
-- Layout: red `brand-dot` + `Saniti` wordmark left → centred primary menu (Product, Solutions, Resources, Customers, Pricing, Docs) → right cluster (`Sign In` text link, `Book a Demo` `{button-secondary-dark}`, `Get Started Free` `{button-primary}`).
+- Layout: red `brand-dot` + `Sanity` wordmark left → centred primary menu (Product, Solutions, Resources, Customers, Pricing, Docs) → right cluster (`Sign In` text link, `Book a Demo` `{button-secondary-dark}`, `Get Started Free` `{button-primary}`).
 - Sticky on scroll, no border division — the bar is held to the page only by the colour contrast against any light section that scrolls underneath.
 
 **`nav-link`** — primary menu items
@@ -541,7 +542,7 @@ The system avoids heavy drop shadows. Depth is delivered primarily by tonal surf
 **`studio-window`** — the framed Studio app screenshot
 - Background `{colors.canvas-soft}`, padding `{spacing.md}`, rounded `{rounded.app-lg}` (6px), 1px `{colors.hairline-soft}` border. Internal: a thin chrome bar with three coloured dots (red/yellow/green macOS-style) in the top-left, then the Studio UI screenshot.
 
-**`brand-dot`** — the small `{colors.brand}` filled circle paired with the `Saniti` wordmark
+**`brand-dot`** — the small `{colors.brand}` filled circle paired with the `Sanity` wordmark
 - Background `{colors.brand}`, size 12px, rounded `{rounded.full}`. Always sits 8px to the left of the wordmark.
 
 ### Inputs & Forms
@@ -571,7 +572,7 @@ The system avoids heavy drop shadows. Depth is delivered primarily by tonal surf
 
 **`footer`** — the dark terminal surface
 - Background `{colors.canvas}`, text `{colors.on-primary}`, padding `{spacing.section}` vertical, `{spacing.lg}` horizontal.
-- Layout: 6-column link grid → bottom strip with the `brand-dot` + `Saniti` wordmark right-aligned and copyright/social links left-aligned.
+- Layout: 6-column link grid → bottom strip with the `brand-dot` + `Sanity` wordmark right-aligned and copyright/social links left-aligned.
 
 **`footer-eyebrow`** — column heading
 - Background `{colors.canvas}`, text `{colors.mute}`, type `{typography.mono-caps}` (small-caps IBM Plex Mono). The mono-eyebrow at the footer is what locks in the technical-trade-journal feel.
@@ -592,7 +593,7 @@ The system avoids heavy drop shadows. Depth is delivered primarily by tonal surf
 
 ### Signature Components
 
-**Polarity-Flip Section Rhythm** — the most distinctive part of Saniti's marketing layout. Sections alternate between `{marketing-section-dark}` and `{marketing-section-light}` (or `{marketing-section-paper}`) without any transitional surface. The hard cut is the system's most-used depth cue and what gives the long marketing pages their cinematic, scroll-driven cadence.
+**Polarity-Flip Section Rhythm** — the most distinctive part of Sanity's marketing layout. Sections alternate between `{marketing-section-dark}` and `{marketing-section-light}` (or `{marketing-section-paper}`) without any transitional surface. The hard cut is the system's most-used depth cue and what gives the long marketing pages their cinematic, scroll-driven cadence.
 
 **Editorial Display + Mono Eyebrow** — the canonical headline lockup. `{typography.mono-eyebrow}` (IBM Plex Mono, 13px) sits above a 48–112px `{typography.display-md}` to `{typography.display-mega}` headline. The mono caption is what marks the system as developer-platform-aware rather than generic-marketing.
 
@@ -604,14 +605,14 @@ The system avoids heavy drop shadows. Depth is delivered primarily by tonal surf
 - Run dark-mode marketing sections (`{marketing-section-dark}`) as the brand's default voice; use `{marketing-section-light}` for commercial/comparison surfaces (pricing, integrations matrix).
 - Pair every editorial display headline with a `{typography.mono-eyebrow}` label above it — the lockup is signature.
 - Reserve `{colors.brand}` for one CTA or accent surface per viewport. The colour's power comes from scarcity.
-- Use `{rounded.full}` pills for marketing CTAs and `{rounded.app-*}` 3–6px corners for application-style elements (inputs, Studio mockups). Mixing the two corner languages is intentional — it is what differentiates "marketing" from "product UI" in Saniti's voice.
+- Use `{rounded.full}` pills for marketing CTAs and `{rounded.app-*}` 3–6px corners for application-style elements (inputs, Studio mockups). Mixing the two corner languages is intentional — it is what differentiates "marketing" from "product UI" in Sanity's voice.
 - Set display headlines (>48px) with the OpenType variants `cv01, cv11, cv12, cv13, ss07` enabled — the alternates are core to the brand letterforms.
 - Use the polarity flip (dark → light) as the section divider rather than a horizontal rule or background gradient.
-- Pair the brand-dot with the `Saniti` wordmark whenever the wordmark appears at >24px size.
+- Pair the brand-dot with the `Sanity` wordmark whenever the wordmark appears at >24px size.
 
 ### Don't
 - Don't use `{colors.brand}` as a background for dark-mode body sections — it must remain a quiet accent, not a section colour.
-- Don't introduce additional accent hues (purple, teal, magenta gradients). Saniti's chromatic story is monochrome plus coral-red.
+- Don't introduce additional accent hues (purple, teal, magenta gradients). Sanity's chromatic story is monochrome plus coral-red.
 - Don't apply OpenType variants to body running text — keep them on display sizes only. Mixing modes makes the page feel typographically loud.
 - Don't use IBM Plex Mono for body or headline text. Mono is reserved for eyebrows, captions, and small-caps labels.
 - Don't add a "Most Popular" badge to the featured pricing tier. The polarity inversion (`{pricing-card-featured}`) is the badge.
@@ -634,8 +635,8 @@ The system avoids heavy drop shadows. Depth is delivered primarily by tonal surf
 | xxxs | 376px | Footer 6-column grid collapses to 2-column; brand-dot scales to 10px |
 
 ### Touch Targets
-- `{button-primary}` is 44px tall — meets WCAG AAA touch target. On mobile the height grows to 48px.
-- `{button-secondary-dark}` is 36px on desktop; expands to 44px on mobile to maintain target compliance.
+- `{button-primary}` is 44px tall; verify the rendered width before claiming the WCAG 2.5.5 AAA 44 × 44px target. On mobile the height grows to 48px.
+- `{button-secondary-dark}` is 36px tall on desktop and 44px tall on mobile; check its rendered width and adjacent spacing before claiming target-size compliance.
 - `{nav-link}` items receive `{spacing.sm}` vertical padding inside the mobile menu, expanding the tap target without resizing the type.
 
 ### Collapsing Strategy
@@ -654,7 +655,8 @@ The system avoids heavy drop shadows. Depth is delivered primarily by tonal surf
 
 1. Focus on ONE component at a time. Start with `{hero-display}`, `{button-primary}`, and `{nav-bar-dark}` — they appear on every dark-mode page and anchor the brand voice.
 2. Reference component names and tokens directly (`{colors.brand}`, `{button-primary-on-light}`, `{rounded.full}`) — do not paraphrase or substitute hex values.
-3. Run `npx @google/design.md lint DESIGN.md` after edits.
+3. Run `npx --yes -p "@google/design.md@0.4.0" designmd lint DESIGN.md`
+    after edits.
 4. Add new variants as separate `components:` entries (`-dark`, `-on-light`, `-featured`). Never bury them inside prose.
 5. Default body copy to `{typography.body}`. Reserve `{typography.mono-eyebrow}` and `{typography.mono-caps}` for IBM Plex Mono labels only; never use mono for headlines.
 6. Keep `{colors.brand}` scarce — at most one brand-coloured CTA or surface per viewport. If a section already has a `{button-brand}` action, secondary actions step down to `{button-secondary-dark}`.

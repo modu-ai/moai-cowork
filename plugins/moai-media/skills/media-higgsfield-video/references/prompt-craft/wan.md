@@ -21,9 +21,9 @@
 | **Multi-shot (2.7/2.6)** | `Overall description + Shot number + Timestamp + Shot content` — 명시적 시간 범위(`[0–3s]`)의 번호 매긴 샷 |
 | Reference-to-video | `Reference identifier + Action + Scene + Lines + BGM`, `"Image 1"` / `"Video 2"` 식별자 사용 |
 
-## Seedance와 정면 모순 (per-family가 필요한 이유)
+## 다른 모델의 타이밍 지침과 구분
 
-Wan은 멀티샷에서 **명시적 Timestamp 범위**를 공식으로 처방한다. 반면 ByteDance는 Timestamp가 Seedance를 불안정하게 만든다고 경고한다(`seedance.md` 참조). **서로 다른 모델의 정반대 컨벤션**이다. 이 둘을 하나의 "범용 비디오 공식"으로 통합하는 것은 정리가 아니라 correctness 회귀다.
+Wan은 멀티샷에서 **명시적 Timestamp 범위**를 처방한다. 이전 Seedance 자료에는 정밀한 시간 강제가 불안정할 수 있다는 경고가 있지만, Higgsfield의 Seedance 2.5 가이드는 시간대가 있는 실전 예시도 보여준다(`seedance.md` 참조). 어느 쪽도 다른 모델에 일괄 적용하지 않고 대상 모델의 현재 안내와 연결 제약을 확인한다.
 
 ## 오디오 억제 — 리터럴 구문 (1차)
 

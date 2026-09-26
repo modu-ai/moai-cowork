@@ -4,7 +4,7 @@ from __future__ import annotations
 from typing import Any
 
 from ..server import mcp
-from ._common import call
+from ._common import call, segment
 
 
 @mcp.tool()
@@ -28,7 +28,7 @@ def return_delivery_companies() -> dict:
 @mcp.tool()
 def sku_get(ns_id: str) -> dict:
     """N배송 SKU 1건 조회. GET /v1/logistics/products/sellers/me/skus/{nsId}"""
-    return call("GET", f"/v1/logistics/products/sellers/me/skus/{ns_id}")
+    return call("GET", f"/v1/logistics/products/sellers/me/skus/{segment(ns_id)}")
 
 
 @mcp.tool()
@@ -36,7 +36,7 @@ def sku_mappings(ns_id: str, params: dict[str, Any] | None = None) -> dict:
     """SKU 연결(채널) 상품 매핑 현황 페이징 조회. GET .../skus/{nsId}/product-mappings"""
     return call(
         "GET",
-        f"/v1/logistics/products/sellers/me/skus/{ns_id}/product-mappings",
+        f"/v1/logistics/products/sellers/me/skus/{segment(ns_id)}/product-mappings",
         params=params,
     )
 

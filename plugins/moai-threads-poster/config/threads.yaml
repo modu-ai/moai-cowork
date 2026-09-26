@@ -5,17 +5,17 @@
 #   - 세션 안에서 초안을 작성 → 사용자 승인 → threads_publish_* / instagram_publish_*
 #     도구로 Graph API 에 즉시 발행.
 #   - 큐·예약·승인 상태머신은 없다. 백그라운드 자동 발행도 없다.
-#   - 예약·정기 발행(예: 매주 수요일 12시) 은 Claude Cowork 이 담당한다 (본 플러그인 범위 밖).
+#   - 예약·정기 발행은 사용 중인 앱의 지원 여부를 확인한다 (본 플러그인 범위 밖).
 #
 # 아래 값은 documentation/reference 용이며, 발행 도구의 실제 기본값은 server.py 에 하드코딩된다.
 
-# 자격증명(env) — 자격증명은 세션의 환경변수로만 전달한다:
+# 자격증명 — 환경변수 또는 사용자 홈의 .moai/mcp/threads.json에서 읽는다:
 #   THREADS_ACCESS_TOKEN (필수) · THREADS_USER_ID (필수) · THREADS_PUBLISH_DELAY (선택, 기본 30)
 #   IG_ACCESS_TOKEN (Instagram 발행 시 필수) · IG_USER_ID (Instagram 발행 시 필수)
 # 발급 절차: mcp-servers/moai-mcp-threads-poster/CONNECTORS.md
 
 # Threads 발행 제한 (Graph API baseline):
-#   - 텍스트: 500 UTF-8 바이트 (ASCII 1B · 한글 3B · 이모지 4B)
+#   - 텍스트: 500자 (UTF-8 바이트 제한이 아님)
 #   - 이미지: JPEG/PNG, ≤8MB, 공개 URL
 #   - 비디오: MOV/MP4, ≤1GB, ≤5분, 공개 URL
 #   - 레이트리밋: 24시간 250 포스트 (초과 시 HTTP 613)
@@ -23,14 +23,13 @@
 # 문체 학습 (style learning) — threads-style-learn 스킬이 분석한 프로필의 저장 경로.
 # threads_style_save / threads_style_load MCP 도구가 참조한다. Threads 자격증명 불필요.
 style:
-  # 기본 저장 경로. $CLAUDE_PLUGIN_ROOT/mcp-servers/moai-mcp-threads-poster/.data/style-profile.md
-  # (.data/ 는 gitignored — 개인 문체가 저장소에 올라가지 않는다).
-  # path= 미지정 시 이 경로를 사용한다. 명시적 path= 로 다른 위치 지정 가능.
-  profile_path: "${CLAUDE_PLUGIN_ROOT}/mcp-servers/moai-mcp-threads-poster/.data/style-profile.md"
+  # 기본 저장 경로는 OS의 사용자 홈 아래 .moai/mcp/threads-style-profile.md.
+  # path= 미지정 시 server.py가 Path.home()으로 조립한다.
+  profile_path: "~/.moai/mcp/threads-style-profile.md"
 
 # 멀티 채널 배포 (multi-channel) — threads_format_multi_channel 의 기본값 참조.
 # 이 파일은 documentation/reference 용이며, 도구의 실제 기본값은 server.py 에 하드코딩.
-#   - Threads: 500 UTF-8 바이트
+#   - Threads: 500자
 #   - X free  : 트윗당 280자 (긴 글은 1/ · 2/ 번호 트윗 체인으로 자동 분할)
 #   - X premium: 25,000자 (단일 문자열)
 #   - Facebook: 개인 계정 글자 수 제한 없음 (단, API 발행 불가 → 복붙용 텍스트만 제공)
@@ -45,8 +44,8 @@ instagram:
   # [직접 발행 모델] Instagram Graph API 는 서버 측 스케줄링 파라미터가 *없다*
   # (scheduled_publish_time / published=false 어느 쪽도 불가).
   # 본 플러그인은 즉시 발행만 담당한다 — instagram_publish_image/video/reel 도구로
-  # 세션 안에서 바로 발행. 예약·정기 발행은 Claude Cowork 이 담당한다.
-  scheduling: "direct-publish (즉시 발행만 — 예약·정기 발행은 Claude Cowork 이 담당)"
+  # 세션 안에서 바로 발행. 예약·정기 발행은 사용 중인 앱의 지원 여부를 확인한다.
+  scheduling: "direct-publish (즉시 발행만)"
 
   # 이미지 형식 — Threads 와 상이 (Threads 는 JPEG/PNG 둘 다 허용).
   image_format: "JPEG-only (PNG 거부됨 — 빠른 실패)"

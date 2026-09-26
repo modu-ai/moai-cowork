@@ -1,19 +1,19 @@
 # universal-rules.md — 벤더 교차 공통 규칙 (R1–R5)
 
-> `media-higgsfield-core` | 3개 이상 벤더에서 독립 확인된, 계열과 무관한 프롬프트 크래프트 규칙.
+> `media-higgsfield-core` | 여러 벤더의 공식 자료를 바탕으로 정리한 공통 프롬프트 크래프트 규칙.
 > 계열별 예외·상세는 각 `references/prompt-craft/*.md`. 여기 있는 규칙이 그 파일들의 공통 토대다.
 
 **Evidence tier:** 1차 (Google · Black Forest Labs · Kling · ByteDance · Alibaba · Higgsfield 공식 문서에서 교차 확인)
 
-여기 정의된 다섯 규칙은 각각 **최소 3개 벤더의 공식 문서**에서 같은 방향으로 확인되었다. Soul·Grok처럼 공식 프롬프트 공식이 아예 없는 계열은 해당 `prompt-craft` 파일에서 이 R1–R5로 폴백한다.
+규칙마다 확인된 공식 자료의 수와 적용 범위가 다르다. Soul·Grok처럼 공식 프롬프트 공식이 없는 계열은 해당 `prompt-craft` 파일에서 적용 가능한 R1–R5로 폴백한다.
 
 ---
 
 ## R1–R5 규칙 정의
 
-**R1 — Negative prompt는 존재하지 않는다. 제외는 긍정적 장면 묘사로 표현한다.**
+**R1 — 선택한 모델의 스키마에 없는 negative prompt 필드는 보내지 않는다.**
 
-Higgsfield MCP는 이미지·영상 모델 어디에도 `negative_prompt` 필드를 노출하지 않는다(카탈로그 유일 예외는 `tripo_3d`, 본 스킬 범위 밖). 벤더들도 저술 규칙 자체가 같은 방향으로 수렴한다:
+Higgsfield의 [공식 프롬프트 안내](https://github.com/higgsfield-ai/skills/blob/main/higgsfield-generate/references/prompt-engineering.md)는 **대부분 모델**에서 `negative_prompt`를 노출하지 않는다고 설명한다. 선택 모델의 현재 입력 스키마를 조회해 필드 유무를 확인한다. 벤더의 저술 예시는 다음과 같다:
 
 | 벤더 | 공식 문구 |
 |---|---|
@@ -22,7 +22,7 @@ Higgsfield MCP는 이미지·영상 모델 어디에도 `negative_prompt` 필드
 | Kling | *"supplement negative prompt via negative sentences within positive prompts."* (자체 API에 필드가 있어도 이 방식을 권장) |
 | Higgsfield (`prompt-engineering.md`) | *"tack sharp"* (not *"not blurry"*) |
 
-**적용**: 스킬은 어떤 호출에도 `negative_prompt` 파라미터를 내보내지 않는다. 맨-부정문("no cars")도 쓰지 않는다. 제외하려는 대상은 묘사된 장면 요소로 전환한다("empty street").
+**적용**: 조회한 스키마에 `negative_prompt`가 없으면 파라미터를 보내지 않고, 제외하려는 대상은 긍정적 장면 요소로 전환한다("empty street"). 스키마에 필드가 있다면 그 모델의 지침과 사용자 요청에 맞춰 사용 여부를 결정한다.
 출처: https://ai.google.dev · https://docs.bfl.ai
 
 **R2 — image-to-video에서는 시작 이미지가 이미 담고 있는 것을 프롬프트에서 뺀다.**
@@ -39,7 +39,7 @@ Higgsfield MCP는 이미지·영상 모델 어디에도 `negative_prompt` 필드
 Google·OpenAI·Black Forest Labs·Recraft에서 독립 확인. Google 공식 예시(verbatim):
 > *"For the top line, the word 'GLOW' in a flowing, elegant Brush Script font. For the middle line, the text '10% OFF' in a heavy, blocky Impact font."*
 
-**적용**: 리터럴 텍스트는 반드시 큰따옴표 + 명시적 font/weight/placement로 지정한다. 텍스트 렌더링 모델(`gpt_image_2`, `openai_hazel`, `nano_banana_pro`)에서 단일 최고 레버리지 규칙이다.
+**적용**: 리터럴 텍스트는 반드시 큰따옴표 + 명시적 font/weight/placement로 지정한다. 텍스트 렌더링 모델(`gpt_image_2_5`, `gpt_image_2`, `openai_hazel`, `nano_banana_pro`)에서 단일 최고 레버리지 규칙이다.
 출처: https://ai.google.dev
 
 **R4 — 편집 프롬프트는 바꿀 것과 반드시 보존할 것을 함께 명시한다.**
@@ -74,4 +74,4 @@ Google·OpenAI·Black Forest Labs·Recraft에서 독립 확인. Google 공식 �
 
 ## 이 규칙들이 core에 있는 이유
 
-세 개 이상 벤더에서 확인된 family-independent 규칙이므로 계열 파일에 중복 배치하지 않고 여기 한 곳에 둔다. 계열별로 R1–R5와 **충돌**하는 벤더 지침이 있으면(예: Kling은 자체 API에 `negative_prompt` 필드 보유) 그 예외를 해당 `prompt-craft` 파일에서 명시하고, 그래도 Higgsfield MCP 표면에서는 R1이 우선한다(필드 미노출).
+여러 계열에서 재사용하는 규칙이므로 계열 파일에 중복 배치하지 않고 여기 한 곳에 둔다. 계열별로 R1–R5와 **충돌**하는 벤더 지침이 있으면 해당 `prompt-craft` 파일에서 예외를 명시한다. 입력 파라미터의 최종 기준은 현재 연결에서 조회한 선택 모델의 스키마다.

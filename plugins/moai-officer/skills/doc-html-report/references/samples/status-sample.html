@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
   <style>
     :root {
@@ -62,7 +62,7 @@
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--g500);
+      color: var(--g700);
       margin: 0 0 10px;
     }
 
@@ -81,7 +81,7 @@
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: var(--g500);
+      color: var(--g700);
       background: var(--g100);
       border: var(--border);
       border-radius: 999px;
@@ -91,7 +91,7 @@
     }
 
     .date-range {
-      color: var(--g500);
+      color: var(--g700);
       font-size: 14px;
       margin-top: 6px;
     }
@@ -155,13 +155,13 @@
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: var(--g500);
+      color: var(--g700);
     }
 
     .stat-delta { font-family: var(--mono); font-size: 11px; margin-top: 6px; }
     .stat-delta.up   { color: var(--olive); }
     .stat-delta.down { color: var(--clay-d); }
-    .stat-delta.flat { color: var(--g500); }
+    .stat-delta.flat { color: var(--g700); }
 
     .highlights { list-style: none; margin: 0; padding: 0; }
 
@@ -202,7 +202,7 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: var(--g500);
+      color: var(--g700);
       background: var(--g100);
       padding: 12px 16px;
       border-bottom: 1px solid var(--g300);
@@ -231,7 +231,7 @@
 
     .author { color: var(--g700); font-size: 13px; }
 
-    .risk { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; color: var(--g500); }
+    .risk { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; color: var(--g700); }
 
     .risk-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
     .risk-dot.low  { background: var(--olive); }
@@ -247,7 +247,7 @@
 
     .chart-panel svg { display: block; width: 100%; height: auto; }
 
-    .chart-caption { font-size: 12px; color: var(--g500); margin-top: 12px; }
+    .chart-caption { font-size: 12px; color: var(--g700); margin-top: 12px; }
 
     .carryover {
       background: var(--oat);
@@ -263,7 +263,7 @@
       font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--g500);
+      color: var(--g700);
       margin: 0 0 8px;
     }
 
@@ -289,7 +289,7 @@
     }
 
     .carry-body { font-size: 14px; color: var(--g700); }
-    .carry-body .who { color: var(--g500); font-size: 12px; }
+    .carry-body .who { color: var(--g700); font-size: 12px; }
 
     footer {
       margin-top: 64px;
@@ -297,7 +297,7 @@
       border-top: 1px solid var(--g300);
       font-family: var(--mono);
       font-size: 12px;
-      color: var(--g500);
+      color: var(--g700);
     }
 
     @media print {
@@ -312,6 +312,7 @@
   </style>
 </head>
 <body>
+<p role="note" style="box-sizing:border-box;max-width:1040px;margin:16px auto;padding:12px 16px;background:#FFFFFF;color:#141413;border:1px solid #D1CFC5;border-radius:8px;font:600 14px/1.5 system-ui,sans-serif">서식 예시 · 아래 이름, 날짜, 수치, 사건, 코드 및 출처는 가상 자료입니다.</p>
   <div class="page">
 
     <header>

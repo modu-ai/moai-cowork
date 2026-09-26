@@ -1,6 +1,6 @@
 # 데이터 애널리스트 (moai-analyst)
 
-데이터·공공데이터 분석 전담 AI 코워커입니다. 데이터 프로파일링·시각화, 공공데이터 조회(부동산·경매·주식·KOSIS 통계·건축물대장·DART 전자공시) 스킬 7종과 KOSIS 통계·건축HUB·DART MCP 연동을 하나의 플러그인으로 제공합니다. 슬래시 명령을 외울 필요 없이 자연어로 요청하면 매칭되는 스킬이 자동 호출됩니다.
+데이터·공공데이터 분석 전담 AI 코워커입니다. 데이터 프로파일링·시각화, 공공데이터 조회(부동산·경매·주식·KOSIS 통계·건축물대장·DART 전자공시) 스킬과 KOSIS 통계·건축HUB·DART MCP 연동을 하나의 플러그인으로 제공합니다. 슬래시 명령을 외울 필요 없이 자연어로 요청하면 매칭되는 스킬이 자동 호출됩니다.
 
 > **분리 안내**: 본 플러그인의 데이터·공공데이터 스킬들은 `moai-officer`에서 분리되었습니다(오피스 문서 생성 스킬은 moai-officer에 잔류). 신규 호출은 `moai-analyst:<스킬명>` 네임스페이스를 사용하세요.
 
@@ -8,29 +8,18 @@
 
 ## 설치
 
-`modu-ai/moai-cowork` 마켓플레이스 하나에서 설치합니다. **Claude Cowork**와 **ChatGPT Work** 두 데스크톱 앱 모두 같은 방식입니다.
+Claude Cowork와 ChatGPT Work는 마켓플레이스 등록 권한과 경로가 다릅니다.
 
-**가장 쉬운 방법** — 설정(Settings) 또는 플러그인(Plugins) 메뉴 → 마켓플레이스(Marketplace)에서 주소 `modu-ai/moai-cowork`를 추가한 뒤, 플러그인 목록에서 `moai-analyst`를 찾아 **Install**을 누르세요.
-
-**터미널에 익숙하다면 (대안)**
-
-```bash
-# Claude Cowork CLI
-claude plugin marketplace add modu-ai/moai-cowork
-claude plugin install moai-analyst@moai-cowork
-
-# ChatGPT Work CLI
-codex plugin marketplace add modu-ai/moai-cowork
-codex plugin add moai-analyst@moai-cowork
-```
+- **Claude Cowork**: Settings(또는 Plugins) → Marketplace → +에서 `modu-ai/moai-cowork`를 추가한 뒤 Plugins에서 **moai-analyst**를 설치하세요.
+- **ChatGPT Work**: 워크스페이스 관리자가 Workspace settings → Plugins → Add → Import marketplace에서 `https://github.com/modu-ai/moai-cowork`를 가져와야 합니다. 이용자는 권한이 부여된 뒤 Plugins에서 **moai-analyst**를 찾아 Install plugin을 누르세요. 외부 서비스 연결은 별도 인증이 필요합니다.
 
 > 앱별 정확한 클릭 경로와 잘 안 될 때 대처법은 [플러그인 설치와 관리](https://cowork.mo.ai.kr/plugins/install/)에 정리해 두었습니다.
 
-## 스킬 7종
+## 스킬
 
 호출 형식: `/moai-analyst:<스킬명>` — 예: `/moai-analyst:data-public`. 자연어 요청("지역별 인구통계 조회해줘", "이 CSV 분석해줘")으로도 자동 매칭됩니다.
 
-### 공공데이터 조회 (5종)
+### 공공데이터 조회
 
 | 스킬 | 역할 |
 |------|------|
@@ -40,24 +29,28 @@ codex plugin add moai-analyst@moai-cowork
 | `data-stock` | KRX 상장 종목 검색·기본정보·일별 시세 조회 |
 | `data-building-ledger` | 건축물대장·건축인허가·공시가격·노후도 조회 — archhub MCP |
 
-### 데이터 분석·시각화 (2종)
+### 데이터 분석·시각화
 
 | 스킬 | 역할 |
 |------|------|
 | `data-explorer` | CSV·Excel 데이터 프로파일링·품질 보고서 |
 | `data-visualizer` | 인터랙티브 차트·대시보드(HTML) 생성 |
+| `data-workflow` | 공공데이터·자체 데이터셋이 섞인 요청의 작업 경로 선택 |
+| `data-provenance-audit` | 공개 수치·차트·계산의 출처를 읽기 전용으로 대조 |
 
 ## MCP 연동 3종
 
-플러그인 루트 `.mcp.json`에 3개 MCP 서버가 선언되어 있습니다. 자격증명은 **환경변수로만** 설정하세요(파일에 키를 적지 않습니다).
+플러그인 루트 `.mcp.json`에 3개 MCP 서버가 선언되어 있습니다. DART 키는 앱의 비밀정보 입력란이나 [API 키 넣는 법](https://cowork.mo.ai.kr/plugins/mcp/credentials/)에 안내된 개인 자격증명 파일로 설정하세요. 저장소 파일이나 채팅에는 키를 적지 마세요.
 
 | 서버 | 역할 | 키 발급 | 비고 |
 |------|------|---------|------|
 | `korean-stats` | KOSIS 국가통계 조회 — 92 키워드·시도/시군구 라우팅·출처(통계표 ID) 자동 인용 (14도구) | 불필요 (공용키 hosted) | remote 커넥터, URL 등록만으로 동작 |
-| `archhub` | 국토교통부 건축HUB — 건축물대장·인허가·공시가격·노후도 (11도구) | 불필요 (공용키 hosted) | hosted 장애 시 로컬 대체: `uvx --from git+https://github.com/chrisryugj/archhub-mcp archhub-mcp` + `ARCHHUB_SERVICE_KEY`(data.go.kr 건축HUB 활용신청) |
-| `dart` | OpenDART 전자공시 — 공시·재무·지권·XBRL·HWP/PDF 첨부 마크다운화 (15도구) | 필요: [opendart.fss.or.kr](https://opendart.fss.or.kr) 회원가입 → 인증키 신청(이메일 즉시, 일 20,000건 무료) → `DART_API_KEY` 환경변수 | Node.js 20.19+ 권장 |
+| `archhub` | 국토교통부 건축HUB — 건축물대장·인허가·공시가격·노후도 (11도구) | 불필요 (공용키 hosted) | 연결이 안 되면 [연동 문제 해결](https://cowork.mo.ai.kr/plugins/troubleshooting/) 안내를 확인 |
+| `dart` | OpenDART 전자공시 — 공시·재무·지권·XBRL·HWP/PDF 첨부 마크다운화 (15도구) | 필요: [opendart.fss.or.kr](https://opendart.fss.or.kr)에서 인증키 신청 후 `DART_API_KEY` 입력 | Node.js 20.19+ 권장 |
 
-## 에이전트 2종
+## Claude 에이전트
+
+Claude의 에이전트 실행 환경에서는 아래 역할을 사용할 수 있습니다. ChatGPT 플러그인에서는 `data-workflow`·`data-provenance-audit` 스킬이 같은 목적의 진입점입니다.
 
 | 에이전트 | 등급 | 역할 |
 |----------|------|------|

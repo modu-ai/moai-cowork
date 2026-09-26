@@ -1,168 +1,39 @@
 ---
 name: education-learning-material
 description: |
-  조사한 내용을 도식·차트·수식·코드 하이라이트가 들어간 단일 HTML 학습자료로 만들어 드립니다. 학습목표→핵심개념→도식→예제→복습으로 구조화해, 풍부한 설명과 시각화로 혼자서도 깊이 이해하게 돕습니다.
-  다음과 같은 요청 시 사용하세요:
-  - "방금 조사한 내용으로 HTML 학습자료 만들어줘"
-  - "도식이랑 예제 들어간 공부 자료로 정리해줘"
-  - "mermaid 다이어그램으로 개념 정리해줘"
-  - "차트랑 코드 하이라이트 넣어서 학습자료 만들어줘"
-  - "이 주제 시각적으로 풍부하게 설명 자료 만들어줘"
-  - "브라우저에서 바로 보는 학습 노트 HTML로 만들어줘"
-  학습 전용 렌더러로, doc-html-report design-token·폰트를 공유해 시각 일관성을 유지하되 mermaid·ECharts·KaTeX·highlight.js·AOS를 콘텐츠가 쓸 때만 조건부 로딩합니다.
-  [책임 경계] vs moai-officer:doc-html-report: 이 스킬=도식·차트·코드가 풍부한 학습자료(JS 라이브러리 허용), 저 스킬=0-JS 단일파일 업무 보고서.
-version: "1.2.0"
+  확인된 학습 내용을 목표·설명·예제·복습으로 정리해 브라우저용 HTML 학습자료를 만듭니다.
+  도식·차트·수식·코드가 필요할 때만 해당 렌더러를 추가합니다.
+  요청 예: "이 내용으로 HTML 학습자료 만들어줘", "개념을 도식과 예제로 설명해줘".
+version: "1.2.1"
 ---
 
-# 학습자료 렌더러 (Learning Material)
+# HTML 학습자료
 
-## 개요
+## 입력과 구성
 
-`education-tutor-research`의 종합본(또는 임의의 학습 내용)을 받아, 학습에 최적화된 구조의 **단일 HTML 학습자료**로 렌더한다. mermaid 도식, ECharts 차트, KaTeX 수식, highlight.js 코드 하이라이트, AOS 스크롤 효과를 **콘텐츠가 실제로 쓸 때만** 주입한다(조건부 로딩 — 순수 텍스트 레슨은 JS 0). doc-html-report의 디자인 토큰·폰트를 공유해 시각 일관성을 유지하지만, doc-html-report의 0-JS 원칙은 건드리지 않는 별도 렌더러다.
+학습 주제, 대상 수준, 사용할 원문과 출처, 원하는 파일 위치를 확인한다. 원문이 없으면 조사한 사실과 설명을 구분한다. 학습 목표 → 핵심 설명 → 검증된 예제 → 자가 점검 질문 순서로 구성하고, 필요 없는 섹션은 생략한다.
 
-## 트리거 키워드
+## HTML 제작
 
-학습자료, 공부 자료, 학습 노트, HTML 학습자료, 도식, 다이어그램, 시각화, 차트, 코드 하이라이트, 수식, 정리 자료
+- 사용자 제공 내용과 외부 자료를 HTML에 넣을 때는 텍스트·속성 값을 각각 올바르게 이스케이프한다. 코드 예시와 다이어그램 정의를 실행 가능한 HTML이나 스크립트로 섞지 않는다.
+- 제목과 본문, 표, 코드, 도식, 차트에 의미 있는 구조와 설명을 둔다. 차트는 원본 수치 표를 함께 제공하고, 도식에는 텍스트 설명을 붙인다.
+- 순수 텍스트·표만 있으면 JavaScript를 추가하지 않는다. 도식·차트·수식·코드 하이라이트가 실제로 있을 때만 필요한 라이브러리를 고른다. CDN을 쓰는 파일은 **네트워크가 필요한 HTML**이라고 표시한다.
+- 라이브러리 URL과 초기화 방식은 `references/cdn-libraries.md`의 공식 문서 링크를 확인한다. 다운로드가 막혀도 본문·표·코드는 읽을 수 있게 둔다.
+- 기본 본문 크기, 색 대비, 키보드 탐색, 작은 화면과 인쇄 상태를 확인한다. 애니메이션은 학습 이해에 필요한 경우에만 쓰고 사용자의 동작 줄이기 설정을 존중한다.
+- 파일을 실제로 저장한 뒤 열어 렌더링을 확인한다. 브라우저 접근이 없으면 소스 검사 결과와 화면 검증 미실행을 구분해 보고한다.
 
-## 입력
+## 화면 검증
 
-| 인자 | 필수 | 설명 |
-|------|------|------|
-| `content` | ✓ | 학습 내용 (education-tutor-research 종합본 권장, 일반 Markdown도 가능) |
-| `topic` | ✓ | 학습 주제 (제목·파일명에 사용) |
-| `level` | — | 대상 수준 (입문/초급/중급/고급) — 설명 깊이 조정 |
-| `output_path` | — | 기본값 `<cwd>/materials/<slug>-<YYYYMMDD>.html` |
+| 항목 | 확인 방법 |
+|---|---|
+| 본문 크기 | 브라우저 computed style, 본문 16px 이상 권장 |
+| 글자 대비 | 실제 전경·배경 색의 WCAG 대비, 일반 텍스트 4.5:1 이상 |
+| 잘림 | 긴 제목·표·코드·모바일 폭에서 스크롤과 오버플로 확인 |
+| 그래픽 대안 | 도식 설명, 차트 데이터 표, 이미지 대체 텍스트 |
+| 외부 의존 | CDN 차단 상태에서 남는 내용과 깨지는 기능 확인 |
 
-## 학습자료 구조 (섹션)
+측정하지 못한 항목을 PASS로 쓰지 않는다. 출처가 검증되지 않은 설명은 자료 안에 확인 필요로 표시한다.
 
-학습 효과를 높이는 고정 골격을 따른다. 비어 있는 섹션은 생략한다.
+## 산출물
 
-1. **헤더** — 주제 · 대상 수준 · 생성일
-2. **학습 목표** — 이 자료를 마치면 할 수 있는 것 (체크리스트)
-3. **한눈에 보기 (도식)** — 개념 관계도/플로우/시퀀스 mermaid 도식
-4. **핵심 개념** — 개념별 정의 + 풍부한 설명 + 필요 시 수식·차트
-5. **예제·코드** — 단계별 예제, 코드 하이라이트, 주석
-6. **자주 헷갈리는 점 / 비교** — A vs B 표, 흔한 실수
-7. **복습 포인트** — 핵심 요약 + 자가 점검 질문
-8. **더 알아보기 · 출처** — 다음 학습 + 검증된 출처 링크
-
-상단에는 sticky **목차(TOC)**, 긴 섹션은 접기·펼치기를 둔다.
-
-## HTML 렌더링 규격
-
-### 자체 완결 단일 파일
-
-- 외부 의존: 폰트 CDN + (콘텐츠가 쓸 때만) 라이브러리 CDN. 그 외 자산 인라인.
-- `:root` 디자인 토큰은 `moai-officer:doc-html-report`의 `references/design-tokens.md`를 그대로 사용(Anthropic 영감 팔레트).
-- 폰트는 explainer 매핑: 본문 Noto Sans KR · 제목 Noto Serif KR · 코드 JetBrains Mono (`references/cdn-libraries.md` 폰트 절 참조).
-- `@media print` 블록 포함(인쇄·PDF 저장 대비).
-
-### `<head>` 골격
-
-```html
-<!doctype html><html lang="ko"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title><topic> — 학습자료</title>
-<!-- 폰트 (항상) -->
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Noto+Serif+KR:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
-<!-- 조건부 라이브러리: 콘텐츠가 쓸 때만 (아래 조건부 로딩 규칙) -->
-<style>:root{ /* design-tokens.md 팔레트 + explainer 폰트 override */ } /* 학습 레이아웃 CSS */</style>
-</head>
-```
-
-### 조건부 로딩 규칙 (HARD)
-
-콘텐츠 분석 후, 실제로 등장하는 요소에 해당하는 라이브러리만 주입한다. CDN URL·초기화 스니펫·대안은 [`references/cdn-libraries.md`](./references/cdn-libraries.md)가 단일 진실(SSOT)이다.
-
-| 콘텐츠에 있으면 | 주입 라이브러리 | 비고 |
-|----------------|-----------------|------|
-| ` ```mermaid ` 블록 | **Mermaid v11** (ESM) | `<pre class="mermaid">`로 변환 후 init |
-| 데이터·수치 시각화 | **ECharts v5** | `<div>` + init 스크립트. 경량 필요 시 Chart.js v4 |
-| `$…$` / `$$…$$` 수식 | **KaTeX v0.16** + auto-render | CSS+JS+auto-render 3종 |
-| 코드 블록(` ```lang `) | **highlight.js v11** | 테마 CSS + JS + `hljs.highlightAll()` |
-| 단계적 등장 효과 | **AOS v2** | `data-aos` 속성 + init. 과용 금지 |
-
-순수 텍스트·표만 있는 자료는 어떤 JS도 주입하지 않는다. 라이브러리가 로드되지 않아도(오프라인) 본문·코드·표는 정상 표시되도록 폴백을 둔다(도식은 mermaid 소스가 `<pre>`로 보임).
-
-### mermaid 통합(예)
-
-```html
-<pre class="mermaid">flowchart TD; A[질문]-->B[병렬 리서치]; B-->C[학습자료]</pre>
-<script type="module">
-  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
-  mermaid.initialize({ startOnLoad: true, theme: "neutral" });
-</script>
-```
-
-전체 CDN URL·초기화 스니펫(ECharts/KaTeX/highlight.js/AOS/대안)은 `references/cdn-libraries.md` 참조.
-
-## 출력
-
-- 단일 `.html` 학습자료 (`<cwd>/materials/<slug>-<YYYYMMDD>.html`)
-- 브라우저에서 바로 열람·인쇄·PDF 저장 가능
-- 사용한 라이브러리·출처를 자료 하단에 명시
-
-## 사용 예시
-
-**예시 1**: "방금 조사한 서브에이전트 내용으로 HTML 학습자료 만들어줘"
-→ 시퀀스 도식(mermaid) + 코드 하이라이트 + 복습 질문 포함 HTML
-
-**예시 2**: "영어 가정법, 표랑 예문으로 학습자료 만들어줘"
-→ 규칙 비교 표 + 예문 + 복습 (JS 미주입 — 순수 텍스트·표)
-
-**예시 3**: "이 데이터 추이를 차트로 보여주는 학습자료로 만들어줘"
-→ ECharts 라인 차트 + 해설 + 핵심 개념
-
-## 주의사항
-
-- **조건부 로딩 준수** — 안 쓰는 라이브러리는 절대 주입하지 않는다(불필요한 무게·외부 의존 방지).
-- **CDN URL은 references/cdn-libraries.md를 인용** — 임의 버전·URL을 지어내지 않는다(메이저 핀: `@11`, `@5`, `@0.16`, `@2`).
-- **접근성**: 본문 대비 WCAG AA 유지(design-tokens.md 대비표), 도식·차트에 대체 텍스트·캡션 제공.
-- **doc-html-report를 오염시키지 않는다** — 이 렌더러는 별도이며, 업무 보고서는 0-JS인 doc-html-report를 사용한다.
-- 학습 내용의 정확성은 입력(education-tutor-research 출처)에 의존한다. 출처 미검증 내용은 자료에 "확인 필요"로 표기한다.
-
-## 관련 스킬
-
-- **moai-tutor:education-tutor-research**: 이 스킬의 입력 종합본을 만든다
-- **moai-tutor:education-learning-project**: 생성된 자료를 materials/에 보관하고 진도를 갱신한다
-- **참고**: `references/cdn-libraries.md` — CDN 라이브러리 스택 SSOT
-
-## 이 스킬을 사용하지 말아야 할 때
-
-- **0-JS 단일파일 업무 보고서**(현황·재무·인시던트·PR) → `moai-officer:doc-html-report`
-- **발표용 슬라이드** → `moai-officer:doc-pptx`
-- **인쇄·제출용 문서(.docx)** → `moai-officer:doc-docx`
-
-
-## 한국어 카피 품질 게이트 (필수)
-
-본 스킬이 산출하는 한국어 텍스트는 배포 전 의무 게이트를 통과합니다:
-
-1. `moai-coworker:ai-slop-reviewer` — 1차 일반 AI 슬롭 검수 (금지어, 구조 패턴, 리듬)
-2. `moai-writer:korean-humanize` — 2차 한국어 정밀 윤문 (40+ 패턴 SSOT, 의미 불변)
-
-두 게이트는 대시 대비 헤드라인·조사·체언 종결 조각문·"A에서 B로" 전환 공식 S1 패턴을 잡아냅니다. 게이트 통과 없이 산출물을 바로 배포하지 않습니다.
-
-## 시각 품질 게이트 (필수)
-
-**[HARD] 렌더가 끝나면 산출 HTML을 브라우저에서 열어 아래 4축을 실측하고 PASS/FAIL을 보고한다.** 위 한국어 카피 게이트와 같은 등급의 필수 단계다 — 글이 좋아도 읽히지 않으면 학습자료가 아니다.
-
-**공통 4축** — 렌더 후 DOM 실측으로 판정한다. 눈으로 훑는 것으로 갈음하지 않는다.
-
-| 축 | 측정 | 기준 | 등급 |
-|---|---|---|---|
-| **본문 크기** | 본문 노드 computed `font-size` | ≥16px (화면 읽기 기준). 부연·캡션 ≥14px | hard |
-| **명도대비** | 상대 휘도 기반 WCAG 대비비 | 본문 ≥4.5:1 · 큰 텍스트 ≥3:1 | hard |
-| **텍스트 오버플로** | `scrollHeight > clientHeight` | 0건 | hard |
-| **산출물 밖 요소** | 본문 컨테이너 바깥의 렌더되는 텍스트 노드 | 0개 — 장수·해상도·사용 폰트 같은 **제작 메타는 화면에 찍지 않는다**(HTML 주석으로) | hard |
-
-**아이콘을 쓸 때** — 아이콘은 레이아웃상 빈 자리로 보여서, 근거를 요구하지 않으면 손에 잡히는 몇 개를 돌려쓰게 된다.
-
-- 문구의 **동사**에서 고른다 (적는다 → 메모, 멈춘다 → 정지). 명사가 아니라 그 자리가 시키는 행동에 맞춘다.
-- 한 문서에서 같은 아이콘을 **3회 넘게 쓰지 않는다**.
-- 마땅한 것이 없으면 **비운다**. 빈 자리가 틀린 아이콘보다 낫다.
-- **[HARD] 아이콘을 썼으면 PASS/FAIL 증거표에 넣는다.** 슬롯 문구·아이콘·고른 이유를 나란히 적어 보고한다. "아이콘이 필요해서" 같은 동어반복은 근거가 아니며, 근거를 한 줄로 못 쓰면 비운다.
-
-> 이 4축은 [`doc-html-slide/references/deck-quality-rubric.md`](../../../moai-officer/skills/doc-html-slide/references/deck-quality-rubric.md)의 hard-fail에서 **문서형(연속 스크롤)에 해당하는 것만** 옮겨온 것이다. 프로젝터 투사 기준인 pt 하한(24pt)은 문서형에 적용하지 않고 화면 읽기 기준(16px)으로 대체한다.
+사용자가 지정한 경로의 `.html` 파일과 실제 열람 결과, 사용한 외부 라이브러리, 출처, 남은 검증을 보고한다. 학습 프로젝트에 넣는 작업은 `moai-tutor:education-learning-project`, 일반 업무 보고서는 `moai-officer:doc-html-report`를 사용한다.

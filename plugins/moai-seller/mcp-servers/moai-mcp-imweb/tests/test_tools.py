@@ -62,6 +62,29 @@ def test_body_dispatch(monkeypatch):
     assert c["json_body"] == {"images": ["u1", "u2"]}
 
 
+def test_coupon_definition_oneof_body_dispatch(monkeypatch):
+    import moai_mcp_imweb.tools.promotion as p
+
+    fake = _patch(monkeypatch, p)
+    body = {
+        "unitCode": "shop-1",
+        "name": "예시 쿠폰",
+        "type": "down",
+        "basicSetting": {},
+        "benefitSetting": {},
+        "operationSetting": {},
+    }
+    p.imweb_promotion(
+        action="create_shop_coupon_definition",
+        body=p.CreateShopCouponDefinitionBody(**body),
+    )
+    assert fake.calls[-1] == {
+        "method": "POST",
+        "path": "/promotion/shop-coupon",
+        "json_body": body,
+    }
+
+
 def test_paginate_routes_to_list_all_pages(monkeypatch):
     import moai_mcp_imweb.tools.order as o
 
@@ -70,6 +93,19 @@ def test_paginate_routes_to_list_all_pages(monkeypatch):
     assert r["paginated"] is True
     assert r["path"] == "/orders"
     # paginate must NOT also call request()
+    assert fake.calls == []
+
+
+def test_paginate_preserves_path_parameter(monkeypatch):
+    import moai_mcp_imweb.tools.product as p
+
+    fake = _patch(monkeypatch, p)
+    result = p.imweb_product(
+        action="read_all_shop_product_options_by_prod_no",
+        params={"prodNo": 123}, paginate=True,
+    )
+    assert result["path"] == "/products/{prodNo}/options"
+    assert result["path_params"] == {"prodNo": 123}
     assert fake.calls == []
 
 

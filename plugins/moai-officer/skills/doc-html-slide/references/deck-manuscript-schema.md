@@ -1,6 +1,6 @@
 # deck.json — 슬라이드 원고 SSOT 스키마
 
-`deck.json`은 doc-html-slide의 **단일 진실 원천(Single Source of Truth)**입니다. HTML 렌더와 doc-pptx PPTX 렌더 양쪽이 같은 원고를 소비합니다. 픽셀→OOXML 역매핑이 아니라 **원고→객체 직접 생성**이 "편집 가능 PPTX"의 보증 기구입니다.
+`deck.json`은 doc-html-slide의 **원고 기준 파일**입니다. HTML과 PPTX를 모두 요청받으면 같은 원고를 사용해 내용 차이를 줄입니다. 이 플러그인에는 원고를 PPTX로 자동 변환하는 실행기가 없으며, PPTX 생성과 편집 가능성은 실제 생성 도구와 출력 파일을 확인해야 합니다.
 
 ## 최상위 구조
 
@@ -34,7 +34,7 @@
     "data": { "labels": ["Q1","Q2","Q3","Q4"], "values": [320, 480, 610, 920], "unit": "억 원" }
   },
   "image": {
-    "backend": "higgsfield",
+    "backend": "native",
     "prompt": "abstract ascending bar chart hero, warm coral palette",
     "path": "assets/hero-q3.png"
   },
@@ -49,12 +49,12 @@
 |------|------|------|
 | `id` | ✓ | 슬라이드 고유 식별자 (`s1`, `s2`...) |
 | `layout` | ✓ | HTML 렌더 레이아웃 키 (아래 카탈로그) |
-| `layout_key` | ✓ | doc-pptx 9 아키타입 매핑 (아래 매핑 표) |
+| `layout_key` | — | PPTX 작업 시 참고할 레이아웃 힌트 (아래 매핑 표) |
 | `title` | ✓ | 슬라이드 헤드라인 (한국어 권장) |
 | `subtitle` | — | 부제·보조 카피 |
 | `bullets` | — | 불릿 포인트 배열 (50단어 이하 권장) |
 | `icons` | 배열 (선택) | 아이콘 슬롯. `bullets`와 **같은 순서·같은 개수**. 각 항목은 `{icon, icon_reason}`. 아이콘을 쓰지 않는 레이아웃은 생략 |
-| `chart` | — | 차트 데이터 (type + data). SVG로 렌더 + doc-pptx 네이티브 차트로 매핑 |
+| `chart` | — | 차트 원자료 (type + data). PPTX에서 네이티브 차트를 요청받았다면 실제 생성·편집 가능 여부를 확인 |
 | `image` | — | 비트맵 이미지 (backend + prompt + path). SVG 불가능한 실사·히어로만 |
 | `svg` | — | 인라인 SVG 직접 저작 (인포그래픽). chart와 병용 가능 |
 | `notes` | — | 발표자 노트 (speaker notes) |
@@ -83,7 +83,7 @@
 슬라이드의 `icons` 배열에 슬롯 순서대로 적는다 — `bullets`와 같은 순서다.
 
 ```json
-"bullets": ["단일 파일 HTML — 브라우저 즉시 오픈", "인라인 SVG 인포그래픽 — 한국어 100% 정확"],
+"bullets": ["단일 파일 HTML — 브라우저에서 열기", "인라인 SVG 인포그래픽 — 원자료와 대조"],
 "icons": [
   { "icon": "app-window",  "icon_reason": "'브라우저 즉시 오픈' — 창을 여는 행위" },
   { "icon": "bar-chart-3", "icon_reason": "'인포그래픽' — 수치를 그림으로 보여주는 산출물" }
@@ -110,7 +110,7 @@ HTML `layout` → doc-pptx 9 아키타입(Title/Agenda/Problem/Solution/Features
 | `agenda` | `agenda` | 목차 |
 | `section` | `agenda` | 섹션 구분자는 agenda 변형 |
 | `single-message` | `problem` 또는 `solution` | 문맥에 따라 |
-| `data-chart` | `stats` | chart-data는 네이티브 차트(addChart)로 |
+| `data-chart` | `stats` | 차트 원자료와 표시값을 대조 |
 | `comparison` | `features` | 비교 카드는 features 그리드 변형 |
 | `timeline` | `features` | 마일스톤 = features 시퀀스 |
 | `quote` | `solution` | 인용 = 핵심 메시지 변형 |
@@ -119,12 +119,12 @@ HTML `layout` → doc-pptx 9 아키타입(Title/Agenda/Problem/Solution/Features
 | `cta` | `cta` | 1:1 매핑 |
 | `closing` | `closing` | 1:1 매핑 |
 
-> 매핑이 깔끔하지 않은 복잡한 인포그래픽(예: 다중 다이어그램)은 PPTX에서 비트맵 이미지로 삽입될 수 있습니다(편집 불가, 한계 명시). chart-data가 있으면 반드시 네이티브 차트로 매핑해 편집 가능성을 보존합니다.
+> 이 표는 자동 변환 계약이 아니라 레이아웃 참고다. 복잡한 인포그래픽을 이미지로 넣으면 내부 요소는 편집할 수 없다. 사용자가 차트 데이터 편집을 요청했다면 이를 지원하는 생성 도구를 사용하고 실제 파일에서 확인한다.
 
-## 편집 가능 PPTX 보증 원칙
+## 편집 가능 PPTX 검수 항목
 
-1. **원고→객체 직접 생성**: doc-pptx의 pptxgenjs가 deck.json 원고를 OOXML 객체(addText/addChart/addImage/addShape)로 직접 생성 — 픽셀 역매핑이 아님
-2. **chart-data 보존**: `chart` 필드가 있으면 doc-pptx 네이티브 차트로 재생성 → PowerPoint에서 데이터 편집 가능
-3. **텍스트·불릿 보존**: title/bullets/notes는 텍스트 객체 → 편집 가능
-4. **비트맵은 편집 불가**: image.path의 실사 이미지는 PPTX에서도 이미지 객체(편집 불가, 본질적 한계)
-5. **한국어 폰트**: doc-pptx theme(headFontFace/bodyFontFace = Pretendard/맑은 고딕) + ea(east-asian) typeface 매핑
+1. 생성 도구가 원고의 제목·본문·발표자 메모를 실제 PPTX에 반영했는가?
+2. 요청한 텍스트·도형·차트 데이터는 파일을 다시 열었을 때 편집 가능한가?
+3. 수치·단위·출처가 `deck.json`의 근거 자료와 일치하는가?
+4. 비트맵 안의 문구·도형은 직접 편집할 수 없다는 한계를 사용자에게 알렸는가?
+5. 실제 발표 환경에서 한국어 글꼴 대체·줄바꿈·잘림을 확인했는가? 확인하지 않은 앱은 `미실행`으로 남긴다.

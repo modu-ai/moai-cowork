@@ -13,7 +13,7 @@ description: |
   - "법원 경매 매각공고", "courtauction.go.kr", "경매 사건 검색"
   - "감정평가액 최저매각가", "매각기일별 결과", "유찰 횟수"
   - 자산 처분·경매 투자·실사 검토 시
-version: "1.1.0"
+version: "1.1.1"
 ---
 
 # 법원경매 매각공고 조회
@@ -75,28 +75,20 @@ version: "1.1.0"
 
 ## helper 실행
 
-본 스킬은 npm 패키지 `court-auction-notice-search`(NomaDamas/k-skill 원본)를 호출하는 Node.js 예시 스크립트를 `scripts/court_auction_example.js`에 포함합니다. 직접 CLI 사용도 가능합니다.
+이 플러그인에는 경매 조회 스크립트가 포함되어 있지 않습니다. 조회 도구가 없고 Node.js의 `npx`를 사용할 수 있는 환경에서는 원저작자 `court-auction-notice-search` 패키지의 CLI를 실행합니다. 앱에서 명령 실행을 지원하지 않거나 Node.js가 없으면 자동 조회를 시도하지 말고 공식 법원경매정보 사이트에서 직접 확인하도록 안내합니다.
 
 ```bash
-# 사전 설치
-npm i court-auction-notice-search
-
 # 1. 법원사무소 코드표
-court-auction-notice-search codes courts --pretty | head -40
+npx --yes --package court-auction-notice-search@0.3.3 court-auction-notice-search codes courts --pretty
 
 # 2. 입찰구분 (정적 코드)
-court-auction-notice-search codes bid-types --pretty
+npx --yes --package court-auction-notice-search@0.3.3 court-auction-notice-search codes bid-types --pretty
 
 # 3. 매각공고 목록
-court-auction-notice-search notices \
-  --date 2026-04 --court-code B000210 --bid-type date --pretty
+npx --yes --package court-auction-notice-search@0.3.3 court-auction-notice-search notices --date 2026-04 --court-code B000210 --bid-type date --pretty
 
 # 4. 사건번호 단건 조회
-court-auction-notice-search case \
-  --court-code B000210 --case-number "2024타경100001" --pretty
-
-# 5. 통합 예시 (Node.js)
-node scripts/court_auction_example.js
+npx --yes --package court-auction-notice-search@0.3.3 court-auction-notice-search case --court-code B000210 --case-number "2024타경100001" --pretty
 ```
 
 ## Error handling

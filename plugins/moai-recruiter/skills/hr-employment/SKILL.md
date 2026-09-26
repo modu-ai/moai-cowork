@@ -4,7 +4,7 @@ description: >
   채용 프로세스 전반을 관리해주는 스킬입니다. "JD 작성해줘", "면접 질문 만들어줘",
   "신입 온보딩 계획 짜줘"처럼 말하면 됩니다. 채용 공고 작성, 면접 설계,
   평가 기준 수립, 온보딩 체크리스트, 멘토링 프로그램 설계를 지원합니다.
-version: "1.1.1"
+version: "1.1.4"
 ---
 
 # 채용 관리자 (hr-employment)
@@ -18,7 +18,7 @@ version: "1.1.1"
 
 참조 가이드: `references/hiring-pipeline.md`, `references/onboarding-system.md`, `references/insurance-lifecycle.md`
 
-> 입력에 지원자·직원의 개인정보(주민등록번호·연락처·계좌 등)가 포함되면 `moai-coworker:ai-slop-reviewer`의 `references/kr-pii-masking.md` 규칙으로 마스킹 후 처리합니다.
+> 입력에 지원자·직원의 개인정보(주민등록번호·연락처·계좌 등)가 포함되면 업무 목적과 사용자의 처리 권한을 확인하고, 해당 산출물에 필요한 정보만 사용합니다. 주민등록번호는 적용 법령상 처리 근거와 실제 필요성이 확인되지 않으면 포함하지 않습니다. 공유·검수용 문서에서는 식별자를 가리고, 불필요한 원본 개인정보를 답변이나 검수 파일에 복사하지 않습니다.
 
 ## 4대보험 취득신고 절차
 
@@ -76,8 +76,8 @@ version: "1.1.1"
 
 ### 3단계: 면접 설계
 - 서류 전형 → 1차 실무 면접 → 2차 팀/문화 면접 → 처우 협의 구성
-- 면접 질문: 직무 역량 (60%), 협업/문화 적합성 (30%), 성장 의지 (10%)
-- 평가 루브릭: 5점 척도 + 합격/보류/불합격 기준 명시
+- 면접 질문: 실제 직무 요건에 맞는 업무 사례·협업 상황 중심으로 설계. 보호 특성과 그 간접 단서는 배제
+- 평가 기준: 면접 전 직무 관련 근거와 질문을 정하고, 후보자마다 같은 기준을 적용. 최종 결정은 채용 담당자가 수행
 
 ### 4단계: 온보딩 계획
 ```
@@ -95,23 +95,12 @@ version: "1.1.1"
 
 1. 사용자 요청 수신 → 해당 영역 판별
 2. `references/{id}.md` 존재 시 로드 → 전략 가이드에 따라 실행
-3. `--deepthink` 또는 복잡 채용 설계 → sequential-thinking MCP가 설치돼 있으면 `mcp__sequential-thinking__sequentialthinking`를 활용, 없으면 `ultrathink` 키워드 기반 심층 추론 또는 일반 단계 추론으로 대체
+3. 복잡한 채용 설계는 현재 앱에서 제공하는 자료 확인·질문 기능으로 필요한 정보를 모으고 단계별 근거를 정리
 4. 결과물 생성 후 사용자 검토 요청
 
 ## 관련 스킬 (체인)
 
-JD·면접 질문·온보딩 계획·멘토링 커리큘럼 본문은 사람이 읽는 산문이므로, 작성 직후 아래 후처리 체인을 거칩니다.
-
-**텍스트 후처리 체인 (JD·면접 질문·온보딩 계획 등 산문 산출물)**:
-
-```
-hr-employment → moai-coworker:ai-slop-reviewer → moai-writer:korean-humanize → 최종 검수
-```
-
-- `moai-coworker:ai-slop-reviewer` — AI 티 패턴(기계적 어투, 상투적 채용 표현) 검수·수정
-- `moai-writer:korean-humanize` — 자연스러운 한국어 문장으로 다듬기 (의미 100% 보존)
-
-> 평가 루브릭 점수표·온보딩 체크리스트 표 같은 **표 산출물**은 위 텍스트 체인 대상이 아닙니다. 표가 필요하면 `moai-officer:doc-xlsx`로 라우팅하세요.
+JD·면접 질문·온보딩 계획은 이 스킬에서 직무 요건, 사용자 제공 사실, 차별 소지, 개인정보와 미확인 조건을 원자료에 대조합니다. 별도 설치된 `ai-slop-reviewer`나 `korean-humanize`가 현재 앱에 노출될 때만 문체를 추가 검토하고, 수정 뒤 직무 기준과 사실이 유지됐는지 다시 확인합니다. 평가표·체크리스트는 항목과 근거를 직접 검토합니다. 사용자가 파일 형식을 요청했고 해당 작성 기능이 노출된 경우에만 연결합니다.
 
 ## 문제 해결
 
@@ -131,5 +120,7 @@ hr-employment → moai-coworker:ai-slop-reviewer → moai-writer:korean-humanize
 
 | 파일 | 로드 조건 |
 |------|-----------|
-| references/korean-tone-reviewer.md | JD·온보딩 안내문 등 채용 문서의 직급별 경어·비즈니스 톤 적절성을 검토하는 공유 에이전트가 필요할 때 |
+| references/hiring-pipeline.md | JD·면접·채용 파이프라인 설계가 필요할 때 |
+| references/onboarding-system.md | 신입 교육·멘토링·온보딩 설계가 필요할 때 |
+| references/korean-tone-reviewer.md | JD·온보딩 안내문 등의 경어·비즈니스 톤을 검토할 때 |
 | references/insurance-lifecycle.md | 4대보험 취득·상실 신고 절차, 이직확인서, 퇴직연금(DC/DB) 설정 의무가 필요할 때 |

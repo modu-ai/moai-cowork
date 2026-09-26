@@ -1,0 +1,144 @@
+name: MCP cross-platform tests
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/mcp-cross-platform.yml"
+      - ".agents/plugins/marketplace.json"
+      - ".claude-plugin/marketplace.json"
+      - "plugins/_shared/mcp-launch/**"
+      - "plugins/_shared/moai-mcp-core/**"
+      - "plugins/*/mcp-launch/**"
+      - "plugins/*/.claude-plugin/plugin.json"
+      - "plugins/*/.codex-plugin/plugin.json"
+      - "plugins/*/.mcp.json"
+      - "plugins/*/mcp-servers/**"
+      - "plugins/moai-writer/skills/korean-humanize/**"
+      - "scripts/check-plugin-runtimes.py"
+      - "scripts/sync-mcp-core.py"
+  push:
+    paths:
+      - ".github/workflows/mcp-cross-platform.yml"
+      - ".agents/plugins/marketplace.json"
+      - ".claude-plugin/marketplace.json"
+      - "plugins/_shared/mcp-launch/**"
+      - "plugins/_shared/moai-mcp-core/**"
+      - "plugins/*/mcp-launch/**"
+      - "plugins/*/.claude-plugin/plugin.json"
+      - "plugins/*/.codex-plugin/plugin.json"
+      - "plugins/*/.mcp.json"
+      - "plugins/*/mcp-servers/**"
+      - "plugins/moai-writer/skills/korean-humanize/**"
+      - "scripts/check-plugin-runtimes.py"
+      - "scripts/sync-mcp-core.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  plugin-wiring:
+    name: ${{ matrix.os }} / plugin wiring
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install uv
+        uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        with:
+          version: "0.9.3"
+      - name: Check plugin wiring and launcher copies
+        run: uv run --python 3.11 python scripts/check-plugin-runtimes.py
+      - name: Check shared core copies
+        run: uv run --python 3.11 python scripts/sync-mcp-core.py --check
+
+  core:
+    name: ${{ matrix.os }} / MCP core
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install uv
+        uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        with:
+          version: "0.9.3"
+      - name: Run shared core tests
+        run: uv run --python 3.11 --directory plugins/_shared/moai-mcp-core --group dev pytest -q
+
+  servers:
+    name: ${{ matrix.os }} / ${{ matrix.server.name }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        server:
+          - name: openai
+            path: plugins/moai-media/mcp-servers/moai-mcp-openai
+            dev: --group dev
+          - name: ip
+            path: plugins/moai-lawyer/mcp-servers/moai-mcp-ip
+            dev: --group dev
+          - name: threads-poster
+            path: plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster
+            dev: --group dev
+          - name: cafe24
+            path: plugins/moai-seller/mcp-servers/moai-mcp-cafe24
+            dev: --group dev
+          - name: smartstore
+            path: plugins/moai-seller/mcp-servers/moai-mcp-smartstore
+            dev: --extra dev
+          - name: imweb
+            path: plugins/moai-seller/mcp-servers/moai-mcp-imweb
+            dev: --group dev
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install uv
+        uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        with:
+          version: "0.9.3"
+      - name: Run server tests
+        run: uv run --python 3.11 --directory ${{ matrix.server.path }} ${{ matrix.server.dev }} pytest -q
+
+  launcher:
+    name: ${{ matrix.os }} / MCP launcher
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install uv
+        uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        with:
+          version: "0.9.3"
+      - name: Run launcher tests
+        run: uv run --python 3.11 --with pytest pytest -q plugins/_shared/mcp-launch/test_mcp_launch.py
+
+  writer-humanize:
+    name: ${{ matrix.os }} / Korean humanize
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install uv
+        uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        with:
+          version: "0.9.3"
+      - name: Run Korean humanize tests
+        run: uv run --python 3.11 python -m unittest discover -s plugins/moai-writer/skills/korean-humanize/tests -p "test_*.py" -q

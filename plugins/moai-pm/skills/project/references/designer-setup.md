@@ -54,7 +54,7 @@ Phase 1 자산 인터뷰 → Phase 2 designer 설치 확인 → Phase 3 DESIGN.m
 
 ### Phase 2: designer 설치 확인 (Gap Detection)
 
-`~/.claude/plugins/`에서 `moai-designer` 설치 여부 확인. 미설치 시 Plugins 메뉴에서 `moai-designer` Install(또는 `claude/codex plugin install moai-designer@moai-cowork`) 안내 후 "이어서 진행"으로 재개.
+현재 앱의 플러그인 목록에서 `moai-designer` 활성화 여부를 확인한다. 미설치 시 Settings(또는 Plugins) → Marketplace → +에서 `modu-ai/moai-cowork`를 추가하고 Plugins 화면에서 `moai-designer` Install을 안내한 뒤 "이어서 진행"으로 재개한다.
 
 ### Phase 3: DESIGN.md 합성 (`moai-designer:design-system-prep` 위임)
 

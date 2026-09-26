@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "meta-ads": {
-      "$comment": "Meta 공식 Ads AI Connectors (2026-04-29 오픈 베타, hosted at https://mcp.facebook.com/ads). 인증: Meta Business OAuth 2.0 커넥터 흐름 (RFC 9728 protected-resource discovery + RFC 6750 Bearer). Claude 원격 MCP 커넥터로 URL 등록 시 브라우저 OAuth 로그인·광고계정 선택으로 토큰 자동 발급 — 정적 토큰 불필요. scope: ads_management ads_read catalog_management business_management pages_show_list. 개발자/시스템 사용자 정적 토큰은 fallback 전용 (./CONNECTORS.md §Meta Ads). 라이브 운영 스킬: moai-marketer:marketing-meta-ads-manager (Layer 3).",
+      "$comment": "Meta Ads AI Connectors 원격 MCP. 베타 기능·인증 화면·계정 권한·도구 목록은 Claude Cowork와 ChatGPT Work의 실제 연결에서 확인한다. 광고 쓰기와 활성화는 moai-marketer:marketing-meta-ads-manager의 계정·예산·상태 확인 절차를 따른다.",
       "type": "http",
       "url": "https://mcp.facebook.com/ads"
     },

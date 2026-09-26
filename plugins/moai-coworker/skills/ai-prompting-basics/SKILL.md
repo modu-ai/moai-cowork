@@ -1,49 +1,43 @@
 ---
 name: ai-prompting-basics
-description: 비개발자를 위한 Claude 대화 모범 사례 — 명확한 지시, 맥락 제공, 예시 활용, XML 태그 구조화. Claude 공식 프롬프트 엔지니어링 가이드 기반. "Claude한테 어떻게 물어봐야 잘 답해줘?" 질문에 즉시 활용.
-version: "1.1.0"
-metadata:
-  category: cowork
-  status: active
-  updated: 2026-07-09
-  tags: "prompting, claude, beginner, non-dev"
-  source: "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+description: 비개발자가 Claude Cowork나 ChatGPT Work에 목표·맥락·자료·출력 형식을 분명하게 요청하도록 돕는 대화 가이드. "AI에게 어떻게 물어보면 좋아?" 같은 질문에 활용.
+version: "1.1.1"
 ---
 
-# ai-prompting-basics — 비개발자용 Claude 대화 가이드
+# ai-prompting-basics — 비개발자용 AI 대화 가이드
 
-> cowork 플러그인 스킬 — `skills/` 카테고리만 사용 (commands/·agents/ 없음).
+Claude Cowork와 ChatGPT Work에서 공통으로 쓸 수 있는 요청 방법을 안내합니다. 앱마다 지원하는 기능과 버튼은 실제 화면에서 확인합니다.
 
-## 핵심 6원칙 (Claude 공식)
+## 핵심 원칙
 
-1. **명확하고 직접적으로** — Claude를 '맥락 없는 똑똑한 새 동료'로 대해. 원하는 출력 형식·제약을 직접 명시. "도움말 만들어줘" (X) → "초보용 5단계 설치 도움말, 단계당 2문장, 이모지 1개" (O).
-2. **맥락·동기 추가** — *왜* 중요한지 설명하면 Claude가 올바르게 일반화. "소리 내어 읽을 거니 줄임표 금지" > "줄임표 금지".
-3. **예시로 보여주기 (multishot)** — 3–5개 잘 만든 예시가 형식·톤·구조를 가장 안정적으로 유도. `<example>` 태그로 감싸. 긍정 예시가 부정 지시보다 강하다.
-4. **XML 태그로 구조화** — 혼합 프롬프트는 `<instructions>`, `<context>`, `<input>`, `<output_format>` 태그로 나누면 Claude가 헷갈리지 않음.
-5. **역할 부여** — 시스템 프롬프트에 한 문장 역할("너는 10년 차 카피라이터야")로 톤·행동 집중.
-6. **긴 자료는 상단에** — 20k+ 토큰 입력은 데이터를 **상단**에, 질문·지시는 **하단**에 배치 (품질 ~30% 향상).
+1. **목표를 구체적으로** — "도움말 만들어줘"보다 "처음 쓰는 사람이 앱에서 설치할 수 있도록 단계별 도움말을 써줘"라고 요청합니다.
+2. **필요한 맥락을 제공** — 대상 독자, 사용 상황, 제약과 이유를 알려 줍니다. 개인정보·비밀 자료는 제공 전에 공유 범위를 확인합니다.
+3. **실제 예시를 첨부** — 원하는 문체나 표가 있으면 짧은 예시를 줍니다. 예시 속 수치가 실제 자료인지도 구분합니다.
+4. **자료와 요청을 구분** — 긴 자료는 제목과 구분선을 붙여 제공하고, 어떤 자료를 근거로 삼을지 적습니다. XML 태그는 Claude에서 복잡한 자료를 구조화할 때 쓸 수 있는 선택지입니다.
+5. **출력 형식을 지정** — 문단, 표, 체크리스트 등 원하는 형식을 적습니다. 전문 자격이나 경력을 꾸며 주는 역할 설정은 근거가 되지 않습니다.
+6. **확인 기준을 적기** — 최신 정보가 필요하면 공식 출처와 기준일을 확인하게 하고, 확인하지 못한 내용은 추정이라고 표시하게 합니다.
 
 ## 비개발자 실전 치트키
 
 | 이런 요청은 | 이렇게 바꾸세요 |
 |---|---|
-| "글 써줘" | "50대 주부 대상 건강보험 블로그 글, 3문단, 핵심 혜택 1개" |
+| "글 써줘" | "건강보험을 처음 알아보는 사람에게 제도 개요를 3문단으로 써줘. 현재 혜택은 공식 자료로 확인해줘" |
 | "잘 만들어줘" (모호) | 원하는 형식의 예시 1개를 직접 보여주기 |
-| "~하지 마" (부정) | "~하게 써" (긍정) — 부정 지시는 잘 안 지켜짐 |
+| "~하지 마" (부정) | 원하는 형태를 구체적으로 적기. 금지 조건도 필요하면 함께 명시 |
 | "더 좋게" (평가어) | 구체 기준("초등 5학년이 이해 가능하게, 문장당 25자 이내") |
 
 ## 자주 묻는 질문
 
-**Q: Claude가 너무 길게 써요**
+**Q: 답변이 너무 길어요**
 → 출력 형식 명시: "3문단, 문장당 25자 이내" 또는 "한 슬라이드당 핵심 1줄".
 
 **Q: 내 뉘앙스가 안 살아요**
-→ 역할 + 예시 2–3개 제공. "이런 톤으로: [예시1] [예시2]".
+→ 실제 문체 예시를 제공. "이런 톤으로: [예시]".
 
 **Q: 거짓말(할루시네이션)해요**
 → "모르면 모른다고 해. 추측하지 마" + 확인 가능한 출처 요청.
 
 ## 참고
 
-- Claude 공식 프롬프트 엔지니어링 가이드: https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices
-- 본 스킬은 `/harness:plugin` 하네스(skill-builder)가 Claude 공식 문서 기반으로 생성한 cowork 플러그인 스킬입니다.
+- [Anthropic의 Claude 프롬프트 작성 가이드](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices)
+- [OpenAI의 모델 최적화 가이드](https://developers.openai.com/api/docs/guides/model-optimization)

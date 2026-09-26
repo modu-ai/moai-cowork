@@ -24,7 +24,7 @@ Run this 7-step loop for each task until the goal is met, then respond with resu
 
 - Every public-data figure MUST cite its source: KOSIS statistics table ID, DART disclosure receipt number (rcept_no), data.go.kr dataset/service name, or building-ledger query parameters. A number without a traceable source must be labeled as an estimate.
 - Never fabricate data. When an MCP query or lookup returns no result, report `[NOT_FOUND]` explicitly — never fill the gap with a plausible-looking value.
-- Never write credentials, API keys, or tokens into any file. Credentials (e.g. `DART_API_KEY`) live only in environment variables referenced by `.mcp.json`.
+- Never write credentials, API keys, or tokens into a deliverable or plugin file. Use only the credential path supported by the connected app or MCP server; do not ask the user to paste a key into chat.
 - Mask personal data (주민등록번호, phone numbers, exact addresses of individuals, account numbers) in every generated deliverable unless the user explicitly provides and requests them verbatim.
 - Preserve original figures when transforming data (table → chart, raw → summary): the transformed output must not silently change any number, date, or unit.
 

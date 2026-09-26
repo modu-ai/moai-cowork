@@ -1,12 +1,12 @@
 ---
 version: alpha
 name: MongoDB-design-analysis
-description: MongoDB carries a strong dual-mode visual identity — dark deep-teal hero bands with bright MongoDB green ({colors.brand-green}) CTAs paired with stark white documentation surfaces. The signature green pill button is unmistakable across product, pricing, learning, and AI use-case surfaces. The system uses Euclid Circular A as its display face, anchors a 3-tier pricing comparison (Free / Flex / Dedicated), and presents extensive course catalogs in card grids with colored category tags. Coverage spans homepage, Atlas product page, Community Edition, MongoDB University, AI use cases, and pricing.
+description: MongoDB carries a strong dual-mode visual identity — dark deep-teal hero bands with bright MongoDB green ({colors.brand-green}) CTAs paired with stark white documentation surfaces. The signature green pill button is unmistakable across product, pricing, learning, and AI use-case surfaces. The reference uses Euclid Circular A; reusable tokens default to DM Sans. The profile includes pricing cards and course catalog grids with colored category tags. Coverage spans homepage, Atlas product page, Community Edition, MongoDB University, AI use cases, and pricing.
 
 colors:
   primary: "#00ed64"
   primary-deep: "#00b545"
-  primary-pressed: "#008c34"
+  primary-pressed: "#008530"
   on-primary: "#001e2b"
   brand-green: "#00ed64"
   brand-green-dark: "#00684a"
@@ -20,7 +20,7 @@ colors:
   accent-pink: "#f06bb8"
   accent-blue: "#3d4f9f"
   semantic-warning-bg: "#fff8e0"
-  semantic-warning-text: "#946f3f"
+  semantic-warning-text: "#816036"
   canvas: "#ffffff"
   canvas-dark: "#001e2b"
   surface: "#f9fbfa"
@@ -34,104 +34,104 @@ colors:
   charcoal: "#1c2d38"
   slate: "#3d4f5b"
   steel: "#5c6c7a"
-  stone: "#7c8c9a"
+  stone: "#657886"
   muted: "#a8b3bc"
   on-dark: "#ffffff"
   on-dark-muted: "#a8b3bc"
 
 typography:
   hero-display:
-    fontFamily: Euclid Circular A
+    fontFamily: DM Sans, system-ui, sans-serif
     fontSize: 72px
     fontWeight: 500
     lineHeight: 1.10
     letterSpacing: -1.5px
   display-lg:
-    fontFamily: Euclid Circular A
+    fontFamily: DM Sans, system-ui, sans-serif
     fontSize: 56px
     fontWeight: 500
     lineHeight: 1.15
     letterSpacing: -1px
   heading-1:
-    fontFamily: Euclid Circular A
+    fontFamily: DM Sans, system-ui, sans-serif
     fontSize: 48px
     fontWeight: 500
     lineHeight: 1.20
     letterSpacing: -0.5px
   heading-2:
-    fontFamily: Euclid Circular A
+    fontFamily: DM Sans, system-ui, sans-serif
     fontSize: 36px
     fontWeight: 500
     lineHeight: 1.25
     letterSpacing: -0.5px
   heading-3:
-    fontFamily: Euclid Circular A
+    fontFamily: DM Sans, system-ui, sans-serif
     fontSize: 28px
     fontWeight: 500
     lineHeight: 1.30
   heading-4:
-    fontFamily: Euclid Circular A
+    fontFamily: DM Sans, system-ui, sans-serif
     fontSize: 22px
     fontWeight: 500
     lineHeight: 1.35
   heading-5:
-    fontFamily: Euclid Circular A
+    fontFamily: DM Sans, system-ui, sans-serif
     fontSize: 18px
     fontWeight: 600
     lineHeight: 1.40
   subtitle:
-    fontFamily: Euclid Circular A
+    fontFamily: DM Sans, system-ui, sans-serif
     fontSize: 18px
     fontWeight: 400
     lineHeight: 1.50
   body-md:
-    fontFamily: Euclid Circular A
+    fontFamily: DM Sans, system-ui, sans-serif
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.55
   body-md-medium:
-    fontFamily: Euclid Circular A
+    fontFamily: DM Sans, system-ui, sans-serif
     fontSize: 16px
     fontWeight: 500
     lineHeight: 1.55
   body-sm:
-    fontFamily: Euclid Circular A
+    fontFamily: DM Sans, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 400
     lineHeight: 1.50
   body-sm-medium:
-    fontFamily: Euclid Circular A
+    fontFamily: DM Sans, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 500
     lineHeight: 1.50
   caption:
-    fontFamily: Euclid Circular A
+    fontFamily: DM Sans, system-ui, sans-serif
     fontSize: 13px
     fontWeight: 400
     lineHeight: 1.40
   caption-bold:
-    fontFamily: Euclid Circular A
+    fontFamily: DM Sans, system-ui, sans-serif
     fontSize: 13px
     fontWeight: 600
     lineHeight: 1.40
   micro:
-    fontFamily: Euclid Circular A
+    fontFamily: DM Sans, system-ui, sans-serif
     fontSize: 12px
     fontWeight: 500
     lineHeight: 1.40
   micro-uppercase:
-    fontFamily: Euclid Circular A
+    fontFamily: DM Sans, system-ui, sans-serif
     fontSize: 11px
     fontWeight: 600
     lineHeight: 1.40
     letterSpacing: 1px
   button-md:
-    fontFamily: Euclid Circular A
+    fontFamily: DM Sans, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 600
     lineHeight: 1.30
   code-md:
-    fontFamily: Source Code Pro
+    fontFamily: Source Code Pro, ui-monospace, monospace
     fontSize: 14px
     fontWeight: 400
     lineHeight: 1.55
@@ -168,7 +168,7 @@ components:
     padding: "10px 22px"
   button-primary-pressed:
     backgroundColor: "{colors.primary-pressed}"
-    textColor: "{colors.on-primary}"
+    textColor: "{colors.on-dark}"
   button-primary-disabled:
     backgroundColor: "{colors.hairline}"
     textColor: "{colors.muted}"
@@ -191,7 +191,7 @@ components:
     typography: "{typography.button-md}"
     rounded: "{rounded.full}"
     padding: "10px 22px"
-    border: "1px solid {colors.hairline-dark}"
+    border: "2px solid {colors.on-dark}"
   button-ghost:
     backgroundColor: "transparent"
     textColor: "{colors.ink}"
@@ -242,7 +242,7 @@ components:
     backgroundColor: "{colors.surface-feature}"
     rounded: "{rounded.lg}"
     padding: "{spacing.xxl}"
-    border: "2px solid {colors.brand-green}"
+    border: "2px solid {colors.brand-green-dark}"
   text-input:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.ink}"
@@ -314,7 +314,7 @@ components:
     padding: "2px 8px"
   badge-orange:
     backgroundColor: "{colors.accent-orange}"
-    textColor: "{colors.on-dark}"
+    textColor: "{colors.ink}"
     typography: "{typography.caption-bold}"
     rounded: "{rounded.sm}"
     padding: "2px 8px"
@@ -404,14 +404,14 @@ components:
 
 ## Overview
 
-MongoDB carries a strong dual-mode visual identity — dark deep-teal hero bands with the unmistakable bright MongoDB green ({colors.brand-green}) CTA pill paired with stark white documentation and pricing surfaces. The homepage opens with "One data platform. Unlimited AI potential." headline over a deep navy hero, the green pill sitting at the visual center as the primary CTA. Lower on the page, embedded code mockup cards (terminal-aesthetic) sit on the dark hero band, breaking out into white feature cards below. The pricing page renders a 3-tier comparison (Free / Flex / Dedicated) with a featured tier highlighted in soft mint background and bright green border. The MongoDB University page presents a course catalog grid where each tile carries a colored category tag (orange, purple, green, teal) — these are MongoDB's category-encoding accent colors and are the only place outside the brand green where saturated color appears.
+MongoDB carries a strong dual-mode visual identity — dark deep-teal hero bands with the unmistakable bright MongoDB green ({colors.brand-green}) CTA pill paired with stark white documentation and pricing surfaces. The homepage opens with "One data platform. Unlimited AI potential." headline over a deep navy hero, the green pill sitting at the visual center as the primary CTA. Lower on the page, embedded code mockup cards (terminal-aesthetic) sit on the dark hero band, breaking out into white feature cards below. The pricing page renders a 3-tier comparison (Free / Flex / Dedicated) with a featured tier highlighted in soft mint background and dark green border. The MongoDB University page presents a course catalog grid where each tile carries a colored category tag (orange, purple, green, teal) — these are MongoDB's category-encoding accent colors and are the only place outside the brand green where saturated color appears.
 
-The system uses Euclid Circular A as its display face. The face is contemporary geometric — confident but not overly playful — and pairs naturally with both the developer-tool aesthetic of the database product and the educational positioning of the learning surfaces. Cards use `{rounded.lg}` (12px) corners; buttons use `{rounded.full}` pills universally. The brand-teal palette ({colors.brand-teal-deep}) anchors hero bands, footer, code mockups, and the dark CTA banners.
+The reference uses Euclid Circular A. The reusable tokens default to DM Sans with a system sans fallback for the display and body roles. Cards use `{rounded.lg}` (12px) corners; buttons use `{rounded.full}` pills. The brand-teal palette ({colors.brand-teal-deep}) anchors hero bands, footer, code mockups, and dark CTA banners.
 
 **Key Characteristics:**
 - Deep navy/teal hero bands ({colors.brand-teal-deep}) with bright MongoDB green ({colors.brand-green}) CTA pills
 - Stark white pricing/documentation surfaces with colored category tags for course tiles (purple, orange, green, teal)
-- Euclid Circular A across every UI surface
+- DM Sans across the reusable UI tokens; Euclid Circular A only with the required rights
 - Pill-shaped buttons ({rounded.full}) and 12px-rounded cards
 - 3-tier pricing comparison (Free / Flex / Dedicated) with featured-mint highlight tier
 - Code mockup cards with terminal-aesthetic dark canvas
@@ -424,7 +424,7 @@ The system uses Euclid Circular A as its display face. The face is contemporary 
 - **MongoDB Green** ({colors.brand-green}): The brand's most recognizable signal — bright pill-CTA color
 - **Green Dark** ({colors.brand-green-dark}): Inline link color, secondary green
 - **Green Mid** ({colors.brand-green-mid}): Mid-spectrum green for atmospheric tints
-- **Green Soft** ({colors.brand-green-soft}): Pale-mint background tint for success badges and featured pricing tier
+- **Green Soft** ({colors.brand-green-soft}): Pale-mint background tint for success badges. The featured pricing tier uses `{colors.surface-feature}`.
 - **Brand Teal Deep** ({colors.brand-teal-deep}): Deep navy-teal for hero bands, footer
 - **Brand Teal** ({colors.brand-teal}): Mid-spectrum teal
 - **Brand Teal Mid** ({colors.brand-teal-mid}): Lighter teal for hero platform cards
@@ -463,8 +463,8 @@ The system uses Euclid Circular A as its display face. The face is contemporary 
 ## Typography
 
 ### Font Family
-**Euclid Circular A** (primary): MongoDB's geometric sans-serif. Fallbacks: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif.
-**Source Code Pro** (code): Monospace for code mockups. Fallbacks: 'SF Mono', Menlo, Consolas, monospace.
+**Reference**: [Swiss Typefaces offers Euclid Circular A with separate font licensing](https://www.swisstypefaces.com/fonts/euclid/). Use it only when the intended output is authorized. **Reusable default**: [OFL DM Sans](https://github.com/google/fonts/blob/main/ofl/dmsans/METADATA.pb), then `system-ui, sans-serif`; check the loaded font and line breaks before claiming a close match.
+**Source Code Pro** (code): [Adobe publishes it under the OFL](https://github.com/adobe-fonts/source-code-pro/blob/release/LICENSE.md). The YAML includes `ui-monospace, monospace` fallbacks.
 
 ### Hierarchy
 
@@ -540,7 +540,7 @@ Marketing surfaces give content generous breathing room — `{spacing.hero}` (12
 ### Photography Geometry
 - Hero illustrations sit on full-bleed dark backgrounds
 - Course tile thumbnails use `{rounded.lg}` corners
-- Customer logos wall: wordmarks at consistent 60–80px height
+- A customer logo wall can show wordmarks at consistent height after current relationships and logo-use rights are confirmed.
 
 ## Components
 
@@ -550,7 +550,7 @@ Marketing surfaces give content generous breathing room — `{spacing.hero}` (12
 
 **`button-primary`** — Bright MongoDB green pill primary CTA, the dominant action.
 - Background `{colors.brand-green}`, text `{colors.on-primary}` (deep navy), typography `{typography.button-md}`, padding `10px 22px`, rounded `{rounded.full}`.
-- Pressed state `button-primary-pressed` deepens to `{colors.primary-pressed}`.
+- Pressed state `button-primary-pressed` deepens to `{colors.primary-pressed}` with white `{colors.on-dark}` text.
 - Disabled state `button-primary-disabled` uses `{colors.hairline}` background.
 
 **`button-secondary`** — Outlined pill for secondary actions.
@@ -560,7 +560,7 @@ Marketing surfaces give content generous breathing room — `{spacing.hero}` (12
 - Background `{colors.brand-green}`, text `{colors.on-primary}`, typography `{typography.button-md}`, padding `10px 22px`, rounded `{rounded.full}`.
 
 **`button-secondary-on-dark`** — Outlined pill on dark backgrounds.
-- Background transparent, text `{colors.on-dark}`, border `1px solid {colors.hairline-dark}`, typography `{typography.button-md}`, padding `10px 22px`, rounded `{rounded.full}`.
+- Background transparent, text `{colors.on-dark}`, border `2px solid {colors.on-dark}`, typography `{typography.button-md}`, padding `10px 22px`, rounded `{rounded.full}`.
 
 **`button-ghost`** — Quieter rectangular ghost button.
 - Background transparent, text `{colors.ink}`, typography `{typography.button-md}`, padding `8px 12px`, rounded `{rounded.md}`.
@@ -593,7 +593,7 @@ Marketing surfaces give content generous breathing room — `{spacing.hero}` (12
 - Background `{colors.canvas}`, rounded `{rounded.lg}`, padding `{spacing.xxl}`, border `1px solid {colors.hairline}`.
 
 **`pricing-card-featured`** — Featured pricing tier (Flex tier, mint background + green border).
-- Background `{colors.surface-feature}`, rounded `{rounded.lg}`, padding `{spacing.xxl}`, border `2px solid {colors.brand-green}`.
+- Background `{colors.surface-feature}`, rounded `{rounded.lg}`, padding `{spacing.xxl}`, border `2px solid {colors.brand-green-dark}`.
 
 ### Inputs & Forms
 
@@ -630,7 +630,7 @@ Marketing surfaces give content generous breathing room — `{spacing.hero}` (12
 - Background `{colors.accent-purple}`, text `{colors.on-dark}`, typography `{typography.caption-bold}`, rounded `{rounded.sm}`, padding `2px 8px`.
 
 **`badge-orange`** — Orange course category tag.
-- Background `{colors.accent-orange}`, text `{colors.on-dark}`, typography `{typography.caption-bold}`, rounded `{rounded.sm}`, padding `2px 8px`.
+- Background `{colors.accent-orange}`, text `{colors.ink}`, typography `{typography.caption-bold}`, rounded `{rounded.sm}`, padding `2px 8px`.
 
 **`badge-popular`** — "Most Popular" tier indicator (dark teal pill with green text).
 - Background `{colors.brand-teal-deep}`, text `{colors.brand-green}`, typography `{typography.caption-bold}`, rounded `{rounded.full}`, padding `4px 10px`.
@@ -663,9 +663,9 @@ Marketing surfaces give content generous breathing room — `{spacing.hero}` (12
 - Background `{colors.surface}`, rounded `{rounded.lg}`, padding `{spacing.xl}`.
 
 **`customer-testimonial-card`** — Customer quote card.
-- Background `{colors.canvas}`, rounded `{rounded.lg}`, padding `{spacing.xxl}`, border `1px solid {colors.hairline}`.
+- Background `{colors.canvas}`, rounded `{rounded.lg}`, padding `{spacing.xxl}`, border `1px solid {colors.hairline}`. Verify a quote, its attribution, and reuse rights before publishing.
 
-**`logo-wall-item`** — Customer logo wordmark cell.
+**`logo-wall-item`** — Customer logo wordmark cell. Confirm the current relationship and logo-use rights before publishing.
 - Background transparent, text `{colors.steel}`, typography `{typography.body-md-medium}`, padding `{spacing.lg}`.
 
 **`faq-accordion-item`** — FAQ panel.
@@ -703,16 +703,16 @@ Marketing surfaces give content generous breathing room — `{spacing.hero}` (12
 ### Do
 - Use `{colors.brand-green}` (bright MongoDB green) for primary CTAs everywhere
 - Pair dark-teal hero bands with bright green CTA pills
-- Apply `{rounded.full}` to every button, every status badge
+- Apply `{rounded.full}` to primary and secondary CTA pills and status badges; the quiet `button-ghost` uses `{rounded.md}`.
 - Apply `{rounded.lg}` (12px) to cards consistently
 - Use category accent colors (purple, orange, green, teal) ONLY for course tags
-- Maintain Euclid Circular A across every UI surface
+- Use DM Sans across reusable UI surfaces; use Euclid Circular A only with the required rights
 - Use code mockup cards with terminal-aesthetic content for product showcases
 
 ### Don't
 - Don't use the bright green for body text or large surfaces
 - Don't introduce additional accent colors beyond the brand green and category-encoding palette
-- Don't soften corners on buttons; the pill is a brand signature
+- Don't soften the primary and secondary CTA pills; the `button-ghost` shape is the documented exception.
 - Don't replace deep teal hero bands with white hero bands
 - Don't apply heavy shadows on flat documentation cards; reserve elevation for code mockups
 - Don't use Source Code Pro for prose
@@ -729,10 +729,10 @@ Marketing surfaces give content generous breathing room — `{spacing.hero}` (12
 | Wide Desktop | ≥ 1280px | Full 72px hero presentation. |
 
 ### Touch Targets
-- Pill buttons render at 40–44px effective height
-- Form inputs render at 44px height
-- Search pill (large) renders at 56px
-- Pill tabs ~32px → 44px on mobile
+- Pill buttons specify `10px 22px` padding; measure rendered clickable width, height, and spacing at each breakpoint.
+- Form inputs specify 44px height; verify the rendered interactive width and height.
+- The large search pill specifies 56px height; measure its actual clickable area.
+- Pill tab size depends on typography and padding. Measure each breakpoint before claiming a target-size result.
 
 ### Collapsing Strategy
 - **Promo banner** stays full-width; truncates at < 480px
@@ -746,13 +746,14 @@ Marketing surfaces give content generous breathing room — `{spacing.hero}` (12
 ### Image Behavior
 - Atmospheric AI imagery uses 16:9 ratio with full-bleed scaling
 - Code mockup card content remains readable across breakpoints
-- Customer logo wall: wordmarks at consistent 60–80px height
+- Customer logo wall can present authorized, currently verified wordmarks at a consistent height.
 
 ## Iteration Guide
 
 1. Focus on ONE component at a time
 2. Reference component names and tokens directly
-3. Run `npx @google/design.md lint DESIGN.md` after edits
+3. Run `npx --yes -p "@google/design.md@0.4.0" designmd lint DESIGN.md`
+    after edits
 4. Add new variants as separate `components:` entries
 5. Default to `{typography.body-md}` for body
 6. Keep `{colors.brand-green}` as the primary CTA across all surfaces

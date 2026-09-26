@@ -8,7 +8,7 @@ description: |
   - "웹툰 연출", "감정 컷 프레임", "인물이 컷 넘게"
   - "세로 스크롤 리듬", "여백 띠", "스크롤 호흡"
   - "회차 플롯", "훅 배치", "클리프행어"
-version: "1.1.0"
+version: "1.1.2"
 ---
 
 # story-webtoon-episode: 회차 플롯 + 컷 분할 + 컷 연출
@@ -32,8 +32,8 @@ version: "1.1.0"
 
 ## 3. 사전 확인 — 규격 참조
 
-- `${CLAUDE_PLUGIN_ROOT}/skills/story-webtoon-spec/references/episode-volume.md` — 회차 컷 수 범위·연재 주기. 컷 수의 상·하한 관행은 여기서 확인한다(임의 숫자 금지).
-- `${CLAUDE_PLUGIN_ROOT}/skills/story-webtoon-spec/references/monetization-hooks.md` — 기다무 해제·미리보기 유료 전환 지점. 회차 끝 훅을 유료 경계와 정렬할 때 참조.
+- `../story-webtoon-spec/references/episode-volume.md` — 회차 컷 수·연재 주기의 참고 항목. 실제 제출·게시 기준은 현재 플랫폼 안내를 확인한다.
+- `../story-webtoon-spec/references/monetization-hooks.md` — 해당 작품에 적용되는 무료·유료 공개 구조를 확인할 때 참조.
 
 ## 4. 워크플로우
 
@@ -57,11 +57,11 @@ version: "1.1.0"
 
 감정 정점 컷에만 프레임 연출·인물 배치를 얹는다. 남발하면 대비가 죽어 오히려 산만해진다. 8종 프레임 연출·5종 인물 배치의 영어 프롬프트와 감정 매핑은 `references/panel-direction.md`.
 
-> ★ **작성 위치 승격 규칙:** 배치·연출 지시는 컷 묘사 문장 안에 묻으면 무시된다. 컷 지시 직후 **`★ 레이아웃:` 줄**로 승격해 쓴다(실측: 묘사 안 삽입 2회 연속 실패 → 페이지 레벨 승격 후 성공). 상세는 `references/panel-direction.md`.
+> 배치·연출 지시가 생성 결과에 반영되지 않으면 컷 지시 직후 **`레이아웃:` 줄**로 분리해 시도하고 결과를 확인한다. 상세는 `references/panel-direction.md`.
 
 ### Step 4 — 훅 배치
 
-훅 4유형(감정·궁금증·캐릭터·공감)을 구간별 강도로 배치하고, 회차 끝 훅을 유료 전환 지점과 정렬한다. 상세는 `references/hook-taxonomy.md` + `monetization-hooks.md` 참조.
+훅 4유형(감정·궁금증·캐릭터·공감) 중 작품에 맞는 것을 배치한다. 유료 경계가 실제로 있다면 공개 조건과 회차 끝의 관계를 검토한다. 상세는 `references/hook-taxonomy.md` 참조.
 
 ### Step 5 — 회차 흐름 점검
 
@@ -88,7 +88,7 @@ version: "1.1.0"
 - **"말칸" 금지 → 말풍선.** 식자 실무는 `story-webtoon-lettering`으로 넘긴다.
 - **컷 수 할당량 사고 금지.** 컷 수는 감정 비트가 정한다 — 세로에서는 컷 높이·여백 띠 길이가 리듬 레버.
 - **프레임 연출 남발 금지.** 감정 정점 컷에만. 같은 구간에 프레임 연출과 인물 배치를 겹쳐 쓰지 않는다.
-- **연출 지시는 `★ 레이아웃:` 줄로 승격.** 묘사 안에 묻으면 무시된다.
+- **연출 반영 여부 확인.** 필요하면 `레이아웃:` 줄로 분리하고 생성 결과를 대조한다.
 - **규격 수치는 spec 허브 참조.** 컷 수 범위를 지어내지 않는다.
 
 ## 7. 관련 스킬
@@ -103,11 +103,10 @@ version: "1.1.0"
 - `story-webtoon-art` — 컷 지시를 작화 프롬프트로 조립
 - `story-series-bible` — 회차 저장 + 현황표 갱신
 
-### Post (검수 — 텍스트 산출물 정규 체인)
-- `moai-coworker:ai-slop-reviewer` — AI 슬롭 검수 (필수)
-- `moai-writer:korean-humanize` — AI 티 정밀 윤문 (필수)
-
-> ⚠️ 회차 대사·내레이션은 독자가 AI 티에 가장 민감한 산출물. 정규 체인 필수.
+### Post (검수)
+- 기획서·이전 회차·인물 시트와 대사·설정·사건을 직접 대조한다.
+- `moai-coworker:ai-slop-reviewer` — 설치돼 있으면 표현 검수에 추가 사용
+- `moai-writer:korean-humanize` — 설치돼 있으면 한국어 윤문에 추가 사용. 사용했다면 의미를 원문과 다시 대조
 
 ## 8. References
 

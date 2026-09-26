@@ -29,67 +29,67 @@ colors:
 
 typography:
   display-mega:
-    fontFamily: "'abcDiatype', ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "'abcDiatype', Inter, ui-sans-serif, system-ui, sans-serif"
     fontSize: 72px
     fontWeight: 500
     lineHeight: 1.05
     letterSpacing: -2.16px
   display-xl:
-    fontFamily: "'abcDiatype', ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "'abcDiatype', Inter, ui-sans-serif, system-ui, sans-serif"
     fontSize: 56px
     fontWeight: 500
     lineHeight: 1.05
     letterSpacing: -1.68px
   display-lg:
-    fontFamily: "'abcDiatype', ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "'abcDiatype', Inter, ui-sans-serif, system-ui, sans-serif"
     fontSize: 44px
     fontWeight: 500
     lineHeight: 1.1
     letterSpacing: -1.32px
   display-md:
-    fontFamily: "'abcDiatype', ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "'abcDiatype', Inter, ui-sans-serif, system-ui, sans-serif"
     fontSize: 32px
     fontWeight: 500
     lineHeight: 1.15
     letterSpacing: -0.96px
   display-sm:
-    fontFamily: "'abcDiatype', ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "'abcDiatype', Inter, ui-sans-serif, system-ui, sans-serif"
     fontSize: 24px
     fontWeight: 500
     lineHeight: 1.25
     letterSpacing: -0.5px
   title-md:
-    fontFamily: "'abcDiatype', ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "'abcDiatype', Inter, ui-sans-serif, system-ui, sans-serif"
     fontSize: 18px
     fontWeight: 600
     lineHeight: 1.4
     letterSpacing: 0
   title-sm:
-    fontFamily: "'abcDiatype', ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "'abcDiatype', Inter, ui-sans-serif, system-ui, sans-serif"
     fontSize: 16px
     fontWeight: 600
     lineHeight: 1.4
     letterSpacing: 0
   body-md:
-    fontFamily: "'abcDiatype', ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "'abcDiatype', Inter, ui-sans-serif, system-ui, sans-serif"
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0
   body-sm:
-    fontFamily: "'abcDiatype', ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "'abcDiatype', Inter, ui-sans-serif, system-ui, sans-serif"
     fontSize: 14px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0
   caption:
-    fontFamily: "'abcDiatype', ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "'abcDiatype', Inter, ui-sans-serif, system-ui, sans-serif"
     fontSize: 13px
     fontWeight: 400
     lineHeight: 1.4
     letterSpacing: 0
   caption-uppercase:
-    fontFamily: "'abcDiatype', ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "'abcDiatype', Inter, ui-sans-serif, system-ui, sans-serif"
     fontSize: 11px
     fontWeight: 600
     lineHeight: 1.4
@@ -102,13 +102,13 @@ typography:
     lineHeight: 1.5
     letterSpacing: 0
   button:
-    fontFamily: "'abcDiatype', ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "'abcDiatype', Inter, ui-sans-serif, system-ui, sans-serif"
     fontSize: 14px
     fontWeight: 500
     lineHeight: 1.0
     letterSpacing: 0
   nav-link:
-    fontFamily: "'abcDiatype', ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "'abcDiatype', Inter, ui-sans-serif, system-ui, sans-serif"
     fontSize: 14px
     fontWeight: 500
     lineHeight: 1.4
@@ -310,7 +310,7 @@ The page rhythm is monolithic: dark canvas top to bottom with subtle elevation s
 ## Typography
 
 ### Font Family
-The system runs **abcDiatype** (Lineto) across every text role. Code blocks switch to **JetBrains Mono**. Fallback: `ui-sans-serif, system-ui, sans-serif`.
+When its use is licensed, the system uses **abcDiatype** (Lineto) across text roles. The YAML tokens then list Inter and system sans as fallbacks. Without a license, remove abcDiatype from the emitted CSS even if it is installed. Code blocks use **JetBrains Mono** with Fira Code and system monospace fallbacks.
 
 ### Hierarchy
 
@@ -333,11 +333,11 @@ The system runs **abcDiatype** (Lineto) across every text role. Code blocks swit
 
 ### Principles
 - **Display weight stays at 500.** Confident but not display-bold.
-- **abcDiatype across every role.** No display/body family split.
+- **One sans stack across text roles.** Use abcDiatype only where licensed; otherwise start with Inter or the system sans fallback.
 - **JetBrains Mono on every code surface.**
 
 ### Note on Font Substitutes
-abcDiatype is a Lineto licensed typeface. Open-source substitute: **Inter** at weight 500 with letter-spacing -1.5%.
+abcDiatype is a Lineto licensed typeface. Open-source substitute: **Inter**, retaining each typography token's weight and `letterSpacing` until the rendered result is checked.
 
 ## Layout
 
@@ -479,8 +479,8 @@ Compact developer-ergonomic radii — 8px CTAs, 12-16px cards. Signals "develope
 | Wide | > 1280px | Content caps at 1200px. |
 
 ### Touch Targets
-- Primary CTA at 40px height — at WCAG AA, padded for AAA.
-- Search input at 40px.
+- Primary CTA is documented at 40px high. Measure both dimensions of its rendered clickable area and, if undersized, check spacing or an applicable exception before claiming WCAG 2.5.8 AA. Horizontal padding cannot make a 40px-high target meet the WCAG 2.5.5 AAA 44×44px size target.
+- Search input is documented at 40px high; measure its actual clickable area before making a target-size claim.
 
 ### Collapsing Strategy
 - Top nav switches to hamburger below 768px.
@@ -495,7 +495,7 @@ Compact developer-ergonomic radii — 8px CTAs, 12-16px cards. Signals "develope
 3. Variants live as separate entries inside `components:`.
 4. Use `{token.refs}` everywhere — never inline hex.
 5. Hover state never documented.
-6. abcDiatype 500 for display, 400/600 for body. JetBrains Mono on every code surface.
+6. Use the YAML token weights for display and body, with abcDiatype only where licensed and Inter/system sans otherwise. Use the code token's monospace stack for code surfaces.
 7. Composio Blue stays scarce.
 
 ## Known Gaps

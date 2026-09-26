@@ -57,6 +57,9 @@ def test_tool_returns_not_configured_without_credentials(clean_env):
     assert result["ok"] is False
     assert result["error"] == "not_configured"
     assert "message" in result
+    assert "MCP 연결 설정" in result["message"]
+    assert "저장 파일:" in result["message"]
+    assert "smartstore.json" in result["message"]
 
 
 def test_tool_routes_through_client_when_configured(clean_env, monkeypatch):
@@ -117,3 +120,16 @@ def test_stats_valid_dataset_routes(clean_env, monkeypatch):
     result = stats_marketing("ch-1", "all-daily", {"startDate": "2024-01-01"})
     assert result["ok"] is True
     assert fake.calls[0][1] == "/v1/bizdata-stats/channels/ch-1/marketing/all-daily"
+
+
+def test_path_argument_cannot_change_endpoint(clean_env, monkeypatch):
+    monkeypatch.setenv("NAVER_COMMERCE_CLIENT_ID", "cid")
+    monkeypatch.setenv("NAVER_COMMERCE_CLIENT_SECRET", "$2b$10$abcdefghijklmnopqrstuvwxyz012345")
+    fake = _FakeClient({"ok": True})
+    monkeypatch.setattr(_common, "get_client", lambda: fake)
+
+    products_tools.product_get_origin("123/other?limit=9")
+    assert fake.calls[0][1] == "/v2/products/origin-products/123%2Fother%3Flimit%3D9"
+    with pytest.raises(ValueError, match="dot segment"):
+        products_tools.product_get_origin("..")
+    assert len(fake.calls) == 1

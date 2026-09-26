@@ -48,8 +48,8 @@ Returns: API JSON."""
     _pp_val = {k: _params[k] for k in _pp if k in _params}
     _qp_val = {k: _params[k] for k in _qp if k in _params}
     _client = get_client()
-    if paginate and _method == "GET":
-        return _client.list_all_pages(_path, params=_qp_val or None)
+    if paginate and _method == "GET" and "page" in _qp and "limit" in _qp:
+        return _client.list_all_pages(_path, path_params=_pp_val or None, params=_qp_val or None)
     _kw = {}
     if _pp_val:
         _kw["path_params"] = _pp_val

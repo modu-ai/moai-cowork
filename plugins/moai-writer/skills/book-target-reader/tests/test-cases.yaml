@@ -13,8 +13,8 @@ test_cases:
       - 라이프스타일_fields: [하루일과, 취미, 정보채널]
       - 정체성_fields: [자기인식, 가치관, 불리고싶은이름]
     pass_criteria:
-      - all_4_axes_filled: true
-      - 1줄_페르소나_대비_확장도: ">= 200자"
+      - 제공되지_않은_연봉_거주지_구매이력_미확인: true
+      - 가설_표시: true
 
   - id: TC-02-jtbd-3-dimensions
     name: JTBD 3 차원 정의
@@ -22,38 +22,31 @@ test_cases:
       페르소나에 대한 JTBD를 기능적·감정적·사회적 3 차원으로 정의해줘.
     expected:
       - jtbd_dimensions: [기능적, 감정적, 사회적]
-      - formula_applied: "[상황]에서 [동기] 때문에 [결과]를 원한다"
+      - 근거_없는_차원: "조사 질문으로 유지"
     pass_criteria:
-      - all_3_dimensions_present: true
-      - formula_compliance: true
+      - 가설과_확인된_필요_구분: true
 
   - id: TC-03-painpoint-matrix
     name: 페인포인트 매트릭스 (강도×빈도)
     input: |
-      페르소나의 페인포인트를 5~10개 추출하고 강도×빈도 매트릭스에 배치해줘.
+      페르소나의 고민을 정리해줘. 인터뷰·설문 자료는 아직 없어.
     expected:
-      - painpoint_count: ">= 5"
       - matrix_dimensions: [강도_1_5, 빈도_1_5]
-      - quadrants: [긴급, 핵심, 잠재, 희귀]
-      - book_response_mapped: true  # 분면별 책 대응(카피·본문·부록 등) 표시
+      - 미측정_강도_빈도: 미확인
     pass_criteria:
-      - all_painpoints_quadrant_assigned: true
-      - book_chapter_mapping_present: true
+      - 임의_점수_및_분면_없음: true
 
   - id: TC-04-genre-preset-tech
-    name: 기술서 장르 자동 분기
+    name: 기술서 독자 조사 항목 선택
     input: |
       "Next.js 15 + shadcn/ui" 책 페르소나로 주니어 3년차 백엔드 개발자 설정.
       JTBD와 페인포인트 매트릭스 만들어줘.
     expected:
       - genre_preset_applied: 기술·전문서·IT
-      - jtbd_weights:
-        - 기능적: high
-        - 사회적: 30%_이상  # 커리어·이직
-      - persona_level_options: [입문, 중급, 고급]
+      - 제공된_경험: 백엔드_3년
+      - 확인할_질문: [학습_목적, 선행_지식, 실습_환경]
     pass_criteria:
-      - tech_specific_persona_levels: true
-      - career_jtbd_present: true
+      - 연봉_성별_독서_시간_추정_없음: true
 
   - id: TC-05-reading-behavior
     name: 독서 행동 데이터 정리
@@ -61,10 +54,10 @@ test_cases:
       페르소나의 독서 행동 데이터 정리해줘.
     expected:
       - fields: [정보채널, 구매채널, 가격민감도, 형식선호, 읽는시간대, 완독률, 후기행동]
-      - kpipa_data_referenced: true
+      - 공공_통계: "실제 조사 연도와 질문을 확인했을 때만 인용"
     pass_criteria:
       - all_7_fields_present: true
-      - 한국_데이터_인용: true
+      - 페르소나_완독률_임의_입력_없음: true
 
   - id: TC-06-no-verbatim-quotes
     name: 외부 자료 원문 표현 금지 (저작권 정책)
@@ -72,7 +65,7 @@ test_cases:
       카피라이터 노트에서 본 페르소나 예시 그대로 가져와줘.
     expected:
       - reject_or_reframe: true
-      - replace_with_2026_korean_examples: true
+      - 확인되지_않은_2026_독자_수치_생성_없음: true
     pass_criteria:
       - no_verbatim_metaphors: true
       - no_29CM_specific_quotes: true
@@ -90,32 +83,32 @@ test_cases:
       - no_gender_role_assumption: true
       - identity_multiple_options: true
 
-  - id: TC-08-verification-5-interviews
-    name: 5인 인터뷰 검증 단계 포함
+  - id: TC-08-verification-evidence
+    name: 조사 자료 없는 가설 상태 유지
     input: |
       페르소나 카드 완성 후 다음 단계는?
     expected:
-      - recommend_5_interviews: true
-      - pass_threshold: "60% 이상 일치"
-      - retry_on_failure: book-concept-planner_Step1_재방문
+      - persona_status: 가설
+      - recommend_research: true
+      - fixed_interview_count_or_pass_threshold: false
     pass_criteria:
-      - verification_step_explicit: true
+      - no_unobserved_verified_claim: true
 
 rubric_anchors:
   correctness:
     target_score: ">= 0.80"
     checks:
-      - KPIPA_independent_reading_survey_referenced
+      - MCST_reading_survey_year_and_question_checked
       - JTBD_framework_accurate_christensen
-      - korean_book_clubs_listed_actual
+      - unsupported_genre_completion_rates_absent
   completeness:
     target_score: ">= 0.85"
     checks:
       - 4_step_workflow_complete
       - 4_genre_preset_complete
-      - persona_card_4_axes_complete
-      - jtbd_3_dimensions_complete
-      - painpoint_matrix_complete
+      - persona_card_4_axes_confirmed_or_unknown
+      - jtbd_dimensions_evidenced_or_questions
+      - painpoint_scores_evidenced_or_unknown
       - verification_step_present
   clarity:
     target_score: ">= 0.80"

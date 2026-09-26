@@ -32,7 +32,7 @@ What makes Lovable's visual system distinctive is its opacity-driven depth model
 - Inset shadow technique on buttons: `rgba(255,255,255,0.2) 0px 0.5px 0px 0px inset, rgba(0,0,0,0.2) 0px 0px 0px 0.5px inset`
 - Warm neutral border palette: `#eceae4` for subtle, `rgba(28,28,28,0.4)` for interactive elements
 - Full-pill radius (`9999px`) used extensively for action buttons and icon containers
-- Focus state uses `rgba(0,0,0,0.1) 0px 4px 12px` shadow for soft, warm emphasis
+- Focus state retains the soft `rgba(0,0,0,0.1) 0px 4px 12px` shadow and adds a visible `2px solid #5f5f5d` outline with `2px` offset
 - shadcn/ui + Radix UI component primitives with Tailwind CSS utility styling
 
 ## 2. Color Palette & Roles
@@ -56,8 +56,8 @@ What makes Lovable's visual system distinctive is its opacity-driven depth model
 - **Cream Surface** (`#f7f4ed`): Card backgrounds, section fills — same as page background for seamless integration.
 
 ### Interactive
-- **Ring Blue** (`#3b82f6` at 50% opacity): `--tw-ring-color`, Tailwind focus ring.
-- **Focus Shadow** (`rgba(0,0,0,0.1) 0px 4px 12px`): Focus and active state shadow — soft, warm, diffused.
+- **Ring Blue** (`#3b82f6` at 50% opacity): `--tw-ring-color` accent; add a solid `#5f5f5d` outline for visible keyboard focus.
+- **Focus Shadow** (`rgba(0,0,0,0.1) 0px 4px 12px`): Soft depth cue that accompanies, rather than replaces, the focus outline.
 
 ### Inset Shadows
 - **Button Inset** (`rgba(255,255,255,0.2) 0px 0.5px 0px 0px inset, rgba(0,0,0,0.2) 0px 0px 0px 0.5px inset, rgba(0,0,0,0.05) 0px 1px 2px 0px`): The signature multi-layer inset shadow on dark buttons.
@@ -103,7 +103,7 @@ What makes Lovable's visual system distinctive is its opacity-driven depth model
 - Radius: 6px
 - Shadow: `rgba(0,0,0,0) 0px 0px 0px 0px, rgba(0,0,0,0) 0px 0px 0px 0px, rgba(255,255,255,0.2) 0px 0.5px 0px 0px inset, rgba(0,0,0,0.2) 0px 0px 0px 0.5px inset, rgba(0,0,0,0.05) 0px 1px 2px 0px`
 - Active: opacity 0.8
-- Focus: `rgba(0,0,0,0.1) 0px 4px 12px` shadow
+- Focus: `rgba(0,0,0,0.1) 0px 4px 12px` shadow plus `2px solid #5f5f5d` outline with `2px` offset
 - Use: Primary CTA ("Start Building", "Get Started")
 
 **Ghost / Outline**
@@ -113,7 +113,7 @@ What makes Lovable's visual system distinctive is its opacity-driven depth model
 - Radius: 6px
 - Border: `1px solid rgba(28,28,28,0.4)`
 - Active: opacity 0.8
-- Focus: `rgba(0,0,0,0.1) 0px 4px 12px` shadow
+- Focus: `rgba(0,0,0,0.1) 0px 4px 12px` shadow plus `2px solid #5f5f5d` outline with `2px` offset
 - Use: Secondary actions ("Log In", "Documentation")
 
 **Cream Surface**
@@ -130,7 +130,7 @@ What makes Lovable's visual system distinctive is its opacity-driven depth model
 - Text: `#1c1c1c`
 - Radius: 9999px (full pill)
 - Shadow: same inset pattern as primary dark
-- Opacity: 0.5 (default), 0.8 (active)
+- Keep full element opacity so the icon or label stays readable; tint the cream background for the active state
 - Use: Additional actions, plan mode toggle, voice recording
 
 ### Cards & Containers
@@ -145,7 +145,7 @@ What makes Lovable's visual system distinctive is its opacity-driven depth model
 - Text: `#1c1c1c`
 - Border: `1px solid #eceae4`
 - Radius: 6px
-- Focus: ring blue (`rgba(59,130,246,0.5)`) outline
+- Focus: blue ring (`rgba(59,130,246,0.5)`) plus `2px solid #5f5f5d` outline with `2px` offset
 - Placeholder: `#5f5f5d`
 
 ### Navigation
@@ -222,9 +222,9 @@ What makes Lovable's visual system distinctive is its opacity-driven depth model
 | Bordered (Level 1) | `1px solid #eceae4` | Cards, images, dividers |
 | Inset (Level 2) | `rgba(255,255,255,0.2) 0px 0.5px 0px inset, rgba(0,0,0,0.2) 0px 0px 0px 0.5px inset, rgba(0,0,0,0.05) 0px 1px 2px` | Dark buttons, primary actions |
 | Focus (Level 3) | `rgba(0,0,0,0.1) 0px 4px 12px` | Active/focus states |
-| Ring (Accessibility) | `rgba(59,130,246,0.5)` 2px ring | Keyboard focus on inputs |
+| Ring (Accessibility) | `#5f5f5d` 2px outline with 2px offset; blue ring optional | Keyboard focus on inputs |
 
-**Shadow Philosophy**: Lovable's depth system is intentionally shallow. Instead of floating cards with dramatic drop-shadows, the system relies on warm borders (`#eceae4`) against the cream surface to create gentle containment. The only notable shadow pattern is the inset shadow on dark buttons — a subtle multi-layer technique where a white highlight line sits at the top edge while a dark ring and soft drop handle the bottom. This creates a tactile, pressed-into-surface feeling rather than a hovering-above-surface feeling. The warm focus shadow (`rgba(0,0,0,0.1) 0px 4px 12px`) is deliberately diffused and large, creating a soft glow rather than a sharp outline.
+**Shadow Philosophy**: Lovable's depth system is intentionally shallow. Instead of floating cards with dramatic drop-shadows, the system relies on warm borders (`#eceae4`) against the cream surface to create gentle containment. The only notable shadow pattern is the inset shadow on dark buttons — a subtle multi-layer technique where a white highlight line sits at the top edge while a dark ring and soft drop handle the bottom. This creates a tactile, pressed-into-surface feeling rather than a hovering-above-surface feeling. The warm shadow adds depth; the solid `#5f5f5d` outline identifies keyboard focus.
 
 ### Decorative Depth
 - Hero: soft, warm multi-color gradient wash (pinks, oranges, blues) behind hero — atmospheric, barely visible
@@ -249,7 +249,7 @@ What makes Lovable's visual system distinctive is its opacity-driven depth model
 - Don't introduce saturated accent colors — the palette is intentionally warm-neutral
 - Don't use weight 700 (bold) — 600 is the maximum weight in the system
 - Don't apply 9999px radius on rectangular buttons — pills are for icon/action toggles
-- Don't use sharp focus outlines — the system uses soft shadow-based focus indicators
+- Don't rely on a soft shadow alone for keyboard focus — keep the visible rounded outline and use the shadow for depth
 - Don't mix border styles — `#eceae4` for passive, `rgba(28,28,28,0.4)` for interactive
 - Don't increase letter-spacing on headings — Camera Plain is designed to run tight at scale
 
@@ -295,7 +295,7 @@ What makes Lovable's visual system distinctive is its opacity-driven depth model
 - Heading text: Charcoal (`#1c1c1c`)
 - Body text: Muted Gray (`#5f5f5d`)
 - Border: `#eceae4` (passive), `rgba(28,28,28,0.4)` (interactive)
-- Focus: `rgba(0,0,0,0.1) 0px 4px 12px`
+- Focus: `2px solid #5f5f5d` outline with `2px` offset; soft shadow optional
 - Button text on dark: `#fcfbf8`
 
 ### Example Component Prompts

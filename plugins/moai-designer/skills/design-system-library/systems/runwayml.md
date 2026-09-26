@@ -1,7 +1,8 @@
 ---
 version: alpha
 name: Runwayml-design-analysis
-description: An inspired interpretation of Runwai's design language — an editorial, gallery-grade marketing system for an AI creative-tools company. Cinematic photographic heroes give way to crisp white reading surfaces, a tight monochrome neutral ladder, and a single proprietary sans (abcNormal) carrying every level of the hierarchy. The system reads like a film festival programme more than a SaaS site: black ink on paper-white, generous air, hairline dividers, and reserved use of restrained slate-blue for secondary text. Pure black solid pills serve every primary action, with no accent colour competing for attention.
+description: >-
+  An inspired interpretation of Runway's design language — an editorial, gallery-grade marketing system for an AI creative-tools company. Cinematic photographic heroes give way to crisp white reading surfaces, a tight monochrome neutral ladder, and a portable OFL Inter stack carrying every level of the hierarchy. The source abcNormal face remains a reference until rights are confirmed. Pure black solid pills serve primary actions, with no accent colour competing for attention.
 
 colors:
   primary: "#000000"
@@ -16,6 +17,7 @@ colors:
   ash: "#999999"
   hairline: "#e7eaf0"
   hairline-soft: "#c9ccd1"
+  control-border: "#767676"
   surface-cool: "#d0d4d4"
   canvas: "#ffffff"
   canvas-warm: "#fefefe"
@@ -24,74 +26,74 @@ colors:
 
 typography:
   display:
-    fontFamily: abcNormal
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 48px
     fontWeight: 400
-    lineHeight: 1
+    lineHeight: 1.15
     letterSpacing: -1.2px
   display-sm:
-    fontFamily: abcNormal
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 40px
     fontWeight: 400
-    lineHeight: 1
+    lineHeight: 1.15
     letterSpacing: -1px
   heading-md:
-    fontFamily: abcNormal
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 36px
     fontWeight: 400
-    lineHeight: 1
+    lineHeight: 1.2
     letterSpacing: -0.9px
   heading-sm:
-    fontFamily: abcNormal
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 24px
     fontWeight: 400
-    lineHeight: 1
+    lineHeight: 1.25
   subtitle:
-    fontFamily: abcNormal
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 20px
     fontWeight: 400
-    lineHeight: 1
+    lineHeight: 1.3
   body:
-    fontFamily: abcNormal
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.5
   body-strong:
-    fontFamily: abcNormal
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 16px
     fontWeight: 600
     lineHeight: 1.5
   body-tight:
-    fontFamily: abcNormal
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.3
     letterSpacing: -0.16px
   link-sm:
-    fontFamily: abcNormal
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 600
     lineHeight: 1.43
   meta:
-    fontFamily: abcNormal
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 13px
     fontWeight: 400
     lineHeight: 1.3
     letterSpacing: -0.26px
   eyebrow:
-    fontFamily: abcNormal
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 500
     lineHeight: 1.43
     letterSpacing: 0.35px
   micro-caps:
-    fontFamily: abcNormal
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 11px
     fontWeight: 450
     lineHeight: 1.3
     letterSpacing: 0.2px
   button:
-    fontFamily: abcNormal
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 600
     lineHeight: 1.43
@@ -122,27 +124,30 @@ components:
     typography: "{typography.button}"
     rounded: "{rounded.full}"
     padding: 12px
-    height: 40px
+    height: 48px
   button-primary-on-dark:
     backgroundColor: "{colors.on-primary}"
     textColor: "{colors.primary}"
     typography: "{typography.button}"
     rounded: "{rounded.full}"
     padding: 12px
-    height: 40px
+    height: 48px
   button-ghost:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.ink}"
+    border: "1px solid {colors.ink}"
     typography: "{typography.button}"
     rounded: "{rounded.full}"
     padding: 12px
-    height: 40px
+    height: 48px
   button-text-link:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.ink}"
     typography: "{typography.link-sm}"
     rounded: "{rounded.xs}"
     padding: 4px
+    textDecoration: underline
+    minHeight: 44px
   nav-bar:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.ink}"
@@ -154,6 +159,7 @@ components:
     textColor: "{colors.ink-soft}"
     typography: "{typography.link-sm}"
     padding: 8px
+    minHeight: 44px
   pricing-card:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.ink}"
@@ -161,6 +167,7 @@ components:
     rounded: "{rounded.none}"
     padding: 24px
     width: 224px
+    border: "1px solid {colors.control-border}"
   pricing-card-featured:
     backgroundColor: "{colors.hairline}"
     textColor: "{colors.ink}"
@@ -168,6 +175,7 @@ components:
     rounded: "{rounded.none}"
     padding: 24px
     width: 224px
+    border: "1px solid {colors.control-border}"
   pricing-tier-name:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.ink}"
@@ -175,13 +183,14 @@ components:
   pricing-amount:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.ink}"
-    typography: "{typography.display}"
+    typography: "{typography.display-sm}"
   research-card:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.ink}"
     typography: "{typography.body}"
     rounded: "{rounded.md}"
     padding: 16px
+    border: "1px solid {colors.control-border}"
   media-thumbnail:
     backgroundColor: "{colors.surface-cool}"
     textColor: "{colors.ink}"
@@ -197,9 +206,11 @@ components:
     typography: "{typography.body-tight}"
     rounded: "{rounded.md}"
     padding: 16px
+    border: "1px solid {colors.control-border}"
   studios-tag:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.slate}"
+    border: "1px solid {colors.control-border}"
     typography: "{typography.micro-caps}"
     rounded: "{rounded.full}"
     padding: 6px
@@ -209,18 +220,22 @@ components:
     typography: "{typography.body}"
     rounded: "{rounded.none}"
     padding: 12px
+    borderBottom: "1px solid {colors.control-border}"
   form-field-focused:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.ink}"
     typography: "{typography.body}"
     rounded: "{rounded.none}"
     padding: 12px
+    borderBottom: "2px solid {colors.ink}"
+    outline: "2px solid {colors.ink}"
   alert-banner:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.ink}"
     typography: "{typography.body-tight}"
     rounded: "{rounded.lg}"
     padding: 16px
+    border: "1px solid {colors.control-border}"
   footer:
     backgroundColor: "{colors.footer}"
     textColor: "{colors.on-primary}"
@@ -230,6 +245,7 @@ components:
     backgroundColor: "{colors.footer}"
     textColor: "{colors.on-primary}"
     typography: "{typography.body}"
+    textDecoration: underline
   footer-eyebrow:
     backgroundColor: "{colors.footer}"
     textColor: "{colors.stone}"
@@ -238,18 +254,18 @@ components:
 
 ## Overview
 
-Runwai treats its marketing site as a curatorial space — closer in feeling to the programme guide of a film festival than to a typical AI-tooling site. Photography sets the temperature: cinematic, atmospheric stills (a forest at dusk, a lone figure under an indigo night sky) anchor full-bleed hero modules in `{colors.scrim}`, while the rest of the document drops onto pure `{colors.canvas}` for unbroken reading. The colour story is restraint to the point of austerity — black ink on paper-white, with five tiers of grey carrying every nuance from caption to divider, and a single slate-blue (`{colors.slate-soft}` / `{colors.slate}`) reserved for secondary text on rare occasions.
+This reference interprets Runway's marketing site as a curatorial space. Cinematic stills anchor hero modules in `{colors.scrim}`, while the remaining sections use `{colors.canvas}` for reading. The restrained neutral palette carries captions and dividers; use `{colors.slate}` for essential secondary text on white and reserve `{colors.slate-soft}` for decoration.
 
-Typography does almost all of the heavy lifting. A single proprietary sans, `abcNormal`, carries every level from 11px micro-caps to 48px editorial display, with negative letter-spacing on every heading (`-0.9px` to `-1.2px`) tightening the headline silhouette into something that reads as deliberate and quiet rather than punchy. There is no decorative ornament, no card glow, no gradient buttons — every primary action is a black solid pill (`{colors.primary}` background, `{colors.on-primary}` text, `{rounded.full}` corners), reused with absolute consistency across hero CTAs, pricing subscriptions, and form submissions.
+Typography does almost all of the heavy lifting. The source uses `abcNormal`; the portable tokens use Inter with a system sans-serif fallback from 11px micro-caps to 48px editorial display. Negative letter-spacing tightens the heading silhouette, but the rendered line breaks need checking with the substitute font. Primary actions use black solid pills (`{colors.primary}` background, `{colors.on-primary}` text, `{rounded.full}` corners).
 
 The layout discipline is editorial: hairline dividers (`{colors.hairline}`), uppercase eyebrows (`{typography.eyebrow}`), and an 8-px spacing grid that resolves to large 64–96px section gutters. Sections cycle through a tight rhythm — dark photographic hero → white reading band → research grid on canvas → photographic full-width interlude → dark CTA strip → black footer — letting black ink and black-and-white photography do the dramatic work that other sites delegate to colour.
 
 **Key Characteristics:**
 - Cinematic dark photographic heroes (`{colors.scrim}` over editorial stills) bookending crisp `{colors.canvas}` reading bands
-- A single proprietary sans (`abcNormal`) covering every typographic role, with tight negative tracking on display sizes
-- Black-only primary action language: every CTA is `{button-primary}` (`{colors.primary}` pill with `{rounded.full}` corners and 14px/600 button text)
+- A portable Inter stack covering every typographic role, with `abcNormal` retained only as a source reference
+- Black-only primary action language: every CTA is `{components.button-primary}` (`{colors.primary}` pill with `{rounded.full}` corners and 14px/600 button text)
 - Five-tier neutral ladder (`{colors.ink}` → `{colors.graphite}` → `{colors.slate}` → `{colors.stone}` → `{colors.hairline}`) carries the entire UI without accent colour
-- 5-column pricing grid where the featured tier is signalled by a `{colors.hairline}` infill rather than a coloured border
+- A reference 5-column pricing grid with a pale featured infill; verify the live tiers before reuse
 - Hairline dividers and uppercase `{typography.eyebrow}` lock-ups give marketing sections an editorial, exhibition-catalogue cadence
 - Photography is treated as content, not decoration — full-bleed, cinematic, and tonal rather than vivid
 
@@ -263,7 +279,7 @@ The layout discipline is editorial: hairline dividers (`{colors.hairline}`), upp
 - **Canvas** (`{colors.canvas}`): Primary reading-page background.
 - **Canvas Warm** (`{colors.canvas-warm}`): Near-imperceptible off-white used to lift studios-page tiles a half-tone above pure white without losing the paper feel.
 - **Featured Surface** (`{colors.hairline}`): The infill behind the featured pricing tier ("Pro") and behind certain table-style banners — chosen for its near-zero saturation so it reads as a tonal step rather than a fill.
-- **Hairline Soft** (`{colors.hairline-soft}`): 1-pixel column dividers in the pricing grid and table separators.
+- **Hairline Soft** (`{colors.hairline-soft}`): decorative 1-pixel dividers only; important column boundaries use `{colors.control-border}`.
 - **Cool Surface** (`{colors.surface-cool}`): Default placeholder fill for media thumbnails and image-loading frames before the asset paints.
 - **Scrim** (`{colors.scrim}`): The atmospheric dark layer that cinematic hero photography is laid into; behaves as the "stage" colour for full-bleed image modules.
 - **Footer** (`{colors.footer}`): Near-pure black footer canvas, one notch warmer than `{colors.primary}` so it sits visually distinct when the two stack.
@@ -272,10 +288,10 @@ The layout discipline is editorial: hairline dividers (`{colors.hairline}`), upp
 - **Ink** (`{colors.ink}`): Primary heading and body text on `{colors.canvas}`; closest the system gets to absolute black for type.
 - **Ink Soft** (`{colors.ink-soft}`): Nav links, secondary headings, body emphasis — one click softer than ink.
 - **Graphite** (`{colors.graphite}`): Standard body copy across marketing sections, balancing readability with calm.
-- **Slate** (`{colors.slate}`) / **Slate Soft** (`{colors.slate-soft}`): The system's only tinted neutrals — barely-blue greys reserved for tertiary metadata, footer-section headings on dark, and small-caps labels.
+- **Slate** (`{colors.slate}`): tertiary metadata on white. **Slate Soft** (`{colors.slate-soft}`): decorative tint only on white; its small-text contrast is insufficient there.
 - **Mute** (`{colors.mute}`): Lighter neutral for inline disabled or fine-print copy.
-- **Stone** (`{colors.stone}`): Footer eyebrow caps and field placeholders.
-- **Ash** (`{colors.ash}`): The lightest readable neutral — captions on tiles, pricing fine-print.
+- **Stone** (`{colors.stone}`): footer eyebrow caps on dark; not essential text on white.
+- **Ash** (`{colors.ash}`): decorative light neutral only, not captions or fine print on white.
 
 ### Semantic
 The system does not introduce signal colours (red, green, yellow). Validation states in forms rely on borders and copy rather than colour shifts. Where the contact form indicates a required field, the only visual cue is an asterisk in `{colors.ink}` paired with helper text in `{colors.graphite}`.
@@ -283,17 +299,17 @@ The system does not introduce signal colours (red, green, yellow). Validation st
 ## Typography
 
 ### Font Family
-The entire system runs on a single proprietary sans, **abcNormal**, with `abcNormal Fallback` declared as the substitute. It is a humanist neo-grotesque in the lineage of ABC Diatype — uniform stroke contrast, flat terminals, slightly compressed counters, and a confident lowercase that suits Runwai's all-lowercase wordmark. The face is used at every level; there is no second display font, no monospace, no italic specimen across marketing pages.
+The source references proprietary **abcNormal**. The portable tokens use [OFL Inter](https://github.com/google/fonts/blob/main/ofl/inter/METADATA.pb) with `system-ui, sans-serif` fallback on macOS, Windows, and Linux. Load Inter where available; use abcNormal only after confirming its rights. Check glyph coverage and wrapping in the rendered interface.
 
 ### Hierarchy
 
 | Token | Size | Weight | Line Height | Letter Spacing | Use |
 |---|---|---|---|---|---|
-| `{typography.display}` | 48px | 400 | 1.0 | -1.2px | Page-level editorial display ("Runwai Pricing", "Looking to get in touch?") |
-| `{typography.display-sm}` | 40px | 400 | 1.0 | -1px | Pricing tier amount, hero secondary headlines |
-| `{typography.heading-md}` | 36px | 400 | 1.0 | -0.9px | Section headlines ("Our latest Research and Products"), tier names |
-| `{typography.heading-sm}` | 24px | 400 | 1.0 | 0 | Card titles, sub-section heads, link text in featured cards |
-| `{typography.subtitle}` | 20px | 400 | 1.0 | 0 | Hero sub-copy and lead paragraphs |
+| `{typography.display}` | 48px | 400 | 1.15 | -1.2px | Page-level editorial display |
+| `{typography.display-sm}` | 40px | 400 | 1.15 | -1px | Pricing tier amount, hero secondary headlines |
+| `{typography.heading-md}` | 36px | 400 | 1.2 | -0.9px | Section headlines, tier names |
+| `{typography.heading-sm}` | 24px | 400 | 1.25 | 0 | Card titles, sub-section heads, link text in featured cards |
+| `{typography.subtitle}` | 20px | 400 | 1.3 | 0 | Hero sub-copy and lead paragraphs |
 | `{typography.body}` | 16px | 400 | 1.5 | 0 | Default body copy, form fields, footer link list |
 | `{typography.body-strong}` | 16px | 600 | 1.5 | 0 | Inline emphasis, "Get Started"-class label text |
 | `{typography.body-tight}` | 16px | 400 | 1.3 | -0.16px | Tight-leading body for marketing cards and CTA cards |
@@ -306,11 +322,11 @@ The entire system runs on a single proprietary sans, **abcNormal**, with `abcNor
 ### Principles
 - **One face, every level.** Hierarchy is articulated through size, weight, and tracking — never through a contrasting display family. The result is a uniform editorial cadence that reads as confident rather than expressive.
 - **Negative tracking on display, neutral tracking on body.** Headings 24–48px sit at -0.9 to -1.2px to tighten silhouettes; body copy stays at 0 for legibility.
-- **Tight leading on display, generous leading on body.** Display sizes lock to `line-height: 1.0`; body relaxes to `1.5`. The contrast gives sections a clear "headline-then-paragraph" rhythm.
+- **Tight leading on display, generous leading on body.** The portable display tokens use line heights of 1.15–1.3; body uses 1.5. Check each breakpoint for clipping.
 - **Uppercase reserved for two roles.** `{typography.eyebrow}` for section labels, `{typography.micro-caps}` for footer columns and small tags. Body copy is never set in uppercase.
 
 ### Note on Font Substitutes
-If `abcNormal` is unavailable, the closest open-source substitutes are **ABC Diatype** (commercial) or **Inter** at -0.02em tracking on display sizes. When using Inter, lift display sizes by ~1px and pull `letter-spacing` slightly tighter (-1.4px at 48px) to recover the compressed silhouette of the original.
+The YAML already uses Inter with its specified tracking. Recheck actual font loading and line breaks before adjusting font size or tracking.
 
 ## Layout
 
@@ -321,12 +337,12 @@ If `abcNormal` is unavailable, the closest open-source substitutes are **ABC Dia
 
 ### Grid & Container
 - Marketing pages render inside a centred container that caps near 1280px on widescreen breakpoints; the document maintains generous left/right gutters (~`{spacing.xxl}`) at every breakpoint above 1024px.
-- The pricing surface is a 5-column equal-width grid (Free / Standard / Pro / Unlimited / Enterprise) on widescreen; each column is a vertical strip separated by 1-pixel `{colors.hairline-soft}` rules rather than gaps.
+- The reference pricing surface uses five equal-width columns on widescreen. Fetch current plan names and prices before rendering; [Runway's plan transition notice](https://help.runwayml.com/hc/en-us/articles/52068047744019-Unlimited-plan-is-switching-to-Max) makes fixed tier labels unsafe. Use visible `{colors.control-border}` column rules.
 - Research/products listings use a 12-column underlying grid where each row presents a 5/7 split: media thumbnail on the left (5 columns), aligned text block on the right (7 columns).
 - Studios pages break the discipline deliberately: a dense, irregular masonry of editorial poster tiles, captioned in `{typography.body-tight}`, with no consistent column count — the page is meant to read as a programme grid.
 
 ### Whitespace Philosophy
-Whitespace at Runwai is structural, not decorative. Sections are separated by 64–96px verticals; cards inside a section are separated by 16–24px gaps. There are no card shadows or coloured surfaces standing in for layout — `{colors.canvas}` carries through, and rhythm comes from line-height and section spacing alone. The studios pages are the exception; their dense poster grids feel almost cluttered by contrast, which is the point — they read like a printed catalogue.
+Whitespace at Runway is structural, not decorative. Sections are separated by 64–96px verticals; cards inside a section are separated by 16–24px gaps. There are no card shadows or coloured surfaces standing in for layout — `{colors.canvas}` carries through, and rhythm comes from line-height and section spacing alone. The studios pages are the exception; their dense poster grids feel almost cluttered by contrast, which is the point — they read like a printed catalogue.
 
 ## Elevation & Depth
 
@@ -334,13 +350,13 @@ Whitespace at Runwai is structural, not decorative. Sections are separated by 64
 |---|---|---|
 | Flat | No shadow, optional 1px `{colors.hairline}` divider | Default state for cards, pricing columns, research rows, footer surfaces |
 | Photographic | Full-bleed image laid into `{colors.scrim}`, no border, `{rounded.lg}` corners on contained variants | Hero modules, "We are building foundational simulation World Models" interlude, mid-page CTA panels |
-| Subtle Surface Lift | `{colors.hairline}` infill behind a card on a `{colors.canvas}` page | The featured pricing tier ("Pro") — the only "elevation" cue in the entire pricing module |
+| Subtle Surface Lift | `{colors.hairline}` infill behind a card on a `{colors.canvas}` page, with `{colors.control-border}` boundary | Reference featured pricing tier; confirm the current offer |
 
-The system avoids drop shadows entirely. Depth is created by photographic layering and tonal surface shifts, never by blurred shadows. This is a deliberate aesthetic choice — Runwai communicates polish through editorial restraint, not material affordance.
+The system avoids drop shadows entirely. Depth is created by photographic layering and tonal surface shifts, never by blurred shadows. This is a deliberate aesthetic choice — Runway communicates polish through editorial restraint, not material affordance.
 
 ### Decorative Depth
-- **Cinematic photography as backdrop.** The hero on the homepage uses an indigo night-sky photograph; the mid-page interlude uses a fog-and-trees forest scene rendered into `{colors.scrim}`. Both function as atmospheric surfaces that the next white reading band breaks against, creating a perceived "stage" depth without any CSS effect.
-- **Tonal surface stepping.** Pricing's featured-tier infill (`{colors.hairline}` against `{colors.canvas}`) is the system's quietest possible "this one is special" cue — perceptible, never loud.
+- **Cinematic photography as backdrop.** Reference hero and interlude imagery uses a dark stage. Confirm rights for each selected image and measure text contrast over each crop; add a scrim or relocate text when necessary.
+- **Tonal surface stepping.** The featured-tier infill (`{colors.hairline}` against `{colors.canvas}`) is subtle; use the control border and a text label so the state does not rely on the infill alone.
 
 ## Shapes
 
@@ -366,46 +382,46 @@ The system avoids drop shadows entirely. Depth is created by photographic layeri
 
 ### Buttons
 
-**`button-primary`** — every primary CTA across the marketing surface ("Try Runwai", "Get Started", "Subscribe Now", "Send Message", "Learn More" filled variant)
-- Background `{colors.primary}`, text `{colors.on-primary}`, type `{typography.button}`, padding `{spacing.sm}` × `{spacing.lg}`, rounded `{rounded.full}`, height 40px.
+**`button-primary`** — primary CTA in this reference system
+- Background `{colors.primary}`, text `{colors.on-primary}`, type `{typography.button}`, rounded `{rounded.full}`, height 48px.
 - The system uses the same pill at every scale; no large/small distinction.
 
 **`button-primary-on-dark`** — the inverse used when the surface itself is `{colors.scrim}` (dark hero CTAs)
-- Background `{colors.on-primary}`, text `{colors.primary}`, otherwise identical token set to `{button-primary}`.
+- Background `{colors.on-primary}`, text `{colors.primary}`, otherwise identical token set to `{components.button-primary}`.
 
 **`button-ghost`** — secondary actions on light surfaces ("Schedule a Demo", "Sign Up" on the Free tier)
 - Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.button}`, rounded `{rounded.full}`, with a 1px `{colors.ink}` border.
 
-**`button-text-link`** — inline secondary actions, table-row "Subscribe Now" labels, and "View More" links
-- Background `{colors.canvas}`, text `{colors.ink}`, underline-on-active, type `{typography.link-sm}`.
+**`button-text-link`** — inline secondary actions and table-row links
+- Background `{colors.canvas}`, text `{colors.ink}`, persistent underline, type `{typography.link-sm}`, minimum height 44px.
 
 ### Navigation
 
 **`nav-bar`** — the persistent top bar
 - Background `{colors.canvas}`, height ~64px, padding `{spacing.lg}` horizontal, `{typography.link-sm}` for menu items.
-- Layout: lowercase `runwai` wordmark left → centred 5-item primary menu (Research, Product, Resources, Solutions, Company) → right cluster (`Enterprise Sales` text link, `Log In` text link, `Try Runwai` `{button-primary}` pill).
+- Reference layout: brand wordmark left, navigation in the centre, actions on the right. Confirm current navigation labels and logo asset before publication.
 - The bar sits flush against the document top and is divided from the page only by spacing, not by a hairline.
 
 **`nav-link`** — top-bar menu items
-- Background `{colors.canvas}`, text `{colors.ink-soft}`, type `{typography.link-sm}`, padding `{spacing.xs}` vertical.
+- Background `{colors.canvas}`, text `{colors.ink-soft}`, type `{typography.link-sm}`, 8px padding and a 44px minimum height.
 
 ### Cards & Containers
 
-**`pricing-card`** — every standard tier (Free, Standard, Unlimited, Enterprise)
-- Background `{colors.canvas}`, text `{colors.ink}`, padding `{spacing.lg}`, no rounding, separated from neighbouring tiers by 1px `{colors.hairline-soft}` column rules.
-- Internal stack: tier name (`{typography.heading-md}`) → one-line description (`{typography.body}` in `{colors.graphite}`) → amount (`{typography.display-sm}`) → unit caption (`{typography.meta}` in `{colors.stone}`) → action button (`{button-primary}` for paid tiers, `{button-ghost}` for Free) → feature list (`{typography.body}` bullets).
+**`pricing-card`** — standard tier in the reference layout
+- Background `{colors.canvas}`, text `{colors.ink}`, padding `{spacing.lg}`, no rounding, separated by 1px `{colors.control-border}` rules.
+- Internal stack: tier name (`{typography.heading-md}`) → description (`{typography.body}` in `{colors.graphite}`) → current amount (`{typography.display-sm}`) → unit caption (`{typography.meta}` in `{colors.slate}`) → action button → feature list. Confirm live plan data before use.
 
-**`pricing-card-featured`** — the "Pro" tier
-- Identical structure to `{pricing-card}` but the column infill is `{colors.hairline}` instead of `{colors.canvas}`. No coloured border, no badge, no shadow — just the surface-step.
+**`pricing-card-featured`** — a featured tier, if one is offered
+- Identical structure to `{components.pricing-card}` but the column infill is `{colors.hairline}` instead of `{colors.canvas}`. Preserve its clear boundary and use any badge shown in current official plan data.
 
 **`pricing-tier-name`** — header line of each pricing column
-- Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.heading-md}` set in title-case ("Free", "Standard", "Pro").
+- Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.heading-md}`. Source current tier names from the live offer.
 
 **`pricing-amount`** — large monetary display in each pricing card
 - Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.display}` paired with a `{typography.meta}` "per user/month" caption beside it.
 
 **`research-card`** — each row of "Our latest Research and Products"
-- Layout: `{media-thumbnail}` left (16:9) + text block right.
+- Layout: `{components.media-thumbnail}` left (16:9) + text block right.
 - Right block: title (`{typography.heading-sm}`) → description (`{typography.body}` in `{colors.graphite}`) → footer link (`{typography.link-sm}`, underlined on active).
 
 **`studios-tile`** — poster cards on the studios index
@@ -417,7 +433,7 @@ The system avoids drop shadows entirely. Depth is created by photographic layeri
 
 **`hero-photo`** — full-bleed cinematic hero blocks
 - `{colors.scrim}` background carrying a photographic still, padding `{spacing.xxl}`, rounded `{rounded.lg}` on contained variants and `{rounded.none}` on edge-to-edge variants.
-- Internal stack: optional eyebrow (`{typography.eyebrow}` in `{colors.on-primary}` at 70% opacity) → display headline (`{typography.display}` in `{colors.on-primary}`) → optional sub-copy (`{typography.subtitle}` in `{colors.on-primary}`) → `{button-primary-on-dark}` CTA.
+- Internal stack: optional eyebrow, headline, sub-copy, and `{components.button-primary-on-dark}` CTA. Keep text opaque until each image crop's contrast has been measured.
 
 **`media-thumbnail`** — image placeholder
 - Background `{colors.surface-cool}`, rounded `{rounded.md}`, ratio 16:9 by default, image lazy-loads on top.
@@ -425,21 +441,21 @@ The system avoids drop shadows entirely. Depth is created by photographic layeri
 ### Inputs & Forms
 
 **`form-field`** — every contact-form input (select, text, textarea)
-- Background `{colors.canvas}`, text `{colors.ink}`, label above field in `{typography.body}` `{colors.ink}`, helper text in `{typography.meta}` `{colors.stone}`.
-- The field itself is a 1px bottom rule in `{colors.hairline-soft}` (no full-border box) — placeholder ("Type your full name") sits in `{colors.stone}`.
+- Background `{colors.canvas}`, text `{colors.ink}`, label above field in `{typography.body}` `{colors.ink}`, helper text in `{typography.meta}` `{colors.slate}`.
+- The field uses a 1px bottom rule in `{colors.control-border}`; use `{colors.slate}` for essential placeholder or helper text.
 - Padding `{spacing.sm}` vertical, no rounding.
 
 **`form-field-focused`** — focused state
-- Bottom rule deepens to `{colors.ink}`. No glow, no colour shift on the field background.
+- Bottom rule deepens to `{colors.ink}` and a 2px outline marks keyboard focus.
 
 **`alert-banner`** — privacy/cookie disclosure copy
-- Background `{colors.canvas}`, text `{colors.ink}`, `{typography.body-tight}`, padding `{spacing.md}`, rounded `{rounded.lg}`, 1px `{colors.hairline-soft}` border.
+- Background `{colors.canvas}`, text `{colors.ink}`, `{typography.body-tight}`, padding `{spacing.md}`, rounded `{rounded.lg}`, 1px `{colors.control-border}` border.
 
 ### Footer
 
 **`footer`** — the system's terminal surface
 - Background `{colors.footer}`, text `{colors.on-primary}`, padding `{spacing.section}` vertical, `{spacing.lg}` horizontal.
-- Layout: 6-column link grid → bottom strip with the lowercase `runwai` wordmark left and legal/copyright links right.
+- Reference layout: link grid followed by a brand and legal strip. Use the current approved logo asset.
 
 **`footer-eyebrow`** — small-caps column headings ("Product", "Initiatives", "Company")
 - Background `{colors.footer}`, text `{colors.stone}`, type `{typography.eyebrow}`.
@@ -449,31 +465,31 @@ The system avoids drop shadows entirely. Depth is created by photographic layeri
 
 ### Signature Components
 
-**Pricing 5-Column Slab** — Runwai's pricing module is unusually flat: a 5-tier slab with no coloured borders, no shadow, no badge ribbon. The featured tier is signalled by a single tonal step (`{colors.hairline}` infill) and a slightly heavier action button. The decision to render Free → Enterprise as one continuous slab instead of separate floating cards is the page's central design move.
+**Pricing 5-Column Slab** — The reference module is a flat five-column slab. The featured tier has a pale infill plus a clear border and text label. Plan names, prices, and availability must come from current official data before publication.
 
 **Editorial Eyebrow + Display Lockup** — Across the site, headline modules follow a fixed three-part rhythm: uppercase `{typography.eyebrow}` label → 36–48px `{typography.display}` headline → `{typography.body}` lead paragraph. Section spacing locks to `{spacing.section}` between modules. The lockup is what gives marketing pages their festival-programme cadence.
 
-**Cinematic Atmospheric Interlude** — Mid-document interludes (the "We are building foundational simulation World Models" forest scene, the "We are building AI to simulate the world…" closing strip) use a contained `{hero-photo}` panel with `{rounded.lg}` corners. They function as pacing breaks between research grids and CTA bands rather than promotional units.
+**Cinematic Atmospheric Interlude** — Mid-document interludes (the "We are building foundational simulation World Models" forest scene, the "We are building AI to simulate the world…" closing strip) use a contained `{components.hero-photo}` panel with `{rounded.lg}` corners. They function as pacing breaks between research grids and CTA bands rather than promotional units.
 
 ## Do's and Don'ts
 
 ### Do
-- Reserve `{colors.primary}` for primary actions and the footer; use `{button-primary}` for every primary CTA without varying corner radius or fill.
+- Reserve `{colors.primary}` for primary actions and the footer; use `{components.button-primary}` for every primary CTA without varying corner radius or fill.
 - Stack uppercase `{typography.eyebrow}` over `{typography.display}` for every major section opener — it is the system's signature lockup.
-- Use `{colors.hairline}` infill — never a coloured border — when one item in a comparison must read as featured.
+- In the reference pricing layout, pair `{colors.hairline}` infill with a visible border and text label. Follow current official badges when representing a live plan.
 - Set body copy in `{colors.graphite}` against `{colors.canvas}` for paragraphs, and reserve `{colors.ink}` for headings and emphasis only.
 - Treat photography as content: full-bleed, cinematic, aligned to the page edge in heroes; `{rounded.lg}` only when the photo is contained inside a section.
 - Lock display headings to negative letter-spacing (`-0.9px` to `-1.2px`) — the tight tracking is core to the brand voice.
 - Use `{rounded.full}` pills for buttons and `{rounded.none}` for table/grid cells. Never mix.
 
 ### Don't
-- Don't introduce accent colours (blue, green, red) into marketing surfaces — Runwai's voice is monochrome plus photography.
+- Don't introduce accent colours (blue, green, red) into marketing surfaces — Runway's voice is monochrome plus photography.
 - Don't apply drop shadows or glows to cards. Depth is photographic and tonal, not material.
-- Don't badge the featured pricing tier with a coloured ribbon or border — the surface step is the badge.
+- Don't invent badges or tier labels; [current Runway pricing](https://runway.com/pricing) uses named plan badges that must be sourced as displayed.
 - Don't break headings into bold + light contrast; every heading is regular weight (`400`) with tight tracking.
 - Don't centre body paragraphs longer than one sentence — the system uses left-aligned reading bands almost exclusively.
 - Don't use uppercase for body or button copy. Uppercase is reserved for `{typography.eyebrow}` (14px) and `{typography.micro-caps}` (11px).
-- Don't render the runwai wordmark in title-case or with a brand colour. It is always lowercase, in `{colors.ink}` on light surfaces and `{colors.on-primary}` on dark.
+- Use the approved wordmark asset and check its contrast on each surface.
 
 ## Responsive Behavior
 
@@ -481,36 +497,41 @@ The system avoids drop shadows entirely. Depth is created by photographic layeri
 
 | Name | Width | Key Changes |
 |---|---|---|
-| 2xl | 1600px | Full editorial container; pricing 5-up; research rows 5/7 split |
+| 2xl | 1600px | Reference editorial container; old pricing example was 5-up; current tier count comes from the live offer |
 | xl | 1536px | Same layout, marginally tighter gutters |
 | lg | 1280px | Default desktop reading view |
-| md | 1200px | Pricing grid still 5-up but tier text tightens |
-| sm | 1024px | Pricing collapses to 3 → 2 tier rows; research rows stack at certain breakpoints |
+| md | 1200px | Fit current pricing tiers to available width; verify text wrapping |
+| sm | 1024px | Pricing columns collapse as needed; research rows stack at certain breakpoints |
 | xs | 768px | Top nav collapses to a hamburger; section padding drops to `{spacing.section}` |
 | xxs | 640px | Single-column reading; hero display drops to `{typography.display-sm}`; pricing tiers stack 1-up |
 
 ### Touch Targets
-- Every `{button-primary}` is 40px tall — at the lower edge of the 44×44 WCAG target. On mobile the buttons grow to 48px height (still `{rounded.full}`, still `{typography.button}`).
-- `{nav-link}` items get `{spacing.sm}` vertical padding inside the mobile menu, expanding the tap target without changing typography.
-- Pricing-tier `{button-primary}` extends full-column-width on mobile.
+- The YAML sets primary buttons to 48px and inline links to a 44px minimum height. Measure rendered size, spacing, focus, and keyboard operation in each layout.
+- `{components.nav-link}` specifies a 44px minimum height; measure the rendered mobile menu targets.
+- Pricing-tier `{components.button-primary}` extends full-column-width on mobile.
 
 ### Collapsing Strategy
-- **Nav.** Centred desktop menu collapses into a single hamburger that opens an overlay sheet; the right-side `{button-primary}` "Try Runwai" stays visible above the hamburger as the persistent action.
-- **Pricing.** 5-column slab collapses to single-column stacked cards at xxs; the featured `{colors.hairline}` infill is preserved on the Pro card so the tonal cue survives the stack.
+- **Nav.** Centred desktop menu collapses into a single hamburger that opens an overlay sheet; the right-side `{components.button-primary}` "Try Runway" stays visible above the hamburger as the persistent action.
+- **Pricing.** The reference slab collapses to single-column cards at xxs; preserve the featured text label and border alongside its pale infill.
 - **Research grid.** 5/7 split collapses to image-on-top, text-below at sm; thumbnail rounding (`{rounded.md}`) is preserved.
-- **Footer.** 6-column link grid collapses to 2-column at sm and 1-column at xxs; the lowercase `runwai` wordmark stays bottom-left, legal links stack underneath.
+- **Footer.** The reference link grid collapses to fewer columns; check the approved wordmark and legal links in the rendered mobile layout.
 
 ### Image Behavior
 - Hero photographs swap to a tighter crop on mobile (vertical-leaning) so the focal subject stays centred at xxs widths.
-- `{media-thumbnail}` containers preserve their 16:9 ratio at every breakpoint; the `{colors.surface-cool}` placeholder fill paints during lazy-load.
+- `{components.media-thumbnail}` containers preserve their 16:9 ratio at every breakpoint; the `{colors.surface-cool}` placeholder fill paints during lazy-load.
 - Studios poster tiles preserve their original aspect ratios at every breakpoint — the masonry simply re-flows into fewer columns.
 
 ## Iteration Guide
 
-1. Focus on ONE component at a time. Start with `{button-primary}` and `{nav-bar}` — they appear on every page and anchor the system.
-2. Reference component names and tokens directly (`{colors.ink}`, `{button-primary-on-dark}`, `{rounded.full}`) — do not paraphrase or substitute hex values.
-3. Run `npx @google/design.md lint DESIGN.md` after edits — `broken-ref`, `contrast-ratio`, and `orphaned-tokens` warnings flag drift automatically.
+1. Focus on ONE component at a time. Start with `{components.button-primary}` and `{components.nav-bar}` — they appear on every page and anchor the system.
+2. Reference component names and tokens directly (`{colors.ink}`, `{components.button-primary-on-dark}`, `{rounded.full}`) — do not paraphrase or substitute hex values.
+3. Run `npx --yes -p "@google/design.md@0.4.0" designmd lint DESIGN.md` after edits — `broken-ref`, `contrast-ratio`, and `orphaned-tokens` warnings flag drift automatically.
 4. Add new variants as separate `components:` entries (`-pressed`, `-disabled`, `-focused`) — never bury them inside prose.
 5. Default body copy to `{typography.body}` and emphasis to `{typography.body-strong}`. Reserve `{typography.eyebrow}` and `{typography.micro-caps}` for their two specific roles (section openers and footer columns).
-6. Keep `{colors.primary}` scarce — if more than one black-pill action appears in a single viewport, neutralise the secondary one to `{button-ghost}`.
+6. Keep `{colors.primary}` scarce — if more than one black-pill action appears in a single viewport, neutralise the secondary one to `{components.button-ghost}`.
 7. When introducing photography, lay it into `{colors.scrim}` and let the next white band break against it. Avoid mid-section photographic accents that don't span the full content width — they read as off-system.
+
+## Known Gaps
+
+- Current Runway plans, prices, navigation, wordmark, photographs, and reuse rights require confirmation from current official sources before publication.
+- Inter loading and glyph fallback, photograph overlay contrast, focus states and target sizes, and desktop behavior on macOS, Windows, and Linux have not been observed.

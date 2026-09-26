@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Framer-design-analysis
-description: "A confident dark-canvas builder marketing site that treats the page like a working artboard — pure black surfaces, white display type set in GT Walsheim Medium with aggressive negative tracking, and a single confident blue (#0099ff) reserved for hyperlinks and selection states. The page rhythm is broken by oversized vibrant gradient atmosphere panels — magenta, violet, orange spotlights — that act as living showcase tiles, not decoration. Every CTA is a white pill on dark; every card is a translucent or charcoal surface; every section title pulls letter-spacing tight enough to feel like a poster."
+description: "A confident dark-canvas builder marketing site that treats the page like a working artboard — pure black surfaces, white display type inspired by GT Walsheim Medium and set in Inter by default with aggressive negative tracking, and a single confident blue (#0099ff) reserved for hyperlinks and selection states. The page rhythm is broken by oversized vibrant gradient atmosphere panels — magenta, violet, orange spotlights — that act as living showcase tiles, not decoration. Every CTA is a white pill on dark; every card is a translucent or charcoal surface; every section title pulls letter-spacing tight enough to feel like a poster."
 
 colors:
   primary: "#ffffff"
@@ -24,82 +24,82 @@ colors:
 
 typography:
   display-xxl:
-    fontFamily: GT Walsheim Framer Medium
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 110px
     fontWeight: 500
     lineHeight: 0.85
     letterSpacing: -5.5px
   display-xl:
-    fontFamily: GT Walsheim Medium
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 85px
     fontWeight: 500
     lineHeight: 0.95
     letterSpacing: -4.25px
     fontFeature: ss02
   display-lg:
-    fontFamily: GT Walsheim Medium
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 62px
     fontWeight: 500
     lineHeight: 1.00
     letterSpacing: -3.1px
     fontFeature: ss02
   display-md:
-    fontFamily: GT Walsheim Medium
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 32px
     fontWeight: 500
     lineHeight: 1.13
     letterSpacing: -1.0px
   headline:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 22px
     fontWeight: 700
     lineHeight: 1.20
     letterSpacing: -0.8px
     fontFeature: cv05
   subhead:
-    fontFamily: Inter Variable
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 24px
     fontWeight: 400
     lineHeight: 1.30
     letterSpacing: -0.01px
     fontFeature: cv11
   body-lg:
-    fontFamily: Inter Variable
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 18px
     fontWeight: 400
     lineHeight: 1.30
     letterSpacing: -0.18px
     fontFeature: cv11
   body:
-    fontFamily: Inter Variable
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 15px
     fontWeight: 400
     lineHeight: 1.30
     letterSpacing: -0.15px
     fontFeature: cv11
   body-sm:
-    fontFamily: Inter Variable
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 500
     lineHeight: 1.40
     letterSpacing: -0.14px
     fontFeature: cv11
   caption:
-    fontFamily: Inter Variable
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 13px
     fontWeight: 500
     lineHeight: 1.20
     letterSpacing: -0.13px
     fontFeature: cv11
   micro:
-    fontFamily: Inter Variable
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 12px
     fontWeight: 400
     lineHeight: 1.20
     letterSpacing: -0.12px
     fontFeature: cv11
   button:
-    fontFamily: Inter Variable
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 500
     lineHeight: 1.0
@@ -166,6 +166,8 @@ components:
   pricing-tab-selected:
     backgroundColor: "{colors.surface-2}"
     textColor: "{colors.ink}"
+    borderColor: "{colors.accent-blue}"
+    borderWidth: 2px
     typography: "{typography.button}"
     rounded: "{rounded.pill}"
     padding: 8px 14px
@@ -178,6 +180,8 @@ components:
   text-input-focused:
     backgroundColor: "{colors.surface-1}"
     textColor: "{colors.ink}"
+    borderColor: "{colors.accent-blue}"
+    borderWidth: 2px
     typography: "{typography.body}"
     rounded: "{rounded.md}"
     padding: 10px 14px
@@ -207,13 +211,13 @@ components:
     padding: 32px
   gradient-spotlight-card-magenta:
     backgroundColor: "{colors.gradient-magenta}"
-    textColor: "{colors.ink}"
+    textColor: "{colors.inverse-ink}"
     typography: "{typography.subhead}"
     rounded: "{rounded.xl}"
     padding: 32px
   gradient-spotlight-card-orange:
     backgroundColor: "{colors.gradient-orange}"
-    textColor: "{colors.ink}"
+    textColor: "{colors.inverse-ink}"
     typography: "{typography.subhead}"
     rounded: "{rounded.xl}"
     padding: 32px
@@ -255,18 +259,18 @@ components:
 
 ## Overview
 
-Framer's marketing canvas is a near-pure black artboard. The dominant surface is `{colors.canvas}` — almost pure black with a faint warmth — and on top of it sits oversized white display type set in **GT Walsheim Medium** with letter-spacing pulled to extreme negative values (-5.5px on the 110px display, -4.25px on the 85px hero). The page reads like a poster: one assertive statement per band, generous breathing room above and below.
+Framer's marketing canvas is a near-pure black artboard. The dominant surface is `{colors.canvas}` — almost pure black with a faint warmth — and on top of it sits oversized white display type inspired by **GT Walsheim Medium** and set in Inter by default with letter-spacing pulled to extreme negative values (-5.5px on the 110px display, -4.25px on the 85px hero). The page reads like a poster: one assertive statement per band, generous breathing room above and below.
 
-The single accent is `{colors.accent-blue}` — used scarcely, mostly for hyperlinks, selection halos, and a subtle blue-tinted shadow ring on focused inputs. The brand chrome itself is monochrome: white pill buttons, charcoal cards, gray secondary text. What makes Framer distinctive is the rhythm break — every few sections the page drops in a **vibrant gradient atmosphere card**: a magenta-violet spotlight, a sunset-orange wash, a coral-pink panel. These aren't section backgrounds; they're individual cards arranged in a card grid, each one a small living poster that shows what Framer can produce.
+The single accent is `{colors.accent-blue}` — used scarcely, mostly for hyperlinks and solid selection or focus borders. The brand chrome itself is monochrome: white pill buttons, charcoal cards, gray secondary text. What makes Framer distinctive is the rhythm break — every few sections the page drops in a **vibrant gradient atmosphere card**: a magenta-violet spotlight, a sunset-orange wash, a coral-pink panel. These aren't section backgrounds; they're individual cards arranged in a card grid, each one a small living poster that shows what Framer can produce.
 
-Body type is **Inter Variable**, with Framer leaning hard into Inter's character variants (`cv01`, `cv05`, `cv09`, `cv11`, `ss03`, `ss07`, `dlig`) — the result is a body voice that feels custom-tuned, with single-storey "a", straight-leg "l", and tabular figures. There's no light mode on the marketing site; the brand IS dark.
+Body type uses **Inter** with a system sans fallback. Framer's reference leans into Inter's character variants (`cv01`, `cv05`, `cv09`, `cv11`, `ss03`, `ss07`, `dlig`) — the result is a body voice that feels custom-tuned, with single-storey "a" and other alternate glyphs. There's no light mode on the marketing site; the brand IS dark.
 
 **Key Characteristics:**
 - Black-canvas marketing system: `{colors.canvas}` is the surface for hero, body, pricing, FAQ, and footer alike — no light interludes.
 - Massive negative letter-spacing on display sizes (-5.5px / -4.25px / -3.1px) creates a poster-grade headline cadence.
 - White pill (`{components.button-primary}`) is the only primary CTA shape across the site; secondary actions live as charcoal pills (`{components.button-secondary}`) or text links.
 - Oversized **gradient spotlight cards** (violet, magenta, orange, coral) act as showcase tiles inside the dark grid; they are individual cards, not section backgrounds.
-- Inter Variable with bespoke OpenType character variants (`cv01/05/09/11`, `ss03/ss07`, `dlig`) used everywhere body type appears — the typographic voice is unmistakable.
+- Inter with documented OpenType character variants (`cv01/05/09/11`, `ss03/ss07`, `dlig`) on body roles, subject to the loaded font build.
 - Border radius scale runs from 4px utility chips up to 100px pills and full circles, with 15–20px the default for cards and 30px for atmospheric gradient cards.
 - A single chromatic accent `{colors.accent-blue}` reserved for hyperlinks, focus, and selection — never decorative.
 
@@ -305,9 +309,8 @@ These four sit as oversized atmospheric tiles inside otherwise monochrome card g
 
 ### Font Family
 
-- **GT Walsheim Framer Medium** / **GT Walsheim Medium** — Framer's display typeface. Geometric, slightly humanist, very confident at large sizes with extreme negative tracking. Fallbacks: `GT Walsheim Medium Placeholder` system font.
-- **Inter Variable** — System body typeface. Used with extensive OpenType character variants: `cv01` (alternate "1"), `cv05` (alternate "g"), `cv09` (alternate "i" / "l"), `cv11` (alternate "0"), `ss03` / `ss07` stylistic sets, `dlig` discretionary ligatures, and `tnum` for numerics in tabular contexts. The result is a body voice that feels bespoke without commissioning a custom face.
-- **Inter** — Used selectively for `{typography.headline}` (the 22px / 20px tier). The non-variable cut catches small tracking targets that the variable file rounds.
+- **Display default** — `Inter, system-ui, sans-serif` at weight 500. Framer’s reference uses GT Walsheim Framer Medium / GT Walsheim Medium; add the reference face only when the intended web or app use is licensed. Preserve the tight display tracking, then check rendered line breaks.
+- **Inter** — Default family for display and body roles, with `system-ui, sans-serif` as the fallback. The reference uses character variants: `cv01` (alternate one), `cv05` (lower-case l with tail), `cv09` (flat-top three), `cv11` (single-story a), `ss03` (round quotes and commas), `ss07` (square punctuation), `dlig` (discretionary ligatures), and `tnum` (tabular figures). Check feature support in the font build actually loaded.
 
 ### Hierarchy
 
@@ -335,7 +338,7 @@ These four sit as oversized atmospheric tiles inside otherwise monochrome card g
 
 ### Note on Font Substitutes
 
-If implementing without GT Walsheim Medium, suitable open-source substitutes include **Mona Sans**, **Geist**, or **Inter** at weight 600–700 with manually tightened tracking. Mona Sans's hairline weights at 100–300 are particularly close to Framer's cleaner section openers. Inter Variable is open-source — keep it as-is and preserve the documented OpenType variants.
+The default display and body stack uses Inter. [Grilli Type licenses GT Walsheim separately](https://www.grillitype.com/shops/gt-walsheim) for desktop, web, and app use, so the reference face must be authorized before deployment. Inter Variable is open source; keep the documented weights and check the supported OpenType variants in the actual font build.
 
 ## Layout
 
@@ -364,15 +367,15 @@ The dark canvas IS the whitespace. Where lighter brands lean on white air to sep
 | 0 (flat) | No shadow, no border | Default for canvas-mounted display type, FAQ rows, footer |
 | 1 (charcoal) | `{colors.surface-1}` lift on canvas | Pricing cards, mockup tiles, secondary buttons |
 | 2 (light-edge) | `rgba(255,255,255,0.10)` 0.5px top edge + `rgba(0,0,0,0.25)` 0px 10px 30px drop | Floating product cards, modal cards |
-| 3 (selected) | `rgba(0,153,255,0.15)` 0px 0px 0px 1px ring | Focused inputs, selected option |
+| 3 (selected) | 2px solid `{colors.accent-blue}` border | Focused inputs, selected option |
 
-Four shadow signatures recur across the homepage: a 1px subtle drop, a translucent blue ring, a thick near-black 2px outline (used as the active-element marker on sub-nav), and the layered light-edge + drop-shadow used for floating cards.
+The documented effects include a subtle drop, a thick near-black outline on sub-navigation, and a layered light edge with a drop-shadow on floating cards. The reusable selected and focused states use a solid blue border so the state remains visible on dark surfaces.
 
 ### Decorative Depth
 
 - **Gradient spotlight cards** are the dominant depth device — color saturation against black canvas substitutes for shadow-driven elevation.
 - **Layered product mockups** (browser frames containing live Framer-built sites) sit inside `{colors.surface-1}` cards with the level-2 light-edge treatment.
-- **Subtle blue ring (focus / selected)** is the only chromatic depth signal — used to mark the active state of input groups and pricing tier toggles without changing the underlying surface.
+- **Solid blue border (focus / selected)** marks the active state of input groups and pricing tier toggles without changing the underlying surface.
 
 ## Shapes
 
@@ -418,13 +421,13 @@ Framer's extracted radius set is unusually granular (1px, 4px, 5px, 6px, 8px, 10
 
 **`pricing-tab-default`** + **`pricing-tab-selected`** — The pill-toggle that switches between Basic / Pro / Business / Enterprise on `/pricing`.
 - Default: `{colors.canvas}` background, `{colors.ink-muted}` text, rounded `{rounded.pill}`.
-- Selected: `{colors.surface-2}` background, `{colors.ink}` text — selected = lift, not color. Surface depth communicates "active" without needing a chromatic fill.
+- Selected: `{colors.surface-2}` background, `{colors.ink}` text, and a 2px `{colors.accent-blue}` border. The border distinguishes the selected state from the dark default surface without adding a colored fill.
 
 ### Inputs & Forms
 
 **`text-input`** + **`text-input-focused`** — Form fields on `/pricing` (seat-count, currency switcher) and the in-product preview surfaces.
 - Background `{colors.surface-1}`, text `{colors.ink}`, type `{typography.body}`, rounded `{rounded.md}`, padding 10px 14px.
-- Focused state retains the same surface; the focus ring is the level-3 blue-tinted shadow `rgba(0,153,255,0.15)` 0 0 0 1px.
+- Focused state retains the same surface and adds a solid 2px `{colors.accent-blue}` border. Verify the rendered ring remains visible at each viewport.
 
 ### Cards & Containers
 
@@ -448,10 +451,10 @@ The defining decorative surface of Framer's marketing — oversized atmospheric 
 - Background `{colors.gradient-violet}`, text `{colors.ink}`, type `{typography.subhead}`, rounded `{rounded.xl}`, padding 32px. (The on-site card often pushes to `{rounded.xxl}` 30px when it spans a wider tile.)
 
 **`gradient-spotlight-card-magenta`** — magenta-pink ground.
-- Background `{colors.gradient-magenta}`, otherwise identical.
+- Background `{colors.gradient-magenta}`, text `{colors.inverse-ink}` (black), otherwise identical.
 
 **`gradient-spotlight-card-orange`** — sunset-orange wash.
-- Background `{colors.gradient-orange}`, otherwise identical.
+- Background `{colors.gradient-orange}`, text `{colors.inverse-ink}` (black), otherwise identical.
 
 (Coral pink follows the same shape with `{colors.gradient-coral}`.)
 
@@ -484,7 +487,7 @@ The defining decorative surface of Framer's marketing — oversized atmospheric 
 - Use `{colors.accent-blue}` only for hyperlinks, focus rings, and selected indicators. Never as a background or button fill.
 - Drop one or two `gradient-spotlight-card` variants into a card grid; they are the brand's atmosphere device. Don't overdo it — three or more in the same viewport reads as a moodboard, not a system.
 - Compose every CTA as a pill (`{rounded.pill}`); secondary actions live as charcoal pills, never as bordered ghost buttons.
-- Keep body type Inter Variable with character variants `cv01`, `cv05`, `cv09`, `cv11`, `ss03`, `ss07` enabled — the brand voice depends on them.
+- Keep body type in Inter and enable the documented character variants when the loaded build supports them.
 - Use surface lift (canvas → surface-1 → surface-2) to mark hierarchy on dark, not opacity changes on white type.
 
 ### Don't
@@ -510,9 +513,9 @@ The defining decorative surface of Framer's marketing — oversized atmospheric 
 
 ### Touch Targets
 
-- Pill buttons (`button-primary`, `button-secondary`) maintain a minimum 44px tap height across all viewports — combine `{typography.button}` 14px line-height with the documented 10px vertical padding.
-- Circular icon buttons (`button-icon-circular`) are 40px on desktop and grow to 44px on touch viewports.
-- Pricing-tab pills hold ≥40px tap height; below 810px they may collapse into a horizontal-scroll row instead of stacking.
+- The button token combines a 14px line height with 10px vertical padding, which does not by itself establish a 44px rendered tap target. Measure its clickable width, height, and spacing at each viewport.
+- Circular icon buttons specify 40px in the tokens. Enlarge the clickable target where needed and verify the rendered dimensions.
+- Measure pricing-tab targets after layout; the tokens do not define a 40px minimum. Below 810px the tabs may become a horizontally scrolling row.
 
 ### Collapsing Strategy
 
@@ -531,7 +534,7 @@ The defining decorative surface of Framer's marketing — oversized atmospheric 
 1. Focus on ONE component at a time and reference it by its `components:` token name (e.g., `{components.button-primary}`, `{components.gradient-spotlight-card}`).
 2. When introducing a new section on the dark canvas, decide first which surface lift it lives on — `{colors.canvas}` for hero/FAQ, `{colors.surface-1}` for cards, `{colors.surface-2}` for featured cards. The depth choice is the most consequential decision.
 3. Default body to `{typography.body}` with all the documented OpenType variants; reach for `{typography.subhead}` only inside spotlight cards.
-4. Run `npx @google/design.md lint DESIGN.md` after edits — `broken-ref`, `contrast-ratio`, and `orphaned-tokens` warnings flag issues automatically.
+4. Run `npx --yes -p "@google/design.md@0.4.0" designmd lint DESIGN.md` after edits — `broken-ref`, `contrast-ratio`, and `orphaned-tokens` warnings flag issues automatically.
 5. Add new variants as separate component entries (`-pressed`, `-featured`, `-selected`) — do not bury them in prose.
 6. Treat `{colors.accent-blue}` as a single-shot signal color: hyperlinks, focus, and selection — that's it. If you find yourself reaching for a second blue, the brand is drifting.
 7. Gradient spotlight cards are scarce by design. One or two per long page is the spec; three is a moodboard.

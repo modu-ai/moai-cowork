@@ -36,7 +36,7 @@ test_cases:
         - "AARRR"
         - "Cohort Analysis"
       has_recommendations_priority: true
-      has_quantitative_kpi: true
+      has_measurement_plan: true  # 목표 수치는 기준선·근거가 있을 때만 기재
 
   - id: TC-002
     name: edge-case
@@ -56,15 +56,14 @@ test_cases:
       contains_keywords:
         - "매출 하락"
         - "원인 분석"
-      frameworks_used:
-        - "SWOT"  # 일반적인 상황에 적용 가능한 기본 프레임워크
+      frameworks_used: []  # 자료가 없을 때 특정 프레임워크를 강제하지 않음
       has_recommendations_priority: true
       budget_guidance_present: true  # 예산이 미정일 때 가이던스 제공
       timeline_guidance_present: true  # 기간이 미정일 때 가이던스 제공
 
   - id: TC-003
     name: complex-input
-    description: "복잡한 다차원 문제 상황에서的高级 브리프 생성"
+    description: "복잡한 다차원 문제 상황에서 브리프 생성"
     input:
       industry: "제조업 (반도체 장비)"
       problem_definition: |
@@ -97,10 +96,7 @@ test_cases:
         - "원가 절감"
         - "탄소 배출"
         - "인력 리텐션"
-      frameworks_used:
-        - "PESTEL"  # 거시 환경 분석
-        - "7S"  # 조직 진단
-        - "Porter's 5 Forces"  # 경쟁 환경
+      frameworks_used: []  # 요청 문제에 맞는 분석만 선택
       has_recommendations_priority: true
       has_risk_assessment: true
       has_24_month_roadmap: true

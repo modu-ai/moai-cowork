@@ -1,8 +1,8 @@
-# Tailwind Play CDN 매핑 규칙
+# Tailwind v3 Play CDN 매핑 규칙
 
-`design-system-library`의 YAML design token을 **Tailwind Play CDN inline config** + **shadcn vanilla 컴포넌트**로 변환하는 단일 진실 매핑 규칙.
+`design-system-library`의 YAML 디자인 토큰을 Tailwind utility 예시와 HTML 컴포넌트에 대응시키는 매핑 규칙.
 
-> 단일 파일 HTML 산출물을 전제로 합니다. React·빌드 단계 없이 CDN runtime + vanilla 마크업으로 브랜드 토큰을 적용합니다.
+> 아래 JavaScript `tailwind.config` 코드는 [Tailwind v3 Play CDN 공식 문서](https://v3.tailwindcss.com/docs/installation/play-cdn)에 맞춘 개발 미리보기용이다. 현재 v4의 CSS `@theme` 설정 방식과 섞지 않는다. 최종 배포에는 필요한 스타일을 정적 CSS로 포함하거나 프로젝트 빌드 결과를 사용한다.
 
 ---
 
@@ -21,12 +21,17 @@
 | `colors.ink` | `colors.ink` | 본문 텍스트 (라이트 테마) |
 | `colors.on-dark` | `colors.on.dark` | 다크 테마 본문 |
 | `colors.primary` | `colors.primary` | 강조·CTA |
-| `colors.primary-active` | `colors.primary.active` | CTA hover/active |
+| `colors.on-primary` | `colors.on.primary` | primary 배경 위 글자·아이콘 |
+| `colors.primary-active` | `colors.primary-active` | CTA hover/active |
+| 계산한 `on-primary-active` | `colors.on-primary-active` | primary-active 배경 위 글자·아이콘 |
 | `colors.body` / `body-strong` | `colors.body` / `colors.body.strong` | 본문 단계 |
 | `colors.muted` / `muted-soft` | `colors.muted` / `colors.muted.soft` | 보조 텍스트 |
 | `colors.hairline` | `colors.hairline` | 1px 테두리 |
 | `colors.success` / `warning` / `error` | `colors.success` / `warning` / `error` | 시맨틱 |
+| 계산한 `on-error` | `colors.on.error` | error 배경 위 글자·아이콘 |
 | `colors.accent-*` | `colors.accent.<name>` | 브랜드 보조 강조 |
+
+`on-primary`가 없거나 기존 값이 텍스트 대비 4.5:1 미만이면 `primary` 배경에 대해 검정·흰색 중 대비가 높은 색을 계산해 사용한다. `on-error`도 같은 방식으로 정한다. `primary-active`에는 별도의 `on-primary-active`를 계산한다. Claude 예시에서 `#141413`은 기본 coral 위 5.63:1이지만 hover coral 위 3.65:1이므로 hover에서는 흰색(5.06:1)이 필요하다.
 
 ### 1.2 typography → fontFamily + fontSize
 
@@ -34,9 +39,17 @@
 |-----------|-------------------|
 | `typography.display-*.fontFamily` | `fontFamily.display` (display 중복 시 첫 번째) |
 | `typography.body-md.fontFamily` | `fontFamily.sans` |
-| `typography.code.fontFamily` | `fontFamily.mono` |
+| 코드 역할 토큰의 `fontFamily` | `fontFamily.mono` (없으면 본문의 서체 역할 확인) |
 | `typography.display-*.fontSize` | `fontSize.display.xl/lg/md/sm` |
 | `typography.*.letterSpacing` | `letterSpacing` (display 음수 추적 보존) |
+
+`fontFamily`는 첫 서체만 꺼내거나 고정된 `serif`·`sans-serif`를 덧붙이지 않는다.
+사용권이 없는 서체명은 설치 여부와 관계없이 목록에서 먼저 제거한다.
+남은 쉼표 구분 서체 목록 전체를 JavaScript 문자열로 안전하게
+직렬화해 전달한다. 예를 들어 사용 가능한 Ollama display 값은
+`"'SF Pro Rounded', system-ui, sans-serif"`다.
+해당 역할의 토큰이 없으면 시스템 본문의 서체 안내를 확인한다.
+코드 역할도 없으면 `ui-monospace, monospace`를 사용한다.
 
 ### 1.3 rounded → borderRadius
 
@@ -54,7 +67,7 @@
 
 ---
 
-## 2. Tailwind Play CDN 통합 패턴
+## 2. Tailwind v3 Play CDN 개발 미리보기 패턴
 
 단일 파일 HTML의 `<head>`에 다음 3블록을 배치합니다.
 
@@ -77,9 +90,9 @@
             /* …시스템 토큰 그대로… */
           },
           fontFamily: {
-            display: ['<display-font>', 'serif'],
-            sans:    ['<body-font>', 'sans-serif'],
-            mono:    ['JetBrains Mono', 'ui-monospace', 'monospace'],
+            display: <display-fontFamily-전체-목록의-JS-문자열>,
+            sans:    <body-fontFamily-전체-목록의-JS-문자열>,
+            mono:    <code-fontFamily-전체-목록의-JS-문자열>,
           },
           borderRadius: { md: '8px', lg: '12px', xl: '16px' },
           spacing:      { section: '96px' },
@@ -115,7 +128,7 @@ shadcn UI 컴포넌트를 React 없이 Tailwind utility class로 재현한 참�
 
 ```html
 <!-- default (primary) -->
-<button class="inline-flex h-10 items-center rounded-md bg-primary px-5 text-sm font-medium text-white hover:bg-primary-active">
+<button class="inline-flex h-10 items-center rounded-md bg-primary px-5 text-sm font-medium text-on-primary hover:bg-primary-active hover:text-on-primary-active">
   Action
 </button>
 
@@ -136,7 +149,7 @@ shadcn UI 컴포넌트를 React 없이 Tailwind utility class로 재현한 참�
 <!-- default -->
 <span class="inline-flex items-center rounded-full bg-surface-card px-3 py-1 text-xs font-medium text-ink">Badge</span>
 <!-- primary -->
-<span class="inline-flex items-center rounded-full bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white">New</span>
+<span class="inline-flex items-center rounded-full bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-wider text-on-primary">New</span>
 ```
 
 ### 3.4 Table (shadcn `Table`)
@@ -186,6 +199,8 @@ tailwind.config = {
   theme: { extend: {
     colors: {
       primary: '#cc785c',          // coral
+      on: { primary: '#141413' }, // measured text contrast on primary
+      'on-primary-active': '#ffffff', // measured contrast on hover background
       'primary-active': '#a9583e',
       canvas:  '#faf9f5',          // cream
       ink:     '#141413',          // warm near-black
@@ -213,6 +228,8 @@ tailwind.config = {
   theme: { extend: {
     colors: {
       primary: '#faff69',          // electric yellow
+      on: { primary: '#0a0a0a' }, // measured text contrast on primary
+      'on-primary-active': '#0a0a0a',
       'primary-active': '#e6eb52',
       canvas:  '#0a0a0a',          // near-black
       ink:     '#ffffff',          // white type
@@ -240,6 +257,8 @@ tailwind.config = {
   theme: { extend: {
     colors: {
       primary: '#0a0a0a',          // dark navy CTA
+      on: { primary: '#ffffff' }, // measured text contrast on primary
+      'on-primary-active': '#ffffff',
       canvas:  '#fffaf0',          // cream
       ink:     '#0a0a0a',
       body:    '#3a3a3a',
@@ -288,7 +307,8 @@ canvas 휘도 ≥ 0.3            → light 테마: 본문 = ink(near-black), can
 - [ ] display 폰트가 serif(claude) / sans-700(clickhouse) / rounded-500(clay) 특성 반영
 - [ ] borderRadius 값이 시스템 `rounded.md/lg/xl`과 일치
 - [ ] 다크 시스템은 본문이 캔버스 위에서 가독성 확보(대비 ≥ 4.5:1)
-- [ ] CDN script 1건 + config 1건 + 폰트 link — 단일 파일 완결
+- [ ] primary·primary-active 배경마다 글자색이 실제 대비 ≥ 4.5:1
+- [ ] 최종 산출물은 CDN 런타임 없이 필요한 CSS가 로드되는지 확인
 - [ ] shadcn vanilla 컴포넌트가 token class(canvas/ink/primary/hairline)만 사용
 
 ---

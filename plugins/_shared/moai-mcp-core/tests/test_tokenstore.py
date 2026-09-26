@@ -3,7 +3,12 @@
 from __future__ import annotations
 
 import json
+import subprocess
+import sys
+import threading
+from pathlib import Path
 
+from moai_mcp_core import tokenstore
 from moai_mcp_core.tokenstore import TokenStore
 
 
@@ -13,6 +18,62 @@ def test_저장한_토큰을_다시_읽는다(tmp_path):
 
     reloaded = TokenStore("youtube", path=tmp_path / "youtube-tokens.json")
     assert reloaded.load() == {"access_token": "abc", "refresh_token": "xyz"}
+
+
+def test_갱신_잠금은_다른_클라이언트의_진입을_기다린다(tmp_path):
+    path = tmp_path / "shared.json"
+    first = TokenStore("shared", path=path)
+    second = TokenStore("shared", path=path)
+    started = threading.Event()
+    entered = threading.Event()
+    errors = []
+
+    def wait_for_lock():
+        started.set()
+        try:
+            with second.refresh_lock(timeout=2):
+                entered.set()
+        except Exception as exc:
+            errors.append(exc)
+
+    thread = threading.Thread(target=wait_for_lock)
+    with first.refresh_lock():
+        thread.start()
+        assert started.wait(1)
+        assert not entered.wait(0.1)
+    thread.join(2)
+    assert not thread.is_alive()
+    assert not errors
+    assert entered.is_set()
+
+
+def test_갱신_잠금은_다른_프로세스도_막는다(tmp_path):
+    path = tmp_path / "shared.json"
+    source = (
+        "import sys\n"
+        "from pathlib import Path\n"
+        "from moai_mcp_core.tokenstore import TokenStore\n"
+        "try:\n"
+        "    with TokenStore('shared', path=Path(sys.argv[1])).refresh_lock(timeout=0.2):\n"
+        "        print('acquired')\n"
+        "except TimeoutError:\n"
+        "    print('blocked')\n"
+    )
+
+    def child_result():
+        result = subprocess.run(
+            [sys.executable, "-c", source, str(path)],
+            cwd=Path(__file__).resolve().parents[1],
+            capture_output=True,
+            text=True,
+            timeout=10,
+            check=True,
+        )
+        return result.stdout.strip()
+
+    with TokenStore("shared", path=path).refresh_lock():
+        assert child_result() == "blocked"
+    assert child_result() == "acquired"
 
 
 def test_파일이_없으면_빈_딕셔너리(tmp_path):
@@ -69,3 +130,61 @@ def test_clear_는_파일이_없어도_실패하지_않는다(tmp_path):
     store.save({"a": 1})
     store.clear()
     assert store.load() == {}
+
+
+def test_동시_저장은_각자_고유한_임시_파일을_쓴다(tmp_path, monkeypatch):
+    path = tmp_path / "shared-tokens.json"
+    barrier = threading.Barrier(2)
+    original_replace = tokenstore.os.replace
+    sources: list[str] = []
+    first_calls: set[int] = set()
+    lock = threading.Lock()
+
+    def replace(src, dst):
+        with lock:
+            sources.append(str(src))
+            thread_id = threading.get_ident()
+            first_call = thread_id not in first_calls
+            first_calls.add(thread_id)
+        if first_call:
+            barrier.wait(timeout=5)
+        return original_replace(src, dst)
+
+    monkeypatch.setattr(tokenstore.os, "replace", replace)
+    results: list[bool | None] = [None, None]
+
+    def save(index: int) -> None:
+        results[index] = TokenStore("shared", path=path).save({"refresh_token": str(index)})
+
+    threads = [threading.Thread(target=save, args=(index,)) for index in range(2)]
+    for thread in threads:
+        thread.start()
+    for thread in threads:
+        thread.join()
+
+    assert results == [True, True]
+    assert len(set(sources)) == 2
+    assert TokenStore("shared", path=path).load()["refresh_token"] in {"0", "1"}
+
+
+def test_일시적인_windows_공유_위반은_다시_시도한다(tmp_path, monkeypatch):
+    path = tmp_path / "tokens.json"
+    original_replace = tokenstore.os.replace
+    calls = 0
+
+    def replace(src, dst):
+        nonlocal calls
+        calls += 1
+        if calls == 1:
+            error = PermissionError("temporary sharing violation")
+            error.winerror = 32
+            raise error
+        return original_replace(src, dst)
+
+    monkeypatch.setattr(tokenstore.os, "replace", replace)
+    monkeypatch.setattr(tokenstore.time, "sleep", lambda _: None)
+
+    store = TokenStore("shared", path=path)
+    assert store.save({"refresh_token": "새 토큰"}) is True
+    assert calls == 2
+    assert TokenStore("shared", path=path).load()["refresh_token"] == "새 토큰"

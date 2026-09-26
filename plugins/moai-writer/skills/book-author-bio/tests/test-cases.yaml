@@ -11,21 +11,21 @@ test_cases:
       - lengths: [50, 200, 500]
       - 50자_요소: [정체성, 핵심신호, 현재활동]
       - 200자_요소: [50자도입, 페르소나공감, 변화결과, 책쓴이유]
-      - 500자_요소: [200자도입, 학력자격, 경력타임라인, 활동영역, 관심분야]
+      - 500자_요소: [확인된_이력, 확인된_활동, 부족한_자료_표시]
     pass_criteria:
-      - all_3_lengths_present: true
-      - 자수_허용범위: "±10%"
+      - requested_lengths_attempted_or_evidence_gap_reported: true
+      - insufficient_facts_not_padded: true
 
   - id: TC-02-3-trust-signals
-    name: 3 신호 (권위·공감·변화) 균형
+    name: 확인된 신뢰 신호만 반영
     input: |
       저자 약력 작성 후 신뢰 신호 매트릭스 확인.
     expected:
       - signals: [권위, 공감, 변화]
-      - balance_required: "3개 모두 ≥ 중 강도"
+      - balance_required: 근거가 있는 신호만 배치
     pass_criteria:
-      - all_3_signals_present: true
-      - no_single_signal_dominance: true
+      - unsupported_signal_absent: true
+      - missing_evidence_reported: true
 
   - id: TC-03-author-message-4-sections
     name: 저자의 말 4단 구조
@@ -65,16 +65,28 @@ test_cases:
       - identity_over_career: true
 
   - id: TC-06-sns-bios
-    name: SNS 채널별 약력 (인스타·링크드인·유튜브·강연)
+    name: SNS 채널별 약력의 현재 입력 한도 확인
     input: |
       SNS 채널별 저자 소개 만들어줘.
     expected:
       - channels: [인스타그램, 브런치, 링크드인, 유튜브, X, 카카오]
-      - 인스타_한도: 150자
-      - 유튜브_분량: 1000자
-      - 강연_분량: 200자
+      - channel_limits: 발행 시 현재 채널의 실제 입력 한도 확인
     pass_criteria:
       - channel_specific_format: true
+      - unverified_limits_not_asserted: true
+
+  - id: TC-09-no-invented-credentials
+    name: 입력에 없는 성과·경력 배제
+    input: |
+      저자는 기술서 2권을 출간했다. 베스트셀러 순위와 강연 이력은 제공되지 않았다.
+      50자 약력과 긴 약력을 작성해줘.
+    expected:
+      - verified_books_preserved: true
+      - bestseller_claim_absent: true
+      - invented_timeline_absent: true
+      - missing_evidence_reported: true
+    pass_criteria:
+      - no_fabricated_credentials: true
 
   - id: TC-07-author-message-traps
     name: 저자의 말 함정 회피
@@ -93,9 +105,9 @@ test_cases:
     input: |
       약력 완성 후 페르소나 관점 검증.
     expected:
-      - checks: [권위_신호_인식, 공감_신호_인식, 변화_신호_인식, 3_신호_균형]
-      - pass_threshold: "3 중 2 이상"
-      - retry_on_fail: 약력_재작성
+      - checks: [확인된_신뢰_신호, 미확인_정보, 독자와의_관련성]
+      - pass_threshold: 확인된_자료에_맞는_표현
+      - retry_on_fail: 자료_확인_후_수정
     pass_criteria:
       - simulation_required: true
 
@@ -104,7 +116,7 @@ rubric_anchors:
     target_score: ">= 0.80"
     checks:
       - korean_publisher_bio_format_accurate
-      - sns_character_limits_accurate
+      - sns_character_limits_checked_at_publication
       - kpipa_standards_referenced
   completeness:
     target_score: ">= 0.85"

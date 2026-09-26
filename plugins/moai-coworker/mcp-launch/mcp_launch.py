@@ -38,6 +38,7 @@ import argparse
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -47,6 +48,8 @@ CREDENTIALS_DIR = Path.home() / ".moai" / "mcp"
 
 #: 확장되지 않은 자리표시자. `${KEY}` · `${user_config.KEY}` 양쪽을 잡는다.
 _PLACEHOLDER_RE = re.compile(r"^\$\{[A-Za-z_][A-Za-z0-9_.]*\}$")
+_SERVICE_RE = re.compile(r"^[A-Za-z0-9_-]+$")
+_ENV_KEY_RE = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
 
 
 def is_unset(value: str | None) -> bool:
@@ -93,6 +96,21 @@ def resolve_env(service: str, keys: list[str]) -> dict[str, str]:
     return env
 
 
+def launch_command(command: list[str], env: dict[str, str], *, windows: bool) -> int:
+    """플랫폼별 실행 방식을 고르고 자식의 종료 코드를 반환한다."""
+    try:
+        if windows:
+            # Windows 에서는 PATH/PATHEXT로 npx.cmd 같은 런처를 명시적으로 찾는다.
+            # 셸 문자열을 만들지 않고 인자 배열을 그대로 넘긴다.
+            command[0] = shutil.which(command[0], path=env.get("PATH")) or command[0]
+            return subprocess.run(command, env=env, check=False).returncode
+        os.execvpe(command[0], command, env)
+    except OSError as error:
+        print(f"[mcp-launch] {command[0]} 를 실행하지 못했습니다: {error}", file=sys.stderr)
+        return 127
+    return 0  # execvpe 가 성공하면 여기에 오지 않는다
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="제3자 MCP 서버를 ~/.moai/mcp/<서비스>.json 의 자격증명과 함께 실행한다.",
@@ -110,24 +128,18 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    command = [part for part in args.command if part != "--"]
+    command = args.command[1:] if args.command[:1] == ["--"] else args.command
     if not command:
         parser.error("실행할 명령이 없습니다. `--` 뒤에 원래 서버 명령을 적으세요.")
 
     keys = [k.strip() for k in args.keys.split(",") if k.strip()]
+    if not _SERVICE_RE.fullmatch(args.service):
+        parser.error("서비스 이름은 영문·숫자·밑줄·하이픈만 사용할 수 있습니다.")
+    if not keys or any(not _ENV_KEY_RE.fullmatch(key) for key in keys):
+        parser.error("--keys에는 올바른 환경변수 이름을 하나 이상 적으세요.")
     env = resolve_env(args.service, keys)
 
-    if os.name == "nt":
-        # Windows 에는 execvp 의 프로세스 대체 의미가 없다(부모가 먼저 끝나면 콘솔이
-        # 자식을 거둬간다). 자식을 낳고 그 종료코드를 그대로 물려준다.
-        return subprocess.run(command, env=env, check=False).returncode
-
-    try:
-        os.execvpe(command[0], command, env)
-    except OSError as error:
-        print(f"[mcp-launch] {command[0]} 를 실행하지 못했습니다: {error}", file=sys.stderr)
-        return 127
-    return 0  # execvpe 가 성공하면 여기에 오지 않는다
+    return launch_command(command, env, windows=os.name == "nt")
 
 
 if __name__ == "__main__":

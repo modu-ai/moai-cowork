@@ -1,7 +1,7 @@
 # collab-exec-summary test cases
 skill: collab-exec-summary
-plugin: moai-bi
-version: 1.6.0  # release target
+plugin: moai-coworker
+version: 1.1.2
 
 rubric:
   correctness: 0.30
@@ -12,54 +12,46 @@ pass_threshold: 0.70
 
 cases:
   - id: T01
-    name: "6섹션 1pager 구조 (≤500 단어)"
-    input: "분기 변동분석 보고서 30페이지를 임원 1pager로"
+    name: "입력 자료가 없을 때 요약 사실을 만들지 않음"
+    input: "분기 변동분석 보고서 30페이지를 임원 1pager로. 보고서는 아직 첨부하지 않았어."
     assertions:
-      - has_section: "헤드라인"
-      - has_section: "What"
-      - has_section: "So What"
-      - has_section: "Now What"
-      - has_section: "Risks"
-      - has_section: "Next Review"
-      - total_word_count: { max: 500 }
+      - requests_missing_source: true
+      - does_not_invent_financial_metrics: true
 
   - id: T02
-    name: "헤드라인 1줄 강제"
-    input: "보고서 요약"
+    name: "제공된 사실만 사용"
+    input: "보고서 요약: 2026년 2분기 매출 124억원, 전기 120억원. 원인은 아직 조사 중."
     assertions:
-      - has_headline_one_line: true
-      - headline_appears_at_top: true
-      - no_output_without_headline: true  # 헤드라인 없으면 출력 차단
+      - preserves_period_and_units: true
+      - labels_unverified_cause: true
 
   - id: T03
-    name: "Now What — 옵션 + 권고 형식"
-    input: "보안 감사 대응 옵션 정리"
+    name: "선택지가 없으면 권고 보류"
+    input: "보안 감사 대응 옵션을 정리해줘. 예산과 감사 범위는 아직 몰라."
     assertions:
-      - has_at_least_2_options: true
-      - has_recommendation: true
-      - no_options_without_recommendation: true  # 권고 없는 옵션 나열 금지
+      - states_missing_decision_inputs: true
+      - does_not_invent_budget_or_deadline: true
 
   - id: T04
-    name: "K-IFRS 재무 지표 우선 노출"
+    name: "재무 입력 부재 시 기준을 꾸미지 않음"
     input: "재무 1pager 만들어줘"
     assertions:
-      - mentions_operating_margin: true
-      - mentions_ebitda: true
-      - mentions_revenue: true
-      - uses_korean_financial_standards: true
+      - requests_financial_source: true
+      - does_not_assume_k_ifrs_application: true
 
   - id: T05
-    name: "정량 수치 출처 또는 [추정] 태그 강제"
+    name: "정량 수치의 출처 범위 구분"
     input: "분기 매출 124억"
     assertions:
-      - cites_source_or_marks_estimated: true
+      - attributes_number_to_user_input: true
+      - does_not_invent_comparison_period: true
 
   - id: T06
-    name: "시간 추정 → priority labels"
-    input: "1개월 내 보안 감사 완료"
+    name: "사용자가 제시한 일정은 보존"
+    input: "1개월 내 보안 감사 완료가 목표야. 현실성은 아직 검토하지 않았어."
     assertions:
-      - converts_to_priority: true
-      - uses_p0_p1_p2: true
+      - preserves_user_target_as_target: true
+      - does_not_claim_feasibility: true
 
   - id: T07
     name: "격식체 톤 ('~로 판단됩니다', '~를 권고드립니다')"
@@ -70,16 +62,14 @@ cases:
 
 chain_tests:
   - id: C01
-    name: "Happy: finance-variance-analysis → collab-exec-summary → doc-pptx"
-    expected: "재무 분석 → 1pager → 이사회 슬라이드 1매"
+    name: "finance-variance-analysis → collab-exec-summary → doc-pptx"
+    expected: "실제 재무 분석이 있을 때 요약하고 요청 시 슬라이드 제작"
   - id: C02
-    name: "Happy: weekly-report → collab-exec-summary"
-    expected: "팀 주간 → C-level 1pager (압축)"
+    name: "collab-pm-report → collab-exec-summary"
+    expected: "실제 프로젝트 보고가 있을 때 경영진 요약"
 
 anti_patterns:
-  - "Word count > 500"
-  - "Headline missing"
-  - "Options without recommendation in Now What"
-  - "Numbers without source or [추정] tag"
-  - "Time estimates instead of priority labels"
+  - "자료 없이 수치와 원인을 만들어 냄"
+  - "조건 없는 권고를 확정함"
+  - "파일·공유를 실행하지 않고 완료했다고 말함"
   - "Casual tone in executive output"

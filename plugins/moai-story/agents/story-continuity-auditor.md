@@ -27,7 +27,7 @@ Return a structured report:
 - `continuity`: table of every character/plot/setting element you cross-checked (element → first statement → later statement → match/contradiction), including Soul-ID consistency across cuts
 - `unverifiable`: claims you could not verify with available evidence (these are gaps, not passes)
 
-A single critical finding (character/Soul-ID drift, unresolved plot/setting contradiction, plagiarism-risk passage, fabricated studio/contest/royalty claim, platform-format violation that blocks submission) forces `verdict: FAIL`.
+A single verified critical finding (character/Soul-ID drift, unresolved plot/setting contradiction, studio/contest/royalty claim contradicted by its source, format violation established against current submission rules) forces `verdict: FAIL`. When substantial reproduction of identifiable protected expression is evidenced but permission for this use is not verified, return `verdict: FAIL` for submission readiness without declaring legal infringement. Similarity or an uncited claim alone remains a risk or verification gap, not a proven violation.
 
 ## Guardrails (HARD)
 

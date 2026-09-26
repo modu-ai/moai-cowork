@@ -47,6 +47,17 @@ class ChangeShopPointByGroupTypeBody(BaseModel):
     reason: str = Field(..., description='사유')
 
 
+class CreateShopCouponDefinitionBody(BaseModel):
+    """요청 본문 (action='create_shop_coupon_definition' [POST /promotion/shop-coupon]). 필수 필드: unitCode, name, type, basicSetting, benefitSetting, operationSetting."""
+    model_config = ConfigDict(extra="allow", populate_by_name=True)
+    unitCode: str = Field(..., description='유닛 코드')
+    name: str = Field(..., description='쿠폰 이름')
+    type: str = Field(..., description='쿠폰 타입')
+    basicSetting: dict = Field(..., description='기본 설정')
+    benefitSetting: dict = Field(..., description='혜택 설정')
+    operationSetting: dict = Field(..., description='운영 설정')
+
+
 class CreateShopCouponBody(BaseModel):
     """요청 본문 (action='create_shop_coupon' [POST /promotion/shop-coupon/{couponCode}/issue]). 필수 필드: unitCode, memberUid."""
     model_config = ConfigDict(extra="allow", populate_by_name=True)
@@ -68,7 +79,7 @@ class CreateShopCouponByGroupTypeBody(BaseModel):
     division: str = Field(..., description='그룹 구분 타입')
     groupCode: str = Field(..., description='그룹 코드')
 
-Body = Union[ChangeShopPointByMemberBody, ChangeShopPointByGroupTypeBody, CreateShopCouponBody, CreateShopCouponBulkBody, CreateShopCouponByGroupTypeBody]
+Body = Union[ChangeShopPointByMemberBody, ChangeShopPointByGroupTypeBody, CreateShopCouponDefinitionBody, CreateShopCouponBody, CreateShopCouponBulkBody, CreateShopCouponByGroupTypeBody]
 
 @mcp.tool()
 def imweb_promotion(action: Literal["read_member_shop_point_by_filter", "read_member_shop_point_log", "change_shop_point_by_member", "change_shop_point_by_group_type", "read_one_shop_coupon_by_coupon_code", "read_shop_coupon_by_filter", "create_shop_coupon_definition", "create_shop_coupon", "create_shop_coupon_bulk", "create_shop_coupon_by_group_type", "read_coupon_issue_list", "read_shop_coupon_issue_target_list", "read_member_shop_coupon_issue_target_list", "read_member_coupon_issue_list"], params: dict | None = None, body: Body | None = None, paginate: bool = False) -> dict:
@@ -86,8 +97,8 @@ Returns: API JSON."""
     _pp_val = {k: _params[k] for k in _pp if k in _params}
     _qp_val = {k: _params[k] for k in _qp if k in _params}
     _client = get_client()
-    if paginate and _method == "GET":
-        return _client.list_all_pages(_path, params=_qp_val or None)
+    if paginate and _method == "GET" and "page" in _qp and "limit" in _qp:
+        return _client.list_all_pages(_path, path_params=_pp_val or None, params=_qp_val or None)
     _kw = {}
     if _pp_val:
         _kw["path_params"] = _pp_val

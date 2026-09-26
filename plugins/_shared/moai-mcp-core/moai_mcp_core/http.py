@@ -83,9 +83,10 @@ class HttpClient:
         url = path if path.startswith("http") else f"{self.base_url}/{path.lstrip('/')}"
         reauthed = False
         attempt = 0
+        request_headers = kwargs.pop("headers", None)
 
         while True:
-            headers = dict(kwargs.pop("headers", {}) or {})
+            headers = dict(request_headers or {})
             if self.auth is not None:
                 headers.setdefault("Authorization", f"Bearer {self.auth.access_token()}")
 

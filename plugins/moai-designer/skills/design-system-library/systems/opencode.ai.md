@@ -36,49 +36,49 @@ colors:
 
 typography:
   display-xl:
-    fontFamily: Berkeley Mono
+    fontFamily: "'Berkeley Mono', 'IBM Plex Mono', ui-monospace, monospace"
     fontSize: 38px
     fontWeight: 700
     lineHeight: 1.5
     letterSpacing: 0
   heading-md:
-    fontFamily: Berkeley Mono
+    fontFamily: "'Berkeley Mono', 'IBM Plex Mono', ui-monospace, monospace"
     fontSize: 16px
     fontWeight: 700
     lineHeight: 1.5
     letterSpacing: 0
   body-md:
-    fontFamily: Berkeley Mono
+    fontFamily: "'Berkeley Mono', 'IBM Plex Mono', ui-monospace, monospace"
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0
   body-strong:
-    fontFamily: Berkeley Mono
+    fontFamily: "'Berkeley Mono', 'IBM Plex Mono', ui-monospace, monospace"
     fontSize: 16px
     fontWeight: 500
     lineHeight: 1.5
     letterSpacing: 0
   body-tight:
-    fontFamily: Berkeley Mono
+    fontFamily: "'Berkeley Mono', 'IBM Plex Mono', ui-monospace, monospace"
     fontSize: 16px
     fontWeight: 500
     lineHeight: 1
     letterSpacing: 0
   link-md:
-    fontFamily: Berkeley Mono
+    fontFamily: "'Berkeley Mono', 'IBM Plex Mono', ui-monospace, monospace"
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0
   button-md:
-    fontFamily: Berkeley Mono
+    fontFamily: "'Berkeley Mono', 'IBM Plex Mono', ui-monospace, monospace"
     fontSize: 16px
     fontWeight: 500
     lineHeight: 2
     letterSpacing: 0
   caption-md:
-    fontFamily: Berkeley Mono
+    fontFamily: "'Berkeley Mono', 'IBM Plex Mono', ui-monospace, monospace"
     fontSize: 14px
     fontWeight: 400
     lineHeight: 2
@@ -280,7 +280,7 @@ The full Apple Human Interface Guidelines semantic ramp ships with the system. O
 ## Typography
 
 ### Font Family
-**Berkeley Mono** is the proprietary monospaced face used across every text role in the system. It carries weights 400 (regular), 500 (medium), and 700 (bold) and falls back through a long monospace stack — IBM Plex Mono → ui-monospace → SFMono-Regular → Menlo → Monaco → Consolas → Liberation Mono → Courier New.
+**Berkeley Mono** is the proprietary monospaced face used across every text role in the system. It carries weights 400 (regular), 500 (medium), and 700 (bold) and falls back through IBM Plex Mono → ui-monospace → monospace on systems without the licensed face.
 
 The single-font decision is the brand. There is no display face, no body sans, no italic alternative, and no fallback to a proportional font anywhere — even the legal copyright row uses Berkeley Mono at 14px. This is the most aggressive typographic restraint of any site in the marketing-tools category: OpenCode's identity is "the marketing page is a man page."
 
@@ -458,7 +458,7 @@ There is no photography. Visual elements are limited to:
 ## Do's and Don'ts
 
 ### Do
-- Render every text role in Berkeley Mono. The single-font decision is the entire identity.
+- Use Berkeley Mono for every text role when the font is available and licensed; otherwise use the monospaced fallback stack in the typography tokens.
 - Keep `{colors.canvas}` (`#fdfcfc`) as the only body background. Don't introduce gray section bands.
 - Use ASCII bracket markers (`[+]`, `[-]`, `[x]`, `+`, `−`) as bullets, toggles, and section glyphs. They are the brand's only iconography.
 - Anchor the dark `{component.hero-tui-mockup}` exactly once per landing page as the hero centerpiece. Never use the dark surface for body content.
@@ -467,7 +467,7 @@ There is no photography. Visual elements are limited to:
 - Stack content sections at `{spacing.section}` (96px) rhythm with only 1px `{colors.hairline}` rules between them.
 
 ### Don't
-- Don't introduce a sans-serif body font, a display face, or an italic style. Berkeley Mono carries everything.
+- Don't introduce a proportional sans-serif body font, a separate display face, or an italic style. Keep every text role in the monospaced token stack.
 - Don't add drop shadows, gradients, or atmospheric backgrounds. The system is flat-on-cream.
 - Don't replace the ASCII bracket markers with SVG icons. The brackets are the icons.
 - Don't use the semantic accent ramp (`{colors.accent}`, `{colors.warning}`, `{colors.danger}`, `{colors.success}`) on marketing CTAs. They belong to the in-product TUI.
@@ -488,7 +488,7 @@ There is no photography. Visual elements are limited to:
 | mobile | 640px | Single-column everything; hero display drops 38px → ~28px; section padding tightens |
 
 ### Touch Targets
-All interactive elements meet WCAG AA at the ~36–40px height range. `{component.button-primary}` sits at ~36px with 20px horizontal padding. `{component.text-input}` and `{component.textarea}` sit at ~40px. `{component.button-tab}` rows in the install-method strip sit at ~32–36px depending on label length but extend to a full 44px tappable cell via inline padding. Footer links use `{typography.caption-md}` (14px) but receive ~28px line-height (caption-md is 2.0) plus 8px vertical padding for a comfortable ~44px tappable row.
+`{component.button-primary}` is documented at ~36px high with 20px horizontal padding; `{component.text-input}` and `{component.textarea}` are ~40px high. The `{component.button-tab}` token combines 16px text at line-height 2 with 8px vertical padding, yielding a 48px nominal box before other CSS. Footer links use `{typography.caption-md}` (14px) with ~28px line-height and 8px vertical padding, yielding an estimated ~44px row. Verify the actual clickable box, including both dimensions and neighboring targets, in the rendered layout before claiming WCAG 2.5.8 AA or 2.5.5 AAA. Token arithmetic alone does not prove the clickable cell size.
 
 ### Collapsing Strategy
 - **Primary nav:** desktop horizontal cluster → tablet-narrow hamburger drawer at 768px. The dark "Download" CTA stays visible at all widths.
@@ -506,7 +506,7 @@ There are no raster images in the system aside from the favicon and OG share ima
 
 1. Focus on ONE component at a time. Pull its YAML entry and verify every property resolves.
 2. Reference component names and tokens directly (`{colors.ink}`, `{component.hero-tui-mockup}`, `{rounded.sm}`) — do not paraphrase.
-3. Run `npx @google/design.md lint DESIGN.md` after edits — `broken-ref`, `contrast-ratio`, and `orphaned-tokens` warnings flag issues automatically.
+3. Run `npx --yes -p "@google/design.md@0.4.0" designmd lint DESIGN.md` after edits — `broken-ref`, `contrast-ratio`, and `orphaned-tokens` warnings flag issues automatically.
 4. Add new variants as separate component entries (`-active`, `-disabled`) — do not bury them inside prose.
 5. Default body to `{typography.body-md}`; reach for `{typography.body-strong}` for emphasis; reserve `{typography.display-xl}` strictly for the page-top hero headline.
 6. Keep `{colors.surface-dark}` scarce — at most one full-bleed dark mockup per page. The dark surface is a narrative device, not a chrome treatment.

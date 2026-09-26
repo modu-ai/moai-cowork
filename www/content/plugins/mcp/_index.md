@@ -5,7 +5,7 @@ description: "MCP는 AI 코워커가 외부 서비스와 실제로 연결되는 
 geekdocBreadcrumb: true
 geekdocCollapseSection: true
 date: 2026-08-08T00:00:00+09:00
-lastmod: 2026-09-03T00:00:00+09:00
+lastmod: 2026-09-13T18:00:00+09:00
 ---
 
 지금까지는 AI 코워커가 **글을 써 주는** 일을 했습니다. MCP를 붙이면 여기서 한 걸음
@@ -38,7 +38,7 @@ flowchart LR
 | 구분 | 누가 만들었나 | 이름 | 예 |
 |---|---|---|---|
 | **공식·제3자 MCP** | 서비스 회사 또는 다른 개발자 | 원래 이름 그대로 | Higgsfield · ElevenLabs · 국가법령정보 |
-| **자체 제작 MCP** | 모두의 AI | `moai-mcp-` 로 시작 | `moai-mcp-smartstore` · `moai-mcp-threads-poster` |
+| **자체 제작 MCP** | 모두의 AI | `moai-mcp-` 로 시작 | `moai-mcp-smartstore` · `moai-mcp-threads-poster` · `moai-mcp-ip` |
 
 **공식 MCP가 있으면 무조건 그걸 씁니다.** 직접 만드는 것은 공식 MCP가 없을 때뿐입니다 —
 네이버 스마트스토어·아임웹·카페24처럼 공식 MCP가 없는 국내 서비스가 그런 경우입니다.

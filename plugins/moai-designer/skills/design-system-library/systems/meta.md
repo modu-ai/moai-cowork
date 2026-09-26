@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Meta-design-analysis
-description: Meta's design system spans hardware commerce (Quest VR, Ray-Ban Meta AI glasses) and brand surfaces with a confident product-merchandising voice. The system pairs a stark white canvas with full-bleed photographic product cards, a confident Optimistic VF wordmark/headline face, dual-CTA hero patterns (black primary + outlined secondary), and a saturated cobalt blue (#0064E0) for in-product purchase actions. Pill-shaped 100px-radius buttons, generous 24-32px card rounding, and tight three-tier text hierarchy carry across homepage, product detail (PDP), buy-now configurator, and accessory subpages.
+description: Meta's design system spans hardware commerce (Quest VR, Ray-Ban Meta AI glasses) and brand surfaces with a confident product-merchandising voice. The system pairs a stark white canvas with full-bleed photographic product cards, a reference Optimistic VF wordmark/headline face with Montserrat as the reusable default, dual-CTA hero patterns (black primary + outlined secondary), and a saturated cobalt blue (#0064E0) for in-product purchase actions. Pill-shaped 100px-radius buttons, generous 24-32px card rounding, and tight three-tier text hierarchy carry across homepage, product detail (PDP), buy-now configurator, and accessory subpages.
 
 colors:
   primary: "#0064e0"
@@ -19,7 +19,7 @@ colors:
   warning: "#f7b928"
   warning-bg: "#ffe200"
   critical: "#e41e3f"
-  critical-strong: "#f0284a"
+  critical-strong: "#d01937"
   canvas: "#ffffff"
   surface-soft: "#f1f4f7"
   ink-deep: "#0a1317"
@@ -27,94 +27,89 @@ colors:
   charcoal: "#444950"
   slate: "#4b4c4f"
   steel: "#5d6c7b"
-  stone: "#8595a4"
+  stone: "#627180"
   hairline: "#ced0d4"
   hairline-soft: "#dee3e9"
   disabled-text: "#bcc0c4"
 
 typography:
   hero-display:
-    fontFamily: Optimistic VF
+    fontFamily: Montserrat, system-ui, sans-serif
     fontSize: 64px
     fontWeight: 500
     lineHeight: 1.16
-    fontFeature: "ss01, ss02"
   display-lg:
-    fontFamily: Optimistic VF
+    fontFamily: Montserrat, system-ui, sans-serif
     fontSize: 48px
     fontWeight: 500
     lineHeight: 1.17
-    fontFeature: "ss01, ss02"
   heading-lg:
-    fontFamily: Optimistic VF
+    fontFamily: Montserrat, system-ui, sans-serif
     fontSize: 36px
     fontWeight: 500
     lineHeight: 1.28
-    fontFeature: "ss01, ss02"
   heading-md:
-    fontFamily: Optimistic VF
+    fontFamily: Montserrat, system-ui, sans-serif
     fontSize: 28px
     fontWeight: 300
     lineHeight: 1.21
-    fontFeature: "ss01, ss02"
   heading-sm:
-    fontFamily: Optimistic VF
+    fontFamily: Montserrat, system-ui, sans-serif
     fontSize: 24px
     fontWeight: 500
     lineHeight: 1.25
-    fontFeature: "ss01, ss02"
   subtitle-lg:
-    fontFamily: Optimistic VF
+    fontFamily: Montserrat, system-ui, sans-serif
     fontSize: 18px
     fontWeight: 700
     lineHeight: 1.44
   subtitle-md:
-    fontFamily: Optimistic VF
+    fontFamily: Montserrat, system-ui, sans-serif
     fontSize: 18px
     fontWeight: 400
     lineHeight: 1.44
   body-md-bold:
-    fontFamily: Optimistic VF
+    fontFamily: Montserrat, system-ui, sans-serif
     fontSize: 16px
     fontWeight: 700
     lineHeight: 1.50
     letterSpacing: -0.16px
   body-md:
-    fontFamily: Optimistic VF
+    fontFamily: Montserrat, system-ui, sans-serif
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.50
     letterSpacing: -0.16px
   body-sm-bold:
-    fontFamily: Optimistic VF
+    fontFamily: Montserrat, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 700
     lineHeight: 1.43
     letterSpacing: -0.14px
   body-sm:
-    fontFamily: Optimistic VF
+    fontFamily: Montserrat, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 400
     lineHeight: 1.43
     letterSpacing: -0.14px
   caption-bold:
-    fontFamily: Optimistic VF
+    fontFamily: Montserrat, system-ui, sans-serif
     fontSize: 12px
     fontWeight: 700
     lineHeight: 1.33
   caption:
-    fontFamily: Optimistic VF
+    fontFamily: Montserrat, system-ui, sans-serif
     fontSize: 12px
     fontWeight: 400
     lineHeight: 1.33
   button-md:
-    fontFamily: Optimistic VF
+    fontFamily: Montserrat, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 700
     lineHeight: 1.43
     letterSpacing: -0.14px
   link-md:
-    fontFamily: Optimistic VF
+    fontFamily: Montserrat, system-ui, sans-serif
     fontSize: 16px
     fontWeight: 700
     lineHeight: 1.50
@@ -176,6 +171,19 @@ components:
     rounded: "{rounded.full}"
     padding: "12px 28px"
     border: "2px solid {colors.ink-deep}"
+  button-primary-inverse:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink-deep}"
+    typography: "{typography.button-md}"
+    rounded: "{rounded.full}"
+    padding: "14px 30px"
+  button-secondary-inverse:
+    backgroundColor: "transparent"
+    textColor: "{colors.canvas}"
+    typography: "{typography.button-md}"
+    rounded: "{rounded.full}"
+    padding: "12px 28px"
+    border: "2px solid {colors.canvas}"
   button-ghost:
     backgroundColor: "transparent"
     textColor: "{colors.ink-deep}"
@@ -272,13 +280,13 @@ components:
     padding: "4px 10px"
   badge-attention:
     backgroundColor: "{colors.attention}"
-    textColor: "{colors.canvas}"
+    textColor: "{colors.ink-deep}"
     typography: "{typography.caption-bold}"
     rounded: "{rounded.full}"
     padding: "4px 10px"
   badge-success:
     backgroundColor: "{colors.success}"
-    textColor: "{colors.canvas}"
+    textColor: "{colors.ink-deep}"
     typography: "{typography.caption-bold}"
     rounded: "{rounded.full}"
     padding: "4px 10px"
@@ -314,7 +322,7 @@ components:
     padding: "{spacing.section} {spacing.xxl}"
     border: "1px solid {colors.hairline-soft}"
   hero-band-marketing:
-    backgroundColor: "{colors.canvas}"
+    backgroundColor: "{colors.ink-deep}"
     textColor: "{colors.canvas}"
     typography: "{typography.hero-display}"
     rounded: "{rounded.xxxl}"
@@ -352,12 +360,12 @@ components:
 
 Meta's commerce surfaces (homepage, Quest configurator, Ray-Ban product detail, prescription page) read as a confident hardware merchandiser. The brand voice is photography-first: large, full-bleed product imagery dominates above-the-fold real estate, with white space and tight typographic hierarchy carrying the rest. The system has a recognizable dual-CTA pattern — a black pill-shaped primary on marketing surfaces shifting to a saturated cobalt blue ({colors.primary}) inside the buy-now flows, paired with an outlined ghost button for secondary navigation.
 
-Optimistic VF — Meta's variable display face — anchors the entire system, ranging from a 64px hero display down to a 12px caption. The face's `ss01` and `ss02` stylistic sets are switched on across every heading role, contributing to the brand's slightly humanist, friendly geometric character. Below 768px the system collapses cleanly: hero stacks, pill nav becomes a hamburger, three-up feature grids flatten to a single column, and product configurators drop their right-rail summary into a sticky bottom bar.
+The reference uses Optimistic VF; the reusable default uses Montserrat with a system sans fallback across the hierarchy, ranging from a 64px hero display down to a 12px caption. The reference face uses `ss01` and `ss02` stylistic sets on headings; the default tokens omit these face-specific features. Below 768px the system collapses cleanly: hero stacks, pill nav becomes a hamburger, three-up feature grids flatten to a single column, and product configurators drop their right-rail summary into a sticky bottom bar.
 
 **Key Characteristics:**
 - Stark white canvas ({colors.canvas}) carrying full-bleed product photography with `{rounded.xxxl}` (32px) corner softening on showcase tiles
 - Two-tier primary button system: marketing CTAs use {colors.ink-button} pills; commerce CTAs use {colors.primary} cobalt pills inside buy-now panels
-- Optimistic VF as the universal display + body face with consistent `ss01, ss02` OpenType features
+- Montserrat as the reusable display and body default; Optimistic VF and its OpenType features only with the required rights
 - Pill-shaped buttons ({rounded.full}) and `{rounded.xxxl}`/`{rounded.feature}` cards as the dominant geometric signature
 - Saturated promotional banners (yellow {colors.warning}, dark {colors.ink-deep}) used sparingly above the nav for time-bound offers
 - Photographic feature cards with no card chrome (no border, no shadow) — the product imagery IS the surface treatment
@@ -389,16 +397,16 @@ Optimistic VF — Meta's variable display face — anchors the entire system, ra
 - **Stone** ({colors.stone}): Disabled or de-emphasized labels.
 
 ### Semantic
-- **Success** ({colors.success}): "In stock", "Free returns" affirmations.
+- **Success** ({colors.success}): Affirmative status. Verify inventory, returns, and delivery terms before publishing a claim.
 - **Attention** ({colors.attention}): Mid-priority alerts and timed callouts.
-- **Warning** ({colors.warning}): Promotional banners ("Get 25% off…") and limited-time tags.
+- **Warning** ({colors.warning}): Promotional banners and limited-time tags, with offer copy verified at publication.
 - **Critical** ({colors.critical}): Validation errors, destructive feedback.
 - **Critical Strong** ({colors.critical-strong}): Form-input error border and inline error labels.
 
 ## Typography
 
 ### Font Family
-**Optimistic VF** is Meta's proprietary variable display face. Fallbacks: Montserrat, Helvetica, Arial, Noto Sans. The variable axes carry from 300 (light heading-md, used for editorial intro headlines like "Look forward") through 500 (display, hero, heading-sm) up to 700 (subtitle, body emphasis, button labels). Stylistic sets `ss01` and `ss02` are switched on across every heading role — they soften the geometry and give the type a slightly humanist breathing.
+The reference uses Meta’s Optimistic VF. The reusable tokens default to `Montserrat, system-ui, sans-serif`. [Google Fonts records Montserrat as OFL with a 100–900 weight axis](https://github.com/google/fonts/blob/main/ofl/montserrat/METADATA.pb), covering the documented 300, 500, and 700 roles. Use Optimistic VF only when the intended output is authorized; apply its `ss01` and `ss02` features only when that font is loaded.
 
 A secondary Helvetica fallback chain is used for technical microcopy (12px) inside spec sheets and footer fine print.
 
@@ -406,11 +414,11 @@ A secondary Helvetica fallback chain is used for technical microcopy (12px) insi
 
 | Token | Size | Weight | Line Height | Letter Spacing | OpenType | Use |
 |---|---|---|---|---|---|---|
-| `{typography.hero-display}` | 64px | 500 | 1.16 | 0 | ss01, ss02 | Homepage hero ("Get 25% off…", category opener) |
-| `{typography.display-lg}` | 48px | 500 | 1.17 | 0 | ss01, ss02 | Section-opener display ("Made for prescriptions. Built for comfort.") |
-| `{typography.heading-lg}` | 36px | 500 | 1.28 | 0 | ss01, ss02 | Subsection headlines ("Why buy from Meta", "Tech specs") |
-| `{typography.heading-md}` | 28px | 300 | 1.21 | 0 | ss01, ss02 | Editorial subheads in lighter weight ("Look forward", "Built for prescriptions") |
-| `{typography.heading-sm}` | 24px | 500 | 1.25 | 0 | ss01, ss02 | Card titles, feature-tile headers |
+| `{typography.hero-display}` | 64px | 500 | 1.16 | 0 | reference face only | Homepage hero and category opener |
+| `{typography.display-lg}` | 48px | 500 | 1.17 | 0 | reference face only | Section-opener display ("Made for prescriptions. Built for comfort.") |
+| `{typography.heading-lg}` | 36px | 500 | 1.28 | 0 | reference face only | Subsection headlines ("Why buy from Meta", "Tech specs") |
+| `{typography.heading-md}` | 28px | 300 | 1.21 | 0 | reference face only | Editorial subheads in lighter weight ("Look forward", "Built for prescriptions") |
+| `{typography.heading-sm}` | 24px | 500 | 1.25 | 0 | reference face only | Card titles, feature-tile headers |
 | `{typography.subtitle-lg}` | 18px | 700 | 1.44 | 0 | — | Bold callouts, FAQ question titles |
 | `{typography.subtitle-md}` | 18px | 400 | 1.44 | 0 | — | Body lead and longer-line subtitles |
 | `{typography.body-md}` | 16px | 400 | 1.50 | -0.16px | — | Primary body text |
@@ -423,9 +431,9 @@ A secondary Helvetica fallback chain is used for technical microcopy (12px) insi
 | `{typography.link-md}` | 16px | 700 | 1.50 | -0.16px | — | Inline navigation links |
 
 ### Principles
-- Negative letter-spacing on body roles (`-0.14px` to `-0.16px`) tightens the type fractionally — Optimistic VF was designed for this snug-but-not-condensed setting.
+- Negative letter-spacing on body roles (`-0.14px` to `-0.16px`) tightens the type fractionally. Check the rendered spacing with the loaded Montserrat build.
 - Editorial subheads use the 300 weight to introduce visual rest between the 500-weight display headlines and the 400-weight body, creating a three-tier visual rhythm.
-- All headings carry `ss01, ss02` stylistic sets together — the design treats them as a paired alternates package, never one without the other.
+- Apply `ss01` and `ss02` together only if an authorized Optimistic VF build is loaded; the Montserrat default does not request them.
 - Buttons, pill tabs, and footer headings share `{typography.body-sm-bold}` (14px / 700 / -0.14px), creating a tight visual relationship between interactive elements.
 
 ## Layout
@@ -498,8 +506,11 @@ The system runs predominantly flat. Elevation is reserved for two interaction la
 - Pressed state `button-buy-cta-pressed` deepens background to `{colors.primary-deep}`.
 - This variant ONLY appears inside the buy-now configurator and PDP purchase rail. Marketing surfaces use `button-primary` instead.
 
-**`button-secondary`** — Outlined ghost CTA, often paired with primary in dual-CTA hero patterns.
+**`button-secondary`** — Outlined ghost CTA, often paired with primary on light marketing surfaces.
 - Background transparent, text `{colors.ink-deep}`, border `2px solid {colors.ink-deep}`, typography `{typography.button-md}`, padding `12px 28px`, rounded `{rounded.full}`.
+
+**`button-primary-inverse`** + **`button-secondary-inverse`** — Dual CTAs over the dark marketing hero.
+- Primary uses a white fill with `{colors.ink-deep}` text. Secondary uses white text and a white outline over the dark hero surface. Check the actual photographic area behind both buttons before use.
 
 **`button-ghost`** — Quieter outlined variant used for tertiary CTAs.
 - Background transparent, text `{colors.ink-deep}`, border `2px solid rgba(10, 19, 23, 0.12)`, typography `{typography.button-md}`, padding `10px 22px`, rounded `{rounded.full}`.
@@ -522,7 +533,7 @@ The system runs predominantly flat. Elevation is reserved for two interaction la
 **`card-promo-strip`** — Dark full-width promo card with embedded copy + CTAs (homepage "Meta Quest brings the magic of virtual reality" wide strip).
 - Background `{colors.ink-deep}`, text `{colors.canvas}`, rounded `{rounded.xxxl}`, padding `{spacing.section}`.
 
-**`card-icon-feature`** — Three-up feature tile with line icon, headline, and short copy ("Free 2-day delivery", "Free 30-day returns", "Worry-free warranty", "Buy now, pay later").
+**`card-icon-feature`** — Three-up feature tile with line icon, headline, and short copy. Confirm current delivery, return, warranty, and finance terms before publishing benefit claims.
 - Background `{colors.canvas}`, rounded `{rounded.xl}`, padding `{spacing.xl}`, border `1px solid {colors.hairline-soft}`.
 
 **`card-checkout-summary`** — PDP right-rail sticky summary with title, price, color picker, "Add to cart" button.
@@ -531,7 +542,7 @@ The system runs predominantly flat. Elevation is reserved for two interaction la
 **`product-thumbnail`** — Square product image cell used in color/SKU pickers and "People also bought" rows.
 - Background `{colors.surface-soft}`, rounded `{rounded.xl}`, padding `{spacing.base}`, aspect-ratio `1 / 1`.
 
-**`warranty-card`** — Promo callout for warranty + finance offers ("1y Warranty", "Meta Horizon+").
+**`warranty-card`** — Callout for warranty or finance information. Confirm current terms before publishing any duration, coverage, or offer.
 - Background `{colors.surface-soft}`, rounded `{rounded.xxl}`, padding `{spacing.xxl}`. Uses pastel-tinted variants for additional perks.
 
 **`why-buy-tile`** — 4-up reassurance tile row in the lower marketing zone.
@@ -564,15 +575,15 @@ The system runs predominantly flat. Elevation is reserved for two interaction la
 - Background `{colors.warning}`, text `{colors.ink-deep}`, typography `{typography.caption-bold}`, rounded `{rounded.full}`, padding `4px 10px`.
 
 **`badge-attention`** — Mid-priority status indicator ("Almost gone", "Selling fast").
-- Background `{colors.attention}`, text `{colors.canvas}`, typography `{typography.caption-bold}`, rounded `{rounded.full}`, padding `4px 10px`.
+- Background `{colors.attention}`, text `{colors.ink-deep}`, typography `{typography.caption-bold}`, rounded `{rounded.full}`, padding `4px 10px`.
 
 **`badge-success`** — Affirmative status ("In stock", "Verified", "Free shipping").
-- Background `{colors.success}`, text `{colors.canvas}`, typography `{typography.caption-bold}`, rounded `{rounded.full}`, padding `4px 10px`.
+- Background `{colors.success}`, text `{colors.ink-deep}`, typography `{typography.caption-bold}`, rounded `{rounded.full}`, padding `4px 10px`. Verify inventory and shipping claims against current product data.
 
 **`badge-critical`** — Urgent/destructive label ("Out of stock", "Discontinued", error chips).
 - Background `{colors.critical}`, text `{colors.canvas}`, typography `{typography.caption-bold}`, rounded `{rounded.full}`, padding `4px 10px`.
 
-**`promo-banner`** — Sticky full-width promotional strip ABOVE the top nav ("Get 25% off the #1 selling AI glasses").
+**`promo-banner`** — Sticky full-width promotional strip ABOVE the top nav. Use only verified current offer copy.
 - Background `{colors.ink-deep}` (or `{colors.warning}` for yellow promo variants), text `{colors.canvas}` (or `{colors.ink-deep}` on yellow), typography `{typography.body-sm-bold}`, padding `{spacing.md} {spacing.xl}`. Carries one-line offer copy plus an inline CTA link.
 
 ### Navigation
@@ -592,7 +603,7 @@ The system runs predominantly flat. Elevation is reserved for two interaction la
 ### Signature Components
 
 **`hero-band-marketing`** — Full-bleed photographic hero with overlaid copy + dual-CTA pair.
-- Edge-to-edge product photography on a dark or photographic background. Overlay copy in `{typography.hero-display}` white. Below the title: 1-line subtitle in `{typography.subtitle-md}` then `button-primary` + `button-secondary` pair.
+- Edge-to-edge product photography on a dark background, with `{colors.ink-deep}` as the fallback surface. Overlay copy in `{typography.hero-display}` white. Below the title: 1-line subtitle in `{typography.subtitle-md}` then `button-primary-inverse` + `button-secondary-inverse` pair. Check text and controls against the brightest part of the actual photo.
 
 **`product-gallery-pdp`** — Product detail page main hero: 4-up vertical thumbnail strip on the left, large product image center, sticky purchase rail right.
 - Thumbnails: 80×80px, `{rounded.lg}`, `{colors.surface-soft}` background, 1px `{colors.hairline-soft}` border (active border switches to `{colors.ink-deep}`).
@@ -602,7 +613,7 @@ The system runs predominantly flat. Elevation is reserved for two interaction la
 **`color-sku-picker-row`** — Six-up grid of square product variants with name + price below each.
 - Tile background `{colors.surface-soft}`, rounded `{rounded.lg}`, image padded `{spacing.base}`. Active tile border switches to `2px solid {colors.ink-deep}`. Below the tile: variant name in `{typography.body-sm-bold}` and price in `{typography.body-sm}`.
 
-**`feature-icon-row`** — Four reassurance benefits ("Free 2-day delivery", "Free 30-day returns", "Worry-free warranty", "Buy now, pay later").
+**`feature-icon-row`** — Four reassurance benefits. Confirm current delivery, return, warranty, and finance terms before writing the labels.
 - 4-column grid, each cell uses `card-icon-feature` chrome with a 32px line icon at top, headline `{typography.subtitle-lg}`, body `{typography.body-sm}`.
 
 **`faq-accordion`** — Vertical stack of expandable Q&A items.
@@ -621,11 +632,11 @@ The system runs predominantly flat. Elevation is reserved for two interaction la
 
 ### Do
 - Reserve `{colors.primary}` (cobalt) for buy-now CTAs only — its visual weight is meaningful precisely because it doesn't appear on marketing pages.
-- Use `{colors.ink-button}` (black) for marketing-surface primary CTAs. Pair with `{colors.button-secondary}` ghost outline for the secondary action.
+- On light marketing surfaces, use `{colors.ink-button}` (black) for the primary CTA with `{components.button-secondary}`. On the dark hero, use `{components.button-primary-inverse}` with `{components.button-secondary-inverse}` over a dark, even photo region or a sufficiently opaque dark overlay; move the pair to a solid dark panel if either control loses contrast.
 - Apply `{rounded.full}` to every button, every category pill, every badge, every chip — buttons are NEVER squared in Meta's system.
 - Apply `{rounded.xxxl}` to photographic product cards and `{rounded.xl}` to icon-feature tiles to maintain the visible card-hierarchy contrast.
-- Switch on `ss01, ss02` together for any Optimistic VF heading. Never one stylistic set without the other.
-- Use the 300-weight `{typography.heading-md}` for editorial subheads — it creates the brand's signature visual rhythm against the 500-weight displays.
+- Switch on `ss01, ss02` together only for an authorized Optimistic VF heading, after checking feature support in the loaded font.
+- Use the 300-weight `{typography.heading-md}` in the loaded Montserrat variable font for editorial subheads — it creates the brand's signature visual rhythm against the 500-weight displays.
 
 ### Don't
 - Don't use `{colors.primary}` (cobalt) for marketing-surface primary buttons — it conflicts with Meta's brand-history positioning of black-CTA-on-white-canvas marketing.
@@ -647,10 +658,10 @@ The system runs predominantly flat. Elevation is reserved for two interaction la
 | Wide Desktop | ≥ 1360px | Same as desktop with wider hero gutters and larger product photography. |
 
 ### Touch Targets
-- Pill buttons render at 40–44px effective height (with the 14px button text + `14px 30px` padding). Above the WCAG AAA 44px floor.
-- Circular icon buttons are 40×40px — at the AA floor; bumps to 44×44px on mobile via override.
-- Color swatch circles are 32×32px. To hit AAA, the swatch carries a 12px clear hit zone around it (effective hit target ~56px).
-- Form inputs render at 44px height to align with primary button height.
+- Measure rendered pill button targets at every viewport; token padding and typography do not by themselves prove the clickable width and height.
+- Circular icon buttons specify 40×40px in the tokens. Enlarge the interactive target where needed and verify rendered dimensions and spacing.
+- Color swatches specify 32×32px. No surrounding interactive hit zone is defined here; measure the implemented target before claiming a WCAG result.
+- Form inputs specify 44px height, but their rendered interactive width and height still require verification.
 
 ### Collapsing Strategy
 - **Promo banner** stays full-width on all breakpoints; truncates with ellipsis on small mobile, retains the inline link affordance.
@@ -669,7 +680,7 @@ The system runs predominantly flat. Elevation is reserved for two interaction la
 
 1. Focus on ONE component at a time. The system has high internal consistency — small precision wins compound.
 2. Reference component names and tokens directly (`{colors.primary}`, `{component-name}-pressed`, `{rounded.full}`) — do not paraphrase.
-3. Run `npx @google/design.md lint DESIGN.md` after edits to catch broken refs, contrast issues, orphaned tokens.
+3. Run `npx --yes -p "@google/design.md@0.4.0" designmd lint DESIGN.md` after edits to catch broken refs, contrast issues, orphaned tokens.
 4. Add new variants as separate `components:` entries (`-pressed`, `-disabled`, `-focused`) — do not bury them inside prose.
 5. Default to `{typography.body-md}` for body and `{typography.subtitle-lg}` for emphasis. Headlines step down through `hero-display → display-lg → heading-lg → heading-md → heading-sm`.
 6. Keep `{colors.primary}` (cobalt) scarce. If it appears outside the buy-now flow on a viewport, ask whether the surface really needs to look like a checkout panel.

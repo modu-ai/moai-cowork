@@ -307,7 +307,7 @@ def test_client_requires_ig_user_id():
 
 
 def test_facebook_host_not_threads():
-    """AC-M2-3: 호스트가 graph.facebook.com (graph.threads.com 아님)."""
+    """AC-M2-3: 호스트가 graph.facebook.com (graph.threads.net 아님)."""
     captured: list[httpx.Request] = []
 
     def handler(req):
@@ -317,7 +317,7 @@ def test_facebook_host_not_threads():
     client = _make_client(handler)
     client.create_container("IMAGE", image_url="https://example.com/p.jpg")
     assert captured[0].url.host == "graph.facebook.com"
-    assert captured[0].url.host != "graph.threads.com"
+    assert captured[0].url.host != "graph.threads.net"
 
 
 def test_custom_base_url_used():

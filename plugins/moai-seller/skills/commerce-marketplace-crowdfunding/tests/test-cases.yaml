@@ -1,36 +1,50 @@
 name: commerce-marketplace-crowdfunding
-version: 1.8.0
+version: 1.8.1
+# 선언적 검토 시나리오. 판매자 계정·실제 계약·상품 증빙이 없어 실행한 테스트가 아니다.
+execution_status: NOT-RUN
 test_cases:
-  - id: happy_wadiz_tech
-    description: 신상 가전 와디즈 펀딩 기획
+  - id: wadiz_tech_draft
+    description: 가전 프로젝트 초안에서 현재 유형·자격·요금제를 확인
     input:
       product: "무선 이어폰"
       category: "테크·가전"
       list_price: 149000
     expected:
-      channel_recommended: wadiz
-      rewards_count: 5
-      rewards_includes: ["슈퍼얼리버드", "얼리버드", "일반", "번들", "VIP"]
-      video_synopsis_provided: true
+      channel_candidate: wadiz
+      project_type_requires_current_account_check: true
+      no_fixed_fee_or_review_days: true
+      rewards_status: "원가·재고 미확인 — 가격과 수량 확정 보류"
+      video_required_only_if_current_project_requires_it: true
 
-  - id: happy_tumblbug_book
-    description: 일러스트북 텀블벅 펀딩
+  - id: copy_only_without_account
+    description: 계정·원가 정보가 없는 간단한 프로젝트 소개 문구 요청
+    input:
+      request: "독립 일러스트북 펀딩 소개 문구 한 문단 써줘"
+      known_facts: ["독립 일러스트북", "작가가 직접 그린 삽화"]
+    expected:
+      story_draft_provided: true
+      no_unverified_price_date_or_outcome: true
+      registration_only_checks_deferred: true
+
+  - id: tumblbug_book_draft
+    description: 일러스트북 프로젝트의 개인/사업자 조건과 선물 계획 점검
     input:
       product: "독립 일러스트북"
       category: "출판·창작"
     expected:
-      channel_recommended: tumblbug
-      rewards_count: 5
-      rewards_includes: ["단순 응원", "기본 굿즈", "번들", "한정판", "컬렉터"]
-      page_focus: "스토리텔링"
+      channel_candidate: tumblbug
+      creator_requirements_checked_by_type: true
+      no_fixed_backer_or_funding_amount: true
+      rewards_grounded_in_production_plan: true
 
-  - id: failure_unsafe_claim
-    description: 안전 미인증 가전 + 과장 표현
+  - id: unverified_certification_and_claim
+    description: 인증 자료가 없고 과장 표현이 포함된 가전 프로젝트
     input:
-      kc_certified: false
+      certification_evidence: null
       copy_excerpt: "세계 최초의 완벽한 무선이어폰"
     expected:
-      blockers:
-        - "KC 인증 미통과 — 와디즈 안전 검수 거절"
-        - "과장 표현 - 콘텐츠 심사 거절 가능"
-      action_required: ["KC 인증 신청", "카피 재작성"]
+      publication_status: "보류"
+      checks_required:
+        - "현재 프로젝트와 품목에 필요한 인증·표시 자료 확인"
+        - "최초·완벽 표현의 증빙 확인 또는 수정"
+      no_automatic_approval_or_rejection_claim: true

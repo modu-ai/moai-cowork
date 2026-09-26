@@ -23,6 +23,7 @@ import io
 import json
 import os
 import re
+import stat
 import sys
 import tempfile
 import unittest
@@ -167,6 +168,26 @@ class HumanizeHtmlTransformTests(unittest.TestCase):
         # regex 규칙도 skip 태그는 불가침.
         self.assertIn('console.log("굴러가는 자동화");', result)
 
+    def test_replacement_cannot_create_attribute_or_tag(self) -> None:
+        raw = '<meta name="description" content="safe"><p>safe</p>'
+        result, summary = humanize_html.humanize_html(
+            raw, [{"before": "safe", "after": 'x" onmouseover="alert(1)<script>'}]
+        )
+        self.assertIn('content="x&quot; onmouseover=&quot;alert(1)&lt;script&gt;"', result)
+        self.assertIn('<p>x" onmouseover="alert(1)&lt;script&gt;</p>', result)
+        self.assertTrue(summary["tag_balance_ok"])
+
+    def test_jsonld_replacement_cannot_close_script(self) -> None:
+        raw = '<script type="application/ld+json">{"name":"safe"}</script><p>next</p>'
+        result, summary = humanize_html.humanize_html(
+            raw, [{"before": "safe", "after": "</script><script>alert(1)</script>"}]
+        )
+        self.assertIn(r"\u003c/script>", result)
+        self.assertNotIn("</script><script>alert(1)", result)
+        self.assertTrue(summary["tag_balance_ok"])
+        data = json.loads(re.search(r"<script[^>]*>(.*?)</script>", result, re.S).group(1))
+        self.assertEqual(data["name"], "</script><script>alert(1)</script>")
+
 
 class HumanizeHtmlCliTests(unittest.TestCase):
     """CLI(_main) — --check-only와 전체 실행."""
@@ -219,6 +240,61 @@ class HumanizeHtmlCliTests(unittest.TestCase):
                 out = handle.read()
             self.assertIn("작동하는 AI 코워커", out)
             self.assertIn('console.log("굴러가는 자동화");', out)
+
+    def test_cli_in_place_write_preserves_complete_document(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            src = os.path.join(tmp, "page.html")
+            rules_path = os.path.join(tmp, "map.json")
+            with open(src, "w", encoding="utf-8") as handle:
+                handle.write(_FIXTURE_HTML)
+            with open(rules_path, "w", encoding="utf-8") as handle:
+                json.dump(_RULES, handle, ensure_ascii=False)
+            code, _ = self._run_main(
+                ["--input", src, "--replacements", rules_path, "--output", src]
+            )
+            self.assertEqual(code, 0)
+            with open(src, encoding="utf-8") as handle:
+                result = handle.read()
+            self.assertIn("작동하는 AI 코워커", result)
+            self.assertTrue(result.endswith("</html>\n"))
+            self.assertEqual(sorted(os.listdir(tmp)), ["map.json", "page.html"])
+
+    @unittest.skipIf(os.name == "nt", "Windows ACL은 POSIX 모드와 다릅니다")
+    def test_cli_in_place_write_preserves_mode(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            src = os.path.join(tmp, "page.html")
+            rules_path = os.path.join(tmp, "map.json")
+            with open(src, "w", encoding="utf-8") as handle:
+                handle.write("<p>safe</p>")
+            os.chmod(src, 0o644)
+            with open(rules_path, "w", encoding="utf-8") as handle:
+                json.dump([{"before": "safe", "after": "done"}], handle)
+            code, _ = self._run_main(
+                ["--input", src, "--replacements", rules_path, "--output", src]
+            )
+            self.assertEqual(code, 0)
+            self.assertEqual(stat.S_IMODE(os.stat(src).st_mode), 0o644)
+
+    def test_cli_output_symlink_keeps_link_and_updates_target(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            target = os.path.join(tmp, "target.html")
+            link = os.path.join(tmp, "page.html")
+            rules_path = os.path.join(tmp, "map.json")
+            with open(target, "w", encoding="utf-8") as handle:
+                handle.write("<p>safe</p>")
+            try:
+                os.symlink(target, link)
+            except OSError:
+                self.skipTest("이 호스트는 심볼릭 링크를 만들 수 없습니다")
+            with open(rules_path, "w", encoding="utf-8") as handle:
+                json.dump([{"before": "safe", "after": "done"}], handle)
+            code, _ = self._run_main(
+                ["--input", link, "--replacements", rules_path, "--output", link]
+            )
+            self.assertEqual(code, 0)
+            self.assertTrue(os.path.islink(link))
+            with open(target, encoding="utf-8") as handle:
+                self.assertEqual(handle.read(), "<p>done</p>")
 
 
 if __name__ == "__main__":

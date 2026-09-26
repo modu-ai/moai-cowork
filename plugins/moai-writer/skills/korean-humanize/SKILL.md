@@ -20,7 +20,7 @@ description: |
   v1.4.0 신규 카테고리 N — **영어 수사 구조 직역**. 어휘·문법은 완벽한 한국어인데 글의 골격이 영어 마케팅 문서인 층입니다("A가 아니라 B입니다" 대조 공식, `이런 분에게`처럼 조사로 끝나는 헤딩, `손에 남는 것`, `무엇이 다른가`, `이유는 하나입니다"). 기존 A~M 카테고리가 보지 못하던 자리이며, 실측에서 사람이 쓴 원문 0건 대 AI 생성물 58건으로 갈렸습니다.
 
   한국 번역학계 8유형 번역투 계보를 통합한 10대 카테고리 분류 + 신규 패턴 A-16/A-18/A-19/E-7 + post-editese 14메트릭 기반 한국어 정밀 윤문 스킬입니다.
-version: "1.4.0"
+version: "1.4.6"
 ---
 
 # Humanize Korean: 한국어 AI 티 제거 (Fast 모드)
@@ -64,10 +64,10 @@ korean-humanize — fast 모드 / run_id: {YYYY-MM-DD-NNN}
 ### run_id 결정
 
 - 모든 경로는 **cwd 기준**. `_workspace/{YYYY-MM-DD-NNN}/`에 산출물 누적
-- 기존 시퀀스 확인은 **`Glob` 도구**로:
-  - `Glob(pattern="_workspace/YYYY-MM-DD-*/01_input.txt")` → 결과에서 폴더명 추출 후 NNN 최댓값 + 1
+- 기존 시퀀스 확인은 현재 호스트의 파일 검색 도구로:
+  - `_workspace/YYYY-MM-DD-*` 실행 폴더를 모두 찾아 폴더명에서 NNN 최댓값 + 1. 이전 버전의 `01_input.txt`만 있는 폴더와 생성이 중단된 빈 폴더도 포함
   - 당일 폴더가 없으면 NNN = 001
-  - 디렉토리 자체는 Glob으로 매칭 안 됨 — 반드시 `01_input.txt` 표지 파일을 매칭
+  - 새 목적지 폴더가 이미 있으면 쓰지 않고 다음 번호를 고릅니다. 같은 run_id를 재사용하지 않습니다.
 - 8,000자 초과 입력은 처리는 가능하지만 정밀 검증이 필요할 수 있음 → summary.md에 "정밀 모드(strict-pipeline-spec) 권장" 한 줄 표기
 
 ### 옵션 (인자 끝에 자연어로)
@@ -88,10 +88,14 @@ korean-humanize — fast 모드 / run_id: {YYYY-MM-DD-NNN}
 | `${CLAUDE_PLUGIN_ROOT}` | `$env:CLAUDE_PLUGIN_ROOT` — `${...}`는 PowerShell 변수 문법이 아니다 |
 | 줄 끝 `\` (줄 잇기) | 백틱 `` ` `` — `\`는 PowerShell에서 줄 잇기가 아니다 |
 
-**권장 실행 경로 (Windows)**: Git Bash에서 예시를 **그대로** 실행합니다. Claude Cowork·ChatGPT Work의
-Windows 설치에는 Git Bash가 함께 오므로 별도 준비가 필요 없고, `python3`만 `python`으로 바꾸면 됩니다.
+**Windows 실행 경로**: Git Bash가 실제로 설치돼 있으면 Bash 예시를 사용할 수 있습니다.
+Git Bash 설치를 데스크톱 앱의 기본 제공 기능으로 가정하지 않습니다. PowerShell에서는 아래처럼
+한 줄 명령과 PowerShell 변수 문법을 사용합니다.
 
 PowerShell에서 실행해야 한다면 한 줄로 펴고 변수 문법을 바꿉니다.
+
+`${CLAUDE_PLUGIN_ROOT}`가 제공되지 않는 호스트에서는 이 변수를 그대로 실행하지 말고,
+현재 설치된 스킬 디렉터리의 실제 경로를 확인해 스크립트 경로로 사용합니다.
 
 ```powershell
 python "$env:CLAUDE_PLUGIN_ROOT/skills/korean-humanize/references/metrics.py" --input "_workspace/{run_id}/01_input.txt" --genre 칼럼 --output "_workspace/{run_id}/00_metrics.json"
@@ -102,12 +106,12 @@ python "$env:CLAUDE_PLUGIN_ROOT/skills/korean-humanize/references/metrics.py" --
 ## Phase 1: 입력 저장
 
 1. cwd 기준 `_workspace/{run_id}/` 디렉토리 생성
-2. 입력 텍스트를 **`01_input.txt`**에 그대로 저장 (한 글자도 변형하지 않음)
-3. **텍스트 위생** — `references/sanitize_text.py`로 비가시 문자를 정돈합니다 (결정적 처리, LLM 콜 0):
+2. 입력 텍스트를 **`01_input_original.txt`**에 그대로 저장 (한 글자도 변형하지 않음). 이후 의미 보존 검수는 이 파일을 기준으로 합니다.
+3. **텍스트 위생** — `references/sanitize_text.py`로 정돈한 작업용 입력을 **`01_input.txt`**에 따로 저장합니다 (결정적 처리, LLM 콜 0):
 
    ```bash
    python3 "${CLAUDE_PLUGIN_ROOT}/skills/korean-humanize/references/sanitize_text.py" \
-     --input "_workspace/{run_id}/01_input.txt" \
+     --input "_workspace/{run_id}/01_input_original.txt" \
      --output "_workspace/{run_id}/01_input.txt"
    ```
 
@@ -236,7 +240,7 @@ python3 "${CLAUDE_PLUGIN_ROOT}/skills/korean-humanize/references/metrics_v2.py" 
 
 ### 3-4. 윤문 실행 (Edit 도구)
 
-탐지된 span별로 Edit 도구로 **수술적** 치환. 탐지되지 않은 구간은 절대 수정하지 않습니다.
+첫 실행은 `01_input.txt`를, 재실행은 이전 실행의 Phase 6에서 `accept` 또는 `corrected` 판정을 받은 `final.md` 본문을 바탕으로 새 run_id의 `_workspace/{run_id}/final.md`에 윤문본 본문을 먼저 저장합니다. 재실행할 때 이전 run_id·판정·시작 본문을 `summary.md`에 기록합니다. 탐지된 span별로 사용 가능한 파일 편집 도구를 써서 **수술적** 치환합니다. 탐지되지 않은 구간은 절대 수정하지 않습니다. 저장 뒤 파일을 다시 읽어 이번 윤문본인지, 요청한 구간만 고쳤는지 이전 본문과 대조합니다. 파일이 없거나 저장·읽기에 실패하면 게이트를 실행하지 않습니다. 요청한 수정이 이루어지지 않았다면 새 결과를 완료로 전달하지 않고 이유를 보고합니다.
 
 - 격식체 입력 → 격식체 출력 (register 보존)
 - 평어체 입력 → 평어체 출력
@@ -250,7 +254,7 @@ python3 "${CLAUDE_PLUGIN_ROOT}/skills/korean-humanize/references/metrics_v2.py" 
 2. **변경률** — 30% 이하인가
 3. **장르 이탈 없음** — 칼럼이 에세이·문학으로 변하지 않았는가
 4. **register 보존** — 원문 격식체면 결과도 격식체
-5. **잔존 S1 패턴 0건** — D-1~D-7, A-8, C-5, C-10, C-11, H-1, I-1, J-2가 남아있지 않은가
+5. **잔존 S1 패턴 0건** — D-1~D-6, A-8, C-5, C-10, C-11, H-1, J-2가 해당 장르·빈도 조건에서 남아 있지 않은가. D-7과 I-1은 위 S2 조건에 따라 판단
 6. **인공 표현 자제** — 원문에 없던 비유·수사·문학적 표현을 임의 추가하지 않았는가
 
 위반 시: edit 롤백 → 다시 윤문 → 재점검. **자체 루프 최대 1회.** 여전히 미해결이면 결과를 출력하되 `summary.md`에 "자가검증 미통과 항목 N건"을 표기합니다.
@@ -259,7 +263,7 @@ python3 "${CLAUDE_PLUGIN_ROOT}/skills/korean-humanize/references/metrics_v2.py" 
 
 ### 4-0. 구조 게이트 (철칙 #4 결정적 판정)
 
-윤문본이 나온 **직후**, 산출물을 쓰기 전에 4축 게이트를 한 번 돌립니다. Bash 1회이며 LLM 콜이 아닙니다.
+윤문본 본문을 `final.md`에 저장한 **직후**, 요약 주석을 붙이기 전에 4축 게이트를 한 번 돌립니다. 스크립트 실행 1회이며 LLM 콜이 아닙니다.
 
 ```bash
 python3 "${CLAUDE_PLUGIN_ROOT}/skills/korean-humanize/references/verify_gates.py" \
@@ -287,7 +291,7 @@ python3 "${CLAUDE_PLUGIN_ROOT}/skills/korean-humanize/references/verify_gates.py
 | 3 | 실행 오류 | 입력 파일·인자 확인 후 재시도. **게이트를 건너뛰지 않는다** |
 
 - **`INCONCLUSIVE`는 실패가 아니라 "못 봤다"입니다.** 짧은 글에서 비율 지표는 quantization 노이즈라 z 판정이 성립하지 않습니다. 검사하지 못한 것을 통과로 흘리면 "게이트가 봤고 괜찮다더라"로 읽히므로 별도 판정으로 분리했습니다.
-- **카피 모드(`--genre copy|headline|cta|landing|slide|social|sns|story`)는 P0 변경률 게이트를 적용하지 않습니다.** 헤드라인을 다시 쓰면 글자는 대부분 바뀌지만 사실 앵커만 지키면 정상입니다 — 산문 기준을 그대로 들이대면 정상 리라이트가 ABORT됩니다. 이 장르에서 P0은 보고만 하고 판정은 P3 불변식이 맡습니다.
+- **카피 모드(`--genre copy|headline|cta|landing|slide|social|sns|story`)는 P0 변경률 게이트를 적용하지 않습니다.** 헤드라인을 다시 쓰면 글자는 대부분 바뀌지만 사실 앵커만 지키면 정상입니다 — 산문 기준을 그대로 들이대면 정상 리라이트가 ABORT됩니다. P3는 수치·인용 등 일부 표층 불변식만 확인하므로 카피는 자동 `PASS`를 내지 않습니다. Phase 6에서 원문과 대조해 고유명사·핵심 약속·혜택을 확인합니다.
 
 - **P1과 P2는 서로를 감시합니다.** P1만 보면 "대구 지표가 목표에 들어왔다 = 성공"으로 읽히는데, 실제로는 전량 삭제였을 수 있습니다. 그 경우를 P2가 잡습니다.
 - **이 수치가 SSOT입니다.** 결과 전달의 상태 줄과 `final.md` 주석 블록에는 스크립트 출력값을 씁니다.
@@ -305,9 +309,9 @@ python3 "${CLAUDE_PLUGIN_ROOT}/skills/korean-humanize/references/metrics.py" \
 
 before/after 비교로 카테고리별 개선율(%)을 계산합니다.
 
-### 4-2. final.md 작성
+### 4-2. final.md 요약 주석 추가
 
-`_workspace/{run_id}/final.md`에 윤문본 + HTML 주석 블록(메트릭·탐지 before/after·자체검증 6항·등급·주요 변경 하이라이트)을 작성합니다. HTML 주석이라 마크다운 뷰어·웹 게시·복사 시 본문에만 노출됩니다.
+앞서 저장한 `_workspace/{run_id}/final.md`의 윤문본 아래에 HTML 주석 블록(메트릭·탐지 before/after·자체검증 6항·등급·주요 변경 하이라이트)을 추가합니다. HTML 주석이라 마크다운 뷰어·웹 게시·복사 시 본문에만 노출됩니다.
 
 ```markdown
 {윤문본 본문}
@@ -362,7 +366,7 @@ before/after 비교로 카테고리별 개선율(%)을 계산합니다.
 | 단계 | 무엇을 | 실패 시 |
 |---|---|---|
 | 0 | **정독 재판정** — 원문과 대조하지 말고 **윤문본만 처음 읽는 사람처럼** 통독한다. 셋을 묻는다: 사람이 쓴 글로 읽히는가 / 원문이 하려던 말이 살아 있는가 / 고친 자리가 오히려 어색해지지 않았는가. **판정 근거를 반드시 적는다 — "자연스럽다"는 판정이 아니다.** 절차: `references/contextual-review.md` §7 | 지목한 구간만 국소 보정 후 재판정. 못 고치면 `hold_and_report` |
-| 1 | **의미 보존 15항** — 원문↔윤문본 문단 단위 직접 대조. ★3항(없던 주장 주입·각주 원위치·제목 독립성)은 diff에 안 남으니 의식적으로 본다 | 해당 구간만 원문 의미로 국소 롤백 |
+| 1 | **의미 보존 15항** — `01_input_original.txt`↔윤문본 문단 단위 직접 대조. ★3항(없던 주장 주입·각주 원위치·제목 독립성)은 diff에 안 남으니 의식적으로 본다 | 해당 구간만 원문 의미로 국소 롤백 |
 | 2 | **자연성 양방향** — (a) 겨냥한 패턴이 실제로 완화됐는가 (b) **과윤문**: 격식 상향·상투구 주입·문학화 (각각 단독으로 플래그) (c) **실증 교정 4건이 지켜졌는가** — A-2·A-16·I-1·E-1에서 정상 한국어를 지우지 않았는가 | 되돌린다 |
 | 3 | **게이트 재확인** — 보정을 했으면 `verify_gates.py`를 한 번 더 (보정이 변경률을 움직인다) | exit 2 재발 시 채택 금지 |
 | 4 | **판정** — `accept` / `corrected` / `hold_and_report` | `hold_and_report`면 **전달하지 않고** 사람에게 넘긴다 |
@@ -372,6 +376,8 @@ before/after 비교로 카테고리별 개선율(%)을 계산합니다.
 **[철칙] 전체 재작성 금지.** 이 단계는 검증과 국소 보정입니다. 전역 재작성 패스가 바로 "없던 주장 주입"을 만듭니다.
 
 **[철칙] 검수 없이 전달하지 않습니다.** 어떤 이유로든 건너뛰었다면 그 사실과 이유를 결과에 **명시**합니다 — 조용히 생략하면 검수가 있었는지 없었는지 아무도 모릅니다.
+
+Phase 6 판정과 근거를 `summary.md`에도 기록합니다. 후속 윤문은 이 기록과 `final.md`를 함께 확인한 뒤 시작합니다. 판정 기록이 없거나 `hold_and_report`이면 검수 완료본으로 취급하지 않습니다.
 
 **선택 경로 — codex 적대적 감사.** `mcp__moai__codex_*`를 쓸 수 있는 환경에서만 위 4단계 위에 얹습니다. **필수가 아닙니다** — codex는 이 마켓플레이스가 배포하는 구성 요소가 아니고, 위 4단계는 codex 없이 성립하도록 설계돼 있습니다. 쓸 수 있으면 `file:line` 근거가 붙은 구체 결함만 반영하고, 없으면 "codex 감사 미실행"을 결과에 적습니다.
 
@@ -389,11 +395,11 @@ before/after 비교로 카테고리별 개선율(%)을 계산합니다.
 
 | 사용자 신호 | 처리 |
 |---|---|
-| "특정 카테고리만 다시" | 해당 카테고리 finding만 Phase 3 재실행, 기존 run_id 재사용 |
+| "특정 카테고리만 다시" | 새 run_id를 만들고 이전 검수 완료 `final.md` 본문에서 해당 카테고리만 고친다. 첫 실행의 `01_input_original.txt`와 `01_input.txt`를 새 실행에 복사해 의미 대조와 누적 변경률의 기준으로 유지한다. 이전 실행에 원본 파일이 없다면 사용자에게 원문을 다시 받아야 한다 |
 | "이 문단만" | 해당 문단만 입력으로 새 run_id 생성 |
-| "2차 윤문" | 기존 run_id의 `final.md`를 새 입력으로 Phase 1부터 재실행 |
-| "윤문 강도 조정" | `최소심각도` 옵션 변경 후 Phase 2부터 재실행 |
-| "장르 바꿔서" | `genre_hint` 변경 후 Phase 2부터 재실행 |
+| "2차 윤문" | 새 run_id를 만들고 첫 실행의 원문 `01_input_original.txt`와 정돈된 기준 `01_input.txt`를 복사한다. 이전 검수 완료 `final.md` 본문에서 다시 윤문하고 최초 원문과 의미·누적 변경률을 검사한다. 원본 파일이 없는 이전 실행은 사용자에게 원문을 다시 받는다 |
+| "윤문 강도 조정" | 새 run_id를 만들고 첫 실행의 원문·정돈된 입력을 복사한 뒤 강도를 바꿔 Phase 2부터 실행 |
+| "장르 바꿔서" | 새 run_id를 만들고 첫 실행의 원문·정돈된 입력을 복사한 뒤 장르를 바꿔 Phase 2부터 실행 |
 
 ## ai-slop-reviewer와의 관계
 

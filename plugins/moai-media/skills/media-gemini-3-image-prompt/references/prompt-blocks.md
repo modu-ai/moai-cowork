@@ -1,6 +1,6 @@
 # Gemini 3 Pro Image — 5-Component Prompt Structure
 
-Google AI for Developers 공식 권장 구조. 각 component는 영문 문장 1-2개로 끝나며, **마침표로 구분**합니다. 키워드 콤마 나열은 동작하지만 품질이 떨어집니다. 어조는 **Creative Director가 장면을 지시하는 톤**.
+Google 공식 가이드의 피사체·동작·장소·구도·스타일과 조명 지침을 참고한 이 스킬의 내부 템플릿입니다. 각 component를 문장으로 쓰고 마침표로 구분합니다. 공식 API의 필수 프롬프트 형식은 아닙니다.
 
 ```
 [Subject + Adjectives] doing [Action] in [Location/Context].
@@ -23,7 +23,7 @@ Google AI for Developers 공식 권장 구조. 각 component는 영문 문장 1-
 
 ## Component 2 — Composition / Camera
 
-Gemini는 **하드웨어 지정**을 지원합니다 (Creative Director의 특별한 도구):
+카메라 기종은 사진의 외형을 이끄는 **프롬프트 단서**로 적을 수 있습니다. 실제 하드웨어 촬영이나 물리적 시뮬레이션을 뜻하지 않습니다:
 
 | 하드웨어 | 시각적 DNA |
 |---|---|
@@ -61,7 +61,7 @@ Google 공식 가이드의 "Direct the scene like a Creative Director" 원칙:
 
 매체·장르를 명시:
 - Photography: editorial · commercial · documentary · candid · lifestyle · advertising · catalog
-- Illustration: watercolor · vector flat · pen and ink · digital paint · Studio Ghibli-style · Pixar-style
+- Illustration: watercolor · vector flat · pen and ink · digital paint · hand-painted animation
 - 3D: octane render · cinema 4D · unreal engine · blender stylized
 - Fine art: oil painting · charcoal sketch · Klimt-inspired · Rothko-style
 
@@ -100,10 +100,10 @@ legible.
 matte black mug, MONDAY text, slate, sunrise, 50mm
 ```
 
-위는 키워드 나열형 (MJ 어조). Gemini는 동작하지만 reasoning이 제대로 안 됨. 반드시 문장형으로.
+위는 키워드 나열형입니다. 결과를 더 세밀하게 통제하려면 피사체·동작·장소·구도·스타일을 문장으로 풀어 쓰는 편이 좋습니다.
 
 ## 출처
 
-- [Google AI for Developers — Gemini 3 Pro Image Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview)
+- [Google AI for Developers — Gemini image generation](https://ai.google.dev/gemini-api/docs/image-generation)
 - [Google Cloud Blog — Ultimate Prompting Guide for Nano Banana](https://cloud.google.com/blog/products/ai-machine-learning/ultimate-prompting-guide-for-nano-banana)
 - [Atlabs AI — Ultimate Nano Banana Pro Prompting Guide 2026](https://www.atlabs.ai/blog/the-ultimate-nano-banana-pro-prompting-guide-mastering-gemini-3-pro-image)

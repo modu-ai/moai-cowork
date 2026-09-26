@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Ferrari-design-analysis
-description: A luxury-automotive brand whose marketing surfaces read as cinematic editorial. The base canvas is **near-black** (`#181818`) holding pure white display type; white-canvas bands appear only inside specific editorial contexts (preowned listings, pricing tables). The single brand voltage is **Rosso Corsa** (`#da291c`) — the iconic Ferrari racing red — used scarcely on primary CTAs, the Cavallino mark, and Formula 1 race-position highlights. Type runs **FerrariSans** at modest weights (display 500, body 400) — never bombastic. Spacing follows an explicit 8px token ladder (`xxxs` 4px through `super` 128px); generous editorial pacing throughout. The brand's strongest visual signature is the **full-bleed cinematic hero photograph** that fills the viewport top with car photography, model details, or trackside livery — followed by a tighter editorial body layout below.
+description: A luxury-automotive brand whose marketing surfaces read as cinematic editorial. The base canvas is **near-black** (`#181818`) holding pure white display type; white-canvas bands appear only inside specific editorial contexts (preowned listings, pricing tables). The single brand voltage is **Rosso Corsa** (`#da291c`) — the iconic Ferrari racing red — used scarcely on primary CTAs, the Cavallino mark, and Formula 1 race-position highlights. The source uses **FerrariSans** at modest weights (display 500, body 400); this reusable profile defaults to Inter until font rights are confirmed. Spacing follows a named token scale (`xxxs` 4px through `super` 128px); generous editorial pacing throughout. The brand's strongest visual signature is the **full-bleed cinematic hero photograph** that fills the viewport top with car photography, model details, or trackside livery — followed by a tighter editorial body layout below.
 
 colors:
   primary: "#da291c"
@@ -11,7 +11,7 @@ colors:
   body: "#969696"
   body-strong: "#ffffff"
   body-on-light: "#181818"
-  muted: "#666666"
+  muted: "#858585"
   muted-soft: "#8f8f8f"
   hairline: "#303030"
   hairline-on-light: "#d2d2d2"
@@ -33,82 +33,82 @@ colors:
 
 typography:
   display-mega:
-    fontFamily: "'FerrariSans', -apple-system, system-ui, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 80px
     fontWeight: 500
     lineHeight: 1.05
     letterSpacing: -1.6px
   display-xl:
-    fontFamily: "'FerrariSans', sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 56px
     fontWeight: 500
     lineHeight: 1.1
     letterSpacing: -1.12px
   display-lg:
-    fontFamily: "'FerrariSans', sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 36px
     fontWeight: 500
     lineHeight: 1.2
     letterSpacing: -0.36px
   display-md:
-    fontFamily: "'FerrariSans', sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 26px
     fontWeight: 500
     lineHeight: 1.5
     letterSpacing: 0.195px
   title-md:
-    fontFamily: "'FerrariSans', sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 18px
     fontWeight: 700
     lineHeight: 1.2
     letterSpacing: 0
   title-sm:
-    fontFamily: "'FerrariSans', sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 16px
     fontWeight: 500
     lineHeight: 1.4
     letterSpacing: 0.08px
   body-md:
-    fontFamily: "'FerrariSans', sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 14px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0
   body-sm:
-    fontFamily: "'FerrariSans', sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 13px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0
   caption:
-    fontFamily: "'FerrariSans', sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 12px
     fontWeight: 400
     lineHeight: 1.4
     letterSpacing: 0
   caption-uppercase:
-    fontFamily: "'FerrariSans', sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 11px
     fontWeight: 600
     lineHeight: 1.4
     letterSpacing: 1.1px
     textTransform: uppercase
   button:
-    fontFamily: "'FerrariSans', sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 14px
     fontWeight: 700
     lineHeight: 1.0
     letterSpacing: 1.4px
     textTransform: uppercase
   nav-link:
-    fontFamily: "'FerrariSans', sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 13px
     fontWeight: 600
     lineHeight: 1.4
     letterSpacing: 0.65px
     textTransform: uppercase
   number-display:
-    fontFamily: "'FerrariSans', sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 80px
     fontWeight: 700
     lineHeight: 1.0
@@ -273,19 +273,19 @@ components:
 
 Ferrari's marketing site reads as cinematic editorial — closer to a luxury-magazine spread than a typical car-OEM site. The base canvas is **near-black** (`{colors.canvas}` — #181818) holding pure white display type; white-canvas bands appear only inside specific editorial contexts (preowned listings, pricing tables, dealer surfaces). The single brand voltage is **Rosso Corsa** (`{colors.primary}` — #da291c), the iconic Ferrari racing red, used scarcely on primary CTAs, the Cavallino mark, and Formula 1 race-position highlights.
 
-Type runs **FerrariSans** as the single sans family at modest weights — display 500, body 400. CTA labels render in uppercase with generous tracking (1.1-1.4px). The brand never uses bold display copy.
+The source uses **FerrariSans** as its single sans family at modest weights — display 500, body 400. The default YAML uses Inter; add FerrariSans to output CSS only after confirming font rights. CTA labels render in uppercase with generous tracking (1.1-1.4px). The brand never uses bold display copy.
 
-The brand's strongest visual signature is the **full-bleed cinematic hero photograph** — top-of-page imagery shows car photography, model details, or trackside livery without any chrome competing with it. Headlines float over the bottom of the photo or sit in a tight band beneath. Spacing follows the explicit 8px token ladder: `xxxs` 4 / `xxs` 8 / `xs` 16 / `sm` 24 / `md` 32 / `lg` 48 / `xl` 64 / `xxl` 96 / `super` 128.
+The brand's strongest visual signature is the **full-bleed cinematic hero photograph** — top-of-page imagery shows car photography, model details, or trackside livery without any chrome competing with it. Headlines float over the bottom of the photo or sit in a tight band beneath. Spacing follows the named token scale: `xxxs` 4 / `xxs` 8 / `xs` 16 / `sm` 24 / `md` 32 / `lg` 48 / `xl` 64 / `xxl` 96 / `super` 128.
 
 **Key Characteristics:**
 - Single accent: `{colors.primary}` (Rosso Corsa #da291c) for primary CTAs, the Cavallino, F1 race-position highlights. Used scarcely.
 - Near-black canvas (#181818) — never pure black. White-canvas bands only inside editorial contexts.
-- Single sans family: FerrariSans across every text role.
+- One sans stack across text roles: Inter by default, FerrariSans only with confirmed rights.
 - Display weight stays at 500 — never bold.
 - CTA labels render uppercase with 1.4px tracking.
 - Sharp `{rounded.none}` (0px) corners on every CTA, card, and band — luxury-automotive precision.
 - Full-bleed cinematic hero photography is the page chrome.
-- Explicit 8px spacing token ladder with named scale (xxxs through super).
+- Named spacing token scale from 4px through 128px (xxxs through super).
 - Hairlines + photographic depth — no drop shadow tiers.
 
 ## Colors
@@ -314,7 +314,7 @@ The brand's strongest visual signature is the **full-bleed cinematic hero photog
 - **Body** (`{colors.body}` — #969696): Default running-text on dark.
 - **Body Strong** (`{colors.body-strong}` — #ffffff): Same as ink.
 - **Body On Light** (`{colors.body-on-light}` — #181818): Default text on light bands.
-- **Muted** (`{colors.muted}` — #666666): Sub-titles, captions on dark.
+- **Muted** (`{colors.muted}` — #858585): Sub-titles and captions on dark; the adjusted value clears 4.5:1 against `{colors.canvas}` in the flat-color calculation.
 - **Muted Soft** (`{colors.muted-soft}` — #8f8f8f): Disabled link text.
 - **On Primary** (`{colors.on-primary}` — #ffffff): White text on Rosso Corsa.
 
@@ -326,7 +326,7 @@ The brand's strongest visual signature is the **full-bleed cinematic hero photog
 ## Typography
 
 ### Font Family
-**FerrariSans** is the licensed single sans family across every text role. Fallback: `-apple-system, system-ui, sans-serif`. No display/body family split.
+The source uses **FerrariSans** across text roles, subject to its license. The default YAML uses `Inter, system-ui, sans-serif` for every role. Add FerrariSans ahead of Inter only when the intended use is authorized. There is no display/body family split.
 
 ### Hierarchy
 
@@ -342,7 +342,7 @@ The brand's strongest visual signature is the **full-bleed cinematic hero photog
 | `{typography.body-sm}` | 13px | 400 | 1.5 | 0 | Footer body |
 | `{typography.caption}` | 12px | 400 | 1.4 | 0 | Photo captions |
 | `{typography.caption-uppercase}` | 11px | 600 | 1.4 | 1.1px | Section labels, badges |
-| `{typography.button}` | 14px | 700 | 1.0 | 1.4px (uppercase) | CTA pill labels |
+| `{typography.button}` | 14px | 700 | 1.0 | 1.4px (uppercase) | Sharp-corner CTA labels |
 | `{typography.nav-link}` | 13px | 600 | 1.4 | 0.65px (uppercase) | Top-nav menu items |
 | `{typography.number-display}` | 80px | 700 | 1.0 | -1.6px | Race position highlights, spec values |
 
@@ -353,7 +353,7 @@ The brand's strongest visual signature is the **full-bleed cinematic hero photog
 - **Negative letter-spacing on display only.** -0.36px to -1.6px on display sizes; body stays at 0.
 
 ### Note on Font Substitutes
-FerrariSans is licensed. Open-source substitute: **Inter** at weight 500 with letter-spacing -1%, or **Söhne** for closer humanist proportions.
+FerrariSans requires permission. **Inter** is the default open-source substitute, retaining each token's weight and `letterSpacing`. [Söhne is a Klim Type Foundry family](https://klim.co.nz/collections/soehne/) with separate licensing; it is not an open-source substitute.
 
 ## Layout
 
@@ -373,7 +373,7 @@ Generous editorial pacing. Cinematic hero photography occupies generous viewport
 
 ## Elevation & Depth
 
-The system uses **photographic depth + brightness-step** elevation. No drop shadows except a single soft-small `{shadow.small}` documented in extracted tokens.
+The system uses **photographic depth + brightness-step** elevation. The table below describes one soft shadow treatment; this profile has no `shadow.small` YAML token.
 
 | Level | Treatment | Use |
 |---|---|---|
@@ -502,8 +502,8 @@ The radius vocabulary is **sharp by default**. Sharp 0px corners are the brand b
 | Wide | > 1280px | Editorial body content caps at 1280px; hero photography continues full-bleed. |
 
 ### Touch Targets
-- Primary CTA at 48px height — at WCAG AAA (44 × 44).
-- Nav items render uppercase with 0.65px tracking, padded for an effective 48px tap area.
+- Primary CTA is documented at 48px high. Measure both dimensions of its rendered clickable area before claiming the WCAG 2.5.5 AAA 44×44px size target.
+- Nav items render uppercase with 0.65px tracking. Measure their clickable width, height, and neighboring-target spacing before claiming WCAG 2.5.8 AA; visual padding alone does not establish a 48px target.
 
 ### Collapsing Strategy
 - Top nav switches to hamburger below 768px.
@@ -518,13 +518,13 @@ The radius vocabulary is **sharp by default**. Sharp 0px corners are the brand b
 3. Variants live as separate entries inside `components:`.
 4. Use `{token.refs}` everywhere — never inline hex.
 5. Hover state never documented.
-6. FerrariSans 500 for display, 400/700 for body. Uppercase + tracking on CTAs and nav.
+6. Use the token weights with Inter by default and FerrariSans only with confirmed rights. Keep uppercase tracking on CTAs and nav.
 7. Rosso Corsa stays scarce — primary CTAs, Cavallino, race-position highlights only.
 8. Use the explicit 8px named spacing ladder.
 
 ## Known Gaps
 
-- FerrariSans is a licensed typeface; Inter at weight 500 is the documented substitute.
+- FerrariSans and Söhne need their own use rights; Inter is the default open-source substitute with each token's weight.
 - Animation timings (hero parallax, livery band entrance, race position counter) out of scope.
 - In-product surfaces (preowned configurator, F1 telemetry overlays) only partially captured via marketing surfaces.
 - Form validation states beyond focus not visible on captured surfaces.

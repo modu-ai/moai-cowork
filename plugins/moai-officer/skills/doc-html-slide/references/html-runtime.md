@@ -7,7 +7,7 @@ doc-html-slide의 단일 `.html` 파일에 인라인되는 **자체 제작 vanil
 - **16:9 고정 캔버스** — 뷰포트에 맞춰 스케일 (1280×720 기준)
 - **키보드 내비게이션** — `←`/`→`/`Space`/`PageUp`/`PageDown` 슬라이드 이동, `Home`/`End` 처음/끝
 - **풀스크린** — `F` 키 또는 클릭 시 Fullscreen API
-- **`?print-pdf` 인쇄 모드** — URL 해시로 각 슬라이드를 인쇄 페이지로 강제 개행, Chrome "PDF로 저장" 연동
+- **`?print-pdf` 인쇄 모드** — URL 쿼리로 슬라이드 표시를 전환하고 인쇄 CSS로 각 장을 구분
 - **speaker notes 토글** — `S` 키로 발표자 노트 표시/숨김
 - **progress bar** — 하단 진행률 표시
 - **슬라이드 카운터** — `3 / 8` 표시
@@ -22,7 +22,7 @@ doc-html-slide의 단일 `.html` 파일에 인라인되는 **자체 제작 vanil
   let current = 0;
   const progress = document.getElementById('progress');
   const counter = document.getElementById('counter');
-  const isPrint = location.search.includes('print-pdf');
+  const isPrint = new URLSearchParams(location.search).has('print-pdf');
 
   function show(i) {
     current = Math.max(0, Math.min(i, total - 1));
@@ -84,8 +84,11 @@ body.show-notes .slide.active .notes {
 
 /* ?print-pdf 인쇄 모드 — 각 슬라이드 1페이지 */
 @media print {
+  body { overflow: visible; background: #fff; }
+  #deck { display: block; }
+  .slide-wrap { transform: none; width: auto; height: auto; }
   .slide { display: flex !important; page-break-after: always; }
-  #progress, #counter { display: none; }
+  #progress, #counter, #notes-layer { display: none !important; }
 }
 ```
 
@@ -121,4 +124,4 @@ window.addEventListener('resize', fit); fit();
 
 ## 브라우저 호환성
 
-표준 Web API만 사용: `Fullscreen API`, `KeyboardEvent`, `location.hash`, CSS `@media print`, `transform: scale()`. Chrome/Edge/Firefox/Safari 최신 버전에서 동작. 샘플 `samples/deck-sample.html`로 다중 브라우저 시각 검수를 권장.
+표준 Web API(`Fullscreen API`, `KeyboardEvent`, `location.hash`, CSS `@media print`, `transform: scale()`)를 사용합니다. Chrome/Edge/Firefox/Safari 및 각 OS의 실제 파일 열기·키보드·인쇄 결과는 별도로 확인합니다. 샘플 `samples/deck-sample.html`은 검수 입력이지 호환성 통과 증거가 아닙니다.

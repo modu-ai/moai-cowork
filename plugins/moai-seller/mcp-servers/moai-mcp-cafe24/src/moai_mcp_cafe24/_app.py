@@ -12,7 +12,7 @@ from __future__ import annotations
 
 from mcp.server.fastmcp import FastMCP
 
-# Server instructions guide tool-search discovery for the 526-tool catalog.
+# Server instructions guide tool-search discovery for the 20 category tools.
 # Kept under the 2KB truncation ceiling; the README holds the full surface map.
 _INSTRUCTIONS = (
     "Cafe24 shopping-mall operations, management, and analytics — Admin API "
@@ -23,11 +23,11 @@ _INSTRUCTIONS = (
     "Use these tools whenever the user asks about a Cafe24 mall: products, orders, "
     "customers, store/app settings, promotions, design, shipping, mileage, or any "
     "traffic/sales analytics. Tool names follow the pattern "
-    "'cafe24_<domain>_<action>' (e.g. cafe24_product_list, cafe24_order_detail, "
-    "cafe24_analytics_visitors_pageview) — search by the relevant domain keyword. "
-    "Parameters are named and typed (not a generic blob). list tools accept "
+    "'cafe24_<domain>' (e.g. cafe24_product, cafe24_order, cafe24_analytics). "
+    "Choose the action enum for the operation and pass path/query values in params. "
+    "Write operations accept a body dictionary. List actions accept "
     "'paginate' + 'max_pages' for transparent offset paging. The 'shop_no' "
     "parameter selects a multi-shop number (defaults per config)."
 )
 
-mcp: FastMCP = FastMCP("moai-cafe24", instructions=_INSTRUCTIONS)
+mcp: FastMCP = FastMCP("moai-mcp-cafe24", instructions=_INSTRUCTIONS)

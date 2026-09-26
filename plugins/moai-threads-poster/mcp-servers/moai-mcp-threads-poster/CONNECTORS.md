@@ -1,16 +1,16 @@
 # Threads(Meta) 연동 가이드 — `moai-threads-poster` MCP
 
 Threads 는 **OAuth 2.0** 으로 인증하며, 발행하려면 **장기 액세스 토큰(60일)** 이 필요하다.
-본 MCP 서버는 사용자가 (브라우저로) 최초 1회 발급받은 장기 토큰을 환경변수로 받아 사용한다.
+본 MCP 서버는 사용자가 (브라우저로) 최초 1회 발급받은 장기 토큰을 앱 설정, 환경변수 또는 사용자 자격증명 파일에서 읽는다.
 
 > 서버가 브라우저 인가를 대신 수행하지 않는다. 최초 1회는 아래 절차대로 수동 발급이 필요하다.
-> 이후에는 `THREADS_ACCESS_TOKEN` / `THREADS_USER_ID` 환경변수만 세팅하면 된다.
+> 이후에는 `THREADS_ACCESS_TOKEN` / `THREADS_USER_ID`를 아래 자격증명 경로 중 하나에 설정한다.
 
 ---
 
 ## 1. 사전 요구사항
 
-- **uv** 설치: `curl -LsSf https://astral.sh/uv/install.sh | sh`
+- **uv** 설치: macOS·Linux는 [uv 설치 안내](https://docs.astral.sh/uv/getting-started/installation/)를, Windows는 `winget install --id=astral-sh.uv -e`를 따른다.
 - Meta 계정 + Threads 계정 (프로필은 공개 권장 — 토큰 갱신 기간 연장)
 - 공식 문서: <https://developers.facebook.com/docs/threads>
 
@@ -148,11 +148,11 @@ $env:THREADS_USER_ID = "<THREADS_USER_ID>"
 $env:THREADS_PUBLISH_DELAY = "30"   # 선택: 발행 전 대기(초), 기본 30
 ```
 
-`.mcp.json` 의 `env` 블록은 `${VAR}` 보간으로 이 환경변수를 서버에 전달한다.
+`.mcp.json`의 `env` 값은 앱에 따라 보간되지 않을 수 있다. 서버는 미확장 자리표시자를 무시하고 위 자격증명 파일을 확인한다.
 
 ## 9. 동작 확인 (smoke test)
 
-서버가 도구를 노출하면 Claude Code 에서:
+서버가 도구를 노출하면 사용 중인 데스크톱 앱에서:
 
 ```
 threads_get_profile
@@ -164,11 +164,11 @@ threads_get_profile
 
 | 증상 | 원인 | 해결 |
 |---|---|---|
-| `setup_required` 에러 | 토큰/USER_ID 미설정 | `THREADS_ACCESS_TOKEN`, `THREADS_USER_ID` export |
+| `setup_required` 에러 | 토큰/USER_ID 미설정 | 앱 설정 또는 사용자 홈의 `.moai/mcp/threads.json` 확인 |
 | HTTP 190 `OAuthException` | 토큰 만료 | `threads_refresh_token` 호출 후 토큰 갱신; 만료 시 4~6단계 재수행 |
 | HTTP 4 / 10 `permission` | 스코프 부족 / 테스터 미등록 | `threads_content_publish` 스코프 + 테스터 초대 확인 |
 | HTTP 613 `rate limit` | 24시간 250 포스트 초과 | 24시간 후 재시도 |
-| `text exceeds 500-byte` | 본문 500 UTF-8 바이트 초과 | 본문 줄이기 (이모지·한글은 멀티바이트) |
+| `text exceeds 500 characters` | 본문 500자 초과 | 글자 수를 확인하고 본문 줄이기 |
 | 이미지/비디오 400 | URL 이 비공개 또는 스펙 초과 | 공개 URL 확인 (이미지 ≤8MB JPEG/PNG, 비디오 ≤1GB MOV/MP4 ≤5분) |
 
 ---
@@ -177,15 +177,15 @@ threads_get_profile
 
 Instagram Graph API 는 Threads 와 다른 인증 경로를 쓴다 — **Facebook Login for Business** 로
 Facebook Page 장기 액세스 토큰을 발급받아 `graph.facebook.com` 호스트를 호출한다 (Threads 의
-`graph.threads.com` OAuth2 흐름과 상이). 자격증명은 Threads 쌍과 *독립적인* `IG_ACCESS_TOKEN` /
-`IG_USER_ID` 환경변수로 전달한다.
+`graph.threads.net` OAuth2 흐름과 상이). 자격증명은 Threads 쌍과 *독립적인* `IG_ACCESS_TOKEN` /
+`IG_USER_ID`를 앱 설정, 환경변수 또는 같은 사용자 자격증명 파일로 전달한다.
 
 > **Instagram Professional(Business 또는 Creator) 계정만 지원.** Personal 계정은 Graph API 로
 > 발행할 수 없다. 발급 전에 Instagram 계정을 Professional 로 전환해야 한다.
 
 > **스케줄링 참고 (REQ-INST-009)**: Instagram Graph API 는 서버 측 스케줄링 파라미터가 없다.
 > 본 플러그인은 `instagram_publish_image/video/reel` 로 세션 안에서 즉시 발행만 한다.
-> 예약·정기 발행은 Claude Cowork 이 담당한다 (백그라운드 자동 발행 없음).
+> 예약·정기 발행은 현재 앱의 별도 기능을 확인한다 (이 플러그인에는 백그라운드 자동 발행 없음).
 
 공식 문서: <https://developers.facebook.com/docs/instagram-api> (Content Publishing 섹션).
 
@@ -206,7 +206,7 @@ Meta App 에 다음 권한을 추가한다 (App Review 필요):
 | `instagram_content_publish` | 2단계 발행(container → media_publish) |
 | `pages_read_engagement` | 발행에 필요 |
 | `pages_show_list` | Page 해석(setup) |
-| `manage_comments` | 댓글 모더레이션(`instagram_comments_*`) — 선택 |
+| `instagram_manage_comments` | 댓글 모더레이션(`instagram_comments_*`) — 선택 |
 | `manage_insights` | 인사이트(`instagram_insights`) — 선택 |
 
 ## I-3. Facebook Login for Business 로 장기 Page 토큰 발급
@@ -291,4 +291,4 @@ instagram_get_profile
 
 ---
 
-버전: 0.2.0 · API SSOT: Threads <https://developers.facebook.com/docs/threads> · Instagram <https://developers.facebook.com/docs/instagram-api> · 문의: 모두의 AI
+API 참고: Threads <https://developers.facebook.com/docs/threads> · Instagram <https://developers.facebook.com/docs/instagram-api> · 문의: 모두의 AI

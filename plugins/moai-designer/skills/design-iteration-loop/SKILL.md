@@ -5,16 +5,16 @@ description: |
 
   Use for the Builder-Evaluator GAN loop: iterative design-quality improvement via Sprint Contract negotiation, 4-dimension scoring (Design Quality, Originality, Completeness, Functionality), stagnation detection, and escalation.
 user-invocable: false
-version: "1.1.1"
+version: "1.1.2"
 ---
 
-> ⚠️ **개발 런타임 전용** — 이 스킬은 MoAI-ADK(Claude Code) 환경을 전제한다. Claude Cowork(Desktop)에서는 `.moai/config` 의존으로 동작하지 않을 수 있다. Desktop 사용자는 자체 체크리스트 기반 QC(예: `moai-story:story-webtoon-qc` 같은 자체 QC 경로)를 사용한다.
+> MoAI-ADK 프로젝트에서는 `.moai/config/sections/design.yaml`과 기존 스프린트 산출물을 읽는다. Claude Cowork·ChatGPT Work 데스크톱에서는 사용자가 제공한 브리프와 실제 시안으로 같은 평가 항목을 점검할 수 있다. 설정 파일이나 검사 도구가 없으면 그 항목을 미검증으로 기록하고 점수나 PASS를 만들어 내지 않는다.
 
 # design-iteration-loop
 
 Implements the Builder-Evaluator GAN loop for iterative design quality improvement. Absorbed from the retired v2.x design constitution Section 11 and Section 12 (per the design constitution absorption policy). Integrates Sprint Contract Protocol, 4-dimension scoring, stagnation detection, and Evaluator Leniency Prevention.
 
-All loop parameters are read from `.moai/config/sections/design.yaml`. Do not hardcode thresholds.
+In a MoAI-ADK project, read loop parameters from `.moai/config/sections/design.yaml`; the values below describe the current project configuration and are not portable defaults. In a desktop conversation without that file, agree on criteria with the user and report observations without inventing thresholds.
 
 ---
 
@@ -28,7 +28,7 @@ design.gan_loop:
   pass_threshold: 0.75       # Score >= this value to exit loop
   escalation_after: 3        # Escalate to user after N iterations without passing
   improvement_threshold: 0.05  # Minimum score delta per iteration
-  strict_mode: false         # If true, each dimension must pass individually
+  strict_mode: false         # If true, each must-pass criterion must pass individually
   sprint_contract:
     enabled: true
     required_harness_levels: [thorough]
@@ -37,18 +37,18 @@ design.gan_loop:
     max_negotiation_rounds: 2
 ```
 
-### 4-Dimension Scoring Weights
+### 4-Dimension Evaluation
 
-| Dimension | Weight | Description |
-| --- | --- | --- |
-| Design Quality | 30% | Visual consistency, brand token compliance, WCAG AA |
-| Originality | 25% | Not generic, not AI-slop, unique brand expression |
-| Completeness | 25% | All BRIEF sections present, copy matches contract |
-| Functionality | 20% | Responsive, accessible, all interactions work |
+| Dimension | Description |
+| --- | --- |
+| Design Quality | Visual consistency, supplied brand token compliance, measured contrast |
+| Originality | Brand-specific expression against the supplied brief |
+| Completeness | Requested BRIEF sections present, copy matches the agreed text |
+| Functionality | Observed responsive behavior and tested interactions |
 
-Overall score = weighted average of all four dimensions.
+The current `design.yaml` does not define weights for these dimensions. Do not present 30/25/25/20 or any other split as configured. The ADK evaluator owns the overall score; cite its actual rubric and result. In a standalone desktop review, report each observed dimension and gaps without a synthetic overall score.
 
-Pass condition: `overall_score >= pass_threshold` AND (if `strict_mode: true`) each dimension score >= `pass_threshold`.
+In the ADK loop, pass requires the evaluator's measured overall score to reach `pass_threshold` and every contracted must-pass criterion to pass. Strict mode adds the constitution's two-iteration minimum. A standalone desktop review without a configured evaluator does not issue this numeric PASS.
 
 ---
 
@@ -129,7 +129,7 @@ Tracking:
 - Calculate `delta = score[N] - score[N-1]`.
 - If `delta < improvement_threshold` for the last 2 iterations, flag stagnation.
 
-When stagnation is detected, escalate to user via AskUserQuestion with three options:
+When stagnation is detected, present the findings through the available user question channel with three options:
 1. Continue with current approach (Evaluator tries a different dimension focus)
 2. Adjust criteria (user provides guidance or relaxes constraints)
 3. Abort loop (accept current output as-is)
@@ -159,7 +159,7 @@ The following conditions cause immediate FAIL regardless of other scores:
 - AI slop detected: purple gradient (#8B5CF6-#6D28D9) as primary visual element with generic white cards
 - Mobile viewport broken at 375px width (content overflow, unreadable text)
 - Any interactive element returns 404 or broken state
-- Lighthouse Accessibility < 80
+- An agreed accessibility criterion fails in a tool result; when Lighthouse is used and the brief sets a threshold, report its measured score
 
 **Mechanism 3: Anti-Pattern Penalty**
 
@@ -172,10 +172,10 @@ Known anti-patterns that cap dimension score at 0.50:
 **Mechanism 4: Evidence Requirement**
 
 Each dimension score must cite specific evidence:
-- Design Quality: Reference token file path and WCAG contrast ratio
+- Design Quality: Reference supplied tokens and a measured contrast ratio where available
 - Originality: Describe what makes the design non-generic
 - Completeness: List each BRIEF section and its implementation status
-- Functionality: Reference test result or Playwright output
+- Functionality: Reference actual test or browser observation; otherwise mark unverified
 
 **Mechanism 5: Regression Baseline**
 
@@ -226,8 +226,8 @@ Sprint Contract document format (`sprint-N.json`):
 ### Strict Mode
 
 When `strict_mode: true` in `design.yaml`:
-- Each of the 4 dimension scores must individually meet `pass_threshold`.
-- The weighted average alone is not sufficient.
+- Each contracted must-pass criterion must individually pass, as constitution §11 requires.
+- An overall score cannot compensate for a failed must-pass criterion.
 - Minimum 2 iterations required even if the first iteration achieves a passing weighted average.
 - Strict mode is recommended for client-facing deliverables.
 
@@ -240,13 +240,13 @@ Every 5th project triggers an independent re-evaluation:
 
 ### Playwright Integration
 
-When claude-in-chrome MCP or Playwright is available, the Evaluator uses automated testing:
+When a browser or Playwright is available, the Evaluator may run the relevant checks:
 - Desktop screenshot (1280x720): full page
 - Mobile screenshot (375x667): full page
 - Interaction test: click all CTAs, verify no 404
-- Accessibility scan: automated WCAG check
+- Accessibility scan: record the tool and its findings; an automated scan alone does not establish full WCAG conformance
 
-When testing tools are unavailable, fall back to static code analysis only, and note the limitation in the evaluation report.
+When testing tools are unavailable, record code observations and mark browser behavior, accessibility and interaction criteria unverified. Do not score an unobserved criterion as passed.
 
 ---
 

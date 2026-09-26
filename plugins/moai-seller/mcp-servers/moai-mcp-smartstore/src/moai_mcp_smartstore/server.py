@@ -18,7 +18,7 @@ mcp = FastMCP(
     name=f"moai-mcp-smartstore/{__version__}",
     instructions=(
         "네이버 커머스(스마트스토어) 운영/관리 MCP. "
-        "자격증명은 환경변수(NAVER_COMMERCE_CLIENT_ID/SECRET/ACCOUNT_ID)에서 읽는다. "
+        "자격증명은 환경변수 또는 사용자 홈의 .moai/mcp/smartstore.json에서 읽는다. "
         "먼저 smartstore_test_connection 으로 인증을 검증하고, "
         "각 도구의 endpoint 필드로 대상 API 를 식별한다. "
         "모든 도구는 {ok, endpoint, data|error} 형태로 응답한다."

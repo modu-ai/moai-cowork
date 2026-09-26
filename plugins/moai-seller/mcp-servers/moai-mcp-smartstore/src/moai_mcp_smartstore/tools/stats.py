@@ -10,7 +10,7 @@ from __future__ import annotations
 from typing import Any
 
 from ..server import mcp
-from ._common import call
+from ._common import call, segment
 
 # 계열별 허용 dataset 값 (공식 path suffix).
 _MARKETING_DATASETS = {
@@ -38,7 +38,7 @@ def stats_marketing(channel_no: str, dataset: str, params: dict[str, Any] | None
                 "message": f"dataset must be one of {sorted(_MARKETING_DATASETS)}"}
     return call(
         "GET",
-        f"/v1/bizdata-stats/channels/{channel_no}/marketing/{dataset}",
+        f"/v1/bizdata-stats/channels/{segment(channel_no)}/marketing/{segment(dataset)}",
         params=params,
     )
 
@@ -55,7 +55,7 @@ def stats_sales(channel_no: str, dataset: str, params: dict[str, Any] | None = N
                 "message": f"dataset must be one of {sorted(_SALES_DATASETS)}"}
     return call(
         "GET",
-        f"/v1/bizdata-stats/channels/{channel_no}/sales/{dataset}",
+        f"/v1/bizdata-stats/channels/{segment(channel_no)}/sales/{segment(dataset)}",
         params=params,
     )
 
@@ -71,7 +71,7 @@ def stats_shopping(channel_no: str, dataset: str, params: dict[str, Any] | None 
                 "message": f"dataset must be one of {sorted(_SHOPPING_DATASETS)}"}
     return call(
         "GET",
-        f"/v1/bizdata-stats/channels/{channel_no}/shopping/{dataset}",
+        f"/v1/bizdata-stats/channels/{segment(channel_no)}/shopping/{segment(dataset)}",
         params=params,
     )
 
@@ -81,7 +81,7 @@ def stats_realtime(channel_no: str, params: dict[str, Any] | None = None) -> dic
     """오늘 실시간 채널 보고서(1~5분 폴링 권장). GET /v1/bizdata-stats/channels/{channelNo}/realtime/daily"""
     return call(
         "GET",
-        f"/v1/bizdata-stats/channels/{channel_no}/realtime/daily",
+        f"/v1/bizdata-stats/channels/{segment(channel_no)}/realtime/daily",
         params=params,
     )
 
@@ -96,7 +96,7 @@ def stats_customer_status(channel_no: str = "") -> dict:
     if channel_no:
         return call(
             "GET",
-            f"/v1/customer-data/customer-status/channels/{channel_no}/statistics",
+            f"/v1/customer-data/customer-status/channels/{segment(channel_no)}/statistics",
         )
     return call("GET", "/v1/customer-data/customer-status/account/statistics")
 

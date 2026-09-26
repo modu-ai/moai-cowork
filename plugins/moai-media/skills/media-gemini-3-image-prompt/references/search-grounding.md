@@ -6,11 +6,11 @@ Gemini 3 Pro Image의 차별 기능 중 하나. 이미지 생성 도중 Google S
 
 | 사용 케이스 | Search Grounding 효과 |
 |---|---|
-| 통계 인포그래픽 | "한국 2026 SNS 사용자 수" → 실시간 검색 결과 반영 |
-| 지도·지리 다이어그램 | "서울 지하철 2호선 노선도" → 정확한 역 순서 |
-| 시사 일러스트 | "2026년 4월 한국 경제 지표 시각화" → 최신 데이터 |
-| 차트·그래프 | "2026 글로벌 AI 시장 규모 도넛 차트" → 출처 검증된 수치 |
-| 다이어그램 (역사·과학) | "광합성 과정" → 과학 정확성 |
+| 통계 인포그래픽 | 최신 자료를 검색할 수 있으나 수치와 기준 시점은 별도 대조 |
+| 지도·지리 다이어그램 | 노선·역 순서를 공식 자료와 별도 대조 |
+| 시사 일러스트 | 기준 날짜와 출처를 확인한 뒤 시각화 |
+| 차트·그래프 | 검색 결과의 원자료와 그림 속 수치를 별도 대조 |
+| 다이어그램 (역사·과학) | 공식·학술 자료와 개념을 별도 대조 |
 
 ## 언제 사용하지 않나
 
@@ -24,42 +24,31 @@ Gemini 3 Pro Image의 차별 기능 중 하나. 이미지 생성 도중 Google S
 ## 활성화 방법
 
 ### Google AI Studio (UI)
-- Tools 패널에서 "Use Google Search" 체크박스 활성화.
-- "Use Thinking Mode" 도 함께 활성화 권장 (정확도 시너지).
+- 현재 계정의 이미지 생성 화면에 Google Search 도구가 제공되는지 확인하고, 제공될 때만 켭니다. 고정된 체크박스 이름이나 추론 모드를 필수 단계로 가정하지 않습니다.
 
-### Vertex AI (API)
-```python
-from vertexai.preview.generative_models import GenerativeModel, Tool, grounding
+### API
 
-model = GenerativeModel("gemini-3-pro-image-preview")
-response = model.generate_content(
-    "<5-component 프롬프트>",
-    tools=[Tool.from_google_search_retrieval(grounding.GoogleSearchRetrieval())],
-    generation_config={"aspect_ratio": "16:9"},
-)
-```
+[Google의 현재 이미지 생성 가이드](https://ai.google.dev/gemini-api/docs/image-generation#grounding-with-google-search)는 이미지 요청에 `google_search` 도구를 따로 지정합니다. 이 프롬프트 전용 스킬은 API 호출을 실행하지 않으며, 검색 사용 여부만 제안합니다.
 
 ### Gemini App (consumer)
-- 일부 버전에서 "Search context" 토글 제공. 기능 위치는 앱 업데이트에 따라 변동.
+- 현재 앱의 검색 연결 제공 여부를 확인합니다. 프롬프트에 검색을 지시한 것만으로 도구가 켜졌다고 보고하지 않습니다.
 
 ## 프롬프트 작성 팁
 
 ### 시간 명시
 Search가 최신 자료를 가져올 수 있도록:
 
-- ✅ "based on 2026 data"
-- ✅ "as reported in Q1 2026"
-- ✅ "current statistics from KOSIS as of 2026"
-- ❌ "recent data" (모호)
+- 기준 날짜와 자료명을 구체적으로 적습니다. 예: "2026년 9월 25일 기준으로 확인한 공식 자료".
+- 실제로 확인하지 않은 기관·통계 연도나 수치는 프롬프트에 넣지 않습니다.
 
 ### 출처 우선순위 제시
 Gemini가 신뢰할 출처를 명시적으로 지시:
 
 ```
-A donut chart showing global AI image generation model market
-share in 2026. Prioritize data from Gartner, IDC, or Stanford
-HAI reports. <composition>. <lighting>. <style>. Display the
-percentages and model names verbatim from the source.
+A donut chart showing <verified subject and figures>.
+Use the official source supplied for this request, dated <date>.
+<composition>. <lighting>. <style>. Display the verified
+percentages and labels verbatim from that source.
 ```
 
 ### 데이터 검증 요청
@@ -74,22 +63,21 @@ finalizing the visualization.
 
 - Search 결과는 **항상 별도 검증** 필요. 모델이 wiki·블로그 등 신뢰도 낮은 출처를 가져올 수 있음.
 - 한국어 검색 결과는 영어보다 품질 편차 큼. 중요 데이터는 영어 키워드로 추가 검증.
-- Search Grounding은 reasoning latency를 늘림 (기본 대비 30-60% 증가).
-- 비용: 추가 reasoning 토큰 + Search API 호출. 비용 민감한 워크플로우에서는 사전 가격 확인.
+- 검색 사용은 응답 시간과 비용에 영향을 줄 수 있으므로 현재 서비스의 가격·사용량을 확인합니다.
 
 ## 완성 프롬프트 예
 
 ### 예 1 — 인포그래픽
 
 ```
-A horizontal infographic showing the top 5 most-used SNS
-platforms in South Korea in 2026 with percentage of users.
+A horizontal infographic showing <verified SNS platform data>
+in South Korea for <source period>.
 Wide composition with clean white background, captured in
 flat editorial design style. Soft consistent lighting.
 Modern infographic design, sans-serif typography. Each
-platform displays its name in Korean and its market share
-percentage verbatim from KOSIS 2026 statistics. Cross-reference
-data with at least two reliable sources.
+platform displays its name in Korean and the supplied percentage
+verbatim. Verify each figure and its denominator against the
+cited source before publishing.
 ```
 
 ### 예 2 — 지도
@@ -98,13 +86,13 @@ data with at least two reliable sources.
 A minimalist map of the Seoul Subway Line 2 (Loop Line). Top-
 down view, simplified vector style. Soft pastel palette. Modern
 transit map aesthetic. Each station name displayed in Korean
-verbatim from the official Seoul Metro 2026 information.
+verbatim from the current official Seoul Metro source supplied for this request.
 Maintain the correct loop sequence and the inner-outer track
 distinction.
 ```
 
 ## 출처
 
-- [Google AI for Developers — Gemini 3 Pro Image Preview (Grounding)](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview)
+- [Google AI for Developers — Gemini image generation](https://ai.google.dev/gemini-api/docs/image-generation)
 - [Vertex AI — Grounding with Google Search](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-pro-image)
 - [Google Cloud Blog — Nano Banana prompting guide](https://cloud.google.com/blog/products/ai-machine-learning/ultimate-prompting-guide-for-nano-banana)

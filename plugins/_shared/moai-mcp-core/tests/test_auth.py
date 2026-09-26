@@ -117,6 +117,51 @@ def test_저장된_리프레시_토큰이_설정값보다_우선한다(tmp_path)
     assert ref.refresh_token == "회전된최신값"
 
 
+def test_두_클라이언트는_갱신_직전에_회전된_토큰을_다시_읽는다(tmp_path):
+    """두 데스크톱 앱이 먼저 시작돼도 두 번째 앱은 폐기된 토큰을 보내지 않는다."""
+    from urllib.parse import parse_qs
+
+    current = "r0"
+    sent = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        nonlocal current
+        token = parse_qs(request.content.decode())["refresh_token"][0]
+        sent.append(token)
+        if token != current:
+            return httpx.Response(400, json={"error": "invalid_grant"})
+        current = f"r{len(sent)}"
+        return httpx.Response(200, json={"access_token": f"a{len(sent)}", "refresh_token": current})
+
+    path = tmp_path / "shared.json"
+    transport = httpx.MockTransport(handler)
+    first = OAuth2Refresher(_config(), TokenStore("svc", path=path), transport=transport)
+    second = OAuth2Refresher(_config(), TokenStore("svc", path=path), transport=transport)
+
+    assert first.refresh() == "a1"
+    assert second.refresh() == "a2"
+    assert sent == ["r0", "r1"]
+
+
+def test_잠금_파일을_만들지_못하면_일회용_토큰을_보내지_않는다(tmp_path):
+    blocker = tmp_path / "파일"
+    blocker.write_text("디렉터리 아님", encoding="utf-8")
+    calls = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        calls.append(request)
+        return httpx.Response(200, json={"access_token": "a1"})
+
+    ref = OAuth2Refresher(
+        _config(),
+        TokenStore("svc", path=blocker / "token.json"),
+        transport=httpx.MockTransport(handler),
+    )
+    with pytest.raises(AuthError, match="잠금을 확보하지 못했습니다"):
+        ref.refresh()
+    assert calls == []
+
+
 def test_자격증명이_없으면_setup_required(tmp_path):
     ref = OAuth2Refresher(
         _config(refresh_token=None, client_id=None, setup_guide="CONNECTORS.md"),
@@ -151,6 +196,16 @@ def test_access_token_이_없는_응답은_auth_error(tmp_path):
         transport=httpx.MockTransport(handler),
     )
     with pytest.raises(AuthError):
+        ref.refresh()
+
+
+def test_토큰_응답이_객체가_아니면_auth_error(tmp_path):
+    ref = OAuth2Refresher(
+        _config(),
+        TokenStore("svc", path=tmp_path / "t.json"),
+        transport=httpx.MockTransport(lambda r: httpx.Response(200, json=["invalid"])),
+    )
+    with pytest.raises(AuthError, match="해석할 수 없습니다"):
         ref.refresh()
 
 

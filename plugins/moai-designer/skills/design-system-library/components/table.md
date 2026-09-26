@@ -7,21 +7,22 @@ shadcn `Table` / `TableHeader` / `TableBody` / `TableRow`를 React 없이 **sema
 ```html
 <div class="w-full overflow-x-auto rounded-lg border border-hairline">
   <table class="w-full text-sm">
+    <caption class="sr-only">예시 서비스 지표</caption>
     <thead class="bg-surface-card text-left text-muted">
       <tr>
-        <th class="px-4 py-3 font-medium">항목</th>
-        <th class="px-4 py-3 font-medium">상태</th>
-        <th class="px-4 py-3 text-right font-medium">값</th>
+        <th scope="col" class="px-4 py-3 font-medium">항목</th>
+        <th scope="col" class="px-4 py-3 font-medium">상태</th>
+        <th scope="col" class="px-4 py-3 text-right font-medium">값</th>
       </tr>
     </thead>
     <tbody class="divide-y divide-hairline">
       <tr class="text-ink">
-        <td class="px-4 py-3">API 응답시간</td>
+        <th scope="row" class="px-4 py-3 text-left font-medium">API 응답시간</th>
         <td class="px-4 py-3"><span class="inline-flex items-center rounded-full bg-success/15 px-3 py-1 text-xs font-medium text-success">OK</span></td>
         <td class="px-4 py-3 text-right font-mono">142ms</td>
       </tr>
       <tr class="text-ink">
-        <td class="px-4 py-3">에러율</td>
+        <th scope="row" class="px-4 py-3 text-left font-medium">에러율</th>
         <td class="px-4 py-3"><span class="inline-flex items-center rounded-full bg-warning/15 px-3 py-1 text-xs font-medium text-warning">Watch</span></td>
         <td class="px-4 py-3 text-right font-mono">0.4%</td>
       </tr>
@@ -51,4 +52,5 @@ shadcn `Table` / `TableHeader` / `TableBody` / `TableRow`를 React 없이 **sema
 - `divide-hairline` — 행 구분선(브랜드 `hairline`).
 - `bg-surface-card` — 헤더 배경. 다크 시스템에선 다크 카드 색.
 - 숫자 열은 `font-mono` + `text-right` 권장(정렬 가독성).
+- 위 수치는 마크업 예시이며 실제 서비스 상태가 아니다. 결과물에는 확인된 데이터만 넣는다.
 - `[&_tr:nth-child(even)]:bg-surface-soft/50` — arbitrary variant로 스트라이프. alpha utility는 토큰 무관.

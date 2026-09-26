@@ -4,7 +4,7 @@ from __future__ import annotations
 from typing import Any
 
 from ..server import mcp
-from ._common import call
+from ._common import call, segment
 
 
 @mcp.tool()
@@ -19,7 +19,7 @@ def qna_answer(question_id: str, body: dict[str, Any]) -> dict:
 
     body 예: {"answer": "답변 내용"}
     """
-    return call("PUT", f"/v1/contents/qnas/{question_id}", body=body)
+    return call("PUT", f"/v1/contents/qnas/{segment(question_id)}", body=body)
 
 
 @mcp.tool()
@@ -39,7 +39,7 @@ def customer_inquiry_answer(inquiry_no: str, body: dict[str, Any]) -> dict:
     """고객 문의 신규 답변 등록. POST /v1/pay-merchant/inquiries/{inquiryNo}/answer"""
     return call(
         "POST",
-        f"/v1/pay-merchant/inquiries/{inquiry_no}/answer",
+        f"/v1/pay-merchant/inquiries/{segment(inquiry_no)}/answer",
         body=body,
     )
 
@@ -51,6 +51,6 @@ def customer_inquiry_answer_update(
     """고객 문의 기존 답변 수정. PUT /v1/pay-merchant/inquiries/{inquiryNo}/answer/{answerContentId}"""
     return call(
         "PUT",
-        f"/v1/pay-merchant/inquiries/{inquiry_no}/answer/{answer_content_id}",
+        f"/v1/pay-merchant/inquiries/{segment(inquiry_no)}/answer/{segment(answer_content_id)}",
         body=body,
     )

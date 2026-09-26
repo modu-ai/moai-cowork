@@ -110,6 +110,17 @@ class OAuth2Refresher:
 
     def refresh(self) -> str:
         """리프레시 토큰으로 액세스 토큰을 새로 받는다."""
+        try:
+            with self.store.refresh_lock():
+                return self._refresh_under_lock()
+        except (OSError, TimeoutError) as exc:
+            raise AuthError("토큰 갱신 잠금을 확보하지 못했습니다. 토큰을 갱신하지 않았습니다.") from exc
+
+    def _refresh_under_lock(self) -> str:
+        # 다른 앱이 이 객체가 시작된 뒤 토큰을 회전시켰을 수 있다.
+        latest = self.store.load().get("refresh_token")
+        if latest:
+            self._refresh_token = str(latest)
         self._require_credentials()
 
         keys = KEY_STYLES.get(self.config.key_style, KEY_STYLES["snake"])
@@ -144,6 +155,8 @@ class OAuth2Refresher:
             payload: dict[str, Any] = response.json()
         except ValueError as exc:
             raise AuthError("토큰 갱신 응답을 해석할 수 없습니다.") from exc
+        if not isinstance(payload, dict):
+            raise AuthError("토큰 갱신 응답을 해석할 수 없습니다.")
 
         # 응답 키는 관대하게 읽는다 — 같은 서비스가 문서와 실제 응답에서
         # 다른 표기를 쓰는 경우가 있어, 둘 다 받아들이는 편이 안전하다.

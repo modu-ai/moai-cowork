@@ -17,9 +17,9 @@
 `<FIRST_FRAME>`가 시작 프레임을 지정, `<IMAGE_REF_N>`(0-indexed)가 스타일/주제 참조를 산문에 인라인 표기:
 > *"in the style of `<IMAGE_REF_0>` a woman `<IMAGE_REF_1>` is walking"*
 
-## Google 자신이 명시한 known-broken 경고 (verbatim)
+## 영상 참조의 현재 제약
 
-*"Video references up to 3 seconds in duration are accepted by the API schema but are not correctly processed by the model at this time."* MCP는 이 모델에 `video_references` role을 노출한다. **스킬은 이 사실을 반드시 경고한다** — API가 받아들여도 모델이 제대로 처리하지 못한다.
+[Google의 현재 Omni 문서](https://ai.google.dev/gemini-api/docs/omni)는 영상 참조를 지원하되 인물의 외형 참조에 적합하고, 참조 영상 속 오디오는 무시하며, 여러 영상을 함께 참조하면 품질이 떨어질 수 있다고 설명한다. 이전의 “영상 참조가 제대로 처리되지 않는다”는 일괄 경고를 현재 사실로 반복하지 않는다. 이 세션의 Higgsfield `models_get(model_id="gemini_omni")`는 `video_references`를 반환했지만 실제 생성 결과는 확인하지 않았다. 참조 영상이 필요한 요청에는 현재 연결의 허용 역할·개수를 확인하고 이 제약을 승인 전에 알린다.
 
 ## 오디오·타임코드
 

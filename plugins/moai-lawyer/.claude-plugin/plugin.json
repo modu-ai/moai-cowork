@@ -1,8 +1,8 @@
 {
   "name": "moai-lawyer",
   "displayName": "⚖️ 법무 담당",
-  "version": "1.2.0",
-  "description": "법무 전담 AI 코워커 — 계약 검토·NDA 트리아지·컴플라이언스 점검·법령/판례 리서치·특허 검색/분석·식약처 안전 기준 스킬 10종. 국가법령정보 MCP(korean-law) 연동으로 인용 검증까지 수행합니다. 이런 분께 추천: 1인 사업자·스타트업 운영자. ※ 법률 자문 대체가 아닌 참고 자료입니다.",
+  "version": "1.4.16",
+  "description": "법무 전담 AI 코워커 — 계약 검토·NDA 트리아지·컴플라이언스 점검·법령/판례 리서치·국내외 특허/상표 선행조사·식약처 안전 기준 스킬. 국가법령정보 MCP(korean-law)로 인용을 검증하고, 특허/상표 공식 데이터 MCP(moai-mcp-ip)로 한국·미국·일본·유럽 DB를 조회합니다. 이런 분께 추천: 1인 사업자·스타트업 운영자. ※ 법률 자문 대체가 아닌 참고 자료입니다.",
   "author": {
     "name": "모두의 AI",
     "email": "email@mo.ai.kr"
@@ -13,6 +13,48 @@
       "type": "string",
       "title": "법제처 Open API OC 키",
       "description": "law.go.kr 에서 무료로 발급받는 사용자별 키입니다.",
+      "sensitive": true
+    },
+    "KIPRIS_API_KEY": {
+      "type": "string",
+      "title": "KIPRIS Plus 인증키",
+      "description": "한국 특허·상표 조회용. KIPRIS Plus 마이페이지 → APIKEY 관리에서 확인합니다. 쓰지 않으면 비워 두세요.",
+      "sensitive": true
+    },
+    "USPTO_ODP_API_KEY": {
+      "type": "string",
+      "title": "USPTO Open Data Portal API 키",
+      "description": "미국 특허 검색용. data.uspto.gov 에서 발급합니다. 쓰지 않으면 비워 두세요.",
+      "sensitive": true
+    },
+    "USPTO_TSDR_API_KEY": {
+      "type": "string",
+      "title": "USPTO TSDR API 키",
+      "description": "미국 상표 사건 상태 조회용. USPTO API Key Manager 에서 발급합니다. 쓰지 않으면 비워 두세요.",
+      "sensitive": true
+    },
+    "JPO_API_USER": {
+      "type": "string",
+      "title": "일본 특허청(JPO) API 아이디",
+      "description": "JPO 特許情報取得API 이용 등록 후 받은 ID. 쓰지 않으면 비워 두세요.",
+      "sensitive": false
+    },
+    "JPO_API_PASSWORD": {
+      "type": "string",
+      "title": "일본 특허청(JPO) API 비밀번호",
+      "description": "JPO 가 발급한 비밀번호. 쓰지 않으면 비워 두세요.",
+      "sensitive": true
+    },
+    "EPO_OPS_KEY": {
+      "type": "string",
+      "title": "EPO OPS consumer key",
+      "description": "유럽·국제 특허 조회용. developers.epo.org 앱에서 발급합니다. 쓰지 않으면 비워 두세요.",
+      "sensitive": true
+    },
+    "EPO_OPS_SECRET": {
+      "type": "string",
+      "title": "EPO OPS consumer secret",
+      "description": "EPO OPS 앱의 secret. 쓰지 않으면 비워 두세요.",
       "sensitive": true
     }
   }

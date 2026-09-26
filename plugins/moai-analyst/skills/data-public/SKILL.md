@@ -8,7 +8,7 @@ description: |
   - "공공데이터포털 특정 API 엔드포인트 호출"
   - "통계 찾아줘", "공공데이터 정밀 조회", "KOSIS 고급 분석"
   자연어 KOSIS 통계 1줄 질문(예: "광진구 고용률")은 korean-stats MCP(14도구·92 키워드·17 시도·230+ 자치구, 공용키 hosted)를 우선하고, 본 스킬은 BYOK(DATA_GO_KR_API_KEY/KOSIS_API_KEY) 기반 정밀 제어 경로를 담당합니다.
-version: "1.1.0"
+version: "1.1.1"
 ---
 
 # 공공데이터 정밀 조회 (Public Data Advanced)
@@ -33,15 +33,15 @@ version: "1.1.0"
 
 ### data.go.kr (공공데이터포털)
 - API URL: https://apis.data.go.kr/
-- 인증: DATA_GO_KR_API_KEY 환경변수
+- 인증: 사용자가 설정한 `DATA_GO_KR_API_KEY` 환경변수
 - 발급: https://www.data.go.kr/ 회원가입 → 활용신청 → 자동승인
-- 일일 제한: 1,000회 (개발계정)
+- 호출 한도는 선택한 API의 활용신청 페이지에서 확인
 
 ### KOSIS (통계청)
 - API URL: https://kosis.kr/openapi/Param/statisticsParameterData.do
-- 인증: KOSIS_API_KEY 환경변수
+- 인증: 사용자가 설정한 `KOSIS_API_KEY` 환경변수
 - 발급: https://kosis.kr/openapi/ 회원가입 → 자동승인
-- 일일 제한: 1,000회
+- 호출 한도는 KOSIS의 현재 안내에서 확인
 - 응답 포맷: JSON, XML, SDMX
 
 ## 워크플로우
@@ -56,40 +56,13 @@ version: "1.1.0"
 
 ### Step 2: API 키 확인 (필수)
 
-공공데이터 정밀 조회를 위해 API 키가 필요합니다. 키 없이는 진행하지 않습니다.
+요청한 서비스의 키가 현재 실행 환경에 설정되어 있는지 확인합니다. 없는 경우 사용자가 앱의 해당 연결 설정 또는 실행 환경에 키를 등록하도록 안내합니다. 키 값을 채팅에 입력받거나 플러그인 설치 폴더에 저장하지 않습니다. 등록 후 다시 확인하고 Step 3으로 진행합니다.
 
-```
-IF DATA_GO_KR_API_KEY 미설정 AND KOSIS_API_KEY 미설정:
-  "공공데이터 정밀 조회를 위해 API 키가 필요합니다.
-
-   [공공데이터포털]
-   1. https://www.data.go.kr/ 접속 → 회원가입
-   2. 개발계정 신청 → 활용신청 → 자동승인
-   무료, 1,000회/일
-
-   [KOSIS 통계청]
-   1. https://kosis.kr/openapi/ 접속 → 회원가입
-   2. 인증키 신청 → 자동승인 즉시 발급
-   무료, 1,000회/일
-
-   또는 자연어 1줄 질문이면 korean-stats MCP(키 불필요)를 사용하세요.
-
-   어떤 API 키를 등록하시겠습니까?"
-
-  AskUserQuestion:
-  ○ 공공데이터포털 키 입력 (권장)
-  ○ KOSIS 통계 키 입력
-  ○ 두 키 모두 입력
-  ○ korean-stats MCP로 자연어 조회 (키 불필요)
-  + Other
-
-  → 키 입력 후 ${CLAUDE_PLUGIN_DATA}/moai-credentials.env에 저장
-  → Step 3로 진행
-```
+설정 가능한 연결 경로가 없으면 키가 필요한 직접 API 호출은 중단하고, 연결된 `korean-stats` MCP의 자연어 조회 또는 사용자가 제공한 공개 통계 파일 분석을 제안합니다. `korean-stats` MCP도 연결 여부를 확인한 뒤 사용합니다. 키 발급과 호출 한도는 [공공데이터포털](https://www.data.go.kr/) 또는 [KOSIS 공유서비스](https://kosis.kr/openapi/)의 해당 안내에서 확인합니다.
 
 ### Step 3: 데이터 검색
 - 사용자 요청에서 키워드·API 엔드포인트·파라미터 추출
-- WebFetch로 API 호출
+- 현재 앱에서 사용할 수 있는 HTTPS 요청 도구로 API 호출. 요청 URL에 포함되는 키는 결과·로그·보고서에 노출하지 않는다.
 - 결과 파싱 (JSON/XML/SDMX)
 
 ### Step 4: 결과 정리

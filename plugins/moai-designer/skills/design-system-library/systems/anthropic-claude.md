@@ -6,12 +6,13 @@ description: A warm-canvas editorial interface for Anthropic's Claude product. T
 colors:
   primary: "#cc785c"
   primary-active: "#a9583e"
+  link: "#9b4f36"
   primary-disabled: "#e6dfd8"
   ink: "#141413"
   body: "#3d3d3a"
   body-strong: "#252523"
-  muted: "#6c6a64"
-  muted-soft: "#8e8b82"
+  muted: "#66645d"
+  muted-soft: "#6a6862"
   hairline: "#e6dfd8"
   hairline-soft: "#ebe6df"
   canvas: "#faf9f5"
@@ -21,10 +22,12 @@ colors:
   surface-dark: "#181715"
   surface-dark-elevated: "#252320"
   surface-dark-soft: "#1f1e1b"
-  on-primary: "#ffffff"
+  on-primary: "#141413"
+  on-primary-active: "#ffffff"
   on-dark: "#faf9f5"
   on-dark-soft: "#a09d96"
   accent-teal: "#5db8a6"
+  accent-teal-ink: "#2a796c"
   accent-amber: "#e8a55a"
   success: "#5db872"
   warning: "#d4a017"
@@ -145,7 +148,7 @@ components:
     height: 40px
   button-primary-active:
     backgroundColor: "{colors.primary-active}"
-    textColor: "{colors.on-primary}"
+    textColor: "{colors.on-primary-active}"
     rounded: "{rounded.md}"
   button-primary-disabled:
     backgroundColor: "{colors.primary-disabled}"
@@ -175,7 +178,7 @@ components:
     size: 36px
   text-link:
     backgroundColor: transparent
-    textColor: "{colors.primary}"
+    textColor: "{colors.link}"
     typography: "{typography.body-md}"
   top-nav:
     backgroundColor: "{colors.canvas}"
@@ -345,11 +348,13 @@ The dark surfaces are where Claude shows its product chrome — code blocks, ter
 - **Ink** (`{colors.ink}` — #141413): All headlines and primary text. Warm dark, slightly off-pure-black.
 - **Body Strong** (`{colors.body-strong}` — #252523): Emphasized paragraphs, lead text.
 - **Body** (`{colors.body}` — #3d3d3a): Default running-text color.
-- **Muted** (`{colors.muted}` — #6c6a64): Sub-headings, breadcrumbs, footer-adjacent secondary text.
-- **Muted Soft** (`{colors.muted-soft}` — #8e8b82): Captions, fine-print, copyright lines.
-- **On Primary** (`{colors.on-primary}` — #ffffff): Text on coral buttons.
+- **Muted** (`{colors.muted}` — #66645d): Sub-headings, breadcrumbs, secondary text on cream surfaces.
+- **Muted Soft** (`{colors.muted-soft}` — #6a6862): Captions and fine-print on cream surfaces; use `{colors.on-dark-soft}` on dark surfaces.
+- **On Primary** (`{colors.on-primary}` — #141413): Text on default coral buttons and small badges. Use `{colors.on-primary-active}` (white) on the darker active coral.
+- **Link** (`{colors.link}` — #9b4f36): Inline links on cream canvas and cards; the default coral is reserved for filled accents.
 - **On Dark** (`{colors.on-dark}` — #faf9f5): Cream-tinted white used on dark surfaces (echoes the canvas tone).
 - **On Dark Soft** (`{colors.on-dark-soft}` — #a09d96): Footer body text, secondary labels in dark mockups.
+- **Accent Teal Ink** (`{colors.accent-teal-ink}` — #2a796c): Teal text on cream or white surfaces; the lighter `{colors.accent-teal}` is for non-text accents.
 
 ### Semantic
 - **Success** (`{colors.success}` — #5db872): Green status dots, "available" indicators.
@@ -426,7 +431,7 @@ The elevation philosophy is **color-block first, shadow rare**. Most depth comes
 
 ### Decorative Depth
 - The Anthropic spike-mark glyph (4-spoke radial asterisk) appears as a small black mark in the brand wordmark and inline as a content marker.
-- Code editor mockups carry their own internal depth: syntax-highlighted text in muted blues / oranges / grays, line numbers in `{colors.muted-soft}`, status bars at the bottom in `{colors.surface-dark-elevated}`.
+- Code editor mockups carry their own internal depth: syntax-highlighted text in muted blues / oranges / grays, line numbers in `{colors.on-dark-soft}`, status bars at the bottom in `{colors.surface-dark-elevated}`.
 - Some hero illustrations use simple line-art with coral and dark-navy strokes on cream — minimal, hand-drawn-feeling, never photorealistic.
 
 ## Shapes
@@ -460,7 +465,7 @@ When photography is used (rare — mostly testimonials), avatars crop to perfect
 
 ### Buttons
 
-**`button-primary`** — The signature coral CTA. Background `{colors.primary}` (#cc785c), text `{colors.on-primary}` (white), type `{typography.button}` (StyreneB 14px / 500), padding 12px × 20px, height 40px, rounded `{rounded.md}` (8px). Active state `button-primary-active` darkens to `{colors.primary-active}` (#a9583e).
+**`button-primary`** — The signature coral CTA. Background `{colors.primary}` (#cc785c), text `{colors.on-primary}` (dark ink), type `{typography.button}` (StyreneB 14px / 500), padding 12px × 20px, height 40px, rounded `{rounded.md}` (8px). Active state `button-primary-active` darkens to `{colors.primary-active}` (#a9583e) and uses `{colors.on-primary-active}` (white) text.
 
 **`button-secondary`** — Cream button with hairline outline. Background `{colors.canvas}`, text `{colors.ink}`, 1px hairline border, same padding + height + radius as primary.
 
@@ -470,7 +475,7 @@ When photography is used (rare — mostly testimonials), avatars crop to perfect
 
 **`button-icon-circular`** — 36px circular icon button. Background `{colors.canvas}`, hairline border, ink-color icon. Used for carousel arrows, share, "view more".
 
-**`text-link`** — Inline body links in `{colors.primary}` (the coral). Underlined on press; the coral inline link is one of the system's most distinctive small details.
+**`text-link`** — Inline body links in `{colors.link}` (dark coral) on cream surfaces. Underlined on press; the coral family remains one of the system's most distinctive small details.
 
 ### Cards & Containers
 
@@ -490,7 +495,7 @@ When photography is used (rare — mostly testimonials), avatars crop to perfect
 
 **`pricing-tier-card-featured`** — The featured tier (typically "Pro" or "Team"). Background flips to `{colors.surface-dark}`, text inverts to `{colors.on-dark}`. The dark surface IS the featured-tier signal.
 
-**`callout-card-coral`** — A full-bleed coral card carrying a major call-to-action. Background `{colors.primary}` (#cc785c), text `{colors.on-primary}` (white), rounded `{rounded.lg}`, padding `{spacing.xxl}` (48px). The coral surface IS the voltage; the CTA inside uses an inverted button style (cream/canvas button on coral).
+**`callout-card-coral`** — A full-bleed coral card carrying a major call-to-action. Background `{colors.primary}` (#cc785c), text `{colors.on-primary}` (dark ink), rounded `{rounded.lg}`, padding `{spacing.xxl}` (48px). The coral surface IS the voltage; the CTA inside uses an inverted button style (cream/canvas button on coral).
 
 **`connector-tile`** — Used on the connectors page's integration grid. Background `{colors.canvas}` with hairline border, rounded `{rounded.lg}`, padding 20px. Each tile carries a logo at top, a `{typography.title-sm}` connector name, and a short description.
 
@@ -514,7 +519,7 @@ When photography is used (rare — mostly testimonials), avatars crop to perfect
 
 ### CTA / Footer
 
-**`cta-band-coral`** — A pre-footer "Try Claude" CTA card. Full-width coral fill, white type, rounded `{rounded.lg}`, padding 64px. Carries an h2 in `{typography.display-sm}` (still serif!), a sub-line, and a cream-button CTA.
+**`cta-band-coral`** — A pre-footer "Try Claude" CTA card. Full-width coral fill, dark-ink type, rounded `{rounded.lg}`, padding 64px. Carries an h2 in `{typography.display-sm}` (still serif!), a sub-line, and a cream-button CTA.
 
 **`cta-band-dark`** — Alternative pre-footer band on developer-focused pages. Background `{colors.surface-dark}`, text `{colors.on-dark}`, rounded `{rounded.lg}`, padding 64px. Often pairs with a code-window card.
 
@@ -538,7 +543,7 @@ When photography is used (rare — mostly testimonials), avatars crop to perfect
 - Don't put coral everywhere. The coral is scarce on individual elements and generous only on full-bleed coral callout cards.
 - Don't use Inter for display headlines. The serif character is the brand voice.
 - Don't repeat the same surface mode in two consecutive bands. The pacing alternates: cream → cream-card → dark-mockup → cream → coral-callout → dark-footer.
-- Don't add hover state styling beyond what the system already encodes — primary darkens on press; nothing else changes.
+- Don't add hover state styling beyond what the system already encodes — the primary button's background darkens and its label switches to `{colors.on-primary-active}` on press.
 
 ## Responsive Behavior
 
@@ -553,7 +558,7 @@ When photography is used (rare — mostly testimonials), avatars crop to perfect
 
 ### Touch Targets
 - `{component.button-primary}` at minimum 40 × 40px.
-- `{component.button-icon-circular}` at exactly 36 × 36 — slightly under WCAG 44 but visually centered.
+- `{component.button-icon-circular}` at exactly 36 × 36 — check WCAG 2.5.8 AA size/spacing in the rendered layout; enlarge to 44 × 44 where the 2.5.5 AAA target applies.
 - `{component.text-input}` height is 40px.
 - Connector tile entire card area is tappable; effective tap area >> 44px.
 

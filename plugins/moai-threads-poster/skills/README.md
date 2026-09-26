@@ -1,8 +1,8 @@
 # moai-threads-poster 스킬 (직접 발행 + 문체 학습 + 멀티 채널)
 
-이 플러그인은 Threads(Meta) · Instagram 으로 직접 발행하는 5개의 스킬을 제공합니다. 문체 학습 → 초안 작성(문체 적용) → 승인 → 즉시 발행, 그리고 Facebook·X 용 텍스트 준비(복붙) 의 파이프라인으로 운영합니다.
+이 플러그인은 Threads(Meta)·Instagram 발행 스킬과 문체 학습·멀티 채널 포맷 스킬을 제공합니다. 문체 학습 → 초안 작성(문체 적용) → 승인 → 즉시 발행, 그리고 Facebook·X용 텍스트 준비(복붙) 흐름으로 운영합니다.
 
-> **직접 발행 모델.** 큐·예약·승인 상태머신은 없습니다. 세션 안에서 초안을 작성해 사용자에게 보여드리고, 승인하면 즉시 Graph API 로 발행합니다. 예약·정기 발행(예: 매주 수요일 12시)은 Claude Cowork 이 담당합니다.
+> **직접 발행 모델.** 큐·예약·승인 상태머신은 없습니다. 세션 안에서 초안을 작성해 사용자에게 보여드리고, 승인하면 즉시 Graph API 로 발행합니다. 예약·정기 발행은 사용 중인 앱의 지원 여부를 확인합니다.
 
 ## 스킬 목록
 
@@ -52,8 +52,7 @@
          │  threads_style_save  (threads-style-learn · 자격증명 불필요)
          ▼
   ┌──────────────────┐
-  │ style-profile.md │  (.data/ 에 영구 저장 — gitignored)
-  │  (문체 프로필)   │
+  │ 문체 프로필      │  (사용자 홈 .moai/mcp/threads-style-profile.md)
   └────────┬─────────┘
            │ threads_style_load  (threads-post-draft 의 0단계가 자동 호출)
            ▼
@@ -70,14 +69,14 @@
    ▼       ▼       ▼
  ┌──────┐ ┌──────┐ ┌────────────┐
  │Threads│ │Facebook│ │X(free/prem)│
- │≤500B │ │복붙용 │ │ 분할/단일  │
+ │≤500자│ │복붙용 │ │ 분할/단일  │
  └──┬───┘ └──┬───┘ └─────┬─────┘
     │        │           │
  즉시 발행  사용자 복붙  사용자 복붙
  (Graph API) (API 발행 불가) (트윗 체인)
 ```
 
-> **핵심 분기**: Threads 는 *즉시 직접 발행* (승인 → publish). Facebook·X 는 *복붙용 텍스트만* (본 플러그인이 발행하지 않음 — `threads_format_multi_channel` 이 포맷만 제공). 예약·정기 발행은 Claude Cowork 이 담당합니다.
+> **핵심 분기**: Threads 는 *즉시 직접 발행* (승인 → publish). Facebook·X 는 *복붙용 텍스트만* (본 플러그인이 발행하지 않음 — `threads_format_multi_channel` 이 포맷만 제공). 예약·정기 발행은 사용 중인 앱의 지원 여부를 확인합니다.
 
 ## 각 단계별 MCP 도구
 
@@ -175,21 +174,21 @@ Instagram 발행에는 추가로 `IG_ACCESS_TOKEN` / `IG_USER_ID` 가 필요합�
 | 항목 | 내용 |
 |------|------|
 | **승인 없이 발행 금지** | 초안을 사용자에게 보여드리고 승인한 뒤에 발행합니다 ("자동 아닌 자율") |
-| **바이트 제한** | Threads 텍스트는 500 UTF-8 바이트 제한 (ASCII 1B, 한글 3B, 이모지 4B) |
+| **글자 수 제한** | Threads 일반 게시글은 최대 500자. 한글·이모지를 UTF-8 바이트 수로 환산하지 않음 |
 | **레이트 리밋** | Threads 24시간 250 포스트 제한 (초과 시 HTTP 613) |
 | **토큰 만료** | 장기 토큰(60일) 만료 시 `threads_refresh_token`으로 갱신 |
-| **예약·정기 발행** | 본 플러그인 범위 밖 — Claude Cowork 이 담당 |
+| **예약·정기 발행** | 본 플러그인 범위 밖 — 사용 중인 앱의 지원 여부 확인 |
 
 ## Cross-References
 
 - **MCP 서버**: `mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/server.py` — 도구 정의 (직접 발행 모델)
 - **API 클라이언트**: `mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/threads_api.py`, `instagram_api.py`
-- **스킬**: `skills/threads-post-draft/`, `skills/threads-multichannel/`, `skills/instagram-post/`, `skills/instagram-comments/`, `skills/threads-style-learn/` — 현재 위치 (5종)
+- **스킬**: `skills/threads-post-draft/`, `skills/threads-multichannel/`, `skills/instagram-post/`, `skills/instagram-comments/`, `skills/threads-style-learn/` — 현재 위치
 - **마켓플레이스**: `.claude-plugin/marketplace.json` entry 등록
 
 ## 버전
 
-- moai-threads-poster: 1.2.0 (직접 발행 모델 — 큐·스케줄러 제거)
+- moai-threads-poster: 버전은 플러그인 매니페스트 참조 (직접 발행 모델)
 - 스킬 버전: 각 `SKILL.md` frontmatter `version`
 
 ---

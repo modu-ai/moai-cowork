@@ -2,15 +2,15 @@ version: 2.9.0
 skill: book-chapter-writer
 
 test_cases:
-  - id: TC-01-5-elements
-    name: 꼭지 5 요소 (훅·본문·클라이맥스·정리·연결)
+  - id: TC-01-structure
+    name: 독자와 장르에 맞는 꼭지 구성
     input: |
       "30일 챌린지 시작하기" 꼭지 본문 작성. 4매.
     expected:
-      - elements: [훅, 본문, 클라이맥스, 정리, 다음연결]
-      - 분량_비중: ["10%", "70%", "10%", "5%", "5%"]
+      - elements: [도입, 전개, 마무리]
+      - optional_elements: [전환, 다음연결]
     pass_criteria:
-      - all_5_elements_present: true
+      - 구성_강제_비율_없음: true
 
   - id: TC-02-genre-style-practical
     name: 실용서 문체 적용
@@ -18,10 +18,8 @@ test_cases:
       "30일 챌린지" 부업서 꼭지.
     expected:
       - style:
-        - 어미: "~다 / ~합니다 혼용"
-        - 문장_길이: "짧게 (30~50자)"
-        - 단락_길이: "3~5 문장"
-        - 시각자료: "꼭지당 2~4개"
+        - 어미: "저자 문체에 따라 일관되게 조정"
+        - 시각자료: "필요한 경우에만 배치"
         - 어조: "친근·격려"
     pass_criteria:
       - practical_style_applied: true
@@ -32,9 +30,9 @@ test_cases:
       "Next.js App Router" 꼭지. 8매.
     expected:
       - style:
-        - 어미: "~다 일관"
-        - 시각자료: "꼭지당 3~6개"
-        - code_blocks: "3개 이상"
+        - 어미: "저자 문체에 맞게 조정"
+        - 시각자료: "설명에 필요한 것만 배치"
+        - code_blocks: "설명에 필요한 경우만"
         - 코드_언어_지정: true
     pass_criteria:
       - tech_style_with_code: true
@@ -67,60 +65,96 @@ test_cases:
   - id: TC-06-200ja-원고지-count
     name: 200자 원고지 분량 카운트
     input: |
-      목표 4매 본문 작성. 분량 카운트 확인.
+      본문이 "가 나 다 라"이고 투고처는 공백 포함 글자 수를 200으로 나눈 매수를 요구한다.
+      이 본문만 대상으로 글자 수와 매수를 표시하라.
     expected:
-      - 분량_표시: "___자 (200자 원고지 ___매)"
-      - 변환_공식: "워드 카운트 ÷ 4 ≈ 매수"
-      - 허용_오차: "±20%"
+      - 분량_표시: "공백 포함 7자, 원고지 0.035매"
+      - 변환_공식: "투고처가 공백 포함 200자 기준을 지정한 경우 측정한 글자 수 ÷ 200"
+      - 계산_기준: "본문만, 공백 포함"
     pass_criteria:
-      - 분량_meta_표시: true
+      - 실제_문자수_일치: true
+      - 표시_매수_산술_일치: true
 
   - id: TC-07-citation-handling
     name: 인용·각주 처리
     input: |
-      통계 데이터·인터뷰 인용 포함 본문 작성.
+      출처와 이용 허락 여부를 확인할 수 있는 통계 데이터·인터뷰를 포함한 본문 작성.
     expected:
-      - citation_types: [짧은인용_따옴표, 긴인용_들여쓰기, 통계_각주, 인터뷰_매체_날짜, 인터넷_URL_접속일]
-      - 각주_정리표: "꼭지 끝"
+      - 출처_표시: "실제로 사용한 자료에 맞게"
+      - 인용_조건: "목적·분량·이용 허락 여부를 개별 확인"
     pass_criteria:
-      - all_citations_referenced: true
+      - used_citations_referenced: true
 
   - id: TC-08-verbatim-quote-rejection
-    name: 외부 참고 자료 직접 인용 거부
+    name: 허락 없는 외부 문장 전재 방지
     input: |
       vault에서 본 카피라이터 예시 문장 그대로 사용.
     expected:
-      - reject: true
-      - reframe: 개념만_추출_자체_재작성
+      - reject_verbatim_without_basis: true
+      - reframe: 개념만_추출_자체_재작성_또는_적법한_인용_조건_확인
     pass_criteria:
-      - no_verbatim_quote: true
+      - 무단_전재_없음: true
 
   - id: TC-09-chain-post-review
-    name: 검수 체인 권장 (humanize + ai-slop 필수)
+    name: 검수 단계와 외부 서비스 조건
     input: |
       본문 초고 완성 후 다음 단계는?
     expected:
       - chain:
-        - korean-spell-check
         - book-revision-coach
-        - korean-humanize (필수)
-        - ai-slop-reviewer (필수)
+        - korean-humanize (필요한 경우)
+        - ai-slop-reviewer (설치된 경우)
+      - 외부_맞춤법_서비스: "문서 공개 가능 여부와 사용자 의사 확인"
     pass_criteria:
-      - chain_emphasized: true
+      - 원문_사실_대조: true
+      - 미설치_플러그인_호출_없음: true
+
+  - id: TC-10-publisher-unknown
+    name: 투고처 양식 미확인
+    input: |
+      공식 제출 안내를 찾지 못한 출판사에 보낼 원고다. 선호 어미와 원고지 계산 기준을 알려줘.
+    expected:
+      - 선호_어미: 미확인
+      - 원고지_기준: 미확인
+      - 다음_단계: "공식 안내를 확인하거나 출판사에 문의"
+    pass_criteria:
+      - 근거_없는_출판사_관행_없음: true
+
+  - id: TC-11-licensed-quotation
+    name: 허락된 직접 인용
+    input: |
+      저작권자가 서면으로 허락한 짧은 문장을 출처와 함께 인용하라.
+    expected:
+      - 허락된_인용: "원문을 구분하여 표시"
+      - 출처_표시: true
+    pass_criteria:
+      - 적법한_인용_일률적_거부_없음: true
+
+  - id: TC-12-review-meaning
+    name: 선택적 윤문 전후 의미 대조
+    input: |
+      원문에 2024년, 12명, 서울, 인용문 "가 나"가 있다. 윤문본의 네 항목을 원문과 대조하라.
+      moai-coworker 플러그인은 설치되어 있지 않다.
+    expected:
+      - 보존_항목: [2024년, 12명, 서울, '"가 나"']
+      - moai_coworker_호출: false
+    pass_criteria:
+      - 수치_고유명사_인용_보존: true
+      - 미설치_플러그인_호출_없음: true
 
 rubric_anchors:
   correctness:
     target_score: ">= 0.80"
     checks:
-      - 200ja_워고지_standard_accurate
-      - kpipa_citation_format_correct
-      - korean_publisher_style_table_accurate
+      - 글자수_계산_기준_명시
+      - 출처_조건_확인
+      - 출판사_양식_추정_없음
   completeness:
     target_score: ">= 0.85"
     checks:
       - 4_step_workflow_complete
       - 4_genre_style_preset_complete
-      - 5_element_structure_complete
+      - 장르별_구성_선택_가능
       - citation_5_types_complete
   clarity:
     target_score: ">= 0.80"

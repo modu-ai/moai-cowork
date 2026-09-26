@@ -1,98 +1,24 @@
-# prompt.md — 5-Section Template + Brand Branches
+# 디자인 세션용 프롬프트 틀
 
-Canonical verbatim template for `prompt.md` handoff assembly.
-
-## 5-Section Template
-
-`prompt.md` MUST follow this exact structure:
+사용자가 요청한 항목만 포함하고, 없는 값은 확인 필요로 둔다. 섹션 수와 문장 수를 고정하지 않는다.
 
 ```markdown
-# Design Brief: {product name from proposal.md}
+# [화면 또는 작업 이름]
 
-## 1. Goal
+## 목적과 대상
+[무엇을 만들며 누가 어떤 상황에서 쓰는가]
 
-{2-3 sentences describing what needs to be designed.}
+## 범위와 콘텐츠
+[필요한 화면·상태·실제 문구와 제외 범위]
 
-I need a complete visual design for a {product description} — specifically the {scope: landing page / dashboard / mobile app / web app / etc.}.
+## 브랜드와 참고 자료
+[제공된 색·서체·컴포넌트·참고 파일 또는 URL의 출처]
 
-The design should communicate: {top 3 value propositions from Lean Canvas UVP block}
+## 결과물과 검토 기준
+[원하는 형식, 확인할 동작·접근성·반응형 조건]
 
-Target users: {Customer Segments from Lean Canvas, 1-2 sentences}
-
----
-
-## 2. References
-
-For visual inspiration and style direction, please study these references:
-
-{List of URLs from references.md — 3-5 URLs to existing products with brief style notes}
-
-Key aesthetic direction:
-- {style adjective 1}: {brief explanation}
-- {style adjective 2}: {brief explanation}
-- {style adjective 3}: {brief explanation}
-
----
-
-## 3. Brand Voice
-
-{EITHER brand_present branch OR brand_absent branch — see below}
-
----
-
-## 4. Acceptance Criteria
-
-The design MUST satisfy these non-negotiable requirements:
-
-{Concise list from acceptance.md — typically 5-8 items}
-
----
-
-## 5. Out of Scope
-
-Do NOT design:
-
-{Explicit exclusions — typically 3-5 items}
+## 결정 대기
+[추정하지 않고 남겨 둔 질문]
 ```
 
-## Section 3 — Brand Voice Two Branches
-
-### Branch A: Brand present (`brand_present = true`)
-
-```markdown
-## 3. Brand Voice
-
-The brand personality is: {from brand-voice.md tone/personality fields}
-
-Voice guidelines:
-{Extract 3-5 most actionable brand voice rules from brand-voice.md}
-
-Color palette (from brand identity):
-{If visual-identity.md present: list primary colors with hex codes}
-{If visual-identity.md absent: "Brand colors TBD — please use {tone}-appropriate palette"}
-
-Typography:
-{If visual-identity.md present: font families}
-{If visual-identity.md absent: "Typography TBD — sans-serif for readability"}
-```
-
-### Branch B: Brand absent (`brand_present = false`)
-
-```markdown
-## 3. Brand Voice (default — please customize)
-
-> NOTE: This project does not yet have a defined brand voice. The placeholders below
-> are generic suggestions. Before using this prompt in Claude Design, either:
-> (a) Edit this section with your actual brand voice, OR
-> (b) Ask for a design session in natural language and choose the brand-interview path (when available) to define brand context
-
-Brand personality: professional, approachable, modern
-
-Voice guidelines:
-- Clear and concise language; no jargon
-- Action-oriented CTAs
-- Friendly but credible tone
-
-Color palette: neutral, modern (grays, whites, one accent color — TBD)
-Typography: clean sans-serif (Inter, Geist, or similar)
-```
+외부 세션에 붙여 넣을 본문에는 현재 세션에서만 의미 있는 로컬 경로·SPEC ID·내부 에이전트 이름을 넣지 않는다. 브랜드 자료가 없을 때 임의 색·폰트를 확정하거나 가상의 전문가 경력을 꾸며 넣지 않는다. 필요하면 사용자가 선택할 수 있는 시각 방향을 제안값으로 분리한다.

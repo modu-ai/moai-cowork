@@ -1,215 +1,70 @@
 ---
 name: collab-exec-summary
 description: |
-  복잡한 분석·재무·운영 보고를 경영진 1페이지(≤500단어) 요약으로 변환합니다.
-  다음과 같은 요청 시 사용하세요:
-  - "임원 보고용 1페이지 요약 만들어줘" / "이사회 보고서 요약해줘" / "경영진 브리핑 1장으로 정리해줘"
-  - "이 리포트 핵심만 요약해줘" / "긴 보고서 1페이지로 줄여줘" / "C레벨 요약 작성해줘"
-  - "What/So What/Now What 구조로 정리해줘" / "카톡·이메일로 보낼 단일 HTML 1pager 만들어줘"
-  기본 출력은 moai-officer:doc-html-report로 단일 HTML(이미지·CSS·JS 인라인, 카톡·이메일 바로 공유)이며, pdf/docx/pptx/hwpx 변환은 옵션 체이닝. 입력 가능: moai-marketer:marketing-performance-report 출력 · moai-accountant:finance-financial-statements · moai-accountant:finance-variance-analysis · moai-coworker:collab-pm-report · 외부 보고서. 한국 임원/이사회 표준 What/So What/Now What + K-IFRS 재무 지표 우선.
-  [책임 경계] vs moai-marketer:marketing-performance-report: collab-exec-summary=임원 압축 요약(≤500단어), marketing-performance-report=마케팅 풀 리포트(전체).
-version: "1.1.0"
+  긴 보고서와 분석 자료를 경영진이 읽을 수 있는 짧은 의사결정 요약으로 정리합니다.
+  "임원 보고용으로 요약해줘", "이사회 자료 핵심만 정리해줘", "What/So What/Now What으로 써줘" 같은 요청에 사용합니다.
+  원문에 없는 성과·재무 수치·결정 시한을 만들지 않고, 필요한 경우 문서 제작 스킬로 연결합니다.
+version: "1.1.2"
 ---
 
-# Executive Summary: 경영진 1페이지 요약
+# 경영진 요약
 
-> moai-analyst | What / So What / Now What 3-축 구조
+## 목적
 
-## 개요
+제공된 보고서의 핵심 사실, 사업상 의미, 결정해야 할 사항을 짧게 정리합니다. 요약에 쓴 수치와 판단은 원문 위치나 실제 조회 자료로 추적할 수 있어야 합니다. 자료가 없으면 요약 대상 자료를 요청하거나, 제공된 정보만으로 가능한 초안이라고 표시합니다.
 
-10-50페이지짜리 분석·재무·운영 보고서를 C-level이 5분 안에 의사결정할 수 있는 1페이지로 변환합니다. moai-coworker(finance-financial-statements, finance-variance-analysis), moai-pm(weekly-report), 외부 보고서 모두 입력 가능합니다.
+## 입력과 범위
 
-핵심 원칙: **결론부터** (McKinsey Pyramid). 근거는 그 다음, 데이터는 부록.
+- 사용자가 제공한 보고서, 재무제표, 회의록, 운영 지표 등을 읽습니다.
+- 읽을 수 없는 파일·페이지와 조회하지 못한 외부 자료를 밝힙니다.
+- 원문의 기간, 단위, 회계 기준, 잠정·확정 여부를 보존합니다.
+- 인과관계나 전망은 근거가 없으면 사실 대신 가설로 적습니다.
+- 1페이지·500단어처럼 분량 지정이 있으면 그 요청에 맞춥니다. 한국어는 단어 수보다 실제 페이지와 읽기 쉬운 길이를 확인합니다.
 
-## 기본 출력 = 단일 HTML 파일 (카톡 즉시 공유)
+## 작성 순서
 
-본 스킬의 **기본 출력은 마크다운 + `moai-officer:doc-html-report` 렌더링한 단일 HTML 파일**입니다.
+1. **결론**: 원문이 뒷받침하는 가장 중요한 메시지를 한 문장으로 적습니다.
+2. **What**: 결정과 관련된 사실·수치, 기준 기간과 출처를 추립니다.
+3. **So What**: 사실이 목표·비용·위험에 미치는 의미를 설명합니다. 계산한 값에는 산식을 붙입니다.
+4. **Now What**: 실제 가능한 선택지, 장단점, 확인이 필요한 전제를 적습니다. 권고가 가능하면 근거와 함께 제시하고, 자료가 부족하면 결정을 유보할 조건을 적습니다.
+5. **위험과 다음 확인**: 남은 불확실성과 누가 무엇을 확인할지 적습니다. 합의되지 않은 날짜나 담당자를 만들지 않습니다.
 
-- **1개 HTML 파일**: 이미지(base64/SVG)·CSS(`<style>`)·JS(`<script>`) 전부 인라인
-- **외부 의존성 0**: 폰트 CDN 1건 제외(한국어 가독성 단일 예외)
-- **즉시 공유 가능**: 카톡 첨부, 이메일 첨부, USB 전달, 오프라인 열람 모두 가능
-- **변환 옵션 체이닝**: 동일 마크다운에서 pdf/docx/pptx/hwpx로 분기 변환
+자료에 없는 매출·EBITDA·LTV/CAC·K-IFRS 적용 여부를 채워 넣지 않습니다. 재무 수치는 `moai-accountant:finance-financial-statements` 또는 `moai-accountant:finance-variance-analysis`의 실제 결과가 있을 때 참고합니다.
 
-```text
-collab-exec-summary → doc-html-report (mode=status, 기본)
-                  → (선택) doc-pdf       — 인쇄·결재용 PDF
-                  → (선택) doc-docx   — 편집 가능한 .docx
-                  → (선택) doc-pptx    — 이사회 슬라이드 1매
-                  → (선택) doc-hwp      — 한국 공공기관 .hwpx
-```
+## 출력
 
-## 트리거 키워드
-
-경영진 보고 이사회 자료 임원 1pager C레벨 요약 executive summary 임원 보고서 1페이지 요약 경영 핵심 요약
-
-## 워크플로우
-
-### 1단계: 입력 자료 분석
-
-다음 중 하나 이상:
-- 원본 보고서 (PDF/Markdown/DOCX) — 10-50p
-- 재무제표 + 변동분석 결과 (`moai-coworker` 출력)
-- 주간/월간 운영 보고 (`moai-pm/weekly-report` 출력)
-- 외부 분석 (시장조사·컨설팅 보고서)
-
-### 2단계: 6섹션 1pager 구조
-
-| # | 섹션 | 분량 | 내용 |
-|---|---|---|---|
-| 1 | 헤드라인 | 1줄 | 가장 중요한 한 메시지 (의사결정 핵심) |
-| 2 | What | 3 bullet | 무슨 일이 일어났나 (정량) |
-| 3 | So What | 3 bullet | 사업 임팩트 (원·% 단위) |
-| 4 | Now What | 2-3 옵션 + 권고 1개 | 의사결정 옵션과 권고안 |
-| 5 | Risks | 1-2 bullet | 핵심 리스크 |
-| 6 | Next Review | 1줄 | 다음 리뷰 시점·지표 |
-
-전체 ≤ 500단어. 자동 글자수 검증.
-
-### 3단계: K-IFRS 재무 지표 우선
-
-재무 보고 압축 시 다음 지표 우선 노출:
-
-- 매출 / 영업이익 / 영업이익률
-- EBITDA / EBITDA 마진
-- CAGR (3년 / 5년)
-- 운전자본 / 부채비율 / 유동비율
-- 핵심 사업부 별 기여도
-
-비재무 지표:
-- North Star (회사 핵심)
-- 활성 고객·이탈률·LTV/CAC
-
-### 4단계: 의사결정 옵션 작성 (Now What)
-
-각 옵션은 다음 형식:
-
-```
-옵션 A: [의사결정 항목]
-  - 기대 효과: ...
-  - 비용·리스크: ...
-  - 결정 시한: P0/P1/P2 (시간 추정 금지)
-
-권고: 옵션 X — 근거: ...
-```
-
-권고 없는 옵션 나열은 금지 (경영진 판단 부담 증가).
-
-### 5단계: 톤·서식
-
-- 격식체 ("~로 판단됩니다", "~를 권고드립니다")
-- 정량 수치 강조 (굵은 글씨)
-- 모든 수치에 출처 인라인 표기 또는 [추정] 태그
-- 색깔 신호 활용 시 (Green/Yellow/Red) — 이유 한 줄 명시
-
-## 출력 형식
+기본 출력은 대화에서 읽을 수 있는 마크다운 요약입니다. 사용자가 파일을 원하면 현재 앱에서 가능한 방식으로 저장합니다. 단일 HTML·PDF·DOCX·PPTX·HWPX가 필요할 때는 해당 형식을 지원하는 `moai-officer` 스킬의 현재 기능을 확인한 뒤 연결합니다. 공유 채널에 실제 전송한 것처럼 말하지 않습니다.
 
 ```markdown
-# Executive Summary — [주제] (2026-05-01)
+# 경영진 요약: [주제]
 
-> 헤드라인: 결제 모듈 v2 도입으로 분기 매출 +8% 가속, 보안 감사 대응이 핵심 의사결정.
+**결론**: [자료로 확인된 핵심 메시지]
 
-## What (지난 N주/분기)
-- **매출 124억** (전기 대비 +8.1%, K-IFRS 기준 [DART 공시 인용])
-- 결제 성공률 **94.2%** (직전 90.5%, 결제 v2 효과)
-- 신규 고객 **320사** (목표 300사 대비 +6.7%)
+## What
+- [사실·수치] — [출처, 기간, 단위]
 
-## So What (사업 임팩트)
-- 영업이익률 **18.2%** (직전 16.8%, +1.4pp) — 인건비 안정화
-- LTV/CAC **3.6** (1년 전 2.9) — 건전 구조 강화
-- 분기 EBITDA **22억** ([추정] 잠정치, 결산 후 확정)
+## So What
+- [사업상 의미] — [판단 근거 또는 가설 표시]
 
-## Now What (의사결정 옵션)
+## Now What
+- 선택지 A: [효과·비용·선행 조건]
+- 선택지 B: [효과·비용·선행 조건]
+- 권고 또는 판단 보류: [이유]
 
-**옵션 A: 보안 감사 대응 — 외주 인력 채용**
-  - 기대 효과: 6주 내 ISMS 인증 갱신
-  - 비용: 8천만원 (분기 영업이익 -3.6%)
-  - 시한: P0
-
-**옵션 B: 내부 재배치**
-  - 기대 효과: 8주 내 갱신
-  - 비용: 인건비 무영향, 기능 출시 1건 지연
-  - 시한: P0
-
-**권고: 옵션 A** — 기능 출시 일정과 분리, 분기 매출 모멘텀 보존
-
-## Risks
-- ⚠️ SMS API 외부 의존성 지연 → 결제 흐름 영향 가능
-
-## Next Review
-- W20 (2주 후), KPI: 결제 성공률·보안 감사 진행률
+## 위험과 다음 확인
+- [미확인 자료, 확인 담당자가 정해졌다면 담당자]
 ```
 
-## 사용 예시
+## 검토
 
-**예시 1 — 변동분석 → 카톡 공유용 단일 HTML (기본 경로)**
-```
-사용자: "이번 분기 변동분석 보고서를 임원 1pager 만들어서 카톡으로 보낼 수 있게 해줘."
-→ moai-coworker/finance-variance-analysis 결과 입력
-→ collab-exec-summary가 K-IFRS 지표 우선 + What/So What/Now What 마크다운 생성
-→ moai-officer:doc-html-report (mode=status)로 단일 HTML 렌더링
-→ 결과: 1개 .html 파일 (이미지·CSS·JS 인라인) → 카톡 첨부 가능
-```
-
-**예시 2 — 변동분석 → 이사회 슬라이드 (변환 옵션)**
-```
-사용자: "이번 분기 변동분석을 이사회 PPT 1매로 만들어줘."
-→ collab-exec-summary → doc-html-report (기본)
-→ doc-pptx로 변환 분기 → .pptx 슬라이드 1매
-```
-
-**예시 3 — 주간 → C-level HTML + 결재용 PDF 동시 출력**
-```
-사용자: "이번 주 weekly-report를 C레벨 보고로 압축하고 HTML·PDF 둘 다 줘."
-→ weekly-report 6섹션 → collab-exec-summary 1pager 6섹션
-→ doc-html-report (기본 HTML) + doc-pdf (변환 PDF) 병렬 출력
-```
-
-## 주의사항
-
-- **500단어 한도 강제**: 초과 시 자동 압축 또는 사용자에게 우선순위 선택 요청
-- **권고 없는 옵션 금지**: Now What은 반드시 권고안 1개 포함
-- **시간 추정 금지**: "1주 후 완료", "3개월 내" 등은 priority labels (P0/P1/P2)로 변환
-- **수치 출처 강제**: 모든 정량 데이터는 출처 인라인 명시 또는 `[추정]` 태그
-- **헤드라인 의무**: 1줄 헤드라인 없으면 출력 차단 (경영진 5초 룰)
+- 원문과 요약의 수치·단위·기간·인용을 대조합니다.
+- `[추정]` 표시는 근거 없는 수치를 허용하는 면책 표시가 아닙니다. 계산 근거가 없으면 수치를 빼고 필요한 자료를 적습니다.
+- 모든 권고는 확인된 선택지와 제약에 연결합니다.
+- 파일 생성이나 공유를 실행하지 않았다면 완료라고 쓰지 않습니다.
 
 ## 관련 스킬
 
-**Before (입력 prep)**:
-- `moai-coworker/finance-financial-statements` — 재무제표
-- `moai-coworker/finance-variance-analysis` — 변동분석
-- `moai-pm/weekly-report` — 주간보고
-- (외부 보고서)
-
-**Renderer (기본 출력 = 단일 HTML)**:
-- `moai-coworker/doc-html-report` — **기본 렌더러**, mode=status (이미지·CSS·JS 인라인, 카톡 공유 가능)
-
-**Converter (선택 변환 분기)**:
-- `moai-coworker/doc-pdf` — 인쇄·결재용 PDF
-- `moai-coworker/doc-docx` — 편집 가능한 .docx
-- `moai-coworker/doc-pptx` — 이사회 슬라이드 1매
-- `moai-coworker/doc-hwp` — 한국 공공기관 .hwpx
-
-**Post-process**:
-- `moai-coworker:ai-slop-reviewer` — 격식체·정량 출처 검수
-- `moai-coworker/korean-humanize` — 한국어 자연스러움 보강
-
-**Alternative**:
-- `moai-pm/weekly-report` — 팀 단위 주간 (1pager 아닌 6섹션)
-- `moai-consultant/consult-strategy` — 전략 문서 (요약 아닌 본문)
-
-## 관련 커맨드
-
-대표 체인 (기본 = doc-html-report 단일 HTML):
-- 재무 → 경영진 카톡 공유: `finance-variance-analysis → collab-exec-summary → ai-slop-reviewer → doc-html-report (mode=status)`
-- 재무 → 이사회 슬라이드: `finance-variance-analysis → collab-exec-summary → doc-html-report → doc-pptx`
-- 재무 → 결재용 PDF: `finance-variance-analysis → collab-exec-summary → doc-html-report → doc-pdf`
-- 주간 → C-level HTML: `weekly-report → collab-exec-summary → doc-html-report (mode=status)`
-- 주간 → 공공기관 hwpx: `weekly-report → collab-exec-summary → doc-html-report → doc-hwp`
-
-## 출처
-
-- McKinsey Pyramid Principle — 결론 → 근거 → 데이터
-- Amazon 6-Pager — Bezos narrative 원칙 (참고, 본 스킬은 1-Pager 변형)
-- [Mordor Intelligence — 한국 B2B SaaS 2026-2031](https://www.mordorintelligence.kr/industry-reports/b2b-saas-market) — 시장 데이터 인용 시
-- K-IFRS 한국채택국제회계기준 — 재무 지표 표기
-- 일반 BI 베스트 프랙티스 (Stephen Few, Edward Tufte) — 1pager 시각 디자인
+- `moai-accountant:finance-financial-statements` · `moai-accountant:finance-variance-analysis`: 검증된 재무 입력
+- `moai-coworker:collab-pm-report`: 프로젝트 보고 입력
+- `moai-officer:doc-html-report` · `moai-officer:doc-pdf` · `moai-officer:doc-docx` · `moai-officer:doc-pptx` · `moai-officer:doc-hwp`: 요청한 형식의 문서 제작
+- 서술형 문장은 이 스킬에서 원문 수치·기간·판단 근거를 대조하고 문체를 검수합니다. `moai-coworker:ai-slop-reviewer`가 노출된 경우 추가 검수하고, 별도 설치된 `moai-writer:korean-humanize`가 노출된 경우에만 윤문합니다.

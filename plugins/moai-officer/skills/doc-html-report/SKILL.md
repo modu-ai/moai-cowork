@@ -1,7 +1,7 @@
 ---
 name: doc-html-report
 description: |
-  마크다운 보고서를 그대로 브라우저에서 열리는 단일 파일 HTML로 바꿔 드립니다. 외부 라이브러리 없이 한 파일로 완결돼 이메일 첨부·인쇄·오프라인 열람이 됩니다.
+  마크다운 보고서를 브라우저에서 열리는 단일 HTML 파일로 구성합니다. 선택한 폰트·디자인 시스템에 따라 인터넷 연결이 필요할 수 있으므로 오프라인 결과를 확인합니다.
   다음과 같은 요청 시 사용하세요:
   - "이 보고서 HTML 파일로 만들어줘"
   - "주간 현황 보고서를 하나의 HTML로 렌더해줘"
@@ -9,23 +9,23 @@ description: |
   - "인시던트 리포트를 HTML로 정리해줘"
   - "프린트 가능한 사업계획서 HTML로 만들어줘"
   - "이메일에 붙일 수 있는 HTML 리포트 만들어줘"
-  현황·인시던트·사업계획·설명서·재무·PR 6종 서식을 갖췄고, 보고서 종류에 맞춰 자동으로 골라 줍니다.
-  PDF 파일이 필요하면 생성한 HTML을 moai-officer:doc-pdf로 넘겨 디자인 그대로 PDF로 변환하세요 (weasyprint를 직접 설치·호출하지 말 것).
-version: "1.2.0"
+  현황·인시던트·사업계획·설명서·재무·PR 6종 서식 중 보고서 내용에 맞는 것을 고릅니다.
+  PDF 파일이 필요하면 현재 사용 가능한 변환 기능을 확인하고 실제 변환 결과의 내용·레이아웃을 검사하세요.
+version: "1.2.2"
 ---
 
 # doc-html-report: 단일 파일 HTML 보고서 렌더러
 
 ## 목적과 범위
 
-`moai-officer:doc-html-report`는 cowork 텍스트 산출 파이프라인의 **터미널 렌더러**입니다.
-`moai-coworker:collab-exec-summary`, `moai-accountant:finance-financial-statements`, `moai-consultant:consult-sbiz365` 등이 생성한 마크다운 보고서를 **단일 파일·자체 완결형(self-contained) HTML**로 변환합니다.
+`moai-officer:doc-html-report`는 보고서용 HTML 서식과 작성 절차를 제공합니다.
+`moai-coworker:collab-exec-summary`, `moai-accountant:finance-financial-statements`, `moai-consultant:consult-sbiz365` 등이 생성한 마크다운 보고서를 참고해 단일 HTML 파일을 작성합니다. 이 스킬에는 자동 변환 실행기가 포함되어 있지 않습니다.
 
 **핵심 원칙**:
 - 외부 JS 라이브러리(Chart.js, D3, htmx) 0 의존
 - 외부 CSS 프레임워크(Tailwind, Bootstrap) 0 의존
 - 인라인 SVG로 차트 직접 렌더링
-- 한국어 가독성을 위한 폰트 CDN 단일 예외 허용
+- 한국어 폰트 CDN은 선택 사항으로 두고, 연결되지 않을 때 시스템 서체로 읽을 수 있게 한다
 
 **이 스킬은 마크다운 출력을 대체하지 않습니다.** 마크다운은 단일 진실(source of truth)로 유지되며, HTML 렌더링은 추가 분기로만 작동합니다.
 
@@ -37,32 +37,36 @@ version: "1.2.0"
 |------|------|--------|------|
 | `markdown` | ✓ | — | 변환할 마크다운 본문 |
 | `mode` | ✓ | — | `status` \| `incident` \| `plan` \| `explainer` \| `financial` \| `pr` |
-| `design_system` | — | (미지정 시 0의존 기본 템플릿) | `claude` \| `clickhouse` \| `clay` 또는 [`design-system-library`](../../moai-designer/skills/design-system-library/SKILL.md)의 75개 시스템. **지정 시** Tailwind Play CDN + shadcn vanilla 컴포넌트로 해당 브랜드 토큰 적용 (인터넷 연결 필요) |
-| `slug` | — | 제목에서 자동 생성 | 출력 파일명 prefix |
+| `design_system` | — | 기본 템플릿 | `moai-designer:design-system-library`에서 현재 확인한 브랜드 시스템. 외부 CDN을 쓰는 구현은 인터넷 연결 필요 |
+| `slug` | — | 제목에서 정함 | 출력 파일명 prefix |
 | `output_path` | — | `<cwd>/reports/<slug>-<YYYYMMDD>.html` | 출력 경로 |
 | `font_stack` | — | 모드별 기본값 | 폰트 매핑 오버라이드 |
+
+템플릿의 `{{변수}}`는 작성용 슬롯 표기다. 렌더러가 제공되지 않으므로 슬롯을 채운 뒤 `{{...}}` 잔류 여부를 확인한다. 사용자가 제공한 문구는 HTML로 이스케이프하고, 링크는 허용한 `https:` URL인지 확인한다. `*_html`처럼 이름에 HTML이 있어도 일반 텍스트 슬롯이다. SVG·HTML 구조가 필요하면 검증된 데이터로 직접 작성하고 스크립트·이벤트 속성·외부 참조가 없는지 확인한다. 확인할 수 없으면 텍스트나 표로 표현한다.
+
+차트와 지표는 원본에 있는 값만 사용한다. 시계열 중간값, 증감률, 원인 설명이 원본에 없으면 그려 넣지 않고 해당 칸을 비우거나 차트를 생략한다. 전체 보고서 변환 요청에서는 템플릿에 없는 원본 섹션도 별도 표·섹션으로 보존한다. 사용자가 요약본을 요청해 생략할 때만 빠진 범위를 산출물에 밝힌다. 저장된 `references/samples/`와 `references/integration-tests/`는 가상 서식 자료이며 새 문서의 사실 출처나 현재 호스트의 품질 판정으로 쓰지 않는다.
 
 ---
 
 ## 출력
 
 단일 `.html` 파일 (`<cwd>/reports/<slug>-<YYYYMMDD>.html`):
-- 크기: ≤ 50KB (폰트 CDN 트래픽 제외, 본문 압축 전 기준)
-- 외부 의존성: 폰트 CDN `<link>` 1건 + `preconnect` 2건 (한국어 폰트)
-- 자체 완결형: 브라우저에서 바로 열기 가능, 이메일 첨부·오프라인 사용 가능
+- 크기: 본문과 포함된 이미지·스타일에 따라 달라짐
+- 외부 의존성: 선택한 폰트·디자인 시스템에 따라 달라짐. 외부 리소스가 있다면 자체 완결형이라고 표시하지 않음
+- 오프라인 사용: 파일을 네트워크 없이 열어 내용과 스타일을 확인한 경우에만 표시
 
 ---
 
 ## 6개 모드
 
-### 구현된 모드
+### 제공하는 템플릿 모드
 
 | 모드 | 구조 섹션 | 대상 스킬 |
 |------|-----------|-----------|
 | **`status`** | 메트릭 카드 4개 · 하이라이트 · 완료 테이블 · Velocity SVG 막대 차트 · Carryover | `moai-coworker:collab-exec-summary`, `moai-officer:productivity-briefing` |
 | **`incident`** | TL;DR 다크 배너 · 타임라인 · 로그 발췌 `<details>` · 코드 diff 패널 · 영향 테이블 · 액션 체크리스트 | `moai-lawyer:legal-compliance-check` |
 | **`plan`** | 요약 KPI 스트립 · 마일스톤 수직 타임라인 · 데이터 플로우 SVG · 슬라이스 테이블 · 리스크 그리드 · 성공 지표 | `moai-consultant:consult-sbiz365` |
-| **`explainer`** | 사이드 네비 · `<details>` 접이식 단계 · 탭 코드 블록(vanilla JS) · FAQ 아코디언 · 콜아웃 박스 | `moai-coworker:*`, `moai-coworker:*` |
+| **`explainer`** | 사이드 네비 · `<details>` 접이식 단계 · 탭 코드 블록(vanilla JS) · FAQ 아코디언 · 콜아웃 박스 | 설명형 문서 |
 | **`financial`** | KPI 카드 4개 · 손익계산서 테이블(항목/당기/전기/증감/증감률) · Variance SVG 수평 막대 차트 · 주석 패널 | `moai-accountant:finance-financial-statements` |
 | **`pr`** | TL;DR · PR 메타 행(파일수·+/−·브랜치) · Before/After 2단 카드 · 파일 투어 `<details>` · 핵심 포인트 · 테스트 체크리스트 · 롤아웃 단계 | `moai-accountant:finance-investor-relations` |
 
@@ -83,9 +87,9 @@ version: "1.2.0"
 
 ## 한국어 폰트 정책
 
-본 스킬은 한국어 가독성을 위해 **단일 폰트 CDN `<link>`를 유일한 외부 의존성**으로 허용합니다.
+한국어 폰트 CDN은 선택 사항입니다. 외부 폰트를 쓰면 연결 없이 서체가 달라질 수 있습니다.
 
-시스템 폰트만 사용하면 OS별 폴백(macOS: Apple SD Gothic Neo, Windows: Malgun Gothic)으로 일관성이 깨지므로, 폰트 CDN은 필수입니다.
+시스템 서체는 OS마다 다를 수 있습니다. CDN을 선택했다면 연결 실패 시에도 읽을 수 있는 폴백을 지정하고, 오프라인 품질은 실제 파일을 열어 확인합니다.
 
 ### 모드별 폰트 매핑
 
@@ -95,8 +99,6 @@ version: "1.2.0"
 | `incident` | Pretendard | Pretendard 700 | JetBrains Mono |
 | `plan` | Pretendard | Noto Serif KR | JetBrains Mono |
 | `explainer` | Noto Sans KR | Noto Serif KR | JetBrains Mono |
-| `editorial` | Pretendard | 조선일보명조 | JetBrains Mono |
-| `legal` | KoPubWorld Batang | KoPubWorld Batang Bold | JetBrains Mono |
 
 상세 CDN URL 및 preconnect 패턴: [`references/fonts.md`](references/fonts.md)
 
@@ -104,7 +106,7 @@ version: "1.2.0"
 
 ## 디자인 토큰 (CSS 변수 계약)
 
-모든 모드는 `:root`에 동일한 CSS 변수 8개를 선언합니다.
+템플릿은 `:root`의 CSS 변수를 참고합니다. 실제로 사용한 변수와 대비는 산출 파일에서 확인합니다.
 
 ```css
 :root {
@@ -138,32 +140,25 @@ version: "1.2.0"
 
 ## 디자인 시스템 적용 (`design_system` 파라미터)
 
-`design_system` 입력을 지정하면 [`moai-officer:doc-design-library`](../../moai-designer/skills/design-system-library/SKILL.md)에서 브랜드 토큰을 로드해 **Tailwind Play CDN + shadcn vanilla 컴포넌트**로 렌더합니다.
+`design_system` 입력을 지정하면 현재 설치된 `moai-designer:design-system-library`에서 사용할 수 있는 토큰을 확인합니다. Tailwind Play CDN을 쓰는 예시 템플릿은 인터넷 연결이 필요합니다.
 
-**두 가지 렌더 엔진** (하위 호환 유지):
+**작성 방식**:
 
-| `design_system` | 엔진 | 외부 의존 | 산출물 특성 |
+| `design_system` | 방식 | 외부 의존 | 산출물 특성 |
 |-----------------|------|-----------|-------------|
-| **미지정** | 0의존 (기존 템플릿) | 폰트 CDN 1건만 | 이메일 첨부·오프라인·인쇄 가능 단일 파일 |
-| **`claude` / `clickhouse` / `clay` / 75개** | Tailwind Play CDN | Tailwind CDN + 폰트 CDN | 브랜드 무드 적용, 인터넷 연결 필요 |
+| **미지정** | 기본 템플릿 | 사용한 폰트 링크에 따라 다름 | 브라우저에서 오프라인 결과 확인 |
+| **지정한 브랜드** | 실제 사용 가능한 템플릿 확인 | CDN 사용 여부 확인 | 브라우저에서 온라인·오프라인 결과 구분 |
 
-### 3개 기본 테마 자동 추천
-
-| 모드 | 추천 design_system |
-|------|-------------------|
-| `status` / `plan` / `pr` | `claude` (warm editorial) |
-| `incident` / 기술 리포트 | `clickhouse` (다크 엔지니어링) |
-| `explainer` / 마케팅 | `clay` (playful saturated) |
-| `financial` | `claude` (편집성·신뢰) |
+브랜드 시스템은 사용자 지침에 지정된 경우에 적용한다. 모드 이름만으로 Claude·ClickHouse 등 다른 회사의 브랜드를 선택하지 않는다.
 
 ### 적용 절차
 
-1. `design_system` 값으로 `systems/<name>.md` 토큰 로드
-2. [`mapping/tailwind.md`](../../moai-designer/skills/design-system-library/mapping/tailwind.md) 규칙으로 `tailwind.config` 객체 생성
-3. shadcn vanilla 컴포넌트(card/button/table/badge)로 구조 치환
-4. 단일 파일 HTML로 출력 (CDN script + config + 마크업)
+1. 실제 설치된 디자인 시스템에서 지정한 브랜드의 토큰을 읽는다.
+2. 사용할 색과 서체를 HTML의 CSS 변수에 적용한다.
+3. 필요한 경우에만 외부 CDN을 추가하고, 최종 HTML에서 해당 URL을 확인한다.
+4. 온라인 및 오프라인에서 실제 파일을 열어 결과를 확인한다.
 
-> **주의**: `design_system` 지정 산출물은 Tailwind Play CDN을 런타임 로드하므로 오프라인에서는 스타일이 적용되지 않습니다. 오프라인·인쇄·이메일 첨부 용도라면 `design_system`을 미지정(0의존 템플릿)하세요.
+> **주의**: 브랜드 예시에 Tailwind Play CDN이 포함되었다면 오프라인에서 스타일이 달라질 수 있습니다. 오프라인·인쇄·이메일 첨부 용도에는 필요한 CSS를 문서 안에 포함하고 실제 파일을 확인하세요.
 
 ---
 
@@ -183,7 +178,7 @@ version: "1.2.0"
 [텍스트 스킬] → ai-slop-reviewer → doc-html-report (design_system: clickhouse)
 ```
 
-> `design_system` 지정 시 `moai-officer:doc-design-library`에서 토큰을 자동 로드합니다 — 별도 선행 스킬 호출 불필요.
+> 디자인 시스템을 지정했으면 해당 플러그인과 토큰이 현재 호스트에 있는지 확인합니다. 없다면 사용자 지정 색·서체를 일반 CSS에 적용합니다.
 
 ---
 
@@ -213,7 +208,9 @@ PR #312 실시간 알림 채널 통합 내용을 HTML 리뷰 문서로 만들어
 
 ## 시각 품질 게이트 (필수)
 
-**[HARD] 렌더가 끝나면 산출 HTML을 브라우저에서 열어 아래 4축을 실측하고 PASS/FAIL을 보고한다.**
+**[HARD] 렌더가 끝나면 산출 HTML을 브라우저에서 열어 아래 4축을 실측하고 PASS/FAIL을 보고한다.** 과거 샘플은 이 기준의 통과 증거가 아니다. 실제 열람·실측이 불가능하면 `미검증`으로 기록하고 PASS라고 쓰지 않는다.
+
+인쇄용 또는 PDF 변환용 요청이면 인쇄 미리보기나 실제 PDF를 열어 페이지 잘림·표 누락·차트 가독성을 별도로 확인한다. 이 결과가 없으면 화면 검사가 통과해도 인쇄/PDF 품질은 `미검증`으로 남긴다.
 
 **공통 4축** — 렌더 후 DOM 실측으로 판정한다. 눈으로 훑는 것으로 갈음하지 않는다.
 
@@ -238,7 +235,7 @@ PR #312 실시간 알림 채널 통합 내용을 HTML 리뷰 문서로 만들어
 ## 하지 않는 것
 
 - 마크다운 기본 출력을 대체하지 않습니다 — HTML은 추가 렌더링 분기입니다.
-- React / Vue / Tailwind CDN / Chart.js / D3 같은 외부 라이브러리를 쓰지 않습니다.
+- 기본 템플릿은 React / Vue / Chart.js / D3를 요구하지 않습니다. 브랜드 예시에서 Tailwind CDN을 썼다면 외부 의존성을 명시합니다.
 - 빌드 단계(webpack, vite, esbuild)를 도입하지 않습니다.
 - 슬라이드는 `moai-officer:doc-pptx`, 독립 차트는 `moai-analyst:data-visualizer`가 맡습니다.
 - 여러 파일로 나누지 않습니다 — 모든 산출물은 단일 `.html` 파일입니다.
@@ -273,13 +270,13 @@ PR #312 실시간 알림 채널 통합 내용을 HTML 리뷰 문서로 만들어
 
 ## P1 컨슈머 통합
 
-4개 P1 컨슈머 스킬의 마크다운 출력을 doc-html-report 템플릿으로 렌더링한 통합 테스트 결과입니다.
+다음 파일은 과거에 저장한 입력·출력 예시입니다. 현재 호스트의 통합 테스트 결과로 간주하지 않고, 새 산출물은 별도로 렌더링해 확인합니다.
 
 | 컨슈머 스킬 | 적합 모드 | 입력 파일 | 렌더링 출력 | 호환성 |
 |-------------|-----------|-----------|-------------|--------|
-| `moai-coworker:collab-exec-summary` | `status` | [`references/integration-tests/executive-summary-input.md`](references/integration-tests/executive-summary-input.md) | [`references/integration-tests/executive-summary-rendered.html`](references/integration-tests/executive-summary-rendered.html) | ★★★★☆ (4/5) |
-| `moai-accountant:finance-financial-statements` | `financial` | [`references/integration-tests/financial-statements-input.md`](references/integration-tests/financial-statements-input.md) | [`references/integration-tests/financial-statements-rendered.html`](references/integration-tests/financial-statements-rendered.html) | ★★★★☆ (4/5) |
-| `moai-consultant:consult-sbiz365` | `plan` | [`references/integration-tests/sbiz365-analyst-input.md`](references/integration-tests/sbiz365-analyst-input.md) | [`references/integration-tests/sbiz365-analyst-rendered.html`](references/integration-tests/sbiz365-analyst-rendered.html) | ★★★★☆ (4/5) |
-| `moai-officer:productivity-briefing` | `status` (daily variant) | [`references/integration-tests/daily-briefing-input.md`](references/integration-tests/daily-briefing-input.md) | [`references/integration-tests/daily-briefing-rendered.html`](references/integration-tests/daily-briefing-rendered.html) | ★★★★☆ (4/5) |
+| `moai-coworker:collab-exec-summary` | `status` | [`references/integration-tests/executive-summary-input.md`](references/integration-tests/executive-summary-input.md) | [`references/integration-tests/executive-summary-rendered.html`](references/integration-tests/executive-summary-rendered.html) | 과거 예시 |
+| `moai-accountant:finance-financial-statements` | `financial` | [`references/integration-tests/financial-statements-input.md`](references/integration-tests/financial-statements-input.md) | [`references/integration-tests/financial-statements-rendered.html`](references/integration-tests/financial-statements-rendered.html) | 과거 예시 |
+| `moai-consultant:consult-sbiz365` | `plan` | [`references/integration-tests/sbiz365-analyst-input.md`](references/integration-tests/sbiz365-analyst-input.md) | [`references/integration-tests/sbiz365-analyst-rendered.html`](references/integration-tests/sbiz365-analyst-rendered.html) | 과거 예시 |
+| `moai-officer:productivity-briefing` | `status` (daily variant) | [`references/integration-tests/daily-briefing-input.md`](references/integration-tests/daily-briefing-input.md) | [`references/integration-tests/daily-briefing-rendered.html`](references/integration-tests/daily-briefing-rendered.html) | 과거 예시 |
 
 상세 호환성 분석: [`references/integration-tests/COMPATIBILITY.md`](references/integration-tests/COMPATIBILITY.md)

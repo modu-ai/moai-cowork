@@ -26,90 +26,91 @@ colors:
   charcoal: "#222222"
   slate: "#45515e"
   steel: "#5f5f5f"
-  stone: "#8e8e93"
+  stone: "#6f6f6f"
   muted: "#a8aab2"
   success-bg: "#e8ffea"
-  success-text: "#1ba673"
+  success-text: "#116346"
   on-dark: "#ffffff"
+  on-bright: "#0a0a0a"
   footer-bg: "#0a0a0a"
 
 typography:
   hero-display:
-    fontFamily: DM Sans
+    fontFamily: DM Sans, Inter, system-ui, sans-serif
     fontSize: 80px
     fontWeight: 600
     lineHeight: 1.10
     letterSpacing: -2px
   display-lg:
-    fontFamily: DM Sans
+    fontFamily: DM Sans, Inter, system-ui, sans-serif
     fontSize: 56px
     fontWeight: 600
     lineHeight: 1.10
     letterSpacing: -1.5px
   heading-lg:
-    fontFamily: DM Sans
+    fontFamily: DM Sans, Inter, system-ui, sans-serif
     fontSize: 40px
     fontWeight: 600
     lineHeight: 1.20
     letterSpacing: -1px
   heading-md:
-    fontFamily: DM Sans
+    fontFamily: DM Sans, Inter, system-ui, sans-serif
     fontSize: 32px
     fontWeight: 600
     lineHeight: 1.25
     letterSpacing: -0.5px
   heading-sm:
-    fontFamily: DM Sans
+    fontFamily: DM Sans, Inter, system-ui, sans-serif
     fontSize: 24px
     fontWeight: 600
     lineHeight: 1.30
   card-title:
-    fontFamily: DM Sans
+    fontFamily: DM Sans, Inter, system-ui, sans-serif
     fontSize: 20px
     fontWeight: 600
     lineHeight: 1.40
   subtitle:
-    fontFamily: DM Sans
+    fontFamily: DM Sans, Inter, system-ui, sans-serif
     fontSize: 18px
     fontWeight: 500
     lineHeight: 1.50
   body-md:
-    fontFamily: DM Sans
+    fontFamily: DM Sans, Inter, system-ui, sans-serif
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.50
   body-md-bold:
-    fontFamily: DM Sans
+    fontFamily: DM Sans, Inter, system-ui, sans-serif
     fontSize: 16px
     fontWeight: 700
     lineHeight: 1.50
   body-sm:
-    fontFamily: DM Sans
+    fontFamily: DM Sans, Inter, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 400
     lineHeight: 1.50
   body-sm-medium:
-    fontFamily: DM Sans
+    fontFamily: DM Sans, Inter, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 500
     lineHeight: 1.50
   caption:
-    fontFamily: DM Sans
+    fontFamily: DM Sans, Inter, system-ui, sans-serif
     fontSize: 13px
     fontWeight: 400
     lineHeight: 1.70
   caption-bold:
-    fontFamily: DM Sans
+    fontFamily: DM Sans, Inter, system-ui, sans-serif
     fontSize: 13px
     fontWeight: 600
     lineHeight: 1.50
   micro:
-    fontFamily: DM Sans
+    fontFamily: DM Sans, Inter, system-ui, sans-serif
     fontSize: 12px
     fontWeight: 400
     lineHeight: 1.50
   button-md:
-    fontFamily: DM Sans
+    fontFamily: DM Sans, Inter, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 600
     lineHeight: 1.40
@@ -179,12 +180,12 @@ components:
     border: "1px solid {colors.hairline}"
   product-card-coral:
     backgroundColor: "{colors.brand-coral}"
-    textColor: "{colors.on-dark}"
+    textColor: "{colors.on-bright}"
     rounded: "{rounded.hero}"
     padding: "{spacing.xxl}"
   product-card-magenta:
     backgroundColor: "{colors.brand-magenta}"
-    textColor: "{colors.on-dark}"
+    textColor: "{colors.on-bright}"
     rounded: "{rounded.hero}"
     padding: "{spacing.xxl}"
   product-card-blue:
@@ -194,7 +195,7 @@ components:
     padding: "{spacing.xxl}"
   product-card-purple:
     backgroundColor: "{colors.brand-purple}"
-    textColor: "{colors.on-dark}"
+    textColor: "{colors.on-bright}"
     rounded: "{rounded.hero}"
     padding: "{spacing.xxl}"
   product-card-photo:
@@ -218,7 +219,7 @@ components:
     border: "1px solid {colors.hairline}"
   promo-cta-card:
     backgroundColor: "{colors.brand-coral}"
-    textColor: "{colors.on-dark}"
+    textColor: "{colors.on-bright}"
     rounded: "{rounded.hero}"
     padding: "{spacing.section}"
   text-input:
@@ -277,7 +278,7 @@ components:
     padding: "4px 10px"
   badge-new:
     backgroundColor: "{colors.brand-coral}"
-    textColor: "{colors.on-dark}"
+    textColor: "{colors.on-bright}"
     typography: "{typography.caption-bold}"
     rounded: "{rounded.full}"
     padding: "4px 10px"
@@ -382,7 +383,7 @@ components:
 
 MiniMax stages itself as a Chinese AI infrastructure brand with a sophisticated dual identity. Marketing surfaces and platform pages anchor in stark white canvas with deep-black typographic emphasis — the brand voice is confident, technical, almost editorial. But each model release gets its own vibrant gradient identity card: M2.7 in volcanic coral-red, Music 2.6 in magenta-pink, Hailuo in deep blue, Speech 2.8 in saturated orange-purple. Together these vibrant tiles read like album covers laid out on the homepage — each one declaring its own product personality.
 
-DM Sans anchors every surface from oversized 80px hero displays down to 12px micro labels. The geometric, slightly humanist character of the face suits both the dense documentation surfaces (where 14px body type carries 1.5 line-height for long-form prose) and the high-impact marketing displays (where -2px letter-spacing tightens 80px headlines). Buttons are universally pill-shaped (`rounded-full`) with a sharp two-tier system: black-pill primary (the dominant CTA) and outline-pill secondary. Cards split into two distinct families: vibrant gradient product showcases (32px corner softening) and quiet white documentation cards (16px corner softening).
+DM Sans anchors every surface from oversized 80px hero displays down to 12px micro labels. The reusable tokens include Inter and system sans fallbacks for machines without DM Sans. The geometric, slightly humanist character of the face suits both dense documentation and high-impact marketing displays. Buttons are universally pill-shaped (`rounded-full`) with a black-pill primary and outline-pill secondary. Cards split into vibrant product showcases (32px corner softening) and quiet white documentation cards (16px corner softening).
 
 **Key Characteristics:**
 - Stark monochrome palette — black ({colors.primary}) and white ({colors.canvas}) — broken open by saturated brand-color gradient cards
@@ -431,9 +432,9 @@ DM Sans anchors every surface from oversized 80px hero displays down to 12px mic
 ## Typography
 
 ### Font Family
-**DM Sans** (primary): Geometric variable sans-serif. Used across every surface, every role. Fallbacks: Inter, Helvetica Neue, Helvetica, Arial.
+**DM Sans** (primary): [Google Fonts publishes it under the OFL with variable weight and optical-size axes](https://github.com/google/fonts/blob/main/ofl/dmsans/METADATA.pb). The reusable token order is `DM Sans, Inter, system-ui, sans-serif`; load DM Sans explicitly when a close match matters and check the rendered fallback otherwise.
 
-DM Sans was chosen for its dual fluency: it scales cleanly from 80px hero displays (where -2px letter-spacing creates magazine-grade tightness) down to 12px micro labels (where the slightly humanist counters maintain legibility). The face has no italic variant in the brand's deployment — emphasis comes from weight (500/600/700) instead.
+DM Sans scales from 80px hero displays down to 12px micro labels. The reference emphasized weight (500/600/700); the OFL family also includes an italic build, so an italic role is technically available if a new design needs one.
 
 ### Hierarchy
 
@@ -543,17 +544,17 @@ The system runs predominantly flat. Elevation is reserved for sticky panels, dro
 ### Vibrant Product Cards
 
 **`product-card-coral`** — M2.7 / Token Plan signature card.
-- Background `{colors.brand-coral}`, text `{colors.on-dark}`, rounded `{rounded.hero}` (32px), padding `{spacing.xxl}`.
-- Hosts the M2.7 wordmark in massive `{typography.display-lg}` with white tagline.
+- Background `{colors.brand-coral}`, text `{colors.on-bright}`, rounded `{rounded.hero}` (32px), padding `{spacing.xxl}`.
+- Hosts the M2.7 wordmark in massive `{typography.display-lg}` with dark tagline.
 
 **`product-card-magenta`** — Music 2.6 product showcase.
-- Background `{colors.brand-magenta}`, text `{colors.on-dark}`, rounded `{rounded.hero}`, padding `{spacing.xxl}`.
+- Background `{colors.brand-magenta}`, text `{colors.on-bright}`, rounded `{rounded.hero}`, padding `{spacing.xxl}`.
 
 **`product-card-blue`** — Hailuo Video product showcase.
 - Background `{colors.brand-blue}`, text `{colors.on-dark}`, rounded `{rounded.hero}`, padding `{spacing.xxl}`.
 
 **`product-card-purple`** — Speech 2.8 / variant product showcase.
-- Background `{colors.brand-purple}`, text `{colors.on-dark}`, rounded `{rounded.hero}`, padding `{spacing.xxl}`.
+- Background `{colors.brand-purple}`, text `{colors.on-bright}`, rounded `{rounded.hero}`, padding `{spacing.xxl}`.
 
 **`product-card-photo`** — Dark portrait product card (homepage S2 placement, video-emotion product).
 - Background `{colors.primary}` (black with overlaid product photo), text `{colors.on-dark}`, rounded `{rounded.hero}`, padding `{spacing.xxl}`.
@@ -569,8 +570,8 @@ The system runs predominantly flat. Elevation is reserved for sticky panels, dro
 **`card-recommendation`** — "Recommended Reading" tile in documentation footer.
 - Background `{colors.canvas}`, rounded `{rounded.lg}`, padding `{spacing.lg}`, border `1px solid {colors.hairline}`.
 
-**`promo-cta-card`** — Bright orange "Refunds of 10%..." promo strip with embedded CTA pill.
-- Background `{colors.brand-coral}`, text `{colors.on-dark}`, rounded `{rounded.hero}`, padding `{spacing.section}`. Embedded button uses `button-tertiary` (white pill on coral) for the "Join Now" action.
+**`promo-cta-card`** — Bright orange promotional strip with embedded CTA pill. Confirm current offer terms before publishing copy.
+- Background `{colors.brand-coral}`, text `{colors.on-bright}`, rounded `{rounded.hero}`, padding `{spacing.section}`. Embedded button uses `button-tertiary` (white pill on coral) for the action.
 
 **`ai-product-tile`** — White card in the AI Product Matrix grid (Agent, Hailuo Video, MiniMax Audio).
 - Background `{colors.canvas}`, rounded `{rounded.xxxl}`, padding `{spacing.xl}`, border `1px solid {colors.hairline}`. Carries an icon/illustration top, title `{typography.card-title}`, description `{typography.body-sm}`.
@@ -604,7 +605,7 @@ The system runs predominantly flat. Elevation is reserved for sticky panels, dro
 - Background `{colors.success-bg}`, text `{colors.success-text}`, typography `{typography.caption-bold}`, rounded `{rounded.full}`, padding `4px 10px`.
 
 **`badge-new`** — Coral "NEW" / "Live" pill for fresh releases.
-- Background `{colors.brand-coral}`, text `{colors.on-dark}`, typography `{typography.caption-bold}`, rounded `{rounded.full}`, padding `4px 10px`.
+- Background `{colors.brand-coral}`, text `{colors.on-bright}`, typography `{typography.caption-bold}`, rounded `{rounded.full}`, padding `4px 10px`.
 
 **`badge-beta`** — Pale-blue "BETA" / informational pill.
 - Background `{colors.brand-blue-200}`, text `{colors.brand-blue-deep}`, typography `{typography.caption-bold}`, rounded `{rounded.full}`, padding `4px 10px`.
@@ -612,7 +613,7 @@ The system runs predominantly flat. Elevation is reserved for sticky panels, dro
 **`badge-code`** — Inline code-style chip ("Code", "API").
 - Background `{colors.brand-blue-200}`, text `{colors.brand-blue-deep}`, typography `{typography.caption-bold}`, rounded `{rounded.sm}`, padding `2px 6px`.
 
-**`promo-banner`** — Sticky black promotional strip ABOVE the top nav ("Invite & Earn — Rewards for Both!").
+**`promo-banner`** — Sticky black promotional strip ABOVE the top nav. Verify current offer terms before writing its message.
 - Background `{colors.primary}`, text `{colors.on-primary}`, typography `{typography.body-sm-medium}`, padding `{spacing.sm} {spacing.lg}`. Carries one-line copy with optional inline link.
 
 ### Data Tables
@@ -651,7 +652,7 @@ The system runs predominantly flat. Elevation is reserved for sticky panels, dro
 **`product-matrix-grid`** — 4-column horizontal scroll of vibrant gradient product cards (homepage "Full-Stack Model Matrix").
 - Each tile uses one of the `product-card-*` variants (coral, magenta, blue, purple, photo).
 - Card title in `{typography.display-lg}` (M2.7 wordmark) or `{typography.heading-lg}` (Music 2.6).
-- Below the wordmark: thin tagline in `{typography.body-sm}` 80% white opacity.
+- Below the wordmark: tagline in `{typography.body-sm}`. Use `{colors.on-bright}` on coral, magenta, and purple cards; use `{colors.on-dark}` on blue and dark photographic cards. Check the complete gradient or image area behind the text.
 - Optional badge top-right: `badge-new`.
 - Card heights are uniform (~360–400px); the row scrolls horizontally on mobile.
 
@@ -667,7 +668,7 @@ The system runs predominantly flat. Elevation is reserved for sticky panels, dro
 **`models-comparison-table`** — Documentation table comparing model sizes and features.
 - Uses `data-table` chrome. Each row carries a model name (linkified, in `{colors.ink}` body-sm-medium), a description column (`{colors.charcoal}`), and a features bullet list column.
 
-**`testimonial-stat-row`** — Stats strip ("214,000+ Enterprise Clients & Developers", "0+ Countries Served").
+**`testimonial-stat-row`** — Stats strip. Populate figures from a verified current source; omit a metric whose value is unavailable.
 - Horizontal row of 4 stat cells, each cell with a large number in `{typography.heading-lg}` `{colors.ink}` and a label below in `{typography.body-sm}` `{colors.steel}`.
 
 **`footer-region`** — Dense black-canvas multi-column footer.
@@ -709,10 +710,10 @@ The system runs predominantly flat. Elevation is reserved for sticky panels, dro
 | Wide Desktop | ≥ 1280px | Wider hero gutters, larger product photography, fixed 220px sidebar. |
 
 ### Touch Targets
-- Pill buttons render at 38–40px effective height — bumps to 44px on mobile via padding override.
-- Circular icon buttons: 36×36px desktop → 44×44px on mobile.
-- Form inputs render at 40px height; bumps to 44px on mobile.
-- Sidebar nav items render at ~32px tall — bumps to 44px on mobile drawers.
+- Pill buttons specify `11px 24px` padding; measure the rendered clickable width, height, and spacing at each breakpoint.
+- Circular icon buttons specify 36×36px. Enlarge the interactive target where needed and measure the result.
+- Form inputs specify 40px height; the mobile override and final clickable dimensions require implementation checks.
+- Sidebar nav item size depends on rendered line height and padding. Measure each item, including its full clickable row.
 
 ### Collapsing Strategy
 - **Promo banner** stays full-width; collapses to single line at < 480px with truncation.
@@ -732,7 +733,7 @@ The system runs predominantly flat. Elevation is reserved for sticky panels, dro
 
 1. Focus on ONE component at a time. The system has high internal consistency.
 2. Reference component names and tokens directly (`{colors.primary}`, `{component-name}-pressed`, `{rounded.full}`) — do not paraphrase.
-3. Run `npx @google/design.md lint DESIGN.md` after edits to catch broken refs and contrast issues.
+3. Run `npx --yes -p "@google/design.md@0.4.0" designmd lint DESIGN.md` after edits to catch broken refs and contrast issues.
 4. Add new variants as separate `components:` entries (`-pressed`, `-disabled`, `-active`).
 5. Default to `{typography.body-md}` for body and `{typography.subtitle}` for emphasis. Headlines step down `hero-display → display-lg → heading-lg → heading-md → heading-sm`.
 6. Keep brand colors (coral, magenta, blue, purple) confined to product-card identity. If a brand color appears on a standard button or generic surface, ask whether it earned that surface.

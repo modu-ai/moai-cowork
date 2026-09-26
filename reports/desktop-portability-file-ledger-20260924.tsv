@@ -1,0 +1,1092 @@
+path	flags	content_review
+plugins/_shared/mcp-launch/mcp_launch.py	platform_path	static_read
+plugins/_shared/mcp-launch/test_mcp_launch.py		static_read
+plugins/_shared/moai-mcp-core/README.md		static_read
+plugins/_shared/moai-mcp-core/moai_mcp_core/__init__.py		static_read
+plugins/_shared/moai-mcp-core/moai_mcp_core/auth.py		static_read
+plugins/_shared/moai-mcp-core/moai_mcp_core/cache.py		static_read
+plugins/_shared/moai-mcp-core/moai_mcp_core/credentials.py		static_read
+plugins/_shared/moai-mcp-core/moai_mcp_core/errors.py		static_read
+plugins/_shared/moai-mcp-core/moai_mcp_core/http.py		static_read
+plugins/_shared/moai-mcp-core/moai_mcp_core/tokenstore.py	platform_path	static_read
+plugins/_shared/moai-mcp-core/pyproject.toml		static_read
+plugins/_shared/moai-mcp-core/tests/test_auth.py		static_read
+plugins/_shared/moai-mcp-core/tests/test_cache_errors.py		static_read
+plugins/_shared/moai-mcp-core/tests/test_credentials.py		static_read
+plugins/_shared/moai-mcp-core/tests/test_http.py		static_read
+plugins/_shared/moai-mcp-core/tests/test_tokenstore.py		static_read
+plugins/_shared/moai-mcp-core/uv.lock		static_read
+plugins/moai-accountant/.claude-plugin/plugin.json		static_read
+plugins/moai-accountant/.codex-plugin/plugin.json		static_read
+plugins/moai-accountant/.mcp.json		static_read
+plugins/moai-accountant/README.md		static_read
+plugins/moai-accountant/agents/close-auditor.md	claude_only_tool	static_read
+plugins/moai-accountant/agents/finance-analyst.md		static_read
+plugins/moai-accountant/mcp-launch/mcp_launch.py	platform_path	static_read
+plugins/moai-accountant/skills/finance-audit/SKILL.md		static_read
+plugins/moai-accountant/skills/finance-close-management/SKILL.md		static_read
+plugins/moai-accountant/skills/finance-close-management/references/edi-tax-invoice.md		static_read
+plugins/moai-accountant/skills/finance-econ-literacy/SKILL.md		static_read
+plugins/moai-accountant/skills/finance-financial-statements/SKILL.md		static_read
+plugins/moai-accountant/skills/finance-financial-statements/references/invoice-mgmt.md		static_read
+plugins/moai-accountant/skills/finance-household-budget/SKILL.md		static_read
+plugins/moai-accountant/skills/finance-insurance-fit/SKILL.md		static_read
+plugins/moai-accountant/skills/finance-invest-primer/SKILL.md		static_read
+plugins/moai-accountant/skills/finance-investor-relations/SKILL.md		static_read
+plugins/moai-accountant/skills/finance-investor-relations/references/financial-modeler.md		static_read
+plugins/moai-accountant/skills/finance-investor-relations/references/investor-report.md		static_read
+plugins/moai-accountant/skills/finance-personal-tax-saver/SKILL.md		static_read
+plugins/moai-accountant/skills/finance-tax-helper/SKILL.md		static_read
+plugins/moai-accountant/skills/finance-tax-helper/references/2026-rates.md		static_read
+plugins/moai-accountant/skills/finance-tax-helper/references/kr-payroll-basics.md		static_read
+plugins/moai-accountant/skills/finance-tax-helper/references/tax/guide.md		static_read
+plugins/moai-accountant/skills/finance-variance-analysis/SKILL.md		static_read
+plugins/moai-accountant/skills/finance-wealth-roadmap/SKILL.md		static_read
+plugins/moai-accountant/skills/finance-workflow/SKILL.md		static_read
+plugins/moai-analyst/.claude-plugin/plugin.json		static_read
+plugins/moai-analyst/.codex-plugin/plugin.json		static_read
+plugins/moai-analyst/.mcp.json		static_read
+plugins/moai-analyst/README.md		static_read
+plugins/moai-analyst/agents/data-analyst.md	claude_only_tool	static_read
+plugins/moai-analyst/agents/data-provenance-auditor.md	claude_only_tool	static_read
+plugins/moai-analyst/mcp-launch/mcp_launch.py	platform_path	static_read
+plugins/moai-analyst/skills/data-building-ledger/SKILL.md		static_read
+plugins/moai-analyst/skills/data-court-auction/SKILL.md		static_read
+plugins/moai-analyst/skills/data-explorer/SKILL.md	claude_only_tool	static_read
+plugins/moai-analyst/skills/data-explorer/references/data-explorer/guide.md		static_read
+plugins/moai-analyst/skills/data-provenance-audit/SKILL.md	new_chatgpt_agent_mapping	static_read
+plugins/moai-analyst/skills/data-public/SKILL.md	claude_only_tool	static_read
+plugins/moai-analyst/skills/data-public/references/public-data/guide.md		static_read
+plugins/moai-analyst/skills/data-realestate/SKILL.md		static_read
+plugins/moai-analyst/skills/data-stock/SKILL.md		static_read
+plugins/moai-analyst/skills/data-visualizer/SKILL.md	claude_only_tool	static_read
+plugins/moai-analyst/skills/data-visualizer/references/data-visualizer/guide.md		static_read
+plugins/moai-analyst/skills/data-workflow/SKILL.md	new_chatgpt_agent_mapping	static_read
+plugins/moai-career/.claude-plugin/plugin.json		static_read
+plugins/moai-career/.codex-plugin/plugin.json		static_read
+plugins/moai-career/README.md		static_read
+plugins/moai-career/agents/career-coach.md	claude_only_tool	static_read
+plugins/moai-career/agents/resume-auditor.md	claude_only_tool	static_read
+plugins/moai-career/skills/career-claim-audit/SKILL.md	new_chatgpt_agent_mapping	static_read
+plugins/moai-career/skills/career-interview/SKILL.md		static_read
+plugins/moai-career/skills/career-interview/references/common-questions.md		static_read
+plugins/moai-career/skills/career-interview/references/interview-types.md		static_read
+plugins/moai-career/skills/career-junior-onboarding/SKILL.md		static_read
+plugins/moai-career/skills/career-portfolio/SKILL.md		static_read
+plugins/moai-career/skills/career-portfolio/references/portfolio-by-field.md		static_read
+plugins/moai-career/skills/career-resume/SKILL.md		static_read
+plugins/moai-career/skills/career-resume/references/cover-letter-guide.md		static_read
+plugins/moai-career/skills/career-resume/references/korean-resume.md		static_read
+plugins/moai-career/skills/career-transition/SKILL.md		static_read
+plugins/moai-career/skills/career-transition/references/kr-resignation-benefits.md		static_read
+plugins/moai-career/skills/career-workflow/SKILL.md	new_chatgpt_agent_mapping	static_read
+plugins/moai-consultant/.claude-plugin/plugin.json		static_read
+plugins/moai-consultant/.codex-plugin/plugin.json		static_read
+plugins/moai-consultant/README.md		static_read
+plugins/moai-consultant/agents/feasibility-auditor.md	claude_only_tool	static_read
+plugins/moai-consultant/agents/strategy-consultant.md	claude_only_tool	static_read
+plugins/moai-consultant/skills/consult-brief/SKILL.md		static_read
+plugins/moai-consultant/skills/consult-brief/tests/test-cases.yaml		static_read
+plugins/moai-consultant/skills/consult-feasibility-audit/SKILL.md	new_chatgpt_agent_mapping	static_read
+plugins/moai-consultant/skills/consult-gov-grant/SKILL.md		static_read
+plugins/moai-consultant/skills/consult-gov-grant/references/grant-writer.md		static_read
+plugins/moai-consultant/skills/consult-gov-grant/references/programs.md		static_read
+plugins/moai-consultant/skills/consult-market/SKILL.md		static_read
+plugins/moai-consultant/skills/consult-market/references/competitive-analysis.md		static_read
+plugins/moai-consultant/skills/consult-market/references/market-research.md		static_read
+plugins/moai-consultant/skills/consult-market/references/market-researcher.md		static_read
+plugins/moai-consultant/skills/consult-market/references/pricing-strategy.md		static_read
+plugins/moai-consultant/skills/consult-sbiz365/SKILL.md		static_read
+plugins/moai-consultant/skills/consult-sbiz365/references/analysis-guide.md		static_read
+plugins/moai-consultant/skills/consult-sbiz365/references/data-fields.md		static_read
+plugins/moai-consultant/skills/consult-sbiz365/references/feasibility-scoring.md		static_read
+plugins/moai-consultant/skills/consult-sbiz365/references/report-template.md		static_read
+plugins/moai-consultant/skills/consult-startup/SKILL.md		static_read
+plugins/moai-consultant/skills/consult-startup/tests/test-cases.yaml		static_read
+plugins/moai-consultant/skills/consult-strategy/SKILL.md		static_read
+plugins/moai-consultant/skills/consult-strategy/references/business-model-canvas.md		static_read
+plugins/moai-consultant/skills/consult-strategy/references/market-entry-strategy.md		static_read
+plugins/moai-consultant/skills/consult-strategy/references/nonprofit-management.md		static_read
+plugins/moai-consultant/skills/consult-strategy/references/scenario-planner.md		static_read
+plugins/moai-consultant/skills/consult-strategy/references/startup-launcher.md		static_read
+plugins/moai-consultant/skills/consult-strategy/references/strategy-framework.md		static_read
+plugins/moai-consultant/skills/consult-workflow/SKILL.md	new_chatgpt_agent_mapping	static_read
+plugins/moai-coworker/.claude-plugin/plugin.json		static_read
+plugins/moai-coworker/.codex-plugin/plugin.json		static_read
+plugins/moai-coworker/.mcp.json		static_read
+plugins/moai-coworker/CHANGELOG.md	cli_install	static_read
+plugins/moai-coworker/README.md		static_read
+plugins/moai-coworker/mcp-launch/mcp_launch.py	platform_path	static_read
+plugins/moai-coworker/skills/ai-diagnostic/SKILL.md		static_read
+plugins/moai-coworker/skills/ai-diagnostic/tests/test-cases.yaml		static_read
+plugins/moai-coworker/skills/ai-prompting-basics/SKILL.md		static_read
+plugins/moai-coworker/skills/ai-slop-reviewer/SKILL.md		static_read
+plugins/moai-coworker/skills/ai-slop-reviewer/references/kr-pii-masking.md		static_read
+plugins/moai-coworker/skills/collab-brand-identity/SKILL.md		static_read
+plugins/moai-coworker/skills/collab-brand-identity/references/brand-identity/archetype-framework.md		static_read
+plugins/moai-coworker/skills/collab-brand-identity/references/brand-identity/brand-guide-template.md		static_read
+plugins/moai-coworker/skills/collab-brand-identity/references/brand-identity/color-psychology.md		static_read
+plugins/moai-coworker/skills/collab-brand-identity/references/brand-identity/naming-methodology.md		static_read
+plugins/moai-coworker/skills/collab-conflict/SKILL.md		static_read
+plugins/moai-coworker/skills/collab-exec-summary/SKILL.md		static_read
+plugins/moai-coworker/skills/collab-exec-summary/tests/test-cases.yaml		static_read
+plugins/moai-coworker/skills/collab-feedback-loop/SKILL.md		static_read
+plugins/moai-coworker/skills/collab-meeting/SKILL.md		static_read
+plugins/moai-coworker/skills/collab-negotiation/SKILL.md		static_read
+plugins/moai-coworker/skills/collab-pm-report/SKILL.md		static_read
+plugins/moai-coworker/skills/collab-pm-report/tests/test-cases.yaml		static_read
+plugins/moai-coworker/skills/collab-process/SKILL.md		static_read
+plugins/moai-coworker/skills/collab-process/references/meeting-strategist.md		static_read
+plugins/moai-coworker/skills/collab-process/references/operations-manual.md		static_read
+plugins/moai-coworker/skills/collab-process/references/procurement-docs.md		static_read
+plugins/moai-coworker/skills/collab-process/references/sop-writer.md		static_read
+plugins/moai-coworker/skills/collab-productivity-report/SKILL.md		static_read
+plugins/moai-coworker/skills/collab-proposal/SKILL.md		static_read
+plugins/moai-coworker/skills/collab-proposal/references/nara-jangteo.md		static_read
+plugins/moai-coworker/skills/collab-proposal/tests/test-cases.yaml	claude_only_tool	static_read
+plugins/moai-coworker/skills/collab-report-speak/SKILL.md		static_read
+plugins/moai-coworker/skills/collab-report-speak/references/kr-honorific-tone.md		static_read
+plugins/moai-coworker/skills/collab-roadmap/SKILL.md		static_read
+plugins/moai-coworker/skills/collab-roadmap/references/diversity-inclusion.md		static_read
+plugins/moai-coworker/skills/collab-roadmap/references/partnership-development.md		static_read
+plugins/moai-coworker/skills/collab-roadmap/references/project-tracker.md		static_read
+plugins/moai-coworker/skills/collab-roadmap/references/sustainability-audit.md		static_read
+plugins/moai-coworker/skills/collab-sales-playbook/SKILL.md		static_read
+plugins/moai-coworker/skills/collab-sales-playbook/tests/test-cases.yaml		static_read
+plugins/moai-coworker/skills/collab-spec/SKILL.md		static_read
+plugins/moai-coworker/skills/collab-spec/references/ai-strategy.md		static_read
+plugins/moai-coworker/skills/collab-spec/references/product-manager.md		static_read
+plugins/moai-coworker/skills/collab-status-report/SKILL.md		static_read
+plugins/moai-coworker/skills/collab-status-report/references/kpi-dashboard.md		static_read
+plugins/moai-coworker/skills/collab-status-report/references/reporting-standards.md		static_read
+plugins/moai-coworker/skills/collab-ux-design/SKILL.md		static_read
+plugins/moai-coworker/skills/collab-ux-design/tests/test-cases.yaml		static_read
+plugins/moai-coworker/skills/collab-ux-research/SKILL.md		static_read
+plugins/moai-coworker/skills/collab-ux-research/references/user-feedback-analysis.md		static_read
+plugins/moai-coworker/skills/collab-ux-research/references/ux-research.md		static_read
+plugins/moai-coworker/skills/collab-vendor/SKILL.md		static_read
+plugins/moai-coworker/skills/collab-vendor/references/contract-management.md		static_read
+plugins/moai-coworker/skills/collab-vendor/references/import-export.md		static_read
+plugins/moai-coworker/skills/collab-vendor/references/risk-register.md		static_read
+plugins/moai-coworker/skills/collab-vendor/references/supply-chain.md		static_read
+plugins/moai-coworker/skills/meta-feedback/SKILL.md	claude_only_tool	static_read
+plugins/moai-coworker/skills/meta-skill-builder/SKILL.md	claude_only_tool	static_read
+plugins/moai-coworker/skills/meta-skill-template/SKILL.md	claude_only_tool	static_read
+plugins/moai-coworker/skills/meta-skill-tester/SKILL.md	claude_only_tool	static_read
+plugins/moai-coworker/skills/personal-event/SKILL.md		static_read
+plugins/moai-coworker/skills/personal-event/references/event-organizer.md		static_read
+plugins/moai-coworker/skills/personal-event/references/wedding-planner.md		static_read
+plugins/moai-coworker/skills/personal-self-care/SKILL.md		static_read
+plugins/moai-coworker/skills/personal-travel/SKILL.md		static_read
+plugins/moai-coworker/skills/personal-travel/references/travel-planner.md		static_read
+plugins/moai-coworker/skills/personal-wellness/SKILL.md		static_read
+plugins/moai-coworker/skills/personal-wellness/references/elderly-care-planning.md		static_read
+plugins/moai-coworker/skills/personal-wellness/references/fitness-program.md		static_read
+plugins/moai-coworker/skills/personal-wellness/references/meal-planner.md		static_read
+plugins/moai-coworker/skills/personal-wellness/references/parenting-guide.md		static_read
+plugins/moai-coworker/skills/productivity-goal/SKILL.md		static_read
+plugins/moai-coworker/skills/productivity-habit/SKILL.md		static_read
+plugins/moai-coworker/skills/productivity-retro/SKILL.md		static_read
+plugins/moai-cs/.claude-plugin/plugin.json		static_read
+plugins/moai-cs/.codex-plugin/plugin.json		static_read
+plugins/moai-cs/README.md		static_read
+plugins/moai-cs/agents/cs-responder.md	claude_only_tool	static_read
+plugins/moai-cs/agents/voc-auditor.md	claude_only_tool	static_read
+plugins/moai-cs/skills/cs-channel-message/SKILL.md		static_read
+plugins/moai-cs/skills/cs-channel-message/references/ad-copy.md		static_read
+plugins/moai-cs/skills/cs-channel-message/references/email-sequence.md		static_read
+plugins/moai-cs/skills/cs-channel-message/references/push-copy.md		static_read
+plugins/moai-cs/skills/cs-channel-message/references/push-planning.md		static_read
+plugins/moai-cs/skills/cs-channel-message/references/talk-copy.md		static_read
+plugins/moai-cs/skills/cs-draft-response/SKILL.md		static_read
+plugins/moai-cs/skills/cs-draft-response/references/kr-ecommerce-cs-law.md		static_read
+plugins/moai-cs/skills/cs-draft-response/references/response-templates.md		static_read
+plugins/moai-cs/skills/cs-draft-response/references/tone-guide.md		static_read
+plugins/moai-cs/skills/cs-escalation/SKILL.md		static_read
+plugins/moai-cs/skills/cs-escalation/references/feedback-analyzer.md		static_read
+plugins/moai-cs/skills/cs-kb-article/SKILL.md		static_read
+plugins/moai-cs/skills/cs-kb-article/references/writing-standards.md		static_read
+plugins/moai-cs/skills/cs-quality-audit/SKILL.md	new_chatgpt_agent_mapping	static_read
+plugins/moai-cs/skills/cs-ticket-triage/SKILL.md		static_read
+plugins/moai-cs/skills/cs-ticket-triage/references/customer-support.md		static_read
+plugins/moai-cs/skills/cs-voc-triage/SKILL.md		static_read
+plugins/moai-cs/skills/cs-workflow/SKILL.md	new_chatgpt_agent_mapping	static_read
+plugins/moai-designer/.claude-plugin/plugin.json		static_read
+plugins/moai-designer/.codex-plugin/plugin.json		static_read
+plugins/moai-designer/.mcp.json		static_read
+plugins/moai-designer/README.md		static_read
+plugins/moai-designer/config/design.yaml		static_read
+plugins/moai-designer/rules/moai/design/constitution.md	claude_only_tool	static_read
+plugins/moai-designer/skills/design-brand-system/SKILL.md		static_read
+plugins/moai-designer/skills/design-brand-visual/SKILL.md		static_read
+plugins/moai-designer/skills/design-brief/SKILL.md	claude_only_tool	static_read
+plugins/moai-designer/skills/design-copywriting/SKILL.md		static_read
+plugins/moai-designer/skills/design-gui-guide/SKILL.md		static_read
+plugins/moai-designer/skills/design-handoff-reader/SKILL.md		static_read
+plugins/moai-designer/skills/design-handoff/SKILL.md	claude_only_tool	static_read
+plugins/moai-designer/skills/design-handoff/references/prompt-template.md		static_read
+plugins/moai-designer/skills/design-handoff/references/supporting-files.md		static_read
+plugins/moai-designer/skills/design-iteration-loop/SKILL.md	claude_only_tool	static_read
+plugins/moai-designer/skills/design-landing-motion/SKILL.md		static_read
+plugins/moai-designer/skills/design-landing-motion/references/asset-kit.md		static_read
+plugins/moai-designer/skills/design-landing-motion/references/effects-catalog.md		static_read
+plugins/moai-designer/skills/design-landing-motion/references/motion-craft.md		static_read
+plugins/moai-designer/skills/design-landing-motion/references/quality-gate.md		static_read
+plugins/moai-designer/skills/design-landing-motion/references/threejs-patterns.md		static_read
+plugins/moai-designer/skills/design-logo/SKILL.md		static_read
+plugins/moai-designer/skills/design-logo/references/logo-craft.md		static_read
+plugins/moai-designer/skills/design-logo/references/logo-principles.md		static_read
+plugins/moai-designer/skills/design-logo/references/logo-types.md		static_read
+plugins/moai-designer/skills/design-prompt-builder/SKILL.md	claude_only_tool	static_read
+plugins/moai-designer/skills/design-slop-check/SKILL.md	claude_only_tool	static_read
+plugins/moai-designer/skills/design-sync-upload/SKILL.md	claude_only_tool	static_read
+plugins/moai-designer/skills/design-system-library/BRAND-NOTICE.md		static_read
+plugins/moai-designer/skills/design-system-library/SKILL.md		static_read
+plugins/moai-designer/skills/design-system-library/components/README.md		static_read
+plugins/moai-designer/skills/design-system-library/components/alert.md		static_read
+plugins/moai-designer/skills/design-system-library/components/badge.md		static_read
+plugins/moai-designer/skills/design-system-library/components/button.md		static_read
+plugins/moai-designer/skills/design-system-library/components/card.md		static_read
+plugins/moai-designer/skills/design-system-library/components/table.md		static_read
+plugins/moai-designer/skills/design-system-library/components/tabs.md		static_read
+plugins/moai-designer/skills/design-system-library/mapping/tailwind.md		static_read
+plugins/moai-designer/skills/design-system-library/references/korean-design-systems.md		static_read
+plugins/moai-designer/skills/design-system-library/samples/status-claude.html		static_read
+plugins/moai-designer/skills/design-system-library/samples/status-clay.html		static_read
+plugins/moai-designer/skills/design-system-library/samples/status-clickhouse.html		static_read
+plugins/moai-designer/skills/design-system-library/systems/airbnb.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/airtable.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/anthropic-claude.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/apple.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/binance.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/bmw-m.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/bmw.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/bugatti.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/cal.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/clay.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/clickhouse.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/cohere.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/coinbase.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/composio.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/cursor.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/dell-1996.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/discord.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/elevenlabs.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/expo.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/ferrari.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/figma.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/framer.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/hashicorp.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/hp.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/ibm.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/intercom.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/keynote-editorial-dark.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/kraken.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/lamborghini.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/linear.app.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/lovable.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/mastercard.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/meta.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/minimax.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/mintlify.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/miro.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/mistral.ai.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/mongodb.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/nike.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/nintendo-2001.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/notion.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/nvidia.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/ollama.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/opencode.ai.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/pinterest.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/playstation.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/posthog.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/raycast.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/registry.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/renault.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/replicate.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/resend.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/revolut.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/runwayml.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/sanity.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/sentry.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/shopify.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/slack.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/spacex.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/spotify.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/starbucks.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/stripe.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/supabase.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/superhuman.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/tesla.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/theverge.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/together.ai.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/uber.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/vercel.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/vodafone.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/voltagent.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/warp.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/webflow.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/wired.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/wise.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/x.ai.md		static_read
+plugins/moai-designer/skills/design-system-library/systems/zapier.md		static_read
+plugins/moai-designer/skills/design-system-prep/SKILL.md	claude_only_tool	static_read
+plugins/moai-designer/skills/design-tokens-transformer/SKILL.md		static_read
+plugins/moai-designer/skills/design-workflow/SKILL.md	claude_only_tool	static_read
+plugins/moai-lawyer/.claude-plugin/plugin.json		static_read
+plugins/moai-lawyer/.codex-plugin/plugin.json		static_read
+plugins/moai-lawyer/.mcp.json		static_read
+plugins/moai-lawyer/README.md		static_read
+plugins/moai-lawyer/agents/legal-researcher.md	claude_only_tool	static_read
+plugins/moai-lawyer/agents/risk-auditor.md	claude_only_tool	static_read
+plugins/moai-lawyer/mcp-launch/mcp_launch.py	platform_path	static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/.gitignore		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/CONNECTORS.md		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/README.md		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/pyproject.toml		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_core/__init__.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_core/auth.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_core/cache.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_core/credentials.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_core/errors.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_core/http.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_core/tokenstore.py	platform_path	static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/__init__.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/access.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/epo.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/jpo.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/kipris.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/redact.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/server.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/uspto.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/xmlutil.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/tests/test_server.py		static_read
+plugins/moai-lawyer/mcp-servers/moai-mcp-ip/uv.lock		static_read
+plugins/moai-lawyer/skills/legal-compliance-check/SKILL.md		static_read
+plugins/moai-lawyer/skills/legal-compliance-check/references/2026-law-changes.md		static_read
+plugins/moai-lawyer/skills/legal-compliance-check/references/audit-report.md		static_read
+plugins/moai-lawyer/skills/legal-compliance-check/references/compliance-checker.md		static_read
+plugins/moai-lawyer/skills/legal-compliance-check/references/esg-reporting.md		static_read
+plugins/moai-lawyer/skills/legal-compliance-check/references/ftc-standard-terms.md		static_read
+plugins/moai-lawyer/skills/legal-compliance-check/references/regulatory-filing.md		static_read
+plugins/moai-lawyer/skills/legal-contract-review/SKILL.md		static_read
+plugins/moai-lawyer/skills/legal-contract-review/references/contract/guide.md		static_read
+plugins/moai-lawyer/skills/legal-contract-review/references/service-legal-docs.md		static_read
+plugins/moai-lawyer/skills/legal-evidence-audit/SKILL.md	new_chatgpt_agent_mapping	static_read
+plugins/moai-lawyer/skills/legal-ip-search-report/SKILL.md	claude_only_tool	static_read
+plugins/moai-lawyer/skills/legal-ip-search-report/references/api-access.md		static_read
+plugins/moai-lawyer/skills/legal-ip-search-report/references/patent-workflow.md		static_read
+plugins/moai-lawyer/skills/legal-ip-search-report/references/report-schema.md		static_read
+plugins/moai-lawyer/skills/legal-ip-search-report/references/trademark-workflow.md		static_read
+plugins/moai-lawyer/skills/legal-iros-registry-automation/SKILL.md		static_read
+plugins/moai-lawyer/skills/legal-law-research/SKILL.md		static_read
+plugins/moai-lawyer/skills/legal-legal-risk/SKILL.md		static_read
+plugins/moai-lawyer/skills/legal-legal-risk/references/ip-portfolio.md		static_read
+plugins/moai-lawyer/skills/legal-legal-risk/references/legal-research.md		static_read
+plugins/moai-lawyer/skills/legal-mfds-safety/SKILL.md		static_read
+plugins/moai-lawyer/skills/legal-nda-triage/SKILL.md		static_read
+plugins/moai-lawyer/skills/legal-patent-analyzer/SKILL.md	claude_only_tool	static_read
+plugins/moai-lawyer/skills/legal-patent-analyzer/references/patent-analyzer/guide.md		static_read
+plugins/moai-lawyer/skills/legal-patent-search/SKILL.md		static_read
+plugins/moai-lawyer/skills/legal-patent-search/references/patent-search/guide.md		static_read
+plugins/moai-lawyer/skills/legal-service-launch-checklist/SKILL.md		static_read
+plugins/moai-lawyer/skills/legal-service-launch-checklist/references/ai-act-user-vs-provider.md		static_read
+plugins/moai-lawyer/skills/legal-service-launch-checklist/references/launch-checklist-2026.md		static_read
+plugins/moai-lawyer/skills/legal-service-launch-checklist/references/service-risk-matrix.md		static_read
+plugins/moai-lawyer/skills/legal-workflow/SKILL.md	new_chatgpt_agent_mapping	static_read
+plugins/moai-marketer/.claude-plugin/plugin.json		static_read
+plugins/moai-marketer/.codex-plugin/plugin.json		static_read
+plugins/moai-marketer/.mcp.json		static_read
+plugins/moai-marketer/README.md		static_read
+plugins/moai-marketer/agents/campaign-strategist.md	claude_only_tool	static_read
+plugins/moai-marketer/agents/performance-auditor.md	claude_only_tool	static_read
+plugins/moai-marketer/skills/content-blog/SKILL.md		static_read
+plugins/moai-marketer/skills/content-blog/references/brunch.md		static_read
+plugins/moai-marketer/skills/content-blog/references/ghost.md		static_read
+plugins/moai-marketer/skills/content-blog/references/naver-blog.md		static_read
+plugins/moai-marketer/skills/content-blog/references/seo-geo.md		static_read
+plugins/moai-marketer/skills/content-blog/references/tistory.md		static_read
+plugins/moai-marketer/skills/content-blog/references/wordpress.md		static_read
+plugins/moai-marketer/skills/content-card-news/SKILL.md	claude_only_tool	static_read
+plugins/moai-marketer/skills/content-card-news/references/card-news/anti-ai-writing.md		static_read
+plugins/moai-marketer/skills/content-card-news/references/card-news/design-guide.md		static_read
+plugins/moai-marketer/skills/content-card-news/references/card-news/guide.md		static_read
+plugins/moai-marketer/skills/content-card-news/references/card-news/magazine-sop.md		static_read
+plugins/moai-marketer/skills/content-card-news/references/prompt-templates.md		static_read
+plugins/moai-marketer/skills/content-copywriting/SKILL.md		static_read
+plugins/moai-marketer/skills/content-copywriting/references/advertising-campaign.md		static_read
+plugins/moai-marketer/skills/content-copywriting/references/ai-tell-ko-copy-spec.md		static_read
+plugins/moai-marketer/skills/content-copywriting/references/copywriting.md		static_read
+plugins/moai-marketer/skills/content-copywriting/references/visual-storytelling.md		static_read
+plugins/moai-marketer/skills/content-editorial-calendar/SKILL.md		static_read
+plugins/moai-marketer/skills/content-editorial-calendar/references/content-calendar.md		static_read
+plugins/moai-marketer/skills/content-email-sequence/SKILL.md		static_read
+plugins/moai-marketer/skills/content-newsletter/SKILL.md		static_read
+plugins/moai-marketer/skills/content-newsletter/references/newsletter-engine.md		static_read
+plugins/moai-marketer/skills/content-sns-content/SKILL.md		static_read
+plugins/moai-marketer/skills/content-sns-content/references/brand-identity.md		static_read
+plugins/moai-marketer/skills/content-sns-content/references/brand-voice-guide.md		static_read
+plugins/moai-marketer/skills/content-sns-content/references/content-creator.md		static_read
+plugins/moai-marketer/skills/content-sns-content/references/content-repurposer.md		static_read
+plugins/moai-marketer/skills/content-sns-content/references/facebook.md		static_read
+plugins/moai-marketer/skills/content-sns-content/references/instagram.md		static_read
+plugins/moai-marketer/skills/content-sns-content/references/kakao.md		static_read
+plugins/moai-marketer/skills/content-sns-content/references/linkedin.md		static_read
+plugins/moai-marketer/skills/content-sns-content/references/personal-branding.md		static_read
+plugins/moai-marketer/skills/content-sns-content/references/platform-specs.md		static_read
+plugins/moai-marketer/skills/content-sns-content/references/sns-content/guide.md		static_read
+plugins/moai-marketer/skills/content-sns-content/references/threads.md		static_read
+plugins/moai-marketer/skills/content-sns-content/references/x-twitter.md		static_read
+plugins/moai-marketer/skills/content-sns-content/references/youtube-shorts.md		static_read
+plugins/moai-marketer/skills/marketing-campaign-planner/SKILL.md		static_read
+plugins/moai-marketer/skills/marketing-campaign-planner/references/ab-testing.md		static_read
+plugins/moai-marketer/skills/marketing-campaign-planner/references/crm-strategy.md		static_read
+plugins/moai-marketer/skills/marketing-campaign-planner/references/customer-journey-map.md		static_read
+plugins/moai-marketer/skills/marketing-campaign-planner/references/growth-hacking.md		static_read
+plugins/moai-marketer/skills/marketing-campaign-planner/references/imagegen/guide.md		static_read
+plugins/moai-marketer/skills/marketing-campaign-planner/references/influencer-strategy.md		static_read
+plugins/moai-marketer/skills/marketing-campaign-planner/references/product-detail/guide.md		static_read
+plugins/moai-marketer/skills/marketing-campaign-planner/references/sales-enablement.md		static_read
+plugins/moai-marketer/skills/marketing-evidence-audit/SKILL.md	new_chatgpt_agent_mapping	static_read
+plugins/moai-marketer/skills/marketing-growth-experiment/SKILL.md		static_read
+plugins/moai-marketer/skills/marketing-keyword-research/SKILL.md		static_read
+plugins/moai-marketer/skills/marketing-landing-page-conversion-audit/SKILL.md		static_read
+plugins/moai-marketer/skills/marketing-landing-page/SKILL.md		static_read
+plugins/moai-marketer/skills/marketing-landing-page/references/landing-page/ab-testing-guide.md		static_read
+plugins/moai-marketer/skills/marketing-landing-page/references/landing-page/brand-context-template.md		static_read
+plugins/moai-marketer/skills/marketing-landing-page/references/landing-page/copywriting-rules.md		static_read
+plugins/moai-marketer/skills/marketing-landing-page/references/landing-page/design-principles.md		static_read
+plugins/moai-marketer/skills/marketing-landing-page/references/landing-page/evaluation-checklist.md		static_read
+plugins/moai-marketer/skills/marketing-landing-page/references/landing-page/guide.md		static_read
+plugins/moai-marketer/skills/marketing-landing-page/references/landing-page/shadcn-theme-interview.md		static_read
+plugins/moai-marketer/skills/marketing-meta-ads-analyzer/SKILL.md		static_read
+plugins/moai-marketer/skills/marketing-meta-ads-analyzer/references/A.md		static_read
+plugins/moai-marketer/skills/marketing-meta-ads-analyzer/references/B.md		static_read
+plugins/moai-marketer/skills/marketing-meta-ads-analyzer/references/C.md		static_read
+plugins/moai-marketer/skills/marketing-meta-ads-analyzer/references/D.md		static_read
+plugins/moai-marketer/skills/marketing-meta-ads-analyzer/references/E.md		static_read
+plugins/moai-marketer/skills/marketing-meta-ads-analyzer/references/F.md		static_read
+plugins/moai-marketer/skills/marketing-meta-ads-analyzer/references/G.md		static_read
+plugins/moai-marketer/skills/marketing-meta-ads-analyzer/references/H.md		static_read
+plugins/moai-marketer/skills/marketing-meta-ads-analyzer/references/I.md		static_read
+plugins/moai-marketer/skills/marketing-meta-ads-analyzer/references/J.md		static_read
+plugins/moai-marketer/skills/marketing-meta-ads-analyzer/references/K.md		static_read
+plugins/moai-marketer/skills/marketing-meta-ads-manager/SKILL.md		static_read
+plugins/moai-marketer/skills/marketing-performance-report/SKILL.md		static_read
+plugins/moai-marketer/skills/marketing-personal-branding/SKILL.md		static_read
+plugins/moai-marketer/skills/marketing-personal-branding/references/personal-branding/channel-guide.md		static_read
+plugins/moai-marketer/skills/marketing-personal-branding/references/personal-branding/content-strategy.md		static_read
+plugins/moai-marketer/skills/marketing-personal-branding/references/personal-branding/self-assessment-framework.md		static_read
+plugins/moai-marketer/skills/marketing-pixel-audit/SKILL.md		static_read
+plugins/moai-marketer/skills/marketing-retention/SKILL.md		static_read
+plugins/moai-marketer/skills/marketing-seo-audit/SKILL.md		static_read
+plugins/moai-marketer/skills/marketing-seo-audit/references/naver-place.md		static_read
+plugins/moai-marketer/skills/marketing-target-script/SKILL.md		static_read
+plugins/moai-marketer/skills/marketing-target-script/tests/test-cases.yaml		static_read
+plugins/moai-marketer/skills/marketing-workflow/SKILL.md	new_chatgpt_agent_mapping	static_read
+plugins/moai-marketer/skills/marketing-youtube-podcast-planner/SKILL.md		static_read
+plugins/moai-marketer/skills/marketing-youtube-podcast-planner/references/book-publishing.md		static_read
+plugins/moai-marketer/skills/marketing-youtube-podcast-planner/references/podcast-studio.md		static_read
+plugins/moai-marketer/skills/marketing-youtube-podcast-planner/references/youtube-production.md		static_read
+plugins/moai-media/.claude-plugin/plugin.json		static_read
+plugins/moai-media/.codex-plugin/plugin.json		static_read
+plugins/moai-media/.mcp.json	platform_path	static_read
+plugins/moai-media/README.md		static_read
+plugins/moai-media/agents/media-brand-auditor.md	claude_only_tool	static_read
+plugins/moai-media/agents/media-producer.md	claude_only_tool	static_read
+plugins/moai-media/mcp-launch/mcp_launch.py	platform_path	static_read
+plugins/moai-media/mcp-servers/moai-mcp-openai/README.md		static_read
+plugins/moai-media/mcp-servers/moai-mcp-openai/pyproject.toml		static_read
+plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/__init__.py		static_read
+plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/auth.py		static_read
+plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/cache.py		static_read
+plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/credentials.py		static_read
+plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/errors.py		static_read
+plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/http.py		static_read
+plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/tokenstore.py	platform_path	static_read
+plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_openai/__init__.py		static_read
+plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_openai/server.py		static_read
+plugins/moai-media/mcp-servers/moai-mcp-openai/tests/test_server.py		static_read
+plugins/moai-media/mcp-servers/moai-mcp-openai/uv.lock		static_read
+plugins/moai-media/skills/media-asset-production/SKILL.md		static_read
+plugins/moai-media/skills/media-audio-gen/SKILL.md	claude_only_tool	static_read
+plugins/moai-media/skills/media-brand-audit/SKILL.md		static_read
+plugins/moai-media/skills/media-codex-image/SKILL.md	codex_exec	static_read
+plugins/moai-media/skills/media-gemini-3-image-prompt/SKILL.md		static_read
+plugins/moai-media/skills/media-gemini-3-image-prompt/references/parameter-cheatsheet.md		static_read
+plugins/moai-media/skills/media-gemini-3-image-prompt/references/prompt-blocks.md		static_read
+plugins/moai-media/skills/media-gemini-3-image-prompt/references/reference-images.md		static_read
+plugins/moai-media/skills/media-gemini-3-image-prompt/references/search-grounding.md		static_read
+plugins/moai-media/skills/media-gemini-3-image-prompt/tests/test-cases.yaml		static_read
+plugins/moai-media/skills/media-gpt-image-prompt/SKILL.md		static_read
+plugins/moai-media/skills/media-gpt-image-prompt/presets/illustration.md		static_read
+plugins/moai-media/skills/media-gpt-image-prompt/presets/landscape.md		static_read
+plugins/moai-media/skills/media-gpt-image-prompt/presets/portrait.md		static_read
+plugins/moai-media/skills/media-gpt-image-prompt/presets/product-shot.md		static_read
+plugins/moai-media/skills/media-gpt-image-prompt/references/editing-patterns.md		static_read
+plugins/moai-media/skills/media-gpt-image-prompt/references/parameter-cheatsheet.md		static_read
+plugins/moai-media/skills/media-gpt-image-prompt/references/prompting-fundamentals.md		static_read
+plugins/moai-media/skills/media-gpt-image-prompt/references/text-rendering.md		static_read
+plugins/moai-media/skills/media-gpt-image-prompt/references/workflow-recipes.md		static_read
+plugins/moai-media/skills/media-gpt-image-prompt/tests/test-cases.yaml		static_read
+plugins/moai-media/skills/media-higgsfield-assets/SKILL.md		static_read
+plugins/moai-media/skills/media-higgsfield-assets/references/3d.md		static_read
+plugins/moai-media/skills/media-higgsfield-assets/references/analysis.md		static_read
+plugins/moai-media/skills/media-higgsfield-assets/references/audio.md		static_read
+plugins/moai-media/skills/media-higgsfield-core/SKILL.md	claude_only_tool	static_read
+plugins/moai-media/skills/media-higgsfield-core/references/call-schema.md		static_read
+plugins/moai-media/skills/media-higgsfield-core/references/catalog-protocol.md		static_read
+plugins/moai-media/skills/media-higgsfield-core/references/interview-schema.md	claude_only_tool	static_read
+plugins/moai-media/skills/media-higgsfield-core/references/job-lifecycle.md		static_read
+plugins/moai-media/skills/media-higgsfield-core/references/universal-rules.md	higgsfield_key	static_read
+plugins/moai-media/skills/media-higgsfield-explainer/SKILL.md		static_read
+plugins/moai-media/skills/media-higgsfield-explainer/references/prompts.md		static_read
+plugins/moai-media/skills/media-higgsfield-identity/SKILL.md		static_read
+plugins/moai-media/skills/media-higgsfield-identity/references/soul-vs-elements.md		static_read
+plugins/moai-media/skills/media-higgsfield-identity/references/training-photo-guide.md		static_read
+plugins/moai-media/skills/media-higgsfield-image/SKILL.md		static_read
+plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/flux.md		static_read
+plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/marketing-studio.md		static_read
+plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/nano-banana.md		static_read
+plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/openai.md		static_read
+plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/recraft.md		static_read
+plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/seedream.md		static_read
+plugins/moai-media/skills/media-higgsfield-image/references/prompt-craft/soul.md		static_read
+plugins/moai-media/skills/media-higgsfield-product/SKILL.md		static_read
+plugins/moai-media/skills/media-higgsfield-product/references/interview.md		static_read
+plugins/moai-media/skills/media-higgsfield-product/references/modes.md		static_read
+plugins/moai-media/skills/media-higgsfield-video/SKILL.md		static_read
+plugins/moai-media/skills/media-higgsfield-video/references/dop-motions.md		static_read
+plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/cinema-studio.md	higgsfield_key	static_read
+plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/gemini-omni.md		static_read
+plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/grok.md		static_read
+plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/kling.md		static_read
+plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/marketing-studio.md		static_read
+plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/seedance.md		static_read
+plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/veo.md		static_read
+plugins/moai-media/skills/media-higgsfield-video/references/prompt-craft/wan.md		static_read
+plugins/moai-media/skills/media-midjourney-v8-prompt/SKILL.md		static_read
+plugins/moai-media/skills/media-midjourney-v8-prompt/references/cost-traps.md		static_read
+plugins/moai-media/skills/media-midjourney-v8-prompt/references/parameter-cheatsheet.md		static_read
+plugins/moai-media/skills/media-midjourney-v8-prompt/references/prompt-blocks.md		static_read
+plugins/moai-media/skills/media-midjourney-v8-prompt/references/style-references.md		static_read
+plugins/moai-media/skills/media-midjourney-v8-prompt/tests/test-cases.yaml		static_read
+plugins/moai-media/skills/media-notebooklm-slide-prompt/SKILL.md	claude_only_tool	static_read
+plugins/moai-media/skills/media-notebooklm-slide-prompt/references/slide-style-library.md	claude_only_tool	static_read
+plugins/moai-media/skills/media-production/SKILL.md		static_read
+plugins/moai-officer/.claude-plugin/plugin.json		static_read
+plugins/moai-officer/.codex-plugin/plugin.json		static_read
+plugins/moai-officer/.mcp.json		static_read
+plugins/moai-officer/README.md		static_read
+plugins/moai-officer/agents/data-auditor.md	claude_only_tool	static_read
+plugins/moai-officer/agents/doc-producer.md	claude_only_tool	static_read
+plugins/moai-officer/skills/doc-data-audit/SKILL.md	new_chatgpt_agent_mapping	static_read
+plugins/moai-officer/skills/doc-design-library/SKILL.md		static_read
+plugins/moai-officer/skills/doc-docx/SKILL.md		static_read
+plugins/moai-officer/skills/doc-docx/references/document-generator.md		static_read
+plugins/moai-officer/skills/doc-docx/references/modern-design-system.md		static_read
+plugins/moai-officer/skills/doc-docx/references/modern-templates.md		static_read
+plugins/moai-officer/skills/doc-docx/references/qa-checklist.md		static_read
+plugins/moai-officer/skills/doc-docx/references/templates/korean-proposal.md		static_read
+plugins/moai-officer/skills/doc-docx/references/templates/korean-report.md		static_read
+plugins/moai-officer/skills/doc-html-report/SKILL.md		static_read
+plugins/moai-officer/skills/doc-html-report/references/design-tokens.md		static_read
+plugins/moai-officer/skills/doc-html-report/references/fonts.md		static_read
+plugins/moai-officer/skills/doc-html-report/references/integration-tests/COMPATIBILITY.md		static_read
+plugins/moai-officer/skills/doc-html-report/references/integration-tests/daily-briefing-input.md		static_read
+plugins/moai-officer/skills/doc-html-report/references/integration-tests/daily-briefing-rendered.html		static_read
+plugins/moai-officer/skills/doc-html-report/references/integration-tests/executive-summary-input.md		static_read
+plugins/moai-officer/skills/doc-html-report/references/integration-tests/executive-summary-rendered.html		static_read
+plugins/moai-officer/skills/doc-html-report/references/integration-tests/financial-statements-input.md		static_read
+plugins/moai-officer/skills/doc-html-report/references/integration-tests/financial-statements-rendered.html		static_read
+plugins/moai-officer/skills/doc-html-report/references/integration-tests/sbiz365-analyst-input.md		static_read
+plugins/moai-officer/skills/doc-html-report/references/integration-tests/sbiz365-analyst-rendered.html		static_read
+plugins/moai-officer/skills/doc-html-report/references/samples/explainer-sample.html		static_read
+plugins/moai-officer/skills/doc-html-report/references/samples/financial-sample.html		static_read
+plugins/moai-officer/skills/doc-html-report/references/samples/incident-sample.html		static_read
+plugins/moai-officer/skills/doc-html-report/references/samples/plan-sample.html		static_read
+plugins/moai-officer/skills/doc-html-report/references/samples/pr-sample.html		static_read
+plugins/moai-officer/skills/doc-html-report/references/samples/status-sample.html		static_read
+plugins/moai-officer/skills/doc-html-report/references/templates/explainer.html.tmpl		static_read
+plugins/moai-officer/skills/doc-html-report/references/templates/financial.html.tmpl		static_read
+plugins/moai-officer/skills/doc-html-report/references/templates/incident.html.tmpl		static_read
+plugins/moai-officer/skills/doc-html-report/references/templates/plan.html.tmpl		static_read
+plugins/moai-officer/skills/doc-html-report/references/templates/pr.html.tmpl		static_read
+plugins/moai-officer/skills/doc-html-report/references/templates/status.html.tmpl		static_read
+plugins/moai-officer/skills/doc-html-slide/SKILL.md	claude_only_tool	static_read
+plugins/moai-officer/skills/doc-html-slide/references/deck-manuscript-schema.md		static_read
+plugins/moai-officer/skills/doc-html-slide/references/deck-quality-rubric.md		static_read
+plugins/moai-officer/skills/doc-html-slide/references/design-system-links.md		static_read
+plugins/moai-officer/skills/doc-html-slide/references/editorial-deck-doctrine.md		static_read
+plugins/moai-officer/skills/doc-html-slide/references/html-runtime.md		static_read
+plugins/moai-officer/skills/doc-html-slide/references/image-backend-policy.md		static_read
+plugins/moai-officer/skills/doc-html-slide/references/inline-svg-infographics.md		static_read
+plugins/moai-officer/skills/doc-html-slide/references/pptx-chaining.md		static_read
+plugins/moai-officer/skills/doc-html-slide/samples/deck-sample.html		static_read
+plugins/moai-officer/skills/doc-html-slide/samples/deck-sample.json		static_read
+plugins/moai-officer/skills/doc-hwp/SKILL.md	hwpx_documentation_review	static_read
+plugins/moai-officer/skills/doc-hwp/references/format-converter.md	hwpx_documentation_review	static_read
+plugins/moai-officer/skills/doc-hwp/references/guide.md	hwpx_documentation_review	static_read
+plugins/moai-officer/skills/doc-hwp/references/kr-official-forms.md	hwpx_documentation_review	static_read
+plugins/moai-officer/skills/doc-hwp/references/owpml-spec.md	hwpx_documentation_review	static_read
+plugins/moai-officer/skills/doc-hwp/references/templates/base.md	hwpx_documentation_review	static_read
+plugins/moai-officer/skills/doc-hwp/references/templates/gonmun.md	hwpx_documentation_review	static_read
+plugins/moai-officer/skills/doc-hwp/references/templates/minutes.md	hwpx_documentation_review	static_read
+plugins/moai-officer/skills/doc-hwp/references/templates/proposal.md	hwpx_documentation_review	static_read
+plugins/moai-officer/skills/doc-hwp/references/templates/report.md	hwpx_documentation_review	static_read
+plugins/moai-officer/skills/doc-notion-template/SKILL.md	officer_document_review	static_read
+plugins/moai-officer/skills/doc-pdf/SKILL.md	officer_document_review	static_read
+plugins/moai-officer/skills/doc-pdf/assets/fonts/LICENSE.txt	officer_document_review	static_read
+plugins/moai-officer/skills/doc-pdf/assets/fonts/README.md	officer_document_review	static_read
+plugins/moai-officer/skills/doc-pdf/tests/test-cases.yaml	officer_document_review	static_read
+plugins/moai-officer/skills/doc-pptx/SKILL.md	claude_only_tool	static_read
+plugins/moai-officer/skills/doc-pptx/references/curated-palettes.md	pptx_file_review	static_read
+plugins/moai-officer/skills/doc-pptx/references/guide.md	pptx_file_review	static_read
+plugins/moai-officer/skills/doc-pptx/references/pptxgen-code-patterns.md	pptx_file_review	static_read
+plugins/moai-officer/skills/doc-pptx/references/qa-checklist.md	pptx_file_review	static_read
+plugins/moai-officer/skills/doc-pptx/references/report-generator.md	pptx_file_review	static_read
+plugins/moai-officer/skills/doc-pptx/references/slide-archetypes.md	pptx_file_review	static_read
+plugins/moai-officer/skills/doc-pptx/references/templates/minimal-business.md	pptx_file_review	static_read
+plugins/moai-officer/skills/doc-pptx/references/typography-pairings.md	pptx_file_review	static_read
+plugins/moai-officer/skills/doc-reader/SKILL.md	officer_skill_review	static_read
+plugins/moai-officer/skills/doc-workflow/SKILL.md	new_chatgpt_agent_mapping	static_read
+plugins/moai-officer/skills/doc-xlsx/SKILL.md	officer_skill_review	static_read
+plugins/moai-officer/skills/productivity-briefing/SKILL.md	officer_skill_review	static_read
+plugins/moai-officer/skills/productivity-time/SKILL.md	officer_skill_review	static_read
+plugins/moai-officer/skills/setup-mcp-connector/SKILL.md	higgsfield_key	static_read
+plugins/moai-pm/.claude-plugin/plugin.json		static_read
+plugins/moai-pm/.codex-plugin/plugin.json		static_read
+plugins/moai-pm/README.md		static_read
+plugins/moai-pm/commands/project.md	claude_only_tool	static_read
+plugins/moai-pm/skills/project/SKILL.md	claude_only_tool	static_read
+plugins/moai-pm/skills/project/references/INDEX.md	claude_only_tool	static_read
+plugins/moai-pm/skills/project/references/agentsmd-generator.md	claude_only_tool	static_read
+plugins/moai-pm/skills/project/references/context-collector.md	claude_only_tool	static_read
+plugins/moai-pm/skills/project/references/cowork-setup.md	claude_only_tool	static_read
+plugins/moai-pm/skills/project/references/designer-setup.md		static_read
+plugins/moai-pm/skills/project/references/diagnostic-protocol.md		static_read
+plugins/moai-pm/skills/project/references/evaluation-protocol.md		static_read
+plugins/moai-pm/skills/project/references/execution-protocol.md	claude_only_tool	static_read
+plugins/moai-pm/skills/project/references/init-protocol.md	claude_only_tool	static_read
+plugins/moai-pm/skills/project/references/quality-evaluator.md		static_read
+plugins/moai-pm/skills/project/references/router.md	claude_only_tool	static_read
+plugins/moai-pm/skills/project/references/templates/AGENTS.md.tmpl	claude_only_tool	static_read
+plugins/moai-pm/skills/project/references/templates/CLAUDE.md.tmpl		static_read
+plugins/moai-pm/skills/project/references/update-protocol.md	claude_only_tool	static_read
+plugins/moai-recruiter/.claude-plugin/plugin.json		static_read
+plugins/moai-recruiter/.codex-plugin/plugin.json		static_read
+plugins/moai-recruiter/README.md		static_read
+plugins/moai-recruiter/agents/recruiter.md	claude_only_tool	static_read
+plugins/moai-recruiter/agents/screening-auditor.md	claude_only_tool	static_read
+plugins/moai-recruiter/skills/hr-draft-offer/SKILL.md		static_read
+plugins/moai-recruiter/skills/hr-employment/SKILL.md		static_read
+plugins/moai-recruiter/skills/hr-employment/references/hiring-pipeline.md		static_read
+plugins/moai-recruiter/skills/hr-employment/references/insurance-lifecycle.md		static_read
+plugins/moai-recruiter/skills/hr-employment/references/korean-tone-reviewer.md		static_read
+plugins/moai-recruiter/skills/hr-employment/references/onboarding-system.md		static_read
+plugins/moai-recruiter/skills/hr-job-analysis/SKILL.md		static_read
+plugins/moai-recruiter/skills/hr-job-analysis/references/jd-analysis-guide.md		static_read
+plugins/moai-recruiter/skills/hr-operations/SKILL.md		static_read
+plugins/moai-recruiter/skills/hr-operations/references/hybrid-work-policy.md		static_read
+plugins/moai-recruiter/skills/hr-operations/references/kr-flexible-work-law.md		static_read
+plugins/moai-recruiter/skills/hr-operations/references/remote-work-ops.md		static_read
+plugins/moai-recruiter/skills/hr-operations/references/team-culture.md		static_read
+plugins/moai-recruiter/skills/hr-performance-review/SKILL.md		static_read
+plugins/moai-recruiter/skills/hr-performance-review/references/feedback-templates.md		static_read
+plugins/moai-recruiter/skills/hr-performance-review/references/okr-guide.md		static_read
+plugins/moai-recruiter/skills/hr-resume-screener/SKILL.md		static_read
+plugins/moai-recruiter/skills/hr-resume-screener/tests/test-cases.yaml		static_read
+plugins/moai-recruiter/skills/hr-screening-audit/SKILL.md	new_chatgpt_agent_mapping	static_read
+plugins/moai-recruiter/skills/hr-workflow/SKILL.md	new_chatgpt_agent_mapping	static_read
+plugins/moai-seller/.claude-plugin/plugin.json		static_read
+plugins/moai-seller/.codex-plugin/plugin.json		static_read
+plugins/moai-seller/.mcp.json		static_read
+plugins/moai-seller/README.md		static_read
+plugins/moai-seller/agents/listing-builder.md	claude_only_tool	static_read
+plugins/moai-seller/agents/margin-auditor.md	claude_only_tool	static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/README.md		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/pyproject.toml		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/__init__.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/_app.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/_base.py	platform_path	static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/auth.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/client.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/registry.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/server.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/__init__.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/_dispatch.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/analytics_admin.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/analytics_data.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/application.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/category.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/collection.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/community.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/customer.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/design.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/mileage.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/notification.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/order.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/personal.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/privacy.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/product.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/promotion.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/salesreport.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/shipping.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/store.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/supply.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/translation.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_core/__init__.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_core/auth.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_core/cache.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_core/credentials.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_core/errors.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_core/http.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_core/tokenstore.py	platform_path	static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/tests/conftest.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/tests/test_auth.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/tests/test_client_paths.py	new_test	static_read
+plugins/moai-seller/mcp-servers/moai-mcp-cafe24/uv.lock		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/.gitignore		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/CONNECTORS.md		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/README.md		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/pyproject.toml		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_core/__init__.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_core/auth.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_core/cache.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_core/credentials.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_core/errors.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_core/http.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_core/tokenstore.py	platform_path	static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/__init__.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/__main__.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/_app.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/_base.py	platform_path	static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/auth.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/client.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/server.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/__init__.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/community.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/member_info.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/order.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/payment.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/product.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/promotion.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/script.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/site_info.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/tests/conftest.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/tests/test_auth.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/tests/test_client.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/tests/test_gen.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/tests/test_tools.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/tools/_generator.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/tools/openapi.json		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-imweb/uv.lock		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/.env.example		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/.gitignore		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/CONNECTORS.md		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/NOTICE.md		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/README.md		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/pyproject.toml		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/scripts/check_auth.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_core/__init__.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_core/auth.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_core/cache.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_core/credentials.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_core/errors.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_core/http.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_core/tokenstore.py	platform_path	static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/__init__.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/__main__.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/auth.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/client.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/config.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/errors.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/server.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/__init__.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/_common.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/auth.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/inquiries.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/logistics.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/orders.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/seller.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/settlement.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/solutions.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/stats.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/tests/test_auth.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/tests/test_client.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/tests/test_server.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/tests/test_tools.py		static_read
+plugins/moai-seller/mcp-servers/moai-mcp-smartstore/uv.lock		static_read
+plugins/moai-seller/skills/commerce-ad-claim-compliance-kr/SKILL.md		static_read
+plugins/moai-seller/skills/commerce-automation-audit/SKILL.md		static_read
+plugins/moai-seller/skills/commerce-coupang-ad-optimizer/SKILL.md	seller_skill_review	static_read
+plugins/moai-seller/skills/commerce-detail-page-copy/SKILL.md	claude_only_tool	static_read
+plugins/moai-seller/skills/commerce-detail-page-copy/references/13-sections.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-copy/references/category-briefs.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-copy/tests/test-cases.yaml		static_read
+plugins/moai-seller/skills/commerce-detail-page-image/SKILL.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-image/references/image-prompts.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-image/references/sections-spec.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-image/tests/test-cases.yaml		static_read
+plugins/moai-seller/skills/commerce-detail-page-planner/SKILL.md	claude_only_tool	static_read
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-b2b-saas.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-baby-kids.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-beauty.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-digital-content.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-fashion.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-food.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-luxury.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-pet.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-sports-leisure.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-subscription.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-planner/references/category-travel.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-planner/references/copy-patterns.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-planner/references/photo-checklist.md		static_read
+plugins/moai-seller/skills/commerce-detail-page-planner/tests/test-cases.yaml	claude_only_tool	static_read
+plugins/moai-seller/skills/commerce-early-fan-builder/SKILL.md	seller_skill_review	static_read
+plugins/moai-seller/skills/commerce-influencer-collab/SKILL.md	seller_skill_review	static_read
+plugins/moai-seller/skills/commerce-integrated-strategy/SKILL.md		static_read
+plugins/moai-seller/skills/commerce-integrated-strategy/references/channel-mix.md		static_read
+plugins/moai-seller/skills/commerce-integrated-strategy/references/ecommerce-launcher.md		static_read
+plugins/moai-seller/skills/commerce-integrated-strategy/references/kpi.md		static_read
+plugins/moai-seller/skills/commerce-integrated-strategy/references/pricing.md		static_read
+plugins/moai-seller/skills/commerce-integrated-strategy/references/promotion.md		static_read
+plugins/moai-seller/skills/commerce-integrated-strategy/references/retention.md		static_read
+plugins/moai-seller/skills/commerce-jtbd-persona/SKILL.md		static_read
+plugins/moai-seller/skills/commerce-live-commerce/SKILL.md		static_read
+plugins/moai-seller/skills/commerce-live-commerce/references/coupang-live.md		static_read
+plugins/moai-seller/skills/commerce-live-commerce/references/grip.md		static_read
+plugins/moai-seller/skills/commerce-live-commerce/references/kakao-shoppinglive.md		static_read
+plugins/moai-seller/skills/commerce-live-commerce/references/live-script.md		static_read
+plugins/moai-seller/skills/commerce-live-commerce/references/naver-shoppinglive.md		static_read
+plugins/moai-seller/skills/commerce-live-commerce/tests/test-cases.yaml		static_read
+plugins/moai-seller/skills/commerce-ltv-cac-architect/SKILL.md	seller_finance_review	static_read
+plugins/moai-seller/skills/commerce-margin-audit/SKILL.md	new_chatgpt_agent_mapping	static_read
+plugins/moai-seller/skills/commerce-margin-calculator/SKILL.md	seller_finance_review	static_read
+plugins/moai-seller/skills/commerce-margin-calculator/references/end-roas.md	seller_finance_review	static_read
+plugins/moai-seller/skills/commerce-market-research/SKILL.md		static_read
+plugins/moai-seller/skills/commerce-marketplace-coupang-ads/SKILL.md		static_read
+plugins/moai-seller/skills/commerce-marketplace-coupang/SKILL.md		static_read
+plugins/moai-seller/skills/commerce-marketplace-coupang/references/coupang-guidelines.md		static_read
+plugins/moai-seller/skills/commerce-marketplace-coupang/tests/test-cases.yaml		static_read
+plugins/moai-seller/skills/commerce-marketplace-crowdfunding/SKILL.md		static_read
+plugins/moai-seller/skills/commerce-marketplace-crowdfunding/references/tumblbug.md		static_read
+plugins/moai-seller/skills/commerce-marketplace-crowdfunding/references/wadiz.md		static_read
+plugins/moai-seller/skills/commerce-marketplace-crowdfunding/tests/test-cases.yaml		static_read
+plugins/moai-seller/skills/commerce-marketplace-curation/SKILL.md		static_read
+plugins/moai-seller/skills/commerce-marketplace-curation/references/29cm.md		static_read
+plugins/moai-seller/skills/commerce-marketplace-curation/references/kakao-makers.md		static_read
+plugins/moai-seller/skills/commerce-marketplace-curation/references/musinsa.md		static_read
+plugins/moai-seller/skills/commerce-marketplace-curation/tests/test-cases.yaml		static_read
+plugins/moai-seller/skills/commerce-marketplace-d2c/SKILL.md		static_read
+plugins/moai-seller/skills/commerce-marketplace-d2c/references/cafe24.md		static_read
+plugins/moai-seller/skills/commerce-marketplace-d2c/references/d2c-strategy.md		static_read
+plugins/moai-seller/skills/commerce-marketplace-d2c/references/imweb.md		static_read
+plugins/moai-seller/skills/commerce-marketplace-d2c/tests/test-cases.yaml		static_read
+plugins/moai-seller/skills/commerce-marketplace-naver-ads/SKILL.md		static_read
+plugins/moai-seller/skills/commerce-marketplace-naver/SKILL.md		static_read
+plugins/moai-seller/skills/commerce-marketplace-naver/references/naver-smartstore.md		static_read
+plugins/moai-seller/skills/commerce-marketplace-naver/references/openmarket-common.md		static_read
+plugins/moai-seller/skills/commerce-marketplace-naver/tests/test-cases.yaml		static_read
+plugins/moai-seller/skills/commerce-message-compliance-kr/SKILL.md		static_read
+plugins/moai-seller/skills/commerce-morning-brief/SKILL.md	seller_skill_review	static_read
+plugins/moai-seller/skills/commerce-product-detail/SKILL.md		static_read
+plugins/moai-seller/skills/commerce-product-detail/references/product-detail/conversion-formulas.md		static_read
+plugins/moai-seller/skills/commerce-product-detail/references/product-detail/platform-specs.md		static_read
+plugins/moai-seller/skills/commerce-product-detail/references/product-detail/section-templates.md		static_read
+plugins/moai-seller/skills/commerce-product-detail/references/product-detail/structure-guide.md		static_read
+plugins/moai-seller/skills/commerce-product-image-pipeline/SKILL.md		static_read
+plugins/moai-seller/skills/commerce-product-naming/SKILL.md		static_read
+plugins/moai-seller/skills/commerce-product-photo-brief/SKILL.md		static_read
+plugins/moai-seller/skills/commerce-product-photo-brief/references/photo-checklist.md		static_read
+plugins/moai-seller/skills/commerce-product-photo-brief/tests/test-cases.yaml		static_read
+plugins/moai-seller/skills/commerce-promotion-planner/SKILL.md		static_read
+plugins/moai-seller/skills/commerce-repurchase-timer/SKILL.md	seller_skill_review	static_read
+plugins/moai-seller/skills/commerce-season-calendar/SKILL.md	seller_skill_review	static_read
+plugins/moai-seller/skills/commerce-subscription-strategist/SKILL.md	seller_skill_review	static_read
+plugins/moai-seller/skills/commerce-workflow/SKILL.md	new_chatgpt_agent_mapping	static_read
+plugins/moai-story/.claude-plugin/plugin.json		static_read
+plugins/moai-story/.codex-plugin/plugin.json		static_read
+plugins/moai-story/.mcp.json		static_read
+plugins/moai-story/README.md		static_read
+plugins/moai-story/agents/story-continuity-auditor.md	claude_only_tool	static_read
+plugins/moai-story/agents/story-director.md	claude_only_tool	static_read
+plugins/moai-story/skills/story-ad-conti/SKILL.md		static_read
+plugins/moai-story/skills/story-character-sheet/SKILL.md		static_read
+plugins/moai-story/skills/story-character-sheet/references/neutral-base-rule.md		static_read
+plugins/moai-story/skills/story-character-sheet/references/visual-sheet-tables.md		static_read
+plugins/moai-story/skills/story-conti/SKILL.md		static_read
+plugins/moai-story/skills/story-conti/references/ad-conti-preset.md		static_read
+plugins/moai-story/skills/story-conti/references/shot-grammar.md		static_read
+plugins/moai-story/skills/story-continuity-audit/SKILL.md	new_chatgpt_agent_mapping	static_read
+plugins/moai-story/skills/story-cover-art/SKILL.md		static_read
+plugins/moai-story/skills/story-cover-art/references/cover-composition.md		static_read
+plugins/moai-story/skills/story-ip-pitch/SKILL.md		static_read
+plugins/moai-story/skills/story-ip-pitch/references/expansion-paths.md		static_read
+plugins/moai-story/skills/story-ip-pitch/references/ip-contract-kr.md		static_read
+plugins/moai-story/skills/story-previz/SKILL.md		static_read
+plugins/moai-story/skills/story-previz/references/camera-move-grammar.md		static_read
+plugins/moai-story/skills/story-project/SKILL.md		static_read
+plugins/moai-story/skills/story-screenplay/SKILL.md		static_read
+plugins/moai-story/skills/story-screenplay/references/kr-screenplay-format.md		static_read
+plugins/moai-story/skills/story-screenplay/references/transition-vocabulary.md		static_read
+plugins/moai-story/skills/story-series-bible/SKILL.md		static_read
+plugins/moai-story/skills/story-series-bible/references/bible-template.md		static_read
+plugins/moai-story/skills/story-series-bible/references/filename-convention.md		static_read
+plugins/moai-story/skills/story-series-bible/references/recall-design.md		static_read
+plugins/moai-story/skills/story-synopsis/SKILL.md		static_read
+plugins/moai-story/skills/story-synopsis/references/kr-broadcast-format.md		static_read
+plugins/moai-story/skills/story-synopsis/references/kr-submission.md		static_read
+plugins/moai-story/skills/story-synopsis/references/logline-patterns.md		static_read
+plugins/moai-story/skills/story-webnovel-planner/SKILL.md		static_read
+plugins/moai-story/skills/story-webnovel-planner/references/serialization-contract.md		static_read
+plugins/moai-story/skills/story-webnovel-planner/references/webnovel-platforms.md		static_read
+plugins/moai-story/skills/story-webnovel-writer/SKILL.md		static_read
+plugins/moai-story/skills/story-webnovel-writer/references/cliffhanger-grades.md		static_read
+plugins/moai-story/skills/story-webnovel-writer/references/genre-craft.md		static_read
+plugins/moai-story/skills/story-webtoon-art/SKILL.md		static_read
+plugins/moai-story/skills/story-webtoon-art/references/context-budget.md		static_read
+plugins/moai-story/skills/story-webtoon-art/references/reference-ordinal.md		static_read
+plugins/moai-story/skills/story-webtoon-art/references/style-anchor.md		static_read
+plugins/moai-story/skills/story-webtoon-episode/SKILL.md		static_read
+plugins/moai-story/skills/story-webtoon-episode/references/cut-grammar.md		static_read
+plugins/moai-story/skills/story-webtoon-episode/references/episode-template.md		static_read
+plugins/moai-story/skills/story-webtoon-episode/references/hook-taxonomy.md		static_read
+plugins/moai-story/skills/story-webtoon-episode/references/panel-direction.md		static_read
+plugins/moai-story/skills/story-webtoon-lettering/SKILL.md		static_read
+plugins/moai-story/skills/story-webtoon-lettering/references/balloon-dictionary.md		static_read
+plugins/moai-story/skills/story-webtoon-lettering/references/dialogue-memo.md		static_read
+plugins/moai-story/skills/story-webtoon-lettering/references/korean-lettering.md		static_read
+plugins/moai-story/skills/story-webtoon-lettering/references/sfx-dictionary.md		static_read
+plugins/moai-story/skills/story-webtoon-lettering/references/two-pass-overlay.md		static_read
+plugins/moai-story/skills/story-webtoon-planner/SKILL.md		static_read
+plugins/moai-story/skills/story-webtoon-planner/references/genre-presets.md		static_read
+plugins/moai-story/skills/story-webtoon-qc/SKILL.md		static_read
+plugins/moai-story/skills/story-webtoon-qc/references/defect-checklist.md		static_read
+plugins/moai-story/skills/story-webtoon-qc/references/qc-method.md		static_read
+plugins/moai-story/skills/story-webtoon-qc/references/rubric-bridge.md		static_read
+plugins/moai-story/skills/story-webtoon-spec/SKILL.md		static_read
+plugins/moai-story/skills/story-webtoon-spec/references/episode-volume.md		static_read
+plugins/moai-story/skills/story-webtoon-spec/references/manuscript-specs.md		static_read
+plugins/moai-story/skills/story-webtoon-spec/references/monetization-hooks.md		static_read
+plugins/moai-story/skills/story-webtoon-spec/references/platform-debut-paths.md		static_read
+plugins/moai-story/skills/story-webtoon-spec/references/thumbnail-cover-specs.md		static_read
+plugins/moai-story/skills/story-webtoon-spec/references/webtoon-glossary.md		static_read
+plugins/moai-threads-poster/.claude-plugin/plugin.json		static_read
+plugins/moai-threads-poster/.codex-plugin/plugin.json		static_read
+plugins/moai-threads-poster/.mcp.json		static_read
+plugins/moai-threads-poster/.moai/reports/plan-audit/SPEC-THREADS-POSTER-INSTAGRAM-001-run-gate-2026-08-05.md		static_read
+plugins/moai-threads-poster/.moai/specs/SPEC-THREADS-POSTER-INSTAGRAM-001/acceptance.md		static_read
+plugins/moai-threads-poster/.moai/specs/SPEC-THREADS-POSTER-INSTAGRAM-001/plan.md	claude_only_tool	static_read
+plugins/moai-threads-poster/.moai/specs/SPEC-THREADS-POSTER-INSTAGRAM-001/progress.md	claude_only_tool	static_read
+plugins/moai-threads-poster/.moai/specs/SPEC-THREADS-POSTER-INSTAGRAM-001/spec.md		static_read
+plugins/moai-threads-poster/README.md		static_read
+plugins/moai-threads-poster/config/threads.yaml		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/.gitignore		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/CONNECTORS.md		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/README.md		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/pyproject.toml		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_core/__init__.py		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_core/auth.py		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_core/cache.py		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_core/credentials.py		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_core/errors.py		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_core/http.py		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_core/tokenstore.py	platform_path	static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/__init__.py		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/instagram_api.py		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/server.py		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/threads_api.py		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/tests/__init__.py		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/tests/test_instagram_api.py		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/tests/test_multichannel.py		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/tests/test_server.py	platform_path	static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/tests/test_threads_api.py		static_read
+plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/uv.lock		static_read
+plugins/moai-threads-poster/skills/README.md		static_read
+plugins/moai-threads-poster/skills/instagram-comments/SKILL.md	claude_only_tool	static_read
+plugins/moai-threads-poster/skills/instagram-post/SKILL.md		static_read
+plugins/moai-threads-poster/skills/threads-multichannel/SKILL.md	claude_only_tool	static_read
+plugins/moai-threads-poster/skills/threads-post-draft/SKILL.md	claude_only_tool	static_read
+plugins/moai-threads-poster/skills/threads-post-draft/references/threads-spec.md		static_read
+plugins/moai-threads-poster/skills/threads-style-learn/SKILL.md		static_read
+plugins/moai-threads-poster/skills/threads-style-learn/references/style-profile-template.md		static_read
+plugins/moai-tutor/.claude-plugin/plugin.json		static_read
+plugins/moai-tutor/.codex-plugin/plugin.json		static_read
+plugins/moai-tutor/README.md		static_read
+plugins/moai-tutor/agents/assessment-auditor.md	claude_only_tool	static_read
+plugins/moai-tutor/agents/curriculum-designer.md		static_read
+plugins/moai-tutor/skills/education-assessment-audit/SKILL.md	new_chatgpt_agent_mapping	static_read
+plugins/moai-tutor/skills/education-assessment-creator/SKILL.md		static_read
+plugins/moai-tutor/skills/education-assessment-creator/references/exam-prep.md		static_read
+plugins/moai-tutor/skills/education-course-followup-sequence/SKILL.md		static_read
+plugins/moai-tutor/skills/education-course-operations-manual/SKILL.md		static_read
+plugins/moai-tutor/skills/education-curriculum-designer/SKILL.md		static_read
+plugins/moai-tutor/skills/education-curriculum-designer/references/competency-modeler.md		static_read
+plugins/moai-tutor/skills/education-curriculum-designer/references/course-builder.md		static_read
+plugins/moai-tutor/skills/education-curriculum-designer/references/language-tutor.md		static_read
+plugins/moai-tutor/skills/education-grant-writer/SKILL.md	claude_only_tool	static_read
+plugins/moai-tutor/skills/education-grant-writer/references/grant-writer/guide.md		static_read
+plugins/moai-tutor/skills/education-learning-material/SKILL.md		static_read
+plugins/moai-tutor/skills/education-learning-material/references/cdn-libraries.md		static_read
+plugins/moai-tutor/skills/education-learning-project/SKILL.md	claude_only_tool	static_read
+plugins/moai-tutor/skills/education-paper-search/SKILL.md		static_read
+plugins/moai-tutor/skills/education-paper-search/references/paper-search/guide.md		static_read
+plugins/moai-tutor/skills/education-paper-writer/SKILL.md	claude_only_tool	static_read
+plugins/moai-tutor/skills/education-paper-writer/references/paper-writer/guide.md		static_read
+plugins/moai-tutor/skills/education-research-assistant/SKILL.md		static_read
+plugins/moai-tutor/skills/education-research-assistant/references/academic-paper.md		static_read
+plugins/moai-tutor/skills/education-research-assistant/references/research-assistant.md		static_read
+plugins/moai-tutor/skills/education-research-assistant/references/thesis-advisor.md		static_read
+plugins/moai-tutor/skills/education-tutor-research/SKILL.md	claude_only_tool	static_read
+plugins/moai-tutor/skills/education-workflow/SKILL.md	new_chatgpt_agent_mapping	static_read
+plugins/moai-writer/.claude-plugin/plugin.json		static_read
+plugins/moai-writer/.codex-plugin/plugin.json		static_read
+plugins/moai-writer/.mcp.json		static_read
+plugins/moai-writer/README.md		static_read
+plugins/moai-writer/agents/manuscript-auditor.md	claude_only_tool	static_read
+plugins/moai-writer/agents/writer-director.md	claude_only_tool	static_read
+plugins/moai-writer/skills/book-author-bio/SKILL.md	claude_only_tool	static_read
+plugins/moai-writer/skills/book-author-bio/tests/test-cases.yaml		static_read
+plugins/moai-writer/skills/book-chapter-writer/SKILL.md	claude_only_tool	static_read
+plugins/moai-writer/skills/book-chapter-writer/tests/test-cases.yaml		static_read
+plugins/moai-writer/skills/book-concept-planner/SKILL.md	claude_only_tool	static_read
+plugins/moai-writer/skills/book-concept-planner/tests/test-cases.yaml		static_read
+plugins/moai-writer/skills/book-manuscript-audit/SKILL.md	new_chatgpt_agent_mapping	static_read
+plugins/moai-writer/skills/book-outline-designer/SKILL.md		static_read
+plugins/moai-writer/skills/book-outline-designer/tests/test-cases.yaml		static_read
+plugins/moai-writer/skills/book-proposal-writer/SKILL.md		static_read
+plugins/moai-writer/skills/book-proposal-writer/tests/test-cases.yaml		static_read
+plugins/moai-writer/skills/book-publisher-matcher/SKILL.md	claude_only_tool	static_read
+plugins/moai-writer/skills/book-publisher-matcher/tests/test-cases.yaml		static_read
+plugins/moai-writer/skills/book-revision-coach/SKILL.md		static_read
+plugins/moai-writer/skills/book-revision-coach/tests/test-cases.yaml		static_read
+plugins/moai-writer/skills/book-target-reader/SKILL.md		static_read
+plugins/moai-writer/skills/book-target-reader/tests/test-cases.yaml		static_read
+plugins/moai-writer/skills/book-workflow/SKILL.md	new_chatgpt_agent_mapping	static_read
+plugins/moai-writer/skills/korean-humanize/SKILL.md		static_read
+plugins/moai-writer/skills/korean-humanize/references/ai-tell-taxonomy.md		static_read
+plugins/moai-writer/skills/korean-humanize/references/baseline.json		static_read
+plugins/moai-writer/skills/korean-humanize/references/baseline_v2.json		static_read
+plugins/moai-writer/skills/korean-humanize/references/checks.py		static_read
+plugins/moai-writer/skills/korean-humanize/references/contextual-review.md		static_read
+plugins/moai-writer/skills/korean-humanize/references/empirical-validation.md		static_read
+plugins/moai-writer/skills/korean-humanize/references/final-review.md		static_read
+plugins/moai-writer/skills/korean-humanize/references/humanize_html.py		static_read
+plugins/moai-writer/skills/korean-humanize/references/metrics.py		static_read
+plugins/moai-writer/skills/korean-humanize/references/metrics_v2.py		static_read
+plugins/moai-writer/skills/korean-humanize/references/quick-rules.md		static_read
+plugins/moai-writer/skills/korean-humanize/references/rewriting-playbook.md		static_read
+plugins/moai-writer/skills/korean-humanize/references/sanitize_text.py		static_read
+plugins/moai-writer/skills/korean-humanize/references/scholarship.md		static_read
+plugins/moai-writer/skills/korean-humanize/references/strict-pipeline-spec.md		static_read
+plugins/moai-writer/skills/korean-humanize/references/verify_gates.py		static_read
+plugins/moai-writer/skills/korean-humanize/references/web-service-spec.md		static_read
+plugins/moai-writer/skills/korean-humanize/tests/test_audit_regressions.py		static_read
+plugins/moai-writer/skills/korean-humanize/tests/test_gates.py		static_read
+plugins/moai-writer/skills/korean-humanize/tests/test_humanize_html.py		static_read
+plugins/moai-writer/skills/korean-humanize/tests/test_metrics.py		static_read
+plugins/moai-writer/skills/korean-humanize/tests/test_rhythm_gate.py		static_read
+plugins/moai-writer/skills/korean-spell-check/SKILL.md		static_read

@@ -10,7 +10,7 @@ description: |
   - "이 초안 멀티 채널로 변환해줘"
   - "X premium 으로 한 번에 올릴 수 있게 해줘"
   [책임 경계] vs 형제 스킬: *포맷만* 담당합니다 — Facebook/X 로 발행하지 않습니다 (사용자가 복붙). Threads 직접 발행은 threads-post-draft / threads_publish_* 도구가 담당합니다.
-version: "1.2.0"
+version: "1.2.3"
 ---
 
 # 멀티 채널 포맷 (threads-multichannel)
@@ -21,7 +21,7 @@ version: "1.2.0"
 
 | 채널 | 제약 | 출력 | 발행 경로 |
 |------|------|------|----------|
-| **Threads** | 500 UTF-8 바이트 | 다듬은 텍스트 + 바이트 수 | 직접 발행 (threads_publish_text 등) |
+| **Threads** | 500자 | 다듬은 텍스트 + 글자 수·잘림 여부 | 직접 발행 (threads_publish_text 등) |
 | **Facebook** | 글자 수 제한 없음 (개인 계정) | 대화체 텍스트 | **복붙 only** (API 발행 불가) |
 | **X (free)** | 트윗당 280자 | `1/ `·`2/ ` 번호 트윗 리스트 | **복붙 only** |
 | **X (premium)** | 25,000자 | 단일 문자열 | **복붙 only** |
@@ -59,13 +59,14 @@ threads_format_multi_channel(
   "channels": ["threads", "facebook", "x"],
   "x_tier": "free",
   "note": "Threads 출력은 threads_publish_text 로 직접 발행하세요. Facebook·X 출력은 *복붙용*...",
-  "threads": {"text": "<≤500바이트 텍스트>", "bytes": 412, "max_bytes": 500},
+  "threads": {"text": "<≤500자 텍스트>", "chars": 412, "max_chars": 500, "truncated": False},
   "facebook": "<복붙용 텍스트 문자열>",
   "x": ["1/ ...", "2/ ...", "3/ ..."],   # free → 리스트 / premium → 문자열
 }
 ```
 
 - `threads` 출력은 `threads_publish_text` (또는 `threads_publish_image` / `threads_publish_video`) 에 바로 넘길 수 있는 형태다.
+- `threads.truncated`가 `True`이면 도구가 끝부분을 잘랐다는 뜻이다. 원문과 잘린 결과를 대조하고 뜻이 빠졌다면 먼저 직접 다시 써야 한다. 잘린 글을 자동으로 발행하지 않는다.
 - `facebook` / `x` 출력은 *사용자에게 보여줄 복붙용* 이다 — 본 도구는 발행하지 않는다.
 - X 가 `free` 면 `out["x"]` 가 리스트(각 트윗 ≤280자, 번호 붙음). `premium` 이면 문자열(≤25,000자).
 
@@ -75,13 +76,13 @@ threads_format_multi_channel(
 
 ```markdown
 ## Threads (직접 발행 가능)
-<412 / 500 바이트>
+<412 / 500자>
 
 \```
 <threads.text>
 \```
 
-→ 승인하시면 `threads_publish_text(media_type="TEXT", text="<위 텍스트>")` 로 즉시 발행할 수 있습니다.
+→ 승인하시면 `threads_publish_text(text="<위 텍스트>")` 로 즉시 발행할 수 있습니다.
 
 ## Facebook (복붙해서 올리세요)
 
@@ -108,15 +109,15 @@ threads_format_multi_channel(
 
 ### 4단계 (선택): Threads 즉시 발행
 
-사용자가 Threads 발행까지 원하면, **`threads-post-draft` 스킬의 2~4단계(⟨한국어 감사 3단⟩ → `AskUserQuestion` 승인 → 발행)를 그대로 태웁니다.**
+사용자가 Threads 발행까지 원하면, **`threads-post-draft` 스킬의 2~4단계(최종 점검 → 현재 앱에서 명시적 승인 → 발행)를 그대로 따릅니다.**
 
-- **[HARD] 포맷만 하고 바로 발행하지 않는다.** 여기서 `threads_publish_text`를 직접 호출하면 `threads-post-draft`가 세워둔 감사·승인 게이트를 우회하게 됩니다. 같은 계정에 같은 방식으로 나가는 글인데 한쪽 경로만 검수받는 상태가 되므로, 발행은 반드시 `threads-post-draft`로 넘깁니다.
-- 넘길 때 전달하는 것은 `out["threads"]["text"]` 한 덩어리입니다. 감사가 문장을 고치므로 **바이트 수는 `threads-post-draft`가 감사 후 다시 셉니다** — 여기서 센 값은 포맷 시점의 참고값입니다.
-- 감사 판정이 `hold_and_report`면 발행되지 않습니다. 그 사유가 그대로 사용자에게 돌아옵니다.
+- **[HARD] 포맷만 하고 바로 발행하지 않는다.** `threads_publish_text`를 직접 호출하면 `threads-post-draft`의 최종 점검·승인 절차를 건너뛰게 됩니다. 발행은 반드시 그 스킬로 넘깁니다.
+- 넘길 때 전달하는 것은 `out["threads"]["text"]` 한 덩어리입니다. 점검에서 문장이 바뀔 수 있으므로 **글자 수는 `threads-post-draft`가 점검 뒤 다시 셉니다** — 여기서 센 값은 포맷 시점의 참고값입니다.
+- 최종 점검에서 출처나 공개 가능 여부를 확인할 수 없거나 보조 검수가 `hold_and_report`를 반환하면 발행을 보류하고 사유를 알립니다.
 
 Facebook·X 까지 한 번에 "올려달라" 고 하면 **거절** 합니다 — 본 스킬은 Facebook/X 발행을 하지 않습니다. 복붙 블록을 드린 것으로 끝입니다.
 
-**복붙 출력(Facebook·X)에 관하여**: 본 스킬이 발행하지는 않지만, 사용자는 이 텍스트를 그대로 공개 계정에 붙여 넣습니다. 맞춤법이나 AI 티가 남아 있으면 결과는 Threads 발행과 다르지 않습니다. 복붙 블록을 건네기 전에도 ⟨한국어 감사 3단⟩(`장르: 카피`)을 태우기를 **권장**합니다 — 사용자가 명시적으로 생략을 요청하면 생략하되, 생략했다는 사실을 결과에 적습니다.
+**복붙 출력(Facebook·X)에 관하여**: 사용자는 이 텍스트를 공개 계정에 붙여 넣을 수 있습니다. 전달 전에 사실·개인정보·맞춤법·의미 보존을 직접 점검합니다. 보조 검수 스킬이 노출되면 추가로 사용할 수 있습니다.
 
 ## 출력 형식 예시
 
@@ -129,13 +130,13 @@ Facebook·X 까지 한 번에 "올려달라" 고 하면 **거절** 합니다 —
 ---
 
 ### Threads (직접 발행 가능)
-412 / 500 바이트
+412 / 500자
 
 \```
 오늘 점심에 먹은 김치찌개가 진짜 맛있었습니다. ...
 \```
 
-→ 발행을 원하시면 `threads-post-draft` 로 넘겨 감사 3단 + 승인을 거쳐 발행합니다.
+→ 발행을 원하시면 `threads-post-draft` 로 넘겨 최종 점검과 승인을 거쳐 발행합니다.
 
 ---
 
@@ -167,13 +168,13 @@ Facebook·X 까지 한 번에 "올려달라" 고 하면 **거절** 합니다 —
 | 사용자가 "Facebook/X 에 올려줘" | **거절** — 본 스킬은 포맷만. 복붙 블록 제공으로 끝. |
 | X tier 를 모를 때 | "무료입니까 프리미엄입니까?" 만 질문 (기본 free) |
 | 잘못된 x_tier (`"bogus"`) | 도구가 `error` dict 반환 — `free`/`premium` 만 허용 안내 |
-| Threads 500바이트 초과 | 도구가 자동으로 단어 경계+말줄표로 다듬음 — "의미 보존 요약이 필요하면 원본을 먼저 줄여주세요" 안내 |
+| Threads 500자 초과 | 도구가 자동으로 단어 경계+말줄표로 다듬음 — "의미 보존 요약이 필요하면 원본을 먼저 줄여주세요" 안내 |
 | 특정 채널만 원할 때 | `channels=["x"]` 처럼 지정 (나머지는 생략) |
 | 원본이 아주 짧을 때 | X free 도 1 트윗, Threads 도 그대로 — 정상 |
 
 ## References
 
-이 스킬은 참조 파일 없이 본 문서만으로 자족합니다. 채널 제약값(500바이트/280자/25000자) 은 `threads_format_multi_channel` 도구(`mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/server.py`) 에 하드코딩된 baseline 이다.
+이 스킬은 참조 파일 없이 본 문서만으로 자족합니다. 채널 제약값(Threads 500자/X 280자·25000자) 은 `threads_format_multi_channel` 도구(`mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/server.py`) 에 하드코딩된 baseline 이다.
 
 ## 관련 스킬
 
@@ -191,6 +192,6 @@ Facebook·X 까지 한 번에 "올려달라" 고 하면 **거절** 합니다 —
 
 ## 발행 경로 요약
 
-- **Threads**: 본 스킨 포맷 → `threads-post-draft` (감사 3단 → 승인 → 발행). 본 스킬이 직접 발행하지 않는다.
+- **Threads**: 본 스킬 포맷 → `threads-post-draft` (최종 점검 → 승인 → 발행). 본 스킬이 직접 발행하지 않는다.
 - **Facebook**: 본 스킨 포맷 → **사용자가 직접 복붙** (API 발행 불가).
 - **X**: 본 스킨 포맷(free 분할/premium 단일) → **사용자가 직접 복붙**.

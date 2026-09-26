@@ -5,8 +5,8 @@ description: >
   추가 촬영을 위한 구체적인 브리프를 작성해주는 스킬입니다.
   "상품 사진 분석해줘", "촬영 브리프 만들어줘", "부족한 컷 알려줘", "어떤 사진이 더 필요해?"처럼 말하면 됩니다.
   형태·소재·색상·시그니처 앵글·포지셔닝(mass/premium_indie/luxury)을 추출하고,
-  13섹션별 사용 가능한 컷 매핑 + 추가 촬영 권장 리스트를 산출합니다.
-version: "1.1.0"
+  선택한 섹션별 사용 가능한 컷 매핑 + 추가 촬영 권장 리스트를 산출합니다.
+version: "1.1.5"
 ---
 
 # 상품 사진 사전 브리프 (Product Photo Brief)
@@ -14,8 +14,10 @@ version: "1.1.0"
 ## 개요
 
 상세페이지 제작에 앞서 사용자의 상품 사진을 분석하고 부족한 컷을 식별하는 스킬입니다.
-13섹션 상세페이지 각 섹션에 어떤 사진이 필요한지 매핑하고,
+선택한 상세페이지 구성에서 각 섹션에 어떤 사진이 필요한지 매핑하고,
 이미 있는 컷과 추가로 촬영해야 할 컷을 명확히 구분합니다.
+13섹션 구성과 참고문서의 컷 수는 작업 예시입니다. 실제 섹션 구성과
+이미지 크기·형식은 게시할 채널의 현재 상품 등록 화면에서 확인합니다.
 
 ## 트리거 키워드
 
@@ -26,7 +28,8 @@ ProductDNA, 사진 점검, 추가 촬영, 어떤 사진이 더 필요
 
 ### 1단계: 사진 분석 (Vision)
 
-사용자가 제공한 1-14장의 사진을 분석하여 다음을 추출:
+사용자가 제공한 사진 중 현재 앱에서 열 수 있는 파일을 분석하여 다음을 추출합니다.
+읽을 수 없는 파일은 임의로 분석하지 않고 지원 형식을 확인해 다시 첨부받습니다.
 
 #### 물리적 특성 (Physical)
 - form: 상품 형태 (병/박스/원통/평면 등)
@@ -39,7 +42,7 @@ ProductDNA, 사진 점검, 추가 촬영, 어떤 사진이 더 필요
 
 #### 포지셔닝 (Positioning)
 - tier: mass / premium_indie / luxury
-- price_tier_hint: 추정 가격대
+- price_tier_hint: 사용자가 제공한 가격대만 기록 (사진만으로 추정하지 않음)
 - tone: 어조 앵커
 - brand_archetype: 브랜드 원형 (Sage/Innocent/Hero 등)
 
@@ -48,9 +51,9 @@ ProductDNA, 사진 점검, 추가 촬영, 어떤 사진이 더 필요
 - secondary, accent
 - background: 배경 톤
 
-### 2단계: 13섹션 컷 매핑
+### 2단계: 선택한 섹션에 컷 매핑
 
-각 섹션에 어떤 컷이 사용 가능한지 매핑합니다:
+실제로 사용할 섹션에 어떤 컷이 사용 가능한지 매핑합니다:
 
 ```
 섹션 1 Hero        : ✅ 시그니처 컷 (있음) / ❌ 추가 촬영 필요
@@ -159,7 +162,7 @@ ProductDNA, 사진 점검, 추가 촬영, 어떤 사진이 더 필요
       }
     }
   ],
-  "shoot_recommendation_summary": "필수 2컷 + 권장 3컷 = 5컷 추가 촬영 시 13섹션 풀세트 가능"
+  "shoot_recommendation_summary": "선택한 섹션과 확보한 사진을 대조해 실제 부족한 컷만 제안"
 }
 ```
 
@@ -174,17 +177,19 @@ ProductDNA, 사진 점검, 추가 촬영, 어떤 사진이 더 필요
 
 - `moai-seller:commerce-detail-page-copy` — 13섹션 카피 (이 스킬의 ProductDNA 활용)
 - `moai-seller:commerce-detail-page-image` — 이미지 생성·합성
-- `moai-media:media-higgsfield-image` — 부족한 컷을 AI로 생성하고 싶을 때 (실사 촬영 대체)
+- 부족한 컷의 AI 생성 — 현재 앱 이미지 도구 또는 호스트에 맞게 인증된 Higgsfield 공식 연결의 도구. Images 2.5 요청은 노출된 모델을 확인하고, Flare·Sunburst API 모델 ID 지정은 별도 API 경로가 있을 때만 진행한다. Higgsfield에 사진을 참조로 줄 때는 별도 업로드 완료를 확인한다.
 - `moai-marketer:marketing-landing-page` — 웹용 상세페이지
 
 ## 이 스킬을 사용하지 말아야 할 때
 
 - 카피만 필요할 때: `commerce-detail-page-copy` 사용
-- 이미지 생성: `moai-media:media-higgsfield-image` 사용
+- 이미지 생성: 현재 호스트의 이미지 도구를 확인한 뒤 `commerce-product-image-pipeline` 사용
 - 마켓 등록 가이드: `commerce-marketplace-coupang` 또는 `commerce-marketplace-naver`
 
 ## 주의사항
 
 - AI 분석은 사진의 시각적 특성에 한정됩니다. 실제 소재·치수는 사용자 확인 필수.
+- 출력 예시의 가격·소재·치수·추가 촬영 컷 수는 실제 사진 분석 결과가 아닙니다. 확인되지 않은 값은 결과에서 삭제합니다.
+- 촬영 브리프의 작업용 크기를 판매 채널의 업로드 규격이나 등록 성공으로 표시하지 않습니다.
 - ProductDNA의 tier/tone 추정은 가설이므로 사용자가 검토·수정 가능.
 - 추가 촬영 브리프는 일반 가이드이며, 실제 촬영 환경·예산에 따라 조정 필요.

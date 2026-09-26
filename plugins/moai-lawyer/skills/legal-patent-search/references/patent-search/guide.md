@@ -1,24 +1,12 @@
-# 특허 검색 가이드
+# KIPRIS 검색 가이드
 
-## KIPRIS Plus REST API 호출
+현재 연결된 moai-mcp-ip가 제공하는 인자 이름을 먼저 확인한다. 서버가 보이지 않으면 [KIPRIS 공식 웹 검색](https://www.kipris.or.kr/)을 사용한다. 인증키를 URL에 직접 조립하거나 채팅에 기록하지 않는다.
 
-```
-GET http://plus.kipris.or.kr/openapi/rest/patUtiModInfoSearchSevice/freeSearchInfo
-  ?word={검색어}
-  &ServiceKey={KIPRIS_API_KEY}
-```
+| 목적 | 검색 방법 |
+|---|---|
+| 기술 분야 | 핵심 단어의 한글·영문 표현과 적합한 IPC를 각각 검토 |
+| 특정 출원인 | 법인명 변형·합병 전 이름을 확인 |
+| 특정 문헌 | 출원·공개·등록 번호 유형을 구분해 조회 |
+| 권리 상태 | 공식 상세 화면과 기준일 기록 |
 
-## IPC 주요 분류코드
-
-| 코드 | 분야 |
-|------|------|
-| A | 생활필수품 |
-| B | 처리조작, 운수 |
-| C | 화학, 야금 |
-| G | 물리학 |
-| H | 전기 |
-
-## 검색 팁
-- 키워드 + IPC 조합으로 정확도 향상
-- 출원인 검색: 경쟁사 특허 포트폴리오 파악
-- 등록번호 검색: 정확한 특허 1건 조회
+서버가 제공하는 kipris_patent_search, kipris_patent_detail, kipris_trademark_search 등의 실제 도구 스키마가 가이드 예시보다 우선한다. API 또는 웹 검색 결과의 범위, 페이지 수, 원문 열람 여부를 결과에 명시한다.

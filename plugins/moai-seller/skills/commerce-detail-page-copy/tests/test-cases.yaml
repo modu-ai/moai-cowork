@@ -1,42 +1,26 @@
 name: commerce-detail-page-copy
-version: 1.7.0
+version: 1.1.1
+# 검토 시나리오. 자동 실행 가능한 테스트나 실제 검수 결과가 아닙니다.
 test_cases:
-  - id: happy_electronics
-    description: 전자제품 카테고리 정상 카피 생성
+  - id: supported_electronics
     input:
-      product_name: "X200 무선이어폰"
+      product_name: X200 무선이어폰
       category: electronics
-      usp: "30시간 배터리, ANC, IPX5 방수"
-      target: "20~40대 직장인"
-      price: "12만 9천원"
+      verified_specs: [30시간 배터리, ANC, IPX5]
     expected:
-      sections_count: 13
-      output_format: json
-      ai_slop_review: passed
-      checks:
-        - "헤드라인이 15자 이내"
-        - "Pain 섹션에 상품 노출 없음"
-        - "Proof 섹션에 통계 3개 + 리뷰 3개"
-        - "CTA 섹션에 정가 취소선 + 할인가"
-
-  - id: edge_minimal_input
-    description: 최소 정보(상품명만)로 호출 시 상품 DNA 추정 동작
+      uses_only_verified_specs: true
+      fabricated_reviews_or_statistics: false
+      fabricated_discount_or_deadline: false
+  - id: missing_evidence
     input:
-      product_name: "수제 도자기 머그"
+      product_name: 수제 도자기 머그
     expected:
-      ask_user_clarification: true
-      questions_about: ["category", "usp", "target", "tone"]
-      proceed_only_after_answers: true
-
-  - id: failure_forbidden_claim
-    description: "100% 천연 효과 검증" 같은 식약처 위반 표현 입력 시 자동 정제
+      unsupported_claims_omitted: true
+      missing_inputs_reported: true
+  - id: medical_claim
     input:
-      product_name: "비타민D 영양제"
-      category: supplement
-      usp: "100% 자연유래, 모든 질병 예방"
+      product_name: 비타민D 영양제
+      unverified_claim: 모든 질병 예방
     expected:
-      ai_slop_review: revised
-      revised_phrases:
-        - "100% 자연유래 → 자연유래 원료 사용"
-        - "모든 질병 예방 → 일일 섭취 시 도움"
-      compliance_warning_emitted: true
+      unverified_claim_published: false
+      current_rule_check_needed: true

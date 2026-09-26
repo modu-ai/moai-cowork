@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Sentry-design-analysis
-description: An inspired interpretation of Sentry's design language — a developer-tools brand built on a deep purple-violet midnight canvas, electric lime accents, and a slightly subversive illustrated personality. The system pairs a custom display sans (chunky, playful, near-condensed) with the open Rubik family for UI copy and Monaco for code, then leans on dark-on-light pricing surfaces, sticker-style mascots, and a single-color CTA hierarchy where black-violet buttons read as the primary action against either polarity.
+description: An inspired interpretation of Sentry's design language — a developer-tools brand built on a deep purple-violet midnight canvas, electric lime accents, and an illustrated personality. Source display and code faces remain references; portable tokens use OFL Rubik and JetBrains Mono with system fallbacks. Dark and light canvas variants need their own visible controls and focus treatments.
 
 colors:
   primary: "#150f23"
@@ -20,105 +20,109 @@ colors:
   hairline-violet: "#362d59"
   hairline-cool: "#cfcfdb"
   hairline-cloud: "#e5e7eb"
+  control-border-light: "#767676"
+  control-border-dark: "#8c83a0"
+  disabled-text: "#6b6279"
   ink: "#1f1633"
   ink-press: "#1a1a1a"
   on-dark-muted: "#bdb8c0"
   on-dark-faint: "#3f3849"
-  ring-focus: "#9dc1f5"
+  ring-focus-light: "#422082"
+  ring-focus-dark: "#9dc1f5"
 
 typography:
   display-hero:
-    fontFamily: "Sentry Display, Rubik, system-ui, sans-serif"
+    fontFamily: "Rubik, system-ui, sans-serif"
     fontSize: 88px
     fontWeight: 700
     lineHeight: 1.2
     letterSpacing: 0
   display-large:
-    fontFamily: "Sentry Display, Rubik, system-ui, sans-serif"
+    fontFamily: "Rubik, system-ui, sans-serif"
     fontSize: 60px
     fontWeight: 500
     lineHeight: 1.1
     letterSpacing: 0
   heading-xl:
-    fontFamily: "Rubik, -apple-system, system-ui, Segoe UI, Helvetica, Arial, sans-serif"
+    fontFamily: "Rubik, system-ui, sans-serif"
     fontSize: 30px
     fontWeight: 500
     lineHeight: 1.2
     letterSpacing: 0
   heading-lg:
-    fontFamily: "Rubik, -apple-system, system-ui, sans-serif"
+    fontFamily: "Rubik, system-ui, sans-serif"
     fontSize: 27px
     fontWeight: 500
     lineHeight: 1.25
     letterSpacing: 0
   heading-md:
-    fontFamily: "Rubik, -apple-system, system-ui, sans-serif"
+    fontFamily: "Rubik, system-ui, sans-serif"
     fontSize: 24px
     fontWeight: 500
     lineHeight: 1.25
     letterSpacing: 0
   heading-sm:
-    fontFamily: "Rubik, -apple-system, system-ui, sans-serif"
+    fontFamily: "Rubik, system-ui, sans-serif"
     fontSize: 20px
     fontWeight: 600
     lineHeight: 1.25
     letterSpacing: 0
   body-lg:
-    fontFamily: "Rubik, -apple-system, system-ui, sans-serif"
+    fontFamily: "Rubik, system-ui, sans-serif"
     fontSize: 16px
     fontWeight: 400
     lineHeight: 2.0
     letterSpacing: 0
   body-strong:
-    fontFamily: "Rubik, -apple-system, system-ui, sans-serif"
+    fontFamily: "Rubik, system-ui, sans-serif"
     fontSize: 16px
     fontWeight: 600
     lineHeight: 1.5
     letterSpacing: 0
   body-md:
-    fontFamily: "Rubik, -apple-system, system-ui, sans-serif"
+    fontFamily: "Rubik, system-ui, sans-serif"
     fontSize: 16px
     fontWeight: 500
     lineHeight: 1.5
     letterSpacing: 0
   eyebrow:
-    fontFamily: "Rubik, -apple-system, system-ui, sans-serif"
+    fontFamily: "Rubik, system-ui, sans-serif"
     fontSize: 15px
     fontWeight: 500
     lineHeight: 1.4
     letterSpacing: 0
   button-cap:
-    fontFamily: "Rubik, -apple-system, system-ui, sans-serif"
+    fontFamily: "Rubik, system-ui, sans-serif"
     fontSize: 14px
     fontWeight: 700
     lineHeight: 1.14
     letterSpacing: 0.2px
   button-cap-light:
-    fontFamily: "Rubik, -apple-system, system-ui, sans-serif"
+    fontFamily: "Rubik, system-ui, sans-serif"
     fontSize: 14px
     fontWeight: 500
     lineHeight: 1.29
     letterSpacing: 0.2px
   caption:
-    fontFamily: "Rubik, -apple-system, system-ui, sans-serif"
+    fontFamily: "Rubik, system-ui, sans-serif"
     fontSize: 14px
     fontWeight: 400
     lineHeight: 1.43
     letterSpacing: 0
   micro-cap:
-    fontFamily: "Rubik, -apple-system, system-ui, sans-serif"
+    fontFamily: "Rubik, system-ui, sans-serif"
     fontSize: 10px
     fontWeight: 600
     lineHeight: 1.8
     letterSpacing: 0.25px
   code:
-    fontFamily: "Monaco, Menlo, Ubuntu Mono, monospace"
+    fontFamily: "JetBrains Mono, ui-monospace, Consolas, monospace"
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0
   code-strong:
-    fontFamily: "Monaco, Menlo, Ubuntu Mono, monospace"
+    fontFamily: "JetBrains Mono, ui-monospace, Consolas, monospace"
     fontSize: 16px
     fontWeight: 700
     lineHeight: 1.5
@@ -150,15 +154,32 @@ components:
     typography: "{typography.button-cap}"
     rounded: "{rounded.md}"
     padding: 12px 16px
+  button-primary-focused:
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.on-primary}"
+    outline: "2px solid {colors.ring-focus-light}"
+    outlineOffset: 2px
+    typography: "{typography.button-cap}"
+    rounded: "{rounded.md}"
+    padding: 12px 16px
   button-primary-pressed:
     backgroundColor: "{colors.surface-press-stronger}"
     textColor: "{colors.ink-press}"
+    border: "1px solid {colors.control-border-light}"
     typography: "{typography.button-cap}"
     rounded: "{rounded.md}"
     padding: 12px 16px
   button-inverted:
     backgroundColor: "{colors.on-primary}"
     textColor: "{colors.ink-deep}"
+    typography: "{typography.button-cap}"
+    rounded: "{rounded.md}"
+    padding: 12px 16px
+  button-inverted-focused:
+    backgroundColor: "{colors.on-primary}"
+    textColor: "{colors.ink-deep}"
+    outline: "2px solid {colors.ring-focus-dark}"
+    outlineOffset: 2px
     typography: "{typography.button-cap}"
     rounded: "{rounded.md}"
     padding: 12px 16px
@@ -174,15 +195,18 @@ components:
     typography: "{typography.button-cap}"
     rounded: "{rounded.xl}"
     padding: 8px
+    border: "1px solid {colors.control-border-dark}"
   button-violet-token:
     backgroundColor: "{colors.accent-violet-mid}"
     textColor: "{colors.on-primary}"
     typography: "{typography.button-cap-light}"
     rounded: "{rounded.xl}"
     padding: 8px 16px
+    border: "1px solid {colors.on-primary}"
   button-disabled:
     backgroundColor: "{colors.hairline-cloud}"
-    textColor: "{colors.on-dark-muted}"
+    textColor: "{colors.disabled-text}"
+    border: "1px solid {colors.control-border-light}"
     typography: "{typography.button-cap}"
     rounded: "{rounded.md}"
     padding: 12px 16px
@@ -204,60 +228,71 @@ components:
     typography: "{typography.body-md}"
     rounded: "{rounded.sm}"
     padding: 8px 12px
+    border: "1px solid {colors.control-border-light}"
   text-input-focused:
     backgroundColor: "{colors.surface-canvas-light}"
     textColor: "{colors.ink-deep}"
     typography: "{typography.body-md}"
     rounded: "{rounded.sm}"
     padding: 8px 12px
+    border: "2px solid {colors.ring-focus-light}"
+    outline: "2px solid {colors.ring-focus-light}"
   select-violet:
     backgroundColor: "{colors.accent-violet-deep}"
     textColor: "{colors.on-primary}"
     typography: "{typography.body-md}"
     rounded: "{rounded.md}"
     padding: 8px 16px
+    border: "1px solid {colors.control-border-dark}"
   card-pricing:
     backgroundColor: "{colors.surface-canvas-light}"
     textColor: "{colors.ink-deep}"
     typography: "{typography.body-md}"
     rounded: "{rounded.xl}"
     padding: 32px
+    border: "1px solid {colors.control-border-light}"
   card-pricing-featured:
     backgroundColor: "{colors.surface-night}"
     textColor: "{colors.on-primary}"
     typography: "{typography.body-md}"
     rounded: "{rounded.xl}"
     padding: 32px
+    border: "1px solid {colors.control-border-dark}"
   card-feature-dark:
     backgroundColor: "{colors.ink-deep}"
     textColor: "{colors.on-primary}"
     typography: "{typography.body-lg}"
     rounded: "{rounded.xxl}"
     padding: 32px
+    border: "1px solid {colors.control-border-dark}"
   card-spotlight-violet:
     backgroundColor: "{colors.accent-violet-deep}"
     textColor: "{colors.on-primary}"
     typography: "{typography.body-lg}"
     rounded: "{rounded.xxl}"
     padding: 32px
+    border: "1px solid {colors.control-border-dark}"
   code-block:
     backgroundColor: "{colors.surface-night}"
     textColor: "{colors.on-primary}"
     typography: "{typography.code}"
     rounded: "{rounded.md}"
     padding: 16px
+    border: "1px solid {colors.control-border-dark}"
   link-on-dark:
     backgroundColor: "{colors.surface-canvas-dark}"
     textColor: "{colors.on-primary}"
     typography: "{typography.body-md}"
     rounded: "{rounded.xs}"
     padding: 0px
+    textDecoration: underline
   link-on-light:
     backgroundColor: "{colors.surface-canvas-light}"
     textColor: "{colors.ink-deep}"
     typography: "{typography.body-md}"
     rounded: "{rounded.xs}"
     padding: 0px
+    textDecoration: underline
   nav-bar-light:
     backgroundColor: "{colors.surface-canvas-light}"
     textColor: "{colors.ink-deep}"
@@ -278,7 +313,7 @@ Sentry's design language reads like a debugging console wearing a leather jacket
 
 The palette is deliberately narrow: deep midnight as the dominant canvas, electric lime as the primary attention-grabber, hot pink (`{colors.accent-pink}`) as a secondary punctuation, and a violet-mid (`{colors.accent-violet-mid}`) for tag chips and hairline strokes. White appears in two roles — as text on dark, and as the canvas for pricing, contact, and content-heavy pages where developers need to scan dense tables. The "single primary CTA" is visually inverted depending on context: filled black-violet (`{colors.primary}`) with white type on light surfaces, or filled white with dark type on dark surfaces. The button always reads as the strongest UI affordance regardless of polarity.
 
-Typography splits cleanly between three families: a custom display sans for hero and section openers (chunky, near-condensed, slightly playful), Rubik for every UI text role (body, captions, eyebrow caps, button labels), and Monaco for code. Buttons and eyebrows almost always run in uppercase with a 0.2px tracking lift to give them the snap of console output.
+The source reference uses a custom display sans and Monaco for code. Portable tokens use Rubik for display and UI text, and JetBrains Mono for code. Check line breaks and glyph coverage after loading these fonts, especially with mixed-script content.
 
 **Key Characteristics:**
 - Two-polarity canvas system: deep violet midnight (`{colors.surface-canvas-dark}`) for marketing hero and product feature pages, white (`{colors.surface-canvas-light}`) for pricing, contact, and dense reference content — the system never tries to blur the two.
@@ -286,19 +321,19 @@ Typography splits cleanly between three families: a custom display sans for hero
 - Sticker illustration system: floating mascot characters with hand-drawn outlines, appearing at section junctions, never inside cards — they create rhythm and personality between dense info blocks.
 - Uppercase eyebrow + button caps in `{typography.button-cap}` and `{typography.eyebrow}`, with a consistent 0.2px tracking lift, give the brand its "developer console" cadence.
 - Single-primary CTA hierarchy: every page has one filled button reading either `{colors.primary}` on light or `{colors.on-primary}` on dark; outlined and ghost variants are downgraded.
-- Card surfaces follow the canvas: dark sections nest dark cards (`{colors.ink-deep}` with subtle hairline) and light sections nest white cards with `{colors.hairline-cloud}` borders — chrome stays consistent, only the polarity flips.
-- A pricing-page color rhythm of cream-white tiers with one dark inverted "featured" tier (`{colors.surface-night}`), avoiding the typical accent-bordered featured pattern.
+- Card surfaces follow the canvas: dark and light sections use visible `{colors.control-border-dark}` and `{colors.control-border-light}` boundaries respectively.
+- The reference pricing layout uses light tiers with a dark inverted featured tier (`{colors.surface-night}`); current plan data and featured status must come from [Sentry's pricing page](https://sentry.io/pricing/).
 
 ## Colors
 
-> **Source pages:** home (`/welcome/`), product/error-monitoring, contact/enterprise, pricing.
+> **Source reference:** marketing, product, contact, and pricing surfaces. Verify current URLs and content before reuse.
 
 ### Brand & Accent
 - **Midnight Violet** (`{colors.primary}` — `#150f23`): The system's primary action color and the deepest surface tone. Used for filled primary buttons on light surfaces, code-block backgrounds, and the strongest dark cards.
 - **Ink Violet** (`{colors.ink-deep}` — `#1f1633`): Slightly lifted from primary, this is the marketing hero canvas and the default body-text color on light surfaces — a single token doing double duty as background and ink.
 - **Electric Lime** (`{colors.accent-lime}` — `#c2ef4e`): The signature highlight color. Wrapped around individual headline keywords as a syntax-highlight chip (`{rounded.xs}` corner, no padding-y, 12px padding-x). Also used as the squiggly footer divider stroke. Never a button background.
 - **Hot Pink** (`{colors.accent-pink}` — `#fa7faa`): Secondary punctuation color used for sticker outlines, chart points, and supporting accents — never on buttons, never on type at body size.
-- **Violet Link** (`{colors.accent-violet}` — `#6a5fc1`): Inline link color when emphasis is needed beyond underline.
+- **Violet Link** (`{colors.accent-violet}` — `#6a5fc1`): Underlined inline link color on light surfaces only; dark-surface links use `{components.link-on-dark}` with white text.
 - **Deep Violet** (`{colors.accent-violet-deep}` — `#422082`): The select-dropdown fill on contact forms; also used on spotlight cards inside dark sections.
 - **Mid Violet** (`{colors.accent-violet-mid}` — `#79628c`): Tag-chip fill and faint accent on dark surfaces.
 
@@ -306,30 +341,31 @@ Typography splits cleanly between three families: a custom display sans for hero
 - **Dark Canvas** (`{colors.surface-canvas-dark}` — `#1f1633`): Hero, product, and feature-page background. Carries the deepest atmospheric weight.
 - **Night** (`{colors.surface-night}` — `#150f23`): Cards on dark canvas, code blocks, and the "featured" pricing tier.
 - **Light Canvas** (`{colors.surface-canvas-light}` — `#ffffff`): Pricing, contact, and dense-reference page background.
-- **Surface Press Light** (`{colors.surface-press-light}` — `#f0f0f0`) and **Press Stronger** (`{colors.surface-press-stronger}` — `#efefef`): The pressed/active fill of inverted buttons on dark surfaces.
-- **Hairline Violet** (`{colors.hairline-violet}` — `#362d59`): 1px borders on dark cards.
-- **Hairline Cool** (`{colors.hairline-cool}` — `#cfcfdb`): 1px borders on text inputs and form fields.
-- **Hairline Cloud** (`{colors.hairline-cloud}` — `#e5e7eb`): Pricing-table dividers and pricing-card borders on light canvas.
+- **Surface Press Light** (`{colors.surface-press-light}` — `#f0f0f0`): pressed inverted button fill. **Press Stronger** (`{colors.surface-press-stronger}` — `#efefef`): pressed primary button fill on light surfaces.
+- **Hairline Violet** (`{colors.hairline-violet}` — `#362d59`): decorative dark-surface divider only.
+- **Hairline Cool** (`{colors.hairline-cool}` — `#cfcfdb`): decorative light-surface divider only.
+- **Hairline Cloud** (`{colors.hairline-cloud}` — `#e5e7eb`): decorative pricing-table divider only.
+- **Control Borders** (`{colors.control-border-light}` / `{colors.control-border-dark}`): visible boundaries for controls and cards on their respective surfaces.
 
 ### Text
 - **On Primary** (`{colors.on-primary}` — `#ffffff`): All text on dark canvas, all CTA labels on filled dark buttons.
 - **Ink** (`{colors.ink}` — `#1f1633`): Body text on light canvas; identical hex to the dark canvas, repurposed as type.
 - **Ink Press** (`{colors.ink-press}` — `#1a1a1a`): Reserved for the pressed/active state of inverted buttons.
 - **On Dark Muted** (`{colors.on-dark-muted}` — `rgba(255,255,255,0.72)`): Secondary text, captions, and table cell values on dark canvas.
-- **On Dark Faint** (`{colors.on-dark-faint}` — `rgba(255,255,255,0.18)`): Translucent surface-on-dark — used for ghost button fills and dimmed nav items.
+- **On Dark Faint** (`{colors.on-dark-faint}` — `#3f3849`): solid muted surface for secondary controls on dark canvas.
 
 ### Semantic
-- **Focus Ring** (`{colors.ring-focus}` — `rgba(59,130,246,0.5)`): Translucent blue focus ring — the only blue in the system, reserved for keyboard focus on form fields.
+- **Focus Rings** (`{colors.ring-focus-light}` / `{colors.ring-focus-dark}`): opaque rings for keyboard focus on light and dark surfaces. Button variants have a 2px offset.
 
 ## Typography
 
 ### Font Family
 
-The display tier is a proprietary geometric sans with chunky, near-condensed proportions and a slightly subversive personality (closing apertures, optical-stress letterforms). When unavailable, fall back to **Rubik** at heavier weights for visual continuity.
+The source display tier references a proprietary geometric sans. The portable display tokens use [OFL Rubik](https://github.com/google/fonts/blob/main/ofl/rubik/METADATA.pb) at the declared weights with `system-ui, sans-serif` fallback. Use the source face only after confirming rights.
 
-The UI tier is **Rubik** — an open-source Hebrew/Latin sans on Google Fonts — with system fallbacks (`-apple-system, system-ui, Segoe UI, Helvetica, Arial`). Rubik handles every body, caption, button, and eyebrow role.
+The UI tier also uses Rubik with a system sans-serif fallback. Verify language coverage and wrapping in the rendered interface.
 
-The code tier is **Monaco** with Menlo and Ubuntu Mono fallbacks — used in code blocks, install snippets, and inline tokens.
+The code tier uses [OFL JetBrains Mono](https://github.com/google/fonts/blob/main/ofl/jetbrainsmono/METADATA.pb) with `ui-monospace, Consolas, monospace` fallback across desktop systems.
 
 ### Hierarchy
 
@@ -358,7 +394,7 @@ The code tier is **Monaco** with Menlo and Ubuntu Mono fallbacks — used in cod
 - **Headlines as syntax.** The hero display is structured so a single keyword can be wrapped in a `{colors.accent-lime}` highlight chip without disrupting the reading order. Treat the lime chip as a glyph-level decoration, not a separate component.
 
 ### Note on Font Substitutes
-Rubik is open-source on Google Fonts and is the safe default for everything except the hero display. For the proprietary display sans, suitable open substitutes are **Space Grotesk** (heavier weights), **Archivo** (semi-condensed weights), or **Hubot Sans** with optical-size axis at heavier ends — all carry the same chunky, near-condensed silhouette. Adjust line-height down by 0.05 when substituting, since the proprietary face has tighter leading at large sizes.
+The YAML specifies Rubik for display and UI text and JetBrains Mono for code. Keep the declared line heights until rendered evidence supports changing them; check clipping, wrapping, and fallback glyphs at each breakpoint.
 
 ## Layout
 
@@ -371,7 +407,7 @@ Rubik is open-source on Google Fonts and is the safe default for everything exce
 
 ### Grid & Container
 - Marketing pages use a wide centered container with generous outer gutters; max width sits around 1152px (one of the extracted breakpoints), with content inside flexing across 12 conceptual columns.
-- Pricing splits into a 4-tier card row at desktop, collapsing to 2-up at mid widths and 1-up on mobile.
+- The reference pricing layout uses four desktop cards and collapses to fewer columns at narrower widths. Pull plan names, prices, and any featured state from the current official offer before publishing.
 - The contact form uses a 2-column field layout (first/last name side-by-side) inside a single light-canvas panel.
 - Breakpoints stair-step at 1440 → 1152 → 992 → 768 → 640 → 576 — see Responsive Behavior.
 
@@ -415,29 +451,29 @@ The site doesn't use traditional photography — it uses **illustrated stickers 
 ### Buttons
 
 **`button-primary`** — the dominant CTA across light surfaces.
-- Background `{colors.primary}`, text `{colors.on-primary}`, type `{typography.button-cap}` (uppercase, 14px / 700, 0.2px tracking), padding `{spacing.md} {spacing.lg}` (12px 16px), rounded `{rounded.md}`. On dark hero surfaces, add the level-3 glow halo for emphasis.
-- Pressed state lives in `button-primary-pressed`: background flips to `{colors.surface-press-stronger}`, text to `{colors.ink-press}`. The button effectively swaps polarities on press.
+- Background `{colors.primary}`, text `{colors.on-primary}`, type `{typography.button-cap}` (uppercase, 14px / 700, 0.2px tracking), padding `{spacing.md} {spacing.lg}` (12px 16px), rounded `{rounded.md}`. Dark hero surfaces use `{components.button-inverted}` instead.
+- Pressed state lives in `{components.button-primary-pressed}`: light fill and dark text with `{colors.control-border-light}` border.
 
 **`button-inverted`** — the dominant CTA on dark canvas; visually identical hierarchy, polarity-flipped.
 - Background `{colors.on-primary}` (white), text `{colors.ink-deep}`, same `{typography.button-cap}`, rounded `{rounded.md}`.
 - Pressed in `button-inverted-pressed`: background drops to `{colors.surface-press-light}`, text to `{colors.ink-press}`.
 
 **`button-ghost-on-dark`** — secondary CTA on dark canvas (e.g., "Get Demo" beside "Get Started").
-- Translucent fill `{colors.on-dark-faint}`, text `{colors.on-primary}`, type `{typography.button-cap}`, padding `{spacing.sm}` (8px), rounded `{rounded.xl}`. The translucent fill lets the canvas texture show through.
+- Solid muted fill `{colors.on-dark-faint}`, white text, visible `{colors.control-border-dark}` border, type `{typography.button-cap}`, padding `{spacing.sm}` (8px), rounded `{rounded.xl}`.
 
 **`button-violet-token`** — pill-shaped tag/category button used inline in product navs.
-- Background `{colors.accent-violet-mid}`, text `{colors.on-primary}`, type `{typography.button-cap-light}`, padding `{spacing.sm} {spacing.lg}` (8px 16px), rounded `{rounded.xl}`, 1px hairline border in a slightly deeper violet.
+- Background `{colors.accent-violet-mid}`, text and 1px border `{colors.on-primary}`, type `{typography.button-cap-light}`, padding `{spacing.sm} {spacing.lg}` (8px 16px), rounded `{rounded.xl}`.
 
 **`button-disabled`**
-- Background `{colors.hairline-cloud}`, text `{colors.on-dark-muted}`, otherwise identical to `button-primary`.
+- Background `{colors.hairline-cloud}`, text `{colors.disabled-text}`, and a visible `{colors.control-border-light}` border. Mark the control disabled in the rendered interface as well.
 
 ### Cards & Containers
 
 **`card-pricing`** — the standard tier card on the pricing page.
-- Background `{colors.surface-canvas-light}`, text `{colors.ink-deep}`, padding `{spacing.xxl}` 32px, rounded `{rounded.xl}` 12px, 1px `{colors.hairline-cloud}` border. Headline at top in `{typography.heading-md}`, price in `{typography.display-large}`, feature list in `{typography.body-md}`, primary CTA pinned to the bottom of the card.
+- Background `{colors.surface-canvas-light}`, text `{colors.ink-deep}`, padding `{spacing.xxl}` 32px, rounded `{rounded.xl}` 12px, 1px `{colors.control-border-light}` border. Headline at top in `{typography.heading-md}`, current price in `{typography.display-large}`, feature list in `{typography.body-md}`.
 
-**`card-pricing-featured`** — the dark inverted "featured" tier (Sentry uses the Business tier as the featured one).
-- Background `{colors.surface-night}`, text `{colors.on-primary}`, otherwise identical structure to `card-pricing`. The inversion (rather than an accent-bordered light card) is the brand's distinctive choice — the featured tier reads as the brand's voice, not as a marketing decoration.
+**`card-pricing-featured`** — the dark inverted featured tier in this reference, if the current offer identifies one.
+- Background `{colors.surface-night}`, text `{colors.on-primary}`, and a `{colors.control-border-dark}` border. Confirm live featured status; inversion alone must not imply a recommendation.
 
 **`card-feature-dark`** — large feature-band card on dark surfaces, used to anchor product feature explanations.
 - Background `{colors.ink-deep}`, text `{colors.on-primary}`, padding `{spacing.xxl}` 32px, rounded `{rounded.xxl}` 18px. Often holds a UI mock plus a 27px headline plus 16px body.
@@ -451,8 +487,8 @@ The site doesn't use traditional photography — it uses **illustrated stickers 
 ### Inputs & Forms
 
 **`text-input`** — the contact-form first/last/email/etc. fields.
-- Background `{colors.surface-canvas-light}`, text `{colors.ink-deep}`, type `{typography.body-md}`, padding `{spacing.sm} {spacing.md}` (8px 12px), rounded `{rounded.sm}` 6px, 1px `{colors.hairline-cool}` border.
-- Focus state in `text-input-focused`: same fill, but adds an inset shadow `rgba(0,0,0,0.15) 0 2px 10px inset` to suggest depth pressed inward.
+- Background `{colors.surface-canvas-light}`, text `{colors.ink-deep}`, type `{typography.body-md}`, padding `{spacing.sm} {spacing.md}` (8px 12px), rounded `{rounded.sm}` 6px, 1px `{colors.control-border-light}` border.
+- `{components.text-input-focused}` uses a 2px `{colors.ring-focus-light}` border and outline; verify the rendered focus state with keyboard navigation.
 
 **`select-violet`** — the dropdown variant used inside dark contact panels.
 - Background `{colors.accent-violet-deep}`, text `{colors.on-primary}`, type `{typography.body-md}`, padding `{spacing.sm} {spacing.lg}`, rounded `{rounded.md}`. Distinctive because it doesn't mimic a plain text input — it reads as a deliberate brand surface.
@@ -469,7 +505,7 @@ The site doesn't use traditional photography — it uses **illustrated stickers 
 ### Pills, Badges, and Highlight Chips
 
 **`pill-neutral-dark`** — small status / category pill on dark surfaces.
-- Background `{colors.surface-night}`, text `{colors.on-primary}`, type `{typography.caption}` 12px, padding `{spacing.xs} {spacing.sm}` (4px 8px), rounded `{rounded.xs}` 4px.
+- Background `{colors.surface-night}`, text `{colors.on-primary}`, type `{typography.caption}` 14px, padding `{spacing.xs} {spacing.sm}` (4px 8px), rounded `{rounded.xs}` 4px.
 
 **`chip-lime-keyword`** — the signature inline highlight wrapping single words inside the hero display headline.
 - Background `{colors.accent-lime}`, text `{colors.ink-deep}`, type matches the surrounding `{typography.display-hero}`, rounded `{rounded.xs}` 4px, padding `0 {spacing.md}` (12px horizontal, 0 vertical so the chip hugs the cap-height).
@@ -498,7 +534,7 @@ The site doesn't use traditional photography — it uses **illustrated stickers 
 - Pair every `button-primary` with `{typography.button-cap}` in uppercase with 0.2px tracking — the cadence is part of the brand, not a stylistic option.
 - Treat the dark canvas (`{colors.surface-canvas-dark}`) and light canvas (`{colors.surface-canvas-light}`) as two complete worlds — let one own marketing/feature pages and the other own transactional pages, with no half-measures.
 - Use sticker mascots to break section boundaries — let them overlap, tilt, and float; constraining them inside cards drains their personality.
-- Use `card-pricing-featured` (dark inverted tier) instead of an accent-bordered light tier for the featured pricing column.
+- If the current official offer identifies a featured tier, use `{components.card-pricing-featured}` for that tier and preserve its text label. Otherwise use standard pricing cards.
 - Default body line-height to 1.5 on functional UI surfaces and 2.0 on marketing surfaces — the difference is intentional.
 
 ### Don't
@@ -524,16 +560,15 @@ The site doesn't use traditional photography — it uses **illustrated stickers 
 | Small Mobile | 1–575px     | Compact mode; sticker mascots drop in size or hide entirely to preserve content priority |
 
 ### Touch Targets
-- Primary buttons hit a minimum 44×44px on mobile (12px vertical padding × 16px font + line-height = ~44px). Maintains WCAG AAA touch-target spec.
-- Pill tags and badges in nav and feature surfaces stay above 32×32px even at small mobile breakpoints; they enlarge if necessary rather than shrink.
-- Form fields stay at the 44px minimum height on mobile contact pages.
+- Measure rendered button, pill, navigation, and input targets on each layout. Padding alone does not establish target size or spacing compliance.
+- Verify keyboard focus and operation for each control; the YAML defines primary-button and input focus variants but not every interactive state.
 
 ### Collapsing Strategy
 - **Hero display headline** drops from 88px → 60px → 48px across the breakpoint stair; the lime keyword chip preserves padding and corner radius at every step.
 - **Pricing tiers** stair-step from 4-up → 2-up → 1-up. The featured dark tier always remains visually distinguished — it never loses its inversion at any breakpoint.
 - **Sticker mascots** are progressively de-emphasized: at desktop they overlap section boundaries; at tablet they shift to inline within section padding; at small mobile most are hidden via `display: none` to keep the content scan-able.
 - **Top nav** collapses to a hamburger below 768px; the dropdown menu uses the same canvas polarity as the page (dark on hero, light on pricing).
-- **Code blocks** preserve 16px Monaco at every breakpoint — they never scale down — but switch to horizontal scroll on overflow rather than wrap.
+- **Code blocks** preserve 16px JetBrains Mono or the declared monospace fallback; verify overflow and horizontal scrolling in the rendered layout.
 
 ### Image Behavior
 - Product UI mocks scale proportionally; on small mobile they often anchor to one edge with horizontal overflow rather than shrink to illegibility.
@@ -543,9 +578,14 @@ The site doesn't use traditional photography — it uses **illustrated stickers 
 ## Iteration Guide
 
 1. Focus on ONE component at a time. Don't rebuild the system — extend it.
-2. Reference component names and tokens directly (`{colors.accent-lime}`, `{button-primary}-pressed`, `{rounded.xxl}`) — do not paraphrase.
-3. Run `npx @google/design.md lint DESIGN.md` after edits — `broken-ref`, `contrast-ratio`, and `orphaned-tokens` warnings flag issues automatically.
+2. Reference component names and tokens directly (`{colors.accent-lime}`, `{components.button-primary-pressed}`, `{rounded.xxl}`) — do not paraphrase.
+3. Run `npx --yes -p "@google/design.md@0.4.0" designmd lint DESIGN.md` after edits — `broken-ref`, `contrast-ratio`, and `orphaned-tokens` warnings flag issues automatically.
 4. Add new variants as separate component entries (`-pressed`, `-disabled`, `-focused`) — do not bury them inside prose.
 5. Default to `{typography.body-md}` for product UI body and `{typography.body-lg}` for marketing prose — the leading difference is intentional and load-bearing.
 6. Keep `{colors.accent-lime}` scarce — one lime element per viewport. The signature only works because it's rare.
 7. When polarizing a new surface, choose one canvas (`{colors.surface-canvas-dark}` or `{colors.surface-canvas-light}`) and commit to it; don't blend the two on a single page band.
+
+## Known Gaps
+
+- Current plan names, prices, featured labels, product imagery, mascots, wordmark, and reuse rights require confirmation before publication.
+- Rubik and JetBrains Mono loading, mixed-script wrapping, control and focus rendering, target sizes, and desktop behavior on macOS, Windows, and Linux have not been observed.

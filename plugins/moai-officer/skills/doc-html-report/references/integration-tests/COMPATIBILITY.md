@@ -1,6 +1,8 @@
 # P1 컨슈머 통합 호환성 보고서
 
-> doc-html-report 호환성 검증 — 4개 P1 소비 스킬 통합 테스트 결과
+> 2026-05-09에 작성된 서식 매핑 기록입니다. 아래 점수와 결론은 당시 입력·출력 예시에 관한 판단이며, 현재 Claude Cowork·ChatGPT Work에서 실행한 통합 테스트 결과가 아닙니다. 실제 산출물은 호스트별로 새로 렌더링하고 누락·대비·인쇄 결과를 확인해야 합니다.
+
+> doc-html-report 과거 서식 매핑 — 4개 P1 소비 스킬의 가상 입력·출력 예시
 > 작성일: 2026-05-09
 
 ---
@@ -49,7 +51,7 @@ moai-coworker:collab-exec-summary → moai-coworker:ai-slop-reviewer → moai-of
 
 ### 적합 모드
 
-`financial` 모드 — 재무제표 세트(손익계산서/재무상태표/현금흐름표) 구조가 financial 템플릿에 직접 매핑. K-IFRS 5개 범주 분류가 `row-header` 스타일로 자연스럽게 표현됨.
+`financial` 모드 — 손익계산서 중심의 부분 매핑이다. 재무상태표·현금흐름표·자본변동표를 포함한 전체 재무제표 세트에는 전용 섹션이 없어 별도 구성이 필요하다. 가상 손익계산서의 범주 구분은 `row-header` 스타일로 표현했다.
 
 ### 매핑된 입력 슬롯
 
@@ -64,8 +66,8 @@ moai-coworker:collab-exec-summary → moai-coworker:ai-slop-reviewer → moai-of
 
 ### 매핑되지 않은 섹션
 
-- **재무상태표**: financial 템플릿은 손익계산서 중심 레이아웃으로 재무상태표 전체를 수용하기에 좁음. 별도 섹션 추가 또는 요약 4개 행으로 압축 필요.
-- **현금흐름표**: 현금흐름 섹션이 템플릿에 없어 Notes 슬롯에 텍스트로 압축해야 함.
+- **재무상태표**: financial 템플릿은 손익계산서 중심 레이아웃이므로 전체 변환 시 별도 표·섹션 추가 필요.
+- **현금흐름표**: 전용 슬롯이 없어 전체 변환 시 별도 표·섹션 추가 필요.
 - **자본변동표**: 완전 재무제표 세트 중 자본변동표는 현재 financial 템플릿 범위 밖.
 - **재무비율 분석 테이블**: variance 차트와 별개로 비율 테이블을 위한 슬롯 없음.
 
@@ -75,7 +77,7 @@ moai-coworker:collab-exec-summary → moai-coworker:ai-slop-reviewer → moai-of
 moai-accountant:finance-financial-statements → moai-officer:doc-html-report mode=financial
 ```
 
-손익계산서 핵심 항목에 집중하고, 재무상태표·현금흐름표는 요약 KPI 카드(4개)로 압축하여 50KB 제한 내 유지.
+손익계산서 핵심 항목에 집중한 요약본을 만들 수 있다. 전체 재무제표 변환 요청이면 재무상태표·현금흐름표도 별도 표·섹션으로 보존한다. 이 스킬에는 50KB 크기 제한을 집행하는 실행기가 없다.
 
 ### 향후 개선 메모
 
@@ -106,7 +108,7 @@ moai-accountant:finance-financial-statements → moai-officer:doc-html-report mo
 
 - **5대 분석 섹션 (유동인구/매출/경쟁/입지/타당성)**: plan 템플릿의 milestones에 창업 단계로 재구성하여 표현했으나, 원본의 상세 수치 표(성별 비율, 시간대 분포 등)를 수용할 슬롯이 없음.
 - **4축 평가 점수표**: 점수 매트릭스 테이블 형태를 수용하는 전용 슬롯 없어 success_metrics로 개별 행 표현으로 대체.
-- **분석 데이터 수치 표들**: 5개 분석 섹션의 테이블 데이터가 상세하여 50KB 제한 내 전체 수용 어려움.
+- **분석 데이터 수치 표들**: 5개 분석 섹션의 상세 표를 넣을 전용 슬롯이 없어 전체 변환 시 별도 구성이 필요함.
 
 ### 권장 사용법
 
@@ -114,7 +116,7 @@ moai-accountant:finance-financial-statements → moai-officer:doc-html-report mo
 moai-consultant:consult-sbiz365 → moai-coworker:ai-slop-reviewer → moai-writer:korean-humanize → moai-officer:doc-html-report mode=plan
 ```
 
-sbiz365 보고서의 "Executive Summary" + "창업 타당성 평가" + "리스크" + "결론" 핵심 섹션만 추출하여 plan 모드 렌더링 권장. 5개 상세 분석 섹션은 마크다운 원본 보고서(docx)에서 참조하도록 안내.
+요약본을 요청받은 경우에만 "Executive Summary" + "창업 타당성 평가" + "리스크" + "결론"을 추출한다. 전체 변환에서는 5개 상세 분석 섹션을 HTML에도 별도 표·섹션으로 보존한다.
 
 ### 향후 개선 메모
 
@@ -142,7 +144,7 @@ sbiz365 보고서의 "Executive Summary" + "창업 타당성 평가" + "리스�
 
 ### 매핑되지 않은 섹션
 
-- **경쟁사 동향 서술**: 각 경쟁사별 주요 활동 텍스트 블록은 shipped 테이블 형식으로 압축하기 어렵고, 별도 섹션 없음. 하이라이트 목록에 1-2줄로 요약하거나 생략.
+- **경쟁사 동향 서술**: 각 경쟁사별 주요 활동 텍스트 블록은 shipped 테이블 형식으로 압축하기 어렵고, 전용 섹션이 없음. 전체 변환 시 별도 섹션으로 보존.
 - **규제·정책 업데이트**: 별도 섹션으로 시각적 강조가 필요하나, status 템플릿에 전용 슬롯 없어 highlights나 carryover에 통합됨.
 - **시장 지표 상세 (비트코인 등)**: 4개 카드 제한으로 전체 시장 지표 수용 불가, 주요 4개만 표시.
 
@@ -152,7 +154,7 @@ sbiz365 보고서의 "Executive Summary" + "창업 타당성 평가" + "리스�
 moai-officer:productivity-briefing → moai-officer:doc-html-report mode=status
 ```
 
-간단 체인: ai-slop-reviewer 없이도 구조가 명확하여 직접 렌더링 가능. 경쟁사 동향·규제 섹션은 highlights에 1-2줄 요약 삽입. 시장 지표 4개를 메트릭 카드로 우선 배치.
+간단 체인: ai-slop-reviewer 없이도 구조가 명확하여 직접 렌더링 가능. 경쟁사 동향·규제 섹션은 전체 변환이면 별도 섹션에 보존하고, 요약본이면 highlights에 요약한다. 시장 지표 카드 밖의 항목도 전체 변환에서는 표로 보존한다.
 
 ### 향후 개선 메모
 
@@ -182,16 +184,16 @@ moai-officer:productivity-briefing → moai-officer:doc-html-report mode=status
 
 ### Phase 1 (P1) 권장 체인 통합 결론
 
-**4건 모두 사용 가능 (호환성 점수 4/5)**
+**과거 가상 입력에 대한 매핑 점수: 4건 모두 4/5**
 
-모든 P1 소비 스킬이 지정된 doc-html-report 모드로 렌더링 가능함을 확인했습니다. 각 스킬 출력의 핵심 정보(수치·헤드라인·액션·리스크)는 템플릿 슬롯에 매핑되며, 미매핑 세부 섹션은 마크다운 원본 보고서에서 보완 참조하도록 안내하는 사용 패턴이 권장됩니다.
+위 점수는 당시 가상 자료의 서식 매핑 평가다. 현재 호스트의 실제 소비 스킬 출력, 누락 없는 변환, 화면·인쇄 품질을 확인한 결과는 아니다. 전체 변환 요청에서 미매핑 섹션은 HTML에 추가하고, 요약본 요청에서만 생략 범위를 명시한다.
 
 **주요 제약 사항**:
-- finance-financial-statements의 재무제표 전체 세트(상태표+현금흐름표)는 financial 템플릿 단일 파일 50KB 제한으로 손익계산서 핵심 항목 위주로 압축 필요.
-- consult-sbiz365의 5대 상세 분석 수치표는 plan 모드 내에 전부 수용하기 어렵고, 핵심 요약 + 타당성 판정 + 리스크 + 결론 중심 렌더링 권장.
+- finance-financial-statements의 재무제표 전체 세트(상태표+현금흐름표)는 financial 템플릿에 전용 슬롯이 없어 전체 변환 시 별도 섹션이 필요하다.
+- consult-sbiz365의 5대 상세 분석 수치표는 plan 모드에 전용 슬롯이 없어 전체 변환 시 별도 표가 필요하다.
 - collab-exec-summary의 Now What 의사결정 옵션 구조는 carryover 슬롯 재활용으로 표현하나, 향후 `decisions` 전용 컴포넌트 추가 시 더 자연스러운 렌더링 가능.
 - productivity-briefing은 경쟁사·규제 상세 섹션을 위한 status 템플릿 확장 여지가 있으나, 현재 구조로도 핵심 정보 전달에 충분.
 
 ---
 
-*작성: moai-officer:doc-html-report 통합 검증*
+*작성: moai-officer:doc-html-report 과거 서식 매핑 기록*

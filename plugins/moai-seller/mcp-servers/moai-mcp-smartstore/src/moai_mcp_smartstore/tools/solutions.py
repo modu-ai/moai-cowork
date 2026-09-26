@@ -4,7 +4,7 @@ from __future__ import annotations
 from typing import Any
 
 from ..server import mcp
-from ._common import call
+from ._common import call, segment
 
 _CS = "/v1/commerce-solutions"
 
@@ -18,7 +18,7 @@ def solution_seller_info_by_token(params: dict[str, Any]) -> dict:
 @mcp.tool()
 def solution_subscription_get(account_uid: str) -> dict:
     """특정 accountUid 솔루션 사용 상태 조회. GET /v1/commerce-solutions/subscriptions/{accountUid}"""
-    return call("GET", f"{_CS}/subscriptions/{account_uid}")
+    return call("GET", f"{_CS}/subscriptions/{segment(account_uid)}")
 
 
 @mcp.tool()
@@ -42,13 +42,13 @@ def solution_approve(body: dict[str, Any]) -> dict:
 @mcp.tool()
 def solution_reject(account_uid: str, body: dict[str, Any] | None = None) -> dict:
     """솔루션 사용 시작 거절. PUT /v1/commerce-solutions/subscriptions/{accountUid}/reject"""
-    return call("PUT", f"{_CS}/subscriptions/{account_uid}/reject", body=body or {})
+    return call("PUT", f"{_CS}/subscriptions/{segment(account_uid)}/reject", body=body or {})
 
 
 @mcp.tool()
 def solution_unsubscribe(account_uid: str, body: dict[str, Any] | None = None) -> dict:
     """솔루션 사용 중지(결제정지 동반). PUT /v1/commerce-solutions/subscriptions/{accountUid}/unsubscription"""
-    return call("PUT", f"{_CS}/subscriptions/{account_uid}/unsubscription", body=body or {})
+    return call("PUT", f"{_CS}/subscriptions/{segment(account_uid)}/unsubscription", body=body or {})
 
 
 @mcp.tool()

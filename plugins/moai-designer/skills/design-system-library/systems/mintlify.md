@@ -8,8 +8,9 @@ colors:
   on-primary: "#ffffff"
   brand-green: "#00d4a4"
   brand-green-deep: "#00b48a"
+  focus-green: "#00775e"
   brand-green-soft: "#7cebcb"
-  brand-tag: "#3772cf"
+  brand-tag: "#245aa9"
   brand-warn: "#c37d0d"
   brand-annotate: "#1ba673"
   brand-error: "#d45656"
@@ -32,114 +33,115 @@ colors:
   charcoal: "#1c1c1e"
   slate: "#3a3a3c"
   steel: "#5a5a5c"
-  stone: "#888888"
+  stone: "#6f6f6f"
   muted: "#a8a8aa"
   on-dark: "#ffffff"
+  on-bright: "#0a0a0a"
   on-dark-muted: "#b3b3b3"
 
 typography:
   hero-display:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 72px
     fontWeight: 600
     lineHeight: 1.05
     letterSpacing: -2px
   display-lg:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 56px
     fontWeight: 600
     lineHeight: 1.10
     letterSpacing: -1.5px
   heading-1:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 48px
     fontWeight: 600
     lineHeight: 1.10
     letterSpacing: -1px
   heading-2:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 36px
     fontWeight: 600
     lineHeight: 1.20
     letterSpacing: -0.5px
   heading-3:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 28px
     fontWeight: 600
     lineHeight: 1.25
   heading-4:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 22px
     fontWeight: 600
     lineHeight: 1.30
   heading-5:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 18px
     fontWeight: 600
     lineHeight: 1.40
   subtitle:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 18px
     fontWeight: 400
     lineHeight: 1.50
   body-md:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.50
   body-md-medium:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 16px
     fontWeight: 500
     lineHeight: 1.50
   body-sm:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 400
     lineHeight: 1.50
   body-sm-medium:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 500
     lineHeight: 1.50
   caption:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 13px
     fontWeight: 400
     lineHeight: 1.40
   caption-bold:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 13px
     fontWeight: 600
     lineHeight: 1.40
   micro:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 12px
     fontWeight: 500
     lineHeight: 1.40
   micro-uppercase:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 11px
     fontWeight: 600
     lineHeight: 1.40
     letterSpacing: 0.5px
   button-md:
-    fontFamily: Inter
+    fontFamily: Inter, system-ui, sans-serif
     fontSize: 14px
     fontWeight: 500
     lineHeight: 1.30
   code-md:
-    fontFamily: Geist Mono
+    fontFamily: Geist Mono, ui-monospace, monospace
     fontSize: 14px
     fontWeight: 400
     lineHeight: 1.50
   code-sm:
-    fontFamily: Geist Mono
+    fontFamily: Geist Mono, ui-monospace, monospace
     fontSize: 13px
     fontWeight: 400
     lineHeight: 1.40
   code-inline:
-    fontFamily: Geist Mono
+    fontFamily: Geist Mono, ui-monospace, monospace
     fontSize: 13px
     fontWeight: 500
     lineHeight: 1.30
@@ -210,6 +212,11 @@ components:
     textColor: "{colors.ink}"
     typography: "{typography.body-sm-medium}"
     padding: "0"
+  button-link-on-dark:
+    backgroundColor: "transparent"
+    textColor: "{colors.on-dark}"
+    typography: "{typography.body-sm-medium}"
+    padding: "0"
   button-icon-circular:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.ink}"
@@ -248,7 +255,7 @@ components:
     shadow: "rgba(0, 212, 164, 0.08) 0px 8px 24px"
   testimonial-card-feature:
     backgroundColor: "{colors.testimonial-orange}"
-    textColor: "{colors.on-dark}"
+    textColor: "{colors.on-bright}"
     rounded: "{rounded.lg}"
     padding: "{spacing.section}"
   testimonial-card-quote:
@@ -268,7 +275,7 @@ components:
   text-input-focused:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.ink}"
-    border: "2px solid {colors.brand-green}"
+    border: "2px solid {colors.focus-green}"
   search-pill:
     backgroundColor: "{colors.surface}"
     textColor: "{colors.steel}"
@@ -313,7 +320,7 @@ components:
     padding: "2px 8px"
   badge-required:
     backgroundColor: "{colors.brand-error}"
-    textColor: "{colors.on-dark}"
+    textColor: "{colors.on-bright}"
     typography: "{typography.micro-uppercase}"
     rounded: "{rounded.sm}"
     padding: "2px 6px"
@@ -403,7 +410,7 @@ components:
     border: "1px solid {colors.hairline-dark}"
   hero-band-sky:
     backgroundColor: "{colors.hero-sky-from}"
-    textColor: "{colors.on-dark}"
+    textColor: "{colors.ink}"
     rounded: "0"
     padding: "{spacing.hero}"
   hero-band-dark:
@@ -445,7 +452,7 @@ components:
     border: "1px solid {colors.hairline}"
   founder-quote-card:
     backgroundColor: "{colors.testimonial-orange}"
-    textColor: "{colors.on-dark}"
+    textColor: "{colors.on-bright}"
     rounded: "{rounded.lg}"
     padding: "{spacing.xxl}"
 ---
@@ -499,7 +506,7 @@ The brand's signature mint green ({colors.brand-green}) appears sparingly but de
 - **Steel** ({colors.steel}): Tertiary text, table headers, sidebar inactive items, footer links.
 - **Stone** ({colors.stone}): Captions, twoslash cursor color, muted labels.
 - **Muted** ({colors.muted}): De-emphasized labels and disabled text.
-- **On Dark** ({colors.on-dark}): White text on dark surfaces (hero bands, code blocks, promo banner).
+- **On Dark** ({colors.on-dark}): White text on the dark hero, code blocks, and promo banner. The pale sky hero uses `{colors.ink}`.
 - **On Dark Muted** ({colors.on-dark-muted}): Reduced-opacity white for code-block headers and metadata on dark.
 
 ### Semantic
@@ -508,11 +515,11 @@ The brand's signature mint green ({colors.brand-green}) appears sparingly but de
 ## Typography
 
 ### Font Family
-**Inter** (primary): Variable typeface optimized for UI legibility. Used across every UI surface — body, headings, navigation, button labels, captions. Fallbacks: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif.
+**Inter** (primary): Variable typeface for UI prose. The YAML defaults to `Inter, system-ui, sans-serif` across headings, body, navigation, and controls; load Inter explicitly where a close match matters.
 
-**Geist Mono** (code): Monospace typeface used inside code blocks, inline code references, type signatures (e.g. `string`, `number`, `boolean`), and property names in API documentation. Fallbacks: 'SF Mono', Menlo, Consolas, 'Geist Mono Fallback', monospace.
+**Geist Mono** (code): [Vercel publishes Geist Mono under the OFL](https://github.com/vercel/geist-font). The YAML uses `Geist Mono, ui-monospace, monospace` for code blocks, inline references, type signatures, and property names; load it explicitly for a close match.
 
-The brand uses no italic variants of either face — emphasis comes from weight (500/600), color shift, or background highlighting (in code references).
+The documented reference relies on weight, color, and background emphasis. Availability of italic builds does not require their use in this profile.
 
 ### Hierarchy
 
@@ -620,6 +627,9 @@ The radius scale is tightly disciplined — the brand never uses a corner soften
 **`button-on-dark`** — White pill for use on dark hero bands (startups page "Get started").
 - Background `{colors.on-dark}`, text `{colors.primary}`, typography `{typography.button-md}`, padding `10px 20px`, rounded `{rounded.full}`.
 
+**`button-link-on-dark`** — White text link paired with the white pill on dark hero bands.
+- Background transparent, text `{colors.on-dark}`, typography `{typography.body-sm-medium}`. Check legibility against the actual illustration behind the link.
+
 **`button-secondary`** — Outlined pill for secondary actions.
 - Background transparent, text `{colors.ink}`, border `1px solid {colors.hairline}`, typography `{typography.button-md}`, padding `10px 20px`, rounded `{rounded.full}`.
 
@@ -643,7 +653,7 @@ The radius scale is tightly disciplined — the brand never uses a corner soften
 **`card-help`** — "Need help?" CTA cards below the pricing comparison ("Quickstart guide", "Guide to technical writing", "Founder", "Sales").
 - Background `{colors.canvas}`, rounded `{rounded.lg}`, padding `{spacing.xl}`, border `1px solid {colors.hairline}`.
 
-**`card-startup-perk`** — Startup-program perk grid item ("Discounts and credits", "Priority support", "Startup pack", "Founder community").
+**`card-startup-perk`** — Startup-program perk grid item. Verify current eligibility, discounts, credits, and support terms before publishing its copy.
 - Background `{colors.canvas}`, rounded `{rounded.lg}`, padding `{spacing.xl}`, border `1px solid {colors.hairline}`. Carries an icon at top, heading `{typography.heading-5}`, description `{typography.body-sm}` `{colors.steel}`.
 
 **`pricing-card`** — Standard pricing tier card.
@@ -653,14 +663,14 @@ The radius scale is tightly disciplined — the brand never uses a corner soften
 **`pricing-card-featured`** — Highlighted pricing tier (Lift Off / featured plan).
 - Background `{colors.canvas}`, rounded `{rounded.lg}`, padding `{spacing.xxl}`, border `2px solid {colors.brand-green}`, soft brand-tinted shadow `rgba(0, 212, 164, 0.08) 0px 8px 24px`.
 
-**`testimonial-card-feature`** — Bright orange large testimonial card with photo + quote ("Cursor — Every YC batch we consistently see the top performing startups use Mintlify to build their docs.").
-- Background `{colors.testimonial-orange}`, text `{colors.on-dark}`, rounded `{rounded.lg}`, padding `{spacing.section}`. Photo on right, large quote in `{typography.heading-3}` left, attribution below in `{typography.body-sm-medium}`.
+**`testimonial-card-feature`** — Bright orange large testimonial card with photo and attributed quote. Use a quote and portrait only when the source and reuse rights are verified.
+- Background `{colors.testimonial-orange}`, text `{colors.on-bright}`, rounded `{rounded.lg}`, padding `{spacing.section}`. Photo on right, quote in `{typography.heading-3}` left, attribution below in `{typography.body-sm-medium}`.
 
 **`testimonial-card-quote`** — Smaller white testimonial card on the startups page.
 - Background `{colors.canvas}`, rounded `{rounded.lg}`, padding `{spacing.xxl}`, border `1px solid {colors.hairline}`.
 
-**`founder-quote-card`** — Cursor founder testimonial card variant on the orange surface.
-- Background `{colors.testimonial-orange}`, text `{colors.on-dark}`, rounded `{rounded.lg}`, padding `{spacing.xxl}`. Carries the specific founder portrait + quote treatment.
+**`founder-quote-card`** — Founder testimonial card variant on the orange surface.
+- Background `{colors.testimonial-orange}`, text `{colors.on-bright}`, rounded `{rounded.lg}`, padding `{spacing.xxl}`. Add a founder portrait and quote only after verifying the source and reuse rights.
 
 **`startup-program-card`** — Larger application/program card containing perks grid + apply CTA.
 - Background `{colors.canvas}`, rounded `{rounded.lg}`, padding `{spacing.xxl}`, border `1px solid {colors.hairline}`.
@@ -671,7 +681,7 @@ The radius scale is tightly disciplined — the brand never uses a corner soften
 - Background `{colors.canvas}`, text `{colors.ink}`, border `1px solid {colors.hairline}`, rounded `{rounded.md}`, padding `{spacing.sm} {spacing.md}`, height 40px.
 
 **`text-input-focused`** — Activated state.
-- Border switches to `2px solid {colors.brand-green}` — focus uses the brand mint as the activation signal.
+- Border switches to `2px solid {colors.focus-green}` to keep the focus indicator distinct on white.
 
 **`search-pill`** — Documentation top-bar search.
 - Background `{colors.surface}`, text `{colors.steel}`, typography `{typography.body-sm}`, rounded `{rounded.md}`, height 36px, border `1px solid {colors.hairline}`.
@@ -690,11 +700,11 @@ The radius scale is tightly disciplined — the brand never uses a corner soften
 
 ### Badges & Status
 
-**`badge-discount`** — Small green "Save 20%" badge attached to annual toggle.
+**`badge-discount`** — Small green discount badge attached to annual toggle; publish a number only after confirming current pricing terms.
 - Background `{colors.brand-green}`, text `{colors.primary}`, typography `{typography.caption-bold}`, rounded `{rounded.full}`, padding `2px 8px`.
 
 **`badge-required`** — Red "REQUIRED" label on documentation property rows.
-- Background `{colors.brand-error}`, text `{colors.on-dark}`, typography `{typography.micro-uppercase}`, rounded `{rounded.sm}`, padding `2px 6px`.
+- Background `{colors.brand-error}`, text `{colors.on-bright}`, typography `{typography.micro-uppercase}`, rounded `{rounded.sm}`, padding `2px 6px`.
 
 **`badge-type`** — Type signature chip in documentation (e.g. `string`, `number`, `boolean`).
 - Background `{colors.surface}`, text `{colors.steel}`, typography `{typography.code-sm}`, rounded `{rounded.sm}`, padding `2px 6px`.
@@ -755,18 +765,18 @@ The radius scale is tightly disciplined — the brand never uses a corner soften
 ### Signature Components
 
 **`hero-band-sky`** — Homepage hero with atmospheric sky-blue to cream gradient and cloud illustrations.
-- Background gradient `linear-gradient(180deg, {colors.hero-sky-from} 0%, {colors.hero-sky-to} 100%)`, text `{colors.on-dark}` (early portion of gradient) shifting to `{colors.ink}` further down, padding `{spacing.hero}`.
+- Background gradient `linear-gradient(180deg, {colors.hero-sky-from} 0%, {colors.hero-sky-to} 100%)`, text `{colors.ink}` throughout, padding `{spacing.hero}`. Check contrast against any cloud illustration or overlay behind the text.
 - Layout: centered hero headline in `{typography.hero-display}`, centered subtitle in `{typography.subtitle}`, centered button row (`button-accent-green` "Get started" + `button-secondary` "Talk to us"), product mockup below the buttons.
 
 **`hero-band-dark`** — Startups hero with dark teal-to-mint gradient and rocket launch illustration.
 - Background gradient `linear-gradient(135deg, {colors.hero-dark-from} 0%, {colors.hero-dark-to} 100%)`, text `{colors.on-dark}`, padding `{spacing.hero}`.
-- Layout: hero headline left in `{typography.hero-display}` `{colors.on-dark}`, illustration right (rocket cutting across the gradient), button row uses `button-on-dark` (white pill) + ghost link.
+- Layout: hero headline left in `{typography.hero-display}` `{colors.on-dark}`, illustration right (rocket cutting across the gradient), button row uses `button-on-dark` (white pill) + `button-link-on-dark`. Check the actual illustration area behind the text and controls.
 
 **`hero-product-mockup`** — Code-editor mockup framed inside the homepage hero.
 - Background `{colors.canvas}`, rounded `{rounded.lg}`, border `1px solid {colors.hairline-soft}`, deep shadow `rgba(0, 0, 0, 0.12) 0px 24px 48px -8px`.
 - Carries a documentation page preview inside (sidebar on left, prose body, mock UI controls).
 
-**`logo-wall-item`** — Customer logo cell in 6-up trust-row grids ("Anthropic / Cognition / Mintlify / Vercel / react / Lovable", "Stripe / Block / PayPal / Compound / Auth").
+**`logo-wall-item`** — Customer logo cell in 6-up trust-row grids. Populate only with currently verified customer relationships and logo-use rights.
 - Background transparent, text `{colors.steel}`, typography `{typography.body-md-medium}`, padding `{spacing.lg}`.
 - Logos rendered as wordmarks with consistent vertical centering.
 
@@ -813,10 +823,10 @@ The radius scale is tightly disciplined — the brand never uses a corner soften
 | Wide Desktop | ≥ 1280px | Wider hero gutters, larger product mockup, fixed 240px sidebar. |
 
 ### Touch Targets
-- Pill buttons render at 36–40px effective height — bumps to 44px on mobile via padding override
-- Circular icon buttons: 32×32px desktop → 44×44px mobile
-- Form inputs render at 40px height; bumps to 44px mobile
-- Sidebar nav items render at ~32px tall — bump to 44px mobile drawers
+- Pill buttons specify `10px 20px` padding; measure the rendered clickable width, height, and spacing at each breakpoint.
+- Circular icon buttons specify 32×32px. Enlarge the interactive area where needed and verify its dimensions.
+- Form inputs specify 40px height; verify any mobile override and the final clickable area.
+- Sidebar nav item height depends on line height and padding. Measure the full clickable row, including mobile drawers.
 
 ### Collapsing Strategy
 - **Promo banner** stays full-width; truncates at < 480px
@@ -837,7 +847,7 @@ The radius scale is tightly disciplined — the brand never uses a corner soften
 
 1. Focus on ONE component at a time. The system has high internal consistency.
 2. Reference component names and tokens directly (`{colors.primary}`, `{component-name}-pressed`, `{rounded.full}`) — do not paraphrase.
-3. Run `npx @google/design.md lint DESIGN.md` after edits to catch broken refs and contrast issues.
+3. Run `npx --yes -p "@google/design.md@0.4.0" designmd lint DESIGN.md` after edits to catch broken refs and contrast issues.
 4. Add new variants as separate `components:` entries (`-pressed`, `-disabled`, `-focused`, `-active`).
 5. Default to `{typography.body-md}` for body and `{typography.subtitle}` for emphasis. Headlines step down `hero-display → display-lg → heading-1 → heading-2 → heading-3 → heading-4 → heading-5`.
 6. Keep `{colors.brand-green}` confined to accent moments. If it appears on a generic surface, ask whether it earned that role.

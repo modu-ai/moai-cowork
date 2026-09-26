@@ -1,7 +1,6 @@
 ---
 version: alpha
 name: Raycast-design-analysis
-属于: A dark-canvas developer-tools system that treats the marketing page like an extended product screenshot — pure-near-black background, command-palette mockups as the hero, Inter typography with the ss03 stylistic set turned on, and a single white CTA pill that doesn't break the inky atmosphere. The chrome reads like Raycast's own command-palette UI scaled up to a marketing page: monochrome dark surfaces with a faint surface ladder (#07080a → #0d0d0d → #101111), tight 6–10px radius on cards, hairline 1px borders in #242728, and rare splashes of saturated accent (Hacker News yellow, Slack red, Mac green, info blue) reserved for product-tile category illustrations. The signature visual moment is a red gradient hero wordmark — three diagonal red stripes laid across the very top of the home page like a launch-banner — paired with full-bleed product UI screenshots that show Raycast's actual command palette, store, and AI chat surfaces.
 description: |
   Raycast's marketing system reads like an extended product screenshot. The chrome IS the in-product chrome at marketing scale: pure-near-black canvas, hairline 1px borders, command-palette-style cards, Inter typography with the ss03 stylistic set enabled site-wide, white CTA pill, and a small set of saturated category accent colors (yellow / red / green / blue) reserved for extension and feature illustrations. Section rhythm is generous (~96px) but the page never breaks tonal continuity — the whole site sits in one continuous dark mode.
 
@@ -631,7 +630,7 @@ There is no traditional photography. Visual elements are limited to:
 | mobile-narrow | 320px | Section padding tightens to 48px |
 
 ### Touch Targets
-All interactive elements meet WCAG AA at 36px+. `{component.button-primary}` and `{component.button-tertiary}` sit at 36px height with 16px padding. `{component.text-input}` sits at 36px. `{component.store-search-bar}` sits at 44px (above AAA). `{component.pill-tab}` is ~24–28px height with 10px padding extending to 36–40px tappable via inline padding (above AA but below AAA — intentional, the chips are compact). `{component.install-button}` sits at ~32px height with 14px padding.
+`{component.button-primary}` and `{component.button-tertiary}` are documented at 36px high with 16px padding; `{component.text-input}` is 36px high and `{component.store-search-bar}` is 44px high. The `{component.pill-tab}` token combines 14px text at line-height 1.6 with 4px vertical padding, yielding a ~30px nominal box before other CSS; `{component.install-button}` is documented at ~32px high. Measure the rendered clickable width and height, plus neighboring-target spacing where needed, before claiming WCAG 2.5.8 AA. A 44px search-bar height alone does not prove the 44×44px WCAG 2.5.5 AAA size target.
 
 ### Collapsing Strategy
 - **Primary nav:** desktop horizontal cluster → tablet hamburger drawer at 768px. The white "Download" CTA stays visible at every breakpoint.
@@ -653,7 +652,7 @@ The only "imagery" in the system is in-product Raycast UI screenshots and small 
 
 1. Focus on ONE component at a time. Pull its YAML entry and verify every property resolves.
 2. Reference component names and tokens directly (`{colors.primary}`, `{component.button-primary-pressed}`, `{rounded.md}`) — do not paraphrase.
-3. Run `npx @google/design.md lint DESIGN.md` after edits — `broken-ref`, `contrast-ratio`, and `orphaned-tokens` warnings flag issues automatically.
+3. Run `npx --yes -p "@google/design.md@0.4.0" designmd lint DESIGN.md` after edits — `broken-ref`, `contrast-ratio`, and `orphaned-tokens` warnings flag issues automatically.
 4. Add new variants as separate component entries (`-pressed`, `-disabled`, `-active`) — do not bury them inside prose.
 5. Default body to `{typography.body-md}` (16px / 400 / 1.6); reach for `{typography.body-strong}` for emphasis; reserve `{typography.display-xl}` strictly for the hero band.
 6. Keep `{colors.primary}` (white CTA pill) scarce per viewport — at most one solid white pill per fold.
