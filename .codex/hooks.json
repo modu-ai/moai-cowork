@@ -1,12 +1,56 @@
 {
   "description": "MoAI-managed hook layer. MoAI refreshes only its own handlers (command prefix 'moai hook '); every other entry is user-owned and preserved.",
   "hooks": {
+    "Interrupt": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "moai hook interrupt --harness codex",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "moai hook permission-request --harness codex",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "moai hook post-compact --harness codex",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
     "PostToolUse": [
       {
         "hooks": [
           {
             "type": "command",
             "command": "moai hook post-tool --harness codex",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "moai hook compact --harness codex",
             "timeout": 10
           }
         ]

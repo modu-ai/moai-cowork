@@ -5,15 +5,22 @@ Every clause here binds a turn regardless of which agent harness drives it. The 
 exists, Codex loads it as an additional, more-specific contract; the merged byte budget must cover
 the whole discovery chain.
 
-**Budget warning.** A personal `~/.codex/AGENTS.md` joins the same merged chain and is consumed
-**before** this file, narrowing what the project's contract can carry. Overflow is dropped from the
-**tail**, silently — no warning, no stderr, exit 0. Clauses below are ordered most-critical-first
-for that reason.
+**Budget warning.** Codex charges its instruction byte budget against
+project instruction files only; a personal `~/.codex/AGENTS.md` does not shrink it. Overflow is
+truncated from the **tail**, silently — no warning, no stderr, exit 0. Clauses below are ordered
+most-critical-first for that reason.
 
-This file is the canonical cross-harness contract. `.claude/rules/moai/**` and `CLAUDE.md` expand
-Claude-only mechanisms (question channel, subagent spawning, skills, session handoff); they do not
-override a cross-harness clause here. Compression removed rationale and incident records, never an
-obligation.
+**Direct Codex startup.** When using `codex -C <worktree>` directly, read a present
+worktree-root `AGENTS.local.md` in full before other project work and follow it as local
+project guidance. If it exists but cannot be read, stop and report the failure. The
+MoAI Codex launcher injects this file before the session instead; see §8.
+
+This file is the canonical cross-harness contract. Shared detail lives in
+`.moai/policies/**` and `.moai/workflows/**`. When Claude is installed,
+`.claude/rules/moai/**` and `CLAUDE.md` expand Claude-only mechanisms (question
+channel, subagent spawning, skills, session handoff); they do not override a
+cross-harness clause here. Compression removed rationale and incident records,
+never an obligation.
 
 **Capability bindings.** Names below are the neutral tool classes; a row exists only where a
 harness driving this contract lacks the capability.
@@ -23,14 +30,22 @@ harness driving this contract lacks the capability.
 | question-channel | `AskUserQuestion` | Return a blocker report naming the missing input instead of asking in prose |
 | task-list | `TaskCreate` / `TaskUpdate` / `TaskList` / `TaskGet` | Track the work and report progress in prose |
 | design-sync | `DesignSync` | Skip the design-sync surface; say so in the report |
+| agent-spawning | `Agent(...)` sub-agents | Do the bounded work inline |
+| output-style | Claude output styles | Follow this contract directly |
+| slash-commands | `/moai` slash commands | Use the underlying `moai` CLI verbs |
+| workflow-scripts | Workflow scripts (`ultracode`) | Run the steps sequentially |
+| worktree-entry | Claude: `moai cc -w <name>` for Claude-native trees or `moai cc -w <absolute-path>` for MoAI trees; Codex app: select Worktree; Codex CLI: `moai worktree new <name>` then `codex -C <absolute-path>` | An active Codex session uses `git -C <absolute-path>`; `moai codex -w` starts a new session in an existing tree only |
+| audit-verdict-file | The auditor agent writes its own verdict or report file | On Codex, start the read-only roles (`plan-auditor`, `sync-auditor`, `mission-governor`, `super-advisor`) through the launcher, the moai MCP tool `codex_role_audit`, and never through `spawn_agent`, which would hand them your own writing sandbox. Pass `role`, your own worktree root as `worktree_root`, the task as `task`, and the verdict or report path under `.moai/reports/` as `out`; the tool returns a job id at once, and `codex_role_audit_status` / `codex_role_audit_result` report on it. The role runs as one top-level read-only `codex exec` process, and the launcher writes the verdict or report file with exactly the returned text, unedited |
 
 **`Skill("<name>")` instructions carry no row, and are read literally.** `skill-loader` is a
 capability every harness driving this contract has, so it earns no row above; what is Claude-only
 is the per-agent grant, not the reach. Where a harness loads a skill by reading it rather than by
-calling a tool, the same file is already there: the deploy mirrors every skill to
-`.agents/skills/<name>/SKILL.md` alongside `.claude/skills/<name>/SKILL.md`, so
-`Skill("moai-workflow-tdd")` names `.agents/skills/moai-workflow-tdd/SKILL.md`. Agent bodies keep
+calling a tool, the deployed skill is in `.agents/skills/<name>/SKILL.md` for Codex and
+`.claude/skills/<name>/SKILL.md` for Claude. The `both` profile installs both paths.
+`Skill("moai-workflow-tdd")` names the corresponding deployed SKILL.md. Agent bodies keep
 the tool-call wording for that reason — it is an address, not a Claude-only instruction.
+Codex-side loading is **deferred** — read the mirrored SKILL.md directly; no loader resolves
+`Skill("...")` calls.
 
 ---
 
@@ -105,20 +120,31 @@ and resolve the remote default branch instead of assuming `main`.
 
 ## 3. Worktrees
 
-**Work inside a worktree, entered through the launcher** (`moai cc -w <name>`,
-`moai cc -w <name> --spawn` for a new window, `EnterWorktree(<path>)` to re-enter); never create one
-with a bare `git worktree add`. Leave with `ExitWorktree`. Drive a worktree with `git -C <path>`,
-not `cd`.
+**Work inside an isolated worktree.** `moai worktree new <name>` creates a MoAI tree under
+`.moai/worktrees/`. Claude Code uses `moai cc -w <name>` for its native `.claude/worktrees/`
+location or `moai cc -w <absolute-path>` for a MoAI tree; `EnterWorktree(<path>)` and
+`ExitWorktree` are Claude Code session tools. Codex app users select Worktree when starting a
+chat. Codex CLI uses `codex -C <absolute-worktree-path>` for a new session; an active Codex
+session operates through `git -C <absolute-worktree-path>` and direct file operations.
+`moai codex -w` only launches a new Codex session in an existing tree. A Codex agent must not
+invoke `moai cc -w`, `EnterWorktree`, or `ExitWorktree`. Never create a tree with bare
+`git worktree add`.
 
-**`moai worktree done` closes L2 trees only.** A tree under `.claude/worktrees/` is L1, is absent
+**From inside a worktree session, `<path>` must be that worktree's absolute path.** Measured on
+Claude Code 2.1.275: the guard refuses `-C .`, a relative path, a runtime-computed path, and any
+path outside this worktree; plain git, `git -C <own absolute path>` and `--git-dir=<own .git>` pass.
+`cd <own worktree> && git …` also passes the guard, which does NOT make it advisable — the reason
+above still holds. A refusal here is the guard reading the command, not a runtime defect.
+
+**`moai worktree done` closes L2 trees only.** A tree under `.claude/worktrees/` or `.moai/worktrees/` is L1, is absent
 from the registry, and is disposed by the session-end prompt or by `git worktree unlock` +
 `git worktree remove`.
 
 **A card's branch is unpushed, so its worktree holds the only copy of the work.** Dispose of no
 worktree — L1 or L2 — until the branch is integrated and the remote merge has landed.
 
-**Start a new card in a new worktree.** Exit any previous worktree back to the primary checkout
-first, or the new card's work lands on the old card's branch. Create the fresh tree from the remote
+**Start a new card in a new worktree.** A Claude Code session exits its previous worktree first;
+a Codex lane starts a new session in the new card tree. Create the fresh tree from the remote
 default branch; never reuse the previous card's tree. Where the new card depends on a prior card's
 unmerged code, merge that branch inside the new worktree.
 
@@ -151,7 +177,7 @@ shared-state mutation.
 
 **A CodeRabbit row in `gh pr checks` is not evidence that a review ran** — the status reads
 `success` and prints `pass` identically whether or not one did. Count the row only when BOTH hold:
-(1) `gh api "repos/$REPO/commits/$HEAD_SHA/status"` reports the `CodeRabbit` context with
+(1) `gh api "repos/$repo/commits/$head_sha/status"` reports the `CodeRabbit` context with
 `state == "success"` and description `Review completed`; (2) a `Merge Risk:` line exists whose
 commit prefix matches the current `headRefOid`. Anything else is a gap, not a pass; `Review rate
 limited` means the review never started.
@@ -255,10 +281,16 @@ session re-pays the always-loaded prefix. Split only when the benefit justifies 
 
 ## 8. Harness-local instructions
 
-`AGENTS.local.md` is Codex-only and uncommitted. `moai codex` reads it from the project root and
-passes its exact content as a session `developer_instructions` override; shared `AGENTS.md` and
-`CLAUDE.md` never import it. Other harness-local settings and memory remain owned by their harness
-and are not forwarded to Codex.
+`moai codex` reads the project's common local guidance — the gitignored, never-deployed file that
+`CLAUDE.md` imports last — followed by any legacy local guidance, from the project root. It keeps
+each input body under its own source header and passes the result as one Codex-specific session
+`developer_instructions` override. This contract never imports local guidance, which keeps it out of
+Codex's discovered chain. In a linked worktree, Claude Code resolves that import when the local
+file exists inside the worktree's checkout; it skips an absent file or one outside the project.
+Direct `codex -C <worktree>` uses Codex's `AGENTS.md` discovery and does not preload a sibling
+local file. Direct sessions follow the startup rule above. The MoAI Codex launcher instead
+injects that content before the session starts.
+Other harness-local settings and memory remain owned by their harness.
 
 Codex Web sessions read `AGENTS.md`, but local `.codex/hooks.json`, the status line, and the MoAI
 launcher injection do not run there. Treat Web sessions as read-and-review first.
@@ -289,6 +321,7 @@ duplicate those values inline.
 | `moai cc` / `moai glm` / `moai gpt` | Explicit Claude, GLM, or GPT session launchers |
 | `moai migrate cg` | Preview legacy CG migration; role changes require explicit acceptance |
 | `moai version` | Print build version and provenance |
+| `moai codex` | Codex session launcher — `cli` launch, `status` readout, `app` web; `-w <worktree>` enters an existing tree and never creates one |
 
 Run `moai --help` for the generated, current command surface.
 
