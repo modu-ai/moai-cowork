@@ -20,7 +20,7 @@ def generated():
         for number, case in enumerate(cases, 1):
             sid = str(case.get("id", case.get("name", number)))
             name = skill + "--" + re.sub(r"[^a-zA-Z0-9_-]", "-", sid)
-            row = {"name": name, "source": str(source.relative_to(ROOT)), "case_id": sid,
+            row = {"name": name, "source": source.relative_to(ROOT).as_posix(), "case_id": sid,
                    "execution_status": "NOT-RUN"}
             value = case.get("prompt", case.get("input"))
             if value is None:
@@ -52,7 +52,7 @@ def generated():
                 data["context"] = {"scaffold_script": script.name}
                 data["execution"]["allowed_tools"] = context.get("allowed_tools", data["execution"]["allowed_tools"])
                 outputs[case_dir / "case.yaml"] = yaml.safe_dump(data, allow_unicode=True, sort_keys=False)
-            row["eval"] = str((ROOT / "plugins" / plugin / "evals/generated" / name / "case.yaml").relative_to(ROOT))
+            row["eval"] = (ROOT / "plugins" / plugin / "evals/generated" / name / "case.yaml").relative_to(ROOT).as_posix()
             index.append(row)
     outputs[ROOT / "scripts/skill-evals-index.json"] = json.dumps(index, ensure_ascii=False, indent=2) + "\n"
     return outputs, index
