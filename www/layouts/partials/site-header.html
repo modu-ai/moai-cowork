@@ -70,7 +70,9 @@
     modal.hidden = false;
     document.body.style.overflow = 'hidden';
     setTimeout(() => input.focus(), 50);
-    loadIndex();
+    loadIndex().then(() => {
+      if (!modal.hidden) search(input.value.trim());
+    });
   };
   const close = () => {
     modal.hidden = true;
