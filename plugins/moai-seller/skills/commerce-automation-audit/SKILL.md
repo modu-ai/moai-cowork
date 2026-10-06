@@ -2,7 +2,8 @@
 name: commerce-automation-audit
 description: |
   셀러의 반복 업무, 예외, 데이터 품질, 연동 권한을 조사하고 자동화 후보의 우선순위와 사람의 승인 지점을 설계합니다. 실제 업무량·비용·오류 기록이 없으면 효과 수치를 만들지 않습니다. "자동화 진단", "매장 자동화 우선순위", "주문·정산 자동화 로드맵" 요청에 사용합니다. 보고서 작성 후 연결된 ai-slop-reviewer와 korean-humanize가 있으면 순서대로 검수합니다.
-version: "1.1.1"
+metadata:
+  version: "1.1.2"
 ---
 
 # 커머스 자동화 진단

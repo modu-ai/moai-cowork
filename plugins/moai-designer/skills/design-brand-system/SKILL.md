@@ -4,8 +4,9 @@ description: |
   제공된 브랜드 자료와 화면 목적을 바탕으로 웹 시각 디자인 토큰과 컴포넌트 사양을 만듭니다.
   색상·서체·간격·레이아웃·접근성 검토가 필요할 때 사용하세요.
   Claude Cowork와 ChatGPT Work에서는 사용자 자료를 바로 입력으로 받고, MoAI 프로젝트에서는 기존 브랜드 파일을 함께 확인합니다.
-user-invocable: false
-version: "1.1.2"
+metadata:
+  invocation-scope: "workflow"
+  version: "1.1.3"
 ---
 
 # 브랜드 디자인 시스템

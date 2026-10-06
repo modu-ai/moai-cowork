@@ -2,7 +2,8 @@
 name: personal-self-care
 description: >
   지치거나 쉬기 어렵다고 느끼는 사람이 일상 부담을 살피고 작은 자기돌봄 계획을 세우도록 돕습니다. "번아웃인 것 같아", "쉬어도 쉰 것 같지 않아" 같은 요청에 사용하세요.
-version: "1.1.1"
+metadata:
+  version: "1.1.2"
 ---
 
 # 자기돌봄

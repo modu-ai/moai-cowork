@@ -27,6 +27,7 @@ python3 scripts/sync-mcp-core.py --check   # 드리프트 검사 (불일치면 �
 
 | 모듈 | 책임 |
 |---|---|
+| `credentials.py` | 명시적 경로·서비스별 `<SERVICE>_CREDENTIALS_FILE`·기존 전역 파일을 해석. 키 환경변수가 파일보다 우선 |
 | `tokenstore.py` | `~/.moai/mcp/<서비스>-tokens.json` 영속화. 동시 저장마다 고유한 임시 파일 사용, 갱신 중 운영체제 파일 잠금, 쓰기 불가 시 인메모리 폴백 |
 | `auth.py` | OAuth2 갱신, 저장된 최신 리프레시 토큰 재확인, 회전 대응, 만료 선반영 |
 | `http.py` | 타임아웃·재시도·백오프·429 대응·401 시 1회 강제 재인증 |

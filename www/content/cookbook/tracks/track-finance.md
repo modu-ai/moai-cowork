@@ -1,244 +1,111 @@
 ---
 title: "재무 트랙"
-weight: 60
-description: "재무제표·세무·결산·예산 분석 자동화. moai-accountant + moai-officer를 한 줄 요청으로 자동 처리."
+description: "재무 자료·가정·기간을 준비해 재무 검토표를 만드는 실습"
+weight: 10
+date: 2026-10-05T00:00:00+09:00
+lastmod: 2026-10-06
 geekdocBreadcrumb: true
-date: 2026-08-07T00:00:00+09:00
-lastmod: 2026-08-13T00:00:00+09:00
 ---
 
-> **대상**: 사내 재무팀, 회계사, 재무 분석가, CFO, 스타트업 대표
-> **전제**: moai-coworker · moai-accountant · moai-officer 활성화
-> **소요**: 시나리오당 약 5-15분 (반복은 스케줄로 자동화)
+**이 실습의 결과는 재무 검토표입니다.** ChatGPT Work와 Claude Cowork 모두 목표와 자료를 제공하는 방식으로 시작합니다. 실제 서비스 연결과 지원 도구는 현재 앱에서 확인하세요.
 
-## 무엇을 할 수 있나
 
-```mermaid
-flowchart TD
-   subgraph 결산["1. 결산·재무제표"]
-       A1["finance-close-management<br/>월·분기·연 결산"]
-       A2["finance-financial-statements<br/>K-IFRS 재무제표"]
-   end
-   subgraph 세무["2. 세무"]
-       B1["finance-tax-helper<br/>법인세·부가세·소득세"]
-   end
-   subgraph 분석["3. 분석"]
-       C1["finance-variance-analysis<br/>예산 대비 실적"]
-       C2["finance-financial-statements<br/>재무비율 분석 (수익성·안정성)"]
-   end
-   subgraph 산출["4. 산출"]
-       D1["doc-xlsx<br/>엑셀 리포트"]
-       D2["doc-docx<br/>워드 보고서"]
-       D3["ai-slop-reviewer"]
-   end
-   결산 --> 세무 --> 분석 --> 산출
-   style 산출 fill:#e8f1ec,stroke:#265240
+<!--more-->
+
+
+## 준비물
+
+재무 자료·가정·기간을 준비합니다. 실습에서는 가상 자료나 공개 가능한 자료를 사용할 수 있습니다. [관련 역할](/moai-agents/accountant/)의 스킬을 추가하려면 [설치 안내](/plugins/install/)를 확인합니다.
+
+## 첫 요청
+
+```text
+제공한 자료로 재무 검토표을 만들어 줘.
+목표·독자·결과 형식을 먼저 확인하고 부족한 정보는 질문해 줘.
+자료 확인, 요구 정리, 초안, 검토 순서로 진행해 줘.
+자료 없는 사실과 수치는 만들지 말고 미정 항목을 표시해 줘.
+외부 게시·발송·계정 변경 없이 검토용 결과부터 보여 줘.
 ```
 
-## 시작 전 (최초 1회)
+## 진행 순서
 
-재무 자동화는 첫 사용 시 `/project`으로 프로젝트 메모리를 한 번 세팅해 두면 이후 모든 시나리오에서 회사 정보·산업·회계 기간·데이터 소스를 자동 참조합니다. 매 시나리오마다 같은 인터뷰를 반복하지 않습니다.
+1. **자료 확인:** 재무 자료·가정·기간 중 읽을 수 있는 것과 없는 것을 구분합니다.
+2. **맥락 확인:** 독자·형식·범위를 질문에 답해 정합니다.
+3. **초안 작성:** 자료 확인, 요구 정리, 초안, 검토 순서로 진행합니다.
+4. **검토:** 가정·기간·단위·계산을 확인합니다.
+5. **수정·저장:** 변경할 부분을 지정하고 결과를 별도 위치에 저장합니다.
 
-{{< terminal title="claude — cowork" raw="true" >}}
-/project "재무 자동화 프로젝트 시작"
-{{< /terminal >}}
+독립적인 조사만 병렬로 진행하고, 앞 결과가 필요한 작성·변환은 순차로 진행합니다. [전문가 분업](/workflows/experts/)의 역할·입출력 계약을 사용할 수 있습니다.
 
-시스템이 한 번 묻고 `.moai/project/profile.md`에 저장합니다.
+## 가상 예제로 더 이해하기
 
-- 회사 정보 (사명·법인격·사업자번호)
-- 산업·업종 (제조·서비스·도소매·플랫폼·기타)
-- 회계 기준 (K-IFRS·K-GAAP·USGAAP)
-- 회계 기간 (1-12월·4-3월·기타)
-- 데이터 소스 (더존·SAP·자체 SaaS·CSV·수기)
+아래 자료와 모범 설명은 수업을 위해 작성했습니다. 실제 회사·고객의 실적이나 앱 실행 결과가 아닙니다. 먼저 제공 자료로 작은 결과를 만든 뒤 자신의 자료로 바꿔 보세요.
 
-이후 시나리오 ①~④의 인터뷰 질문은 **첫 회만 묻고, 이후 자동 참조**됩니다.
+```text
+가상 계획: 판매량 100개, 개당 판매가 20,000원, 개당 변동비 8,000원, 고정비 500,000원. 모두 전망 가정이며 실제 실적이 아님.
+```
 
----
+### 먼저 확인할 질문
 
-## 한 줄 요청 예시 4종
+실적과 전망 중 어떤 자료인가요? 세금·수수료·기타 비용은 포함됐나요? 답을 모르면 해당 항목을 미정으로 남기고, 그 정보 없이 가능한 범위를 정합니다.
 
-| # | 한 줄 요청 | 자동 체인 |
+### 모범 결과를 읽는 방법
+
+매출 2,000,000원, 변동비 800,000원, 고정비 500,000원입니다. 이 가정만의 차액은 700,000원이며 미제공 비용을 제외한 계산임을 표시합니다. 문장과 서식은 달라도 이 기준을 충족하는지 직접 비교합니다. 원문 위치·출처·상태가 결과에 함께 남으면 다음 검토자에게 넘기기 쉽습니다.
+
+### 직접 비교할 모범 결과
+
+| 항목 | 결과 예시 | 근거·상태 |
 |---|---|---|
-| 1 | "Q1 변동분석 + K-IFRS 보고서 만들어줘" | finance-close-management → finance-financial-statements → finance-variance-analysis → doc-xlsx → doc-docx → ai-slop-reviewer |
-| 2 | "법인세 신고서 작성해줘" | finance-tax-helper(법인세 모드) → doc-xlsx → ai-slop-reviewer |
-| 3 | "월간 결산 자동화해줘" | finance-close-management → finance-financial-statements → doc-xlsx (매월 자동) |
-| 4 | "투자자용 재무 분석 보고서 만들어줘" | finance-financial-statements(재무비율 분석) → finance-variance-analysis → doc-docx → ai-slop-reviewer |
+| 매출 가정 | 2,000,000원 | 100개 × 20,000원 |
+| 변동비 가정 | 800,000원 | 100개 × 8,000원 |
+| 고정비 가정 | 500,000원 | 제공 가정 |
+| 이 가정의 차액 | 700,000원 | 매출 − 변동비 − 고정비 |
+| 미반영 범위 | 세금·수수료 등 미제공 비용 | 최종 순이익·실적 아님 |
 
----
+### 흔한 실수와 수정 요청
 
-## 시나리오 ① 분기 결산 + K-IFRS 재무제표 (약 12분)
+계획 숫자를 확정 실적으로 쓰거나 제공하지 않은 세금과 수수료까지 포함한 이익으로 설명합니다. 이때는 결과 전체를 다시 만들어 달라는 말보다, 틀린 기준과 고칠 위치를 구체적으로 알려 주세요.
 
-### 사용자 입력
-
-{{< terminal title="claude — cowork" raw="true" >}}
-Q1 결산 + K-IFRS 재무제표 + 변동분석 만들어줘
-{{< /terminal >}}
-
-### 시스템 인터뷰 (AskUserQuestion)
-
-(첫 회만 묻고, 이후 자동 참조 — `/project` 완료 시 생략)
-
-1. **회사 단계**: 스타트업 / 중소 / 중견 / 대기업
-2. **산업**: 제조 / 서비스 / 도소매 / 플랫폼
-3. **회계 기간**: Q1 (1-3월) / Q2 / Q3 / Q4 / 연간
-4. **데이터 소스**: 전표 엑셀 / 회계 SaaS 연동 / 수기 입력
-
-### 자동 체인
-
-`finance-close-management`(자동 조정 항목 처리) → `finance-financial-statements`(손익·대차·현금흐름 3종) → `finance-variance-analysis`(전기·예산 대비) → `doc-xlsx`(차트 + 피벗) → `doc-docx`(경영진 요약) → `ai-slop-reviewer`
-
-### 산출물
-
-- `90_Output/finance/2026-Q1-statements.xlsx` — K-IFRS 표준 양식 3 시트
-- `90_Output/finance/2026-Q1-variance.xlsx` — 부문별·항목별 편차 표
-- `90_Output/finance/2026-Q1-summary.docx` — 경영진 1페이지 요약 (KPI 3개 + 주요 변동 5건)
-
----
-
-## 시나리오 ② 법인세 신고서 자동 작성 (약 10분)
-
-### 사용자 입력
-
-{{< terminal title="claude — cowork" raw="true" >}}
-2025 사업연도 법인세 신고서 작성해줘
-{{< /terminal >}}
-
-### 시스템 인터뷰
-
-1. **법인 정보**: 사명·사업자번호·업종
-2. **과세표준**: 자동 계산 / 수동 입력
-3. **세액공제 대상**: R&D / 고용증대 / 안전설비 / 없음
-4. **출력**: 신고서 양식 / 요약 보고서 / 둘 다
-
-### 자동 체인
-
-`finance-tax-helper`(법인세 모드, 세율 자동 적용) → 세액공제 매핑 → `doc-xlsx`(신고서 표준 양식) → `doc-docx`(임원 보고용 요약) → `ai-slop-reviewer`
-
-### 산출물
-
-- 법인세 신고서 (홈택스 호환 표준 양식)
-- 납부 예상 세액 + 절세 가능성 5건
-- 다음 분기 중간예납 추정
-
-> **주의**: AI 산출물은 1차 초안용. 실제 신고는 세무사 검토 필수.
-
----
-
-## 시나리오 ③ 월간 결산 스케줄 자동화 (패턴 4, 약 5분 설정)
-
-### 사용자 입력
-
-{{< terminal title="claude — cowork" raw="true" >}}
-매월 5일 오전 9시에 전월 결산 자동 처리하고 결과 슬랙으로 보내줘
-{{< /terminal >}}
-
-### 시스템 인터뷰
-
-1. **데이터 소스**: 회계 SaaS(더존·SAP·자체) / CSV 업로드
-2. **수신자**: CFO / 임원 / 재무팀 전체
-3. **수신 채널**: 슬랙 채널·이메일·노션
-4. **자동 발송 vs 검토 후 발송**
-
-### 자동 체인 (매월 자동 반복)
-
-```mermaid
-flowchart TD
-   Cron["매월 5일 09:00"] --> Fetch["MCP fetch<br/>회계 SaaS / CSV"]
-   Fetch --> Close["finance-close-management<br/>자동 조정"]
-   Close --> Stmt["finance-financial-statements"]
-   Stmt --> Xlsx["doc-xlsx"]
-   Xlsx --> Slop["ai-slop-reviewer"]
-   Slop --> Send["Slack #finance 발송"]
-   style Cron fill:#fbf0dc,stroke:#c47b2a
+```text
+모든 입력은 가정이라고 표시해 줘. 차액은 미제공 비용 제외 계산으로 설명하고 추가 비용 확인 목록을 만들어 줘.
+수정한 부분과 아직 확인할 항목을 따로 알려 줘.
 ```
 
-### 산출물
+### 확인 문제
 
-- 매월 5일 09:00 자동 발송: 전월 손익·대차·현금흐름 3종 .xlsx
-- Slack 알림 (썸네일 + 핵심 KPI 3개 — 매출·영업이익·현금잔고)
+700,000원을 확정 순이익으로 보고해도 될까요?
 
----
+<details><summary>답안과 해설 보기</summary>
 
-## 시나리오 ④ 투자자용 재무 분석 보고서 (약 10분)
+아닙니다. 가정에 따른 단순 차액이며 실제 실적과 누락 비용을 확인해야 합니다.
 
-### 사용자 입력
+</details>
 
-{{< terminal title="claude — cowork" raw="true" >}}
-시리즈A IR용 재무 분석 보고서 만들어줘. 직전 3개년
-{{< /terminal >}}
+### 내 업무로 바꿔 보기
 
-### 시스템 인터뷰
+예제의 자료를 자신의 공개 가능한 자료로 바꾸고, 결과의 독자와 형식을 다시 정합니다. 변하지 않는 검토 기준은 프로젝트 지침에 저장하고, 이번 작업의 수치와 미정 조건은 새 자료로 제공합니다. [프로젝트와 자료 수업](/learn/02-project-context/)에서 구분 방법을 확인합니다.
 
-1. **분석 기간**: 3년 / 5년 / TTM(직전 12개월)
-2. **비교 대상**: 동종 산업 평균 / 글로벌 벤치마크 / 없음
-3. **하이라이트**: 성장성·수익성·안정성 우선순위
-4. **출력 형식**: DOCX(서술형) / PPT(투자자용) / 둘 다
+## 사용할 수 있는 스킬 후보
 
-### 자동 체인
+아래는 이 업무에 참고할 수 있는 패키지 기능입니다. 실제 설치·노출 상태를 먼저 확인하며 이 순서로 반드시 자동 실행된다는 뜻은 아닙니다.
 
-`finance-financial-statements`(3개년 통합 + 비율 분석: ROA·ROE·부채비율·유동비율 등) → `finance-variance-analysis`(YoY 변동률) → `doc-docx` 또는 `doc-pptx` → `ai-slop-reviewer`
+- `moai-coworker:ai-slop-reviewer`
+- `moai-officer:doc-docx`
+- `moai-officer:doc-pptx`
+- `moai-officer:doc-xlsx`
+- `moai-accountant:finance-close-management`
 
-### 산출물
+## 완료 기준
 
-- 재무 비율 시계열 표 + 동종 산업 평균 대비
-- 성장성·수익성·안정성 3축 레이더 차트
-- 향후 12개월 예측 (회귀·시계열)
+결과물에 사용 자료와 미확인 항목이 표시되어 있습니다. 가정·기간·단위·계산을 직접 확인했습니다. 파일을 요청한 경우 저장된 파일을 열어 확인합니다. 실제 게시·발송·예약 작업은 별도의 실행 결과로 확인합니다.
 
----
+## 막혔을 때
 
-## AskUserQuestion 표준 슬롯 (재무 트랙 공통)
+자료나 연결이 없으면 제공 자료로 가능한 초안과 다음 준비 목록을 요청합니다. 원문·수치가 다르면 해당 위치와 근거를 지정해 고칩니다. 전문 판단이 필요한 부분은 근거와 쟁점을 정리하고 해당 업무 책임자가 확인합니다.
 
-| 슬롯 | 예시 값 |
-|---|---|
-| 회사 단계 | 스타트업·중소·중견·대기업 |
-| 산업 | 제조·서비스·도소매·플랫폼 |
-| 회계 기준 | K-IFRS · K-GAAP · USGAAP |
-| 데이터 소스 | 더존·SAP·자체 SaaS·CSV·수기 |
-| 수신자 | CFO·임원·재무팀·이사회·투자자 |
-| 자동화 주기 | 매일·매주·매월·분기·연간 |
+[결과 검토](/workflows/review/) · [반복 업무](/workflows/reuse/) · [다른 실습 선택](/cookbook/)
 
----
+## 공식 문서와 참고 자료
 
-## 자주 묻는 질문
-
-### Q. 회계 SaaS 연동 없이도 가능한가요?
-
-예. **CSV 업로드 fallback** 자동 동작. 전표·잔고·매출 CSV만 있으면 모든 분석 가능. MCP 연동 시 자동 fetch.
-
-### Q. 세무 신고서를 그대로 제출해도 되나요?
-
-**아니오.** 모든 세무 산출물은 **세무사 최종 검토 필수**. AI는 1차 초안·시뮬레이션·절세 가능성 탐색용. 실제 제출은 전문가 책임 하에.
-
-### Q. K-IFRS와 K-GAAP 자동 변환되나요?
-
-`finance-financial-statements`는 K-IFRS 기본. AskUserQuestion에서 K-GAAP·USGAAP 선택 시 항목 매핑 자동 변환.
-
-### Q. 환율·외화 환산은?
-
-`finance-financial-statements`는 한국은행 기준환율 자동 fetch (선택). 외화 거래 다수면 환산 시점·환산 방법(평균환율·기말환율) 인터뷰 추가.
-
----
-
-## 주의사항
-
-{{< hint type="warning" >}}
-재무·세무 문서는 회사 의사결정과 법적 의무에 직접 영향을 미칩니다. AI 생성 결과는 1차 초안용이며, **공식 회계사·세무사 검토 후에만 사용**하세요. 신고·공시·감사용 산출물은 반드시 전문가 책임 하에 발행해야 합니다.
-{{< /hint >}}
-
----
-
-## 다음 단계
-
-- [**표준 패턴**](../) — 특히 패턴 4 (스케줄 자동화)
-- **[운영 트랙](../track-operations/)** — 주간보고·예산 운영
-- **[문서 트랙](../track-documents/)** — IR Deck·사업계획서
-- **[moai-accountant 플러그인](/moai-agents/accountant/)** · **[moai-officer](/moai-agents/officer/)**
-
----
-
-### Sources
-
-- [moai-accountant 디렉터리](https://github.com/modu-ai/moai-cowork/tree/main/plugins/moai-accountant)
-- [국세청 홈택스](https://hometax.nts.go.kr/)
-- [한국공인회계사회](https://www.kicpa.or.kr/)
-- [한국채택국제회계기준 K-IFRS](https://www.kasb.or.kr/)
+- [관련 플러그인 원본](https://github.com/modu-ai/moai-cowork/tree/main/plugins/moai-accountant)

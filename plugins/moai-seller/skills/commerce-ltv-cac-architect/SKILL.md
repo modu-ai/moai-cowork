@@ -3,7 +3,8 @@ name: commerce-ltv-cac-architect
 description: |
   고객 코호트별 획득비용·공헌이익·재구매를 계산해 LTV/CAC와 회수 시점을 검토합니다.
   요청 예: "LTV 계산", "신규 고객 CAC", "광고비 회수 기간", "채널별 재구매율".
-version: "1.1.1"
+metadata:
+  version: "1.1.2"
 ---
 
 # 고객 단위 수익 구조

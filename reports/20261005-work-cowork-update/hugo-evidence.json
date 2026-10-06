@@ -1,0 +1,13 @@
+{
+  "command": [
+    "hugo",
+    "--source",
+    "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www",
+    "--destination",
+    "/var/folders/kt/nq2q81cn4gx3y41r7x47ggmr0000gn/T/moai-cowork-hugo-final-opr_651y",
+    "--quiet"
+  ],
+  "exit_code": 0,
+  "output": "",
+  "html_files": 264
+}

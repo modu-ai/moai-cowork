@@ -11,7 +11,8 @@ description: |
   - "/media-gpt-image-prompt" (직접 호출)
 
   이미지 자동 생성은 페어 스킬 media-higgsfield-image(Higgsfield) 또는 media-codex-image(ChatGPT 기본 이미지 도구)를 사용하세요. 본 스킬은 프롬프트 텍스트 산출 전용입니다.
-version: "2.0.7"
+metadata:
+  version: "2.0.8"
 ---
 
 # GPT Image 2.5 Prompt Builder — 공식 가이드 8원칙 + 3-모델 동시 출력

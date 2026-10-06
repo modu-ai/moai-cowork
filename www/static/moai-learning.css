@@ -1,0 +1,30 @@
+/* 강의 문서: 본문 설명, 확대 가능한 그림, 실습 답안과 수업 이동. */
+.learning-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin:1.5rem 0 2rem; }
+.learning-card { display:block; padding:1.5rem; border:1px solid #d8d8d8; border-radius:16px; background:#fff; color:#262626; text-decoration:none!important; }
+.learning-card:hover { border-color:#6d6d6d; background:#f7f7f7; }
+.learning-card h3 { margin:.6rem 0; font-size:1.15rem; }
+.learning-card p { line-height:1.7; margin:.6rem 0 1rem; }
+.learning-number { color:#585858; font-weight:800; font-size:1.25rem; }
+.lesson-map { display:flex; flex-wrap:wrap; gap:.5rem; padding:1rem; background:#f6f6f6; border:1px solid #dddddd; border-radius:12px; margin:1.5rem 0; }
+.lesson-map a { padding:.4rem .6rem; border-radius:6px; text-decoration:none; }
+.lesson-map a[aria-current="page"] { background:#545454; color:white; }
+.lesson-map__title { flex-basis:100%; font-weight:700; }
+.gdoc-markdown { line-height:1.85; overflow-wrap:anywhere; }
+.gdoc-markdown .lesson-figure { margin:1.8rem 0; }
+.lesson-figure a { display:block; }
+.lesson-figure img { display:block; width:100%; height:auto; border:1px solid #e1e1e1; border-radius:12px; }
+.lesson-figure figcaption { font-size:.9rem; color:#5b5b5b; line-height:1.6; margin-top:.5rem; }
+.gdoc-markdown details { margin:1rem 0 2rem; padding:1rem 1.25rem; border:1px solid #d8d8d8; border-radius:10px; background:#f9f9f9; }
+.gdoc-markdown summary { cursor:pointer; font-weight:700; color:#4c4c4c; }
+.gdoc-markdown details[open] summary { margin-bottom:1rem; }
+.gdoc-markdown h2 { scroll-margin-top:90px; }
+.gdoc-markdown .table-wrap table { min-width:540px; }
+.code-card .gdoc-post__codecopy { display:none; }
+.gdoc-markdown pre { max-width:100%; overflow-x:auto; }
+.lesson-footer { margin-top:2.5rem; padding:1.2rem; border-top:1px solid #dcdcdc; background:#fafafa; }
+.lesson-footer p { margin:.3rem 0; }
+.learning-card:focus-visible,.lesson-map a:focus-visible,summary:focus-visible,.lesson-figure a:focus-visible { outline:3px solid #4a4a4a; outline-offset:4px; }
+@media(max-width:850px) { .learning-grid { grid-template-columns:1fr; } .learning-card { padding:1.2rem; } .lesson-map a { font-size:.85rem; } }
+@media(max-width:1080px) { .gnav-search { display:inline-flex; padding:10px; } .gnav-search span,.gnav-search kbd { display:none; } }
+@media(max-width:850px) { .gnav-menu,.gnav-gh { display:none; } }
+@media print { .lesson-map,.lesson-footer { display:none; } .gdoc-markdown details { break-inside:avoid; } .lesson-figure { break-inside:avoid; } }

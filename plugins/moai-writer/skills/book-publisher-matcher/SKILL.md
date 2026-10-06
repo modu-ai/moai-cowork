@@ -3,7 +3,8 @@ name: book-publisher-matcher
 description: >
   도서 제안서와 장르를 바탕으로 현재 투고를 받는 출판사·공모 경로를 조사해 비교합니다.
   제출 방법, 최근 출간 분야, 권리 조건의 확인 여부를 출처와 함께 정리합니다.
-version: "1.1.1"
+metadata:
+  version: "1.1.2"
 ---
 
 # 출판사 투고처 조사

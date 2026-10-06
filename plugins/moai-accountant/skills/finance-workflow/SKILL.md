@@ -2,7 +2,8 @@
 name: finance-workflow
 description: |
   재무제표·결산·예산 차이·IR·세무 안내가 섞인 요청에서 필요한 자료와 과세 연도를 확인하고 moai-accountant의 finance-* 스킬로 연결합니다. 단일 문서는 해당 전용 스킬을 바로 사용합니다.
-version: "1.0.1"
+metadata:
+  version: "1.0.2"
 ---
 
 # 재무 작업 경로 선택

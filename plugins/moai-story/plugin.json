@@ -1,0 +1,45 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "moai-story",
+  "version": "1.2.5",
+  "description": "스토리/IP 창작 전담 AI 코워커 — 웹툰 제작 체인(기획→캐릭터→회차→식자→작화→QC)·웹소설 연재(기획→집필)·영상 시나리오·콘티·표지·IP 사업화 스킬. 플랫폼 제출 규격은 최신 공고를 확인하고, 이미지는 현재 앱의 도구로, Higgsfield 요청은 별도 공식 연결로 생성합니다. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 웹툰/웹소설 창작자·시나리오 작가·IP 콘텐츠 기획자.",
+  "author": {
+    "name": "모두의 AI",
+    "email": "email@mo.ai.kr",
+    "url": "https://cowork.mo.ai.kr"
+  },
+  "homepage": "https://cowork.mo.ai.kr/plugins/",
+  "repository": "https://github.com/modu-ai/moai-cowork",
+  "license": "Apache-2.0",
+  "keywords": [
+    "moai",
+    "story",
+    "webtoon",
+    "webnovel",
+    "ip",
+    "scenario",
+    "스토리",
+    "웹툰"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "📖 스토리 크리에이터",
+        "shortDescription": "📖 스토리 크리에이터 — 웹툰·웹소설·시나리오 IP 창작 체인",
+        "longDescription": "스토리/IP 창작 전담 AI 코워커 — 웹툰 제작 체인(기획→캐릭터→회차→식자→작화→QC)·웹소설 연재(기획→집필)·영상 시나리오·콘티·표지·IP 사업화 스킬. 플랫폼 제출 규격은 현재 공고를 확인합니다. 이미지는 앱 도구로 생성하고, Higgsfield 요청은 별도 공식 플러그인 연결을 확인합니다. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 웹툰/웹소설 창작자·시나리오 작가·IP 콘텐츠 기획자.",
+        "developerName": "모두의 AI",
+        "category": "Creative",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://cowork.mo.ai.kr",
+        "defaultPrompt": [
+          "웹툰 신작 기획해줘",
+          "웹소설 1화 초안 작성해줘"
+        ],
+        "brandColor": "#3d7d5f"
+      }
+    }
+  }
+}

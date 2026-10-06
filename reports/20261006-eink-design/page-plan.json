@@ -1,0 +1,2537 @@
+[
+  {
+    "path": "www/content/_index.md",
+    "title": "모두의 코워크",
+    "bytes_read": 3332,
+    "sha256": "fa53285ebced6c55eedf781c77edd14e221ed0c3f7eb26183b2a13ad99618b84",
+    "assets": [
+      "/infographics/first-workflow-ko.png"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "Mermaid 순환"
+    ]
+  },
+  {
+    "path": "www/content/advanced/_index.md",
+    "title": "고급 설정과 유지보수",
+    "bytes_read": 1135,
+    "sha256": "b8c0f2867fe48d12a8a9805f73354fbe227f73b033d88b1ada515b167f72a3c2",
+    "assets": [
+      "/infographics/pages/verification.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/advanced/documentation.md",
+    "title": "문서 작성과 화면 촬영",
+    "bytes_read": 2044,
+    "sha256": "bc3aff3832491c7b48decddd6e6a4cfbb43a962a37f0c9063a769c4ce050e1fc",
+    "assets": [
+      "/infographics/pages/authoring.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/advanced/plugins.md",
+    "title": "패키지와 설치 경로",
+    "bytes_read": 2273,
+    "sha256": "df0caa0809bc8553f589940e1383e0f82cc18a6cb697c92912e3257536ced1bb",
+    "assets": [
+      "/infographics/pages/install-states.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/advanced/verification.md",
+    "title": "기능 검증과 평가",
+    "bytes_read": 2008,
+    "sha256": "e78a0691c065c4fded2cdb143c0c292043b8e08d29ec1559c75368943b20a3b1",
+    "assets": [
+      "/infographics/pages/verification.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/_index.md",
+    "title": "업무별 실습",
+    "bytes_read": 2167,
+    "sha256": "ebecc7ea8f63010eb01f501fda58b4e09f258fc60d63672c3034fdf32efbfbbb",
+    "assets": [
+      "/infographics/pages/choose-recipe.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/automation-recipes.md",
+    "title": "반복 업무와 예약 실습",
+    "bytes_read": 2450,
+    "sha256": "2302febd47728e80bc97dfa8de65d72de1d980c1257e9d17007dff5df41a3f83",
+    "assets": [
+      "/infographics/pages/reuse.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "Mermaid 순환"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/best-practices.md",
+    "title": "업무를 잘 맡기는 방법",
+    "bytes_read": 1900,
+    "sha256": "bb2f2770c874e9a44fadf9b8e1b60baa01bd05e5d7dc8d0acbe040c0602c01d4",
+    "assets": [
+      "/infographics/pages/learning-path.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/blog-pipeline.md",
+    "title": "블로그 파이프라인",
+    "bytes_read": 6107,
+    "sha256": "965de91065ba560ec504370bc1860275ca68bc892f37238a47ea762ba479218d",
+    "assets": [
+      "/infographics/pages/example-cookbook-blog-pipeline.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/business-plan.md",
+    "title": "사업계획서 자동화",
+    "bytes_read": 6023,
+    "sha256": "3db96d0191f0a8b32806e3bdc976a9b22cbd5941cfcd150e73bf8a26b3703a0f",
+    "assets": [
+      "/infographics/pages/example-cookbook-business-plan.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/contract-review.md",
+    "title": "계약서 검토 리포트",
+    "bytes_read": 6109,
+    "sha256": "220cc0820f4f3bac268604d6dc7c957bebb110e3d581f8771978b5b5ba5b1fc4",
+    "assets": [
+      "/infographics/pages/example-cookbook-contract-review.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/design/_index.md",
+    "title": "디자인 원칙",
+    "bytes_read": 1037,
+    "sha256": "ac7f4059464f778c11b17a88f224338b32275481da9d9af41cfa64afeab7a65d",
+    "assets": [
+      "/infographics/pages/choose-recipe.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/design/presentation.md",
+    "title": "프레젠테이션 디자인 원칙",
+    "bytes_read": 5868,
+    "sha256": "f7b27ea9bc1194a847b9fabaebfd8bfa07975f3ef7a0888657d7f0acaf40eeaf",
+    "assets": [
+      "/infographics/pages/example-cookbook-design-presentation.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/guides/_index.md",
+    "title": "주제별 가이드",
+    "bytes_read": 1410,
+    "sha256": "ee17a80ddb822dfb4cfbb9d6d2bc3e80e60966c9a363fb8f2ab6161ff73d40bd",
+    "assets": [
+      "/infographics/pages/choose-recipe.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/guides/content-marketing.md",
+    "title": "콘텐츠 마케팅 전략",
+    "bytes_read": 6051,
+    "sha256": "d40bcf4696bebf6c838a70583bbd0e840027e0a5d50da5ff177b8667e5b5140a",
+    "assets": [
+      "/infographics/pages/example-cookbook-guides-content-marketing.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/guides/contract-drafting.md",
+    "title": "계약서 작성 가이드",
+    "bytes_read": 6087,
+    "sha256": "42e80d7bb9587d1b2f41b69e282e6017b039af781ac25503081fba1fb618d371",
+    "assets": [
+      "/infographics/pages/example-cookbook-guides-contract-drafting.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/guides/data-analysis.md",
+    "title": "데이터 분석 가이드",
+    "bytes_read": 5889,
+    "sha256": "f635190733c8d9c4877b507163e06ae45224479744f0640bb86d9be16af232eb",
+    "assets": [
+      "/infographics/pages/example-cookbook-guides-data-analysis.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "SVG 차트 + HTML 표"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/guides/data-visualization.md",
+    "title": "시각화 최적화 원칙",
+    "bytes_read": 5737,
+    "sha256": "1d34acf3e82dd8763b4d3299144a28b3622141800404aeecaa934efaa1a05659",
+    "assets": [
+      "/infographics/pages/example-cookbook-guides-data-visualization.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "SVG 차트 + HTML 표"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/guides/funding.md",
+    "title": "투자 유치 가이드",
+    "bytes_read": 6017,
+    "sha256": "0470db401cb1b92d589ba9e2557986ecbc90e111ad57da60f82101d73eb14308",
+    "assets": [
+      "/infographics/pages/example-cookbook-guides-funding.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/guides/legal-risk.md",
+    "title": "법률 리스크 관리",
+    "bytes_read": 6000,
+    "sha256": "67f507ce857ee22d4e805036110822bff3ccf9a2c2f2611a53efaf31976298fa",
+    "assets": [
+      "/infographics/pages/example-cookbook-guides-legal-risk.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/guides/social-media.md",
+    "title": "SNS 최적화 가이드",
+    "bytes_read": 6059,
+    "sha256": "aec48bf4608bfe0b9ff46b982a6cc5fadf3a221ba978fc246bbb7661b64b269c",
+    "assets": [
+      "/infographics/pages/example-cookbook-guides-social-media.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/ir-deck.md",
+    "title": "IR 덱 제작",
+    "bytes_read": 5984,
+    "sha256": "fa76e841f5721e33562f9190c1b5e371a27f1c9307d988e4cbe069d358e5b29a",
+    "assets": [
+      "/infographics/pages/example-cookbook-ir-deck.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/legal-nda-batch.md",
+    "title": "NDA 일괄 검토 파이프라인",
+    "bytes_read": 6162,
+    "sha256": "1707ab6540889e129bf6f69c8329cfdf91d1cfb1d8e36c9749efdef1217a448e",
+    "assets": [
+      "/infographics/pages/example-cookbook-legal-nda-batch.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/projects/_index.md",
+    "title": "프로젝트 실습",
+    "bytes_read": 2054,
+    "sha256": "54b9718aed04edfc16f4fd0fc16254bfd7fae3747321699dbf308ae1e91936ea",
+    "assets": [
+      "/infographics/pages/pm-setup.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "Mermaid 흐름"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/projects/brand-to-landing.md",
+    "title": "브랜드에서 랜딩 페이지까지",
+    "bytes_read": 6170,
+    "sha256": "4b517d33960a7f2845a103f2b3ffe0d7290f93ebcda2b6f52dc49998bd2b5108",
+    "assets": [
+      "/infographics/pages/example-cookbook-projects-brand-to-landing.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/projects/career-transition-4weeks.md",
+    "title": "이직 준비 프로젝트",
+    "bytes_read": 6202,
+    "sha256": "2ad14268164fb4575a0743227c1fae54f6eac68733339b57720cacdccba3c903",
+    "assets": [
+      "/infographics/pages/example-cookbook-projects-career-transition-4weeks.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/projects/contract-risk-report.md",
+    "title": "계약서 검토와 리스크 보고",
+    "bytes_read": 6096,
+    "sha256": "cd48dc01432c6cc32ef17ca39feac87a5019c6d841620974f88b86d43db13a5a",
+    "assets": [
+      "/infographics/pages/example-cookbook-projects-contract-risk-report.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/projects/gov-grant-application.md",
+    "title": "정부 지원사업 신청서 완성하기",
+    "bytes_read": 6116,
+    "sha256": "9ef26861a1b3f57c88d9a56186790d16e8d4bac69bfce56782041a22d058d302",
+    "assets": [
+      "/infographics/pages/example-cookbook-projects-gov-grant-application.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/projects/hiring-pipeline.md",
+    "title": "채용 공고부터 오퍼레터까지",
+    "bytes_read": 6180,
+    "sha256": "90ef987e86830dfcc0fa497786bc50498bc860a53c25a93d6daf996dfe81fa3b",
+    "assets": [
+      "/infographics/pages/example-cookbook-projects-hiring-pipeline.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/projects/public-data-report.md",
+    "title": "공공데이터로 시장 보고서 만들기",
+    "bytes_read": 6044,
+    "sha256": "98d01e21c2c38c7cc4f12e6c3e1689d06c7d791c8d1956125f4c58f862f89e48",
+    "assets": [
+      "/infographics/pages/example-cookbook-projects-public-data-report.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "SVG 차트 + HTML 표"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/projects/smartstore-launch.md",
+    "title": "스마트스토어 신제품 런칭하기",
+    "bytes_read": 6197,
+    "sha256": "59a7e82a5e6689469364f2cff06ced2c171131aa59a6a21e601808d3aa10c3e7",
+    "assets": [
+      "/infographics/pages/example-cookbook-projects-smartstore-launch.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/projects/sns-content-month.md",
+    "title": "한 달치 SNS 콘텐츠 캘린더 만들기",
+    "bytes_read": 6164,
+    "sha256": "fde76e6d1fc6f030add2b30474dc79860514d8a8113468bd5d7bd5027cbc8571",
+    "assets": [
+      "/infographics/pages/example-cookbook-projects-sns-content-month.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/projects/startup-feasibility.md",
+    "title": "상권분석으로 창업 타당성 검증하기",
+    "bytes_read": 6147,
+    "sha256": "6f3cae318d4691ba1e118c830bb2d4a07dfc4ec911e39aa474a5194f3aa7b619",
+    "assets": [
+      "/infographics/pages/example-cookbook-projects-startup-feasibility.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/projects/voc-to-faq.md",
+    "title": "VOC 분석으로 FAQ 지식베이스 구축하기",
+    "bytes_read": 6120,
+    "sha256": "da47905d5b50fc0eaab71fcca6606ce347020bfbaf9680acd0898ce7759acb12",
+    "assets": [
+      "/infographics/pages/example-cookbook-projects-voc-to-faq.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/projects/webnovel-project.md",
+    "title": "웹소설 기획부터 연재·표지까지",
+    "bytes_read": 6153,
+    "sha256": "08d2c5b93cef28dbd4b7028e2236990cabf6a0c5accdf7648634d74b44a03d50",
+    "assets": [
+      "/infographics/pages/example-cookbook-projects-webnovel-project.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/projects/weekly-report-routine.md",
+    "title": "주간보고 자동화 루틴 만들기",
+    "bytes_read": 6027,
+    "sha256": "e356e0fd16ccfb9fba9df70c95bea1bd863ee7cc67f1db1079fe6823a2c345bb",
+    "assets": [
+      "/infographics/pages/example-cookbook-projects-weekly-report-routine.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/report-automation.md",
+    "title": "주간 보고서 자동화",
+    "bytes_read": 6010,
+    "sha256": "48daeae010e3faebef17dffe6acdc982085733a844bd22494e3a23170a05b7aa",
+    "assets": [
+      "/infographics/pages/example-cookbook-report-automation.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/skill-chaining.md",
+    "title": "업무 단계를 이어 쓰기",
+    "bytes_read": 1953,
+    "sha256": "cbccb5d0a21b9ff43671dd274c04bc6e26bafca5706ac33331d12c1cfb9fd022",
+    "assets": [
+      "/infographics/pages/team-handoff.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/templates/_index.md",
+    "title": "업무 템플릿",
+    "bytes_read": 1174,
+    "sha256": "e020bccd096b7093b20e0fd8e93f97dc687be89859459033364ac2d24ac5bc4c",
+    "assets": [
+      "/infographics/pages/office.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/templates/compliance.md",
+    "title": "컴플라이언스 체크리스트",
+    "bytes_read": 5977,
+    "sha256": "7afc8e3fd7220f8e0f69c68439bb73205d742b200d40b98bfbd66fb7129ddf98",
+    "assets": [
+      "/infographics/pages/example-cookbook-templates-compliance.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/templates/email.md",
+    "title": "이메일 마케팅 템플릿",
+    "bytes_read": 5993,
+    "sha256": "d5bf32d3c8067f85cd235dad2f5d0ead1f4717c9f530f765f9dd41f2abe6df97",
+    "assets": [
+      "/infographics/pages/example-cookbook-templates-email.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/templates/excel.md",
+    "title": "엑셀 고급 기법",
+    "bytes_read": 5856,
+    "sha256": "443906ea4492a14174fc2793042bf0ea0f4f9e5c01569249de2e7ddfd2cc486c",
+    "assets": [
+      "/infographics/pages/example-cookbook-templates-excel.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/templates/financial.md",
+    "title": "재무 모델링 템플릿",
+    "bytes_read": 6006,
+    "sha256": "03f51f4895ab753323f3fd3513b20673599aadecd52d781745d1b472d92e83ea",
+    "assets": [
+      "/infographics/pages/example-cookbook-templates-financial.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/tracks/_index.md",
+    "title": "직무별 트랙",
+    "bytes_read": 1609,
+    "sha256": "bce6d8dc38b2fda804edf723258c68c5d7824a7e323547ba2bdaf26ad076cd70",
+    "assets": [
+      "/infographics/pages/choose-recipe.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-advertising.md",
+    "title": "광고 트랙",
+    "bytes_read": 6033,
+    "sha256": "0a6f6d2516ec4672d2f3ae4bea88c4e1421771aa8db14a6bcc98ddcd1ea3d317",
+    "assets": [
+      "/infographics/pages/example-cookbook-tracks-track-advertising.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-appendix.md",
+    "title": "부록 트랙",
+    "bytes_read": 5962,
+    "sha256": "0945920fcb5556b1cffd64b33653a950ec3460ea56bdd6be317ce05606f82498",
+    "assets": [
+      "/infographics/pages/example-cookbook-tracks-track-appendix.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-commerce.md",
+    "title": "이커머스 트랙",
+    "bytes_read": 5915,
+    "sha256": "043951d2e8fe712cab2775f719ec1d829bfecc4bda170baa39581d28a773f407",
+    "assets": [
+      "/infographics/pages/example-cookbook-tracks-track-commerce.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-content.md",
+    "title": "콘텐츠 트랙",
+    "bytes_read": 5785,
+    "sha256": "e7bdce7220938b580c1bc78dc726ea4e0e783f8ad53a54529d9fd62b04a0e56f",
+    "assets": [
+      "/infographics/pages/example-cookbook-tracks-track-content.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-data.md",
+    "title": "데이터 트랙",
+    "bytes_read": 5804,
+    "sha256": "3deed933964e128c0e4d8114b46e31cbe4fe0fa5c08071d10a6b5eed7b020ace",
+    "assets": [
+      "/infographics/pages/example-cookbook-tracks-track-data.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "SVG 차트 + HTML 표"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-documents.md",
+    "title": "문서 트랙",
+    "bytes_read": 5813,
+    "sha256": "b81738c88e2745205f50eb6428e1cf71bc436a3f53bb60dca8f80d6b9f550c59",
+    "assets": [
+      "/infographics/pages/example-cookbook-tracks-track-documents.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-finance.md",
+    "title": "재무 트랙",
+    "bytes_read": 5884,
+    "sha256": "499c0704de89cfe3d945a3c77cbcf65d3721048ae625d2c29243f705f29dc443",
+    "assets": [
+      "/infographics/pages/example-cookbook-tracks-track-finance.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-hr.md",
+    "title": "HR·커리어 트랙",
+    "bytes_read": 5961,
+    "sha256": "a9a7a1d159e2e0a35a8b282c6027c1c1cff414f2e083f144266e370ae3b4e5a5",
+    "assets": [
+      "/infographics/pages/example-cookbook-tracks-track-hr.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-legal.md",
+    "title": "법률 트랙",
+    "bytes_read": 5953,
+    "sha256": "61f2fbe82363742a9fa54c9a8df74309b8be01a41065a1ae18a51ceb4703756f",
+    "assets": [
+      "/infographics/pages/example-cookbook-tracks-track-legal.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-marketing.md",
+    "title": "마케팅 트랙",
+    "bytes_read": 5954,
+    "sha256": "89d47bef9be30468be81fd8305b162018475d5a875010b6e06ec6d0f33eeb0cc",
+    "assets": [
+      "/infographics/pages/example-cookbook-tracks-track-marketing.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-operations.md",
+    "title": "운영 트랙",
+    "bytes_read": 5769,
+    "sha256": "2a2deee6e54bc442dbcf00cea91c2d00a3f22b19963ff89bb954af0577202f03",
+    "assets": [
+      "/infographics/pages/example-cookbook-tracks-track-operations.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-product.md",
+    "title": "제품 개발 트랙",
+    "bytes_read": 5780,
+    "sha256": "ce4f0689e5ddf68230cee53523d3b99da3260e2239e7910ce26744ad16c86f50",
+    "assets": [
+      "/infographics/pages/example-cookbook-tracks-track-product.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/cookbook/troubleshooting.md",
+    "title": "실습이 막혔을 때",
+    "bytes_read": 1628,
+    "sha256": "0501e88451fbec848d09c362bde7d81a1a5ba043e84a2acdb8f95cd61fd73840",
+    "assets": [
+      "/infographics/pages/troubleshooting.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "Mermaid 분기"
+    ]
+  },
+  {
+    "path": "www/content/getting-started/_index.md",
+    "title": "처음 시작하기",
+    "bytes_read": 2436,
+    "sha256": "a5e0410a80a1d17f8ae155ea0958aad9f50bb3607837e72576e119c88ba1b581",
+    "assets": [
+      "/infographics/pages/learning-path.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/getting-started/choose-app.md",
+    "title": "사용 환경 선택",
+    "bytes_read": 3207,
+    "sha256": "6bd39add3cab5731f675c594c64ddbe4cd69b51db3c447345ec52d1f38f15cf9",
+    "assets": [
+      "/infographics/pages/environment.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/getting-started/concepts.md",
+    "title": "핵심 개념 한눈에",
+    "bytes_read": 3037,
+    "sha256": "a4af86363e3b7f758d3d62701c2b9b92c54621dba90877ed57678580bd0953c4",
+    "assets": [
+      "/infographics/project-concepts-ko.png"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "Mermaid 관계"
+    ]
+  },
+  {
+    "path": "www/content/getting-started/first-task.md",
+    "title": "첫 결과물 만들기",
+    "bytes_read": 3366,
+    "sha256": "7ca3b2ab412361b3a897bbfbbbf378ecf48f3ee8a66768c36845a10a6416d89e",
+    "assets": [
+      "/infographics/pages/report-status.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/getting-started/install.md",
+    "title": "앱과 웹 준비",
+    "bytes_read": 2226,
+    "sha256": "50c94c65fa51e823f2c1e46c69924d034dd08719b2fefea5243f312d729b34eb",
+    "assets": [],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "공통 사이트 디자인 적용 · 그림 자동 추가 없음"
+    ]
+  },
+  {
+    "path": "www/content/getting-started/projects.md",
+    "title": "내 프로젝트 설정",
+    "bytes_read": 3890,
+    "sha256": "43e51566ed246201847d2daf7dac6cd3b6454842233806c9ae14f38cfcb58ead",
+    "assets": [
+      "/infographics/project-context-ko.png"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "Mermaid 관계"
+    ]
+  },
+  {
+    "path": "www/content/getting-started/questions.md",
+    "title": "질문과 추가 맥락",
+    "bytes_read": 2816,
+    "sha256": "ddb29c028e9ceadb1f34bfaaf160b3a7c860e8bf552a8693b3089977af80d34b",
+    "assets": [
+      "/infographics/pages/questions.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "Mermaid 분기"
+    ]
+  },
+  {
+    "path": "www/content/getting-started/quick-start.md",
+    "title": "빠른 시작",
+    "bytes_read": 2208,
+    "sha256": "a3683f0ebbde1030dcfdf4142a52f629902422cb57d9e2e7513ec0ede98b5884",
+    "assets": [
+      "/infographics/first-workflow-ko.png"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "Mermaid 순환"
+    ]
+  },
+  {
+    "path": "www/content/help/_index.md",
+    "title": "도움말",
+    "bytes_read": 1448,
+    "sha256": "d611c1c24f5f7be9e4c632fb8a7cad0a5a0264a689337b63b99340e3a662db18",
+    "assets": [
+      "/infographics/pages/troubleshooting.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "Mermaid 분기"
+    ]
+  },
+  {
+    "path": "www/content/help/about-claude.md",
+    "title": "ChatGPT Work와 Claude Cowork 이해",
+    "bytes_read": 1992,
+    "sha256": "c1bcab406e66b071dcf066a6535533ac15da60c48b39a1eef0d9dfabb9fea055",
+    "assets": [
+      "/infographics/pages/environment.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/help/account.md",
+    "title": "계정과 워크스페이스",
+    "bytes_read": 2047,
+    "sha256": "afe43463df1c765c78a041d5170d08de8385b5388beda073841b6b8208e23b16",
+    "assets": [
+      "/infographics/pages/account.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/help/attribution.md",
+    "title": "출처와 권리 표기",
+    "bytes_read": 1772,
+    "sha256": "fa8147e449ba9dfd2d9390fa282fc49ef0587d22c0cf5250818135317ebe9ef7",
+    "assets": [
+      "/infographics/pages/attribution.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/help/conversations.md",
+    "title": "작업과 대화 정리",
+    "bytes_read": 2091,
+    "sha256": "c4894d71a2219ab135bdbe956876346ba3a38ff5ee1b7e414f69ed543a4ed625",
+    "assets": [
+      "/infographics/pages/handoff.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "Mermaid 인계"
+    ]
+  },
+  {
+    "path": "www/content/help/office/_index.md",
+    "title": "Office 파일과 연동",
+    "bytes_read": 1097,
+    "sha256": "6a4baca8189d8e53f121e02d8fc1dc38384574cd4b2af784816e2a7f5bb7b6bc",
+    "assets": [
+      "/infographics/pages/office.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/help/office/microsoft-365.md",
+    "title": "Office 파일 제작과 계정 연동",
+    "bytes_read": 2091,
+    "sha256": "b4e8a5a924261925e8eae00f116ce751e3e42388750dc14bc4fc1e12632b66e3",
+    "assets": [
+      "/infographics/pages/office.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/help/personalization.md",
+    "title": "개인화와 프로젝트 기준",
+    "bytes_read": 2065,
+    "sha256": "275fa0c0cd79964f81b8a7918495aab617987c7c5b58c57cc1ec3a6661d7b15e",
+    "assets": [
+      "/infographics/pages/personalization.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/help/plans-billing.md",
+    "title": "비용과 요금제 확인",
+    "bytes_read": 1860,
+    "sha256": "686cb3a566967a080ee074254f5c34835ca87c3ba4055ba2e11c8581c9b10ccd",
+    "assets": [
+      "/infographics/pages/cost.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/help/source-index.md",
+    "title": "문서와 공식 출처 색인",
+    "bytes_read": 2641,
+    "sha256": "ebbe434b52b1baf31f0bd7c213440de18fb92f214448db90a236561729fd86fb",
+    "assets": [
+      "/infographics/pages/learning-path.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/help/troubleshooting.md",
+    "title": "문제 해결",
+    "bytes_read": 2386,
+    "sha256": "8665fd14a2bae29cb3c69cf4a706887881fc491285238093cc45a5db3914e913",
+    "assets": [
+      "/infographics/pages/troubleshooting.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "Mermaid 분기"
+    ]
+  },
+  {
+    "path": "www/content/help/usage-limits.md",
+    "title": "사용량과 작업 범위",
+    "bytes_read": 2050,
+    "sha256": "43acc0698136d0da10105ad5c0746edc4fe7ce49252a912924652e02ecb83036",
+    "assets": [
+      "/infographics/pages/limits.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "Mermaid 분기·합류"
+    ]
+  },
+  {
+    "path": "www/content/learn/01-delegation.md",
+    "title": "1강 · AI에게 일을 맡긴다는 것",
+    "bytes_read": 5129,
+    "sha256": "7e2288611cb5a0c69bf5aa91589aae76feab4b9a2756848005dae585dbadf5ad",
+    "assets": [
+      "/infographics/project-concepts-ko.png"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "Mermaid 관계"
+    ]
+  },
+  {
+    "path": "www/content/learn/02-project-context.md",
+    "title": "2강 · 내 프로젝트와 자료 연결",
+    "bytes_read": 6348,
+    "sha256": "c6b9b23a206cf0b9e19b7cb8b4899d0a49ddba82ade18feed593b6481bc10c19",
+    "assets": [
+      "/infographics/project-context-ko.png"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "Mermaid 관계"
+    ]
+  },
+  {
+    "path": "www/content/learn/03-first-result.md",
+    "title": "3강 · 질문에 답하고 첫 보고서 만들기",
+    "bytes_read": 5758,
+    "sha256": "e3315c66d396f79a88a4e7e11e7272777c5d419d5d5a51f689f8c91a1cc7b231",
+    "assets": [
+      "/infographics/first-workflow-ko.png",
+      "/infographics/pages/report-status.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합",
+      "Mermaid 순환"
+    ]
+  },
+  {
+    "path": "www/content/learn/04-skills-plugins.md",
+    "title": "4강 · 필요한 스킬과 플러그인 선택",
+    "bytes_read": 5668,
+    "sha256": "50c3719c6d4ae01d7e593d58404ade53826c0e615c3cab71cfd2de5c62c42584",
+    "assets": [
+      "/infographics/pages/install-states.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/learn/05-expert-workflow.md",
+    "title": "5강 · 전문가가 함께 일하는 순서",
+    "bytes_read": 5365,
+    "sha256": "81331a3def01990764ac745e0172b3709af2f4aa9467d93427f57f22fde3500c",
+    "assets": [
+      "/infographics/expert-workflow-ko.png"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "Mermaid 분기·합류"
+    ]
+  },
+  {
+    "path": "www/content/learn/06-review-reuse.md",
+    "title": "6강 · 검토하고 반복 업무로 바꾸기",
+    "bytes_read": 5642,
+    "sha256": "f59b83e73b19ba41305de53c729238b646362357145b21123f125dc591163a2c",
+    "assets": [
+      "/infographics/pages/reuse.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "Mermaid 순환"
+    ]
+  },
+  {
+    "path": "www/content/learn/_index.md",
+    "title": "온라인 강의실",
+    "bytes_read": 3240,
+    "sha256": "f99a0dcc2bcf67007ec9328e8ce8e26df97ba280ce483e079adf0411c187ec35",
+    "assets": [
+      "/infographics/first-workflow-ko.png"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "Mermaid 순환"
+    ]
+  },
+  {
+    "path": "www/content/learn/screens.md",
+    "title": "실제 화면으로 시작 위치 찾기",
+    "bytes_read": 4369,
+    "sha256": "2a8e390f71f4364af965dd8c035dd597299263d65bb7acee23f30353bb44798d",
+    "assets": [],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "공통 사이트 디자인 적용 · 그림 자동 추가 없음"
+    ]
+  },
+  {
+    "path": "www/content/learn/teaching-guide.md",
+    "title": "강사용 · 온라인 문서로 수업 진행하기",
+    "bytes_read": 4945,
+    "sha256": "0f5dce71de2d6fb14fd09688246386b7330934e3dacbbe2e00acbdeeea84cfa0",
+    "assets": [
+      "/infographics/pages/teaching.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/moai-agents/_index.md",
+    "title": "역할별 AI 코워커",
+    "bytes_read": 2360,
+    "sha256": "4540f998cf8e5e9d5b821d3208a031b90699471eef294ed1420562f7799f2c8c",
+    "assets": [
+      "/infographics/pages/choose-recipe.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/moai-agents/accountant.md",
+    "title": "「재무·세무 담당」 — 숫자와 세금 담당",
+    "bytes_read": 4987,
+    "sha256": "d1a6464d63d51bad0d442750cafac325a3c13afef3f5b3dedb9d65051875dc48",
+    "assets": [
+      "/infographics/pages/example-moai-agents-accountant.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/moai-agents/analyst.md",
+    "title": "「데이터 애널리스트」 — 공공데이터·데이터 분석 담당",
+    "bytes_read": 4846,
+    "sha256": "79d742416f0d5f8b4f1633a203d771c28c7d7f5ac601c840d382c75f9c263409",
+    "assets": [
+      "/infographics/pages/example-moai-agents-analyst.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "SVG 차트 + HTML 표"
+    ]
+  },
+  {
+    "path": "www/content/moai-agents/career.md",
+    "title": "「커리어코치」 — 구직자 편 이직·취업 담당",
+    "bytes_read": 4974,
+    "sha256": "3e11fb2c4ffea160330a01333bec9b373533dc5bbde6f85382bad04f9bff6a31",
+    "assets": [
+      "/infographics/pages/example-moai-agents-career.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/moai-agents/consultant.md",
+    "title": "「컨설턴트」 — 경영·창업 자문 담당",
+    "bytes_read": 4929,
+    "sha256": "22ad4b4dfeae1126120144fbda21090de5f4f70e50b9152070e8f3647ef864f8",
+    "assets": [
+      "/infographics/pages/example-moai-agents-consultant.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/moai-agents/coworker.md",
+    "title": "「코워커」 — 범용 비즈니스 실무 담당",
+    "bytes_read": 4677,
+    "sha256": "4d8d20a5b9e7c2e91d86a81183f2ecaf112770e214ccd3039d9f1966674df9b5",
+    "assets": [
+      "/infographics/pages/example-moai-agents-coworker.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/moai-agents/cs.md",
+    "title": "「CS매니저」 — 고객 접점 담당",
+    "bytes_read": 4951,
+    "sha256": "8d9cdf18654d53d744ba81f5e1a8ca14f53ae665ce60014a1fafc5c4f9982220",
+    "assets": [
+      "/infographics/pages/example-moai-agents-cs.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/moai-agents/designer.md",
+    "title": "「디자이너」 — 에이전틱 디자인 담당",
+    "bytes_read": 4942,
+    "sha256": "fc953a555d188c0acb81a7d8c0012a387ff6bf2c3d09c9a687594cd18f4f90d3",
+    "assets": [
+      "/infographics/pages/example-moai-agents-designer.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/moai-agents/lawyer.md",
+    "title": "「법무 담당」 — 계약·컴플라이언스 담당",
+    "bytes_read": 4970,
+    "sha256": "691fc0d1e4a2e13188599ac3c045056b88474581d5c586c64d978035412ab1af",
+    "assets": [
+      "/infographics/pages/example-moai-agents-lawyer.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/moai-agents/marketer.md",
+    "title": "「마케터」 — 캠페인·콘텐츠·미디어 담당",
+    "bytes_read": 4978,
+    "sha256": "74629620439807dbcff2d56a97fbb0b72843b7852c736b37fbda1bcdd30f7e92",
+    "assets": [
+      "/infographics/pages/example-moai-agents-marketer.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/moai-agents/media.md",
+    "title": "「미디어 크리에이터」 — 이미지·영상·오디오 생성 담당",
+    "bytes_read": 5146,
+    "sha256": "5e2e8ea619950ba1b82dec79ae8fd095617e9e0a9b5c4c7c7fb167621803f0e5",
+    "assets": [
+      "/infographics/pages/example-moai-agents-media.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/moai-agents/officer.md",
+    "title": "「사무관」 — 문서·오피스 담당",
+    "bytes_read": 4890,
+    "sha256": "b98b88c6093296973b6e89ebcb7d67114fc5604528aaaeb361da1e83f9b8c2f2",
+    "assets": [
+      "/infographics/pages/example-moai-agents-officer.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/moai-agents/pm.md",
+    "title": "PM — 프로젝트 구성 담당",
+    "bytes_read": 3164,
+    "sha256": "3f19500411eb851f4e503566ed2d60044dfbb88dd0e1407ca117123320cf1a51",
+    "assets": [
+      "/infographics/pages/pm-setup.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "Mermaid 흐름"
+    ]
+  },
+  {
+    "path": "www/content/moai-agents/recruiter.md",
+    "title": "「인사·채용 담당」 — 채용과 People Ops 담당",
+    "bytes_read": 4984,
+    "sha256": "797e4852a789907d4d48535634f4c2bc4763ea21f3a7294ddd7e500fedf4b3ee",
+    "assets": [
+      "/infographics/pages/example-moai-agents-recruiter.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/moai-agents/seller.md",
+    "title": "「셀러」 — 이커머스 운영 담당",
+    "bytes_read": 4939,
+    "sha256": "f9937fa565e31c66dc4250f89434eff770bdf56a61aca70c0860ad63c1e5fbca",
+    "assets": [
+      "/infographics/pages/example-moai-agents-seller.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/moai-agents/story.md",
+    "title": "「스토리 크리에이터」 — 웹툰·웹소설·IP 창작 담당",
+    "bytes_read": 4943,
+    "sha256": "dc75e4039c58e180f738a8ad1fe8ea1077778b20b9be4d337226c87a85cb94b2",
+    "assets": [
+      "/infographics/pages/example-moai-agents-story.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/moai-agents/threads-poster.md",
+    "title": "SNS 크리에이터 — Threads·Instagram 직접 발행 담당",
+    "bytes_read": 4869,
+    "sha256": "95e4879b70c5fd8c0a0f956c4c50f67559a6a5315463e7d5a0739a01badfd0b1",
+    "assets": [
+      "/infographics/pages/example-moai-agents-threads-poster.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/moai-agents/tutor.md",
+    "title": "「튜터」 — 교육·연구 담당",
+    "bytes_read": 4947,
+    "sha256": "62783abda9e300f3932da911769e43953a3d3f4fb8f81f86aebcb29ab8cb7aed",
+    "assets": [
+      "/infographics/pages/example-moai-agents-tutor.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/moai-agents/writer.md",
+    "title": "「작가」 — 출판·웹툰·웹소설 창작 담당",
+    "bytes_read": 4765,
+    "sha256": "8c437e1c9fa7016730209601b904c683b3e97d9614872440ec4041c038916847",
+    "assets": [
+      "/infographics/pages/example-moai-agents-writer.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/plugins/_index.md",
+    "title": "필요한 플러그인 고르기",
+    "bytes_read": 2322,
+    "sha256": "eda57551a1c7291e9fe4b663fdcb3f6c5de0b5ddd5c88749290f7b979086d9d1",
+    "assets": [
+      "/infographics/pages/choose-recipe.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/plugins/agents.md",
+    "title": "스킬과 전문가 에이전트",
+    "bytes_read": 2551,
+    "sha256": "aa575d493c4cdaa5772558001b09d19eaab7476e9835b23f18acc4b61890524d",
+    "assets": [
+      "/infographics/pages/skills-agents.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/plugins/higgsfield-setup.md",
+    "title": "Higgsfield 연결 설정",
+    "bytes_read": 5147,
+    "sha256": "247f6fcba187556d17027c6cdeb4fa54c72d824e34646703118a51a359c4dd87",
+    "assets": [
+      "/infographics/pages/higgsfield.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/plugins/install.md",
+    "title": "플러그인 설치와 관리",
+    "bytes_read": 3492,
+    "sha256": "6bb89c4f66348a24e233c4b9fa15b5a777ff5707c76e7a2761b3bdc08f4cf189",
+    "assets": [],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "공통 사이트 디자인 적용 · 그림 자동 추가 없음"
+    ]
+  },
+  {
+    "path": "www/content/plugins/license.md",
+    "title": "라이선스와 결과물 권리",
+    "bytes_read": 1709,
+    "sha256": "2c133f345be192412413de8ea3059fa2d9db3693d64eb25cd6ce4b34829f299e",
+    "assets": [],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "공통 사이트 디자인 적용 · 그림 자동 추가 없음"
+    ]
+  },
+  {
+    "path": "www/content/plugins/mcp/_index.md",
+    "title": "외부 서비스 연결 이해",
+    "bytes_read": 2501,
+    "sha256": "4ae51c58377bc98fc76ea30240fb104c6b296ba4ecf0d79404e5ced8ccdb7272",
+    "assets": [
+      "/infographics/pages/server-modes.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "Mermaid 관계"
+    ]
+  },
+  {
+    "path": "www/content/plugins/mcp/credentials.md",
+    "title": "계정과 API 키 설정",
+    "bytes_read": 4098,
+    "sha256": "dee2502ff228ce36f672bc381a1f0d69e28f20a0993dca2de3d45e194ade69d5",
+    "assets": [
+      "/infographics/pages/credentials.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "Mermaid 관계"
+    ]
+  },
+  {
+    "path": "www/content/plugins/mcp/install.md",
+    "title": "MCP 설치와 연결 확인",
+    "bytes_read": 2667,
+    "sha256": "3500c0cd4534a3ab1d5e6453978f44c6c199e4403fade384bd081788880789bf",
+    "assets": [
+      "/infographics/pages/connector.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/plugins/mcp/troubleshooting.md",
+    "title": "연결 문제 해결",
+    "bytes_read": 2097,
+    "sha256": "259dd672e174d1750777a813acac92d94232581351c0451344dbd5cca944f970",
+    "assets": [
+      "/infographics/pages/troubleshooting.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "Mermaid 분기"
+    ]
+  },
+  {
+    "path": "www/content/plugins/open-source.md",
+    "title": "오픈소스 크레딧",
+    "bytes_read": 7947,
+    "sha256": "93f1d379b9752f826959a817d6b3993a1526532974c15649e79faf774d78c79c",
+    "assets": [],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "공통 사이트 디자인 적용 · 그림 자동 추가 없음"
+    ]
+  },
+  {
+    "path": "www/content/plugins/teams.md",
+    "title": "업무에 맞는 팀 구성",
+    "bytes_read": 1960,
+    "sha256": "09ccfce2a1a154ba14a87dbed50aaa55da17ddb3d6d2af91a2d5e5edd1b3aaef",
+    "assets": [
+      "/infographics/pages/team-handoff.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  },
+  {
+    "path": "www/content/releases/_index.md",
+    "title": "릴리스 정보",
+    "bytes_read": 6718,
+    "sha256": "6909fa93baefa5af03248297c78615248a8275d9adc261ff2a8556143c830a02",
+    "assets": [],
+    "existing_mermaid": [
+      {
+        "source": "flowchart LR\n   MC[\"moai-cowork<br/>1.0.0\"] --> P1[\"플러그인 A<br/>1.0.0\"]\n   MC --> P2[\"플러그인 B<br/>1.0.0\"]\n   MC --> P3[\"플러그인 C<br/>1.0.0\"]\n   P2 --> P2B[\"플러그인 B 수정<br/>1.0.1\"]\n   P1 --> P1B[\"변경 없음<br/>1.0.0 유지\"]\n   P3 --> P3B[\"변경 없음<br/>1.0.0 유지\"]\n\n   style MC fill:#e8f1ec,stroke:#3d7d5f,color:#060606\n   style P1 fill:#e6e6e6,stroke:#757575,color:#060606\n   style P2 fill:#e6e6e6,stroke:#757575,color:#060606\n   style P3 fill:#e6e6e6,stroke:#757575,color:#060606\n   style P2B fill:#d6e7de,stroke:#3d7d5f,color:#060606\n   style P1B fill:#f4f4f4,stroke:#d1d1d1,color:#565656\n   style P3B fill:#f4f4f4,stroke:#d1d1d1,color:#565656\n",
+        "sha256": "650a31026ac93071847be37acceedd8ab7fc51b2366176432b8cc8f6cd47ad3c",
+        "action": "구조 유지·무채색 적용",
+        "explicit_colors": [
+          "#e8f1ec",
+          "#3d7d5f",
+          "#060606",
+          "#e6e6e6",
+          "#757575",
+          "#060606",
+          "#e6e6e6",
+          "#757575",
+          "#060606",
+          "#e6e6e6",
+          "#757575",
+          "#060606",
+          "#d6e7de",
+          "#3d7d5f",
+          "#060606",
+          "#f4f4f4",
+          "#d1d1d1",
+          "#565656",
+          "#f4f4f4",
+          "#d1d1d1",
+          "#565656"
+        ]
+      }
+    ],
+    "proposed_actions": [
+      "기존 Mermaid 구조 유지·무채색 적용"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/_index.md",
+    "title": "이전 릴리스 아카이브",
+    "bytes_read": 1567,
+    "sha256": "ffe6cc9c5cfea6aefbe023f1b93de7a0b9afeb47f24a044e3a76f94dee6a20ad",
+    "assets": [],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "공통 사이트 디자인 적용 · 그림 자동 추가 없음"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v1.0.md",
+    "title": "v1.0.x 릴리스 노트",
+    "bytes_read": 10501,
+    "sha256": "45541fda46e0e37b60f1128675bf8021ce363cecc64e7c53402b11fcdd54f710",
+    "assets": [],
+    "existing_mermaid": [
+      {
+        "source": "flowchart LR\n   A[\"초기 6개 플러그인<br/>core·office·content<br/>data·legal·business\"] --> B[\"마켓플레이스<br/>등록\"]\n   B --> C[\"v1.0.3 안정화\"]\n\n   style A fill:#e6e6e6,stroke:#757575,color:#09110f\n   style C fill:#e8f1ec,stroke:#265240,color:#09110f\n",
+        "sha256": "86a141fefe9be68a7eac82d1569e6811fc0ba9c166172eff1cb09226f5bfe0d6",
+        "action": "구조 유지·무채색 적용",
+        "explicit_colors": [
+          "#e6e6e6",
+          "#757575",
+          "#09110f",
+          "#e8f1ec",
+          "#265240",
+          "#09110f"
+        ]
+      }
+    ],
+    "proposed_actions": [
+      "기존 Mermaid 구조 유지·무채색 적용"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v1.2.md",
+    "title": "v1.2.x 릴리스 노트",
+    "bytes_read": 8842,
+    "sha256": "3520fcb6b6a113600129dbf3a34b9b294ae39da11b5fa6633a5668e4df22c91c",
+    "assets": [],
+    "existing_mermaid": [
+      {
+        "source": "flowchart LR\n   A[\"기존 6개 플러그인\"] --> B[\"+ moai-media<br/>Nano Banana·Kling<br/>ElevenLabs\"]\n   B --> C[\"17 플러그인 / 70 스킬\"]\n\n   style A fill:#e6e6e6,stroke:#757575,color:#09110f\n   style C fill:#e8f1ec,stroke:#265240,color:#09110f\n",
+        "sha256": "f12c1f017fb22b399beaf27d555f08d6426d96c22f838839e52b2578a85f7a88",
+        "action": "구조 유지·무채색 적용",
+        "explicit_colors": [
+          "#e6e6e6",
+          "#757575",
+          "#09110f",
+          "#e8f1ec",
+          "#265240",
+          "#09110f"
+        ]
+      }
+    ],
+    "proposed_actions": [
+      "기존 Mermaid 구조 유지·무채색 적용"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v1.3.md",
+    "title": "v1.3.x 릴리스 노트",
+    "bytes_read": 9944,
+    "sha256": "9d91d2f6f468a022ae0de3369479f2379394d737c28ddbfb26877524ff494eba",
+    "assets": [],
+    "existing_mermaid": [
+      {
+        "source": "flowchart LR\n   A[\"ai-slop-reviewer<br/>신규\"] --> B[\"스킬 체이닝<br/>CLAUDE.md 생성\"]\n   B --> C[\"project init<br/>워크플로우 확립\"]\n\n   style A fill:#e6e6e6,stroke:#757575,color:#09110f\n   style C fill:#e8f1ec,stroke:#265240,color:#09110f\n",
+        "sha256": "14dabedcd83276b56578d7c481743f2cb793e6481d98286e3dbf94671d3c2c17",
+        "action": "구조 유지·무채색 적용",
+        "explicit_colors": [
+          "#e6e6e6",
+          "#757575",
+          "#09110f",
+          "#e8f1ec",
+          "#265240",
+          "#09110f"
+        ]
+      }
+    ],
+    "proposed_actions": [
+      "기존 Mermaid 구조 유지·무채색 적용"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v1.5.md",
+    "title": "v1.5.x 릴리스 노트",
+    "bytes_read": 10232,
+    "sha256": "0c39d08e086ac7e0b2c91ad31c44a970049bcea8462e9baac49423411e265317",
+    "assets": [],
+    "existing_mermaid": [
+      {
+        "source": "flowchart LR\n   A[\"sbiz365-analyst<br/>소상공인 상권분석\"] --> B[\"kr-gov-grant<br/>정부지원사업\"]\n   B --> C[\"skill-builder<br/>개발 도구\"]\n\n   style A fill:#e6e6e6,stroke:#757575,color:#09110f\n   style C fill:#e8f1ec,stroke:#265240,color:#09110f\n",
+        "sha256": "831f7957b983f1653f91824ff3662cd3bc9ee034091a86edec174492ac708dba",
+        "action": "구조 유지·무채색 적용",
+        "explicit_colors": [
+          "#e6e6e6",
+          "#757575",
+          "#09110f",
+          "#e8f1ec",
+          "#265240",
+          "#09110f"
+        ]
+      }
+    ],
+    "proposed_actions": [
+      "기존 Mermaid 구조 유지·무채색 적용"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v1.6.md",
+    "title": "v1.6.x — skill-builder + pdf-writer",
+    "bytes_read": 6078,
+    "sha256": "fac8bfb77373c0b96849d81143da9e507c96862d12f9cac89cb10edf04c039b2",
+    "assets": [],
+    "existing_mermaid": [
+      {
+        "source": "flowchart LR\n   A[\"skill-forge → skill-builder<br/>리네임\"] --> B[\"skill-tester<br/>self-contained\"]\n   B --> C[\"pdf-writer<br/>한·중·일·영 PDF\"]\n\n   style A fill:#e6e6e6,stroke:#757575,color:#09110f\n   style C fill:#e8f1ec,stroke:#265240,color:#09110f\n",
+        "sha256": "54c2d1f64a59785b31dd2e502b78add65d42a7ca5c334295f4eea573bbb35059",
+        "action": "구조 유지·무채색 적용",
+        "explicit_colors": [
+          "#e6e6e6",
+          "#757575",
+          "#09110f",
+          "#e8f1ec",
+          "#265240",
+          "#09110f"
+        ]
+      }
+    ],
+    "proposed_actions": [
+      "기존 Mermaid 구조 유지·무채색 적용"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.0.md",
+    "title": "v2.0.x 릴리스 노트",
+    "bytes_read": 14813,
+    "sha256": "e9afb19b75ad3d868d6703d604078f9fd437bb8d90eb950f5afc8598a1101df8",
+    "assets": [],
+    "existing_mermaid": [
+      {
+        "source": "flowchart LR\n   A[\"NomaDamas/k-skill<br/>6개 스킬 포팅\"] --> B[\"한국 B2B 특화<br/>등기소·실거래가·식약처\"]\n   B --> C[\"SKILL.md version<br/>복구\"]\n\n   style A fill:#e6e6e6,stroke:#757575,color:#09110f\n   style C fill:#e8f1ec,stroke:#265240,color:#09110f\n",
+        "sha256": "3c63a35a58e2c444ffa60232bfc89b7809161c339ab4fae035aab39c3f423a81",
+        "action": "구조 유지·무채색 적용",
+        "explicit_colors": [
+          "#e6e6e6",
+          "#757575",
+          "#09110f",
+          "#e8f1ec",
+          "#265240",
+          "#09110f"
+        ]
+      }
+    ],
+    "proposed_actions": [
+      "기존 Mermaid 구조 유지·무채색 적용"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.1.md",
+    "title": "v2.1.x 릴리스 노트",
+    "bytes_read": 12064,
+    "sha256": "488d0f49dcac12cf9b5e8e8d0efc45af2a5d6f3c8d0c4a2321782bc19695779f",
+    "assets": [],
+    "existing_mermaid": [
+      {
+        "source": "flowchart LR\n   A[\"ai-slop-reviewer<br/>1차 검수\"] --> B[\"humanize-korean<br/>2차 윤문\"]\n   B --> C[\"10 카테고리<br/>40+ AI 티 패턴\"]\n\n   style A fill:#e6e6e6,stroke:#757575,color:#09110f\n   style C fill:#e8f1ec,stroke:#265240,color:#09110f\n",
+        "sha256": "4ff669540dc41d376c0e008663ec3d12742dae88a2b391cfad7b8e955ce5704e",
+        "action": "구조 유지·무채색 적용",
+        "explicit_colors": [
+          "#e6e6e6",
+          "#757575",
+          "#09110f",
+          "#e8f1ec",
+          "#265240",
+          "#09110f"
+        ]
+      }
+    ],
+    "proposed_actions": [
+      "기존 Mermaid 구조 유지·무채색 적용"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.10.md",
+    "title": "v2.10.0 릴리스 노트",
+    "bytes_read": 8143,
+    "sha256": "5cef8f6ed36976b08a2a4d6efb03b84ca47bca85e2fd1cbcbced662a9c6e6717",
+    "assets": [],
+    "existing_mermaid": [
+      {
+        "source": "flowchart TD\n   A[\"1. concept-planner<br/>컨셉서·USP\"] --> B[\"2. target-reader<br/>페르소나·JTBD\"]\n   B --> C[\"3. outline-designer<br/>3 레벨 목차\"]\n   C --> D[\"4. author-bio<br/>저자 약력\"]\n   D --> E[\"5. proposal-writer<br/>제안서 A4 12~20장\"]\n   E --> F[\"6. publisher-matcher<br/>30+ 출판사 Top 5\"]\n   F --> G[\"7. chapter-writer<br/>본문 집필\"]\n   G --> H[\"8. revision-coach<br/>퇴고 7단계\"]\n   H --> I[\"korean-spell-check<br/>+ humanize-korean<br/>+ ai-slop-reviewer\"]\n   style A fill:#fbf0dc,stroke:#c47b2a,color:#09110f\n   style G fill:#e8f1ec,stroke:#265240,color:#09110f\n   style I fill:#e8f1ec,stroke:#2a8a8c,color:#09110f\n",
+        "sha256": "8d7e7edce9523b2dc982c0ed38fba268cba12cff22b13ae37fcffea9bec42e32",
+        "action": "구조 유지·무채색 적용",
+        "explicit_colors": [
+          "#fbf0dc",
+          "#c47b2a",
+          "#09110f",
+          "#e8f1ec",
+          "#265240",
+          "#09110f",
+          "#e8f1ec",
+          "#2a8a8c",
+          "#09110f"
+        ]
+      }
+    ],
+    "proposed_actions": [
+      "기존 Mermaid 구조 유지·무채색 적용"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.11.1.md",
+    "title": "v2.11.1 릴리스 노트",
+    "bytes_read": 6756,
+    "sha256": "e9fecf46fcb293c5925b36f7deeb38bbba1684e220da38605422e84e2395b255",
+    "assets": [],
+    "existing_mermaid": [
+      {
+        "source": "flowchart TD\n   A[\"v2.11.0 발행 직후<br/>5 항목 잔재\"] --> B1[\"fal-ai MCP 흔적 9 파일\"]\n   A --> B2[\"좌측 사이드바 v2.10.0 표기\"]\n   A --> B3[\"홈 v2.10 카드 누락\"]\n   A --> B4[\"/project init 인벤토리 누락 감지 부재\"]\n   A --> B5[\"academy handoff 파일 잔존\"]\n   B1 --> C[\"v2.11.1 PATCH<br/>Higgsfield 단일 통합 + SSOT + 카드 + Phase 2/4 + handoff 삭제\"]\n   B2 --> C\n   B3 --> C\n   B4 --> C\n   B5 --> C\n   style A fill:#f5dcd7,stroke:#c44a3a,color:#09110f\n   style C fill:#e8f1ec,stroke:#2a8a8c,stroke-width:2px,color:#09110f\n",
+        "sha256": "58db2e69dd19c1dd741478b5a6722edf78e08b502880e9410aba4201e4e08a5b",
+        "action": "구조 유지·무채색 적용",
+        "explicit_colors": [
+          "#f5dcd7",
+          "#c44a3a",
+          "#09110f",
+          "#e8f1ec",
+          "#2a8a8c",
+          "#09110f"
+        ]
+      }
+    ],
+    "proposed_actions": [
+      "기존 Mermaid 구조 유지·무채색 적용"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.11.md",
+    "title": "v2.11.0 릴리스 노트",
+    "bytes_read": 8628,
+    "sha256": "b41ff01bebda9d3cef489396d26984d35149f6b82014a9912809346ae80b0c92",
+    "assets": [],
+    "existing_mermaid": [
+      {
+        "source": "flowchart TD\n   A[\"개편 전 16 스킬<br/>(wrapper 12 + 빌더 3 + 음성 1)\"] --> B[\"개편 후 4 스킬<br/>(빌더 3 + 음성 1)\"]\n   B --> C[\"이미지 생성<br/>Higgsfield MCP<br/>(단일 통합)\"]\n   B --> D[\"영상 생성<br/>Higgsfield MCP<br/>(단일 통합)\"]\n   B --> E[\"음성 생성<br/>ElevenLabs MCP<br/>(audio-gen 래퍼)\"]\n   style A fill:#f5dcd7,stroke:#c44a3a,color:#09110f\n   style B fill:#e8f1ec,stroke:#2a8a8c,stroke-width:2px,color:#09110f\n   style C fill:#e8f1ec,stroke:#265240,color:#09110f\n   style D fill:#e8f1ec,stroke:#265240,color:#09110f\n   style E fill:#e8f1ec,stroke:#265240,color:#09110f\n",
+        "sha256": "b9a048abe848b056b939850dd25e00b0cf724681c771de7174f22d7fba5c428c",
+        "action": "구조 유지·무채색 적용",
+        "explicit_colors": [
+          "#f5dcd7",
+          "#c44a3a",
+          "#09110f",
+          "#e8f1ec",
+          "#2a8a8c",
+          "#09110f",
+          "#e8f1ec",
+          "#265240",
+          "#09110f",
+          "#e8f1ec",
+          "#265240",
+          "#09110f",
+          "#e8f1ec",
+          "#265240",
+          "#09110f"
+        ]
+      }
+    ],
+    "proposed_actions": [
+      "기존 Mermaid 구조 유지·무채색 적용"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.12.1.md",
+    "title": "v2.12.1 릴리스 노트",
+    "bytes_read": 3621,
+    "sha256": "79c6dcc09767172eb568cc7f91fa83c63424fc658a813e17ab842cecafcbf93f",
+    "assets": [],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "공통 사이트 디자인 적용 · 그림 자동 추가 없음"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.12.2.md",
+    "title": "v2.12.2 릴리스 노트",
+    "bytes_read": 2404,
+    "sha256": "aeb2c113f8728fc0d185634fe4b84ae648f1d6ebf85f2b04f73d318e5cf85896",
+    "assets": [],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "공통 사이트 디자인 적용 · 그림 자동 추가 없음"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.12.3.md",
+    "title": "v2.12.3 릴리스 노트",
+    "bytes_read": 2843,
+    "sha256": "790242aa50a9f5df6b9556991ddbda4f41494352ca76cba91f3f2eb7ac5577e8",
+    "assets": [],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "공통 사이트 디자인 적용 · 그림 자동 추가 없음"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.12.md",
+    "title": "v2.12.0 릴리스 노트",
+    "bytes_read": 6397,
+    "sha256": "2db323a7959a64067af340b96b23eff7e32c912756cec4c3b2028e21f9571100",
+    "assets": [],
+    "existing_mermaid": [
+      {
+        "source": "flowchart TD\n   A[\"claude.ai/design<br/>Anthropic 공식 제품\"] --> B[\"입력 단계 마찰<br/>·디자인 시스템 셋업 스킵<br/>·막연한 프롬프트<br/>·AI 슬롭 카피\"]\n   B --> C[\"moai-designer v2.12.0<br/>풀스택 5 스킬\"]\n   C --> D1[\"claude-design-system-prep<br/>DESIGN.md 합성\"]\n   C --> D2[\"claude-design-brief<br/>6요소 자동 채움\"]\n   C --> D3[\"claude-design-prompt-builder<br/>시니어 UX 10 패턴\"]\n   C --> D4[\"claude-design-slop-check<br/>AI 슬롭 검수\"]\n   C --> D5[\"claude-design-handoff-reader<br/>핸드오프 번들 분석\"]\n   D1 --> E[\"디자인 시스템 셋업\"]\n   D2 --> F[\"시안 생성\"]\n   D3 --> F\n   D4 --> G[\"카피 자연화\"]\n   D5 --> H[\"Claude Code 구현\"]\n\n   style A fill:#fbf0dc,stroke:#c47b2a,color:#09110f\n   style B fill:#f5dcd7,stroke:#c44a3a,color:#09110f\n   style C fill:#e8f1ec,stroke:#2a8a8c,stroke-width:2px,color:#09110f\n",
+        "sha256": "15f0dc827a646ed9bc91d5efda7a639e886c3e3a9fbfabecd783bdf3c5e94d9c",
+        "action": "구조 유지·무채색 적용",
+        "explicit_colors": [
+          "#fbf0dc",
+          "#c47b2a",
+          "#09110f",
+          "#f5dcd7",
+          "#c44a3a",
+          "#09110f",
+          "#e8f1ec",
+          "#2a8a8c",
+          "#09110f"
+        ]
+      }
+    ],
+    "proposed_actions": [
+      "기존 Mermaid 구조 유지·무채색 적용"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.13.md",
+    "title": "v2.13.0 릴리스 노트",
+    "bytes_read": 6157,
+    "sha256": "e0400ea5c01cc71836c83fb59af89f93e9f9b8340259ad4bebdba9833d477c6d",
+    "assets": [],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "공통 사이트 디자인 적용 · 그림 자동 추가 없음"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.14.md",
+    "title": "v2.14.0 릴리스 노트",
+    "bytes_read": 5531,
+    "sha256": "bc9aca221cb13b98d97e376219d0fb9ea92a859e4c1eee96d62bd336378889f6",
+    "assets": [],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "공통 사이트 디자인 적용 · 그림 자동 추가 없음"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.15.md",
+    "title": "v2.15.0 릴리스 노트",
+    "bytes_read": 4944,
+    "sha256": "ec37787beb1af11504a0b7b4df7b681619d18aa94cd1fa4a3fc3749c20eae553",
+    "assets": [],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "공통 사이트 디자인 적용 · 그림 자동 추가 없음"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.16.md",
+    "title": "v2.16.0 릴리스 노트",
+    "bytes_read": 8626,
+    "sha256": "180130f6865ce0970312f597e77414fe35c82e4f19be5efd70734e6d5a60400b",
+    "assets": [],
+    "existing_mermaid": [
+      {
+        "source": "flowchart TB\n   subgraph New[\"신규 3 플러그인 (v2.16.0) — 18 스킬\"]\n       W[\"moai-accountant (6)<br/>개인 재무·재테크\"]\n       P[\"moai-coworker (7)<br/>자기관리·생산성\"]\n       C[\"moai-coworker (5)<br/>직장 커뮤니케이션\"]\n   end\n   subgraph Result[\"누적 결과\"]\n       R1[23 → 26 플러그인]\n       R2[152 → 170 스킬]\n       R3[동기화 176 → 198]\n       R4[Breaking change 없음]\n   end\n   New --> Result\n   style W fill:#e6e6e6,stroke:#757575,color:#09110f\n   style P fill:#e8f1ec,stroke:#265240,color:#09110f\n   style C fill:#fbf0dc,stroke:#c47b2a,color:#09110f\n",
+        "sha256": "0817615881f81416a320b0d5892e987e1877a029bc2f0846c868b7addf20a1f3",
+        "action": "구조 유지·무채색 적용",
+        "explicit_colors": [
+          "#e6e6e6",
+          "#757575",
+          "#09110f",
+          "#e8f1ec",
+          "#265240",
+          "#09110f",
+          "#fbf0dc",
+          "#c47b2a",
+          "#09110f"
+        ]
+      }
+    ],
+    "proposed_actions": [
+      "기존 Mermaid 구조 유지·무채색 적용"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.17.md",
+    "title": "v2.17.0 릴리스 노트",
+    "bytes_read": 8812,
+    "sha256": "b48f2d018cebeef47040caf182d99eb5d2dcc1b4c8a553c316e8b8e1fc4e0a93",
+    "assets": [],
+    "existing_mermaid": [
+      {
+        "source": "flowchart TB\n   subgraph New[\"신규 (v2.17.0)\"]\n       PD[\"moai-analyst (4)<br/>한국 공공·데이터 조회\"]\n       CO[\"Cowork 코디네이터 11종<br/>sub-agent (Cowork 전용)\"]\n   end\n   subgraph Polish[\"재설계 마무리\"]\n       H[\"humanize 체이닝 표준화 60+\"]\n       M[\"manifest 정직화 (pm·sales·bi)\"]\n       HF[\"이미지·영상 Higgsfield 단일화\"]\n   end\n   subgraph Result[\"누적 결과\"]\n       R1[26 → 27 플러그인]\n       R2[170 → 173 스킬]\n       R3[Breaking change 없음]\n   end\n   New --> Result\n   Polish --> Result\n   style PD fill:#e6e6e6,stroke:#757575,color:#09110f\n   style CO fill:#e8f1ec,stroke:#265240,color:#09110f\n   style HF fill:#fbf0dc,stroke:#c47b2a,color:#09110f\n",
+        "sha256": "a7b41129efd079d679cf7652c5740eb82cabad25a966b66352417756d4f4995b",
+        "action": "구조 유지·무채색 적용",
+        "explicit_colors": [
+          "#e6e6e6",
+          "#757575",
+          "#09110f",
+          "#e8f1ec",
+          "#265240",
+          "#09110f",
+          "#fbf0dc",
+          "#c47b2a",
+          "#09110f"
+        ]
+      }
+    ],
+    "proposed_actions": [
+      "기존 Mermaid 구조 유지·무채색 적용"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.18.md",
+    "title": "v2.18.0 릴리스 노트",
+    "bytes_read": 9155,
+    "sha256": "dbe746ab95f6401080de3f8808b4b29e20869d6e8a59695733378f9234f5ee5c",
+    "assets": [],
+    "existing_mermaid": [
+      {
+        "source": "flowchart TB\n   subgraph Before[\"이전 (v2.17.0)\"]\n       BC[\"플러그인 번들<br/>코디네이터 sub-agent 14개<br/>(우선순위 최하위·버전 게이트)\"]\n   end\n   subgraph Synthesis[\"전환 (v2.18.0)\"]\n       PR[\"/project Agent Synthesis<br/>(Phase 3.5)\"]\n       PA[\".claude/agents/<br/>프로젝트 맞춤 sub-agent\"]\n   end\n   subgraph Result[\"결과\"]\n       R1[27 플러그인 유지]\n       R2[173 스킬 유지]\n       R3[기능적 비파괴]\n   end\n   BC -. 전면 제거 .-> PR\n   PR --> PA\n   PA --> Result\n   style BC fill:#f5dcd7,stroke:#c44a3a,color:#09110f\n   style PR fill:#e8f1ec,stroke:#265240,color:#09110f\n   style PA fill:#fbf0dc,stroke:#c47b2a,color:#09110f\n",
+        "sha256": "f34793c3528c78e6ec6008eebd445ecc001a2bc725a9bbb978bc966036015cc8",
+        "action": "구조 유지·무채색 적용",
+        "explicit_colors": [
+          "#f5dcd7",
+          "#c44a3a",
+          "#09110f",
+          "#e8f1ec",
+          "#265240",
+          "#09110f",
+          "#fbf0dc",
+          "#c47b2a",
+          "#09110f"
+        ]
+      }
+    ],
+    "proposed_actions": [
+      "기존 Mermaid 구조 유지·무채색 적용"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.19.md",
+    "title": "v2.19.0 릴리스 노트",
+    "bytes_read": 6784,
+    "sha256": "da44b0146a1112a0acf1cf8c5a48f0e1146b1b7b44557e0b9b0ff3ff32968b09",
+    "assets": [],
+    "existing_mermaid": [
+      {
+        "source": "flowchart TB\n   subgraph TrackA[\"Track A — humanize-korean v2.0.0\"]\n       HA[\"v1.6.1<br/>(기존)\"]\n       HB[\"v2.0.0<br/>(신규 정렬)\"]\n       HA -- \"번역투 8유형 계보<br/>+패턴 4종<br/>+metrics_v2\" --> HB\n   end\n   subgraph TrackB[\"Track B — 코디네이터 재도입\"]\n       CB[\"14개 제거<br/>(v2.18.0)\"]\n       CC[\"31개 재도입<br/>(Cowork-safe)\"]\n       CB -- \"실측 도구 리포트<br/>Bash/WebFetch 배제\" --> CC\n   end\n   subgraph Result[\"결과\"]\n       R1[27 플러그인 유지]\n       R2[173 스킬 유지]\n       R3[기능적 비파괴]\n   end\n   HB --> Result\n   CC --> Result\n   style HA fill:#e6e6e6,stroke:#757575,color:#09110f\n   style HB fill:#e8f1ec,stroke:#265240,color:#09110f\n   style CB fill:#f5dcd7,stroke:#c44a3a,color:#09110f\n   style CC fill:#fbf0dc,stroke:#c47b2a,color:#09110f\n",
+        "sha256": "5b146d52476a4523043393ee463efb11c8be881c8168d75fcf23e569ddd724f6",
+        "action": "구조 유지·무채색 적용",
+        "explicit_colors": [
+          "#e6e6e6",
+          "#757575",
+          "#09110f",
+          "#e8f1ec",
+          "#265240",
+          "#09110f",
+          "#f5dcd7",
+          "#c44a3a",
+          "#09110f",
+          "#fbf0dc",
+          "#c47b2a",
+          "#09110f"
+        ]
+      }
+    ],
+    "proposed_actions": [
+      "기존 Mermaid 구조 유지·무채색 적용"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.2.md",
+    "title": "v2.2.x 릴리스 노트",
+    "bytes_read": 7069,
+    "sha256": "a34b708b81f4775c1fdf5dc5b372a09907f56c132fe1f54f3f52a22899af1c42",
+    "assets": [],
+    "existing_mermaid": [
+      {
+        "source": "flowchart LR\n   A[\"마크다운 보고서\"] --> B[\"html-report<br/>단일 파일 HTML\"]\n   B --> C[\"12-25KB<br/>외부 의존성 0\"]\n\n   style A fill:#e6e6e6,stroke:#757575,color:#09110f\n   style C fill:#e8f1ec,stroke:#265240,color:#09110f\n",
+        "sha256": "952df700d7e3a1309679cd21cbf26b0b0c74ae0454cc838926ae666917c40f3f",
+        "action": "구조 유지·무채색 적용",
+        "explicit_colors": [
+          "#e6e6e6",
+          "#757575",
+          "#09110f",
+          "#e8f1ec",
+          "#265240",
+          "#09110f"
+        ]
+      }
+    ],
+    "proposed_actions": [
+      "기존 Mermaid 구조 유지·무채색 적용"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.20.md",
+    "title": "v2.20.0 릴리스 노트",
+    "bytes_read": 7741,
+    "sha256": "37dd83feac6accae9c7147d5b0ae85206924bf75d82974c1678c180b9356903d",
+    "assets": [],
+    "existing_mermaid": [
+      {
+        "source": "flowchart LR\n   subgraph 시작[\"learning-project\"]\n       A[\"학습 목표·수준 진단<br/>단계별 로드맵·진도\"]\n   end\n   subgraph 조사[\"tutor-research\"]\n       B[\"context7 공식 문서<br/>+ 웹검색 최신 정보<br/>(병렬·교차검증)\"]\n   end\n   subgraph 자료[\"learning-material\"]\n       C[\"도식·차트·수식·코드<br/>단일 HTML 학습자료\"]\n   end\n   A --> B --> C\n   C -.다음 단계.-> A\n   style A fill:#e6e6e6,stroke:#757575,color:#09110f\n   style B fill:#e8f1ec,stroke:#265240,color:#09110f\n   style C fill:#fbf0dc,stroke:#c47b2a,color:#09110f\n",
+        "sha256": "69647d192ea1f7746117a3e597bdaae0bdcfe8d7bea700f20e52e558ac53f55d",
+        "action": "구조 유지·무채색 적용",
+        "explicit_colors": [
+          "#e6e6e6",
+          "#757575",
+          "#09110f",
+          "#e8f1ec",
+          "#265240",
+          "#09110f",
+          "#fbf0dc",
+          "#c47b2a",
+          "#09110f"
+        ]
+      }
+    ],
+    "proposed_actions": [
+      "기존 Mermaid 구조 유지·무채색 적용"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.21.md",
+    "title": "v2.21.0 릴리스 노트",
+    "bytes_read": 8819,
+    "sha256": "93ae8feb1c4be688eecdd106f500d6ef8cb33d28e28465645b873b01b4a8d2b1",
+    "assets": [],
+    "existing_mermaid": [
+      {
+        "source": "flowchart LR\n   A[\"자연어 설명<br/>'결제 시스템 아키텍처 그려줘'\"] --> B[\"drawio-diagram\"]\n   B --> C[\".drawio XML<br/>(편집 가능 원본)\"]\n   B --> D[\"단일 HTML<br/>(CDN 뷰어 즉시 열람)\"]\n   style A fill:#e6e6e6,stroke:#757575,color:#09110f\n   style B fill:#e8f1ec,stroke:#265240,color:#09110f\n   style C fill:#fbf0dc,stroke:#c47b2a,color:#09110f\n   style D fill:#fbf0dc,stroke:#c47b2a,color:#09110f\n",
+        "sha256": "411030a8fa3ba58946c6bbc6fe92408f1a889e0cb132695905c488bacd8d84dc",
+        "action": "구조 유지·무채색 적용",
+        "explicit_colors": [
+          "#e6e6e6",
+          "#757575",
+          "#09110f",
+          "#e8f1ec",
+          "#265240",
+          "#09110f",
+          "#fbf0dc",
+          "#c47b2a",
+          "#09110f",
+          "#fbf0dc",
+          "#c47b2a",
+          "#09110f"
+        ]
+      }
+    ],
+    "proposed_actions": [
+      "기존 Mermaid 구조 유지·무채색 적용"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.22.md",
+    "title": "v2.22.0 릴리스 노트",
+    "bytes_read": 8375,
+    "sha256": "eafd0bd39f3e0f136f8e5efaafd7a1c8a23aa05021728085ae1367668d54dc6c",
+    "assets": [],
+    "existing_mermaid": [
+      {
+        "source": "flowchart LR\n   A[\"자연어<br/>'ClickHouse 다크 테마로<br/>인시던트 리포트 HTML'\"] --> B[\"design-system-library\"]\n   B --> C[\"systems/&lt;name&gt;.md<br/>브랜드 토큰 로드\"]\n   C --> D[\"html-report<br/>design_system: clickhouse\"]\n   D --> E[\"단일 HTML<br/>Tailwind CDN + shadcn vanilla\"]\n   style A fill:#e6e6e6,stroke:#757575,color:#09110f\n   style B fill:#e8f1ec,stroke:#265240,color:#09110f\n   style C fill:#fbf0dc,stroke:#c47b2a,color:#09110f\n   style D fill:#e8f1ec,stroke:#2a8a8c,color:#09110f\n   style E fill:#d6e7de,stroke:#3d7d5f,stroke-width:2px,color:#09110f\n",
+        "sha256": "c286460951c3d516cffb4eea35ceb747280a63d8ecde770a5329173995a7591a",
+        "action": "구조 유지·무채색 적용",
+        "explicit_colors": [
+          "#e6e6e6",
+          "#757575",
+          "#09110f",
+          "#e8f1ec",
+          "#265240",
+          "#09110f",
+          "#fbf0dc",
+          "#c47b2a",
+          "#09110f",
+          "#e8f1ec",
+          "#2a8a8c",
+          "#09110f",
+          "#d6e7de",
+          "#3d7d5f",
+          "#09110f"
+        ]
+      }
+    ],
+    "proposed_actions": [
+      "기존 Mermaid 구조 유지·무채색 적용"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.23.md",
+    "title": "v2.23.0 릴리스 노트",
+    "bytes_read": 1786,
+    "sha256": "aa12e7db8d49b539ec40e7caf131aa8ceadae74b56124c5d42ba8ec648e65c5f",
+    "assets": [],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "공통 사이트 디자인 적용 · 그림 자동 추가 없음"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.24.md",
+    "title": "v2.24.0 릴리스 노트",
+    "bytes_read": 2674,
+    "sha256": "8abc848fd04b9c01889fdfdfd61310d534abb40e0d109580c6bf170d2795a550",
+    "assets": [],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "공통 사이트 디자인 적용 · 그림 자동 추가 없음"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.25.md",
+    "title": "v2.25.0 릴리스 노트",
+    "bytes_read": 3611,
+    "sha256": "91bfcde37ccfd540bca53259ba76052f13b5dd50cad54f0703069f4e9dee33f2",
+    "assets": [],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "공통 사이트 디자인 적용 · 그림 자동 추가 없음"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.26.md",
+    "title": "v2.26.0 릴리스 노트",
+    "bytes_read": 1946,
+    "sha256": "cc76c2b17d8ba390dc94d6e4e5df57378a7d3f6ec0fa96494b2a4bacbcdfa3f8",
+    "assets": [],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "공통 사이트 디자인 적용 · 그림 자동 추가 없음"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.27.md",
+    "title": "v2.27.0 릴리스 노트",
+    "bytes_read": 2074,
+    "sha256": "bb5311e1c65fd12511635ac69d2a2fa63944034e579d34fb343bc0261c13b9d2",
+    "assets": [],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "공통 사이트 디자인 적용 · 그림 자동 추가 없음"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.3.md",
+    "title": "v2.3.x 릴리스 노트",
+    "bytes_read": 16366,
+    "sha256": "1c6ae3da4fab9547553dd5374a4f087fb98eeabe7b461181c848b137f7ee16ec",
+    "assets": [],
+    "existing_mermaid": [
+      {
+        "source": "flowchart TB\n   subgraph Day1[\"Day 1 셋업 (3)\"]\n       A1[moai-coworker:mcp-connector-setup]\n       A2[commerce-morning-brief]\n       A3[commerce-order-summary]\n   end\n   subgraph Day2[\"Day 2 V6 6도구 (5 신규 + 1 강화)\"]\n       B1[commerce-market-research]\n       B2[commerce-jtbd-persona]\n       B3[detail-page-copy 강화]\n       B4[commerce-product-naming]\n       B5[commerce-channel-message]\n       B6[commerce-integrated-strategy]\n   end\n   subgraph Day3[\"Day 3 광고 풀세트 (6)\"]\n       C1[media-moodboard]\n       C2[media-gpt-image2-builder]\n       C3[media-model-router]\n       C4[media-channel-ad-packager]\n       C5[media-ai-disclosure]\n       C6[media-canva-magic-layer]\n   end\n   subgraph Followup[\"D+1 ~ D+30 (2)\"]\n       D1[course-curriculum-design]\n       D2[course-followup-sequence]\n   end\n   Day1 --> Day2 --> Day3 --> Followup\n   style A1 fill:#e6e6e6,stroke:#757575,color:#09110f\n   style B1 fill:#fbf0dc,stroke:#c47b2a,color:#09110f\n   style C1 fill:#f5dcd7,stroke:#c44a3a,color:#09110f\n   style D1 fill:#e8f1ec,stroke:#265240,color:#09110f\n",
+        "sha256": "8c185265a713c6bb2022e336df25d62503b4208a571b18e59d58f988aadf8899",
+        "action": "구조 유지·무채색 적용",
+        "explicit_colors": [
+          "#e6e6e6",
+          "#757575",
+          "#09110f",
+          "#fbf0dc",
+          "#c47b2a",
+          "#09110f",
+          "#f5dcd7",
+          "#c44a3a",
+          "#09110f",
+          "#e8f1ec",
+          "#265240",
+          "#09110f"
+        ]
+      }
+    ],
+    "proposed_actions": [
+      "기존 Mermaid 구조 유지·무채색 적용"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.4.md",
+    "title": "v2.4.x 릴리스 노트",
+    "bytes_read": 9878,
+    "sha256": "7d8feb81d7a69d9d1f00ebf88e28748e2d28e40ea47ee883c1b1981b65087dd7",
+    "assets": [],
+    "existing_mermaid": [
+      {
+        "source": "flowchart TB\n   subgraph Sources[\"원전 문서 4개\"]\n       S1[자료 1<br/>커머스 매출향상 AI<br/>26p]\n       S2[자료 2<br/>커머스 업무 자동화<br/>24p]\n       S3[자료 3<br/>쿠팡 매출 9배 비법<br/>126p]\n       S4[자료 4<br/>온라인 광고의 심리학<br/>13장 376줄]\n   end\n   subgraph New[\"신규 5\"]\n       N1[coupang-ad-optimizer]\n       N2[commerce-margin-calculator]\n       N3[commerce-automation-audit]\n       N4[landing-page-conversion-audit]\n       N5[pixel-audit]\n   end\n   subgraph Enh[\"강화 8\"]\n       E1[product-naming]\n       E2[detail-page-copy]\n       E3[jtbd-persona]\n       E4[channel-message]\n       E5[integrated-strategy]\n       E6[market-research]\n       E7[campaign-planner]\n       E8[sns-content]\n   end\n   S3 --> N1\n   S2 --> N3\n   S3 --> N2\n   S4 --> N4\n   S4 --> N5\n   S1 --> E1\n   S1 --> E2\n   S4 --> E2\n   S1 --> E3\n   S4 --> E3\n   S4 --> E4\n   S2 --> E5\n   S4 --> E6\n   S4 --> E7\n   S4 --> E8\n",
+        "sha256": "c009df8722d399746b7fc96a6888eb414d893ded59cbc62f5bc89f9fe1b2f5cc",
+        "action": "구조 유지·무채색 적용",
+        "explicit_colors": []
+      }
+    ],
+    "proposed_actions": [
+      "기존 Mermaid 구조 유지·무채색 적용"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.5.md",
+    "title": "v2.5.x 릴리스 노트",
+    "bytes_read": 11123,
+    "sha256": "ce1550205a47435002676f49038e1ef3fa486ac740c58e54da45659fc9bc3771",
+    "assets": [],
+    "existing_mermaid": [
+      {
+        "source": "flowchart TB\n   subgraph Source[\"방법론 원전 (MIT)\"]\n       S1[agricidaniel/claude-ads v1.5.1<br/>4,815 stars]\n   end\n   subgraph Layers[\"3-Layer 아키텍처\"]\n       L1[Layer 1: Meta 공식 MCP<br/>mcp.facebook.com/ads]\n       L2[Layer 2: moai-ads-audit-mcp<br/>자체 Python uvx 패키지]\n       L3[Layer 3: meta-ads-analyzer<br/>사용자 톤 + 강도별 액션]\n   end\n   subgraph Korean[\"한국 시장 7 변화 영역\"]\n       K1[벤치마크 8 카테고리]\n       K2[5 규제 PIPA·ITNA·전상법·표시광고법·식약처]\n       K3[3 사용자 그룹 톤]\n       K4[4 출력 형식 HTML/DOCX/PPTX/MD]\n       K5[ 강도별 액션]\n       K6[4D 교차 광고×지면×연령×성별]\n       K7[케어밀 1.80 ROAS reference]\n   end\n   S1 --> L2\n   L1 --> L2\n   L2 --> L3\n   K1 --> L2\n   K2 --> L2\n   K3 --> L3\n   K4 --> L3\n   K5 --> L3\n   K6 --> L3\n   K7 --> L2\n",
+        "sha256": "51592aacf4120cdde77e5341b8398d78c8e339a704024aef80ce37eac6a679a9",
+        "action": "구조 유지·무채색 적용",
+        "explicit_colors": []
+      }
+    ],
+    "proposed_actions": [
+      "기존 Mermaid 구조 유지·무채색 적용"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.6.md",
+    "title": "v2.6.x 릴리스 노트",
+    "bytes_read": 11183,
+    "sha256": "1adb25f6e99c3f9c8645ffd80cf7e317ac682812ae371686d72174c8154e655a",
+    "assets": [],
+    "existing_mermaid": [
+      {
+        "source": "flowchart TB\n   subgraph Source[\"원전 (Vault)\"]\n       S1[옵시디언 vault 1,329 노트]\n       S2[Higgsfield MCP audit]\n   end\n   subgraph Wave1[\"Wave 1 — 신규 3 (v2.6.0)\"]\n       W1A[commerce-ltv-cac-architect<br/>고객 단위 수익 구조]\n       W1B[commerce-push-planner<br/>앱 푸시 4원칙]\n       W1C[commerce-marketing-compliance-kr<br/>정통망법 게이트]\n   end\n   subgraph Wave2[\"Wave 2 — 보강 3 (v2.6.1)\"]\n       W2A[commerce-channel-message<br/>AARRR 30+ 브랜드]\n       W2B[commerce-product-naming<br/>6질문 + 데이터랩]\n       W2C[commerce-market-research<br/>시장 세분화·USP]\n   end\n   subgraph QW[\"Quick Wins (v2.6.0)\"]\n       QW1[Higgsfield 6 정정]\n       QW2[안 C 정리 3]\n   end\n   subgraph Attr[\"어트리뷰션 정리\"]\n       A1[정승우님 출처 제거<br/>내용·구조 보존]\n   end\n   S1 --> Wave1\n   S1 --> Wave2\n   S2 --> QW\n   Wave1 --> Result[130 → 134 스킬<br/>152 → 156 sync points]\n   Wave2 --> Result\n   QW --> Result\n   Attr --> Result\n",
+        "sha256": "4e409ac106ba906de1a656302157385d8e60b516ea89a3ffe07367fc5f46c31d",
+        "action": "구조 유지·무채색 적용",
+        "explicit_colors": []
+      }
+    ],
+    "proposed_actions": [
+      "기존 Mermaid 구조 유지·무채색 적용"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.7.md",
+    "title": "v2.7.0 릴리스 노트",
+    "bytes_read": 7477,
+    "sha256": "a9094ff7829eae5fd83cd11c9b563b3c85f60237578acf7ff7724bb947b8d512",
+    "assets": [],
+    "existing_mermaid": [
+      {
+        "source": "flowchart TD\n   subgraph Wave3[\"Wave 3 — 신규 3 (v2.7.0)\"]\n       W3A[commerce-promotion-planner<br/>3대 프로모션 기획법]\n       W3B[commerce-repurchase-timer<br/>재구매 골든타임 3구간]\n       W3C[commerce-product-image-pipeline<br/>풀스택 4단계 체인]\n   end\n   subgraph Output[\"출력\"]\n       O1[노션 템플릿 8섹션]\n       O2[리텐션 cohort 분석]\n       O3[character → image → video → channel]\n   end\n   W3A --> O1\n   W3B --> O2\n   W3C --> O3\n   Result[134 → 137 스킬<br/>156 → 159 sync points]\n   Wave3 --> Result\n",
+        "sha256": "87e67d8ced1c5aaaed99ee38e034521d3a95011af8c8b28e435f82a54e51c3e0",
+        "action": "구조 유지·무채색 적용",
+        "explicit_colors": []
+      }
+    ],
+    "proposed_actions": [
+      "기존 Mermaid 구조 유지·무채색 적용"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.8.md",
+    "title": "v2.8.0 릴리스 노트",
+    "bytes_read": 11232,
+    "sha256": "f89a52cfa42726fb6b499590ae3417cbdedb47c6636fdd507adde20f8b0474c7",
+    "assets": [],
+    "existing_mermaid": [
+      {
+        "source": "flowchart TB\n   subgraph Wave4[\"Wave 4 — 신규 7 (v2.8.0)\"]\n       W4A[commerce-review-aggregator<br/>5채널 리뷰 통합]\n       W4B[commerce-voc-triage<br/>3축 KTAS 5단계]\n       W4C[commerce-subscription-strategist<br/>4 구독 모델]\n       W4D[commerce-influencer-collab<br/>5 티어 + 뒷광고 회피]\n       W4E[commerce-early-fan-builder<br/>충성 100명 30일]\n       W4F[commerce-trend-namer<br/>데이터랩 → 상품명]\n       W4G[commerce-season-calendar<br/>30+ 시즌 이벤트]\n   end\n   subgraph Cumulative[\"Wave 1~4 누적 결과\"]\n       C1[+14 스킬<br/>130 → 144]\n       C2[moai-seller<br/>22 → 35 (+13)]\n       C3[moai-media<br/>13 → 13 정리만]\n       C4[vault 1,329 노트<br/>한국 D2C 풀스택]\n   end\n   Wave4 --> Cumulative\n   Cumulative --> Result[(iii) 결정 완결<br/>166 sync points]\n",
+        "sha256": "405e718f0f3e5de1de95fd0ed2d2e183fb20a2cf43c4042bd9b2a2aca7c7ad43",
+        "action": "구조 유지·무채색 적용",
+        "explicit_colors": []
+      }
+    ],
+    "proposed_actions": [
+      "기존 Mermaid 구조 유지·무채색 적용"
+    ]
+  },
+  {
+    "path": "www/content/releases/archive/v2.9.md",
+    "title": "v2.9.0 릴리스 노트",
+    "bytes_read": 7615,
+    "sha256": "330255afe2750e2cd923cb3efcb1d01306f2ffe5b9b4f38274fe1dfc32be14bb",
+    "assets": [],
+    "existing_mermaid": [
+      {
+        "source": "flowchart TD\n   Input[\"사용자 자연어 한 줄<br/>+ AskUserQuestion<br/>프리셋·미세조정\"] --> Builder\n   subgraph Builder[\"Wave 5 — 빌더 3종\"]\n       B1[gpt-image-2-prompt<br/>OpenAI 6-Block]\n       B2[gemini-3-image-prompt<br/>Google 5-component]\n       B3[midjourney-v8-prompt<br/>키워드+--파라미터]\n   end\n   Builder --> Out1[\"ChatGPT · OpenAI API\"]\n   Builder --> Out2[\"Google AI Studio · Vertex AI\"]\n   Builder --> Out3[\"Discord /imagine · alpha.midjourney.com\"]\n   style Input fill:#fbf0dc,stroke:#c47b2a,color:#09110f\n   style Out1 fill:#e8f1ec,stroke:#265240,color:#09110f\n   style Out2 fill:#e8f1ec,stroke:#265240,color:#09110f\n   style Out3 fill:#e8f1ec,stroke:#265240,color:#09110f\n",
+        "sha256": "9e5942d05bbc8984683c183b0781ff33bcb432fc883f3b080e518aa9b0e22e50",
+        "action": "구조 유지·무채색 적용",
+        "explicit_colors": [
+          "#fbf0dc",
+          "#c47b2a",
+          "#09110f",
+          "#e8f1ec",
+          "#265240",
+          "#09110f",
+          "#e8f1ec",
+          "#265240",
+          "#09110f",
+          "#e8f1ec",
+          "#265240",
+          "#09110f"
+        ]
+      }
+    ],
+    "proposed_actions": [
+      "기존 Mermaid 구조 유지·무채색 적용"
+    ]
+  },
+  {
+    "path": "www/content/releases/docs-20261005.md",
+    "title": "문서 개편 · 2026.10.05",
+    "bytes_read": 1515,
+    "sha256": "91da9b8034e127f1fe704130755b97eb1d1f6edcf3d5a299e8cb3174e8c3c15f",
+    "assets": [],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "공통 사이트 디자인 적용 · 그림 자동 추가 없음"
+    ]
+  },
+  {
+    "path": "www/content/releases/v1.0.0.md",
+    "title": "v1.0.0 릴리스 노트",
+    "bytes_read": 4086,
+    "sha256": "f4fd36e3d04da868f0aa4d9051f63e80d526f211272bb4584c0eb6a661098945",
+    "assets": [],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "공통 사이트 디자인 적용 · 그림 자동 추가 없음"
+    ]
+  },
+  {
+    "path": "www/content/releases/v1.1.0.md",
+    "title": "v1.1.0 릴리스 노트",
+    "bytes_read": 4620,
+    "sha256": "66d6dc96dcbe6d5050e42df9bd7c7d9339cc98324de2758f5547dfc816724392",
+    "assets": [],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "공통 사이트 디자인 적용 · 그림 자동 추가 없음"
+    ]
+  },
+  {
+    "path": "www/content/releases/v1.2.0.md",
+    "title": "v1.2.0 릴리스 노트",
+    "bytes_read": 4348,
+    "sha256": "9b3a192d2bcbf08af405a7f9990c1b4a29c4b5eb426d958cbf49b2e0d458d14b",
+    "assets": [],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "공통 사이트 디자인 적용 · 그림 자동 추가 없음"
+    ]
+  },
+  {
+    "path": "www/content/releases/v1.2.1.md",
+    "title": "v1.2.1 릴리스 노트",
+    "bytes_read": 8536,
+    "sha256": "a79f6fb5660e038d791b56640c1e5c897a0ffec2652b68e39b0fdbc792d2c82c",
+    "assets": [],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "공통 사이트 디자인 적용 · 그림 자동 추가 없음"
+    ]
+  },
+  {
+    "path": "www/content/releases/v1.2.2.md",
+    "title": "v1.2.2 릴리스 노트",
+    "bytes_read": 5772,
+    "sha256": "5951aff79460722ae75e6f6e843f215bda8ada8f78142b114908bdc6982ba62d",
+    "assets": [],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "공통 사이트 디자인 적용 · 그림 자동 추가 없음"
+    ]
+  },
+  {
+    "path": "www/content/releases/v1.2.3.md",
+    "title": "v1.2.3 릴리스 노트",
+    "bytes_read": 9349,
+    "sha256": "0dedd919bebd372129b299e4e5eb0bb451e3601d07668945adcc648d1c5d3408",
+    "assets": [],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "공통 사이트 디자인 적용 · 그림 자동 추가 없음"
+    ]
+  },
+  {
+    "path": "www/content/releases/v1.2.4.md",
+    "title": "v1.2.4 릴리스 노트",
+    "bytes_read": 6583,
+    "sha256": "01a784d119bbb19e3f6f015dedd363404ba4118595dbb06913cdedb4b8d2ed71",
+    "assets": [],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "공통 사이트 디자인 적용 · 그림 자동 추가 없음"
+    ]
+  },
+  {
+    "path": "www/content/releases/v1.2.5.md",
+    "title": "v1.2.5 릴리스 노트",
+    "bytes_read": 7544,
+    "sha256": "735a3cbff4efb2d820a47c4f49eb032920cb83b3e9cf6e755c634a6a84fb27ed",
+    "assets": [],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "공통 사이트 디자인 적용 · 그림 자동 추가 없음"
+    ]
+  },
+  {
+    "path": "www/content/releases/v1.2.6.md",
+    "title": "v1.2.6 릴리스 노트",
+    "bytes_read": 5908,
+    "sha256": "e962dbba742ed832701848575a5df1e7309756159d788cac5f8fad5c64e80beb",
+    "assets": [],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "공통 사이트 디자인 적용 · 그림 자동 추가 없음"
+    ]
+  },
+  {
+    "path": "www/content/workflows/_index.md",
+    "title": "프로젝트 업무 진행",
+    "bytes_read": 1621,
+    "sha256": "e753ab6576ac5500c2fb87bd6aec8c47625baf8082865dcf321236c114dfe5a7",
+    "assets": [
+      "/infographics/pages/pm-setup.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "Mermaid 흐름"
+    ]
+  },
+  {
+    "path": "www/content/workflows/experts.md",
+    "title": "전문가 분업과 업무 순서",
+    "bytes_read": 2792,
+    "sha256": "214b4facb10c1a2bc0b3da80f96b6ca69aeed1b7bfc51a1db9029aee94625922",
+    "assets": [
+      "/infographics/expert-workflow-ko.png"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "Mermaid 분기·합류"
+    ]
+  },
+  {
+    "path": "www/content/workflows/first-project.md",
+    "title": "PM으로 첫 프로젝트 만들기",
+    "bytes_read": 3243,
+    "sha256": "fc7b44ca7453e1d3822b685bfccd5803a658d452a4783e620be1f4dbcdb42c94",
+    "assets": [
+      "/infographics/pages/pm-setup.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "Mermaid 흐름"
+    ]
+  },
+  {
+    "path": "www/content/workflows/permissions.md",
+    "title": "파일과 권한 확인",
+    "bytes_read": 2657,
+    "sha256": "4dcb0192fc30fa61a5ca9628d3da7d508153746c9bf4d8be71989372cd1e8ef3",
+    "assets": [
+      "/infographics/pages/permissions.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "Mermaid 관계"
+    ]
+  },
+  {
+    "path": "www/content/workflows/reuse.md",
+    "title": "반복 업무와 개선",
+    "bytes_read": 2592,
+    "sha256": "e174cbae69470868d612606a6b12b2fb4bbf799154d6fb67fbacdf5e3f91dbfa",
+    "assets": [
+      "/infographics/pages/reuse.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "Mermaid 순환"
+    ]
+  },
+  {
+    "path": "www/content/workflows/review.md",
+    "title": "결과 검토와 수정",
+    "bytes_read": 2203,
+    "sha256": "1fe228d17194dcf014a620c65561517cc792aa2c045ec41789df6698083fc212",
+    "assets": [
+      "/infographics/pages/review.svg"
+    ],
+    "existing_mermaid": [],
+    "proposed_actions": [
+      "HTML 본문 통합"
+    ]
+  }
+]

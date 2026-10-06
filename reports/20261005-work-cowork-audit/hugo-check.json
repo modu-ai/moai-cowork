@@ -1,0 +1,15 @@
+{
+  "command": [
+    "hugo",
+    "--source",
+    "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www",
+    "--destination",
+    "/var/folders/kt/nq2q81cn4gx3y41r7x47ggmr0000gn/T/moai-hugo-audit-240b55mf/public",
+    "--cacheDir",
+    "/var/folders/kt/nq2q81cn4gx3y41r7x47ggmr0000gn/T/moai-hugo-audit-240b55mf/cache",
+    "--noBuildLock"
+  ],
+  "head": "2c3cef1d24e88b3bfe8db61c713ffae317b346d0",
+  "exit_code": 0,
+  "output_dir": "/var/folders/kt/nq2q81cn4gx3y41r7x47ggmr0000gn/T/moai-hugo-audit-240b55mf/public"
+}

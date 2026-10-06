@@ -1,0 +1,41 @@
+schema_version: '1.1'
+name: ai-diagnostic--TC-001
+description: 웹 앱 성능 이슈에 대한 4차원 진단과 원인 가설 검토
+runs: 1
+tags:
+- generated
+- ai-diagnostic
+execution:
+  prompt: "다음 프로젝트 업무를 수행해 주세요. 미확인 정보는 만들지 말고 필요한 맥락을 요청하세요.\n\n{\n  \"problem_description\"\
+    : \"웹 앱 로그인 속도가 지난 2주간 0.5초에서 4초로 악화됨.\\n특히 새벽 1시~3시에 심각 (최대 10초).\\n고객센터 문의 150건/일\
+    \ 접수 중 40%가 로그인 관련.\\n\",\n  \"context\": {\n    \"system_type\": \"Web Application\
+    \ (React + FastAPI)\",\n    \"recent_changes\": \"2주 전 인증 서버 리뉴얼 (JWT 도입)\",\n\
+    \    \"environment\": \"AWS, PostgreSQL, Redis\",\n    \"team_size\": \"프론트엔드\
+    \ 3명, 백엔드 4명\"\n  },\n  \"symptoms\": [\n    \"로그인 API 응답 시간 0.5초 → 4초\",\n  \
+    \  \"새벽 1-3시에 최대 10초 지연\",\n    \"고객센터 문의 150건/일 중 로그인 관련 40%\"\n  ]\n}"
+  allowed_tools:
+  - Read
+  - Glob
+  - Grep
+  - Skill
+  max_turns: 12
+  timeout_seconds: 180
+graders:
+- name: skill-fired
+  type: tool_used
+  tool: Skill
+  input_match: '"skill"\s*:\s*"(?:[\w-]+:)?ai\-diagnostic"'
+- name: quality
+  type: llm
+  focus: trace
+  criteria: "입력 사실·제약과 아래 사례의 기대 결과를 대조한다. 모든 적용 가능한 조건을 만족하면 PASS, 하나라도 위반하면 FAIL이다.\
+    \ false 값은 해당 동작·주장이 없어야 한다는 뜻이다. 정보·도구·fixture가 부족하면 모델이 이를 명시했는지 확인하되, 원래 조건을\
+    \ 충족하지 못한 실행을 임의로 PASS로 바꾸지 않는다. 단어가 있다는 이유만으로 사실성·산술·법적 판단·의미 보존을 통과시키지 않는다.\
+    \ 원격 호출·파일 생성·독립 검수의 주장은 실제 trace와 산출물로 확인한다.\n\n{\n  \"expected_output\": {\n\
+    \    \"contains_sections\": [\n      \"증상 요약\",\n      \"가설 목록\",\n      \"차원별\
+    \ 진단 결과\",\n      \"원인 분석\",\n      \"해결책 우선순위\",\n      \"실행 계획\"\n    ],\n \
+    \   \"contains_dimensions\": [\n      \"기술 차원\",\n      \"프로세스 차원\",\n      \"\
+    사람 차원\",\n      \"비즈니스 차원\"\n    ],\n    \"contains_keywords\": [\n      \"JWT\"\
+    ,\n      \"응답 시간\",\n      \"로그인\"\n    ],\n    \"has_hypotheses_with_priority\"\
+    : true,\n    \"has_solutions_with_priority\": true,\n    \"distinguishes_hypotheses_from_verified_causes\"\
+    : true\n  }\n}"

@@ -2,7 +2,8 @@
 name: consult-workflow
 description: |
   사업계획서·시장 분석·지원사업·상권 타당성처럼 여러 경영 컨설팅 산출물이 필요한 요청에서 자료를 확인하고 moai-consultant의 consult-* 스킬로 작업을 연결합니다.
-version: "1.0.0"
+metadata:
+  version: "1.0.1"
 ---
 
 # 경영 컨설팅 작업 경로

@@ -1,0 +1,25 @@
+schema_version: '1.1'
+name: missing-context
+runs: 1
+tags:
+- pm
+- regression
+execution:
+  prompt: 새 프로젝트 시작해줘. 어떤 일을 할지는 아직 못 정했어. 필요한 맥락을 물어봐 줘.
+  max_turns: 12
+  timeout_seconds: 180
+  allowed_tools:
+  - Read
+  - Glob
+  - Grep
+  - Skill
+graders:
+- name: skill-fired
+  type: tool_used
+  tool: Skill
+  input_match: '"skill"\s*:\s*"(?:[\w-]+:)?project"'
+- name: quality
+  type: llm
+  focus: trace
+  criteria: 프로젝트 목적과 산출물을 확인하는 질문을 만든다. 사용자 답이 없는데 지침 적용·설치·읽기·업무 완료를 주장하면 FAIL. 예시
+    값을 실제 답으로 저장해도 FAIL.

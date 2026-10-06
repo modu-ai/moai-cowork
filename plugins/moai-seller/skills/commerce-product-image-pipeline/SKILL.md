@@ -4,7 +4,8 @@ description: >
   상품 이미지와 선택적 영상을 제작하고 사용자가 지정한 채널에 맞게 검수하는 워크플로입니다.
   ChatGPT Work에서는 노출된 기본 이미지 도구를 우선 확인합니다. Images 2.5 요청은 현재 세션의 모델을 확인하고, Flare·Sunburst API 모델 ID 지정 요청은 별도 API 경로를 확인합니다.
   Higgsfield를 요청하면 현재 호스트의 공식 연결에서 노출된 도구를 확인해 사용합니다.
-version: "1.1.4"
+metadata:
+  version: "1.1.5"
 ---
 
 # 상품 이미지·영상 제작

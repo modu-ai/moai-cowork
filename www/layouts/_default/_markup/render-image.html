@@ -1,0 +1,9 @@
+{{- $pixel := strings.HasPrefix .Destination "/infographics/kindle/" -}}
+<figure class="lesson-figure{{ if $pixel }} pixel-figure{{ end }}">
+  {{ if $pixel }}<div class="figure-scroll" role="region" aria-label="{{ .Text }}" tabindex="0">{{ end }}
+  <a href="{{ .Destination | safeURL }}" target="_blank" rel="noopener" aria-label="그림 크게 보기: {{ .Text }}">
+    <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" loading="lazy" decoding="async" />
+  </a>
+  {{ if $pixel }}</div><a class="figure-open" href="{{ .Destination | safeURL }}" target="_blank" rel="noopener">그림 크게 보기</a>{{ end }}
+  {{ with .Title }}<figcaption>{{ . }}</figcaption>{{ end }}
+</figure>

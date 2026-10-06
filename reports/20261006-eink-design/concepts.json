@@ -1,0 +1,1142 @@
+[
+  {
+    "key": "learning-path",
+    "title": "처음부터 내 업무 적용까지",
+    "action": "HTML 본문 통합",
+    "reason": "짧은 정의·비교·단순 순서는 기존 본문의 표·목록으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/best-practices.md",
+      "www/content/getting-started/_index.md",
+      "www/content/help/source-index.md"
+    ],
+    "assets": [
+      "/infographics/pages/learning-path.svg",
+      "/infographics/pages/learning-path-mobile.svg"
+    ]
+  },
+  {
+    "key": "environment",
+    "title": "앱 이름보다 실제 접근 범위 확인",
+    "action": "HTML 본문 통합",
+    "reason": "짧은 정의·비교·단순 순서는 기존 본문의 표·목록으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/getting-started/choose-app.md",
+      "www/content/help/about-claude.md"
+    ],
+    "assets": [
+      "/infographics/pages/environment.svg",
+      "/infographics/pages/environment-mobile.svg"
+    ]
+  },
+  {
+    "key": "questions",
+    "title": "질문을 받았을 때 이렇게 답하세요",
+    "action": "Mermaid 분기",
+    "reason": "필수 맥락이 없을 때 보류하고 질문하는 분기와 독립 작업 경로를 표시한다.",
+    "pages": [
+      "www/content/getting-started/questions.md"
+    ],
+    "assets": [
+      "/infographics/pages/questions.svg",
+      "/infographics/pages/questions-mobile.svg"
+    ]
+  },
+  {
+    "key": "report-status",
+    "title": "같은 숫자라도 상태가 다릅니다",
+    "action": "HTML 본문 통합",
+    "reason": "짧은 정의·비교·단순 순서는 기존 본문의 표·목록으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/getting-started/first-task.md",
+      "www/content/learn/03-first-result.md"
+    ],
+    "assets": [
+      "/infographics/pages/report-status.svg",
+      "/infographics/pages/report-status-mobile.svg"
+    ]
+  },
+  {
+    "key": "install-states",
+    "title": "설치부터 실행까지, 증거가 다릅니다",
+    "action": "HTML 본문 통합",
+    "reason": "짧은 정의·비교·단순 순서는 기존 본문의 표·목록으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/advanced/plugins.md",
+      "www/content/learn/04-skills-plugins.md"
+    ],
+    "assets": [
+      "/infographics/pages/install-states.svg",
+      "/infographics/pages/install-states-mobile.svg"
+    ]
+  },
+  {
+    "key": "pm-setup",
+    "title": "내 프로젝트에 맞는 지침 만들기",
+    "action": "Mermaid 흐름",
+    "reason": "질문 → 역할·스킬 매핑 → 지침 저장 → 실제 참조 확인의 의존 관계를 표시한다.",
+    "pages": [
+      "www/content/cookbook/projects/_index.md",
+      "www/content/moai-agents/pm.md",
+      "www/content/workflows/_index.md",
+      "www/content/workflows/first-project.md"
+    ],
+    "assets": [
+      "/infographics/pages/pm-setup.svg",
+      "/infographics/pages/pm-setup-mobile.svg"
+    ]
+  },
+  {
+    "key": "review",
+    "title": "완료 보고보다 결과물을 확인하세요",
+    "action": "HTML 본문 통합",
+    "reason": "짧은 정의·비교·단순 순서는 기존 본문의 표·목록으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/workflows/review.md"
+    ],
+    "assets": [
+      "/infographics/pages/review.svg",
+      "/infographics/pages/review-mobile.svg"
+    ]
+  },
+  {
+    "key": "reuse",
+    "title": "잘된 업무를 반복하는 순서",
+    "action": "Mermaid 순환",
+    "reason": "검토 결과를 지침에 반영하고 다시 실행하는 반복 경로를 표시한다.",
+    "pages": [
+      "www/content/cookbook/automation-recipes.md",
+      "www/content/learn/06-review-reuse.md",
+      "www/content/workflows/reuse.md"
+    ],
+    "assets": [
+      "/infographics/pages/reuse.svg",
+      "/infographics/pages/reuse-mobile.svg"
+    ]
+  },
+  {
+    "key": "permissions",
+    "title": "원본에서 결과까지 접근을 확인",
+    "action": "Mermaid 관계",
+    "reason": "프로젝트와 허용한 폴더의 경계, 읽기와 별도 결과 저장을 표시한다.",
+    "pages": [
+      "www/content/workflows/permissions.md"
+    ],
+    "assets": [
+      "/infographics/pages/permissions.svg",
+      "/infographics/pages/permissions-mobile.svg"
+    ]
+  },
+  {
+    "key": "account",
+    "title": "세 가지 계정 범위를 나눠 보세요",
+    "action": "HTML 본문 통합",
+    "reason": "짧은 정의·비교·단순 순서는 기존 본문의 표·목록으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/help/account.md"
+    ],
+    "assets": [
+      "/infographics/pages/account.svg",
+      "/infographics/pages/account-mobile.svg"
+    ]
+  },
+  {
+    "key": "cost",
+    "title": "무료 패키지와 서비스 비용은 별개",
+    "action": "HTML 본문 통합",
+    "reason": "짧은 정의·비교·단순 순서는 기존 본문의 표·목록으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/help/plans-billing.md"
+    ],
+    "assets": [
+      "/infographics/pages/cost.svg",
+      "/infographics/pages/cost-mobile.svg"
+    ]
+  },
+  {
+    "key": "handoff",
+    "title": "새 작업에 넘길 맥락은 직접 남기기",
+    "action": "Mermaid 인계",
+    "reason": "이전 작업의 결과·미정 항목이 다음 작업의 입력이 되는 인계를 표시한다.",
+    "pages": [
+      "www/content/help/conversations.md"
+    ],
+    "assets": [
+      "/infographics/pages/handoff.svg",
+      "/infographics/pages/handoff-mobile.svg"
+    ]
+  },
+  {
+    "key": "personalization",
+    "title": "기준마다 저장할 곳이 다릅니다",
+    "action": "HTML 본문 통합",
+    "reason": "짧은 정의·비교·단순 순서는 기존 본문의 표·목록으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/help/personalization.md"
+    ],
+    "assets": [
+      "/infographics/pages/personalization.svg",
+      "/infographics/pages/personalization-mobile.svg"
+    ]
+  },
+  {
+    "key": "attribution",
+    "title": "출처와 권리를 함께 남기세요",
+    "action": "HTML 본문 통합",
+    "reason": "짧은 정의·비교·단순 순서는 기존 본문의 표·목록으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/help/attribution.md"
+    ],
+    "assets": [
+      "/infographics/pages/attribution.svg",
+      "/infographics/pages/attribution-mobile.svg"
+    ]
+  },
+  {
+    "key": "office",
+    "title": "Office 작업의 세 가지 방식",
+    "action": "HTML 본문 통합",
+    "reason": "짧은 정의·비교·단순 순서는 기존 본문의 표·목록으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/templates/_index.md",
+      "www/content/help/office/_index.md",
+      "www/content/help/office/microsoft-365.md"
+    ],
+    "assets": [
+      "/infographics/pages/office.svg",
+      "/infographics/pages/office-mobile.svg"
+    ]
+  },
+  {
+    "key": "limits",
+    "title": "큰 작업을 확인 가능한 단위로 나누기",
+    "action": "Mermaid 분기·합류",
+    "reason": "작업을 분리하되 선행 결과가 필요한 작업은 합류 뒤에 시작하도록 표시한다.",
+    "pages": [
+      "www/content/help/usage-limits.md"
+    ],
+    "assets": [
+      "/infographics/pages/limits.svg",
+      "/infographics/pages/limits-mobile.svg"
+    ]
+  },
+  {
+    "key": "troubleshooting",
+    "title": "멈춘 단계를 찾고 그 부분부터 확인",
+    "action": "Mermaid 분기",
+    "reason": "설치·노출·인증·실행 중 어느 단계가 막혔는지 조건별로 표시한다.",
+    "pages": [
+      "www/content/cookbook/troubleshooting.md",
+      "www/content/help/_index.md",
+      "www/content/help/troubleshooting.md",
+      "www/content/plugins/mcp/troubleshooting.md"
+    ],
+    "assets": [
+      "/infographics/pages/troubleshooting.svg",
+      "/infographics/pages/troubleshooting-mobile.svg"
+    ]
+  },
+  {
+    "key": "credentials",
+    "title": "계정별 인증 정보와 조회를 분리",
+    "action": "Mermaid 관계",
+    "reason": "사용자·서비스·인증 저장 범위의 대응 관계를 표시한다. 비밀 값은 넣지 않는다.",
+    "pages": [
+      "www/content/plugins/mcp/credentials.md"
+    ],
+    "assets": [
+      "/infographics/pages/credentials.svg",
+      "/infographics/pages/credentials-mobile.svg"
+    ]
+  },
+  {
+    "key": "server-modes",
+    "title": "MCP: 실행 위치와 연결 방식을 따로 확인",
+    "action": "Mermaid 관계",
+    "reason": "실행 위치와 연결 방식을 서로 다른 축으로 표시한다.",
+    "pages": [
+      "www/content/plugins/mcp/_index.md"
+    ],
+    "assets": [
+      "/infographics/pages/server-modes.svg",
+      "/infographics/pages/server-modes-mobile.svg"
+    ]
+  },
+  {
+    "key": "connector",
+    "title": "외부 연결을 확인하는 네 단계",
+    "action": "HTML 본문 통합",
+    "reason": "짧은 정의·비교·단순 순서는 기존 본문의 표·목록으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/plugins/mcp/install.md"
+    ],
+    "assets": [
+      "/infographics/pages/connector.svg",
+      "/infographics/pages/connector-mobile.svg"
+    ]
+  },
+  {
+    "key": "skills-agents",
+    "title": "업무 방법과 실행 역할을 구분",
+    "action": "HTML 본문 통합",
+    "reason": "짧은 정의·비교·단순 순서는 기존 본문의 표·목록으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/plugins/agents.md"
+    ],
+    "assets": [
+      "/infographics/pages/skills-agents.svg",
+      "/infographics/pages/skills-agents-mobile.svg"
+    ]
+  },
+  {
+    "key": "team-handoff",
+    "title": "다음 담당자에게 전달할 네 묶음",
+    "action": "HTML 본문 통합",
+    "reason": "짧은 정의·비교·단순 순서는 기존 본문의 표·목록으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/skill-chaining.md",
+      "www/content/plugins/teams.md"
+    ],
+    "assets": [
+      "/infographics/pages/team-handoff.svg",
+      "/infographics/pages/team-handoff-mobile.svg"
+    ]
+  },
+  {
+    "key": "verification",
+    "title": "어떤 확인을 했는지 범위를 밝히기",
+    "action": "HTML 본문 통합",
+    "reason": "짧은 정의·비교·단순 순서는 기존 본문의 표·목록으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/advanced/_index.md",
+      "www/content/advanced/verification.md"
+    ],
+    "assets": [
+      "/infographics/pages/verification.svg",
+      "/infographics/pages/verification-mobile.svg"
+    ]
+  },
+  {
+    "key": "authoring",
+    "title": "온라인 강의 한 페이지를 만드는 순서",
+    "action": "HTML 본문 통합",
+    "reason": "짧은 정의·비교·단순 순서는 기존 본문의 표·목록으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/advanced/documentation.md"
+    ],
+    "assets": [
+      "/infographics/pages/authoring.svg",
+      "/infographics/pages/authoring-mobile.svg"
+    ]
+  },
+  {
+    "key": "teaching",
+    "title": "설명에서 직접 수행까지 이어지는 수업",
+    "action": "HTML 본문 통합",
+    "reason": "짧은 정의·비교·단순 순서는 기존 본문의 표·목록으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/learn/teaching-guide.md"
+    ],
+    "assets": [
+      "/infographics/pages/teaching.svg",
+      "/infographics/pages/teaching-mobile.svg"
+    ]
+  },
+  {
+    "key": "choose-recipe",
+    "title": "결과물로 실습과 역할을 고르세요",
+    "action": "HTML 본문 통합",
+    "reason": "짧은 정의·비교·단순 순서는 기존 본문의 표·목록으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/_index.md",
+      "www/content/cookbook/design/_index.md",
+      "www/content/cookbook/guides/_index.md",
+      "www/content/cookbook/tracks/_index.md",
+      "www/content/moai-agents/_index.md",
+      "www/content/plugins/_index.md"
+    ],
+    "assets": [
+      "/infographics/pages/choose-recipe.svg",
+      "/infographics/pages/choose-recipe-mobile.svg"
+    ]
+  },
+  {
+    "key": "higgsfield",
+    "title": "생성 도구 연결과 제작을 분리",
+    "action": "HTML 본문 통합",
+    "reason": "짧은 정의·비교·단순 순서는 기존 본문의 표·목록으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/plugins/higgsfield-setup.md"
+    ],
+    "assets": [
+      "/infographics/pages/higgsfield.svg",
+      "/infographics/pages/higgsfield-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-blog-pipeline",
+    "title": "블로그 파이프라인 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/blog-pipeline.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-blog-pipeline.svg",
+      "/infographics/pages/example-cookbook-blog-pipeline-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-business-plan",
+    "title": "사업계획서 자동화 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/business-plan.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-business-plan.svg",
+      "/infographics/pages/example-cookbook-business-plan-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-contract-review",
+    "title": "계약서 검토 리포트 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/contract-review.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-contract-review.svg",
+      "/infographics/pages/example-cookbook-contract-review-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-design-presentation",
+    "title": "프레젠테이션 디자인 원칙 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/design/presentation.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-design-presentation.svg",
+      "/infographics/pages/example-cookbook-design-presentation-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-guides-content-marketing",
+    "title": "콘텐츠 마케팅 전략 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/guides/content-marketing.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-guides-content-marketing.svg",
+      "/infographics/pages/example-cookbook-guides-content-marketing-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-guides-contract-drafting",
+    "title": "계약서 작성 가이드 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/guides/contract-drafting.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-guides-contract-drafting.svg",
+      "/infographics/pages/example-cookbook-guides-contract-drafting-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-guides-data-analysis",
+    "title": "데이터 분석 가이드 한눈에 보기",
+    "action": "SVG 차트 + HTML 표",
+    "reason": "네 칸 설명은 본문으로 통합하고 분모가 다른 완료율만 눈금·값이 있는 차트로 남긴다.",
+    "pages": [
+      "www/content/cookbook/guides/data-analysis.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-guides-data-analysis.svg",
+      "/infographics/pages/example-cookbook-guides-data-analysis-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-guides-data-visualization",
+    "title": "시각화 최적화 원칙 한눈에 보기",
+    "action": "SVG 차트 + HTML 표",
+    "reason": "네 칸 설명은 본문으로 통합하고 분모가 다른 완료율만 눈금·값이 있는 차트로 남긴다.",
+    "pages": [
+      "www/content/cookbook/guides/data-visualization.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-guides-data-visualization.svg",
+      "/infographics/pages/example-cookbook-guides-data-visualization-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-guides-funding",
+    "title": "투자 유치 가이드 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/guides/funding.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-guides-funding.svg",
+      "/infographics/pages/example-cookbook-guides-funding-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-guides-legal-risk",
+    "title": "법률 리스크 관리 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/guides/legal-risk.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-guides-legal-risk.svg",
+      "/infographics/pages/example-cookbook-guides-legal-risk-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-guides-social-media",
+    "title": "SNS 최적화 가이드 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/guides/social-media.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-guides-social-media.svg",
+      "/infographics/pages/example-cookbook-guides-social-media-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-ir-deck",
+    "title": "IR 덱 제작 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/ir-deck.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-ir-deck.svg",
+      "/infographics/pages/example-cookbook-ir-deck-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-legal-nda-batch",
+    "title": "NDA 일괄 검토 파이프라인 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/legal-nda-batch.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-legal-nda-batch.svg",
+      "/infographics/pages/example-cookbook-legal-nda-batch-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-projects-brand-to-landing",
+    "title": "브랜드에서 랜딩 페이지까지 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/projects/brand-to-landing.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-projects-brand-to-landing.svg",
+      "/infographics/pages/example-cookbook-projects-brand-to-landing-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-projects-career-transition-4weeks",
+    "title": "이직 준비 프로젝트 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/projects/career-transition-4weeks.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-projects-career-transition-4weeks.svg",
+      "/infographics/pages/example-cookbook-projects-career-transition-4weeks-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-projects-contract-risk-report",
+    "title": "계약서 검토와 리스크 보고 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/projects/contract-risk-report.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-projects-contract-risk-report.svg",
+      "/infographics/pages/example-cookbook-projects-contract-risk-report-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-projects-gov-grant-application",
+    "title": "정부 지원사업 신청서 완성하기 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/projects/gov-grant-application.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-projects-gov-grant-application.svg",
+      "/infographics/pages/example-cookbook-projects-gov-grant-application-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-projects-hiring-pipeline",
+    "title": "채용 공고부터 오퍼레터까지 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/projects/hiring-pipeline.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-projects-hiring-pipeline.svg",
+      "/infographics/pages/example-cookbook-projects-hiring-pipeline-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-projects-public-data-report",
+    "title": "공공데이터로 시장 보고서 만들기 한눈에 보기",
+    "action": "SVG 차트 + HTML 표",
+    "reason": "네 칸 설명은 본문으로 통합하고 분모가 다른 완료율만 눈금·값이 있는 차트로 남긴다.",
+    "pages": [
+      "www/content/cookbook/projects/public-data-report.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-projects-public-data-report.svg",
+      "/infographics/pages/example-cookbook-projects-public-data-report-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-projects-smartstore-launch",
+    "title": "스마트스토어 신제품 런칭하기 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/projects/smartstore-launch.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-projects-smartstore-launch.svg",
+      "/infographics/pages/example-cookbook-projects-smartstore-launch-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-projects-sns-content-month",
+    "title": "한 달치 SNS 콘텐츠 캘린더 만들기 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/projects/sns-content-month.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-projects-sns-content-month.svg",
+      "/infographics/pages/example-cookbook-projects-sns-content-month-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-projects-startup-feasibility",
+    "title": "상권분석으로 창업 타당성 검증하기 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/projects/startup-feasibility.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-projects-startup-feasibility.svg",
+      "/infographics/pages/example-cookbook-projects-startup-feasibility-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-projects-voc-to-faq",
+    "title": "VOC 분석으로 FAQ 지식베이스 구축하기 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/projects/voc-to-faq.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-projects-voc-to-faq.svg",
+      "/infographics/pages/example-cookbook-projects-voc-to-faq-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-projects-webnovel-project",
+    "title": "웹소설 기획부터 연재·표지까지 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/projects/webnovel-project.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-projects-webnovel-project.svg",
+      "/infographics/pages/example-cookbook-projects-webnovel-project-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-projects-weekly-report-routine",
+    "title": "주간보고 자동화 루틴 만들기 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/projects/weekly-report-routine.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-projects-weekly-report-routine.svg",
+      "/infographics/pages/example-cookbook-projects-weekly-report-routine-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-report-automation",
+    "title": "주간 보고서 자동화 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/report-automation.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-report-automation.svg",
+      "/infographics/pages/example-cookbook-report-automation-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-templates-compliance",
+    "title": "컴플라이언스 체크리스트 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/templates/compliance.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-templates-compliance.svg",
+      "/infographics/pages/example-cookbook-templates-compliance-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-templates-email",
+    "title": "이메일 마케팅 템플릿 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/templates/email.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-templates-email.svg",
+      "/infographics/pages/example-cookbook-templates-email-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-templates-excel",
+    "title": "엑셀 고급 기법 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/templates/excel.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-templates-excel.svg",
+      "/infographics/pages/example-cookbook-templates-excel-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-templates-financial",
+    "title": "재무 모델링 템플릿 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/templates/financial.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-templates-financial.svg",
+      "/infographics/pages/example-cookbook-templates-financial-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-tracks-track-advertising",
+    "title": "광고 트랙 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/tracks/track-advertising.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-tracks-track-advertising.svg",
+      "/infographics/pages/example-cookbook-tracks-track-advertising-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-tracks-track-appendix",
+    "title": "부록 트랙 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/tracks/track-appendix.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-tracks-track-appendix.svg",
+      "/infographics/pages/example-cookbook-tracks-track-appendix-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-tracks-track-commerce",
+    "title": "이커머스 트랙 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/tracks/track-commerce.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-tracks-track-commerce.svg",
+      "/infographics/pages/example-cookbook-tracks-track-commerce-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-tracks-track-content",
+    "title": "콘텐츠 트랙 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/tracks/track-content.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-tracks-track-content.svg",
+      "/infographics/pages/example-cookbook-tracks-track-content-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-tracks-track-data",
+    "title": "데이터 트랙 한눈에 보기",
+    "action": "SVG 차트 + HTML 표",
+    "reason": "네 칸 설명은 본문으로 통합하고 분모가 다른 완료율만 눈금·값이 있는 차트로 남긴다.",
+    "pages": [
+      "www/content/cookbook/tracks/track-data.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-tracks-track-data.svg",
+      "/infographics/pages/example-cookbook-tracks-track-data-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-tracks-track-documents",
+    "title": "문서 트랙 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/tracks/track-documents.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-tracks-track-documents.svg",
+      "/infographics/pages/example-cookbook-tracks-track-documents-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-tracks-track-finance",
+    "title": "재무 트랙 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/tracks/track-finance.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-tracks-track-finance.svg",
+      "/infographics/pages/example-cookbook-tracks-track-finance-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-tracks-track-hr",
+    "title": "HR·커리어 트랙 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/tracks/track-hr.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-tracks-track-hr.svg",
+      "/infographics/pages/example-cookbook-tracks-track-hr-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-tracks-track-legal",
+    "title": "법률 트랙 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/tracks/track-legal.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-tracks-track-legal.svg",
+      "/infographics/pages/example-cookbook-tracks-track-legal-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-tracks-track-marketing",
+    "title": "마케팅 트랙 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/tracks/track-marketing.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-tracks-track-marketing.svg",
+      "/infographics/pages/example-cookbook-tracks-track-marketing-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-tracks-track-operations",
+    "title": "운영 트랙 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/tracks/track-operations.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-tracks-track-operations.svg",
+      "/infographics/pages/example-cookbook-tracks-track-operations-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-cookbook-tracks-track-product",
+    "title": "제품 개발 트랙 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/cookbook/tracks/track-product.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-cookbook-tracks-track-product.svg",
+      "/infographics/pages/example-cookbook-tracks-track-product-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-moai-agents-accountant",
+    "title": "재무·세무 담당 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/moai-agents/accountant.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-moai-agents-accountant.svg",
+      "/infographics/pages/example-moai-agents-accountant-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-moai-agents-analyst",
+    "title": "데이터 애널리스트 한눈에 보기",
+    "action": "SVG 차트 + HTML 표",
+    "reason": "네 칸 설명은 본문으로 통합하고 분모가 다른 완료율만 눈금·값이 있는 차트로 남긴다.",
+    "pages": [
+      "www/content/moai-agents/analyst.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-moai-agents-analyst.svg",
+      "/infographics/pages/example-moai-agents-analyst-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-moai-agents-career",
+    "title": "커리어코치 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/moai-agents/career.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-moai-agents-career.svg",
+      "/infographics/pages/example-moai-agents-career-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-moai-agents-consultant",
+    "title": "컨설턴트 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/moai-agents/consultant.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-moai-agents-consultant.svg",
+      "/infographics/pages/example-moai-agents-consultant-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-moai-agents-coworker",
+    "title": "코워커 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/moai-agents/coworker.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-moai-agents-coworker.svg",
+      "/infographics/pages/example-moai-agents-coworker-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-moai-agents-cs",
+    "title": "CS매니저 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/moai-agents/cs.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-moai-agents-cs.svg",
+      "/infographics/pages/example-moai-agents-cs-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-moai-agents-designer",
+    "title": "디자이너 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/moai-agents/designer.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-moai-agents-designer.svg",
+      "/infographics/pages/example-moai-agents-designer-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-moai-agents-lawyer",
+    "title": "법무 담당 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/moai-agents/lawyer.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-moai-agents-lawyer.svg",
+      "/infographics/pages/example-moai-agents-lawyer-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-moai-agents-marketer",
+    "title": "마케터 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/moai-agents/marketer.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-moai-agents-marketer.svg",
+      "/infographics/pages/example-moai-agents-marketer-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-moai-agents-media",
+    "title": "미디어 크리에이터 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/moai-agents/media.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-moai-agents-media.svg",
+      "/infographics/pages/example-moai-agents-media-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-moai-agents-officer",
+    "title": "사무관 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/moai-agents/officer.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-moai-agents-officer.svg",
+      "/infographics/pages/example-moai-agents-officer-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-moai-agents-recruiter",
+    "title": "인사·채용 담당 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/moai-agents/recruiter.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-moai-agents-recruiter.svg",
+      "/infographics/pages/example-moai-agents-recruiter-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-moai-agents-seller",
+    "title": "셀러 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/moai-agents/seller.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-moai-agents-seller.svg",
+      "/infographics/pages/example-moai-agents-seller-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-moai-agents-story",
+    "title": "스토리 크리에이터 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/moai-agents/story.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-moai-agents-story.svg",
+      "/infographics/pages/example-moai-agents-story-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-moai-agents-threads-poster",
+    "title": "SNS 크리에이터 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/moai-agents/threads-poster.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-moai-agents-threads-poster.svg",
+      "/infographics/pages/example-moai-agents-threads-poster-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-moai-agents-tutor",
+    "title": "튜터 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/moai-agents/tutor.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-moai-agents-tutor.svg",
+      "/infographics/pages/example-moai-agents-tutor-mobile.svg"
+    ]
+  },
+  {
+    "key": "example-moai-agents-writer",
+    "title": "작가 한눈에 보기",
+    "action": "HTML 본문 통합",
+    "reason": "준비 자료·작업·검토·결과 설명과 예제는 선택·복사 가능한 본문으로 통합하고 중복 그림을 제거한다.",
+    "pages": [
+      "www/content/moai-agents/writer.md"
+    ],
+    "assets": [
+      "/infographics/pages/example-moai-agents-writer.svg",
+      "/infographics/pages/example-moai-agents-writer-mobile.svg"
+    ]
+  }
+]

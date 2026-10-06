@@ -1,0 +1,127 @@
+[
+  {
+    "path": "www/static/infographics/attribution-flow.png",
+    "bytes": 63176,
+    "sha256": "be630096de2e3936cd4b7e7dbb8aca62f030ee08a56c2a3d4d1d6a9b6871bcb6"
+  },
+  {
+    "path": "www/static/infographics/core-concepts.png",
+    "bytes": 82493,
+    "sha256": "0854c9756bc2f2c4a9f82109ea489dd8bc9b6cac9a3935ea7ccf0a946d29c31c"
+  },
+  {
+    "path": "www/static/infographics/coworker-concept.png",
+    "bytes": 92751,
+    "sha256": "8a5301b667506d7857916167a95335a33c8760cc0dcdb427cd0895d1d3426b20"
+  },
+  {
+    "path": "www/static/infographics/coworker-family-map.png",
+    "bytes": 104766,
+    "sha256": "465a5d5435c5cbf6fec49db2dcf37f061237e5c796f6501dafc92528cd21b3fb"
+  },
+  {
+    "path": "www/static/infographics/docsite-map.png",
+    "bytes": 105383,
+    "sha256": "0f62ffd462f54cb2b0829d17a5e72d3d319dbf0af04e169d37891edf7e878daa"
+  },
+  {
+    "path": "www/static/infographics/expert-workflow-ko.png",
+    "bytes": 1538615,
+    "sha256": "770c37fc0fdb3db598c4ef11929c9229157bd3bb3c6a46a5822610901b91670f"
+  },
+  {
+    "path": "www/static/infographics/first-workflow-ko.png",
+    "bytes": 1262490,
+    "sha256": "359afbf5467f95b53ac1b1df65161956394687507839c592bec30ef9f126a075"
+  },
+  {
+    "path": "www/static/infographics/install-3steps.png",
+    "bytes": 94276,
+    "sha256": "352fac5684cf72aca16ea82c7028608b8af391d09e5540b7b33d7deaed3bc6f8"
+  },
+  {
+    "path": "www/static/infographics/install-manage-flow.png",
+    "bytes": 119159,
+    "sha256": "7c3ba956a6be88015dcd0a6111b195de3ef4e27cee18f421d71cc5a49b8a14b7"
+  },
+  {
+    "path": "www/static/infographics/mcp-bridge.png",
+    "bytes": 120437,
+    "sha256": "c9411faddc36d9d40395218942f93d138a380380d85b5c131568bdb9bdc3e453"
+  },
+  {
+    "path": "www/static/infographics/project-concepts-ko.png",
+    "bytes": 1417960,
+    "sha256": "1aba5b64dc1197254bf78e116d73ee977a257f8177052723ce4bd57ebedca78c"
+  },
+  {
+    "path": "www/static/infographics/project-context-ko.png",
+    "bytes": 1538264,
+    "sha256": "e7684bd25b7e0f30debfd936363b91fad2ab604b898e6152dff9ca608838b169"
+  },
+  {
+    "path": "www/static/infographics/project-flow.png",
+    "bytes": 90762,
+    "sha256": "863f38bd84778e8ae78c8e31d4f84a306cae464b368e501a92620ce2a2d01fe8"
+  },
+  {
+    "path": "www/static/infographics/quickstart-5min.png",
+    "bytes": 119228,
+    "sha256": "5df61c875ce67cab2e9e08b10cad739606706703324f044a401113ca57b3ac73"
+  },
+  {
+    "path": "www/static/infographics/skill-chain-flow.png",
+    "bytes": 88167,
+    "sha256": "f4370e0265b7914819b2845b4e8fe5d10d43f3bf9ee6bd9bc80adaa565f1f775"
+  },
+  {
+    "path": "www/static/infographics/skill-chaining-pattern.png",
+    "bytes": 82889,
+    "sha256": "92bceb032b3c6c5803980f7437d1c347c2717853651b5a205ef4b5b44fc32c9e"
+  },
+  {
+    "path": "www/static/infographics/team-pattern.png",
+    "bytes": 105492,
+    "sha256": "8a4cf23edc919f636dead5be6aadf926e967ecab24ff85cf67fc3d5e4ddde886"
+  },
+  {
+    "path": "www/static/screenshots/20261005/chatgpt-plugins.jpg",
+    "bytes": 49607,
+    "sha256": "9b1fbb23697eb1d8eba98d692d13d9da3f01b2631a6f3b014554244f352501c2"
+  },
+  {
+    "path": "www/static/screenshots/20261005/chatgpt-web-start.jpg",
+    "bytes": 16206,
+    "sha256": "b3d7cfcb1d2f60fefcd52c34c5e06cbae397b20121bc05fd7ccfef0d8a0ff1f0"
+  },
+  {
+    "path": "www/static/screenshots/20261005/claude-cowork-start.jpg",
+    "bytes": 17573,
+    "sha256": "859b5b6eff6e10c62f32291472ec7dd5871827905cc54a90d92a79c816dd2b3c"
+  },
+  {
+    "path": "www/static/screenshots/20261005/claude-plugins.jpg",
+    "bytes": 75358,
+    "sha256": "345adc9d9f3155bfbe3a11930733c154076b83436ea3586cc2fde61f3bda49d4"
+  },
+  {
+    "path": "reports/20261005-docs-rebuild/screenshots/expert-lesson.jpg",
+    "bytes": 143054,
+    "sha256": "bf081f560c106e7ed36490f2beb3d66058ac8ca830d1e07308138715271f6422"
+  },
+  {
+    "path": "reports/20261005-docs-rebuild/screenshots/lesson-desktop.jpg",
+    "bytes": 69885,
+    "sha256": "0df5d16d3d74eb3fad199ac191fe29298f1c6b40a47b8d053a3da98d5c74f8b3"
+  },
+  {
+    "path": "reports/20261005-docs-rebuild/screenshots/lesson-mobile.jpg",
+    "bytes": 44320,
+    "sha256": "e8153adcc8e76727121c2a1159d9cbe31a5758252fe025bab2734f2f5c3df70a"
+  },
+  {
+    "path": "reports/20261005-docs-rebuild/screenshots/public-home-before.jpg",
+    "bytes": 30869,
+    "sha256": "62ce862618389e9cd52dca509b56a5842a13618a8d62a575ecff67326d84a8ae"
+  }
+]

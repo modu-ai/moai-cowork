@@ -3,7 +3,8 @@ name: marketing-growth-experiment
 description: |
   A/B 테스트와 추천·무료 도구·공동 마케팅 등의 성장 실험을 설계하고 우선순위를 정합니다.
   실제 기준선과 표본을 확인해 측정·중지 기준을 정하며, 미실행 실험의 결과를 만들지 않습니다.
-version: "1.1.2"
+metadata:
+  version: "1.1.3"
 ---
 
 # 성장 실험

@@ -3,7 +3,8 @@ name: commerce-season-calendar
 description: |
   판매 지역·채널·상품군에 맞는 시즌 행사와 준비 일정을 정리합니다.
   요청 예: "연간 시즌 캘린더", "명절 판매 준비", "블랙프라이데이 계획".
-version: "1.1.1"
+metadata:
+  version: "1.1.2"
 ---
 
 # 시즌 판매 일정

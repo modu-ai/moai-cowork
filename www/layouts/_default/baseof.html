@@ -24,7 +24,7 @@
 
   <body itemscope itemtype="https://schema.org/WebPage">
     <div class="w-full flex justify-center">
-      <a href="#main-content" id="gdoc-to-main" class="gdoc-markdown__link">Skip to main content</a>
+      <a href="#main-content" id="gdoc-to-main" class="gdoc-markdown__link">본문으로 바로 가기</a>
     </div>
 
     {{ partial "svg-icon-symbols" . }}
@@ -285,7 +285,12 @@
       }
       {{- /* 초기 격리는 모바일(드로어)에서만 — 데스크톱(>1080px) 사이드바는 항상
              보이므로 inert 하면 안 된다(아코디언·포커스가 멈추는 회귀). */ -}}
-      if (window.matchMedia('(max-width: 1080px)').matches) setNavLocked(true);
+      var mobileNav = window.matchMedia('(max-width: 1080px)');
+      function syncNavMode() {
+        setNavLocked(mobileNav.matches && !document.body.classList.contains('nav-open'));
+      }
+      syncNavMode();
+      mobileNav.addEventListener('change', syncNavMode);
 
       function focusables() {
         return nav ? Array.prototype.slice.call(nav.querySelectorAll('a,button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])')) : [];

@@ -1,0 +1,418 @@
+[
+  {
+    "path": "plugins/moai-accountant/skills",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-accountant/skills"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-accountant/skills\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-analyst/skills",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-analyst/skills"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-analyst/skills\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-career/skills",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-career/skills"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-career/skills\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-consultant/skills",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-consultant/skills"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-consultant/skills\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-coworker/skills",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-coworker/skills"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-coworker/skills\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-cs/skills",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-cs/skills"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-cs/skills\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-designer/skills",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-designer/skills"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-designer/skills\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-lawyer/skills",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-lawyer/skills"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-lawyer/skills\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-marketer/skills",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-marketer/skills"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-marketer/skills\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-media/skills",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-media/skills"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-media/skills\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-officer/skills",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-officer/skills"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-officer/skills\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-pm/skills",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-pm/skills"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-pm/skills\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-recruiter/skills",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-recruiter/skills"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-recruiter/skills\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-seller/skills",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-seller/skills"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-seller/skills\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-story/skills",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-story/skills"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-story/skills\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-threads-poster/skills",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-threads-poster/skills"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-threads-poster/skills\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-tutor/skills",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-tutor/skills"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-tutor/skills\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-writer/skills",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-writer/skills"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-writer/skills\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-accountant/agents",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-accountant/agents"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-accountant/agents\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-analyst/agents",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-analyst/agents"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-analyst/agents\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-career/agents",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-career/agents"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-career/agents\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-consultant/agents",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-consultant/agents"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-consultant/agents\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-cs/agents",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-cs/agents"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-cs/agents\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-lawyer/agents",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-lawyer/agents"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-lawyer/agents\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-marketer/agents",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-marketer/agents"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-marketer/agents\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-media/agents",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-media/agents"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-media/agents\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-officer/agents",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-officer/agents"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-officer/agents\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-recruiter/agents",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-recruiter/agents"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-recruiter/agents\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-seller/agents",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-seller/agents"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-seller/agents\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-story/agents",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-story/agents"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-story/agents\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-tutor/agents",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-tutor/agents"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-tutor/agents\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  },
+  {
+    "path": "plugins/moai-writer/agents",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "--json",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-writer/agents"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"success\": true,\n  \"strict\": true,\n  \"target\": \"/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-writer/agents\",\n  \"manifest\": null,\n  \"contents\": []\n}\n"
+  }
+]

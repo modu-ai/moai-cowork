@@ -3,7 +3,8 @@ name: legal-iros-registry-automation
 description: |
   대법원 인터넷등기소에서 법인·부동산 등기사항증명서를 여러 건 확인할 때
   사용자 직접 로그인·결제와 공식 화면 기반 자료 정리를 돕습니다.
-version: "1.1.3"
+metadata:
+  version: "1.1.4"
 ---
 
 # 인터넷등기소 등기 자료 정리

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "korean-law": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--script",
+        "./mcp-launch/mcp_launch.py",
+        "--service",
+        "korean-law",
+        "--keys",
+        "LAW_OC",
+        "--",
+        "npx",
+        "--yes",
+        "--ignore-scripts",
+        "--omit=optional",
+        "korean-law-mcp"
+      ],
+      "cwd": "./",
+      "type": "stdio"
+    },
+    "moai-mcp-ip": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "./mcp-servers/moai-mcp-ip",
+        "moai-mcp-ip"
+      ],
+      "cwd": "./",
+      "type": "stdio"
+    }
+  }
+}

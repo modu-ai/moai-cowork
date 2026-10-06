@@ -13,6 +13,13 @@
     {{- if $sec -}}<div class="cw-doc-eyebrow">{{ $sec }}</div>{{- end -}}
     <h1>{{ partial "utils/title" . }}</h1>
     {{ partial "page-metadata" . }}
+    {{ partial "lesson-map" . }}
     {{ partial "utils/content" . }}
+    {{ if eq .Section "learn" }}
+    <aside class="lesson-footer" aria-label="학습 도움말">
+      <p><a href="/learn/">전체 수업</a> · <a href="/downloads/classroom/">가상 실습 자료</a> · <a href="/learn/screens/">실제 화면 안내</a></p>
+      <p>예상 결과는 강의용 예시입니다. 자신의 앱에서 수행한 결과를 원문과 직접 비교하세요.</p>
+    </aside>
+    {{ end }}
   </article>
 {{ end }}

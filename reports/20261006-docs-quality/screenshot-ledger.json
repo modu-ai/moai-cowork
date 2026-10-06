@@ -1,0 +1,79 @@
+[
+  {
+    "path": "www/static/screenshots/20261006/chatgpt-download.jpg",
+    "date": "2026-10-06",
+    "environment": "ChatGPT공식 웹",
+    "source": "https://learn.chatgpt.com/docs/app",
+    "observed": "운영체제 선택 메뉴",
+    "gaps": "설치·로그인·Desktop 미촬영",
+    "sha256": "6d7d1b1277a12e1317b71bc94454932d549c2640e958b4a0ef648f20093adcf1",
+    "bytes": 67729,
+    "method": "actual CUA screenshot; no generated UI"
+  },
+  {
+    "path": "www/static/screenshots/20261006/claude-download.jpg",
+    "date": "2026-10-06",
+    "environment": "Claude 공식 웹",
+    "source": "https://claude.com/download",
+    "observed": "Desktop 다운로드",
+    "gaps": "설치·로그인 미촬영",
+    "sha256": "c5432cca293737c8e39b67819654fa5382bb882d0ebf21a4f254ca02b3d24df8",
+    "bytes": 50356,
+    "method": "actual CUA screenshot; no generated UI"
+  },
+  {
+    "path": "www/static/screenshots/20261006/claude-desktop-plugins.png",
+    "date": "2026-10-06",
+    "environment": "Claude Desktop",
+    "source": "native:Claude",
+    "observed": "플러그인 탐색",
+    "gaps": "앱 내부 추가 조작 오류·실행 미확인",
+    "sha256": "1e6ee27bd56c976597476418c4146f21f8e63c5ee96b6ddc42d06f513f1aee64",
+    "bytes": 259607,
+    "method": "actual CUA screenshot; no generated UI"
+  },
+  {
+    "path": "www/static/screenshots/20261006/chatgpt-plugin-add.jpg",
+    "date": "2026-10-06",
+    "environment": "ChatGPT 웹",
+    "source": "https://chatgpt.com/plugins",
+    "observed": "추가 메뉴",
+    "gaps": "업로드·설치 미실행",
+    "sha256": "4bee27131f3e5d364bd457daddee0a0260a6ded6871fe1b27f0ae5877f8ead67",
+    "bytes": 57756,
+    "method": "actual CUA screenshot; no generated UI"
+  },
+  {
+    "path": "www/static/screenshots/20261006/chatgpt-plugin-detail.jpg",
+    "date": "2026-10-06",
+    "environment": "ChatGPT 웹",
+    "source": "https://chatgpt.com/plugins/plugin_connector_1p_6bcb5879c73c819196abc70016166099",
+    "observed": "Outlook Email 설치 전 설명",
+    "gaps": "설치·인증 미실행",
+    "sha256": "0029221b03b2f119c131c056799bb4b225ef2584cb07cf3b9c860cdb7c0009ff",
+    "bytes": 64556,
+    "method": "actual CUA screenshot; no generated UI"
+  },
+  {
+    "path": "www/static/screenshots/20261006/claude-plugin-add.jpg",
+    "date": "2026-10-06",
+    "environment": "Claude 웹",
+    "source": "https://claude.ai/customize/plugins",
+    "observed": "추가 메뉴",
+    "gaps": "설치 미실행",
+    "sha256": "9e2053944f35eac3796e792e775bd8b15edfb44171727cb37a57f0eeca3752ad",
+    "bytes": 74816,
+    "method": "actual CUA screenshot; no generated UI"
+  },
+  {
+    "path": "www/static/screenshots/20261006/claude-marketplace-url.jpg",
+    "date": "2026-10-06",
+    "environment": "Claude 웹",
+    "source": "https://claude.ai/customize/plugins",
+    "observed": "공개 MoAI 저장소 URL 선택",
+    "gaps": "동기화 전 취소·설치 미실행",
+    "sha256": "c0615c908bda85697a782a6c74c42697d425996b0786e9795ff4ed87179c1218",
+    "bytes": 74772,
+    "method": "actual CUA screenshot; no generated UI"
+  }
+]

@@ -1,0 +1,49 @@
+schema_version: '1.1'
+name: book-author-bio--TC-07-author-message-traps
+description: 저자의 말 함정 회피
+runs: 1
+tags:
+- generated
+- book-author-bio
+execution:
+  prompt: '다음 프로젝트 업무를 수행해 주세요. 미확인 정보는 만들지 말고 필요한 맥락을 요청하세요.
+
+
+    저자의 말 작성 중 자기 변명·이력서식·스포일러 검출.
+
+    '
+  allowed_tools:
+  - Read
+  - Glob
+  - Grep
+  - Skill
+  max_turns: 12
+  timeout_seconds: 180
+graders:
+- name: skill-fired
+  type: tool_used
+  tool: Skill
+  input_match: '"skill"\s*:\s*"(?:[\w-]+:)?book\-author\-bio"'
+- name: quality
+  type: llm
+  focus: trace
+  criteria: "입력 사실·제약과 아래 사례의 기대 결과를 대조한다. 모든 적용 가능한 조건을 만족하면 PASS, 하나라도 위반하면 FAIL이다.\
+    \ false 값은 해당 동작·주장이 없어야 한다는 뜻이다. 정보·도구·fixture가 부족하면 모델이 이를 명시했는지 확인하되, 원래 조건을\
+    \ 충족하지 못한 실행을 임의로 PASS로 바꾸지 않는다. 단어가 있다는 이유만으로 사실성·산술·법적 판단·의미 보존을 통과시키지 않는다.\
+    \ 원격 호출·파일 생성·독립 검수의 주장은 실제 trace와 산출물로 확인한다.\n\n{\n  \"expected\": [\n    {\n\
+    \      \"traps_detected\": [\n        {\n          \"자기변명_이력서식\": \"거부\"\n   \
+    \     },\n        {\n          \"책내용_스포일러\": \"거부\"\n        },\n        {\n \
+    \         \"200자_초과_도입\": \"경고\"\n        }\n      ]\n    }\n  ],\n  \"pass_criteria\"\
+    : [\n    {\n      \"traps_avoided\": true\n    }\n  ],\n  \"rubric_anchors\":\
+    \ {\n    \"correctness\": {\n      \"target_score\": \">= 0.80\",\n      \"checks\"\
+    : [\n        \"korean_publisher_bio_format_accurate\",\n        \"sns_character_limits_checked_at_publication\"\
+    ,\n        \"kpipa_standards_referenced\"\n      ]\n    },\n    \"completeness\"\
+    : {\n      \"target_score\": \">= 0.85\",\n      \"checks\": [\n        \"4_step_workflow_complete\"\
+    ,\n        \"4_genre_preset_complete\",\n        \"3_lengths_complete\",\n   \
+    \     \"author_message_4_sections_complete\",\n        \"sns_channel_bios_complete\"\
+    \n      ]\n    },\n    \"clarity\": {\n      \"target_score\": \">= 0.80\",\n\
+    \      \"checks\": [\n        \"trust_signal_matrix_visualized\",\n        \"\
+    examples_3_or_more_genres\",\n        \"trap_avoidance_list_clear\"\n      ]\n\
+    \    },\n    \"efficiency\": {\n      \"target_score\": \">= 0.70\",\n      \"\
+    checks\": [\n        \"token_count_reasonable\",\n        \"signal_priority_table_compact\"\
+    \n      ]\n    }\n  }\n}"

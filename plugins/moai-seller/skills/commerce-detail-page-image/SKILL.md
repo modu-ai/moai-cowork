@@ -6,7 +6,8 @@ description: >
   commerce-detail-page-copy의 13섹션 카피와 사용자 상품 사진을 받아 섹션별 이미지 프롬프트를 작성하고,
   ChatGPT에서는 사용 가능한 기본 이미지 도구를 우선 확인하고, Images 2.5 요청은 세션의 모델을 확인합니다. Flare·Sunburst API 모델 ID 지정 요청은 별도 API 경로를 확인합니다. 사용자가 Higgsfield를 지정하면 호스트에 맞는 공식 연결로 이미지를 생성한 뒤
   Python과 Pillow가 실행 가능한 환경에서는 1080×12720 세로 합성 PNG를 직접 조립합니다(합성 로직은 이 문서에 인라인 코드로 포함).
-version: "1.1.5"
+metadata:
+  version: "1.1.6"
 ---
 
 # 상세페이지 이미지 합성 (Detail Page Image Composer)

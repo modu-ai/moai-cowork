@@ -11,7 +11,8 @@ description: |
   - "비즈니스 진단 리포트 써줘"
   - "현황 분석하고 권고안까지 정리해줘"
   Executive Summary·현황 분석·문제 정의·권고사항·실행 로드맵 구조로 작성하며, 파일 변환 기능이 있으면 요청한 PPT 형식으로도 전달합니다.
-version: "1.1.2"
+metadata:
+  version: "1.1.3"
 ---
 
 # 컨설팅 브리프 (Consulting Brief)

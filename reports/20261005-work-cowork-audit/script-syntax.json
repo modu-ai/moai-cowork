@@ -1,0 +1,732 @@
+[
+  {
+    "path": "scripts/ci-mirror/cross-compile.sh",
+    "command": [
+      "bash",
+      "-n",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/scripts/ci-mirror/cross-compile.sh"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "scripts/ci-mirror/lib/_common.sh",
+    "command": [
+      "bash",
+      "-n",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/scripts/ci-mirror/lib/_common.sh"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "scripts/ci-mirror/lib/cpp.sh",
+    "command": [
+      "bash",
+      "-n",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/scripts/ci-mirror/lib/cpp.sh"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "scripts/ci-mirror/lib/csharp.sh",
+    "command": [
+      "bash",
+      "-n",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/scripts/ci-mirror/lib/csharp.sh"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "scripts/ci-mirror/lib/elixir.sh",
+    "command": [
+      "bash",
+      "-n",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/scripts/ci-mirror/lib/elixir.sh"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "scripts/ci-mirror/lib/flutter.sh",
+    "command": [
+      "bash",
+      "-n",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/scripts/ci-mirror/lib/flutter.sh"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "scripts/ci-mirror/lib/go.sh",
+    "command": [
+      "bash",
+      "-n",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/scripts/ci-mirror/lib/go.sh"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "scripts/ci-mirror/lib/java.sh",
+    "command": [
+      "bash",
+      "-n",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/scripts/ci-mirror/lib/java.sh"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "scripts/ci-mirror/lib/kotlin.sh",
+    "command": [
+      "bash",
+      "-n",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/scripts/ci-mirror/lib/kotlin.sh"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "scripts/ci-mirror/lib/node.sh",
+    "command": [
+      "bash",
+      "-n",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/scripts/ci-mirror/lib/node.sh"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "scripts/ci-mirror/lib/php.sh",
+    "command": [
+      "bash",
+      "-n",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/scripts/ci-mirror/lib/php.sh"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "scripts/ci-mirror/lib/python.sh",
+    "command": [
+      "bash",
+      "-n",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/scripts/ci-mirror/lib/python.sh"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "scripts/ci-mirror/lib/r.sh",
+    "command": [
+      "bash",
+      "-n",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/scripts/ci-mirror/lib/r.sh"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "scripts/ci-mirror/lib/ruby.sh",
+    "command": [
+      "bash",
+      "-n",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/scripts/ci-mirror/lib/ruby.sh"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "scripts/ci-mirror/lib/rust.sh",
+    "command": [
+      "bash",
+      "-n",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/scripts/ci-mirror/lib/rust.sh"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "scripts/ci-mirror/lib/scala.sh",
+    "command": [
+      "bash",
+      "-n",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/scripts/ci-mirror/lib/scala.sh"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "scripts/ci-mirror/lib/swift.sh",
+    "command": [
+      "bash",
+      "-n",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/scripts/ci-mirror/lib/swift.sh"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "scripts/ci-mirror/run.sh",
+    "command": [
+      "bash",
+      "-n",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/scripts/ci-mirror/run.sh"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "scripts/korean-slop-lint.sh",
+    "command": [
+      "bash",
+      "-n",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/scripts/korean-slop-lint.sh"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/1226-93ad04cb.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/1226-93ad04cb.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/1550-fa53e251.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/1550-fa53e251.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/1587-cd1c2b30.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/1587-cd1c2b30.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/165-4408c937.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/165-4408c937.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/1947-58c2d85f.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/1947-58c2d85f.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/2130-d110bcb1.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/2130-d110bcb1.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/2204-abc9e082.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/2204-abc9e082.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/2422-4dd850a8.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/2422-4dd850a8.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/3016-7316ebd7.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/3016-7316ebd7.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/3214-61e391f0.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/3214-61e391f0.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/3272-ee4df1e2.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/3272-ee4df1e2.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/352-bf2c9fa9.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/352-bf2c9fa9.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/3930-d32d2c73.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/3930-d32d2c73.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/4121-a023089e.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/4121-a023089e.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/4164-7ecada94.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/4164-7ecada94.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/429-c1e3b17d.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/429-c1e3b17d.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/4552-7b0e5dc6.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/4552-7b0e5dc6.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/4557-8f646bd9.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/4557-8f646bd9.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/4595-f9bda044.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/4595-f9bda044.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/4821-673d6374.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/4821-673d6374.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/4836-b8700574.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/4836-b8700574.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/4848-53a4e4c6.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/4848-53a4e4c6.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/4879-43e1fc35.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/4879-43e1fc35.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/5211-8ce61643.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/5211-8ce61643.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/5322-6b8eff67.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/5322-6b8eff67.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/5390-176fbfed.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/5390-176fbfed.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/567-560bde4b.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/567-560bde4b.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/6282-e68ce6a2.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/6282-e68ce6a2.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/6401-9ab807f7.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/6401-9ab807f7.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/674-b671020d.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/674-b671020d.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/697-e184dc4a.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/697-e184dc4a.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/7056-20b94945.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/7056-20b94945.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/7196-cbf4e2d5.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/7196-cbf4e2d5.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/7487-5054b61d.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/7487-5054b61d.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/7613-50134621.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/7613-50134621.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/7809-d81743e3.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/7809-d81743e3.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/7928-91112ad1.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/7928-91112ad1.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/8207-7472f193.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/8207-7472f193.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/8248-ffe4224e.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/8248-ffe4224e.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/8326-af271799.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/8326-af271799.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/8334-ef10195c.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/8334-ef10195c.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/8383-97e816f4.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/8383-97e816f4.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/8484-4e8ca186.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/8484-4e8ca186.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/8693-cebaf77f.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/8693-cebaf77f.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/8731-02f92b08.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/8731-02f92b08.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/894-0c7a6881.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/894-0c7a6881.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/90-08cf7029.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/90-08cf7029.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/9191-4963389b.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/9191-4963389b.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/9943-e7531c0a.chunk.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/9943-e7531c0a.chunk.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/colortheme-6c1bf822.bundle.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/colortheme-6c1bf822.bundle.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/katex-d2f1bcae.bundle.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/katex-d2f1bcae.bundle.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/main-1b467c45.bundle.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/main-1b467c45.bundle.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/mermaid-0dbf3612.bundle.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/mermaid-0dbf3612.bundle.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "path": "www/themes/hugo-geekdoc/static/js/search-8a051f6b.bundle.min.js",
+    "command": [
+      "node",
+      "--check",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/www/themes/hugo-geekdoc/static/js/search-8a051f6b.bundle.min.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  }
+]

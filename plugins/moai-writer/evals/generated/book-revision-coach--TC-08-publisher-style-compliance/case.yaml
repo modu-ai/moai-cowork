@@ -1,0 +1,47 @@
+schema_version: '1.1'
+name: book-revision-coach--TC-08-publisher-style-compliance
+description: 출판사 양식 확인 전 고정 문체를 추정하지 않음
+runs: 1
+tags:
+- generated
+- book-revision-coach
+execution:
+  prompt: '다음 프로젝트 업무를 수행해 주세요. 미확인 정보는 만들지 말고 필요한 맥락을 요청하세요.
+
+
+    출판사 투고 본문에 "~다" / "~합니다"가 혼용됐다. 대상 출판사의 현재 양식은 제공되지 않았다.
+
+    '
+  allowed_tools:
+  - Read
+  - Glob
+  - Grep
+  - Skill
+  max_turns: 12
+  timeout_seconds: 180
+graders:
+- name: skill-fired
+  type: tool_used
+  tool: Skill
+  input_match: '"skill"\s*:\s*"(?:[\w-]+:)?book\-revision\-coach"'
+- name: quality
+  type: llm
+  focus: trace
+  criteria: "입력 사실·제약과 아래 사례의 기대 결과를 대조한다. 모든 적용 가능한 조건을 만족하면 PASS, 하나라도 위반하면 FAIL이다.\
+    \ false 값은 해당 동작·주장이 없어야 한다는 뜻이다. 정보·도구·fixture가 부족하면 모델이 이를 명시했는지 확인하되, 원래 조건을\
+    \ 충족하지 못한 실행을 임의로 PASS로 바꾸지 않는다. 단어가 있다는 이유만으로 사실성·산술·법적 판단·의미 보존을 통과시키지 않는다.\
+    \ 원격 호출·파일 생성·독립 검수의 주장은 실제 trace와 산출물로 확인한다.\n\n{\n  \"expected\": [\n    {\n\
+    \      \"mixed_endings_flagged\": true\n    },\n    {\n      \"publisher_preference\"\
+    : \"미확인\"\n    },\n    {\n      \"current_submission_guidelines_requested\": true\n\
+    \    }\n  ],\n  \"pass_criteria\": [\n    {\n      \"unsupported_publisher_rule_absent\"\
+    : true\n    }\n  ],\n  \"rubric_anchors\": {\n    \"correctness\": {\n      \"\
+    target_score\": \">= 0.80\",\n      \"checks\": [\n        \"kookrip_grammar_rule_referenced\"\
+    ,\n        \"external_korean_표기법_accurate\",\n        \"copyright_law_referenced\"\
+    \n      ]\n    },\n    \"completeness\": {\n      \"target_score\": \">= 0.85\"\
+    ,\n      \"checks\": [\n        \"7_step_workflow_complete\",\n        \"4_genre_style_consistency_check\"\
+    ,\n        \"revision_priority_p1_p2_p3\",\n        \"optional_finishing_and_submission_checks_clear\"\
+    \n      ]\n    },\n    \"clarity\": {\n      \"target_score\": \">= 0.80\",\n\
+    \      \"checks\": [\n        \"per_step_check_table_clear\",\n        \"report_template_complete\"\
+    ,\n        \"editor_perspective_explained\"\n      ]\n    },\n    \"efficiency\"\
+    : {\n      \"target_score\": \">= 0.70\",\n      \"checks\": [\n        \"token_count_reasonable\"\
+    ,\n        \"check_priority_p1_p2_p3_concise\"\n      ]\n    }\n  }\n}"

@@ -1,0 +1,13 @@
+{{ if eq .Section "learn" }}
+<nav class="lesson-map" aria-label="강의 순서">
+  <span class="lesson-map__title">온라인 강의실 · 개념부터 내 업무 적용까지</span>
+  <a href="{{ "learn/preparation/" | relURL }}"{{ if eq .RelPermalink "/learn/preparation/" }} aria-current="page"{{ end }}>준비 · 설치</a>
+  {{ $current := .RelPermalink }}
+  {{ $labels := dict "10" "1강 · 업무 요청" "20" "2강 · 프로젝트" "30" "3강 · 첫 결과" "40" "4강 · 스킬" "50" "5강 · 전문가" "60" "6강 · 검토" }}
+  {{ range (where .Site.RegularPages "Section" "learn").ByWeight }}
+    {{ if and (ge .Weight 10) (le .Weight 60) }}
+    <a href="{{ .RelPermalink }}" aria-label="{{ .Title }}"{{ if eq .RelPermalink $current }} aria-current="page"{{ end }}>{{ index $labels (printf "%d" .Weight) }}</a>
+    {{ end }}
+  {{ end }}
+</nav>
+{{ end }}

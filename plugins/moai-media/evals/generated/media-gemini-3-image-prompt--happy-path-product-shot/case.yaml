@@ -1,0 +1,39 @@
+schema_version: '1.1'
+name: media-gemini-3-image-prompt--happy-path-product-shot
+description: 제품샷 프리셋 + 1:1 → Gemini 5-component 메인 + GPT·MJ 보조
+runs: 1
+tags:
+- generated
+- media-gemini-3-image-prompt
+execution:
+  prompt: '다음 프로젝트 업무를 수행해 주세요. 미확인 정보는 만들지 말고 필요한 맥락을 요청하세요.
+
+
+    Gemini 이미지 프롬프트 만들어줘. 매트 블랙 머그 ''MONDAY'' 글자 들어간 제품샷, 1:1'
+  allowed_tools:
+  - Read
+  - Glob
+  - Grep
+  - Skill
+  max_turns: 12
+  timeout_seconds: 180
+graders:
+- name: skill-fired
+  type: tool_used
+  tool: Skill
+  input_match: '"skill"\s*:\s*"(?:[\w-]+:)?media\-gemini\-3\-image\-prompt"'
+- name: quality
+  type: llm
+  focus: trace
+  criteria: "입력 사실·제약과 아래 사례의 기대 결과를 대조한다. 모든 적용 가능한 조건을 만족하면 PASS, 하나라도 위반하면 FAIL이다.\
+    \ false 값은 해당 동작·주장이 없어야 한다는 뜻이다. 정보·도구·fixture가 부족하면 모델이 이를 명시했는지 확인하되, 원래 조건을\
+    \ 충족하지 못한 실행을 임의로 PASS로 바꾸지 않는다. 단어가 있다는 이유만으로 사실성·산술·법적 판단·의미 보존을 통과시키지 않는다.\
+    \ 원격 호출·파일 생성·독립 검수의 주장은 실제 trace와 산출물로 확인한다.\n\n{\n  \"expected_output\": {\n\
+    \    \"format\": \"markdown\",\n    \"contains\": [\n      \"### 1) Gemini 3 Pro\
+    \ Image\",\n      \"### 2) GPT Image 2.5\",\n      \"### 3) Midjourney V8.2\"\
+    ,\n      \"\\\"MONDAY\\\"\",\n      \"aspect_ratio\",\n      \"image_size\",\n\
+    \      \"SynthID\"\n    ],\n    \"not_contains\": [\n      \"metadata:\",\n  \
+    \    \"TODO\",\n      \"<placeholder>\"\n    ],\n    \"assertion\": [\n      \"\
+    Gemini 5-component 마침표 구분 (component당 영문 문장)\",\n      \"카메라 기종은 필요한 경우에만 외형 단서로\
+    \ 쓰고 실제 촬영 장비를 사용했다고 주장하지 않음\",\n      \"SynthID 워터마크 한국어 해설 포함\"\n    ]\n  }\n\
+    }"

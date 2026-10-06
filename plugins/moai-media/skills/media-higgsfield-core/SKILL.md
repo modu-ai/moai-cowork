@@ -10,7 +10,8 @@ description: |
   - Higgsfield 모델의 파라미터를 하드코딩하지 않고 런타임 조회해야 할 때
   - 현재 앱의 Higgsfield 도구 이름과 입력 스키마를 런타임에 확인해야 할 때
   이 스킬은 단독 실행 스킬이 아니라 두 소비 스킬이 참조하는 공유 코어입니다.
-version: "1.3.4"
+metadata:
+  version: "1.3.5"
 ---
 
 # Higgsfield 코어 (media-higgsfield-core)

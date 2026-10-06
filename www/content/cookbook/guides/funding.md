@@ -1,103 +1,111 @@
 ---
 title: "투자 유치 가이드"
-weight: 30
-description: "IR 덱 · 재무 모델 · 정부지원사업까지 자금 조달 전 단계를 모두의 코워크로 자동화하는 절차."
+description: "사업 지표·투자 단계·검토 질문을 준비해 투자 설명 자료를 만드는 실습"
+weight: 10
+date: 2026-10-05T00:00:00+09:00
+lastmod: 2026-10-06
 geekdocBreadcrumb: true
-date: 2026-08-07T00:00:00+09:00
-lastmod: 2026-08-13T00:00:00+09:00
 ---
-> 투자자가 보는 것은 "얼마나 큰 시장에서 얼마나 잘 팔 자신이 있는가"의 두 줄 답변입니다. 그 답변을 IR 덱·재무 모델·실적 데이터로 뒷받침하는 일련의 산출물을 모두의 코워크로 작성합니다.
 
-```mermaid
-flowchart TD
-   A["market-analyst<br/>시장 분석"] --> B["strategy-planner<br/>사업 전략"]
-   B --> C["investor-relations<br/>IR 덱 + 재무"]
-   C --> D["doc-pptx<br/>슬라이드"]
-   D --> E["ai-slop-reviewer<br/>톤 검수"]
-   A -. "정부지원" .-> F["kr-gov-grant"]
+**이 실습의 결과는 투자 설명 자료입니다.** ChatGPT Work와 Claude Cowork 모두 목표와 자료를 제공하는 방식으로 시작합니다. 실제 서비스 연결과 지원 도구는 현재 앱에서 확인하세요.
 
-   style A fill:#e6e6e6,stroke:#757575,color:#09110f
-   style E fill:#e8f1ec,stroke:#265240,color:#09110f
+
+<!--more-->
+
+
+## 준비물
+
+사업 지표·투자 단계·검토 질문을 준비합니다. 실습에서는 가상 자료나 공개 가능한 자료를 사용할 수 있습니다. [관련 역할](/moai-agents/consultant/)의 스킬을 추가하려면 [설치 안내](/plugins/install/)를 확인합니다.
+
+## 첫 요청
+
+```text
+제공한 자료로 투자 설명 자료을 만들어 줘.
+목표·독자·결과 형식을 먼저 확인하고 부족한 정보는 질문해 줘.
+투자자에게 설명할 질문과 근거를 정리한 뒤 자료를 구성해 줘.
+자료 없는 사실과 수치는 만들지 말고 미정 항목을 표시해 줘.
+외부 게시·발송·계정 변경 없이 검토용 결과부터 보여 줘.
 ```
 
-## 사용 스킬
+## 진행 순서
 
-| 단계 | 스킬 | 용도 |
+1. **자료 확인:** 사업 지표·투자 단계·검토 질문 중 읽을 수 있는 것과 없는 것을 구분합니다.
+2. **맥락 확인:** 독자·형식·범위를 질문에 답해 정합니다.
+3. **초안 작성:** 투자자에게 설명할 질문과 근거를 정리한 뒤 자료를 구성합니다.
+4. **검토:** 실적과 전망의 구분·자금 사용 근거를 확인합니다.
+5. **수정·저장:** 변경할 부분을 지정하고 결과를 별도 위치에 저장합니다.
+
+독립적인 조사만 병렬로 진행하고, 앞 결과가 필요한 작성·변환은 순차로 진행합니다. [전문가 분업](/workflows/experts/)의 역할·입출력 계약을 사용할 수 있습니다.
+
+## 가상 예제로 더 이해하기
+
+아래 자료와 모범 설명은 수업을 위해 작성했습니다. 실제 회사·고객의 실적이나 앱 실행 결과가 아닙니다. 먼저 제공 자료로 작은 결과를 만든 뒤 자신의 자료로 바꿔 보세요.
+
+```text
+가상 교육 서비스: 대상은 초보 사무직, 해결할 문제는 보고서 작성의 반복 작업. 월 이용료 후보 20,000원, 이용자 수와 유지율은 미검증.
+```
+
+### 먼저 확인할 질문
+
+유료 고객 인터뷰나 실적이 있나요? 어떤 가정을 먼저 검증할까요? 답을 모르면 해당 항목을 미정으로 남기고, 그 정보 없이 가능한 범위를 정합니다.
+
+### 모범 결과를 읽는 방법
+
+고객 문제, 해결안, 수익 가정, 검증 질문을 분리합니다. 이용자 수와 유지율은 미검증 가정으로 남기고 인터뷰·시험 운영의 확인 항목을 정리합니다. 문장과 서식은 달라도 이 기준을 충족하는지 직접 비교합니다. 원문 위치·출처·상태가 결과에 함께 남으면 다음 검토자에게 넘기기 쉽습니다.
+
+### 직접 비교할 모범 결과
+
+| 항목 | 결과 예시 | 근거·상태 |
 |---|---|---|
-| 시장 분석 | `moai-consultant:consult-market` | TAM/SAM/SOM, 경쟁사 매핑 |
-| IR 덱 작성 | `moai-accountant:finance-investor-relations` | 시리즈 A/B 피칭 덱 + 재무 모델 |
-| 사업 전략 | `moai-consultant:consult-strategy` | BMC, OKR, 5년 로드맵 |
-| 정부지원사업 | `moai-consultant:consult-gov-grant` | K-Startup, 창업도약, 기보·신보 |
-| 발표 자료화 | `moai-officer:doc-pptx` | 한국형 IR 슬라이드 디자인 |
-| AI 슬롭 검수 | `moai-coworker:ai-slop-reviewer` | 발송 전 자연어 톤 검수 |
+| 사업 구상 | 초보 사무직 보고서 작성 지원 | 가상 사업 구상 |
+| 수익 가정 | 월 이용료 후보 20,000원 | 고객 수·유지율 미검증 |
+| 필요 자금 | 항목별 비용·집행 목적 | 자료 없음·견적 필요 |
+| 조달 후보 | 투자·대출·지원사업 조건 비교 | 현재 공식 조건 확인 필요 |
+| 진행 상태 | 조달 문서 초안 | 신청·계약·입금 미실시 |
 
-## 시리즈별 핵심 메시지
+### 흔한 실수와 수정 요청
 
-투자 라운드별로 투자자가 가장 듣고 싶어 하는 한 줄이 다릅니다.
+확인하지 않은 고객 수와 매출을 시장 근거처럼 제시합니다. 이때는 결과 전체를 다시 만들어 달라는 말보다, 틀린 기준과 고칠 위치를 구체적으로 알려 주세요.
 
-| 라운드 | 핵심 한 줄 | 필요 자료 |
-|---|---|---|
-| **Pre-seed** | "이 문제가 진짜 문제이고, 우리는 풀 수 있다" | 문제 정의 + 팀 + MVP |
-| **Seed** | "초기 고객이 사랑한다" | NPS·리텐션·UV/MAU·매출 첫 데이터 |
-| **Series A** | "PMF 도달, 그로스 엔진 가동 중" | LTV/CAC·코호트·매출 성장 곡선 |
-| **Series B** | "유닛 이코노믹스 검증, 시장 점유율 확장" | EBITDA 경로·해외 진출 계획 |
+```text
+확정 자료와 가정을 나눠 줘. 고객 수는 만들지 말고 검증할 질문과 필요한 자료를 정리해 줘.
+수정한 부분과 아직 확인할 항목을 따로 알려 줘.
+```
 
-## 워크플로우 예시 — 시리즈 A IR 덱 1주 만에 완성
+### 확인 문제
 
-{{< terminal title="claude — cowork" raw="true" >}}
-우리 회사 시리즈 A IR 덱 만들어줘. 회사 정보는 첨부 파일 회사 소개서 참고.
-12장 분량으로 — 문제·솔루션·시장(TAM/SAM/SOM)·경쟁우위·트랙션·비즈니스 모델·고객·로드맵·팀·재무·요청 라운드·연락처 순서.
-발표 자료 PPT로 저장해줘.
-{{< /terminal >}}
+보기 좋은 사업계획서가 사업의 타당성을 증명할까요?
 
-체인:
-1. `consult-market`
-2. `finance-investor-relations`
-3. `doc-pptx`
-4. `ai-slop-reviewer`
+<details><summary>답안과 해설 보기</summary>
 
-## 재무 모델 — 3년 P&L
+문서의 완성과 사업 가정의 검증은 다릅니다. 실제 고객·시장·비용 근거를 별도로 확인합니다.
 
-투자자에게 보내는 재무 모델은 **간단할수록 신뢰가 갑니다**. 5개 시트면 충분합니다:
+</details>
 
-1. Assumptions (단가·MAU·전환율·인건비)
-2. P&L (매출·매출원가·OpEx·EBITDA·순이익)
-3. Cash flow (월별 현금 흐름)
-4. Cohort (고객 코호트별 매출)
-5. Funding need (자금 소요 + 사용 계획)
+### 내 업무로 바꿔 보기
 
-{{< terminal title="claude — cowork" raw="true" >}}
-시리즈 A 투자 받기 위한 3년 P&L 모델 만들어줘. 월별로 36개월.
-assumptions 시트에 단가·MAU·CAC·인건비·임대료를 분리.
-P&L·cash-flow·cohort·funding need 5개 시트로 xlsx 저장.
-{{< /terminal >}}
+예제의 자료를 자신의 공개 가능한 자료로 바꾸고, 결과의 독자와 형식을 다시 정합니다. 변하지 않는 검토 기준은 프로젝트 지침에 저장하고, 이번 작업의 수치와 미정 조건은 새 자료로 제공합니다. [프로젝트와 자료 수업](/learn/02-project-context/)에서 구분 방법을 확인합니다.
 
-## 정부지원사업 병행
+## 사용할 수 있는 스킬 후보
 
-VC 투자와 별도로 정부지원사업은 비희석 자금으로 매년 검토할 가치가 있습니다:
+아래는 이 업무에 참고할 수 있는 패키지 기능입니다. 실제 설치·노출 상태를 먼저 확인하며 이 순서로 반드시 자동 실행된다는 뜻은 아닙니다.
 
-{{< terminal title="claude — cowork" raw="true" >}}
-지금 시점에서 우리 회사가 받을 수 있는 정부지원사업 정리해줘.
-K-Startup, 창업도약패키지, 기보·신보 보증, 콘텐츠진흥원 등 — 마감일이 가까운 순으로 표로.
-{{< /terminal >}}
+- `moai-coworker:ai-slop-reviewer`
+- `moai-officer:doc-pptx`
+- `moai-accountant:finance-investor-relations`
+- `moai-consultant:consult-gov-grant`
+- `moai-consultant:consult-market`
 
-`consult-gov-grant` 스킬이 K-Startup·BIZINFO·나라장터·창업진흥원을 통합 검색해 마감 임박 순으로 정리합니다.
+## 완료 기준
 
-## 자주 겪는 실수
+결과물에 사용 자료와 미확인 항목이 표시되어 있습니다. 실적과 전망의 구분·자금 사용 근거을 직접 확인했습니다. 파일을 요청한 경우 저장된 파일을 열어 확인합니다. 실제 게시·발송·예약 작업은 별도의 실행 결과로 확인합니다.
 
-- **TAM을 너무 넓게 잡음** — "전 세계 ERP 시장"이 아니라 "한국 중견 SaaS ERP 도입 가능 기업"으로 SAM을 좁히세요.
-- **트랙션이 vanity metrics** — 다운로드·가입자 수보다 매출·리텐션·NPS가 우선합니다.
-- **재무 모델에 100개 행** — 5개 시트로 단순화. 가정(assumption)을 물어볼 때 답변할 수 있는 깊이가 한계입니다.
+## 막혔을 때
 
-## 다음 단계
+자료나 연결이 없으면 제공 자료로 가능한 초안과 다음 준비 목록을 요청합니다. 원문·수치가 다르면 해당 위치와 근거를 지정해 고칩니다. 전문 판단이 필요한 부분은 근거와 쟁점을 정리하고 해당 업무 책임자가 확인합니다.
 
-- [트랙 — 문서 작성](../../tracks/track-documents/) — IR 덱 + 사업계획서 워크플로우
-- [프레젠테이션 디자인 원칙](../../design/presentation/)
-- [재무 모델링 템플릿](../../templates/financial/)
+[결과 검토](/workflows/review/) · [반복 업무](/workflows/reuse/) · [다른 실습 선택](/cookbook/)
 
----
+## 공식 문서와 참고 자료
 
-### Sources
-
-- moai-accountant 플러그인 [`finance-investor-relations`](https://github.com/modu-ai/moai-cowork/blob/main/plugins/moai-accountant/skills/finance-investor-relations/SKILL.md), [`consult-gov-grant`](https://github.com/modu-ai/moai-cowork/blob/main/plugins/moai-consultant/skills/consult-gov-grant/SKILL.md), [`consult-market`](https://github.com/modu-ai/moai-cowork/blob/main/plugins/moai-consultant/skills/consult-market/SKILL.md)
-- [K-Startup 창업지원포털](https://www.k-startup.go.kr) · [BIZINFO](https://www.bizinfo.go.kr)
+- [관련 플러그인 원본](https://github.com/modu-ai/moai-cowork/tree/main/plugins/moai-consultant)

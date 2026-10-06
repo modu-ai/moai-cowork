@@ -1,0 +1,34 @@
+name: Documentation build and references
+
+on:
+  pull_request:
+    paths:
+      - "www/**"
+      - "scripts/check-docs.py"
+      - ".github/workflows/docs-check.yml"
+  push:
+    paths:
+      - "www/**"
+      - "scripts/check-docs.py"
+      - ".github/workflows/docs-check.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Set up Hugo
+        uses: peaceiris/actions-hugo@2752ce1d29631191ea3f27c23495fa06139a5b78 # v3
+        with:
+          hugo-version: "0.160.1"
+          extended: true
+      - name: Build
+        run: hugo --source www --destination "${{ runner.temp }}/moai-docs" --quiet --minify --enableGitInfo=false
+      - name: Check links and classroom fixtures
+        run: python3 scripts/check-docs.py "${{ runner.temp }}/moai-docs"

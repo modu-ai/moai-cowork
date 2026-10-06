@@ -1,153 +1,112 @@
 ---
 title: "부록 트랙"
-weight: 90
-description: "연구·교육·라이프스타일을 위한 부록 워크플로우. moai-tutor · moai-coworker 스킬 한 줄 요청."
+description: "학습 목표·연구 자료·공고를 준비해 학습·연구 확인 목록을 만드는 실습"
+weight: 10
+date: 2026-10-05T00:00:00+09:00
+lastmod: 2026-10-06
 geekdocBreadcrumb: true
-date: 2026-08-07T00:00:00+09:00
-lastmod: 2026-08-22T00:00:00+09:00
 ---
 
-> **대상**: 연구자 (대학원생·교수·R&D), 교육자 (강사·튜터), 일반 사용자 (여행·이벤트·웰니스)
-> **전제**: moai-coworker 활성화 + 필요한 플러그인
-> **소요**: 시나리오당 약 5-15분
+**이 실습의 결과는 학습·연구 확인 목록입니다.** ChatGPT Work와 Claude Cowork 모두 목표와 자료를 제공하는 방식으로 시작합니다. 실제 서비스 연결과 지원 도구는 현재 앱에서 확인하세요.
 
-## 왜 부록 트랙이 세 부문으로 나뉘나 — 도서관 참고실의 세 코너
 
-대형 도서관에 가면 '참고실'이라는 넓은 공간이 있습니다. 그 안은 다시 세 코너로 나뉩니다. 논문과 학술지를 뒤지는 **학술 코너**, 교재와 강의 자료를 모아둔 **교육 코너**, 여행·취미·건강 책이 있는 **생활 코너**. 이 셋은 모두 '일상에 당장 필요한 지식'을 다룬다는 점은 같지만 찾는 사람과 쓰임새가 전혀 다릅니다.
+<!--more-->
 
-이 부록 트랙이 바로 그 참고실입니다. 앞선 본부 트랙(콘텐츠·광고·이커머스)이 사업의 '메인 무대'라면, 부록 트랙은 연구자·교육자·일반 사용자가 각자의 목적으로 찾는 보조 무대입니다. 논문을 정리하든, 강의 커리큘럼을 짜든, 가족 여행 일정을 잡든 — 한 줄 요청 한 번이면 각 부문의 전문 스킬이 자동으로 이어집니다. 어느 코너로 가야 할지는 아래 분기를 보면 바로 알 수 있습니다.
 
-```mermaid
-flowchart TD
-   Start["부록 트랙<br/>(연구·교육·라이프스타일)"]
-   Start --> Q{"지금 내 목표는?"}
-   Q -- "논문·특허·<br/>지원사업" --> R["연구 (moai-tutor)<br/>paper-search · grant-writer · patent-*"]
-   Q -- "강의·커리큘럼·<br/>수강생 관리" --> ED["교육 (moai-tutor)<br/>course-curriculum · assessment · followup"]
-   Q -- "여행·이벤트·<br/>건강" --> L["라이프스타일 (moai-coworker)<br/>travel · event · wellness"]
+## 준비물
 
-   style Start fill:#e6e6e6,stroke:#757575,color:#09110f
-   style Q fill:#fbf0dc,stroke:#c47b2a,color:#09110f
-   style R fill:#e8f1ec,stroke:#265240,color:#09110f
-   style ED fill:#e8f1ec,stroke:#265240,color:#09110f
-   style L fill:#e8f1ec,stroke:#265240,color:#09110f
+학습 목표·연구 자료·공고를 준비합니다. 실습에서는 가상 자료나 공개 가능한 자료를 사용할 수 있습니다. [관련 역할](/moai-agents/tutor/)의 스킬을 추가하려면 [설치 안내](/plugins/install/)를 확인합니다.
+
+## 첫 요청
+
+```text
+제공한 자료로 학습·연구 확인 목록을 만들어 줘.
+목표·독자·결과 형식을 먼저 확인하고 부족한 정보는 질문해 줘.
+자료 확인, 요구 정리, 초안, 검토 순서로 진행해 줘.
+자료 없는 사실과 수치는 만들지 말고 미정 항목을 표시해 줘.
+외부 게시·발송·계정 변경 없이 검토용 결과부터 보여 줘.
 ```
 
-## 한 줄 요청 예시 6종
+## 진행 순서
 
-| # | 한 줄 요청 | 자동 체인 | 도메인 |
-|---|---|---|---|
-| 1 | "AI 윤리 논문 정리해줘. 최근 3년" | education-paper-search → education-paper-writer → doc-docx | 연구 |
-| 2 | "이공계 정부지원사업 신청서 만들어줘" | education-grant-writer → 평가표 매핑 → doc-docx | 연구 |
-| 3 | "코딩 부트캠프 12주 커리큘럼 짜줘" | education-curriculum-designer → education-assessment-creator → doc-pptx | 교육 |
-| 4 | "수강생 후속 시퀀스 30일 자동화해줘" | education-course-followup-sequence → content-email-sequence | 교육 |
-| 5 | "도쿄 4박 5일 일정 만들어줘. 부모님 동반" | personal-travel → doc-docx | 라이프스타일 |
-| 6 | "사내 송년회 100명 기획해줘" | personal-event → doc-docx + doc-xlsx (예산) | 라이프스타일 |
+1. **자료 확인:** 학습 목표·연구 자료·공고 중 읽을 수 있는 것과 없는 것을 구분합니다.
+2. **맥락 확인:** 독자·형식·범위를 질문에 답해 정합니다.
+3. **초안 작성:** 자료 확인, 요구 정리, 초안, 검토 순서로 진행합니다.
+4. **검토:** 출처·목표·평가 기준을 확인합니다.
+5. **수정·저장:** 변경할 부분을 지정하고 결과를 별도 위치에 저장합니다.
 
----
+독립적인 조사만 병렬로 진행하고, 앞 결과가 필요한 작성·변환은 순차로 진행합니다. [전문가 분업](/workflows/experts/)의 역할·입출력 계약을 사용할 수 있습니다.
 
-## 연구 (moai-tutor)
+## 가상 예제로 더 이해하기
 
-### 시나리오 ① 논문 검색 + 통합 (약 10분)
+아래 자료와 모범 설명은 수업을 위해 작성했습니다. 실제 회사·고객의 실적이나 앱 실행 결과가 아닙니다. 먼저 제공 자료로 작은 결과를 만든 뒤 자신의 자료로 바꿔 보세요.
 
-{{< terminal title="claude — cowork" raw="true" >}}
-AI 윤리 분야 최근 3년 논문 정리해줘
-{{< /terminal >}}
+```text
+가상 학습 목표: 고객 문의 메모로 근거가 있는 주간보고를 작성한다. 학습자는 AI 업무 요청이 처음이며 표를 읽을 수 있다.
+```
 
-시스템 인터뷰: KCI/RISS/DBpia/Google Scholar 우선순위 · 언어(한국어/영문) · 분류 기준 · 출력 형식
+### 먼저 확인할 질문
 
-자동 체인: `education-paper-search` (4 DB 통합 검색) → `education-paper-writer` (구조화 요약) → `doc-docx` → `ai-slop-reviewer`
+학습자가 이미 할 수 있는 일과 수업 후 직접 수행할 과제는 무엇인가요? 답을 모르면 해당 항목을 미정으로 남기고, 그 정보 없이 가능한 범위를 정합니다.
 
-### 시나리오 ② 정부지원사업 신청서
+### 모범 결과를 읽는 방법
 
-{{< terminal title="claude — cowork" raw="true" >}}
-이공계 정부지원사업 신청서 만들어줘
-{{< /terminal >}}
+개념 설명, 예제 시연, 개별 실습, 원문 비교, 확인 문제 순서로 수업을 구성합니다. 평가 기준은 숫자와 미정 상태의 정확성으로 정합니다. 문장과 서식은 달라도 이 기준을 충족하는지 직접 비교합니다. 원문 위치·출처·상태가 결과에 함께 남으면 다음 검토자에게 넘기기 쉽습니다.
 
-자동 체인: `education-grant-writer` (평가표 자동 매핑) → 한국 평가위원 톤 보강 → `doc-docx` → `korean-humanize` → `최종 검수`
+### 직접 비교할 모범 결과
 
-### 시나리오 ③ 특허 분석
+| 항목 | 결과 예시 | 근거·상태 |
+|---|---|---|
+| 학습 목표 | 원문에 근거한 주간보고 작성 | 수업의 확인 대상 |
+| 시연 | 12건 완료와 FAQ 4개 초안 구분 | 교사가 원문과 결과 대조 |
+| 개별 실습 | 같은 메모로 초안 작성 후 수정 | 직접 요청·검토 |
+| 확인 문제 | FAQ를 완료로 쓴 문장 고치기 | 숫자·상태 일치로 평가 |
 
-자동 체인: `legal-patent-search` (KIPRIS / USPTO 통합) → `legal-patent-analyzer` (선행기술 분석 + 청구항 비교) → 회피 설계 가이드
+### 흔한 실수와 수정 요청
 
----
+도구 이름 암기를 완료 기준으로 삼거나 예제 결과를 실제 학습자의 수행 결과로 보고합니다. 이때는 결과 전체를 다시 만들어 달라는 말보다, 틀린 기준과 고칠 위치를 구체적으로 알려 주세요.
 
-## 교육 (moai-tutor)
+```text
+학습자가 직접 만든 결과와 원문을 비교하는 과제를 넣어 줘. 모범 예시와 실제 수행 결과는 구분해 줘.
+수정한 부분과 아직 확인할 항목을 따로 알려 줘.
+```
 
-### 시나리오 ④ 강의 커리큘럼 자동 설계
+### 확인 문제
 
-{{< terminal title="claude — cowork" raw="true" >}}
-코딩 부트캠프 12주 커리큘럼 짜줘
-{{< /terminal >}}
+강의 자료가 완성되면 학습 효과가 검증된 것일까요?
 
-시스템 인터뷰: 학습자 레벨 · 과목 · 주당 시간 · 평가 방식
+<details><summary>답안과 해설 보기</summary>
 
-자동 체인: `education-curriculum-designer` (12주 차주별 학습 목표·실습·평가) → `education-assessment-creator` (퀴즈·과제·시험) → `doc-pptx` (강의 슬라이드 자동)
+학습 효과는 실제 학습자의 수행과 평가 결과로 확인해야 합니다. 자료 제작은 그 준비 단계입니다.
 
-### 시나리오 ⑤ 수강생 후속 시퀀스 (스케줄)
+</details>
 
-자동 체인: `education-course-followup-sequence` → `content-email-sequence` (moai-marketer) → 매일 자동 발송
+### 내 업무로 바꿔 보기
 
----
+예제의 자료를 자신의 공개 가능한 자료로 바꾸고, 결과의 독자와 형식을 다시 정합니다. 변하지 않는 검토 기준은 프로젝트 지침에 저장하고, 이번 작업의 수치와 미정 조건은 새 자료로 제공합니다. [프로젝트와 자료 수업](/learn/02-project-context/)에서 구분 방법을 확인합니다.
 
-## 라이프스타일 (moai-coworker)
+## 사용할 수 있는 스킬 후보
 
-### 시나리오 ⑥ 여행 일정 자동 설계
+학습자료 구성에는 `moai-tutor:education-learning-material`을 후보로 추가할 수 있습니다.
 
-{{< terminal title="claude — cowork" raw="true" >}}
-도쿄 4박 5일 일정 만들어줘. 부모님 동반
-{{< /terminal >}}
+아래는 이 업무에 참고할 수 있는 패키지 기능입니다. 실제 설치·노출 상태를 먼저 확인하며 이 순서로 반드시 자동 실행된다는 뜻은 아닙니다.
 
-시스템 인터뷰: 일정 길이 · 동행자 · 선호 (음식·문화·쇼핑) · 예산
+- `moai-coworker:ai-slop-reviewer`
+- `moai-coworker:personal-event`
+- `moai-coworker:personal-travel`
+- `moai-coworker:personal-wellness`
+- `moai-writer:korean-humanize`
 
-자동 체인: `personal-travel` (일자별 시간표 + 동선 최적화) → `doc-docx` (체크리스트 포함)
+## 완료 기준
 
-### 시나리오 ⑦ 이벤트 기획
+결과물에 사용 자료와 미확인 항목이 표시되어 있습니다. 출처·목표·평가 기준을 직접 확인했습니다. 파일을 요청한 경우 저장된 파일을 열어 확인합니다. 실제 게시·발송·예약 작업은 별도의 실행 결과로 확인합니다.
 
-자동 체인: `personal-event` (체크리스트 + 일정 + 예산) → `doc-xlsx` (RSVP·좌석 배치) → `doc-docx`
+## 막혔을 때
 
-### 시나리오 ⑧ 웰니스 계획
+자료나 연결이 없으면 제공 자료로 가능한 초안과 다음 준비 목록을 요청합니다. 원문·수치가 다르면 해당 위치와 근거를 지정해 고칩니다. 전문 판단이 필요한 부분은 근거와 쟁점을 정리하고 해당 업무 책임자가 확인합니다.
 
-자동 체인: `personal-wellness` (식단·운동·수면 통합) → 주간 체크리스트
+[결과 검토](/workflows/review/) · [반복 업무](/workflows/reuse/) · [다른 실습 선택](/cookbook/)
 
----
+## 공식 문서와 참고 자료
 
-## AskUserQuestion 표준 슬롯 (부록 트랙 공통)
-
-| 슬롯 | 예시 값 |
-|---|---|
-| 학술 DB 우선순위 | KCI · RISS · DBpia · Google Scholar |
-| 정부 지원사업 평가 톤 | 평가위원 친화 · 학술 격식 · 사업화 강조 |
-| 강의 학습자 레벨 | 입문 · 초급 · 중급 · 고급 |
-| 여행 동행자 | 혼자 · 커플 · 가족 (어린이/노인) · 단체 |
-| 예산 범위 | 저예산 · 중간 · 프리미엄 |
-
----
-
-## 자주 묻는 질문
-
-### Q. 논문 PDF 직접 다운로드되나요?
-
-검색·메타데이터는 자동. PDF 다운로드는 각 DB의 접근 권한에 따라 제한 (대학 도서관 IP 또는 구독 필요).
-
-### Q. 정부지원사업 평가표가 정확한가요?
-
-`education-grant-writer` 내장 평가표는 일반 표준. 특정 사업(K-스타트업·IRIS·BTAS)별 양식은 사업 공고문 첨부 시 자동 매핑.
-
-### Q. 여행 일정 동선 최적화는?
-
-`personal-travel`는 Google Maps API (선택) 또는 내장 지오코딩으로 동선 최적화. API 없어도 인기 코스 데이터로 기본 일정 생성.
-
----
-
-## 다음 단계
-
-- ****
-- **[moai-tutor 플러그인](/moai-agents/tutor/)** · **[moai-tutor](/moai-agents/tutor/)** · **[moai-coworker](/moai-agents/coworker/)**
-
----
-
-### Sources
-
-- KCI (한국학술지인용색인) · RISS (학술연구정보서비스) · DBpia · Google Scholar
-- KIPRIS (한국특허정보검색서비스) · USPTO
-- 한국 정부지원사업 평가표 (K-스타트업 · IRIS · BTAS 기준)
+- [관련 플러그인 원본](https://github.com/modu-ai/moai-cowork/tree/main/plugins/moai-tutor)

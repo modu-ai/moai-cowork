@@ -2,7 +2,8 @@
 name: collab-status-report
 description: >
   제공된 자료로 KPI 현황과 운영 보고서를 정리합니다. "주간 보고서 작성해줘", "KPI 현황 정리해줘", "월간 성과 보고서 만들어줘"라고 요청할 때 사용하세요.
-version: "1.1.3"
+metadata:
+  version: "1.1.4"
 ---
 
 # 운영 현황 보고자 (Status Reporter)

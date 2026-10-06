@@ -1,0 +1,31 @@
+{
+  "baseline_html": 264,
+  "final_html": 288,
+  "missing": [],
+  "added": [
+    "advanced/documentation/index.html",
+    "advanced/index.html",
+    "advanced/plugins/index.html",
+    "advanced/verification/index.html",
+    "downloads/classroom/index.html",
+    "getting-started/choose-app/index.html",
+    "getting-started/projects/index.html",
+    "getting-started/questions/index.html",
+    "learn/01-delegation/index.html",
+    "learn/02-project-context/index.html",
+    "learn/03-first-result/index.html",
+    "learn/04-skills-plugins/index.html",
+    "learn/05-expert-workflow/index.html",
+    "learn/06-review-reuse/index.html",
+    "learn/index.html",
+    "learn/screens/index.html",
+    "learn/teaching-guide/index.html",
+    "releases/docs-20261005/index.html",
+    "workflows/experts/index.html",
+    "workflows/first-project/index.html",
+    "workflows/index.html",
+    "workflows/permissions/index.html",
+    "workflows/reuse/index.html",
+    "workflows/review/index.html"
+  ]
+}

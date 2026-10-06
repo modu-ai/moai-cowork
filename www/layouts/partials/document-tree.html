@@ -1,0 +1,7 @@
+{{ range .pages.ByWeight }}
+  {{ if and (ne .RelPermalink $.current) (not (strings.Contains .RelPermalink "/releases/archive/")) }}
+  <li><a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ with .Description }} — {{ . }}{{ end }}
+    {{ if .Pages }}<ul>{{ partial "document-tree.html" (dict "pages" .Pages "current" $.current) }}</ul>{{ end }}
+  </li>
+  {{ end }}
+{{ end }}

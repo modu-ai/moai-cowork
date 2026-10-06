@@ -2,7 +2,8 @@
 name: book-workflow
 description: |
   도서 콘셉트·독자·목차·챕터·출판 제안서를 함께 준비할 때 원고와 목표를 확인하고 moai-writer의 book-* 스킬로 연결합니다. 웹툰·웹소설·시나리오는 moai-story로 연결합니다.
-version: "1.0.1"
+metadata:
+  version: "1.0.2"
 ---
 
 # 도서 출판 작업 경로

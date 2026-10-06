@@ -1,0 +1,2146 @@
+[
+  {
+    "name": "cafe24_analytics",
+    "title": null,
+    "description": "접속통계 분석 (cafe24data: 방문자·매출·광고·키워드·방문경로) 도구 — 24개 action 을 디스패치합니다.\n\n    Args:\n        action: 수행 작업 키 (inputSchema enum 으로 24개 전체 공개).\n        params: path + query 파라미터 딕셔너리.\n        body: POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동).\n        shop_no: 멀티샵 번호 (GET/DELETE→query, POST/PUT→body 자동 배치).\n        paginate: list 계열 action 전체 페이지 자동 집계 (기본 False).\n        max_pages: 페이지네이션 시 최대 페이지 (기본 50).\n\n    Returns:\n        API JSON. Analytics 계열은 mall_id 자동 주입, 이중 레이트리밋 자동 준수.\n    ",
+    "inputSchema": {
+      "properties": {
+        "action": {
+          "description": "수행 작업 키 (inputSchema enum 으로 24개 전체 공개)",
+          "enum": [
+            "adeffect_addetails",
+            "carts_action",
+            "members_sales",
+            "pages_view",
+            "products_categorydetails",
+            "products_sales",
+            "products_view",
+            "sales_orderdetails",
+            "sales_paymethods",
+            "sales_pervisitors",
+            "sales_times",
+            "visitors_dailyactive",
+            "visitors_pageview",
+            "visitors_unique",
+            "visitors_view",
+            "visitpaths_adkeywordsales",
+            "visitpaths_ads",
+            "visitpaths_adsales",
+            "visitpaths_domains",
+            "visitpaths_domainsales",
+            "visitpaths_keyworddetails",
+            "visitpaths_keywords",
+            "visitpaths_keywordsales",
+            "visitpaths_urls"
+          ],
+          "title": "Action",
+          "type": "string"
+        },
+        "params": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "path + query 파라미터 딕셔너리. 예: {'product_no': 123, 'limit': 50}",
+          "title": "Params"
+        },
+        "body": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동)",
+          "title": "Body"
+        },
+        "shop_no": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "multi-shop number (GET/DELETE→query, POST/PUT→body 자동 배치)",
+          "title": "Shop No"
+        },
+        "paginate": {
+          "default": false,
+          "description": "list 계열 action 전체 페이지 자동 집계 (기본 False)",
+          "title": "Paginate",
+          "type": "boolean"
+        },
+        "max_pages": {
+          "default": 50,
+          "description": "페이지네이션 시 최대 페이지 (기본 50)",
+          "title": "Max Pages",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "title": "cafe24_analyticsArguments",
+      "type": "object"
+    },
+    "outputSchema": null,
+    "icons": null,
+    "annotations": null,
+    "meta": {
+      "anthropic/maxResultSizeChars": 200000
+    },
+    "execution": null
+  },
+  {
+    "name": "cafe24_analytics_admin",
+    "title": null,
+    "description": "분석 관리 도구 — 1개 action 을 디스패치합니다.\n\n    Args:\n        action: 수행 작업 키 (inputSchema enum 으로 1개 전체 공개).\n        params: path + query 파라미터 딕셔너리.\n        body: POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동).\n        shop_no: 멀티샵 번호 (GET/DELETE→query, POST/PUT→body 자동 배치).\n        paginate: list 계열 action 전체 페이지 자동 집계 (기본 False).\n        max_pages: 페이지네이션 시 최대 페이지 (기본 50).\n\n    Returns:\n        API JSON. Analytics 계열은 mall_id 자동 주입, 이중 레이트리밋 자동 준수.\n    ",
+    "inputSchema": {
+      "properties": {
+        "action": {
+          "const": "admin_dailyvisit_list",
+          "description": "수행 작업 키 (inputSchema enum 으로 1개 전체 공개)",
+          "title": "Action",
+          "type": "string"
+        },
+        "params": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "path + query 파라미터 딕셔너리. 예: {'product_no': 123, 'limit': 50}",
+          "title": "Params"
+        },
+        "body": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동)",
+          "title": "Body"
+        },
+        "shop_no": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "multi-shop number (GET/DELETE→query, POST/PUT→body 자동 배치)",
+          "title": "Shop No"
+        },
+        "paginate": {
+          "default": false,
+          "description": "list 계열 action 전체 페이지 자동 집계 (기본 False)",
+          "title": "Paginate",
+          "type": "boolean"
+        },
+        "max_pages": {
+          "default": 50,
+          "description": "페이지네이션 시 최대 페이지 (기본 50)",
+          "title": "Max Pages",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "title": "cafe24_analytics_adminArguments",
+      "type": "object"
+    },
+    "outputSchema": null,
+    "icons": null,
+    "annotations": null,
+    "meta": {
+      "anthropic/maxResultSizeChars": 200000
+    },
+    "execution": null
+  },
+  {
+    "name": "cafe24_application",
+    "title": null,
+    "description": "앱 (installed apps / authorization) 도구 — 19개 action 을 디스패치합니다.\n\n    Args:\n        action: 수행 작업 키 (inputSchema enum 으로 19개 전체 공개).\n        params: path + query 파라미터 딕셔너리.\n        body: POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동).\n        shop_no: 멀티샵 번호 (GET/DELETE→query, POST/PUT→body 자동 배치).\n        paginate: list 계열 action 전체 페이지 자동 집계 (기본 False).\n        max_pages: 페이지네이션 시 최대 페이지 (기본 50).\n\n    Returns:\n        API JSON. Analytics 계열은 mall_id 자동 주입, 이중 레이트리밋 자동 준수.\n    ",
+    "inputSchema": {
+      "properties": {
+        "action": {
+          "description": "수행 작업 키 (inputSchema enum 으로 19개 전체 공개)",
+          "enum": [
+            "app_get",
+            "app_update",
+            "appstore_order_create",
+            "appstore_order_get",
+            "appstore_payment_count",
+            "appstore_payment_list",
+            "databridge_log_list",
+            "recipe_create",
+            "recipe_delete",
+            "recipe_list",
+            "scripttag_count",
+            "scripttag_create",
+            "scripttag_delete",
+            "scripttag_get",
+            "scripttag_list",
+            "scripttag_update",
+            "webhook_log_list",
+            "webhook_setting_get",
+            "webhook_setting_update"
+          ],
+          "title": "Action",
+          "type": "string"
+        },
+        "params": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "path + query 파라미터 딕셔너리. 예: {'product_no': 123, 'limit': 50}",
+          "title": "Params"
+        },
+        "body": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동)",
+          "title": "Body"
+        },
+        "shop_no": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "multi-shop number (GET/DELETE→query, POST/PUT→body 자동 배치)",
+          "title": "Shop No"
+        },
+        "paginate": {
+          "default": false,
+          "description": "list 계열 action 전체 페이지 자동 집계 (기본 False)",
+          "title": "Paginate",
+          "type": "boolean"
+        },
+        "max_pages": {
+          "default": 50,
+          "description": "페이지네이션 시 최대 페이지 (기본 50)",
+          "title": "Max Pages",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "title": "cafe24_applicationArguments",
+      "type": "object"
+    },
+    "outputSchema": null,
+    "icons": null,
+    "annotations": null,
+    "meta": {
+      "anthropic/maxResultSizeChars": 200000
+    },
+    "execution": null
+  },
+  {
+    "name": "cafe24_category",
+    "title": null,
+    "description": "상품분류 (categories) 도구 — 18개 action 을 디스패치합니다.\n\n    Args:\n        action: 수행 작업 키 (inputSchema enum 으로 18개 전체 공개).\n        params: path + query 파라미터 딕셔너리.\n        body: POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동).\n        shop_no: 멀티샵 번호 (GET/DELETE→query, POST/PUT→body 자동 배치).\n        paginate: list 계열 action 전체 페이지 자동 집계 (기본 False).\n        max_pages: 페이지네이션 시 최대 페이지 (기본 50).\n\n    Returns:\n        API JSON. Analytics 계열은 mall_id 자동 주입, 이중 레이트리밋 자동 준수.\n    ",
+    "inputSchema": {
+      "properties": {
+        "action": {
+          "description": "수행 작업 키 (inputSchema enum 으로 18개 전체 공개)",
+          "enum": [
+            "autodisplay_create",
+            "autodisplay_delete",
+            "autodisplay_list",
+            "autodisplay_update",
+            "count",
+            "create",
+            "decorationimage_get",
+            "decorationimage_update",
+            "delete",
+            "get",
+            "list",
+            "main_create",
+            "main_delete",
+            "main_list",
+            "main_update",
+            "seo_get",
+            "seo_update",
+            "update"
+          ],
+          "title": "Action",
+          "type": "string"
+        },
+        "params": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "path + query 파라미터 딕셔너리. 예: {'product_no': 123, 'limit': 50}",
+          "title": "Params"
+        },
+        "body": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동)",
+          "title": "Body"
+        },
+        "shop_no": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "multi-shop number (GET/DELETE→query, POST/PUT→body 자동 배치)",
+          "title": "Shop No"
+        },
+        "paginate": {
+          "default": false,
+          "description": "list 계열 action 전체 페이지 자동 집계 (기본 False)",
+          "title": "Paginate",
+          "type": "boolean"
+        },
+        "max_pages": {
+          "default": 50,
+          "description": "페이지네이션 시 최대 페이지 (기본 50)",
+          "title": "Max Pages",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "title": "cafe24_categoryArguments",
+      "type": "object"
+    },
+    "outputSchema": null,
+    "icons": null,
+    "annotations": null,
+    "meta": {
+      "anthropic/maxResultSizeChars": 200000
+    },
+    "execution": null
+  },
+  {
+    "name": "cafe24_collection",
+    "title": null,
+    "description": "판매분류 (collections) 도구 — 15개 action 을 디스패치합니다.\n\n    Args:\n        action: 수행 작업 키 (inputSchema enum 으로 15개 전체 공개).\n        params: path + query 파라미터 딕셔너리.\n        body: POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동).\n        shop_no: 멀티샵 번호 (GET/DELETE→query, POST/PUT→body 자동 배치).\n        paginate: list 계열 action 전체 페이지 자동 집계 (기본 False).\n        max_pages: 페이지네이션 시 최대 페이지 (기본 50).\n\n    Returns:\n        API JSON. Analytics 계열은 mall_id 자동 주입, 이중 레이트리밋 자동 준수.\n    ",
+    "inputSchema": {
+      "properties": {
+        "action": {
+          "description": "수행 작업 키 (inputSchema enum 으로 15개 전체 공개)",
+          "enum": [
+            "brand_count",
+            "brand_create",
+            "brand_delete",
+            "brand_list",
+            "brand_update",
+            "classification_count",
+            "classification_list",
+            "manufacturer_count",
+            "manufacturer_create",
+            "manufacturer_get",
+            "manufacturer_list",
+            "manufacturer_update",
+            "origin_list",
+            "trend_count",
+            "trend_list"
+          ],
+          "title": "Action",
+          "type": "string"
+        },
+        "params": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "path + query 파라미터 딕셔너리. 예: {'product_no': 123, 'limit': 50}",
+          "title": "Params"
+        },
+        "body": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동)",
+          "title": "Body"
+        },
+        "shop_no": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "multi-shop number (GET/DELETE→query, POST/PUT→body 자동 배치)",
+          "title": "Shop No"
+        },
+        "paginate": {
+          "default": false,
+          "description": "list 계열 action 전체 페이지 자동 집계 (기본 False)",
+          "title": "Paginate",
+          "type": "boolean"
+        },
+        "max_pages": {
+          "default": 50,
+          "description": "페이지네이션 시 최대 페이지 (기본 50)",
+          "title": "Max Pages",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "title": "cafe24_collectionArguments",
+      "type": "object"
+    },
+    "outputSchema": null,
+    "icons": null,
+    "annotations": null,
+    "meta": {
+      "anthropic/maxResultSizeChars": 200000
+    },
+    "execution": null
+  },
+  {
+    "name": "cafe24_community",
+    "title": null,
+    "description": "커뮤니티 (boards / Q&A / reviews) 도구 — 23개 action 을 디스패치합니다.\n\n    Args:\n        action: 수행 작업 키 (inputSchema enum 으로 23개 전체 공개).\n        params: path + query 파라미터 딕셔너리.\n        body: POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동).\n        shop_no: 멀티샵 번호 (GET/DELETE→query, POST/PUT→body 자동 배치).\n        paginate: list 계열 action 전체 페이지 자동 집계 (기본 False).\n        max_pages: 페이지네이션 시 최대 페이지 (기본 50).\n\n    Returns:\n        API JSON. Analytics 계열은 mall_id 자동 주입, 이중 레이트리밋 자동 준수.\n    ",
+    "inputSchema": {
+      "properties": {
+        "action": {
+          "description": "수행 작업 키 (inputSchema enum 으로 23개 전체 공개)",
+          "enum": [
+            "article_comment_create",
+            "article_comment_delete",
+            "article_comment_list",
+            "article_create",
+            "article_delete",
+            "article_list",
+            "article_update",
+            "board_comment_list",
+            "board_get",
+            "board_list",
+            "board_seo_get",
+            "board_seo_update",
+            "board_update",
+            "commenttemplate_create",
+            "commenttemplate_delete",
+            "commenttemplate_get",
+            "commenttemplate_list",
+            "commenttemplate_update",
+            "monthlyreview_list",
+            "urgentinquiry_list",
+            "urgentinquiry_reply_create",
+            "urgentinquiry_reply_get",
+            "urgentinquiry_reply_update"
+          ],
+          "title": "Action",
+          "type": "string"
+        },
+        "params": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "path + query 파라미터 딕셔너리. 예: {'product_no': 123, 'limit': 50}",
+          "title": "Params"
+        },
+        "body": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동)",
+          "title": "Body"
+        },
+        "shop_no": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "multi-shop number (GET/DELETE→query, POST/PUT→body 자동 배치)",
+          "title": "Shop No"
+        },
+        "paginate": {
+          "default": false,
+          "description": "list 계열 action 전체 페이지 자동 집계 (기본 False)",
+          "title": "Paginate",
+          "type": "boolean"
+        },
+        "max_pages": {
+          "default": 50,
+          "description": "페이지네이션 시 최대 페이지 (기본 50)",
+          "title": "Max Pages",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "title": "cafe24_communityArguments",
+      "type": "object"
+    },
+    "outputSchema": null,
+    "icons": null,
+    "annotations": null,
+    "meta": {
+      "anthropic/maxResultSizeChars": 200000
+    },
+    "execution": null
+  },
+  {
+    "name": "cafe24_customer",
+    "title": null,
+    "description": "회원 (customers / groups) 도구 — 21개 action 을 디스패치합니다.\n\n    Args:\n        action: 수행 작업 키 (inputSchema enum 으로 21개 전체 공개).\n        params: path + query 파라미터 딕셔너리.\n        body: POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동).\n        shop_no: 멀티샵 번호 (GET/DELETE→query, POST/PUT→body 자동 배치).\n        paginate: list 계열 action 전체 페이지 자동 집계 (기본 False).\n        max_pages: 페이지네이션 시 최대 페이지 (기본 50).\n\n    Returns:\n        API JSON. Analytics 계열은 mall_id 자동 주입, 이중 레이트리밋 자동 준수.\n    ",
+    "inputSchema": {
+      "properties": {
+        "action": {
+          "description": "수행 작업 키 (inputSchema enum 으로 21개 전체 공개)",
+          "enum": [
+            "autoupdate_get",
+            "customergroup_count",
+            "customergroup_customer_assign",
+            "customergroup_get",
+            "customergroup_list",
+            "customergroup_setting_get",
+            "delete",
+            "list",
+            "memo_count",
+            "memo_create",
+            "memo_delete",
+            "memo_get",
+            "memo_list",
+            "memo_update",
+            "paymentinfo_delete",
+            "paymentinfo_delete_all",
+            "paymentinfo_list",
+            "plusapp_get",
+            "property_list",
+            "property_update",
+            "social_get"
+          ],
+          "title": "Action",
+          "type": "string"
+        },
+        "params": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "path + query 파라미터 딕셔너리. 예: {'product_no': 123, 'limit': 50}",
+          "title": "Params"
+        },
+        "body": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동)",
+          "title": "Body"
+        },
+        "shop_no": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "multi-shop number (GET/DELETE→query, POST/PUT→body 자동 배치)",
+          "title": "Shop No"
+        },
+        "paginate": {
+          "default": false,
+          "description": "list 계열 action 전체 페이지 자동 집계 (기본 False)",
+          "title": "Paginate",
+          "type": "boolean"
+        },
+        "max_pages": {
+          "default": 50,
+          "description": "페이지네이션 시 최대 페이지 (기본 50)",
+          "title": "Max Pages",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "title": "cafe24_customerArguments",
+      "type": "object"
+    },
+    "outputSchema": null,
+    "icons": null,
+    "annotations": null,
+    "meta": {
+      "anthropic/maxResultSizeChars": 200000
+    },
+    "execution": null
+  },
+  {
+    "name": "cafe24_design",
+    "title": null,
+    "description": "디자인 (icons / themes / skins) 도구 — 8개 action 을 디스패치합니다.\n\n    Args:\n        action: 수행 작업 키 (inputSchema enum 으로 8개 전체 공개).\n        params: path + query 파라미터 딕셔너리.\n        body: POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동).\n        shop_no: 멀티샵 번호 (GET/DELETE→query, POST/PUT→body 자동 배치).\n        paginate: list 계열 action 전체 페이지 자동 집계 (기본 False).\n        max_pages: 페이지네이션 시 최대 페이지 (기본 50).\n\n    Returns:\n        API JSON. Analytics 계열은 mall_id 자동 주입, 이중 레이트리밋 자동 준수.\n    ",
+    "inputSchema": {
+      "properties": {
+        "action": {
+          "description": "수행 작업 키 (inputSchema enum 으로 8개 전체 공개)",
+          "enum": [
+            "icon_list",
+            "theme_count",
+            "theme_get",
+            "theme_list",
+            "theme_page_create",
+            "theme_page_delete",
+            "theme_page_get",
+            "theme_page_update"
+          ],
+          "title": "Action",
+          "type": "string"
+        },
+        "params": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "path + query 파라미터 딕셔너리. 예: {'product_no': 123, 'limit': 50}",
+          "title": "Params"
+        },
+        "body": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동)",
+          "title": "Body"
+        },
+        "shop_no": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "multi-shop number (GET/DELETE→query, POST/PUT→body 자동 배치)",
+          "title": "Shop No"
+        },
+        "paginate": {
+          "default": false,
+          "description": "list 계열 action 전체 페이지 자동 집계 (기본 False)",
+          "title": "Paginate",
+          "type": "boolean"
+        },
+        "max_pages": {
+          "default": 50,
+          "description": "페이지네이션 시 최대 페이지 (기본 50)",
+          "title": "Max Pages",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "title": "cafe24_designArguments",
+      "type": "object"
+    },
+    "outputSchema": null,
+    "icons": null,
+    "annotations": null,
+    "meta": {
+      "anthropic/maxResultSizeChars": 200000
+    },
+    "execution": null
+  },
+  {
+    "name": "cafe24_mileage",
+    "title": null,
+    "description": "적립금 (mileage / points / credit) 도구 — 8개 action 을 디스패치합니다.\n\n    Args:\n        action: 수행 작업 키 (inputSchema enum 으로 8개 전체 공개).\n        params: path + query 파라미터 딕셔너리.\n        body: POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동).\n        shop_no: 멀티샵 번호 (GET/DELETE→query, POST/PUT→body 자동 배치).\n        paginate: list 계열 action 전체 페이지 자동 집계 (기본 False).\n        max_pages: 페이지네이션 시 최대 페이지 (기본 50).\n\n    Returns:\n        API JSON. Analytics 계열은 mall_id 자동 주입, 이중 레이트리밋 자동 준수.\n    ",
+    "inputSchema": {
+      "properties": {
+        "action": {
+          "description": "수행 작업 키 (inputSchema enum 으로 8개 전체 공개)",
+          "enum": [
+            "credit_list",
+            "credit_report",
+            "point_autoexpiration_create",
+            "point_autoexpiration_delete",
+            "point_autoexpiration_get",
+            "point_issue",
+            "point_list",
+            "point_report"
+          ],
+          "title": "Action",
+          "type": "string"
+        },
+        "params": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "path + query 파라미터 딕셔너리. 예: {'product_no': 123, 'limit': 50}",
+          "title": "Params"
+        },
+        "body": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동)",
+          "title": "Body"
+        },
+        "shop_no": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "multi-shop number (GET/DELETE→query, POST/PUT→body 자동 배치)",
+          "title": "Shop No"
+        },
+        "paginate": {
+          "default": false,
+          "description": "list 계열 action 전체 페이지 자동 집계 (기본 False)",
+          "title": "Paginate",
+          "type": "boolean"
+        },
+        "max_pages": {
+          "default": 50,
+          "description": "페이지네이션 시 최대 페이지 (기본 50)",
+          "title": "Max Pages",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "title": "cafe24_mileageArguments",
+      "type": "object"
+    },
+    "outputSchema": null,
+    "icons": null,
+    "annotations": null,
+    "meta": {
+      "anthropic/maxResultSizeChars": 200000
+    },
+    "execution": null
+  },
+  {
+    "name": "cafe24_notification",
+    "title": null,
+    "description": "알림 (automail / customer invitations) 도구 — 12개 action 을 디스패치합니다.\n\n    Args:\n        action: 수행 작업 키 (inputSchema enum 으로 12개 전체 공개).\n        params: path + query 파라미터 딕셔너리.\n        body: POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동).\n        shop_no: 멀티샵 번호 (GET/DELETE→query, POST/PUT→body 자동 배치).\n        paginate: list 계열 action 전체 페이지 자동 집계 (기본 False).\n        max_pages: 페이지네이션 시 최대 페이지 (기본 50).\n\n    Returns:\n        API JSON. Analytics 계열은 mall_id 자동 주입, 이중 레이트리밋 자동 준수.\n    ",
+    "inputSchema": {
+      "properties": {
+        "action": {
+          "description": "수행 작업 키 (inputSchema enum 으로 12개 전체 공개)",
+          "enum": [
+            "automail_list",
+            "automail_update",
+            "customer_invitation_send",
+            "recipientgroup_create",
+            "recipientgroup_delete",
+            "recipientgroup_get",
+            "recipientgroup_list",
+            "recipientgroup_update",
+            "sms_balance_get",
+            "sms_receiver_list",
+            "sms_send",
+            "sms_sender_list"
+          ],
+          "title": "Action",
+          "type": "string"
+        },
+        "params": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "path + query 파라미터 딕셔너리. 예: {'product_no': 123, 'limit': 50}",
+          "title": "Params"
+        },
+        "body": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동)",
+          "title": "Body"
+        },
+        "shop_no": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "multi-shop number (GET/DELETE→query, POST/PUT→body 자동 배치)",
+          "title": "Shop No"
+        },
+        "paginate": {
+          "default": false,
+          "description": "list 계열 action 전체 페이지 자동 집계 (기본 False)",
+          "title": "Paginate",
+          "type": "boolean"
+        },
+        "max_pages": {
+          "default": 50,
+          "description": "페이지네이션 시 최대 페이지 (기본 50)",
+          "title": "Max Pages",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "title": "cafe24_notificationArguments",
+      "type": "object"
+    },
+    "outputSchema": null,
+    "icons": null,
+    "annotations": null,
+    "meta": {
+      "anthropic/maxResultSizeChars": 200000
+    },
+    "execution": null
+  },
+  {
+    "name": "cafe24_order",
+    "title": null,
+    "description": "주문 (orders / claims / exchanges / returns) 도구 — 105개 action 을 디스패치합니다.\n\n    Args:\n        action: 수행 작업 키 (inputSchema enum 으로 105개 전체 공개).\n        params: path + query 파라미터 딕셔너리.\n        body: POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동).\n        shop_no: 멀티샵 번호 (GET/DELETE→query, POST/PUT→body 자동 배치).\n        paginate: list 계열 action 전체 페이지 자동 집계 (기본 False).\n        max_pages: 페이지네이션 시 최대 페이지 (기본 50).\n\n    Returns:\n        API JSON. Analytics 계열은 mall_id 자동 주입, 이중 레이트리밋 자동 준수.\n    ",
+    "inputSchema": {
+      "properties": {
+        "action": {
+          "description": "수행 작업 키 (inputSchema enum 으로 105개 전체 공개)",
+          "enum": [
+            "autocalculation_remove",
+            "benefit_list",
+            "buyer_get",
+            "buyer_history",
+            "buyer_update",
+            "calculation",
+            "cancellation_create",
+            "cancellation_create_bulk",
+            "cancellation_get",
+            "cancellation_update",
+            "cancellation_update_bulk",
+            "cancellationrequest_create",
+            "cancellationrequest_reject",
+            "cashreceipt_cancellation",
+            "cashreceipt_create",
+            "cashreceipt_list",
+            "cashreceipt_update",
+            "collectrequest_update",
+            "control",
+            "count",
+            "coupon_list",
+            "dashboard",
+            "exchange_create",
+            "exchange_create_bulk",
+            "exchange_get",
+            "exchange_update",
+            "exchange_update_bulk",
+            "exchangerequest_create",
+            "exchangerequest_reject",
+            "fulfillment_create_bulk",
+            "get",
+            "inflow_create",
+            "inflow_delete",
+            "inflow_list",
+            "inflow_update",
+            "inflowgroup_create",
+            "inflowgroup_delete",
+            "inflowgroup_list",
+            "inflowgroup_update",
+            "item_create",
+            "item_label_create",
+            "item_label_delete",
+            "item_label_list",
+            "item_label_update",
+            "item_list",
+            "item_option_create",
+            "item_option_update",
+            "item_update",
+            "label_create_bulk",
+            "label_list",
+            "list",
+            "memo_create",
+            "memo_delete",
+            "memo_global_list",
+            "memo_list",
+            "memo_update",
+            "migration_create",
+            "migration_delete",
+            "migration_list",
+            "migration_update",
+            "order_exchangerequest_reject",
+            "orderform_property_create",
+            "orderform_property_delete",
+            "orderform_property_list",
+            "orderform_property_update",
+            "payment_update",
+            "payment_update_bulk",
+            "paymentamount_get",
+            "paymenttimeline_get",
+            "paymenttimeline_list",
+            "receiver_history",
+            "receiver_list",
+            "receiver_update",
+            "receiver_update_bulk",
+            "refund_get",
+            "refund_list",
+            "refund_update",
+            "reservation_list",
+            "return_create",
+            "return_create_bulk",
+            "return_get",
+            "return_update",
+            "return_update_bulk",
+            "returnrequest_create",
+            "returnrequest_reject",
+            "saleschannel_create",
+            "saleschannel_delete",
+            "saleschannel_list",
+            "saleschannel_update",
+            "shipment_create",
+            "shipment_create_bulk",
+            "shipment_delete",
+            "shipment_list",
+            "shipment_update",
+            "shipment_update_bulk",
+            "shippingfeecancellation_create",
+            "shippingfeecancellation_get",
+            "shortagecancellation_create",
+            "subscription_shipment_create",
+            "subscription_shipment_item_update",
+            "subscription_shipment_list",
+            "subscription_shipment_update",
+            "unpaidorder_list",
+            "update",
+            "update_bulk"
+          ],
+          "title": "Action",
+          "type": "string"
+        },
+        "params": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "path + query 파라미터 딕셔너리. 예: {'product_no': 123, 'limit': 50}",
+          "title": "Params"
+        },
+        "body": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동)",
+          "title": "Body"
+        },
+        "shop_no": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "multi-shop number (GET/DELETE→query, POST/PUT→body 자동 배치)",
+          "title": "Shop No"
+        },
+        "paginate": {
+          "default": false,
+          "description": "list 계열 action 전체 페이지 자동 집계 (기본 False)",
+          "title": "Paginate",
+          "type": "boolean"
+        },
+        "max_pages": {
+          "default": 50,
+          "description": "페이지네이션 시 최대 페이지 (기본 50)",
+          "title": "Max Pages",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "title": "cafe24_orderArguments",
+      "type": "object"
+    },
+    "outputSchema": null,
+    "icons": null,
+    "annotations": null,
+    "meta": {
+      "anthropic/maxResultSizeChars": 200000
+    },
+    "execution": null
+  },
+  {
+    "name": "cafe24_personal",
+    "title": null,
+    "description": "개인화 추천 (carts / wishlists) 도구 — 5개 action 을 디스패치합니다.\n\n    Args:\n        action: 수행 작업 키 (inputSchema enum 으로 5개 전체 공개).\n        params: path + query 파라미터 딕셔너리.\n        body: POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동).\n        shop_no: 멀티샵 번호 (GET/DELETE→query, POST/PUT→body 자동 배치).\n        paginate: list 계열 action 전체 페이지 자동 집계 (기본 False).\n        max_pages: 페이지네이션 시 최대 페이지 (기본 50).\n\n    Returns:\n        API JSON. Analytics 계열은 mall_id 자동 주입, 이중 레이트리밋 자동 준수.\n    ",
+    "inputSchema": {
+      "properties": {
+        "action": {
+          "description": "수행 작업 키 (inputSchema enum 으로 5개 전체 공개)",
+          "enum": [
+            "cart_list",
+            "product_cart_count",
+            "product_cart_list",
+            "wishlist_count",
+            "wishlist_list"
+          ],
+          "title": "Action",
+          "type": "string"
+        },
+        "params": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "path + query 파라미터 딕셔너리. 예: {'product_no': 123, 'limit': 50}",
+          "title": "Params"
+        },
+        "body": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동)",
+          "title": "Body"
+        },
+        "shop_no": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "multi-shop number (GET/DELETE→query, POST/PUT→body 자동 배치)",
+          "title": "Shop No"
+        },
+        "paginate": {
+          "default": false,
+          "description": "list 계열 action 전체 페이지 자동 집계 (기본 False)",
+          "title": "Paginate",
+          "type": "boolean"
+        },
+        "max_pages": {
+          "default": 50,
+          "description": "페이지네이션 시 최대 페이지 (기본 50)",
+          "title": "Max Pages",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "title": "cafe24_personalArguments",
+      "type": "object"
+    },
+    "outputSchema": null,
+    "icons": null,
+    "annotations": null,
+    "meta": {
+      "anthropic/maxResultSizeChars": 200000
+    },
+    "execution": null
+  },
+  {
+    "name": "cafe24_privacy",
+    "title": null,
+    "description": "개인정보 (privacy consents / withdrawal) 도구 — 6개 action 을 디스패치합니다.\n\n    Args:\n        action: 수행 작업 키 (inputSchema enum 으로 6개 전체 공개).\n        params: path + query 파라미터 딕셔너리.\n        body: POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동).\n        shop_no: 멀티샵 번호 (GET/DELETE→query, POST/PUT→body 자동 배치).\n        paginate: list 계열 action 전체 페이지 자동 집계 (기본 False).\n        max_pages: 페이지네이션 시 최대 페이지 (기본 50).\n\n    Returns:\n        API JSON. Analytics 계열은 mall_id 자동 주입, 이중 레이트리밋 자동 준수.\n    ",
+    "inputSchema": {
+      "properties": {
+        "action": {
+          "description": "수행 작업 키 (inputSchema enum 으로 6개 전체 공개)",
+          "enum": [
+            "customerprivacy_count",
+            "customerprivacy_get",
+            "customerprivacy_list",
+            "customerprivacy_update",
+            "product_wishlist_customer_count",
+            "product_wishlist_customer_list"
+          ],
+          "title": "Action",
+          "type": "string"
+        },
+        "params": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "path + query 파라미터 딕셔너리. 예: {'product_no': 123, 'limit': 50}",
+          "title": "Params"
+        },
+        "body": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동)",
+          "title": "Body"
+        },
+        "shop_no": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "multi-shop number (GET/DELETE→query, POST/PUT→body 자동 배치)",
+          "title": "Shop No"
+        },
+        "paginate": {
+          "default": false,
+          "description": "list 계열 action 전체 페이지 자동 집계 (기본 False)",
+          "title": "Paginate",
+          "type": "boolean"
+        },
+        "max_pages": {
+          "default": 50,
+          "description": "페이지네이션 시 최대 페이지 (기본 50)",
+          "title": "Max Pages",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "title": "cafe24_privacyArguments",
+      "type": "object"
+    },
+    "outputSchema": null,
+    "icons": null,
+    "annotations": null,
+    "meta": {
+      "anthropic/maxResultSizeChars": 200000
+    },
+    "execution": null
+  },
+  {
+    "name": "cafe24_product",
+    "title": null,
+    "description": "상품 (products / variants / options / inventories) 도구 — 80개 action 을 디스패치합니다.\n\n    Args:\n        action: 수행 작업 키 (inputSchema enum 으로 80개 전체 공개).\n        params: path + query 파라미터 딕셔너리.\n        body: POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동).\n        shop_no: 멀티샵 번호 (GET/DELETE→query, POST/PUT→body 자동 배치).\n        paginate: list 계열 action 전체 페이지 자동 집계 (기본 False).\n        max_pages: 페이지네이션 시 최대 페이지 (기본 50).\n\n    Returns:\n        API JSON. Analytics 계열은 mall_id 자동 주입, 이중 레이트리밋 자동 준수.\n    ",
+    "inputSchema": {
+      "properties": {
+        "action": {
+          "description": "수행 작업 키 (inputSchema enum 으로 80개 전체 공개)",
+          "enum": [
+            "additionalimage_create",
+            "additionalimage_delete",
+            "additionalimage_update",
+            "approve_get",
+            "approve_request",
+            "approve_update",
+            "bundleproduct_create",
+            "bundleproduct_delete",
+            "bundleproduct_get",
+            "bundleproduct_list",
+            "bundleproduct_update",
+            "category_product_add",
+            "category_product_count",
+            "category_product_list",
+            "category_product_remove",
+            "category_product_update",
+            "category_property_create",
+            "category_property_list",
+            "category_property_update",
+            "count",
+            "create",
+            "customproperty_delete",
+            "customproperty_global_create",
+            "customproperty_global_delete",
+            "customproperty_global_list",
+            "customproperty_global_update",
+            "customproperty_list",
+            "customproperty_update",
+            "decorationimage_global_list",
+            "decorationimage_list",
+            "decorationimage_remove",
+            "decorationimage_set",
+            "decorationimage_update",
+            "delete",
+            "discountprice_get",
+            "get",
+            "hits_count",
+            "icon_global_list",
+            "icon_list",
+            "icon_remove",
+            "icon_set",
+            "icon_update",
+            "image_delete",
+            "image_global_upload",
+            "image_upload",
+            "list",
+            "main_product_count",
+            "main_product_list",
+            "main_product_remove",
+            "main_product_set",
+            "main_product_update",
+            "main_property_create",
+            "main_property_list",
+            "main_property_update",
+            "memo_create",
+            "memo_delete",
+            "memo_get",
+            "memo_list",
+            "memo_update",
+            "option_create",
+            "option_delete",
+            "option_list",
+            "option_update",
+            "property_create",
+            "property_list",
+            "property_update",
+            "seo_get",
+            "seo_update",
+            "tag_count",
+            "tag_create",
+            "tag_delete",
+            "tag_list",
+            "update",
+            "variant_delete",
+            "variant_get",
+            "variant_inventory_get",
+            "variant_inventory_update",
+            "variant_list",
+            "variant_update",
+            "variant_update_bulk"
+          ],
+          "title": "Action",
+          "type": "string"
+        },
+        "params": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "path + query 파라미터 딕셔너리. 예: {'product_no': 123, 'limit': 50}",
+          "title": "Params"
+        },
+        "body": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동)",
+          "title": "Body"
+        },
+        "shop_no": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "multi-shop number (GET/DELETE→query, POST/PUT→body 자동 배치)",
+          "title": "Shop No"
+        },
+        "paginate": {
+          "default": false,
+          "description": "list 계열 action 전체 페이지 자동 집계 (기본 False)",
+          "title": "Paginate",
+          "type": "boolean"
+        },
+        "max_pages": {
+          "default": 50,
+          "description": "페이지네이션 시 최대 페이지 (기본 50)",
+          "title": "Max Pages",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "title": "cafe24_productArguments",
+      "type": "object"
+    },
+    "outputSchema": null,
+    "icons": null,
+    "annotations": null,
+    "meta": {
+      "anthropic/maxResultSizeChars": 200000
+    },
+    "execution": null
+  },
+  {
+    "name": "cafe24_promotion",
+    "title": null,
+    "description": "프로모션 (benefits / coupons / discounts / members-grade) 도구 — 32개 action 을 디스패치합니다.\n\n    Args:\n        action: 수행 작업 키 (inputSchema enum 으로 32개 전체 공개).\n        params: path + query 파라미터 딕셔너리.\n        body: POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동).\n        shop_no: 멀티샵 번호 (GET/DELETE→query, POST/PUT→body 자동 배치).\n        paginate: list 계열 action 전체 페이지 자동 집계 (기본 False).\n        max_pages: 페이지네이션 시 최대 페이지 (기본 50).\n\n    Returns:\n        API JSON. Analytics 계열은 mall_id 자동 주입, 이중 레이트리밋 자동 준수.\n    ",
+    "inputSchema": {
+      "properties": {
+        "action": {
+          "description": "수행 작업 키 (inputSchema enum 으로 32개 전체 공개)",
+          "enum": [
+            "benefit_count",
+            "benefit_create",
+            "benefit_delete",
+            "benefit_get",
+            "benefit_list",
+            "benefit_update",
+            "commonevent_create",
+            "commonevent_delete",
+            "commonevent_list",
+            "commonevent_update",
+            "coupon_count",
+            "coupon_create",
+            "coupon_issue_create",
+            "coupon_issue_list",
+            "coupon_list",
+            "coupon_manage",
+            "customer_coupon_count",
+            "customer_coupon_delete",
+            "customer_coupon_list",
+            "customerevent_create",
+            "customerevent_list",
+            "customerevent_update",
+            "discountcode_create",
+            "discountcode_delete",
+            "discountcode_get",
+            "discountcode_list",
+            "discountcode_update",
+            "serialcoupon_delete",
+            "serialcoupon_generate",
+            "serialcoupon_issue_list",
+            "serialcoupon_issue_register",
+            "serialcoupon_list"
+          ],
+          "title": "Action",
+          "type": "string"
+        },
+        "params": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "path + query 파라미터 딕셔너리. 예: {'product_no': 123, 'limit': 50}",
+          "title": "Params"
+        },
+        "body": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동)",
+          "title": "Body"
+        },
+        "shop_no": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "multi-shop number (GET/DELETE→query, POST/PUT→body 자동 배치)",
+          "title": "Shop No"
+        },
+        "paginate": {
+          "default": false,
+          "description": "list 계열 action 전체 페이지 자동 집계 (기본 False)",
+          "title": "Paginate",
+          "type": "boolean"
+        },
+        "max_pages": {
+          "default": 50,
+          "description": "페이지네이션 시 최대 페이지 (기본 50)",
+          "title": "Max Pages",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "title": "cafe24_promotionArguments",
+      "type": "object"
+    },
+    "outputSchema": null,
+    "icons": null,
+    "annotations": null,
+    "meta": {
+      "anthropic/maxResultSizeChars": 200000
+    },
+    "execution": null
+  },
+  {
+    "name": "cafe24_salesreport",
+    "title": null,
+    "description": "매출통계 (daily / monthly / hourly reports) 도구 — 5개 action 을 디스패치합니다.\n\n    Args:\n        action: 수행 작업 키 (inputSchema enum 으로 5개 전체 공개).\n        params: path + query 파라미터 딕셔너리.\n        body: POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동).\n        shop_no: 멀티샵 번호 (GET/DELETE→query, POST/PUT→body 자동 배치).\n        paginate: list 계열 action 전체 페이지 자동 집계 (기본 False).\n        max_pages: 페이지네이션 시 최대 페이지 (기본 50).\n\n    Returns:\n        API JSON. Analytics 계열은 mall_id 자동 주입, 이중 레이트리밋 자동 준수.\n    ",
+    "inputSchema": {
+      "properties": {
+        "action": {
+          "description": "수행 작업 키 (inputSchema enum 으로 5개 전체 공개)",
+          "enum": [
+            "daily_list",
+            "hourly_list",
+            "monthly_list",
+            "product_list",
+            "volume_list"
+          ],
+          "title": "Action",
+          "type": "string"
+        },
+        "params": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "path + query 파라미터 딕셔너리. 예: {'product_no': 123, 'limit': 50}",
+          "title": "Params"
+        },
+        "body": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동)",
+          "title": "Body"
+        },
+        "shop_no": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "multi-shop number (GET/DELETE→query, POST/PUT→body 자동 배치)",
+          "title": "Shop No"
+        },
+        "paginate": {
+          "default": false,
+          "description": "list 계열 action 전체 페이지 자동 집계 (기본 False)",
+          "title": "Paginate",
+          "type": "boolean"
+        },
+        "max_pages": {
+          "default": 50,
+          "description": "페이지네이션 시 최대 페이지 (기본 50)",
+          "title": "Max Pages",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "title": "cafe24_salesreportArguments",
+      "type": "object"
+    },
+    "outputSchema": null,
+    "icons": null,
+    "annotations": null,
+    "meta": {
+      "anthropic/maxResultSizeChars": 200000
+    },
+    "execution": null
+  },
+  {
+    "name": "cafe24_shipping",
+    "title": null,
+    "description": "배송 (carriers / shipping methods / zones) 도구 — 14개 action 을 디스패치합니다.\n\n    Args:\n        action: 수행 작업 키 (inputSchema enum 으로 14개 전체 공개).\n        params: path + query 파라미터 딕셔너리.\n        body: POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동).\n        shop_no: 멀티샵 번호 (GET/DELETE→query, POST/PUT→body 자동 배치).\n        paginate: list 계열 action 전체 페이지 자동 집계 (기본 False).\n        max_pages: 페이지네이션 시 최대 페이지 (기본 50).\n\n    Returns:\n        API JSON. Analytics 계열은 mall_id 자동 주입, 이중 레이트리밋 자동 준수.\n    ",
+    "inputSchema": {
+      "properties": {
+        "action": {
+          "description": "수행 작업 키 (inputSchema enum 으로 14개 전체 공개)",
+          "enum": [
+            "carrier_create",
+            "carrier_delete",
+            "carrier_get",
+            "carrier_list",
+            "carrier_update",
+            "get",
+            "regionalsurcharge_get",
+            "regionalsurcharge_update",
+            "shippingorigin_create",
+            "shippingorigin_delete",
+            "shippingorigin_get",
+            "shippingorigin_list",
+            "shippingorigin_update",
+            "update"
+          ],
+          "title": "Action",
+          "type": "string"
+        },
+        "params": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "path + query 파라미터 딕셔너리. 예: {'product_no': 123, 'limit': 50}",
+          "title": "Params"
+        },
+        "body": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동)",
+          "title": "Body"
+        },
+        "shop_no": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "multi-shop number (GET/DELETE→query, POST/PUT→body 자동 배치)",
+          "title": "Shop No"
+        },
+        "paginate": {
+          "default": false,
+          "description": "list 계열 action 전체 페이지 자동 집계 (기본 False)",
+          "title": "Paginate",
+          "type": "boolean"
+        },
+        "max_pages": {
+          "default": 50,
+          "description": "페이지네이션 시 최대 페이지 (기본 50)",
+          "title": "Max Pages",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "title": "cafe24_shippingArguments",
+      "type": "object"
+    },
+    "outputSchema": null,
+    "icons": null,
+    "annotations": null,
+    "meta": {
+      "anthropic/maxResultSizeChars": 200000
+    },
+    "execution": null
+  },
+  {
+    "name": "cafe24_store",
+    "title": null,
+    "description": "스토어 (shop settings / accounts / dropshipping / 27 setting groups) 도구 — 102개 action 을 디스패치합니다.\n\n    Args:\n        action: 수행 작업 키 (inputSchema enum 으로 102개 전체 공개).\n        params: path + query 파라미터 딕셔너리.\n        body: POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동).\n        shop_no: 멀티샵 번호 (GET/DELETE→query, POST/PUT→body 자동 배치).\n        paginate: list 계열 action 전체 페이지 자동 집계 (기본 False).\n        max_pages: 페이지네이션 시 최대 페이지 (기본 50).\n\n    Returns:\n        API JSON. Analytics 계열은 mall_id 자동 주입, 이중 레이트리밋 자동 준수.\n    ",
+    "inputSchema": {
+      "properties": {
+        "action": {
+          "description": "수행 작업 키 (inputSchema enum 으로 102개 전체 공개)",
+          "enum": [
+            "account_list",
+            "activitylog_get",
+            "activitylog_list",
+            "automessage_argument_list",
+            "automessages_get",
+            "automessages_update",
+            "benefits_get",
+            "benefits_update",
+            "boards_get",
+            "boards_update",
+            "carts_get",
+            "carts_update",
+            "categories_properties_get",
+            "categories_properties_update",
+            "coupons_get",
+            "coupons_update",
+            "currency_get",
+            "currency_update",
+            "customers_get",
+            "customers_update",
+            "dashboard",
+            "dormantaccount_get",
+            "dormantaccount_update",
+            "dropshipping_get",
+            "dropshipping_update",
+            "financial_paymentgateway_list",
+            "financial_store_get",
+            "get",
+            "images_get",
+            "images_update",
+            "information_get",
+            "information_update",
+            "kakaoalimtalk_get",
+            "kakaoalimtalk_profile_get",
+            "kakaoalimtalk_update",
+            "kakaopay_get",
+            "kakaopay_update",
+            "mains_properties_get",
+            "mains_properties_update",
+            "menu_list",
+            "mobile_get",
+            "mobile_update",
+            "naverpay_create",
+            "naverpay_get",
+            "naverpay_update",
+            "orderform_get",
+            "orderform_update",
+            "orders_get",
+            "orders_status_get",
+            "orders_status_update",
+            "orders_update",
+            "payment_get",
+            "payment_update",
+            "paymentgateway_create",
+            "paymentgateway_delete",
+            "paymentgateway_method_create",
+            "paymentgateway_method_delete",
+            "paymentgateway_method_list",
+            "paymentgateway_method_update",
+            "paymentgateway_update",
+            "paymentmethod_list",
+            "paymentprovider_list",
+            "paymentprovider_update",
+            "paymentservice_list",
+            "points_get",
+            "points_update",
+            "policy_get",
+            "policy_update",
+            "privacy_boards_get",
+            "privacy_boards_update",
+            "privacy_join_get",
+            "privacy_join_update",
+            "privacy_orders_get",
+            "privacy_orders_update",
+            "products_properties_get",
+            "products_properties_update",
+            "products_setting_get",
+            "redirect_create",
+            "redirect_delete",
+            "redirect_list",
+            "redirect_update",
+            "restocknotification_get",
+            "restocknotification_update",
+            "seo_get",
+            "seo_update",
+            "shippingmanager_get",
+            "shop_get",
+            "shop_list",
+            "sms_get",
+            "sms_update",
+            "social_apple_get",
+            "social_apple_update",
+            "social_kakaosync_get",
+            "social_kakaosync_update",
+            "social_naverlogin_get",
+            "social_naverlogin_update",
+            "social_navershopping_get",
+            "subscription_get",
+            "subscription_update",
+            "taxmanager_get",
+            "user_get",
+            "user_list"
+          ],
+          "title": "Action",
+          "type": "string"
+        },
+        "params": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "path + query 파라미터 딕셔너리. 예: {'product_no': 123, 'limit': 50}",
+          "title": "Params"
+        },
+        "body": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동)",
+          "title": "Body"
+        },
+        "shop_no": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "multi-shop number (GET/DELETE→query, POST/PUT→body 자동 배치)",
+          "title": "Shop No"
+        },
+        "paginate": {
+          "default": false,
+          "description": "list 계열 action 전체 페이지 자동 집계 (기본 False)",
+          "title": "Paginate",
+          "type": "boolean"
+        },
+        "max_pages": {
+          "default": 50,
+          "description": "페이지네이션 시 최대 페이지 (기본 50)",
+          "title": "Max Pages",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "title": "cafe24_storeArguments",
+      "type": "object"
+    },
+    "outputSchema": null,
+    "icons": null,
+    "annotations": null,
+    "meta": {
+      "anthropic/maxResultSizeChars": 200000
+    },
+    "execution": null
+  },
+  {
+    "name": "cafe24_supply",
+    "title": null,
+    "description": "공급사 (suppliers / supply amounts) 도구 — 19개 action 을 디스패치합니다.\n\n    Args:\n        action: 수행 작업 키 (inputSchema enum 으로 19개 전체 공개).\n        params: path + query 파라미터 딕셔너리.\n        body: POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동).\n        shop_no: 멀티샵 번호 (GET/DELETE→query, POST/PUT→body 자동 배치).\n        paginate: list 계열 action 전체 페이지 자동 집계 (기본 False).\n        max_pages: 페이지네이션 시 최대 페이지 (기본 50).\n\n    Returns:\n        API JSON. Analytics 계열은 mall_id 자동 주입, 이중 레이트리밋 자동 준수.\n    ",
+    "inputSchema": {
+      "properties": {
+        "action": {
+          "description": "수행 작업 키 (inputSchema enum 으로 19개 전체 공개)",
+          "enum": [
+            "supplier_count",
+            "supplier_create",
+            "supplier_delete",
+            "supplier_get",
+            "supplier_list",
+            "supplier_regionalsurcharge_create",
+            "supplier_regionalsurcharge_delete",
+            "supplier_regionalsurcharge_list",
+            "supplier_regionalsurcharge_setting_get",
+            "supplier_regionalsurcharge_setting_update",
+            "supplier_shipping_get",
+            "supplier_shipping_update",
+            "supplier_update",
+            "supplier_user_count",
+            "supplier_user_create",
+            "supplier_user_delete",
+            "supplier_user_get",
+            "supplier_user_list",
+            "supplier_user_update"
+          ],
+          "title": "Action",
+          "type": "string"
+        },
+        "params": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "path + query 파라미터 딕셔너리. 예: {'product_no': 123, 'limit': 50}",
+          "title": "Params"
+        },
+        "body": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동)",
+          "title": "Body"
+        },
+        "shop_no": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "multi-shop number (GET/DELETE→query, POST/PUT→body 자동 배치)",
+          "title": "Shop No"
+        },
+        "paginate": {
+          "default": false,
+          "description": "list 계열 action 전체 페이지 자동 집계 (기본 False)",
+          "title": "Paginate",
+          "type": "boolean"
+        },
+        "max_pages": {
+          "default": 50,
+          "description": "페이지네이션 시 최대 페이지 (기본 50)",
+          "title": "Max Pages",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "title": "cafe24_supplyArguments",
+      "type": "object"
+    },
+    "outputSchema": null,
+    "icons": null,
+    "annotations": null,
+    "meta": {
+      "anthropic/maxResultSizeChars": 200000
+    },
+    "execution": null
+  },
+  {
+    "name": "cafe24_translation",
+    "title": null,
+    "description": "번역 (category / product / etc.) 도구 — 9개 action 을 디스패치합니다.\n\n    Args:\n        action: 수행 작업 키 (inputSchema enum 으로 9개 전체 공개).\n        params: path + query 파라미터 딕셔너리.\n        body: POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동).\n        shop_no: 멀티샵 번호 (GET/DELETE→query, POST/PUT→body 자동 배치).\n        paginate: list 계열 action 전체 페이지 자동 집계 (기본 False).\n        max_pages: 페이지네이션 시 최대 페이지 (기본 50).\n\n    Returns:\n        API JSON. Analytics 계열은 mall_id 자동 주입, 이중 레이트리밋 자동 준수.\n    ",
+    "inputSchema": {
+      "properties": {
+        "action": {
+          "description": "수행 작업 키 (inputSchema enum 으로 9개 전체 공개)",
+          "enum": [
+            "category_list",
+            "category_update",
+            "product_list",
+            "product_update",
+            "store_list",
+            "store_update",
+            "theme_get",
+            "theme_list",
+            "theme_update"
+          ],
+          "title": "Action",
+          "type": "string"
+        },
+        "params": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "path + query 파라미터 딕셔너리. 예: {'product_no': 123, 'limit': 50}",
+          "title": "Params"
+        },
+        "body": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "POST/PUT/PATCH 본문 필드 (action 별 body_key 래핑 자동)",
+          "title": "Body"
+        },
+        "shop_no": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "multi-shop number (GET/DELETE→query, POST/PUT→body 자동 배치)",
+          "title": "Shop No"
+        },
+        "paginate": {
+          "default": false,
+          "description": "list 계열 action 전체 페이지 자동 집계 (기본 False)",
+          "title": "Paginate",
+          "type": "boolean"
+        },
+        "max_pages": {
+          "default": 50,
+          "description": "페이지네이션 시 최대 페이지 (기본 50)",
+          "title": "Max Pages",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "title": "cafe24_translationArguments",
+      "type": "object"
+    },
+    "outputSchema": null,
+    "icons": null,
+    "annotations": null,
+    "meta": {
+      "anthropic/maxResultSizeChars": 200000
+    },
+    "execution": null
+  }
+]

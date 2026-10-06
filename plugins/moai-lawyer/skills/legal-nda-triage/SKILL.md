@@ -3,7 +3,8 @@ name: legal-nda-triage
 description: |
   비밀유지계약서의 비밀정보 범위, 사용 목적, 예외, 보존 기간과
   반환·손해배상 조항을 당사자 입장에서 빠르게 검토합니다.
-version: "1.1.2"
+metadata:
+  version: "1.1.3"
 ---
 
 # NDA 빠른 검토

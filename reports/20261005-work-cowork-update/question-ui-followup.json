@@ -1,0 +1,31 @@
+{
+  "source": "user-provided image and correction",
+  "image_sha256": "ab7da9a816f8de9d4c5849f955d6942092b0a8245bb8bc4dfd13149d6fe527c9",
+  "copy_identical": true,
+  "observed": [
+    "question UI",
+    "1 of 4",
+    "two answer choices",
+    "direct answer input",
+    "skip button"
+  ],
+  "unobserved": [
+    "underlying tool name",
+    "API question count limit",
+    "answer submission and delivery"
+  ],
+  "updated_files": [
+    {
+      "path": "plugins/moai-pm/skills/project/references/question-protocol.md",
+      "sha256": "04088d39c7323ca71826d065330c66e21d626f9b2cf46d44e9add528ae59f6a6"
+    },
+    {
+      "path": "plugins/moai-pm/skills/project/references/host-capabilities.md",
+      "sha256": "6c8ee0a0e22454cab70e60fc0994c3fa111d3d22612bddfe4a53019a85131dcc"
+    },
+    {
+      "path": "reports/20261005-work-cowork-update/report.md",
+      "sha256": "3846bbe7470922b467b2755b10c8169bfd5d2db37087a1eea11de92933d8733d"
+    }
+  ]
+}

@@ -2,7 +2,8 @@
 name: career-workflow
 description: |
   구직자의 이력서·포트폴리오·면접·이직 계획이 함께 필요한 요청에서 실제 경험과 목표 직무를 확인하고 moai-career의 career-* 스킬로 연결합니다. 채용 담당자 편 업무는 moai-recruiter로 보냅니다.
-version: "1.0.1"
+metadata:
+  version: "1.0.2"
 ---
 
 # 구직자 커리어 작업 경로

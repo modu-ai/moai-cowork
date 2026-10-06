@@ -3,7 +3,8 @@ name: media-audio-gen
 description: |
   통합 오디오 생성 스킬. 현재 연결된 ElevenLabs MCP 도구를 확인하고 TTS, 보이스 클로닝, 다국어 더빙, 효과음 생성 중 사용 가능한 기능을 실행.
   "목소리 생성", "TTS", "음성 합성", "보이스 클로닝", "더빙", "나레이션", "효과음", "AI 음성" 요청 시 사용.
-version: "1.3.2"
+metadata:
+  version: "1.3.3"
 ---
 
 # media-audio-gen

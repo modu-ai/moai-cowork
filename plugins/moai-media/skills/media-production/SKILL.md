@@ -2,7 +2,8 @@
 name: media-production
 description: |
   이미지·영상·오디오 제작 요청의 산출물과 제공자를 확인하고 해당 moai-media 스킬로 이어갑니다. 단일 이미지도 사용자가 지정한 제공자를 먼저 확인합니다. ChatGPT 이미지는 media-codex-image, Higgsfield는 media-higgsfield-image, Gemini·Midjourney는 해당 생성 연결이 있을 때만 사용하고 없으면 프롬프트를 제공합니다. 연결된 ElevenLabs 오디오도 라우팅합니다.
-version: "1.0.4"
+metadata:
+  version: "1.0.5"
 ---
 
 # 미디어 제작 경로 선택

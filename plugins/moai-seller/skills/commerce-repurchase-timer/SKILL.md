@@ -3,7 +3,8 @@ name: commerce-repurchase-timer
 description: |
   실제 고객의 구매 간격과 수신 동의를 바탕으로 재구매 연락 시점을 설계합니다.
   요청 예: "재구매 시점 분석", "리마인드 발송 계획", "고객 코호트 재구매율".
-version: "1.1.1"
+metadata:
+  version: "1.1.2"
 ---
 
 # 재구매 시점 설계

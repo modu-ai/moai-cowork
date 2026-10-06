@@ -1,0 +1,3599 @@
+{
+  "base_url": "http://127.0.0.1:1313",
+  "build": "/private/tmp/moai-docs-local-test-20261006",
+  "html_responses": 288,
+  "asset_responses": 196,
+  "checked_responses": 484,
+  "missing_route": {
+    "status": 404,
+    "body_prefix": "<!DOCTYPE html>\n<html\n  lang=\"ko\"\n  class=\"color-toggle-light\"\n  color-theme=\"light\"\n  \n>\n  <head><script src=\"/livereload.js?mindelay=10&amp;v=2&amp;port=1313&"
+  },
+  "errors": [],
+  "responses": [
+    {
+      "path": "/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 50239,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/404.html",
+      "kind": "html",
+      "status": 200,
+      "bytes": 70378,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/advanced/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 76563,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/advanced/documentation/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 80362,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/advanced/plugins/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 81076,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/advanced/verification/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 80493,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/agent-teams/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 297,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/agent-teams/accountant/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 330,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/agent-teams/analyst/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 321,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/agent-teams/career/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 318,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/agent-teams/consultant/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 330,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/agent-teams/coworker/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 324,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/agent-teams/cs/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 306,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/agent-teams/designer/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 324,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/agent-teams/lawyer/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 318,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/agent-teams/marketer/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 324,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/agent-teams/media/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 315,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/agent-teams/officer/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 321,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/agent-teams/pm/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 306,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/agent-teams/recruiter/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 327,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/agent-teams/seller/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 318,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/agent-teams/story/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 315,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/agent-teams/threads-poster/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 342,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/agent-teams/tutor/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 315,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/agent-teams/writer/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 318,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/categories/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 70301,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/categories/page/1/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 294,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 79108,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/automation-recipes/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 81796,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/best-practices/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 79964,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/blog-pipeline/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 93941,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/business-plan/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 93856,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/contract-review/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94005,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/design/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 76669,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/design/presentation/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 93651,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/guides/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 77370,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/guides/content-marketing/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94425,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/guides/contract-drafting/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94497,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/guides/data-analysis/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94171,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/guides/data-visualization/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94033,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/guides/funding/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94013,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/guides/legal-risk/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94181,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/guides/social-media/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94174,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/ir-deck/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 93411,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/legal-nda-batch/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94097,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/projects/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 78304,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/projects/brand-to-landing/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94820,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/projects/career-transition-4weeks/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94948,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/projects/contract-risk-report/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94735,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/projects/gov-grant-application/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94825,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/projects/hiring-pipeline/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94769,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/projects/public-data-report/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94783,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/projects/smartstore-launch/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94883,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/projects/sns-content-month/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94648,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/projects/startup-feasibility/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94865,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/projects/voc-to-faq/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94445,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/projects/webnovel-project/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94800,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/projects/weekly-report-routine/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94748,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/report-automation/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 93793,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/skill-chaining/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 80412,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/templates/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 76929,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/templates/compliance/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94140,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/templates/email/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94170,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/templates/excel/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 93805,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/templates/financial/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94259,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/tracks/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 77811,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/tracks/track-advertising/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94289,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/tracks/track-appendix/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94157,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/tracks/track-commerce/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94112,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/tracks/track-content/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 93766,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/tracks/track-data/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 93924,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/tracks/track-documents/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 93983,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/tracks/track-finance/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94013,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/tracks/track-hr/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 93897,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/tracks/track-legal/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94039,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/tracks/track-marketing/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94177,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/tracks/track-operations/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 93976,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/tracks/track-product/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 93960,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/cookbook/troubleshooting/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 78226,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/downloads/classroom/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 623,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/employees/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 297,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/favicon/favicon-16x16.png",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 422,
+      "content_type": "image/png",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/favicon/favicon-32x32.png",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 699,
+      "content_type": "image/png",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/favicon/favicon.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 3147,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/getting-started/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 80755,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/getting-started/choose-app/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 81443,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/getting-started/concepts/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 81775,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/getting-started/first-task/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 86075,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/getting-started/install/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 81449,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/getting-started/projects/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 85872,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/getting-started/questions/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 84130,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/getting-started/quick-start/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 81244,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/help/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 76958,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/help/about-claude/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 80172,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/help/account/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 80111,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/help/attribution/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 79949,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/help/conversations/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 80135,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/help/office/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 76585,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/help/office/microsoft-365/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 80200,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/help/personalization/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 79879,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/help/plans-billing/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 79457,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/help/source-index/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 82458,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/help/troubleshooting/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 80664,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/help/usage-limits/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 79641,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/infographics/expert-workflow-ko.png",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 1538615,
+      "content_type": "image/png",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/first-workflow-ko.png",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 1262490,
+      "content_type": "image/png",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/account-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 3985,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/account.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4211,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/attribution-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 3790,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/attribution.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4092,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/authoring-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4081,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/authoring.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4458,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/choose-recipe-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 3766,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/choose-recipe.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 3918,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/connector-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4092,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/connector.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4318,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/cost-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 3892,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/cost.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4119,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/credentials-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4234,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/credentials.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4460,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/environment-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 3869,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/environment.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4171,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-blog-pipeline-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5120,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-blog-pipeline.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5272,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-business-plan-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5201,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-business-plan.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5200,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-contract-review-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5248,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-contract-review.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5324,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-design-presentation-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5177,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-design-presentation.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5101,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-guides-content-marketing-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5152,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-guides-content-marketing.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5152,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-guides-contract-drafting-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5136,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-guides-contract-drafting.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5212,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-guides-data-analysis-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 6213,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-guides-data-analysis.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 6282,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-guides-data-visualization-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 6171,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-guides-data-visualization.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 6165,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-guides-funding-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5191,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-guides-funding.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5190,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-guides-legal-risk-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5102,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-guides-legal-risk.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5178,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-guides-social-media-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5164,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-guides-social-media.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5087,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-ir-deck-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5169,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-ir-deck.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5245,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-legal-nda-batch-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5274,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-legal-nda-batch.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5502,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-projects-brand-to-landing-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5239,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-projects-brand-to-landing.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5314,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-projects-career-transition-4weeks-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5245,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-projects-career-transition-4weeks.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5395,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-projects-contract-risk-report-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5176,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-projects-contract-risk-report.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5100,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-projects-gov-grant-application-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5331,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-projects-gov-grant-application.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5407,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-projects-hiring-pipeline-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5332,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-projects-hiring-pipeline.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5331,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-projects-public-data-report-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 6363,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-projects-public-data-report.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 6585,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-projects-smartstore-launch-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5278,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-projects-smartstore-launch.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5580,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-projects-sns-content-month-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5206,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-projects-sns-content-month.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5205,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-projects-startup-feasibility-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5349,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-projects-startup-feasibility.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5501,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-projects-voc-to-faq-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5380,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-projects-voc-to-faq.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5379,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-projects-webnovel-project-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5159,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-projects-webnovel-project.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5311,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-projects-weekly-report-routine-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5088,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-projects-weekly-report-routine.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5163,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-report-automation-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5124,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-report-automation.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5275,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-templates-compliance-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5164,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-templates-compliance.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5239,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-templates-email-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5080,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-templates-email.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5079,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-templates-excel-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5472,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-templates-excel.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5551,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-templates-financial-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5260,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-templates-financial.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5260,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-tracks-track-advertising-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5028,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-tracks-track-advertising.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5104,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-tracks-track-appendix-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4966,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-tracks-track-appendix.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4965,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-tracks-track-commerce-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4927,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-tracks-track-commerce.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4927,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-tracks-track-content-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4865,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-tracks-track-content.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4789,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-tracks-track-data-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 6039,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-tracks-track-data.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 6034,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-tracks-track-documents-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5244,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-tracks-track-documents.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5170,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-tracks-track-finance-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5004,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-tracks-track-finance.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5004,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-tracks-track-hr-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5134,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-tracks-track-hr.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5058,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-tracks-track-legal-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5010,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-tracks-track-legal.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5010,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-tracks-track-marketing-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4984,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-tracks-track-marketing.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4832,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-tracks-track-operations-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4681,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-tracks-track-operations.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4681,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-tracks-track-product-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4801,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-cookbook-tracks-track-product.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4801,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-accountant-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5232,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-accountant.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5384,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-analyst-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 6313,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-analyst.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 6308,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-career-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5022,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-career.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5173,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-consultant-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5281,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-consultant.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5281,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-coworker-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4745,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-coworker.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4745,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-cs-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5300,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-cs.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5148,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-designer-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5195,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-designer.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5195,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-lawyer-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5204,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-lawyer.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5281,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-marketer-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5092,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-marketer.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5168,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-media-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5427,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-media.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5578,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-officer-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5580,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-officer.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5582,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-recruiter-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5220,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-recruiter.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5296,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-seller-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5125,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-seller.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5277,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-story-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5023,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-story.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5098,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-threads-poster-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5015,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-threads-poster.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5167,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-tutor-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5230,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-tutor.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 5230,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-writer-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4895,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/example-moai-agents-writer.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4895,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/handoff-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 3928,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/handoff.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4230,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/higgsfield-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4088,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/higgsfield.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4390,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/install-states-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 3909,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/install-states.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4060,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/learning-path-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 3794,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/learning-path.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 3869,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/limits-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4012,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/limits.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4237,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/office-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 3905,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/office.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4131,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/permissions-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4013,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/permissions.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4315,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/personalization-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 3952,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/personalization.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4026,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/pm-setup-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4150,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/pm-setup.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4450,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/questions-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4045,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/questions.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4347,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/report-status-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 3986,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/report-status.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4212,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/reuse-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4001,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/reuse.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4303,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/review-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 3990,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/review.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4367,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/server-modes-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4077,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/server-modes.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4377,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/skills-agents-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 3949,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/skills-agents.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4100,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/teaching-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4157,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/teaching.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4305,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/team-handoff-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 3827,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/team-handoff.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 3903,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/troubleshooting-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 3900,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/troubleshooting.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4202,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/verification-mobile.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4207,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/pages/verification.svg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 4432,
+      "content_type": "image/svg+xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/project-concepts-ko.png",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 1417960,
+      "content_type": "image/png",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/infographics/project-context-ko.png",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 1538264,
+      "content_type": "image/png",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/js/main-1b467c45.bundle.min.js",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 11533,
+      "content_type": "text/javascript",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/learn/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 80016,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/learn/01-delegation/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 89373,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/learn/02-project-context/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 93252,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/learn/03-first-result/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94062,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/learn/04-skills-plugins/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 90557,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/learn/05-expert-workflow/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 91251,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/learn/06-review-reuse/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 92986,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/learn/screens/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 86414,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/learn/teaching-guide/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 88132,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/logos/moai-logo-1-WH.png",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 11880,
+      "content_type": "image/png",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/logos/moai-logo-3.png",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 11017,
+      "content_type": "image/png",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/mascots/MoAI-Mascot-Teaching.png",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 74112,
+      "content_type": "image/png",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/moai-agents/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 79482,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/moai-agents/accountant/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 99634,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/moai-agents/analyst/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 97632,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/moai-agents/career/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 96892,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/moai-agents/consultant/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 97210,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/moai-agents/coworker/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 105903,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/moai-agents/cs/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 96698,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/moai-agents/designer/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 99433,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/moai-agents/lawyer/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 97426,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/moai-agents/marketer/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 101663,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/moai-agents/media/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 100709,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/moai-agents/officer/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 99776,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/moai-agents/pm/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 84375,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/moai-agents/recruiter/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 97042,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/moai-agents/seller/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 106841,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/moai-agents/story/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 102402,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/moai-agents/threads-poster/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94919,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/moai-agents/tutor/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 98651,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/moai-agents/writer/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 98587,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/moai-ds-base.css",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 9493,
+      "content_type": "text/css",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/moai-ds-docs.css",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 32596,
+      "content_type": "text/css",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/moai-ds-mascot.css",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 2553,
+      "content_type": "text/css",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/moai-ds-tokens.css",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 13692,
+      "content_type": "text/css",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/moai-ds-v2.css",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 44818,
+      "content_type": "text/css",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/moai-ds.css",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 89734,
+      "content_type": "text/css",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/moai-learning.css",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 2609,
+      "content_type": "text/css",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/office/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 297,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/office/microsoft-365/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 339,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/plugins/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 79334,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/plugins/agents/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 81054,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/plugins/chat/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 285,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/plugins/code/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 285,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/plugins/cowork-plugins/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 285,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/plugins/cowork/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 285,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/plugins/design/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 285,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/plugins/higgsfield-setup/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 85019,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/plugins/install/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 83427,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/plugins/license/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 79358,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/plugins/mcp/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 81081,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/plugins/mcp/credentials/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 86690,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/plugins/mcp/install/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 84270,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/plugins/mcp/troubleshooting/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 80983,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/plugins/moai-ads/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 285,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/plugins/moai-cowork-plugins/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 285,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/plugins/moai-design-system-library/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 285,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/plugins/moai-devops/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 285,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/plugins/moai-tech/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 285,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/plugins/open-source/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 93507,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/plugins/teams/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 79101,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 89893,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 77007,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v1.0/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 114708,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v1.2/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 116666,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v1.3/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 126743,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v1.5/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 115006,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v1.6/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 93008,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.0/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 124835,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.1/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 118356,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.10/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 98623,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.11.1/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 97655,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.11/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 96306,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.12.1/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 86066,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.12.2/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 82611,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.12.3/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 83383,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.12/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 93297,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.13/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 99577,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.14/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 89337,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.15/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 93237,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.16/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 99743,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.17/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 98445,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.18/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 95142,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.19/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 92957,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.2/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 92525,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.20/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 96929,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.21/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 97501,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.22/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 96906,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.23/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 80369,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.24/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 83147,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.25/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 84170,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.26/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 81023,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.27/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 82394,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.3/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 118251,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.4/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 103441,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.5/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 98613,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.6/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 101346,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.7/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 93771,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.8/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 104328,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/archive/v2.9/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94282,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/docs-20261005/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 77386,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v1.0.0/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 85747,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v1.0/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 327,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v1.1.0/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 85584,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v1.2.0/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 84099,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v1.2.1/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 93656,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v1.2.2/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 90137,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v1.2.3/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 92978,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v1.2.4/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 88525,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v1.2.5/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 91356,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v1.2.6/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 89634,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v1.2/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 327,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v1.3/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 327,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v1.5/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 327,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v1.6/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 327,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.0/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 327,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.1/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 327,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.10/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 330,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.11.1/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 336,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.11/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 330,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.12.1/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 336,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.12.2/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 336,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.12.3/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 336,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.12/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 330,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.13/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 330,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.14/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 330,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.15/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 330,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.16/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 330,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.17/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 330,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.18/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 330,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.19/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 330,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.2/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 327,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.20/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 330,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.21/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 330,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.22/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 330,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.23/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 330,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.24/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 330,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.25/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 330,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.26/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 330,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.27/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 330,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.3/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 327,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.4/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 327,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.5/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 327,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.6/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 327,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.7/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 327,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.8/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 327,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/releases/v2.9/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 327,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/screenshots/20261005/chatgpt-plugins.jpg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 49607,
+      "content_type": "image/jpeg",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/screenshots/20261005/chatgpt-web-start.jpg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 16206,
+      "content_type": "image/jpeg",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/screenshots/20261005/claude-cowork-start.jpg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 17573,
+      "content_type": "image/jpeg",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/screenshots/20261005/claude-plugins.jpg",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 75358,
+      "content_type": "image/jpeg",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/search.json",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 602999,
+      "content_type": "application/json",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/sitemap.xml",
+      "kind": "asset",
+      "status": 200,
+      "bytes": 21838,
+      "content_type": "application/xml",
+      "sha256_matches_build": true
+    },
+    {
+      "path": "/tags/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 78629,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/automation/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 72411,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/automation/page/1/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 309,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/business/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 74554,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/business/page/1/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 303,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/career/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 72778,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/career/page/1/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 297,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/commerce/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 72795,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/commerce/page/1/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 303,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/content/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 74936,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/content/page/1/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 300,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/cookbook/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 92837,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/cookbook/page/1/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 303,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/cookbook/page/2/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 94559,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/cookbook/page/3/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 86941,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/cs/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 72731,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/cs/page/1/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 285,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/data/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 72415,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/data/page/1/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 291,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/documents/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 72449,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/documents/page/1/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 306,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/foundations/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 72855,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/foundations/page/1/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 312,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/legal/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 77058,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/legal/page/1/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 294,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/marketing/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 77441,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/marketing/page/1/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 306,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/office/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 75280,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/office/page/1/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 297,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/operations/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 72483,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/operations/page/1/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 309,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/page/1/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 276,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/page/2/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 77914,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/people/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 72765,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/people/page/1/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 297,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/projects/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 95337,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/projects/page/1/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 303,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/projects/page/2/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 77299,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/skills/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 72382,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/skills/page/1/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 297,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/startup/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 75270,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/startup/page/1/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 300,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/troubleshooting/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 72244,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/tags/troubleshooting/page/1/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 324,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/workflows/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 77553,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/workflows/experts/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 82619,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/workflows/first-project/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 84187,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/workflows/permissions/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 82800,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/workflows/reuse/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 82657,
+      "content_type": "text/html"
+    },
+    {
+      "path": "/workflows/review/",
+      "kind": "html",
+      "status": 200,
+      "bytes": 81189,
+      "content_type": "text/html"
+    }
+  ],
+  "scope": "local HTTP responses and static asset bytes; not browser interactions"
+}

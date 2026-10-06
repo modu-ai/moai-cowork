@@ -2,7 +2,8 @@
 name: commerce-margin-audit
 description: |
   상품 등록안·상세페이지·가격표·광고 및 프로모션 계획의 원가, 수수료, 할인과 마진 계산을 읽기 전용으로 재검산합니다. 채널 제약과 주장 근거도 함께 확인합니다.
-version: "1.0.0"
+metadata:
+  version: "1.0.1"
 ---
 
 # 판매 수익성 검수

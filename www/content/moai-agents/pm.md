@@ -1,183 +1,54 @@
 ---
-title: "「PM」 — 프로젝트를 여는 첫 코워커"
-weight: 1
-description: "프로젝트 초기화 허브 AI 코워커. /project 한마디로 AI 코워커 플러그인의 진입을 라우팅합니다."
+title: "PM — 프로젝트 구성 담당"
+description: "내 업무의 맥락과 실제 기능을 확인해 지침과 전문가 순서를 구성합니다"
+weight: 10
+date: 2026-10-05T00:00:00+09:00
+lastmod: 2026-10-06
+geekdocBreadcrumb: true
 aliases: ["/agent-teams/pm/"]
-date: 2026-08-07T00:00:00+09:00
-lastmod: 2026-08-22T00:00:00+09:00
 ---
 
-새 프로젝트를 시작할 때 가장 어려운 것은 일 자체가 아니라 "무엇부터 세팅해야 하지?"라는 질문입니다. PM은 바로 그 질문을 대신 받아 주는 코워커입니다. 이사 갈 때 짐을 직접 나르기 전에 이사 업체 팀장이 먼저 와서 "어느 방 짐부터, 어떤 순서로"를 잡아 주는 것처럼, PM은 프로젝트 폴더에 어떤 코워커(플러그인)의 지침을 깔고 어떤 워크플로우를 쓸지 먼저 정리해 줍니다.
+**PM은 프로젝트의 목표·자료·기준을 정리하고 사용할 스킬과 업무 순서를 연결합니다.** 아직 설치하지 않은 플러그인은 추천 상태로 남기며, 지침 파일 생성과 앱 Projects 적용을 구분합니다.
 
-PM이 담당하는 것은 개발을 제외한 모든 협업 프로젝트입니다. 전 코워커 지침 설정과 커스텀 에이전트(`.claude/agents/*.md`는 Claude Cowork용, `.codex/agents/*.toml`은 ChatGPT Work용), 그리고 프로젝트 지침 파일(정본은 `AGENTS.md`, `CLAUDE.md`는 이를 불러오는 포인터) 워크플로우까지 생성하고 스스로 개선해 나갑니다. 비개발자도 자연어 한마디로 프로젝트를 시작할 수 있게 하는 것이 존재 이유입니다. 소프트웨어 개발 환경 셋업은 이 마켓플레이스의 범위 밖입니다.
 
-AI 코워커 플러그인 패밀리가 있습니다.
+<!--more-->
 
-## 양쪽 런타임 지원
+## 프로젝트 지침은 첫 실행으로 확인합니다
 
-PM은 Claude Cowork와 ChatGPT Work 양쪽 런타임에서 동작합니다. 생성된 산출물이 두 환경에서 모두 작동하도록 설계되어 있습니다.
+{{< concept-diagram pm-setup >}}
 
-| 산출물 | Claude Cowork용 경로 | ChatGPT Work용 경로 |
-|--------|---------------|---------------|
-| 프로젝트 지침 | `./CLAUDE.md` (`@AGENTS.md` 포인터) | `./AGENTS.md` (정본) |
-| 커스텀 에이전트 | `./.claude/agents/*.md` (markdown+YAML frontmatter) | `./.codex/agents/*.toml` (TOML) |
+## 첫 요청
 
-지침의 정본은 `AGENTS.md` 한 파일입니다. ChatGPT Work는 이 파일을 직접 읽고, Claude Cowork는 `CLAUDE.md`에 담긴 `@AGENTS.md` 임포트 한 줄을 통해 같은 정본을 세션 시작 시 불러옵니다. 같은 내용을 두 파일에 복제하지 않으므로 한쪽만 고쳐 어긋날 일이 없습니다. 에이전트는 런타임 형식이 달라 양쪽에 각각 생성됩니다.
-
-## 8-Phase 워크플로우
-
-```
-Phase 1 인터뷰 → Phase 2 인벤토리 → Phase 3 체인 설계 → Phase 4 Gap Detection
-  → Phase 5 확인 → Phase 6 지침 생성(AGENTS.md + CLAUDE.md 포인터) → Phase 7 커스텀 에이전트 생성 → Phase 8 API 키 + 첫 실행 안내
+```text
+내 프로젝트를 시작해 줘. 현재 환경과 자료를 확인하고 부족한 정보는 질문해 줘.
+업무에 맞는 전문가 스킬, 입력·출력, 순차·병렬 순서와 완료 기준을 정리해 줘.
+지침 생성, 적용, 새 작업에서 읽기 확인, 첫 업무 실행 상태를 따로 알려 줘.
 ```
 
-```mermaid
-flowchart LR
-   A["Phase 1<br/>인터뷰<br/>(2-Stage 일괄 설문)"] --> B["Phase 2<br/>인벤토리<br/>(플러그인 스캔)"]
-   B --> C["Phase 3<br/>체인 설계<br/>(스킬 파이프라인)"]
-   C --> D["Phase 4<br/>Gap Detection<br/>(누락 감지)"]
-   D --> E["Phase 5<br/>확인<br/>(승인)"]
-   E --> F["Phase 6<br/>프로젝트 지침 생성<br/>(AGENTS.md 정본 ≤200라인<br/>+ CLAUDE.md 포인터)"]
-   F --> G["Phase 7<br/>커스텀 에이전트 생성<br/>(Claude Cowork·ChatGPT Work 양쪽)"]
-   G --> H["Phase 8<br/>API 키 + 첫 실행 안내"]
+## 프로젝트 구성 흐름
 
-   classDef default fill:#e8f1ec,stroke:#3d7d5f,color:#265240
-   class A,B,C,D,E,F,G,H default
-```
+맥락 수집 → 기능 확인 → 업무 설계 → 빠진 정보 확인 → 지침 생성 → 지원되는 역할 구성 → 필요한 연결 → 지침 적용 확인과 첫 실행.
 
-### Phase 1 인터뷰
+앱 Projects에는 현재 화면이 지원하는 지침·자료 경로를 사용합니다. 로컬 Codex의 `AGENTS.md`, Claude Code의 `CLAUDE.md`와 에이전트 설정은 해당 호스트에서만 생성·발견 여부를 확인합니다. 파일이 생겼다는 이유로 모든 앱에서 자동 적용됐다고 표시하지 않습니다.
 
-사용자의 **이 프로젝트 맥락**만 수집합니다. 이름·회사·역할 같은 글로벌 프로필 정보는 묻지 않습니다. 인터뷰는 2-Stage 구조로 고정되며, 질문은 한 라운드에 최대 4개를 묶어 한 번의 `AskUserQuestion`으로 낸다(과거의 1-1/1-2/1-3 3연발 순차 호출은 폐기).
+## 사용하면서 바꾸기
 
-| 단계 | 목적 | 호출 |
-|---|---|---|
-| **S1 일괄 진단** | 프로젝트 설계에 필요한 맥락을 한 번에 확보 | `AskUserQuestion` 1회 (최대 4질문 × 각 4옵션) |
-| **S2 보강** | S1의 공백·모호성만 메움 | 조건부 추가 호출 (부족분을 다시 한 번에 배치) |
+- “프로젝트 상태를 확인해 줘”: 답변·미정 정보·단계별 상태 확인.
+- “현재 설치된 스킬에 맞춰 업데이트해 줘”: 기능 변경을 확인하고 지침 동기화.
+- “반복 수정 원인을 찾아 개선해 줘”: 실제 문제를 확인하고 지침을 최소 수정.
+- “환경을 진단해 줘”: 지원 기능·연결·지침 적용 상태 확인.
 
-질문 풀: 업무 유형·주요 산출물·대상 독자·톤 제약·산출물 포맷·작업 주기·기존 자료·반드시 피해야 할 것·판단 배경(소크라테스 축). 이미 확립된 축(진입 발화·기존 `AGENTS.md`·`.moai/context.md`)은 질문에서 제외합니다.
+명령이 표시되는 환경에서는 `/project`, `/project update`, `/project evolve`, `/project doctor`를 사용할 수도 있습니다. 자연어가 공통 진입 경로입니다.
 
-### Phase 2 인벤토리
-
-에이전트/스킬 체인을 설계하기 전에 `~/.claude/plugins/`와 `~/.codex/plugins/` + `.codex/agents/`를 모두 스캔해 **실제 설치된 AI 코워커 플러그인**을 확인합니다. 플러그인 수·스킬 수는 하드코딩하지 않습니다 — `.claude-plugin/marketplace.json`이 로스터의 유일한 정본입니다.
-
-```bash
-# 소스 A: 디렉터리 스캔 — Claude Cowork(~/.claude/plugins/) + ChatGPT Work(~/.codex/plugins/cache/) 양쪽
-for dir in ~/.claude/plugins/moai-* ~/.codex/plugins/cache/*/moai-*; do
-  [ -d "$dir" ] && { [ -f "$dir/.claude-plugin/plugin.json" ] || [ -f "$dir/.codex-plugin/plugin.json" ]; } && basename "$dir"
-done
-# ChatGPT Work 커스텀 에이전트(.codex/agents/*.toml)도 인벤토리에 포함
-for f in ./.codex/agents/*.toml ~/.codex/agents/*.toml; do [ -f "$f" ] && basename "$f" .toml; done 2>/dev/null
-
-# 소스 B: 현재 세션 system reminder의 "user-invocable skills" 목록 파싱
-```
-
-두 소스를 교차 검증해 `plugins_installed` + `skills_available` 인벤토리를 구성합니다(신뢰도 HIGH/MEDIUM).
-
-### Phase 3 체인 설계
-
-인터뷰 답변(무엇을·어떻게) + 인벤토리(무엇이 설치됐는가) + 재진입 시 기존 `.moai/context.md` 누적 맥락, 3종 입력을 종합해 산출물별 스킬 체인을 설계합니다.
-
-**체인 구성 규칙**: `[기획/분석] → [생성] → [포맷 변환/미디어] → ai-slop-reviewer`. 한국어 최종 텍스트 산출물은 `korean-humanize` 2차 패스 뒤 **최종 검수를 반드시 붙입니다** — 체인은 윤문에서 끝나지 않습니다. 다듬기 전 원문과 윤문본을 나란히 놓고 뜻이 바뀌지 않았는지 대조하는 관문이고, 판정을 통과하지 못하면 전달하지 않습니다. 비텍스트(차트·숫자·미디어) 산출물은 ai-slop 단계를 생략합니다.
-
-**반복될 작업 유형별 에이전트 1개**를 생성합니다(과잉 생성 금지 — 근거 없는 에이전트는 만들지 않습니다). 본문은 7-step 루프 + 프로젝트 맥락(톤·산출물 규격·금지 사항)을 내장합니다. 루프의 마지막 단계는 검수 → 윤문 → 최종 검수로 닫히며, 어떤 이유로든 검수를 건너뛰었으면 그 사실과 이유를 결과에 적도록 되어 있습니다.
-
-### Phase 4 Gap Detection
-
-체인 스킬이 인벤토리에 없으면 누락으로 간주합니다. `AskUserQuestion` 4옵션(설치 안내+재개 권장 / 제외하고 진행 / 대체 스킬 / 중단)을 제시합니다. 재개는 사용자가 "설치 완료"·"이어서 진행"으로 말하면 같은 흐름으로 이어 받습니다.
-
-### Phase 5 확인
-
-설계된 체인을 `AskUserQuestion`으로 승인받습니다(승인/수정/취소).
-
-### Phase 6 지침 생성 (AGENTS.md 정본 + CLAUDE.md 포인터)
-
-`references/templates/AGENTS.md.tmpl` 치환, **≤200라인**, **8개 HARD 블록 고정** — 결과를 `AGENTS.md` 한 파일에 저장하고, `CLAUDE.md`에는 `@AGENTS.md` 포인터를 씁니다. 소스 템플릿의 8개 `## N. … (HARD)` 블록을 전부 보존합니다(라인 예산 초과 시 축소 대상은 스킬 체인 나열뿐이며 HARD 블록은 절대 축소·삭제하지 않습니다).
-
-### Phase 7 커스텀 에이전트 생성
-
-반복 작업 유형별 **Claude Cowork용 `.claude/agents/*.md`**(markdown+YAML frontmatter)와 **ChatGPT Work용 `.codex/agents/*.toml`**(TOML: `name`·`description`·`developer_instructions`, `model`·`sandbox_mode` 선택) 양쪽으로 생성합니다. 둘 다 7-step 루프 + 프로젝트 맥락을 동일 내장합니다.
-
-### Phase 8 API 키 + 첫 실행 안내
-
-체인이 요구하는 키만 선택적 등록 안내를 하고, 상위 체인 3개 예시를 제시합니다. 전체 코워커 목록이 궁금하면 "어떤 코워커 있어?"라고 물으면 안내합니다.
-
-## 재귀적 자가 개선
-
-`/project` 셋업이 끝난 프로젝트는 **사용하면서 스스로 개선**됩니다. 단일 단순화 모델만 사용합니다 — 강제 점수화·반성 에세이·별도 지표 파일을 요구하는 무거운 다단계 모델은 채택하지 않습니다.
-
-**4가지 개선 트리거** (하나라도 감지되면 발동):
-
-1. **`repeated correction`** — 같은 행동에 대한 사용자 수정 요청이 2회 이상 반복
-2. **`chain failure`** — 스킬 체인이 반복적으로 같은 단계에서 실패·우회
-3. 명시적 요청 `/project evolve` (수동 발동)
-4. **`inventory drift`** — 설치 플러그인 인벤토리가 `.moai/config.json` 스냅샷과 어긋남
-
-**신호 영속화 (HARD)**: 사용자 수정 요청·체인 실패를 감지한 **즉시** `.moai/evolution/signals.md`에 1줄을 기록합니다(`날짜 | 트리거 토큰 | 대상 | 요지`). 트리거 1·2의 "반복" 판정은 대화 기억이 아니라 **이 파일을 세어서** 합니다 — 세션이 바뀌어도 1회차 신호가 유실되지 않습니다.
-
-**개선 사이클**: 신호 감지 → 진단(무엇이 어긋났는가) → 최소 diff 작성(전면 재작성 금지) → 사용자에게 변경 요지 1-3줄 보고(파괴적 변경만 사전 확인) → `AGENTS.md` 말미 `<!-- evolution-log -->` 주석에 1줄 기록(트리거 토큰 + 수정 대상 포함). diff 적용 전 수정 지점의 **원문 조각을 `.moai/evolution/` 진단 기록에 함께 남겨** 되돌리기가 가능해야 합니다.
-
-**개선 검증 + 롤백 (HARD)**: 개선은 적용으로 끝나지 않습니다 — 적용 이후 **같은 트리거 토큰 + 같은 대상**의 신호가 다시 발동하면 그 개선은 **실패한 개선**로 판정합니다. 실패한 개선은 `.moai/evolution/`에 남긴 원문 조각으로 해당 diff를 되돌리고, 같은 지점을 자동으로 재수정하는 대신 사용자에게 상황을 1-3줄로 보고해 방향을 확인받습니다(동일 지점 자동 재수정 반복 금지).
-
-**가드레일 (HARD)**: 자가 개선은 **`AGENTS.md`와 `.claude/agents/` 파일만** 수정합니다(`.moai/evolution/`의 신호·진단·이관 기록 파일은 예외). 스킬 본문·플러그인 파일은 건드리지 않습니다. 개선 1회당 수정 파일은 **최대 3개**까지입니다(evolution 기록 파일은 카운트 제외).
-
-## 플러그인 업데이트 동기화 (`update`)
-
-`/project update`는 **외부에서 플러그인이 업데이트된 직후** 프로젝트를 최신 인벤토리에 동기화하는 수동 스위치입니다. §재귀적 자가 개선의 `inventory drift` 트리거를 "감지 대기"가 아니라 **즉시·전수조사로 강제 실행**하는 모드입니다. 자가 개선 가드레일(수정 대상·3파일 상한·파괴적 변경 사전 확인)을 그대로 계승합니다.
-
-**`evolve` vs `update` (발동 조건으로 구분)**:
-
-| 모드 | 발동 | 입력 |
-|---|---|---|
-| `/project evolve` | 사용 중 신호(`repeated correction`·`chain failure`)가 `.moai/evolution/signals.md`에 **누적**되어 발동 | 대화 맥락 + 누적 신호 |
-| `/project update` | **사용자가 플러그인 업데이트 직후 수동 호출** — drift를 기다리지 않음 | 설치된 전체 플러그인 전수조사 + 누적 신호 |
-
-**`update` 실행 절차 (5단계)**:
-
-1. **전수조사(Full Census)** — `~/.claude/plugins/moai-*`와 `~/.codex/plugins/` 양쪽을 전체 스캔해 각 플러그인의 `plugin.json`(ChatGPT Work는 `.codex-plugin/plugin.json`) + `skills/` + MCP 정의를 조사. 기존 `.moai/config.json` 스냅샷과 비교해 **새 스킬·새 MCP·변경된 스킬**의 diff를 도출합니다.
-2. **세션 신호 분석** — `.moai/evolution/signals.md`(누적 교정·체인 실패 신호) + `.moai/context.md`(프로젝트 맥락)를 읽어, 업데이트된 스킬이 기존 신호를 해소할 수 있는지 교차 확인합니다.
-3. **AGENTS.md·에이전트 동기화** — diff에 맞춰 `AGENTS.md` §워크플로우 표와 `.claude/agents/*.md`·`.codex/agents/*.toml`의 스킬 체인을 최소 diff로 갱신. 200라인 예산·8개 HARD 블록 보존 정책은 그대로 따릅니다.
-4. **스냅샷 갱신** — `.moai/config.json`의 `plugins_installed` + `skills_available` 스냅샷을 새 인벤토리로 갱신(`inventory drift`를 0으로 리셋). `<!-- evolution-log -->`에 1줄 기록(트리거 토큰 `inventory drift` + 동기화 요지).
-5. **검증 + 롤백** — 동일한 `inventory drift` 신호가 다시 발동하면 실패한 동기화로 판정해 `.moai/evolution/` 원문 조각으로 롤백합니다.
-
-## 사용법
-
-`/project`는 자연어 단일 진입 스킬입니다. "이런 일 할 거야"라고 말하면 인터뷰→설계→생성을 한 흐름으로 끝내고, 아래 3가지 액션만 명시적 서브커맨드로 씁니다. 그 외(재개·카탈로그·상태 조회·API 키)는 자연어로 요청하면 알아서 라우팅합니다 — "설치 완료했어"(재개)·"어떤 코워커 있어?"(카탈로그)·"지금 상태 어때?"(상태)·"API 키 설정할래"(Phase 8 안내).
-
-| 커맨드 | 동작 |
-|--------|------|
-| `/project <지시>` | 진입 — 인터뷰 후 에이전트/체인 설계 + 생성. **기본 동작.** |
-| `/project update` | 플러그인 업데이트 후 전수조사 → AGENTS.md·에이전트 재동기화 |
-| `/project evolve` | 재귀적 자가 개선 수동 발동 |
-| `/project doctor` | 환경 진단 |
-
-## 스킬 카탈로그
-
-PM의 스킬 목록은 아래와 같습니다. 스킬 이름을 몰라도 됩니다 — "프로젝트 시작하고 싶어"라고 말하면 자동으로 매칭됩니다.
+## 포함된 기능
 
 {{< employee-skills "moai-pm" >}}
-
-## 에이전트
-
-PM은 라우팅 허브이므로 별도의 실행 코워커(worker)·검수 코워커(auditor) 에이전트를 두지 않습니다. 실제 작업은 배치된 각 코워커 플러그인의 에이전트가 수행합니다. 다른 코워커 페이지에서 worker/auditor 구조를 확인해 보세요.
-
 {{< employee-agents "moai-pm" >}}
 
-## 대표 시나리오 3선
+[첫 프로젝트 실습](/workflows/first-project/) · [프로젝트 지침](/getting-started/projects/) · [전문가 분업](/workflows/experts/)
 
-**1. 비개발자의 첫 프로젝트.** 온라인 강의를 준비하는 강사가 "강의 준비 프로젝트 시작하고 싶어"라고 말합니다. PM이 폴더에 튜터·마케터 지침과 워크플로우를 깔아 주고, 이후에는 "커리큘럼 짜줘" 같은 요청이 바로 튜터에게 연결됩니다.
+## 공식 문서와 참고 자료
 
-**2. 여러 코워커를 함께 쓰는 세팅.** 쇼핑몰 운영자가 "셀러랑 CS랑 마케터 같이 쓸 거야"라고 요청하면, PM이 세 코워커의 역할 분담이 담긴 지침을 생성해 요청이 서로 엉키지 않게 정리합니다. AI 코워커 플러그인이 있습니다.
-
-**3. 쓰면서 다듬기.** 프로젝트를 한동안 쓰다 보면 실제 작업 방식이 처음 세팅과 달라집니다. `/project evolve`라고 말하면 PM이 그동안의 사용 신호를 살펴 워크플로우와 커스텀 에이전트를 다시 손봐 줍니다. 플러그인이 업데이트되면 `/project update`로 전체 인벤토리를 다시 조사해 지침과 에이전트를 최신 상태로 동기화합니다.
-
-## 설치 확인
-
-설치가 잘 됐는지 확인하려면 Claude Cowork에서 `/project`를 입력했을 때 명령이 인식되는지 보면 됩니다.
-
-**잘 안 될 때** — `/project`가 인식되지 않으면 마켓플레이스 등록과 플러그인 설치가 끝났는지 먼저 확인하세요. 설치 절차는 [플러그인 설치와 관리](/plugins/install/)를 참고하세요. 두 앱 모두 앱 화면 안에서 등록합니다:
-- **Claude Cowork**: 설정(또는 플러그인) 화면 → 마켓플레이스 **+** → 주소 `modu-ai/moai-cowork`
-- **ChatGPT Work**: Work 모드 → Plugins 메뉴 → 마켓플레이스 **+** → 주소 `modu-ai/moai-cowork`
-
-## Sources
-
-- 공식 문서: [ChatGPT Work 하위 에이전트](https://learn.chatgpt.com/docs/agent-configuration/subagents), [agents.md](https://agents.md)
+- [PM 스킬 원본](https://github.com/modu-ai/moai-cowork/tree/main/plugins/moai-pm/skills/project)
+- [ChatGPT 프로젝트](https://learn.chatgpt.com/docs/projects)
+- [Claude 프로젝트](https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects)

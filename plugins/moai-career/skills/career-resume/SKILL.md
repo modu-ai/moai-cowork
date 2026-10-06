@@ -5,7 +5,8 @@ description: >
   "자소서 써줘", "이력서 만들어줘", "경력기술서 정리해줘", "1page 셀링 시트 만들어줘"처럼
   말하면 됩니다. KKK-STAR 자소서, USP+CAR 이력서, ATS·블라인드·NCS 모드, 사실성
   검토, 500/1000/1500자 분량 자동, 영문 CV·LinkedIn 헤드라인을 지원합니다.
-version: "1.1.4"
+metadata:
+  version: "1.1.5"
 ---
 
 # 이력서/자소서 빌더 (career-resume)

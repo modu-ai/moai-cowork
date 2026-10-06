@@ -53,14 +53,14 @@ Phase 1 인터뷰 → Phase 2 인벤토리 → Phase 3 체인 설계 → Phase 4
 
 | Phase | 핵심 | 산출물 |
 |-------|------|--------|
-| **1 인터뷰** | 프로젝트 설명에서 8렌즈로 축을 도출해 채워질 때까지 반복. 한 호출의 질문·옵션 수는 현재 호스트 도구의 상한을 따른다. 해당 없는 렌즈는 버리고, 민감도만 공통 필수 | interview 답변 + coverage 표 |
+| **1 인터뷰** | 프로젝트 설명에서 8렌즈로 축을 도출해 채워질 때까지 반복. 한 호출의 질문·옵션 수는 현재 호스트 도구의 상한을 따른다. 해당 없는 렌즈는 버리고, 민감도는 기존 정보에서 확인하거나 필요할 때 질문 | interview 답변 + coverage 표 |
 | **2 인벤토리** | 배포 로스터와 현재 호스트의 설치·노출 스킬 대조 | `.moai/config.json` 스냅샷 |
 | **3 체인 설계** | 인터뷰 + 인벤토리 + 재진입 시 기존 맥락, 3종 입력을 종합해 산출물별 스킬 체인 설계(§3 프리셋). **한국어 텍스트 체인은 실제 사용 가능한 검수 스킬과 최종 대조로 종료** | chain_design + 설계 근거 |
 | **4 Gap Detection** | 체인 스킬 ↔ 인벤토리 대조 → 누락 시 설치 안내 + "이어서 진행" 재개 | 진행 상태 |
 | **5 확인** | 설계된 체인을 요약하고 빠진 결정만 현재 호스트의 질문 도구로 확인 | 확인된 설계 |
 | **6 지침 생성** | `references/templates/AGENTS.md.tmpl` 치환, ≤500라인, HARD 블록 8종 고정 — 정본은 AGENTS.md 한 파일. `CLAUDE.md`는 `CLAUDE.md.tmpl` 그대로 복사한 `@AGENTS.md` 포인터 | `./AGENTS.md` + `./CLAUDE.md`(포인터) |
-| **7 커스텀 에이전트 생성** | 반복 작업 유형별 Claude `.claude/agents/*.md`(markdown+frontmatter) + Codex `.codex/agents/*.toml`(TOML) 양쪽 생성 | `.claude/agents/*.md` + `.codex/agents/*.toml` |
-| **8 API 키 + 첫 실행 안내** | 체인이 요구하는 키만 선택적 등록 안내 + 상위 체인 3개 예시 | 안내 메시지 |
+| **7 커스텀 에이전트 생성** | 반복 작업 유형별 Claude `.claude/agents/*.md`(markdown+frontmatter) + Codex `.codex/agents/*.toml`(TOML) 현재 지원되는 형식만 생성·검증 | `.claude/agents/*.md` + `.codex/agents/*.toml` |
+| **8 API 키 + 첫 실행 안내** | 체인이 요구하는 인증만 안내 + 호스트 Project 적용·읽기·대표 업무 확인 | 안내 메시지 |
 
 각 Phase의 호스트별 질문 도구 스키마·`.moai/config.json` 상세·재개 흐름은 `references/init-protocol.md` 참조.
 
@@ -174,7 +174,7 @@ Phase 3 체인의 스킬이 인벤토리에 없으면 누락으로 간주한다.
 
 `references/templates/AGENTS.md.tmpl` 변수 치환 후 **`AGENTS.md` 한 파일에만 저장**하고, `references/templates/CLAUDE.md.tmpl`을 치환 없이 복사해 `CLAUDE.md` 포인터를 만든다(본문 복제 금지). 규칙:
 
-1. **≤500라인**, 스킬 체인은 최대 10개(나머지는 사용자가 "어떤 코워커 있어?"로 물을 때 안내)
+1. **≤500라인 + 실제 발견 체인 byte 한도**, 주요 체인은 최대 10개를 본문에 요약하고 전체 정의는 config.json에 보존
 2. **역할 라벨** — 감지된 역할(실무/글쓰기 작가)을 페르소나에 명시
 3. **HARD 규칙 고정** — 사용 가능한 office 스킬 우선 + **한국어 텍스트 산출물은 ⟨한국어 감사⟩ 종료**(§3) + 요청 평가 사다리·파일 생성 기준·인용·저작권 가드(§3.5)·톤 규칙·맥락 적용 규칙. 500라인 초과 시 축소 대상은 체인만이다.
 4. **스킬 참조 정합** — 모든 스킬 참조는 소속 플러그인 접두어를 사용한다.
@@ -192,7 +192,7 @@ Phase 3 체인의 스킬이 인벤토리에 없으면 누락으로 간주한다.
 | 인터뷰 스키마·인벤토리·Re-entry 상세 | `init-protocol.md` |
 | 맥락 수집 등급(A/B/C)·S1/S2 라운드 기준 | `context-collector.md` |
 | AGENTS.md 변수 치환·500라인 예산·HARD 규칙 블록·CLAUDE.md 포인터 | `agentsmd-generator.md` |
-| 스킬 체인 순차 실행·검증 깊이 사다리 | `execution-protocol.md` |
+| 스킬 체인의 의존성·순차/병렬·합류·검증 깊이 | `execution-protocol.md` |
 | 5차원 평가(정확성·완전성·실용성·톤·도메인) | `evaluation-protocol.md` |
 | 환경 진단(`/project doctor`) | `diagnostic-protocol.md` |
 

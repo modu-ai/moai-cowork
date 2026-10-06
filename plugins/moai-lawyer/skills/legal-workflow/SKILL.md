@@ -2,7 +2,8 @@
 name: legal-workflow
 description: |
   한국 법령·계약·규제·특허에 걸친 복합 요청에서 문서와 적용 시점을 확인하고 moai-lawyer의 legal-* 스킬로 연결합니다. 법령·판례 인용은 현재 연결된 법률 자료 도구로 확인합니다.
-version: "1.0.2"
+metadata:
+  version: "1.0.3"
 ---
 
 # 법무 조사 작업 경로

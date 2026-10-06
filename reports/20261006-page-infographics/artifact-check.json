@@ -1,0 +1,76 @@
+{
+  "pages_planned": 171,
+  "pages_added": 108,
+  "pages_unchanged": 63,
+  "concepts": 86,
+  "svg_files": 172,
+  "variant_texts_equal": true,
+  "worked_examples_grounded_in_current_source": 59,
+  "previous_html_urls": 288,
+  "final_html_urls": 288,
+  "missing_previous_urls": [],
+  "responsive_picture_pages": 108,
+  "responsive_pictures": 108,
+  "unique_responsive_concepts": 86,
+  "chart_examples": [
+    {
+      "concept": "example-cookbook-guides-data-analysis",
+      "percentages": [
+        80.0,
+        50.0,
+        68.0
+      ]
+    },
+    {
+      "concept": "example-cookbook-guides-data-visualization",
+      "percentages": [
+        80.0,
+        50.0,
+        68.0
+      ]
+    },
+    {
+      "concept": "example-cookbook-projects-public-data-report",
+      "percentages": [
+        80.0,
+        50.0,
+        68.0
+      ]
+    },
+    {
+      "concept": "example-cookbook-tracks-track-data",
+      "percentages": [
+        80.0,
+        50.0,
+        68.0
+      ]
+    },
+    {
+      "concept": "example-moai-agents-analyst",
+      "percentages": [
+        80.0,
+        50.0,
+        68.0
+      ]
+    }
+  ],
+  "expense_examples": [
+    {
+      "concept": "example-cookbook-templates-excel",
+      "total": 25000
+    },
+    {
+      "concept": "example-cookbook-tracks-track-documents",
+      "total": 25000
+    },
+    {
+      "concept": "example-moai-agents-officer",
+      "total": 25000
+    }
+  ],
+  "missing_mobile_source_errors_observed": [
+    "getting-started/questions/index.html: missing /infographics/pages/questions-mobile.svg"
+  ],
+  "errors": [],
+  "scope": "this worktree source and the specified temporary Hugo build"
+}

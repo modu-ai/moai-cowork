@@ -2,7 +2,8 @@
 name: productivity-habit
 description: >
   새 행동을 생활에 맞게 시작하고 점검하는 작은 습관 계획을 만듭니다. "습관 만들고 싶어", "모닝 루틴 짜줘", "습관 트래커 만들어줘" 같은 요청에 사용하세요.
-version: "1.1.1"
+metadata:
+  version: "1.1.2"
 ---
 
 # 습관 계획

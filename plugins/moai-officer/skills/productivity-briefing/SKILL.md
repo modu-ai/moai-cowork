@@ -4,7 +4,8 @@ description: |
   업계 뉴스·정책·시장 지표·경쟁사 공개 정보를 확인해 업무용 브리핑을 작성합니다.
   요청 예: "오늘 비즈니스 브리핑", "주간 시장 동향", "경쟁사 공개 발표 요약".
   운영 데이터 기반 이커머스 브리핑은 moai-seller:commerce-morning-brief를 사용합니다.
-version: "1.1.1"
+metadata:
+  version: "1.1.2"
 ---
 
 # 업무 브리핑

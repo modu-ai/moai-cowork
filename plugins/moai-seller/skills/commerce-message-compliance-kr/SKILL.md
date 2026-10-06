@@ -5,7 +5,8 @@ description: >
   문자·이메일·앱 알림·카카오 비즈메시지의 광고성 여부, 수신 동의,
   야간 발송, 표시·수신거부 방법을 확인합니다. 광고 문구 자체의
   표시광고 심사는 commerce-ad-claim-compliance-kr을 사용합니다.
-version: "1.1.2"
+metadata:
+  version: "1.1.3"
 ---
 
 # 한국 광고성 메시지 발송 전 점검

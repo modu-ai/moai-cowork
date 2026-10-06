@@ -3,6 +3,8 @@ from __future__ import annotations
 
 from typing import Literal
 
+from mcp.types import ToolAnnotations
+
 from .._app import mcp
 from .._base import get_client
 
@@ -11,7 +13,7 @@ _OPS: dict[str, tuple] = {
     'confirm_bank_transfer_by_order_no': ('PATCH', '/payments/{orderNo}/bank-transfer/confirm', ['orderNo'], [], False),
 }
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=False, destructiveHint=True, idempotentHint=False, openWorldHint=True))
 def imweb_payment(action: Literal["confirm_bank_transfer_by_order_no"], params: dict | None = None, body: dict | None = None, paginate: bool = False) -> dict:
     r"""결제 도구 — 1개 action 을 디스패치합니다.
 

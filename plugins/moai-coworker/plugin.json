@@ -1,0 +1,45 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "moai-coworker",
+  "version": "1.2.28",
+  "description": "실무 범용 코어 AI 코워커 — 브랜드·제안서·보고·협상·프로세스와 라이프스타일·자기계발 작업을 돕습니다.",
+  "author": {
+    "name": "모두의 AI",
+    "email": "email@mo.ai.kr",
+    "url": "https://cowork.mo.ai.kr"
+  },
+  "homepage": "https://cowork.mo.ai.kr/plugins/",
+  "repository": "https://github.com/modu-ai/moai-cowork",
+  "license": "Apache-2.0",
+  "keywords": [
+    "moai",
+    "cowork",
+    "coworker",
+    "korean",
+    "all-in-one",
+    "productivity",
+    "business",
+    "lifestyle"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "🧑‍💼 코워커",
+        "shortDescription": "실무 범용 코어 AI 코워커 — 비즈니스 + 라이프스타일 올인원",
+        "longDescription": "브랜드·제안서·보고·협상·프로세스 등 비즈니스 실무와 목표·습관·회고·여행·웰니스·행사기획을 돕습니다. 1인 사업자·스타트업 운영자에게 추천합니다.",
+        "developerName": "모두의 AI",
+        "category": "Productivity",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://cowork.mo.ai.kr",
+        "defaultPrompt": [
+          "코워커, 이번 주 회고 정리해줘",
+          "B2B 영업 제안서 초안 작성해줘"
+        ],
+        "brandColor": "#3d7d5f"
+      }
+    }
+  }
+}

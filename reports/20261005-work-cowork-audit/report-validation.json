@@ -1,0 +1,24 @@
+{
+  "head": "2c3cef1d24e88b3bfe8db61c713ffae317b346d0",
+  "report_readback_bytes": 56526,
+  "finding_sections": 17,
+  "local_links_checked": 57,
+  "broken_local_links": [],
+  "official_source_urls": 13,
+  "tracked_file_changes": [],
+  "local_check_groups_passed": 11,
+  "runtime_registered_tools": 154,
+  "runtime_missing_annotations": 154,
+  "standard_skill_validation": {
+    "validator_version": "0.1.1",
+    "checked": 252,
+    "passed": 0,
+    "failed": 252,
+    "error_classes": {
+      "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed.": 242,
+      "Unexpected fields in frontmatter: user-invocable, version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed.": 10,
+      "Description exceeds 1024 character limit (1483 chars)": 1
+    }
+  },
+  "unexpanded_placeholders": false
+}

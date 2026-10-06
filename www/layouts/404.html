@@ -1,8 +1,7 @@
 {{ define "main" }}
-  <section class="cw-404">
-    {{ partial "mascot.html" (dict "variant" "searching" "size" "160" "alt" "모두의AI 마스코트 — 길 잃은 페이지") }}
-    <h1>페이지를 찾을 수 없어요</h1>
-    <p>주소가 바뀌었거나 삭제되었을 수 있어요.<br />마스코트가 홈으로 안내해 드릴게요.</p>
-    <a href="{{ "" | relURL }}" class="cw-404-home">← 홈으로 돌아가기</a>
-  </section>
+<article class="gdoc-markdown" id="main-content" tabindex="-1">
+  <h1>페이지를 찾을 수 없습니다</h1>
+  <p>주소가 바뀌었거나 문서가 아직 공개되지 않았을 수 있습니다. 문서 검색이나 아래 학습 경로에서 다시 찾아보세요.</p>
+  <p><a href="/">홈으로</a> · <a href="/getting-started/">시작하기</a> · <a href="/learn/">온라인 강의실</a> · <a href="/help/source-index/">문서 색인</a></p>
+</article>
 {{ end }}

@@ -10,7 +10,8 @@ description: |
   - "이 뉴스를 Instagram 용으로 요약해줘"
   - "이 초안 인스타에 바로 올려줘" (승인 → 즉시 발행)
   [책임 경계] vs 형제 스킬: Instagram 이미지/비디오/릴 *초안 작성·즉시 발행* 만 담당합니다. 댓글 관리는 instagram-comments 스킬, Threads 발행은 threads-* 스킬, 멀티 채널 포맷은 threads-multichannel 스킬을 사용하세요. 예약·정기 발행은 앱에서 지원 여부를 확인합니다.
-version: "1.2.2"
+metadata:
+  version: "1.2.3"
 ---
 
 # Instagram 포스트 작성·직접 발행 (instagram-post)

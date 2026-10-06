@@ -1,0 +1,1074 @@
+[
+  {
+    "path": "plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/server.py",
+    "line": 218,
+    "name": "ip_check_access",
+    "decorator": "mcp.tool()",
+    "docstring": "조사 전에 데이터 소스별 자격증명 설정 여부를 확인한다 (값은 절대 돌려주지 않음).\n\nArgs:\n    sources: 확인할 소스 ID 목록. kipris-plus · uspto-odp · uspto-tsdr · jpo · epo-ops.\n        비우면 전부.\n    verify: true면 설정된 소스에 최소 호출을 보내 실제 연결(인증 성공·상품 이용 기간 만료·서버 오류)을\n        확인한다. 사용자가 \"설정 완료\"라고 한 뒤에 쓴다.\n\nReturns: ready, missing, 소스별 status(configured/missing)·registration_url·coverage·limits·tools,\n    credential_file, how_to_set. verify=true면 소스별 verification 추가.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/server.py",
+    "line": 243,
+    "name": "kipris_patent_search",
+    "decorator": "mcp.tool()",
+    "docstring": "한국 특허·실용신안 검색 (KIPRIS Plus getAdvancedSearch).\n\nArgs:\n    word: 전체 필드 자유 검색어.\n    invention_title / abstract / claim: 발명의 명칭·요약·청구범위 검색어.\n    ipc_number: IPC 분류 (예: G06N).\n    applicant / inventors / right_holder: 출원인·발명자·권리자.\n    patent / utility: 특허·실용신안 포함 여부.\n    status: 행정상태. 빈 값=전체, A=공개, C=취하, F=소멸, G=포기, I=무효, J=거절, R=등록.\n    sort_spec: PD·AD·GD·OPD·FD·FOD·RD 중 하나 (공식 명세 값).\n    page_no / num_of_rows: 페이지(1부터)·페이지 크기(최대 500).\n    extra_params: 공식 명세에 있으나 여기서 따로 받지 않는 파라미터 (예: 날짜 범위 YYYYMMDD~YYYYMMDD).\n\nReturns: total_count(전체 건수), returned_count, items(발명의 명칭·출원번호·출원일·등록상태·IPC·요약 등), query.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/server.py",
+    "line": 288,
+    "name": "kipris_patent_detail",
+    "decorator": "mcp.tool()",
+    "docstring": "한국 특허·실용신안 서지 상세 (출원번호 기준, 하이픈 허용).",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/server.py",
+    "line": 294,
+    "name": "kipris_trademark_search",
+    "decorator": "mcp.tool()",
+    "docstring": "한국 상표 검색 (KIPRIS Plus trademarkInfoSearchService getAdvancedSearch).\n\nArgs:\n    trademark_name: 상표명칭 검색. trademark_name_match: 상표명칭 일치 검색.\n    free_search: 자유 검색. classification: 니스 류 (예: 35). similarity_code: 유사군 코드 (KIPRIS 유사군 코드표 기준).\n    designated_goods: 지정상품. applicant_name / agent_name / right_holder: 출원인·대리인·등록권자.\n    vienna_code: 도형 분류. application_date / registration_date: YYYYMMDD~YYYYMMDD.\n    statuses: 권리상태 필터 — application·registration·refused·expiration·withdrawal·publication·cancel·abandonment.\n        비우면 전부 포함 (공식 규칙상 하나 이상 true 필요).\n    mark_types: trademark·serviceMark·trademarkServiceMark·businessEmblem·collectiveMark·geoOrgMark·\n        internationalMark·certMark·geoCertMark. 비우면 전부.\n    compositions: character·figure·compositionCharacter·figureComposition·sound·fragrance·color·dimension·\n        colorMixed·hologram·motion·visual·invisible. 비우면 전부.\n    page_no / num_of_rows: 페이지·페이지 크기(최대 500).\n    extra_params: 공식 명세의 나머지 파라미터 (예: publicationDate, sortSpec).\n\nReturns: total_count, items(title·applicationNumber·applicationStatus·classificationCode·applicantName·\n    regPrivilegeName·출원/등록일·drawing 이미지 주소 등), query.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/server.py",
+    "line": 347,
+    "name": "kipris_trademark_detail",
+    "decorator": "mcp.tool()",
+    "docstring": "한국 상표 서지·행정처리 이력 상세 (출원번호 기준).",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/server.py",
+    "line": 354,
+    "name": "uspto_patent_search",
+    "decorator": "mcp.tool()",
+    "docstring": "미국 특허 출원 검색 (USPTO Open Data Portal).\n\nArgs:\n    q: 검색식. 불리언(AND/OR/NOT)·와일드카드·`필드:값`·범위 `[a TO b]` 지원.\n    filters: [{\"name\": 필드, \"value\": [값...]}]. range_filters: [{\"field\", \"valueFrom\", \"valueTo\"}].\n    sort: [{\"field\", \"order\": \"asc\"|\"desc\"}]. fields: 돌려받을 필드 목록.\n    offset / limit: 페이지 시작·크기(1~100).\n\nReturns: request(보낸 본문), data(ODP 원본 JSON — 총 건수와 출원 목록).",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/server.py",
+    "line": 382,
+    "name": "uspto_patent_application",
+    "decorator": "mcp.tool()",
+    "docstring": "미국 특허 출원 메타데이터 (출원번호 기준, 예: 16123456 또는 16/123,456).",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/server.py",
+    "line": 388,
+    "name": "uspto_trademark_status",
+    "decorator": "mcp.tool()",
+    "docstring": "미국 상표 사건 상태 (USPTO TSDR, ST.96 XML을 구조화해 반환).\n\nUSPTO는 상표 문자 검색 API를 제공하지 않는다. 후보는 USPTO Trademark Search 웹 화면에서 찾고,\n찾은 번호로 이 도구를 불러 상태·소유자·지정상품을 확인한다.\n\nArgs:\n    number: 사건 번호. 접두어 포함(sn78787878)도 허용.\n    number_type: sn(일련번호·8자리) · rn(등록번호) · ref(참조번호) · ir(국제등록번호).",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/server.py",
+    "line": 403,
+    "name": "jpo_patent_progress",
+    "decorator": "mcp.tool()",
+    "docstring": "일본 특허 경과 정보 (출원번호 10자리: 서기 4자리+6자리, 예: 2020008423). simple=true면 간이 경과.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/server.py",
+    "line": 409,
+    "name": "jpo_patent_registration",
+    "decorator": "mcp.tool()",
+    "docstring": "일본 특허 등록 정보 (출원번호 10자리).",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/server.py",
+    "line": 415,
+    "name": "jpo_trademark_progress",
+    "decorator": "mcp.tool()",
+    "docstring": "일본 상표 경과 정보 (출원번호 10자리). 표시용 상표·음역·지정상품·권리자 포함.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/server.py",
+    "line": 421,
+    "name": "jpo_trademark_registration",
+    "decorator": "mcp.tool()",
+    "docstring": "일본 상표 등록 정보 (출원번호 10자리).",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/server.py",
+    "line": 427,
+    "name": "jpo_case_number_reference",
+    "decorator": "mcp.tool()",
+    "docstring": "일본 사건 번호 상호 참조 — 공개·등록번호로 출원번호 등을 찾는다.\n\nArgs:\n    right: patent 또는 trademark.\n    kind: patent는 application·publication·registration, trademark는 application·registration.\n    number: 번호(숫자).",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/server.py",
+    "line": 439,
+    "name": "jpo_applicant_lookup",
+    "decorator": "mcp.tool()",
+    "docstring": "일본 출원인·대리인 코드 조회 (정확한 이름 기준). right: patent 또는 trademark.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/server.py",
+    "line": 446,
+    "name": "epo_search",
+    "decorator": "mcp.tool()",
+    "docstring": "유럽·국제 공개 특허 검색 (EPO OPS, CQL).\n\nArgs:\n    cql: CQL 검색식. 예: ta=\"solid state battery\" and pa=\"samsung\" and pd>=2020\n        (ta=명칭·요약, pa=출원인, ic/cpc=분류, pd=공개일).\n    start / end: 결과 범위 (한 번에 최대 100건, 끝 값 2,000 이하).\n    with_biblio: true면 서지 요약을 함께 받는다(응답이 커진다).",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/server.py",
+    "line": 459,
+    "name": "epo_biblio",
+    "decorator": "mcp.tool()",
+    "docstring": "EPO 서지 정보. reference_type: publication·application·priority. input_format: docdb(EP.1000000.A1) 또는 epodoc(EP1000000).",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/server.py",
+    "line": 465,
+    "name": "epo_family",
+    "decorator": "mcp.tool()",
+    "docstring": "INPADOC 특허 패밀리. constituent: 빈 값·biblio·legal (legal이면 패밀리 구성원별 법적 상태 포함).",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/server.py",
+    "line": 473,
+    "name": "epo_legal",
+    "decorator": "mcp.tool()",
+    "docstring": "INPADOC 법적 상태 이력. 공식 법적 상태 표시는 지연될 수 있으므로 중요한 권리는 원등록부로 재확인한다.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_openai/server.py",
+    "line": 57,
+    "name": "openai_image_generate",
+    "decorator": "mcp.tool()",
+    "docstring": "유료 OpenAI Image API로 GPT Image 2.5 이미지 한 장을 직접 생성합니다.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/community.py",
+    "line": 80,
+    "name": "imweb_community",
+    "decorator": "mcp.tool()",
+    "docstring": "커뮤니티 (폼/Q&A/구매평) 도구 — 17개 action 을 디스패치합니다.\n\nArgs:\n    action: 수행 작업 키 (inputSchema enum 으로 17개 전체 공개).\n    params: path + query 파라미터 딕셔너리. 예: {\"orderNo\": \"ORD123\", \"page\": 1}.\n    body: POST/PATCH/PUT 본문. action 별 Body 모델(inputSchema anyOf) 중 해당 action 의 필드만 채움 (모델명 = action 의 PascalCase + Body).\n    paginate: list 계열 GET 에서 전체 페이지 자동 집계 (기본 False = 단일 페이지).\n\nReturns: API JSON.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/member_info.py",
+    "line": 79,
+    "name": "imweb_member_info",
+    "decorator": "mcp.tool()",
+    "docstring": "회원 정보 도구 — 19개 action 을 디스패치합니다.\n\nArgs:\n    action: 수행 작업 키 (inputSchema enum 으로 19개 전체 공개).\n    params: path + query 파라미터 딕셔너리. 예: {\"orderNo\": \"ORD123\", \"page\": 1}.\n    body: POST/PATCH/PUT 본문. action 별 Body 모델(inputSchema anyOf) 중 해당 action 의 필드만 채움 (모델명 = action 의 PascalCase + Body).\n    paginate: list 계열 GET 에서 전체 페이지 자동 집계 (기본 False = 단일 페이지).\n\nReturns: API JSON.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/order.py",
+    "line": 346,
+    "name": "imweb_order",
+    "decorator": "mcp.tool()",
+    "docstring": "주문 도구 — 44개 action 을 디스패치합니다.\n\nArgs:\n    action: 수행 작업 키 (inputSchema enum 으로 44개 전체 공개).\n    params: path + query 파라미터 딕셔너리. 예: {\"orderNo\": \"ORD123\", \"page\": 1}.\n    body: POST/PATCH/PUT 본문. action 별 Body 모델(inputSchema anyOf) 중 해당 action 의 필드만 채움 (모델명 = action 의 PascalCase + Body).\n    paginate: list 계열 GET 에서 전체 페이지 자동 집계 (기본 False = 단일 페이지).\n\nReturns: API JSON.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/payment.py",
+    "line": 15,
+    "name": "imweb_payment",
+    "decorator": "mcp.tool()",
+    "docstring": "결제 도구 — 1개 action 을 디스패치합니다.\n\nArgs:\n    action: 수행 작업 키 (inputSchema enum 으로 1개 전체 공개).\n    params: path + query 파라미터 딕셔너리. 예: {\"orderNo\": \"ORD123\", \"page\": 1}.\n    body: 미사용 (본문이 있는 action 없음).\n    paginate: list 계열 GET 에서 전체 페이지 자동 집계 (기본 False = 단일 페이지).\n\nReturns: API JSON.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/product.py",
+    "line": 253,
+    "name": "imweb_product",
+    "decorator": "mcp.tool()",
+    "docstring": "상품 도구 — 33개 action 을 디스패치합니다.\n\nArgs:\n    action: 수행 작업 키 (inputSchema enum 으로 33개 전체 공개).\n    params: path + query 파라미터 딕셔너리. 예: {\"orderNo\": \"ORD123\", \"page\": 1}.\n    body: POST/PATCH/PUT 본문. action 별 Body 모델(inputSchema anyOf) 중 해당 action 의 필드만 채움 (모델명 = action 의 PascalCase + Body).\n    paginate: list 계열 GET 에서 전체 페이지 자동 집계 (기본 False = 단일 페이지).\n\nReturns: API JSON.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/promotion.py",
+    "line": 85,
+    "name": "imweb_promotion",
+    "decorator": "mcp.tool()",
+    "docstring": "프로모션 (적립금/쿠폰) 도구 — 14개 action 을 디스패치합니다.\n\nArgs:\n    action: 수행 작업 키 (inputSchema enum 으로 14개 전체 공개).\n    params: path + query 파라미터 딕셔너리. 예: {\"orderNo\": \"ORD123\", \"page\": 1}.\n    body: POST/PATCH/PUT 본문. action 별 Body 모델(inputSchema anyOf) 중 해당 action 의 필드만 채움 (모델명 = action 의 PascalCase + Body).\n    paginate: list 계열 GET 에서 전체 페이지 자동 집계 (기본 False = 단일 페이지).\n\nReturns: API JSON.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/script.py",
+    "line": 38,
+    "name": "imweb_script",
+    "decorator": "mcp.tool()",
+    "docstring": "스크립트 도구 — 4개 action 을 디스패치합니다.\n\nArgs:\n    action: 수행 작업 키 (inputSchema enum 으로 4개 전체 공개).\n    params: path + query 파라미터 딕셔너리. 예: {\"orderNo\": \"ORD123\", \"page\": 1}.\n    body: POST/PATCH/PUT 본문. action 별 Body 모델(inputSchema anyOf) 중 해당 action 의 필드만 채움 (모델명 = action 의 PascalCase + Body).\n    paginate: list 계열 GET 에서 전체 페이지 자동 집계 (기본 False = 단일 페이지).\n\nReturns: API JSON.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/site_info.py",
+    "line": 36,
+    "name": "imweb_site_info",
+    "decorator": "mcp.tool()",
+    "docstring": "사이트 정보 도구 — 6개 action 을 디스패치합니다.\n\nArgs:\n    action: 수행 작업 키 (inputSchema enum 으로 6개 전체 공개).\n    params: path + query 파라미터 딕셔너리. 예: {\"orderNo\": \"ORD123\", \"page\": 1}.\n    body: POST/PATCH/PUT 본문. action 별 Body 모델(inputSchema anyOf) 중 해당 action 의 필드만 채움 (모델명 = action 의 PascalCase + Body).\n    paginate: list 계열 GET 에서 전체 페이지 자동 집계 (기본 False = 단일 페이지).\n\nReturns: API JSON.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/auth.py",
+    "line": 9,
+    "name": "smartstore_test_connection",
+    "decorator": "mcp.tool()",
+    "docstring": "네이버 커머스 API 인증·연결을 검증한다.\n\nGET /v1/seller/account 를 1회 호출해 토큰 발급 → Bearer 인증 → 도메인 API 응답\n전체 흐름이 정상 동작하는지 확인한다. 자격증명 연동 후 첫 1회 호출 검증용.\n\nReturns:\n    {\"ok\": true, \"data\": {계정 정보}} 또는 {\"ok\": false, \"error\": ...}",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/auth.py",
+    "line": 22,
+    "name": "smartstore_config_status",
+    "decorator": "mcp.tool()",
+    "docstring": "네이버 커머스 API 자격증명 설정 상태를 반환한다 (API 미호출, 비밀키 원문 제외).\n\nReturns:\n    {\"configured\": bool, \"type\": \"SELF\"|\"SELLER\", \"base_url\": str,\n     \"account_id_set\": bool, \"client_id_set\": bool}",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/inquiries.py",
+    "line": 11,
+    "name": "qna_list",
+    "decorator": "mcp.tool()",
+    "docstring": "상품 문의 목록 조회(미답변 모니터링/SLA 관리). GET /v1/contents/qnas",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/inquiries.py",
+    "line": 17,
+    "name": "qna_answer",
+    "decorator": "mcp.tool()",
+    "docstring": "상품 문의 답변 등록/수정. PUT /v1/contents/qnas/{questionId}\n\nbody 예: {\"answer\": \"답변 내용\"}",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/inquiries.py",
+    "line": 26,
+    "name": "qna_templates",
+    "decorator": "mcp.tool()",
+    "docstring": "판매자 답변 템플릿 목록. GET /v1/contents/qnas/templates",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/inquiries.py",
+    "line": 32,
+    "name": "customer_inquiry_list",
+    "decorator": "mcp.tool()",
+    "docstring": "고객 문의(네이버페이 결제 문의) 내역 조회. GET /v1/pay-user/inquiries",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/inquiries.py",
+    "line": 38,
+    "name": "customer_inquiry_answer",
+    "decorator": "mcp.tool()",
+    "docstring": "고객 문의 신규 답변 등록. POST /v1/pay-merchant/inquiries/{inquiryNo}/answer",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/inquiries.py",
+    "line": 48,
+    "name": "customer_inquiry_answer_update",
+    "decorator": "mcp.tool()",
+    "docstring": "고객 문의 기존 답변 수정. PUT /v1/pay-merchant/inquiries/{inquiryNo}/answer/{answerContentId}",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/logistics.py",
+    "line": 11,
+    "name": "logistics_companies",
+    "decorator": "mcp.tool()",
+    "docstring": "연동 택배사/물류사 정보(발송 deliveryCompanyCode 캐시용). GET /v1/logistics/logistics-companies",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/logistics.py",
+    "line": 17,
+    "name": "outbound_locations",
+    "decorator": "mcp.tool()",
+    "docstring": "판매자 출고 창고 정보. GET /v1/logistics/outbound-locations",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/logistics.py",
+    "line": 23,
+    "name": "return_delivery_companies",
+    "decorator": "mcp.tool()",
+    "docstring": "반품 처리 가능 택배사 목록. GET /v2/product-delivery-info/return-delivery-companies",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/logistics.py",
+    "line": 29,
+    "name": "sku_get",
+    "decorator": "mcp.tool()",
+    "docstring": "N배송 SKU 1건 조회. GET /v1/logistics/products/sellers/me/skus/{nsId}",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/logistics.py",
+    "line": 35,
+    "name": "sku_mappings",
+    "decorator": "mcp.tool()",
+    "docstring": "SKU 연결(채널) 상품 매핑 현황 페이징 조회. GET .../skus/{nsId}/product-mappings",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/logistics.py",
+    "line": 45,
+    "name": "sku_list",
+    "decorator": "mcp.tool()",
+    "docstring": "본인 SKU 복합조건 페이징 검색. POST /v1/logistics/products/sellers/me/skus/query-paged-list",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/orders.py",
+    "line": 22,
+    "name": "order_list_product_orders",
+    "decorator": "mcp.tool()",
+    "docstring": "조건형 상품 주문 상세 내역 페이징 조회. GET /v1/pay-order/seller/product-orders\n\nparams 예: {\"productOrderStatuses\": \"PAYED\", \"pageSize\": 100}",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/orders.py",
+    "line": 31,
+    "name": "order_query_product_orders",
+    "decorator": "mcp.tool()",
+    "docstring": "다수 productOrderId 상세 주문 내역 일괄 조회. POST /v1/pay-order/seller/product-orders/query\n\nbody 예: {\"productOrderIds\": [\"20240101-0001\", ...]}",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/orders.py",
+    "line": 40,
+    "name": "order_changed_product_orders",
+    "decorator": "mcp.tool()",
+    "docstring": "지정 시점 이후 변경된 상품 주문 조회(변경 피드). GET .../last-changed-statuses\n\nOMS/CRM 주문 동기화 핵심. 1~3분 주기 폴링 권장.\nparams 예: {\"fromDateString\": \"2024-01-01T00:00:00+09:00\"}",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/orders.py",
+    "line": 50,
+    "name": "order_list_by_order",
+    "decorator": "mcp.tool()",
+    "docstring": "주문(orderId) 내 상품 주문 ID 목록. GET /v1/pay-order/seller/orders/{orderId}/product-order-ids",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/orders.py",
+    "line": 64,
+    "name": "order_confirm",
+    "decorator": "mcp.tool()",
+    "docstring": "결제완료 주문 발주 확인 일괄 처리. POST /v1/pay-order/seller/product-orders/confirm\n\nbody 예: {\"productOrderIds\": [...]}",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/orders.py",
+    "line": 73,
+    "name": "order_dispatch",
+    "decorator": "mcp.tool()",
+    "docstring": "다건 상품 주문 발송 처리(택배사/송장번호 등록). POST .../dispatch\n\ndeliveryMethod/택배사 코드/송장번호가 실무상 필수.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/orders.py",
+    "line": 82,
+    "name": "order_delay",
+    "decorator": "mcp.tool()",
+    "docstring": "발송 지연 등록(사유코드+새 발송예정일). POST .../{productOrderId}/delay",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/orders.py",
+    "line": 88,
+    "name": "order_change_hope_delivery",
+    "decorator": "mcp.tool()",
+    "docstring": "배송 희망일 변경 처리. POST .../{productOrderId}/hope-delivery/change",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/orders.py",
+    "line": 99,
+    "name": "order_cancel_request",
+    "decorator": "mcp.tool()",
+    "docstring": "판매자 주도 취소 요청(재고부족 등). POST .../{id}/claim/cancel/request",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/orders.py",
+    "line": 105,
+    "name": "order_cancel_approve",
+    "decorator": "mcp.tool()",
+    "docstring": "고객 취소 요청 승인(승인 즉시 환불). POST .../{id}/claim/cancel/approve",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/orders.py",
+    "line": 116,
+    "name": "order_return_request",
+    "decorator": "mcp.tool()",
+    "docstring": "판매자 주도 반품 요청 등록. POST .../{id}/claim/return/request",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/orders.py",
+    "line": 122,
+    "name": "order_return_approve",
+    "decorator": "mcp.tool()",
+    "docstring": "고객 반품 요청 승인(수거완료 건 자동/일괄 승인, 이후 환불). POST .../{id}/claim/return/approve",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/orders.py",
+    "line": 128,
+    "name": "order_return_reject",
+    "decorator": "mcp.tool()",
+    "docstring": "반품 요청 거부/철회(거부사유코드+안내메시지). POST .../{id}/claim/return/reject",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/orders.py",
+    "line": 134,
+    "name": "order_return_holdback",
+    "decorator": "mcp.tool()",
+    "docstring": "반품 환불 일시 보류(추가 협의 필요 시). POST .../{id}/claim/return/holdback",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/orders.py",
+    "line": 140,
+    "name": "order_return_holdback_release",
+    "decorator": "mcp.tool()",
+    "docstring": "반품 보류 해제(환불 재개). POST .../{id}/claim/return/holdback/release",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/orders.py",
+    "line": 155,
+    "name": "order_exchange_collect_approve",
+    "decorator": "mcp.tool()",
+    "docstring": "교환 수거(회수) 완료 등록 → 자동 재배송 단계 전이. POST .../{id}/claim/exchange/collect/approve",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/orders.py",
+    "line": 165,
+    "name": "order_exchange_dispatch",
+    "decorator": "mcp.tool()",
+    "docstring": "교환 상품 재배송 처리(택배사/송장번호 필수). POST .../{id}/claim/exchange/dispatch",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/orders.py",
+    "line": 171,
+    "name": "order_exchange_holdback",
+    "decorator": "mcp.tool()",
+    "docstring": "교환 일시 보류. POST .../{id}/claim/exchange/holdback",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/orders.py",
+    "line": 177,
+    "name": "order_exchange_holdback_release",
+    "decorator": "mcp.tool()",
+    "docstring": "교환 보류 해제. POST .../{id}/claim/exchange/holdback/release",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/orders.py",
+    "line": 187,
+    "name": "order_exchange_reject",
+    "decorator": "mcp.tool()",
+    "docstring": "교환 거부/철회(재고부족·사유미충족). POST .../{id}/claim/exchange/reject",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 20,
+    "name": "product_search",
+    "decorator": "mcp.tool()",
+    "docstring": "상품 목록을 복합 조건으로 페이징 조회한다.\n\nPOST /v1/products/search — 다건 ID 본문 전달을 위해 POST 형태.\nbody 예: {\"keyword\": ..., \"status\": ..., \"pageSize\": 100, \"pageNumber\": 1}",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 30,
+    "name": "product_get_origin",
+    "decorator": "mcp.tool()",
+    "docstring": "원상품 1건 상세 조회. GET /v2/products/origin-products/{originProductNo}",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 40,
+    "name": "product_get_channel",
+    "decorator": "mcp.tool()",
+    "docstring": "채널 상품 1건 상세 조회. GET /v2/products/channel-products/{channelProductNo}",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 55,
+    "name": "product_create",
+    "decorator": "mcp.tool()",
+    "docstring": "신규 상품(원상품) 등록. POST /v2/products — 카테고리/이미지/가격/재고가 실무상 필수.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 61,
+    "name": "product_update_origin",
+    "decorator": "mcp.tool()",
+    "docstring": "원상품 수정(전체 본문). PUT /v2/products/origin-products/{originProductNo}",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 72,
+    "name": "product_update_channel",
+    "decorator": "mcp.tool()",
+    "docstring": "채널 상품 수정(전체 본문). PUT /v2/products/channel-products/{channelProductNo}",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 83,
+    "name": "product_delete_origin",
+    "decorator": "mcp.tool()",
+    "docstring": "원상품 삭제(비가역). DELETE /v2/products/origin-products/{originProductNo}",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 93,
+    "name": "product_delete_channel",
+    "decorator": "mcp.tool()",
+    "docstring": "채널 상품 삭제(비가역). DELETE /v2/products/channel-products/{channelProductNo}",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 108,
+    "name": "product_change_status",
+    "decorator": "mcp.tool()",
+    "docstring": "원상품 판매 상태(판매중/판매중지) 변경. PUT /v1/products/origin-products/{id}/change-status\n\nbody 예: {\"status\": \"SALE\" | \"OUT_OF_STOCK\" | \"STOP\"} (공식 status enum 준용)",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 121,
+    "name": "product_update_stock",
+    "decorator": "mcp.tool()",
+    "docstring": "원상품 옵션별 재고·가격·할인가 변경. PUT /v1/products/origin-products/{id}/option-stock\n\n동일 원상품 동시 호출은 직렬화 권장(정합성).",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 134,
+    "name": "product_bulk_update",
+    "decorator": "mcp.tool()",
+    "docstring": "다건 원상품 일괄 PUT 갱신. PUT /v1/products/origin-products/bulk-update",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 140,
+    "name": "product_multi_update",
+    "decorator": "mcp.tool()",
+    "docstring": "다건 원상품 일부 속성 일괄 변경(PATCH). PATCH /v1/products/origin-products/multi-update\n\n가격 일괄 인상·노출 여부 변경 등에 적합.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 149,
+    "name": "product_upload_images",
+    "decorator": "mcp.tool()",
+    "docstring": "상품 이미지 다건 업로드 → 호스팅 URL 발급. POST /v1/product-images/upload",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 160,
+    "name": "category_list",
+    "decorator": "mcp.tool()",
+    "docstring": "커머스 전체 카테고리 트리 조회. GET /v1/categories",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 166,
+    "name": "category_get",
+    "decorator": "mcp.tool()",
+    "docstring": "카테고리 1건 상세(표시명/속성/상위경로). GET /v1/categories/{categoryId}",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 172,
+    "name": "category_subcategories",
+    "decorator": "mcp.tool()",
+    "docstring": "특정 카테고리의 하위 카테고리만 조회. GET /v1/categories/{categoryId}/sub-categories",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 178,
+    "name": "brand_search",
+    "decorator": "mcp.tool()",
+    "docstring": "상품에 사용 가능한 브랜드 조회(키워드). GET /v1/product-brands",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 185,
+    "name": "manufacturer_search",
+    "decorator": "mcp.tool()",
+    "docstring": "상품에 사용 가능한 제조사 조회(키워드). GET /v1/product-manufacturers",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 192,
+    "name": "product_attributes",
+    "decorator": "mcp.tool()",
+    "docstring": "카테고리별 상품 속성 목록. GET /v1/product-attributes/attributes?categoryId=",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 199,
+    "name": "product_origin_areas",
+    "decorator": "mcp.tool()",
+    "docstring": "원산지 코드 정보 전체/다건 조회. GET /v1/product-origin-areas",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 211,
+    "name": "seller_notice_list",
+    "decorator": "mcp.tool()",
+    "docstring": "판매자 공지사항 목록 조회. GET /v1/contents/seller-notices",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 217,
+    "name": "seller_notice_get",
+    "decorator": "mcp.tool()",
+    "docstring": "판매자 공지사항 1건 조회. GET /v1/contents/seller-notices/{sellerNoticeId}",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 223,
+    "name": "seller_notice_create",
+    "decorator": "mcp.tool()",
+    "docstring": "판매자 공지사항 신규 등록. POST /v1/contents/seller-notices",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 229,
+    "name": "seller_notice_update",
+    "decorator": "mcp.tool()",
+    "docstring": "판매자 공지사항 수정(전체 본문). PUT /v1/contents/seller-notices/{sellerNoticeId}",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 235,
+    "name": "seller_notice_delete",
+    "decorator": "mcp.tool()",
+    "docstring": "판매자 공지사항 삭제. DELETE /v1/contents/seller-notices/{sellerNoticeId}",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 246,
+    "name": "group_product_create",
+    "decorator": "mcp.tool()",
+    "docstring": "표준형 옵션 기반 그룹상품 신규 등록. POST /v2/standard-group-products",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 252,
+    "name": "group_product_status",
+    "decorator": "mcp.tool()",
+    "docstring": "그룹상품 비동기 작업 처리 결과 조회. GET /v2/standard-group-products/status",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 258,
+    "name": "group_product_convert",
+    "decorator": "mcp.tool()",
+    "docstring": "개별 상품 → 표준형 그룹상품 전환(비동기). POST /v2/standard-group-products/convert-products",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 264,
+    "name": "group_product_release",
+    "decorator": "mcp.tool()",
+    "docstring": "그룹상품 그룹화 해제(개별 상품로 분리). POST /v2/standard-group-products/release-group",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 275,
+    "name": "inspection_list",
+    "decorator": "mcp.tool()",
+    "docstring": "검수 수정 요청 발생 채널 상품 목록. GET /v1/product-inspections/channel-products",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+    "line": 281,
+    "name": "inspection_restore",
+    "decorator": "mcp.tool()",
+    "docstring": "검수 수정 요청 상품 복원(재노출). PUT /v1/product-inspections/channel-product/{id}/restore",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/seller.py",
+    "line": 11,
+    "name": "seller_account",
+    "decorator": "mcp.tool()",
+    "docstring": "인증 토큰의 판매자 계정 기본 정보. GET /v1/seller/account",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/seller.py",
+    "line": 17,
+    "name": "seller_channels",
+    "decorator": "mcp.tool()",
+    "docstring": "계정 연결 채널(스마트스토어/브랜드스토어) 목록. GET /v1/seller/channels",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/seller.py",
+    "line": 23,
+    "name": "addressbook_list",
+    "decorator": "mcp.tool()",
+    "docstring": "판매자 주소록 페이지 조회. GET /v1/seller/addressbooks-for-page",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/seller.py",
+    "line": 29,
+    "name": "addressbook_get",
+    "decorator": "mcp.tool()",
+    "docstring": "주소록 1건 조회. GET /v1/seller/addressbooks/{addressBookNo}",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/seller.py",
+    "line": 35,
+    "name": "this_day_dispatch_get",
+    "decorator": "mcp.tool()",
+    "docstring": "오늘출발(즉시발송) 정책 설정값 조회. GET /v1/seller/this-day-dispatch",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/seller.py",
+    "line": 41,
+    "name": "this_day_dispatch_set",
+    "decorator": "mcp.tool()",
+    "docstring": "오늘출발 정책 설정/변경. POST /v1/seller/this-day-dispatch",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/settlement.py",
+    "line": 13,
+    "name": "settlement_daily",
+    "decorator": "mcp.tool()",
+    "docstring": "일별 정산 합계 내역(계좌이체/충전금 구분). GET /v1/pay-settle/settle/daily\n\nparams 예: {\"startSettleDate\": \"2024-01-01\", \"endSettleDate\": \"2024-01-31\"}",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/settlement.py",
+    "line": 22,
+    "name": "settlement_case",
+    "decorator": "mcp.tool()",
+    "docstring": "건별 정산 내역(주문/상품주문/배송비 단위 분해). GET /v1/pay-settle/settle/case",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/settlement.py",
+    "line": 28,
+    "name": "settlement_commission_details",
+    "decorator": "mcp.tool()",
+    "docstring": "수수료 상세 내역(수수료 유형/결제수단 분해). GET /v1/pay-settle/settle/commission-details",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/settlement.py",
+    "line": 34,
+    "name": "vat_daily",
+    "decorator": "mcp.tool()",
+    "docstring": "일별 부가세 합산 내역(세무 신고 기초자료). GET /v1/pay-settle/vat/daily",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/settlement.py",
+    "line": 40,
+    "name": "vat_case",
+    "decorator": "mcp.tool()",
+    "docstring": "건별 부가세 내역(상품주문 단위 원천 분개). GET /v1/pay-settle/vat/case",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/solutions.py",
+    "line": 13,
+    "name": "solution_seller_info_by_token",
+    "decorator": "mcp.tool()",
+    "docstring": "판매자 인증 JWE 토큰 해석 → 판매자 식별 정보. GET /v1/commerce-solutions/seller-info-by-token",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/solutions.py",
+    "line": 19,
+    "name": "solution_subscription_get",
+    "decorator": "mcp.tool()",
+    "docstring": "특정 accountUid 솔루션 사용 상태 조회. GET /v1/commerce-solutions/subscriptions/{accountUid}",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/solutions.py",
+    "line": 25,
+    "name": "solution_transactions",
+    "decorator": "mcp.tool()",
+    "docstring": "비즈월렛 결제 내역 조회. GET /v1/commerce-solutions/transactions",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/solutions.py",
+    "line": 31,
+    "name": "solution_external_transaction_send",
+    "decorator": "mcp.tool()",
+    "docstring": "솔루션 자체 결제 내역을 네이버 정산 데이터로 전송(멱등 키 필수). POST .../external-transactions",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/solutions.py",
+    "line": 37,
+    "name": "solution_approve",
+    "decorator": "mcp.tool()",
+    "docstring": "솔루션 사용 시작 신청 최종 승인. PUT /v1/commerce-solutions/subscriptions/approve",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/solutions.py",
+    "line": 43,
+    "name": "solution_reject",
+    "decorator": "mcp.tool()",
+    "docstring": "솔루션 사용 시작 거절. PUT /v1/commerce-solutions/subscriptions/{accountUid}/reject",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/solutions.py",
+    "line": 49,
+    "name": "solution_unsubscribe",
+    "decorator": "mcp.tool()",
+    "docstring": "솔루션 사용 중지(결제정지 동반). PUT /v1/commerce-solutions/subscriptions/{accountUid}/unsubscription",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/solutions.py",
+    "line": 55,
+    "name": "solution_unsubscribe_approve",
+    "decorator": "mcp.tool()",
+    "docstring": "솔루션 사용 해지 신청 최종 승인. PUT /v1/commerce-solutions/subscriptions/unsubscription/approve",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/stats.py",
+    "line": 30,
+    "name": "stats_marketing",
+    "decorator": "mcp.tool()",
+    "docstring": "마케팅 성과 통계. GET /v1/bizdata-stats/channels/{channelNo}/marketing/{dataset}\n\ndataset ∈ {all-daily, all-detail, custom-detail, custom-simple, hourly-detail,\nhourly-simple, search-detail, search-keyword, website-daily, website-detail}",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/stats.py",
+    "line": 47,
+    "name": "stats_sales",
+    "decorator": "mcp.tool()",
+    "docstring": "판매 성과 통계. GET /v1/bizdata-stats/channels/{channelNo}/sales/{dataset}\n\ndataset ∈ {delivery-detail, hourly-detail, product-detail, product-marketing-category,\nproduct-marketing-detail, product-search-detail, product-search-keyword-by-product}",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/stats.py",
+    "line": 64,
+    "name": "stats_shopping",
+    "decorator": "mcp.tool()",
+    "docstring": "쇼핑행동 통계. GET /v1/bizdata-stats/channels/{channelNo}/shopping/{dataset}\n\ndataset ∈ {page-detail, product-detail}",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/stats.py",
+    "line": 80,
+    "name": "stats_realtime",
+    "decorator": "mcp.tool()",
+    "docstring": "오늘 실시간 채널 보고서(1~5분 폴링 권장). GET /v1/bizdata-stats/channels/{channelNo}/realtime/daily",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/stats.py",
+    "line": 90,
+    "name": "stats_customer_status",
+    "decorator": "mcp.tool()",
+    "docstring": "고객 현황 통계. channel_no 미제공 시 계정(전 채널 합산), 제공 시 채널 단위.\n\n- 계정: GET /v1/customer-data/customer-status/account/statistics\n- 채널: GET /v1/customer-data/customer-status/channels/{channelNo}/statistics",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/stats.py",
+    "line": 105,
+    "name": "stats_repurchase",
+    "decorator": "mcp.tool()",
+    "docstring": "계정 단위 재구매 통계(고객 충성도/재구매 캠페인 ROI). GET /v1/customer-data/repurchase/account/statistics",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/server.py",
+    "line": 202,
+    "name": "threads_publish_text",
+    "decorator": "mcp.tool()",
+    "docstring": "Threads 에 텍스트 게시 (publish a text post).\n\n텍스트 전용 스레드를 만들어 발행한다 (create TEXT container → wait → publish).\n``text`` 는 500자 제한이다.\n\nArgs:\n    text: 게시할 텍스트 본문 (500자 이하).\n\nReturns:\n    ``media_id``, ``container_id``, ``permalink`` 힌트를 포함한 dict.\n    자격증명 미설정 시 ``setup_required`` 에러 dict 를 반환한다 (서버 크래시 없음).",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/server.py",
+    "line": 228,
+    "name": "threads_publish_image",
+    "decorator": "mcp.tool()",
+    "docstring": "Threads 에 이미지 게시 (publish an image post).\n\n이미지(JPEG/PNG, ≤8MB, 공개 URL) 컨테이너를 만들어 발행한다.\n``text`` 는 캡션(선택) — 500자 제한.\n\nArgs:\n    text: 캡션 본문 (빈 문자열 허용 — 캡션 없는 이미지 발행).\n    image_url: 공개 접근 가능한 이미지 URL.\n\nReturns:\n    ``media_id``, ``container_id``, ``permalink`` 힌트 dict.\n    자격증명 미설정 시 ``setup_required`` 에러.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/server.py",
+    "line": 258,
+    "name": "threads_publish_video",
+    "decorator": "mcp.tool()",
+    "docstring": "Threads 에 비디오 게시 (publish a video post).\n\n비디오(MOV/MP4, ≤1GB, ≤5분, 공개 URL) 컨테이너를 만들어 발행한다.\n``text`` 는 캡션(선택) — 500자 제한.\n\nArgs:\n    text: 캡션 본문 (빈 문자열 허용).\n    video_url: 공개 접근 가능한 비디오 URL.\n\nReturns:\n    ``media_id``, ``container_id``, ``permalink`` 힌트 dict.\n    자격증명 미설정 시 ``setup_required`` 에러.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/server.py",
+    "line": 288,
+    "name": "threads_get_profile",
+    "decorator": "mcp.tool()",
+    "docstring": "Threads 프로필 조회 (health check / who-am-I).\n\n``username``, ``id``, ``followers_count``, ``profile_picture_url`` 를 반환한다.\n자격증명이 유효한지 확인하는 용도로 가장 먼저 호출해 볼 것.\n\nReturns:\n    프로필 dict. 자격증명 미설정 시 ``setup_required`` 에러.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/server.py",
+    "line": 307,
+    "name": "threads_refresh_token",
+    "decorator": "mcp.tool()",
+    "docstring": "장기 액세스 토큰 수동 갱신 (manually refresh long-lived token).\n\n장기 토큰(60일) 을 갱신해 새 ``access_token`` 을 받는다.\n단기 토큰(1h) 은 본 도구로 갱신할 수 없다 — 먼저 장기 토큰으로 교환 필요\n(CONNECTORS.md 참조).\n\nReturns:\n    새 ``access_token`` 을 담은 dict. 자격증명 미설정 시 ``setup_required`` 에러.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/server.py",
+    "line": 351,
+    "name": "threads_style_save",
+    "decorator": "mcp.tool()",
+    "docstring": "문체 프로필을 디스크에 저장 (save the style profile markdown to disk).\n\n``threads-style-learn`` 스킬이 분석한 문체 프로필을 사용자 데이터 경로\n``~/.moai/mcp/threads-style-profile.md`` 에 쓴다. Threads 자격증명은 필요 없다.\n\nArgs:\n    profile_markdown: 저장할 프로필 마크다운 본문.\n    path: 저장할 파일 경로(명시적 지정 시). 미지정 시 기본 경로 사용.\n\nReturns:\n    ``{path, saved: True, chars: N}`` dict. 입력 타입 오류 / I/O 실패 시 ``error`` dict.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/server.py",
+    "line": 384,
+    "name": "threads_style_load",
+    "decorator": "mcp.tool()",
+    "docstring": "저장된 문체 프로필을 읽는다 (load the style profile markdown).\n\n``threads-post-draft`` 스킬이 초안 작성 전 이 도구로 프로필 존재 여부를 확인하고,\n있으면 그 문체 차원을 초안에 반영한다. Threads 자격증명 불필요 — 로컬 파일 읽기 전용.\n\nArgs:\n    path: 읽을 파일 경로(명시적 지정 시). 미지정 시 기본 경로.\n\nReturns:\n    ``{path, exists: bool, profile: <markdown or None>}`` dict.\n    파일이 없으면 ``exists: False, profile: None`` (에러가 아님).\n    I/O 에러 시 ``error`` dict.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/server.py",
+    "line": 588,
+    "name": "threads_format_multi_channel",
+    "decorator": "mcp.tool()",
+    "docstring": "텍스트를 Threads / Facebook / X 용으로 각각 포맷한다 (multi-channel formatter).\n\n**발행은 하지 않는다 — 포맷만 한다.**\n\n  - **Threads**: 500자 이하로 다듬어 ``threads_publish_text`` 등 직접 발행\n    도구에 넘길 수 있는 형태로 반환 (글자 수와 잘림 여부 포함).\n  - **Facebook**: 개인 계정은 API 발행이 정책상 불가하므로 *복붙용* 텍스트를 반환한다\n    (본 도구는 Facebook 으로 발행하지 않는다). 가벼운 정규화만 적용.\n  - **X**: ``x_tier`` 에 따라 —\n      - ``\"free\"``: 트윗당 280자 — 긴 텍스트를 ``1/ `` · ``2/ `` 번호 트윗 체인으로 분할.\n      - ``\"premium\"``: 단일 문자열(≤25000자) 그대로 반환 (초과 시 잘라내고 플래그).\n\nArgs:\n    text: 원본 텍스트 (각 채널에 맞춰 변형된다).\n    x_tier: ``\"free\"`` (기본) 또는 ``\"premium\"``. 그 외 값은 ``error`` dict.\n    channels: 포맷할 채널 리스트(기본 ``[\"threads\",\"facebook\",\"x\"]``).\n        알 수 없는 채널 이름은 무시된다.\n\nReturns:\n    채널별 포맷 결과 dict:\n      - ``threads``: ``{\"text\", \"chars\", \"max_chars\", \"truncated\"}`` — 직접 발행 도구용.\n      - ``facebook``: 복붙용 텍스트 *문자열*.\n      - ``x``: ``free`` → 번호 트윗 *리스트* · ``premium`` → 단일 *문자열*.\n      - 최상위: ``channels`` · ``x_tier`` · ``note`` (복붙 안내).\n    잘못된 ``x_tier`` / ``text`` 타입은 ``error`` dict.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/server.py",
+    "line": 687,
+    "name": "instagram_publish_image",
+    "decorator": "mcp.tool()",
+    "docstring": "Instagram 에 이미지 발행 (publish an image — JPEG-only, immediate 2-stage).\n\nJPEG 이미지(공개 URL) 컨테이너를 만들어 즉시 발행한다. PNG 는 거부된다(Threads 와 상이).\n``text`` 는 캡션(선택). 본 도구는 즉시 발행만 한다. 예약·정기 발행은\n사용 중인 앱의 지원 여부를 확인한다.\n\nReturns:\n    ``media_id``/``container_id``/``permalink_hint`` dict. 자격증명 미설정 시 ``setup_required``.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/server.py",
+    "line": 712,
+    "name": "instagram_publish_video",
+    "decorator": "mcp.tool()",
+    "docstring": "Instagram 에 비디오 발행 (publish a video — 2-stage + container polling).\n\n비디오(공개 URL) 컨테이너 생성 후 ``FINISHED`` 될 때까지 폴링한 뒤 발행한다(REQ-INST-007).",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/server.py",
+    "line": 733,
+    "name": "instagram_publish_reel",
+    "decorator": "mcp.tool()",
+    "docstring": "Instagram 에 릴 발행 (publish a REEL — REELS container + polling).\n\nREELS 컨테이너(``media_type=REELS`` + ``video_url`` + ``share_to_feed``) 생성 후 폴링 · 발행.\n``share_to_feed=True`` (기본) 면 피드에도 공유.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/server.py",
+    "line": 757,
+    "name": "instagram_get_profile",
+    "decorator": "mcp.tool()",
+    "docstring": "Instagram 프로필 조회 (health check / who-am-I).\n\n``username``/``id``/``followers_count``/``media_count`` 반환. IG 자격증명이 유효한지\n확인하는 용도로 가장 먼저 호출해 볼 것. 미설정 시 ``setup_required`` 에러.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/server.py",
+    "line": 773,
+    "name": "instagram_refresh_token",
+    "decorator": "mcp.tool()",
+    "docstring": "Instagram 장기 Page 토큰 수동 갱신 (refresh long-lived Facebook Page token).\n\nReturns:\n    새 ``access_token`` 을 담은 dict. 미설정 시 ``setup_required`` 에러.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/server.py",
+    "line": 790,
+    "name": "instagram_comments_list",
+    "decorator": "mcp.tool()",
+    "docstring": "Instagram 미디어의 댓글 목록 (list comments on a media object).\n\n``instagram_manage_comments`` 권한 필요 (REQ-INST-018). 자격증명 미설정 시\n``setup_required``, 권한 부족 시 Instagram API 오류를 반환한다.",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/server.py",
+    "line": 806,
+    "name": "instagram_comments_reply",
+    "decorator": "mcp.tool()",
+    "docstring": "Instagram 댓글에 답글 작성 (reply to a comment).\n\n``instagram_manage_comments`` 권한 필요 (REQ-INST-018).",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/server.py",
+    "line": 821,
+    "name": "instagram_comments_hide",
+    "decorator": "mcp.tool()",
+    "docstring": "Instagram 댓글 숨김 (hide a comment).\n\n``instagram_manage_comments`` 권한 필요 (REQ-INST-018).",
+    "has_annotations": false
+  },
+  {
+    "path": "plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/server.py",
+    "line": 836,
+    "name": "instagram_insights",
+    "decorator": "mcp.tool()",
+    "docstring": "Instagram 인사이트 조회 (fetch account-level or media-level insights).\n\n``manage_insights`` 권한 필요 (REQ-INST-019). ``media_id`` 미지정 시 계정 수준,\n지정 시 해당 미디어 수준 인사이트.",
+    "has_annotations": false
+  }
+]

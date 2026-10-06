@@ -1,0 +1,190 @@
+[
+  {
+    "url": "/",
+    "blocks": 1
+  },
+  {
+    "url": "/releases/",
+    "blocks": 1
+  },
+  {
+    "url": "/releases/archive/v2.12/",
+    "blocks": 1
+  },
+  {
+    "url": "/releases/archive/v2.9/",
+    "blocks": 1
+  },
+  {
+    "url": "/releases/archive/v2.0/",
+    "blocks": 1
+  },
+  {
+    "url": "/releases/archive/v2.7/",
+    "blocks": 1
+  },
+  {
+    "url": "/releases/archive/v2.6/",
+    "blocks": 1
+  },
+  {
+    "url": "/releases/archive/v2.1/",
+    "blocks": 1
+  },
+  {
+    "url": "/releases/archive/v2.22/",
+    "blocks": 1
+  },
+  {
+    "url": "/releases/archive/v2.8/",
+    "blocks": 1
+  },
+  {
+    "url": "/releases/archive/v1.0/",
+    "blocks": 1
+  },
+  {
+    "url": "/releases/archive/v1.6/",
+    "blocks": 1
+  },
+  {
+    "url": "/releases/archive/v2.16/",
+    "blocks": 1
+  },
+  {
+    "url": "/releases/archive/v2.11/",
+    "blocks": 1
+  },
+  {
+    "url": "/releases/archive/v2.18/",
+    "blocks": 1
+  },
+  {
+    "url": "/releases/archive/v2.4/",
+    "blocks": 1
+  },
+  {
+    "url": "/releases/archive/v2.3/",
+    "blocks": 1
+  },
+  {
+    "url": "/releases/archive/v2.20/",
+    "blocks": 1
+  },
+  {
+    "url": "/releases/archive/v2.2/",
+    "blocks": 1
+  },
+  {
+    "url": "/releases/archive/v2.21/",
+    "blocks": 1
+  },
+  {
+    "url": "/releases/archive/v2.5/",
+    "blocks": 1
+  },
+  {
+    "url": "/releases/archive/v2.19/",
+    "blocks": 1
+  },
+  {
+    "url": "/releases/archive/v2.11.1/",
+    "blocks": 1
+  },
+  {
+    "url": "/releases/archive/v2.10/",
+    "blocks": 1
+  },
+  {
+    "url": "/releases/archive/v2.17/",
+    "blocks": 1
+  },
+  {
+    "url": "/releases/archive/v1.3/",
+    "blocks": 1
+  },
+  {
+    "url": "/releases/archive/v1.2/",
+    "blocks": 1
+  },
+  {
+    "url": "/releases/archive/v1.5/",
+    "blocks": 1
+  },
+  {
+    "url": "/learn/",
+    "blocks": 1
+  },
+  {
+    "url": "/learn/03-first-result/",
+    "blocks": 1
+  },
+  {
+    "url": "/learn/01-delegation/",
+    "blocks": 1
+  },
+  {
+    "url": "/plugins/mcp/",
+    "blocks": 1
+  },
+  {
+    "url": "/plugins/mcp/troubleshooting/",
+    "blocks": 1
+  },
+  {
+    "url": "/plugins/mcp/credentials/",
+    "blocks": 1
+  },
+  {
+    "url": "/workflows/",
+    "blocks": 1
+  },
+  {
+    "url": "/workflows/first-project/",
+    "blocks": 1
+  },
+  {
+    "url": "/workflows/permissions/",
+    "blocks": 1
+  },
+  {
+    "url": "/cookbook/projects/",
+    "blocks": 1
+  },
+  {
+    "url": "/cookbook/troubleshooting/",
+    "blocks": 1
+  },
+  {
+    "url": "/getting-started/concepts/",
+    "blocks": 1
+  },
+  {
+    "url": "/getting-started/quick-start/",
+    "blocks": 1
+  },
+  {
+    "url": "/getting-started/questions/",
+    "blocks": 1
+  },
+  {
+    "url": "/moai-agents/pm/",
+    "blocks": 1
+  },
+  {
+    "url": "/help/",
+    "blocks": 1
+  },
+  {
+    "url": "/help/troubleshooting/",
+    "blocks": 1
+  },
+  {
+    "url": "/help/conversations/",
+    "blocks": 1
+  },
+  {
+    "url": "/help/usage-limits/",
+    "blocks": 1
+  }
+]

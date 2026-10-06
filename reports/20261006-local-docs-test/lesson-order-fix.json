@@ -1,0 +1,20 @@
+[
+  {
+    "path": "www/content/learn/03-first-result.md",
+    "before_sha256": "8261a5a97cb03451171acb497ec47237923498deae814096f593973a19c8342a",
+    "after_sha256": "e3315c66d396f79a88a4e7e11e7272777c5d419d5d5a51f689f8c91a1cc7b231",
+    "first_heading": "이번 수업에서 배울 내용"
+  },
+  {
+    "path": "www/content/learn/04-skills-plugins.md",
+    "before_sha256": "81b7bbc81c3618e88e72f96516440ba5c8bc8d4f0c26282255891be7466077d8",
+    "after_sha256": "50c3719c6d4ae01d7e593d58404ade53826c0e615c3cab71cfd2de5c62c42584",
+    "first_heading": "이번 수업에서 배울 내용"
+  },
+  {
+    "path": "www/content/learn/06-review-reuse.md",
+    "before_sha256": "e9c39fcaae381b4cc30cee6a7d6c3fdd6739de862f611fb81f64a6cd91850251",
+    "after_sha256": "f59b83e73b19ba41305de53c729238b646362357145b21123f125dc591163a2c",
+    "first_heading": "이번 수업에서 배울 내용"
+  }
+]

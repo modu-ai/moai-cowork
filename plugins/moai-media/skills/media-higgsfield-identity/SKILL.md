@@ -13,7 +13,8 @@ description: |
   한 프롬프트에 여러 개를 배치할 수 있고 사람이 아닌 대상도 됩니다. 학습된 Soul은 연결에 따라 Elements에서
   재사용될 수 있습니다. 이 분기를 잘못 고르면 되돌릴 수 없는
   학습 비용이 발생하므로, 경로가 불명확하면 생성하지 않고 blocker를 반환합니다.
-version: "1.3.5"
+metadata:
+  version: "1.3.6"
 ---
 
 # Higgsfield 일관성 참조 (media-higgsfield-identity)

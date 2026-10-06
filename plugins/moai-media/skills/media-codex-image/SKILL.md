@@ -11,7 +11,8 @@ description: |
   - "ChatGPT로 이미지 만들어줘", "GPT Image 2.5로 이미지 생성해줘"
   - "이미지를 직접 만들어줘", "이 사진을 ChatGPT에서 편집해줘"
   - "codex 이미지 생성" (기존 호출 호환)
-version: "2.1.2"
+metadata:
+  version: "2.1.3"
 ---
 
 # ChatGPT 이미지 직접 생성

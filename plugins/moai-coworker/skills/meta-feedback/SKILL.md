@@ -3,7 +3,8 @@ name: meta-feedback
 description: |
   사용자가 요청한 플러그인 버그 신고와 기능 제안을 GitHub 이슈 초안으로 정리하고, 등록 요청이 있으면 이슈를 생성합니다.
   "버그 신고", "기능 요청", "이슈 등록" 같은 요청에 사용하세요.
-version: "1.1.2"
+metadata:
+  version: "1.1.3"
 ---
 
 # 플러그인 피드백

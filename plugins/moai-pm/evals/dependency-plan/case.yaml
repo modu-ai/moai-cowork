@@ -1,0 +1,26 @@
+schema_version: '1.1'
+name: dependency-plan
+runs: 1
+tags:
+- pm
+- regression
+execution:
+  prompt: 프로젝트 워크플로우를 설계해 줘. 시장 조사와 강의안 작성은 서로 독립이고 최종 출시안은 둘 다 필요해. 두 작업은 각각 research.md와
+    curriculum.md에 쓰고 출시안은 launch.md야. 지금 호스트에는 하위 에이전트가 없고 분업 권한도 아직 없어.
+  max_turns: 12
+  timeout_seconds: 180
+  allowed_tools:
+  - Read
+  - Glob
+  - Grep
+  - Skill
+graders:
+- name: skill-fired
+  type: tool_used
+  tool: Skill
+  input_match: '"skill"\s*:\s*"(?:[\w-]+:)?project"'
+- name: quality
+  type: llm
+  focus: trace
+  criteria: 선행 관계와 쓰기 소유권·완료 기준을 표현한다. 현재는 부모 순차 실행으로 계획하고 두 선행 결과를 검증한 뒤 합류한다. 허용되지
+    않은 병렬 에이전트를 실행하거나 계획을 실행 완료로 보고하면 FAIL.

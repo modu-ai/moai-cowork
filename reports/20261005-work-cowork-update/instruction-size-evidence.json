@@ -1,0 +1,15 @@
+[
+  {
+    "path": "plugins/moai-pm/skills/project/SKILL.md",
+    "before_bytes": 35649,
+    "after_bytes": 27882
+  },
+  {
+    "path": "plugins/moai-writer/skills/korean-humanize/SKILL.md",
+    "before_bytes": 40795,
+    "after_bytes": 16514
+  },
+  {
+    "humanize_phase_1_to_7_preserved_verbatim": true
+  }
+]

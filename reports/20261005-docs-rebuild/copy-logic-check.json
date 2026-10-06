@@ -1,0 +1,25 @@
+{
+  "scope": "DOM model, not operating-system clipboard",
+  "cases": [
+    {
+      "mode": "clipboard-success",
+      "observedLabel": "복사됨",
+      "promptRemoved": true
+    },
+    {
+      "mode": "clipboard-denied",
+      "observedLabel": "직접 복사",
+      "promptRemoved": true
+    },
+    {
+      "mode": "fallback-success",
+      "observedLabel": "복사됨",
+      "promptRemoved": true
+    },
+    {
+      "mode": "fallback-denied",
+      "observedLabel": "직접 복사",
+      "promptRemoved": true
+    }
+  ]
+}

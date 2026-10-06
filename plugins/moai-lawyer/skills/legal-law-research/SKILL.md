@@ -3,7 +3,8 @@ name: legal-law-research
 description: |
   한국 법령·판례·행정자료의 공식 원문과 적용 시점을 확인하고,
   인용의 출처와 아직 검증하지 못한 부분을 구분합니다.
-version: "1.1.1"
+metadata:
+  version: "1.1.2"
 ---
 
 # 법령 리서치

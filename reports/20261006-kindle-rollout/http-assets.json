@@ -1,0 +1,2708 @@
+[
+  {
+    "url": "/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "22e71336bad55f77a90070fb4dcee72b535100f169689f473d8d47cbea128fde"
+  },
+  {
+    "url": "/404.html",
+    "status": 200,
+    "build_match": true,
+    "sha256": "0f128650d071ea384d8b5bec1e96e8753cab061ac19ee78b82c23708968ddc19"
+  },
+  {
+    "url": "/advanced/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "0d78ce47438832976bce207de682a07f60adff5c595cdc6b425978113b3cedda"
+  },
+  {
+    "url": "/advanced/documentation/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "a5fb521117827c14f73c2efbbb38f468a47a0142448a81cd140fbaa3a197fbf2"
+  },
+  {
+    "url": "/advanced/plugins/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "368878ebe3c0a719a4a9e074419c4d8fb42b7b4b6fd8967549e8c2e34e65a7ad"
+  },
+  {
+    "url": "/advanced/verification/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "b8ab0678f435d90802706a1f37d16ea0e245ba997ab04c7ddb3fadbeea24405e"
+  },
+  {
+    "url": "/agent-teams/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "cdbe551ee1e213a23f318fcaa285cb7dfd6821131673cda5226ddfe4639e72be"
+  },
+  {
+    "url": "/agent-teams/accountant/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "90259944ce9055956982e51d543d395227ba2e4f1b05b408b13fd56b31655f86"
+  },
+  {
+    "url": "/agent-teams/analyst/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "c29613ee5b6632f21e4df0ff2c56547c56b07fb3f3d2f336c4ed142d121295fb"
+  },
+  {
+    "url": "/agent-teams/career/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "c656e635011ace77971ff5ab03f8f358c4c637a0e7110907d1806bc510ee5698"
+  },
+  {
+    "url": "/agent-teams/consultant/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "a483ec896c1c2dac190a5f26d5bfd51206118b2105967061f4575ecc7a04617e"
+  },
+  {
+    "url": "/agent-teams/coworker/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "0f01e0487cb8897d8799e7d66cfa12f7be4678bf16a7efa820dad266e6cb7973"
+  },
+  {
+    "url": "/agent-teams/cs/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "daff6e7ec432908c097e2ccb19a487e5a914f7be1758596e601bc5db4741a466"
+  },
+  {
+    "url": "/agent-teams/designer/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "d39b88f81702b34c8ad0a62371405db3fedb2372da75e879a0b4b366c4fd2466"
+  },
+  {
+    "url": "/agent-teams/lawyer/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "73debc245776fd71e186555c6de53064eb41eb974b7c412b4b34c48a4e5c67c3"
+  },
+  {
+    "url": "/agent-teams/marketer/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "765698868d0f093120259e803116409b1e7afe64a0eef168cd66f08a97a89573"
+  },
+  {
+    "url": "/agent-teams/media/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "8318465472cd7cd626c739ab0ee495ca8bc9a45b2eb7715d3f4e098e664ec453"
+  },
+  {
+    "url": "/agent-teams/officer/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "e271e3ebf64c509f0fdc3234be9197e4f7eca6a9f9dc7e2f8f298b1d1e195997"
+  },
+  {
+    "url": "/agent-teams/pm/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "4638061acfbc959633b4afd6c769ce3719efb6a3d898e2f997dfb946d3472e77"
+  },
+  {
+    "url": "/agent-teams/recruiter/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "3116a8390418a88cce4ca0f4fefb7a6c73b899c5c36740461ef906673bf33ee4"
+  },
+  {
+    "url": "/agent-teams/seller/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "14343d5d769fd4c2a7a5d37f5582034ef8af20995b795ea55f83b9dc083cfc21"
+  },
+  {
+    "url": "/agent-teams/story/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "a0eefc5088b0da499bafc9ffbdeeb7787fb7971a68ca8d16187aa81049dd44c1"
+  },
+  {
+    "url": "/agent-teams/threads-poster/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "23d05d536e9c7894c7e38d330b1ee7ae03758bde4c67b56759219b3d7378ec43"
+  },
+  {
+    "url": "/agent-teams/tutor/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2f9c753a53eddef325f7da5fd3a4f0d2f69785118253bebe49c0e436b39cc14e"
+  },
+  {
+    "url": "/agent-teams/writer/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "560752b093366029345b6053ac27485366e7ad18e980226e3df251f68c38a415"
+  },
+  {
+    "url": "/categories/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "bef1c72aa97489a1dcfe4b6424e82edc0d5bded4384d485b5090fc74fb1403f9"
+  },
+  {
+    "url": "/categories/page/1/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "980231aa2a9ead75e8e0b4d3b9217e5150bbc2a74781087d01d10def26891c39"
+  },
+  {
+    "url": "/cookbook/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "33de9bee9ab7ebe620bddaba7188e88a85a51dd65122409a21338e56d41bf723"
+  },
+  {
+    "url": "/cookbook/automation-recipes/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "0f72cedad326c9fe43117766ae024d8153a9e9397698bbab61d18582689b69f1"
+  },
+  {
+    "url": "/cookbook/best-practices/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "112fee616f95a36f09215f32bdba99a46f957ff7ae3af67cfb889f73e9e7cb3f"
+  },
+  {
+    "url": "/cookbook/blog-pipeline/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "0f0065941059549d102b2dd09861c34383fc3d6762b1677b3ef8b5e056f9d029"
+  },
+  {
+    "url": "/cookbook/business-plan/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "4e6c8b7e75250b783e27cf9ba85e0b71811e04d5dcfc5069ecf882689bd58785"
+  },
+  {
+    "url": "/cookbook/contract-review/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "ff25463014d974cdd60d789c3f71822eff15cf5f5fea1805e81f709213f82314"
+  },
+  {
+    "url": "/cookbook/design/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "354a4525ce751547017478eb7cfb536596c1cd0f9dcddd69c6502ffa7a1d7f8d"
+  },
+  {
+    "url": "/cookbook/design/presentation/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "b7d00c40d1c3c7f8ba5fa78372cfe86bed775ee4843fe3b0dca4e99b98de5eb8"
+  },
+  {
+    "url": "/cookbook/guides/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "dfc09e0d7d25f7908af77934cf5e761fbe6d97ff44be808a36cce58c89ffa9c7"
+  },
+  {
+    "url": "/cookbook/guides/content-marketing/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "be19c1df0813a5ffd42f0d53e5d6e76071f87f1ffa7ca808c4d0c51152a382a8"
+  },
+  {
+    "url": "/cookbook/guides/contract-drafting/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "6b613ad064062ba0aa1331e2d08a8404bf0252300a0d5f0e3ee1d64d9b0ddada"
+  },
+  {
+    "url": "/cookbook/guides/data-analysis/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "cbc77ac4605370ce7e13c83fb91b71272a72dc4c4400e688eb69a292842defc8"
+  },
+  {
+    "url": "/cookbook/guides/data-visualization/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "6cd03a1cb23f1da73eb3eb93518df7079fabf9b8db41e541ee19326d8be720ec"
+  },
+  {
+    "url": "/cookbook/guides/funding/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "edbd4ea2600b22c564c35493f207192be419d2ecf64ee7f846f212e47082bb2f"
+  },
+  {
+    "url": "/cookbook/guides/legal-risk/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "7ee91e678d219827bd4e269d8fd36158f47c154670b217f5a3ab90cc09a703b0"
+  },
+  {
+    "url": "/cookbook/guides/social-media/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "825e21221792ad66d555cfe6988eb3f57a5bfb6b1b3a2eafddbe79e02d8b2fc5"
+  },
+  {
+    "url": "/cookbook/ir-deck/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "a2496c353db431f359342b409133b7a9cbb42aaabe4b16f3b7947d868d94183b"
+  },
+  {
+    "url": "/cookbook/legal-nda-batch/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "23b0fc5214efc4d8b363f683689f9c498411cfdb0da7933fc309e151e1d62d76"
+  },
+  {
+    "url": "/cookbook/projects/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "3c2e31005acef75745345df5ba067608d666dd8628689b1a5b04cb78d3119df6"
+  },
+  {
+    "url": "/cookbook/projects/brand-to-landing/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "6d1b869569c668649114e1f0fd3633cfadfdb63c03949a626daa9d1c0d2b8580"
+  },
+  {
+    "url": "/cookbook/projects/career-transition-4weeks/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "9a97cae96c24c754a4362000234ab545f09d9fd45866212e189ab56327232178"
+  },
+  {
+    "url": "/cookbook/projects/contract-risk-report/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "0519babb0a3767f7ffc5ce6c9d21d46622c39e6b37950231c1d4a4ecb82ff3cf"
+  },
+  {
+    "url": "/cookbook/projects/gov-grant-application/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "6bfee232dac55e821133192f50c900506f831ff99b33bfb386962f29db87c272"
+  },
+  {
+    "url": "/cookbook/projects/hiring-pipeline/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "ff5071d8f8568ace4bd38fca6022c8da3c1eeabddc10f9d17ea380d3db68c5fe"
+  },
+  {
+    "url": "/cookbook/projects/public-data-report/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "e53c75cd3cee68c4c8b2c001cee559acd43cb2d051103f5c52a9a5736e2f4e07"
+  },
+  {
+    "url": "/cookbook/projects/smartstore-launch/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "f5bf8b7a6a7754135d2004d2c0788229d50c5fdff23338627991ef4946aa7af9"
+  },
+  {
+    "url": "/cookbook/projects/sns-content-month/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "55c83a5484bb221cfd85e61f5a8b3f6f7be2498360cf1ae953b812a9fb9b4a55"
+  },
+  {
+    "url": "/cookbook/projects/startup-feasibility/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "05534bb786aee0d131016af20ab6de7020129f521f4ebd602d71a330bc47b7d5"
+  },
+  {
+    "url": "/cookbook/projects/voc-to-faq/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "e0ffabaaa817023c9da1d7a6ab2515b36ce15947a58240eb4aa3c6a0b7132bbd"
+  },
+  {
+    "url": "/cookbook/projects/webnovel-project/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "1de4f79a36dadd79c72635975313f5b9734678646b009a1dd48ddcc7dfb64157"
+  },
+  {
+    "url": "/cookbook/projects/weekly-report-routine/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "7e29a531633be010ca243f98083696178601d7ffebe776e5734a888f2c6f41a1"
+  },
+  {
+    "url": "/cookbook/report-automation/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "63e552633c8fcc9c2ac3a679f1fe1bd04478f63e3f223d30e6f1fdd562d04099"
+  },
+  {
+    "url": "/cookbook/skill-chaining/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "f33a20a7d4c01abfb19b8f73f77efa3d93d86eed861bb0f92a1a20d1ab27bc49"
+  },
+  {
+    "url": "/cookbook/templates/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "44d2b7f7eba163f33dce14667d457cebfda3a0afeb878671b8cf11d9d60e6378"
+  },
+  {
+    "url": "/cookbook/templates/compliance/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "a6da065a2c4d64742136f9571244318ea5ba6bcb454e6e3dbb07fa24f2c709c1"
+  },
+  {
+    "url": "/cookbook/templates/email/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "51221f0212f131cd43f26e13cb4c024674011378ffb2805e95bf2a897b25fe71"
+  },
+  {
+    "url": "/cookbook/templates/excel/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "49ae6a93ce10e1e0cae7b9aa8ffe5bcf7d26ed1ed26c1bb3874d431fb5e571a3"
+  },
+  {
+    "url": "/cookbook/templates/financial/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "e9d3a5b8d4b49a5cdd9c47c312ecb86a0ad6679b201c850ea5028c204bd7b141"
+  },
+  {
+    "url": "/cookbook/tracks/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "649e132bdeda69c3b263058d8e02b4511cb654e35c1d68bb0f09fd73edcba1a1"
+  },
+  {
+    "url": "/cookbook/tracks/track-advertising/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "b5f521e6f985d2eef07388417f23fb2d034ca95cac0c83b48894206801b31b92"
+  },
+  {
+    "url": "/cookbook/tracks/track-appendix/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "631de0ac47bc13072d1c094628e3bd56f6a225d290c56513d06d0066f9283d16"
+  },
+  {
+    "url": "/cookbook/tracks/track-commerce/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "1172f996fb818c5771aabab96a54e8b5b69c1cccbf51261d3db03a5713e5d147"
+  },
+  {
+    "url": "/cookbook/tracks/track-content/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "4775bee85a70464cf1a76c820940afcb7d68cc5507d8ea35d4e59b24d40e7a3e"
+  },
+  {
+    "url": "/cookbook/tracks/track-data/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "ecdb08abbb4bc4b76c164ccc09d285dbc454834ba1ef04c0dec8fd127a621a9d"
+  },
+  {
+    "url": "/cookbook/tracks/track-documents/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "1cfd9f467c0edf6b014c3c842fa525b6af2cc1c983cc95151d8731b72883f038"
+  },
+  {
+    "url": "/cookbook/tracks/track-finance/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "c12df0e7dfaf145bd465f032e5b8edec0cf5587410cd4ea53dd4a04a0ce1386f"
+  },
+  {
+    "url": "/cookbook/tracks/track-hr/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "b0b1f54d3ec350bea828b83630a504f733e7c0ee8b75b015a31f403f1d2fae70"
+  },
+  {
+    "url": "/cookbook/tracks/track-legal/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "51a438d65723356ddd55800f5c3438bec57f25fed4fc7791e91fc64ffa87b18c"
+  },
+  {
+    "url": "/cookbook/tracks/track-marketing/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "0925b3972abc1f5e08337d880e5cc06c5ecbc257df0711d3a526e714dc314817"
+  },
+  {
+    "url": "/cookbook/tracks/track-operations/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "6211ed50bc6a76c189b1aa6a065209320f2a919a0fd8f22dff748b4ea5059328"
+  },
+  {
+    "url": "/cookbook/tracks/track-product/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "693985f4ade1a443721a2342aed5713e7af72f2fbbe8e28e73947e8cc5395f1b"
+  },
+  {
+    "url": "/cookbook/troubleshooting/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "7a1b16037fb41e1658f3940899df5af3f3e85e2286fef336b9d09f78d1e319cc"
+  },
+  {
+    "url": "/custom.css",
+    "status": 200,
+    "build_match": true,
+    "sha256": "3169498f4ff0f79b763a3e39a53f5db39de5bd4c8e0b3fb6b2ae8054da10e8b0"
+  },
+  {
+    "url": "/downloads/classroom/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "cacbeee92de2b77b6c3d90bc4606bb4382c3ae872b956c257167adcff5f41a5e"
+  },
+  {
+    "url": "/downloads/classroom/문의.csv",
+    "status": 200,
+    "build_match": true,
+    "sha256": "c7844615c8deb1066684a3542229f4b483793c60dd51d513b6efa32da189e911"
+  },
+  {
+    "url": "/downloads/classroom/정책.md",
+    "status": 200,
+    "build_match": true,
+    "sha256": "cb4ce9d5648f8be027065e7bcc7f42429e07b8e8ebc58ad8acdc4e57a5591b11"
+  },
+  {
+    "url": "/downloads/classroom/주간메모.txt",
+    "status": 200,
+    "build_match": true,
+    "sha256": "80f04fe817afe3230f33cade554958bff56a46839db0c05a860de4855b7cf06e"
+  },
+  {
+    "url": "/employees/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "cdbe551ee1e213a23f318fcaa285cb7dfd6821131673cda5226ddfe4639e72be"
+  },
+  {
+    "url": "/fonts/GeekdocIcons.woff2",
+    "status": 200,
+    "build_match": true,
+    "sha256": "546eab7f47e7cc5687b1ad8db05f0cfb2b7d1bc7cc68de0ea7a5d0642bfe3f07"
+  },
+  {
+    "url": "/fonts/KaTeX_AMS-Regular.woff2",
+    "status": 200,
+    "build_match": true,
+    "sha256": "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308"
+  },
+  {
+    "url": "/fonts/KaTeX_Caligraphic-Bold.woff2",
+    "status": 200,
+    "build_match": true,
+    "sha256": "de7701e42cf1f4cf0b766c03fb27977207eee2f4fd5d76fa82188406da43ea4c"
+  },
+  {
+    "url": "/fonts/KaTeX_Caligraphic-Regular.woff2",
+    "status": 200,
+    "build_match": true,
+    "sha256": "5d53e70ad607c2352162dec9e0923fb54ecdafaccbf604cd8dcf7d00facb989b"
+  },
+  {
+    "url": "/fonts/KaTeX_Fraktur-Bold.woff2",
+    "status": 200,
+    "build_match": true,
+    "sha256": "74444efd593c005e3f4573b44524704c0af0a937fe911cca9e94068d0d140d3f"
+  },
+  {
+    "url": "/fonts/KaTeX_Fraktur-Regular.woff2",
+    "status": 200,
+    "build_match": true,
+    "sha256": "51814d270d06ff0255dba0799994fa4d8c84d11f09951d47595f4abb1f3602dc"
+  },
+  {
+    "url": "/fonts/KaTeX_Main-Bold.woff2",
+    "status": 200,
+    "build_match": true,
+    "sha256": "0f60d1b897938ec918c8ce073092411baf9438f6739465693ff18b0f9d20b021"
+  },
+  {
+    "url": "/fonts/KaTeX_Main-BoldItalic.woff2",
+    "status": 200,
+    "build_match": true,
+    "sha256": "99cd42a3c072d918f2f44984a807cf7aa16e13545fd0875fc07c6c65f99e715b"
+  },
+  {
+    "url": "/fonts/KaTeX_Main-Italic.woff2",
+    "status": 200,
+    "build_match": true,
+    "sha256": "97479ca6cce906abc961ecac96faa5f9ca2e61b8e7670d475826bcdee9a7c267"
+  },
+  {
+    "url": "/fonts/KaTeX_Main-Regular.woff2",
+    "status": 200,
+    "build_match": true,
+    "sha256": "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866"
+  },
+  {
+    "url": "/fonts/KaTeX_Math-BoldItalic.woff2",
+    "status": 200,
+    "build_match": true,
+    "sha256": "dc47344dbb6cb5b655c8460d561f4df5f501b90c804ad3c6cec65fe322351ab1"
+  },
+  {
+    "url": "/fonts/KaTeX_Math-Italic.woff2",
+    "status": 200,
+    "build_match": true,
+    "sha256": "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264"
+  },
+  {
+    "url": "/fonts/KaTeX_SansSerif-Bold.woff2",
+    "status": 200,
+    "build_match": true,
+    "sha256": "e99ae51144bf1232efcc1bfe5add36262c6866b0faab24fa75740e1b98577a62"
+  },
+  {
+    "url": "/fonts/KaTeX_SansSerif-Italic.woff2",
+    "status": 200,
+    "build_match": true,
+    "sha256": "00b26ac825e2095056396e0553b8ac26d3f8ad158c3826e28b4c45b385c4714a"
+  },
+  {
+    "url": "/fonts/KaTeX_SansSerif-Regular.woff2",
+    "status": 200,
+    "build_match": true,
+    "sha256": "68e8c73ef42afd3ccec58bf0fba302cce448938e7fc020a5e31f8a952eee1342"
+  },
+  {
+    "url": "/fonts/KaTeX_Script-Regular.woff2",
+    "status": 200,
+    "build_match": true,
+    "sha256": "036d4e95149b69ff9bcc0cd55771efeb25ffa3947293e69acd78d5ac328c684b"
+  },
+  {
+    "url": "/fonts/KaTeX_Size1-Regular.woff2",
+    "status": 200,
+    "build_match": true,
+    "sha256": "6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe"
+  },
+  {
+    "url": "/fonts/KaTeX_Size2-Regular.woff2",
+    "status": 200,
+    "build_match": true,
+    "sha256": "d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd"
+  },
+  {
+    "url": "/fonts/KaTeX_Size3-Regular.woff2",
+    "status": 200,
+    "build_match": true,
+    "sha256": "73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995"
+  },
+  {
+    "url": "/fonts/KaTeX_Size4-Regular.woff2",
+    "status": 200,
+    "build_match": true,
+    "sha256": "a4af7d414440a1c1790825cfb700cf9cf43b0f2c4b04f0ebc523011ad9853ec0"
+  },
+  {
+    "url": "/fonts/KaTeX_Typewriter-Regular.woff2",
+    "status": 200,
+    "build_match": true,
+    "sha256": "71d517d67827787cfabdf186914cc3358eda539e37931941f2b2fd4a21f68c0b"
+  },
+  {
+    "url": "/fonts/LiberationMono.woff2",
+    "status": 200,
+    "build_match": true,
+    "sha256": "cef3b75ef17fb5d6b353fd3a236029275a58aff648113f07853a670a5c77720e"
+  },
+  {
+    "url": "/fonts/LiberationSans-Bold.woff2",
+    "status": 200,
+    "build_match": true,
+    "sha256": "f26458a53a7f0fa39b77627650ad6a083567aded2f00ecccbbc8f56b4f52fc63"
+  },
+  {
+    "url": "/fonts/LiberationSans-BoldItalic.woff2",
+    "status": 200,
+    "build_match": true,
+    "sha256": "69fa2aae27e38e3ba3bddb0907a05e8658d65f246a220eb88f08269a10f9a2b6"
+  },
+  {
+    "url": "/fonts/LiberationSans-Italic.woff2",
+    "status": 200,
+    "build_match": true,
+    "sha256": "3a0c07aef45e71539f31f2b65501cbf76252945a4301c5cc0ada2f4b671ff3f7"
+  },
+  {
+    "url": "/fonts/LiberationSans.woff2",
+    "status": 200,
+    "build_match": true,
+    "sha256": "cbfa8df58eecbc84e9122f10ca478a944063f891d8e1e3e85472f1d73df97601"
+  },
+  {
+    "url": "/fonts/Metropolis.woff2",
+    "status": 200,
+    "build_match": true,
+    "sha256": "9116951a4f2e974ef4741166d1274d82eaccfc1871595bd66ab3d95e4f058489"
+  },
+  {
+    "url": "/fonts/PretendardVariable.woff2",
+    "status": 200,
+    "build_match": true,
+    "sha256": "9599f12fd42fc0bce1cd50b47a0c022e108d7aa64dd0d1bb0ed44f3282d900b4"
+  },
+  {
+    "url": "/getting-started/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "94f568afda8e3e377b831ac2292a3be9c915efd4e5d85d93807ad9d26bfd942e"
+  },
+  {
+    "url": "/getting-started/choose-app/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "79d6b32f23df3733907f43e61f842404389ac2045e7f0fe1b4d11eb4f56576b0"
+  },
+  {
+    "url": "/getting-started/concepts/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "d963fddf2793161a11ad2a5f05110b5e6e4ab4210bd70ce93382e8670026f02b"
+  },
+  {
+    "url": "/getting-started/first-task/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "840b95cacb9e58514b5ba5b9ad73dc9931a5c478c3c050144cdb06e8f3a3ce44"
+  },
+  {
+    "url": "/getting-started/install/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "0d3f7f08d4e8f5ec2b4a1338a9b2e4e0acea3a28742b3a67e27ec0ceba763a52"
+  },
+  {
+    "url": "/getting-started/projects/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "1e0f568797329ca59af37e827e1df3c0fa8465871733345053c3bae8625ad6ab"
+  },
+  {
+    "url": "/getting-started/questions/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "3f22316d863b4f7694ef270e3de1cef79598ccef43e69f1557bb19a260fb08bb"
+  },
+  {
+    "url": "/getting-started/quick-start/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "a4a4f46c05f80c32fb67528e520397845763b8374474e448478c4947a5ca2c6c"
+  },
+  {
+    "url": "/help/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "3b576862c6812fd9b9388029bf0a20c01685b19fbebe7a23a9a7a7852f717e43"
+  },
+  {
+    "url": "/help/about-claude/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "a28ab90cfd82fae47800cb53adffd558927857bc5e5a123a0f1aa6bcebc8f228"
+  },
+  {
+    "url": "/help/account/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "29634b7a48a9ed8ab0b5799ad4ce662ff87700005cc4c035eb44eed5947b6302"
+  },
+  {
+    "url": "/help/attribution/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "63cd2375e93677258c9f716785ec57f18e88e8991e94b6ff55717c465f853ec8"
+  },
+  {
+    "url": "/help/conversations/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "b9ac50828cdf628ed19b0e3e3419e6fd4b2ac4fdc1b7a32b695b849da09782b7"
+  },
+  {
+    "url": "/help/office/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "77ebf10e4cba96c50709735d94af78a0f08d430784290fef1171370e33874139"
+  },
+  {
+    "url": "/help/office/microsoft-365/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "1b33ee1a4d68512ca690391040dac1f18db17f0dc45c98742922bbec17430690"
+  },
+  {
+    "url": "/help/personalization/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "f35b332406e035e2bd941b79b8822252f64efb279c51b4c7d6f67241bdd41bef"
+  },
+  {
+    "url": "/help/plans-billing/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "8531977f6647e77af9c36f3b2a5f20efbf8b8367ad08ce01e0b24fbd7f87ebdd"
+  },
+  {
+    "url": "/help/source-index/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "073cec59c0adfa68de2eb5c85894e6f8a5b848450be41ffa6e86559458b51ae1"
+  },
+  {
+    "url": "/help/troubleshooting/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "450e8fb80f20d62df97951440e70c66844b7e369028585197bc14de99051549a"
+  },
+  {
+    "url": "/help/usage-limits/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "ebb3de127fa6a6c48b5ed8ffa0e07434b13db0b0d96a941275ffe202a6ffa843"
+  },
+  {
+    "url": "/infographics/kindle/context-ko.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "200f2ca93758422333fbee73f1059e123f4d388169b65449f6364afd3f74b4eb"
+  },
+  {
+    "url": "/infographics/kindle/parallel-ko.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "0f21d001a1bf1700bc614688f84c38a2c2b21f2db31351e146c3f026dc29d9da"
+  },
+  {
+    "url": "/infographics/kindle/reuse-ko.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "e73c8f6793fb67e693186c093f98d73f8786907230cab1a04c9cf3edcb9f2516"
+  },
+  {
+    "url": "/js/1226-93ad04cb.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "6a94edc1b639cb2f5715bbd225a9f1649c0d579e07bc4ba1911da87ec5ed85fd"
+  },
+  {
+    "url": "/js/1550-fa53e251.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "3cb342cb17108b51e4ab11e21a4c89c890c358ecce405ab11463a7b37dc19492"
+  },
+  {
+    "url": "/js/1587-cd1c2b30.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "1b9e2c053e0dbdfae641e3e5ec969403faaec1aa19bd3fc2b28953b93636b470"
+  },
+  {
+    "url": "/js/165-4408c937.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "df9a89f430d7c63927c0edceac6df6d579c5534a84daa762c444f5f6e7a3ab7c"
+  },
+  {
+    "url": "/js/1947-58c2d85f.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "eb4ef3b58be97ceec95e64a4eccdc24cb6e1bdd6fa4436943f16b4f52c12ec23"
+  },
+  {
+    "url": "/js/2130-d110bcb1.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "f857777ce6be61aa549268b2ce34a8293a758f5cbb23561a4c19616bbbd984f6"
+  },
+  {
+    "url": "/js/2204-abc9e082.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "dcb411327e3c3a33e33b80d3b9f66d1832dcf795a95d918b9976aae16bff5f46"
+  },
+  {
+    "url": "/js/2422-4dd850a8.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "53c4a3b3bb05393d8cbab993cec3401882ab1d3aa000968f84db452b957f95aa"
+  },
+  {
+    "url": "/js/3016-7316ebd7.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "68c525c7ca0debc65fb39c803c6d9feef4e08d1ced23058fae518763a5977436"
+  },
+  {
+    "url": "/js/3214-61e391f0.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "002c772a05c99d4f5d9f406d42816c8eb619cf3f3d2d7de86a0c1fa62ffd5dfb"
+  },
+  {
+    "url": "/js/3272-ee4df1e2.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "671a367427c32577fbaa1bd673bec205349a2f600b3bed621c51f60d4211f75a"
+  },
+  {
+    "url": "/js/352-bf2c9fa9.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "b193255546eb5a7a9150c411b8291c08da882d45b75b6f993192f1a7b3316e43"
+  },
+  {
+    "url": "/js/3930-d32d2c73.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "abdb0bf56cbc2785cd85557e0b9ba37f0a0a2bf5078c4a5be9ba501682f96bf8"
+  },
+  {
+    "url": "/js/4121-a023089e.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "c73b417d0422f0131daff57d9ed37a899890e08b6564b4705a59abcf5ff1f698"
+  },
+  {
+    "url": "/js/4164-7ecada94.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "991523c3169ccbf972ffa9c3b2c6f14304f2a075e263cbba6076ce1d6db32bd0"
+  },
+  {
+    "url": "/js/429-c1e3b17d.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "6dbb4089e75ecded75c4e58944761add175d7c05a3e2ad2e83fabd04e7b8219a"
+  },
+  {
+    "url": "/js/4552-7b0e5dc6.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "57af7e2cbd39ac774fcd6f61d438c62b28d3b86c7751086697ba7b31549caac2"
+  },
+  {
+    "url": "/js/4557-8f646bd9.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "9ef46bbacde6662f3a49f3c67e1868b71804385287a99963ee58187bfcc5f372"
+  },
+  {
+    "url": "/js/4595-f9bda044.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "80b94cfc6a49047e9feb83f24eb438cda49deac5410afd0769eb762afc099773"
+  },
+  {
+    "url": "/js/4821-673d6374.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "0944bed2d8badfb6a2b5a46b0a737a908f88aafbeb5d34e06191367f292e6d21"
+  },
+  {
+    "url": "/js/4836-b8700574.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "bf03e6c8821050fdc29115e24cf23bbc1f585e884cbc434b5b3bb05b0b31ccb3"
+  },
+  {
+    "url": "/js/4848-53a4e4c6.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "69b5ced50dd3825e560d3061952bb251bd2d06033de0a0c3b9add66c1a0a0a32"
+  },
+  {
+    "url": "/js/4879-43e1fc35.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "b0cdcaba3df3d6ab8c5c2c0c275c94bc82ce26e51cb977603eb3564867d48e57"
+  },
+  {
+    "url": "/js/5211-8ce61643.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "d32ee7128aac643ee0e49b8e257f1e1772689a56cf88bee3fdafc2c31046da5c"
+  },
+  {
+    "url": "/js/5322-6b8eff67.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "8e888784cf48bc36ec3f6265d63e5e68130eb6c283ebb3c8a2336745e216ba4a"
+  },
+  {
+    "url": "/js/5390-176fbfed.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "b55241fa1bdbcdac71d3e6c46ea5c67f3277b79a4f51f61d1a6194107d49a89f"
+  },
+  {
+    "url": "/js/567-560bde4b.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "7ef1e3a28db21093d3f83635a09e1dd6f6359aa58772b7e018ed4772a9de9f6c"
+  },
+  {
+    "url": "/js/6282-e68ce6a2.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "474f3fb7ad80c3c048d9a6eb78b68039a7cecc1e10e78c96ad6526e3886d08de"
+  },
+  {
+    "url": "/js/6401-9ab807f7.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "5b6c63a99ff08c7c62291889bf6a21fd1efefae1f8618415faa064c39278aa7b"
+  },
+  {
+    "url": "/js/674-b671020d.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "0c61291116a9e4e57e7b270b819bc9f995f7beb4ef718eb6e91a0c263d053e1e"
+  },
+  {
+    "url": "/js/697-e184dc4a.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "d6f03853888665886c1aba3b51a18b9038588746a17eeb6a2ad3e91b44f0007f"
+  },
+  {
+    "url": "/js/7056-20b94945.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "373de48b56336be66cb2cd65177f569b6e497b12589c7adfc0bd16b271dc2fd9"
+  },
+  {
+    "url": "/js/7196-cbf4e2d5.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "622a3966a432193a2a950dea1162a0ce88e752ad75a70f601d71f2d87721daf8"
+  },
+  {
+    "url": "/js/7487-5054b61d.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "f2e9f40123ffd57e1d6ed0fbc292f1458413131057704eed59fb70142082f351"
+  },
+  {
+    "url": "/js/7613-50134621.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "ebd5a6d2cb596551bcfbcbf2647da7033731bd25291713a2e08e5da146f927e2"
+  },
+  {
+    "url": "/js/7809-d81743e3.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "71f303907a01662c8c418a921903c752683ea129d712ad05e0edb9409efb4928"
+  },
+  {
+    "url": "/js/7928-91112ad1.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "a390bc7db65cf60a7e4b88db7dbd472e05caa1d3d625e58636fb1c4b1d7cca15"
+  },
+  {
+    "url": "/js/8207-7472f193.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "91be006ff2e55ebb2143194e534e022a55efeaf99255ec733a577d8f7c45896f"
+  },
+  {
+    "url": "/js/8248-ffe4224e.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "fb5350b9c0fc046d21f972e33572c82b141fc92f8745e712cff54154b47452bd"
+  },
+  {
+    "url": "/js/8326-af271799.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "f3a1b71f59affc295b26c11ac9b018dc7ebb2fdeab7777e51100e8e5a2366134"
+  },
+  {
+    "url": "/js/8334-ef10195c.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "069570f56657cbe29fb4bfe2ca0d124548d2ac1aee9279bd8caad5476183a57b"
+  },
+  {
+    "url": "/js/8383-97e816f4.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "730da7ced0331dcb2cc4bad2efea7a208132075d37cdc4185defccafb9585084"
+  },
+  {
+    "url": "/js/8484-4e8ca186.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "4ec17fa567a7c744f6e8a20d1b1f0efb5c1af6da76b8cd955987b041ef8ec0c7"
+  },
+  {
+    "url": "/js/8693-cebaf77f.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "285f73cf0185a6b0710ee67dac58fd3ab985fa16dec08e971e81fb79d641c213"
+  },
+  {
+    "url": "/js/8731-02f92b08.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "8dc22ff604a3eec0653e430327468ac8ca594a9a8013f398224d7fec3eb8e341"
+  },
+  {
+    "url": "/js/894-0c7a6881.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "566f4dfaf3cfd6ebd526c5ef8ebd5788db5d835110d331e36a535d31064038a7"
+  },
+  {
+    "url": "/js/90-08cf7029.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "5a160fffdd4c979ce4d167e629367c6016436c7af7fd90c5b666a1881a58057f"
+  },
+  {
+    "url": "/js/9191-4963389b.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "b7e1dda2582458159b5938898c869613aeedeb44c3d62bbfb73492d62c3cc069"
+  },
+  {
+    "url": "/js/9943-e7531c0a.chunk.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "612827f65bc59e15c7514bd7611bd0d8af80386c4d7ce19318ca5c79529f35b2"
+  },
+  {
+    "url": "/js/colortheme-6c1bf822.bundle.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "f52e4e7780772565106c9d0feaea55bc5ca217450b5a05f2d7920d874884ec81"
+  },
+  {
+    "url": "/js/katex-d2f1bcae.bundle.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "c621c7dedffb51511029032670b1398868267d393b3a2baf671c7a40775cb51b"
+  },
+  {
+    "url": "/js/main-1b467c45.bundle.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "cf55f0e5209747e1d0b7d4408644621bb6a3e727b1ba51fca600498ccb96a5c5"
+  },
+  {
+    "url": "/js/mermaid-0dbf3612.bundle.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "f10966e425e8b6577dccc09a6c13c0711d768e8477e5671ca43b7591b456413f"
+  },
+  {
+    "url": "/js/moai-mermaid.bundle.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "e72619b40622fd8f619fc690c0b6b823165b1a4abca8a8be8d503ac71ce817dc"
+  },
+  {
+    "url": "/js/search-8a051f6b.bundle.min.js",
+    "status": 200,
+    "build_match": true,
+    "sha256": "1c13ce29fcb189abd5b7334666a48e9e9335a0277cdd7a549acea8a2b17ebba7"
+  },
+  {
+    "url": "/katex-b242a5c3.min.css",
+    "status": 200,
+    "build_match": true,
+    "sha256": "965725862bd432eb7987fd87b3acabb2dacc106cd7a42c92d1e81c97228a74be"
+  },
+  {
+    "url": "/learn/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "3ea60864eb25e933ed0c310e23010bc1e9306a9192916b6229d7ea1c434813d2"
+  },
+  {
+    "url": "/learn/01-delegation/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "e325bc89698f9ce7c9190fa6859eb1ef087c3c1bad83d8e3d4c72d5215ea7add"
+  },
+  {
+    "url": "/learn/02-project-context/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "b54a1823a82bb8d256371b470fdc492de2562386668e8c4175bc55d0ae1e4de8"
+  },
+  {
+    "url": "/learn/03-first-result/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "52a40d8d9d182c13cc488e02f36ed5dbda66197e76ee6cf29fad139fb4b3132a"
+  },
+  {
+    "url": "/learn/04-skills-plugins/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "baa0ac0d7b7c989e8e28076321ef0873f0a1fdfa3a8f843534431be5dee13ed7"
+  },
+  {
+    "url": "/learn/05-expert-workflow/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "eac5948c292050da5266b117db16f31b70ecb5628ee042d14cef7ed7c1fc25ee"
+  },
+  {
+    "url": "/learn/06-review-reuse/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "90b721411fe228beaab23db62fe7be444828fddc80f2955e62ec5e5884673ec5"
+  },
+  {
+    "url": "/learn/screens/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "da8e6b58a4ed126fe08eb465e240d2337ddd099266ad0d1bab53167b8a1a8a58"
+  },
+  {
+    "url": "/learn/teaching-guide/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "7d976d7fc36c82603762636cbb3a0666b4e478ac351de987aa19474da0788f70"
+  },
+  {
+    "url": "/main-7800dd97.min.css",
+    "status": 200,
+    "build_match": true,
+    "sha256": "6fbcfcc3eb08f61825fc1d211f8e6a8e4d29b9791c2ce476268e78eb3964a61d"
+  },
+  {
+    "url": "/moai-agents/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "ec690961b6d54c58f0a6dde179bdadce57f7e6872688bd98b5da90c264673b61"
+  },
+  {
+    "url": "/moai-agents/accountant/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "005ea9828308d4823e4566e0ce582090b180bc2f71b3b9af4f8122023c54da0c"
+  },
+  {
+    "url": "/moai-agents/analyst/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "b582450e3248c7b4f87f7479d21ad3eacefba5e10fce2f01f72deefb5d96aa0d"
+  },
+  {
+    "url": "/moai-agents/career/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "dd19f0f6034e113f5e4311217aee46656d39b067d5d36900a328429a83209fa8"
+  },
+  {
+    "url": "/moai-agents/consultant/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "d3c9ca961cccdc24c13dc901ed01ceabd95201b97f9615f9d8f799de2eb6f842"
+  },
+  {
+    "url": "/moai-agents/coworker/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "7435350c06a544ef0b9b7f2e10478dac9b1da5291c924814b12cd78be253827e"
+  },
+  {
+    "url": "/moai-agents/cs/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "422539acfea7836429fb4fc9340ce043a01987b12c87c24f2897b5929b745522"
+  },
+  {
+    "url": "/moai-agents/designer/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "9ee72dcea04af70b43e1e53a76c5c0a012ebee2560888fbe13ae7d05f84158e7"
+  },
+  {
+    "url": "/moai-agents/lawyer/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "da70525c80cb944ed766d3421c0ffa901b4bf4f202ad10177085d12988eca278"
+  },
+  {
+    "url": "/moai-agents/marketer/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "f60166b21b842bc5732e9621e837117a09ec39e81dd88ecaf84b5f1c9ce1f0a2"
+  },
+  {
+    "url": "/moai-agents/media/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "79ca3ec2a6c1b1768ae0f677e0f796d19d9cf169002dfcfea0eba56ab394a7d0"
+  },
+  {
+    "url": "/moai-agents/officer/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "1aeef4c89b4f676493bf30700d7f3bf54085b2088a868296e2a437104395a3e9"
+  },
+  {
+    "url": "/moai-agents/pm/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "88f8498ada740ad030eb8d2767a85c55be4cd48b1225880d61c5fac7d4e131a2"
+  },
+  {
+    "url": "/moai-agents/recruiter/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "09b2f85e90193d4179fab5794e43148580fe4f4ee18e62ab321aa2de6c3ce1d0"
+  },
+  {
+    "url": "/moai-agents/seller/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "9b0571ec158ed33c84423bd53ec0aa83c09cfb18d72905cdb787ee35d1fa1f76"
+  },
+  {
+    "url": "/moai-agents/story/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2540c4c1a155692f9a14c8e6e51b0a668da40d7753a992a091f2e8d9327dd260"
+  },
+  {
+    "url": "/moai-agents/threads-poster/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "19babcea9cd9146398726db8ce94ab7fe7139622647fb7e12f2ac207585ea7f6"
+  },
+  {
+    "url": "/moai-agents/tutor/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "4534c73cbec5582019959f6ea96e2cfc683f698b2fd170d09dff6ae65f8ba1a9"
+  },
+  {
+    "url": "/moai-agents/writer/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "a3d03b0bcc3028fe57b7275169759925f817c5678c21fb6cdafce5308aa9b85a"
+  },
+  {
+    "url": "/moai-ds-base.css",
+    "status": 200,
+    "build_match": true,
+    "sha256": "052315a52c073c725f7e8201d21d745575a3950bfeddd836123094daef6fbd5c"
+  },
+  {
+    "url": "/moai-ds-docs.css",
+    "status": 200,
+    "build_match": true,
+    "sha256": "521d13843a0dbe17970f7ebee2ee695106bf5444047b248a0508efe19afbdde0"
+  },
+  {
+    "url": "/moai-ds-mascot.css",
+    "status": 200,
+    "build_match": true,
+    "sha256": "bc7b06900962d825becb754b959605aa823b8d346d19a16702b86518fb6429cf"
+  },
+  {
+    "url": "/moai-ds-tokens.css",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2458e3e55301083708754337d801a2aa2def13776638d5c40b3317ec0d5f456b"
+  },
+  {
+    "url": "/moai-ds-v2.css",
+    "status": 200,
+    "build_match": true,
+    "sha256": "470dc6a5f787d298664ac3fe96c876d95838ba27197075f08f33a533e02a4e4a"
+  },
+  {
+    "url": "/moai-ds.css",
+    "status": 200,
+    "build_match": true,
+    "sha256": "eb3cb1865f5c96b1c098bbe4e392cf8ad2cf9e55d5631f1f465d37ab6fc87182"
+  },
+  {
+    "url": "/moai-kindle-tokens.css",
+    "status": 200,
+    "build_match": true,
+    "sha256": "254b09bbe266ac8122f6127ae4ce24f73b3078418787f06e39063c5c952d1cb5"
+  },
+  {
+    "url": "/moai-kindle.css",
+    "status": 200,
+    "build_match": true,
+    "sha256": "97569dbee3e04f35db0bb456c6c11252a456e8df59f081252ba4b48166465c1f"
+  },
+  {
+    "url": "/moai-learning.css",
+    "status": 200,
+    "build_match": true,
+    "sha256": "3c4d3521bfa461fcf5dfd6b403d206cb5fb202ddd2668e3903ce36e8991aebe0"
+  },
+  {
+    "url": "/mobile-7885c8a8.min.css",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2fba66b88d74a7fd370ab0710fb3540ca0ce45c241a08a17451114f050472fb0"
+  },
+  {
+    "url": "/office/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "35df489eaa7f9d56a6e16826cf17dedbf9b211874cdffe7e235e98e89c144ea3"
+  },
+  {
+    "url": "/office/microsoft-365/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "7f26e4247c39b2f24d7fb921bcfc80573f498f65819990071be40197abe5d721"
+  },
+  {
+    "url": "/plugins/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "f9272b5fc8d5d1ee89cd971b4e4da6c793fc6200095fb3f42d13901640079a64"
+  },
+  {
+    "url": "/plugins/agents/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "9260702d8ae8486296dfb9d0cea9acd8425bfc2d62c67fb881391f3bba308b4d"
+  },
+  {
+    "url": "/plugins/chat/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "643c5cd229a40f53872f6e7dc5891161fde6fe6abd883aa022d00273c824c53c"
+  },
+  {
+    "url": "/plugins/code/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "643c5cd229a40f53872f6e7dc5891161fde6fe6abd883aa022d00273c824c53c"
+  },
+  {
+    "url": "/plugins/cowork-plugins/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "643c5cd229a40f53872f6e7dc5891161fde6fe6abd883aa022d00273c824c53c"
+  },
+  {
+    "url": "/plugins/cowork/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "643c5cd229a40f53872f6e7dc5891161fde6fe6abd883aa022d00273c824c53c"
+  },
+  {
+    "url": "/plugins/design/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "643c5cd229a40f53872f6e7dc5891161fde6fe6abd883aa022d00273c824c53c"
+  },
+  {
+    "url": "/plugins/higgsfield-setup/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "b9aa73d3b37277b2f058e48485b8279839dbedf328b0538b0368fe1a2cdfcb1e"
+  },
+  {
+    "url": "/plugins/install/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "8beeb5819d937c0f9371f573df675d7e0dd86e4aa4412ac00518c9c61481c547"
+  },
+  {
+    "url": "/plugins/license/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "d47a011ad13d955046d483fa6b2599936dcc29882fe63e119a28b2b67b579a1c"
+  },
+  {
+    "url": "/plugins/mcp/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "dba5a30f871846c9c07cda94d3be24608f4faaec42cbdc48bf7a28f20807389a"
+  },
+  {
+    "url": "/plugins/mcp/credentials/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "1ad089a5d9a5df82881493c9e2c00ec80f8594a4eb84e86b9f19e609cc20d0cc"
+  },
+  {
+    "url": "/plugins/mcp/install/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "6199d9617a733d7a777e95bdaffc8ec3f650abafde2849c6ad2d01e899f44cf9"
+  },
+  {
+    "url": "/plugins/mcp/troubleshooting/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "71fb2f6868e3006558151b63933a1f07d2df3b13ba13fb42924b8e311bc58d6b"
+  },
+  {
+    "url": "/plugins/moai-ads/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "643c5cd229a40f53872f6e7dc5891161fde6fe6abd883aa022d00273c824c53c"
+  },
+  {
+    "url": "/plugins/moai-cowork-plugins/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "643c5cd229a40f53872f6e7dc5891161fde6fe6abd883aa022d00273c824c53c"
+  },
+  {
+    "url": "/plugins/moai-design-system-library/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "643c5cd229a40f53872f6e7dc5891161fde6fe6abd883aa022d00273c824c53c"
+  },
+  {
+    "url": "/plugins/moai-devops/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "643c5cd229a40f53872f6e7dc5891161fde6fe6abd883aa022d00273c824c53c"
+  },
+  {
+    "url": "/plugins/moai-tech/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "643c5cd229a40f53872f6e7dc5891161fde6fe6abd883aa022d00273c824c53c"
+  },
+  {
+    "url": "/plugins/open-source/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "e0796f94c5d4a1ebf60202c5ed273cc2c6de7e70ae3d55fd2fcd73ee4fad9dee"
+  },
+  {
+    "url": "/plugins/teams/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "639ec2d9fcaeb8c6737f09c089b5212f5b8b734010de903933fb0da87d479abf"
+  },
+  {
+    "url": "/print-72068949.min.css",
+    "status": 200,
+    "build_match": true,
+    "sha256": "9041a841d6377c3389a7bff2611dd3213f5ac4891e1df7406c1ad9c07f308dc7"
+  },
+  {
+    "url": "/releases/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "72e81d011b898f023b905e93710959e4f3796ee98465056c408bb72ea149992c"
+  },
+  {
+    "url": "/releases/archive/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "e8ff96c7393f85b85a40317b5b38cf6fb3ddb41ca995fdac777c879e16f0bed8"
+  },
+  {
+    "url": "/releases/archive/v1.0/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "4fd5d408428c9949c985605da3fb418b0ebdcd7f9e4778a998e2c0ec2aa899ac"
+  },
+  {
+    "url": "/releases/archive/v1.2/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "dcb17b288522432800e9b2ea38069fb25342ea6c1b705638f6b403105fc88dc0"
+  },
+  {
+    "url": "/releases/archive/v1.3/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "4f409004687fa42c7d8c86e6bd8ee39b57c691ae07ad9c8d43e0100c84178a63"
+  },
+  {
+    "url": "/releases/archive/v1.5/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "7164aff10597eb960b0172ea4729a12a203f2518979c9d3dd6e214f2e79ee621"
+  },
+  {
+    "url": "/releases/archive/v1.6/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "073747a3a444ff56da153d6b7a3c8119c00d730dbfc1bf3bebbf8b8bde65fedc"
+  },
+  {
+    "url": "/releases/archive/v2.0/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "0dea50439a84ff288d5f603a6d4ac9b1fb2a01da0f2616f41a2effddfb35d111"
+  },
+  {
+    "url": "/releases/archive/v2.1/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "d7a96a9aef6eb08dd2f15345d5f1eb8e085751f6933e92aa0d82e9caea1adb16"
+  },
+  {
+    "url": "/releases/archive/v2.10/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "df19999f539af72ef9021a84ad1d2e486b9646f315facfb627b9054e01989495"
+  },
+  {
+    "url": "/releases/archive/v2.11.1/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "836ecec716ace95b46649294224010921d3f8fb32b920b433a2ad778d834937e"
+  },
+  {
+    "url": "/releases/archive/v2.11/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "5092608a490aa77c0eef2f7f47fb5d577c55ff31bea072211a71842949ead3f6"
+  },
+  {
+    "url": "/releases/archive/v2.12.1/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "24e83a65b85dfb2aaa83d1ab7014942819b03788ff195eba0bf528b3150f95d2"
+  },
+  {
+    "url": "/releases/archive/v2.12.2/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "699fecd62eaf03ff65e27de740612ceaca4d32dfedf12c23c4960815967c111d"
+  },
+  {
+    "url": "/releases/archive/v2.12.3/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "b558d20b37d550d505632249735efcafc42cb5b9368a493740ef9da2bf3a88a3"
+  },
+  {
+    "url": "/releases/archive/v2.12/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "fc9c1ea15afe092c947600ee8e24c52f483e85265dd8173a5ba26d7447abc5d2"
+  },
+  {
+    "url": "/releases/archive/v2.13/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "ed89a01398eaaab99b1ce86567dcfc780b5933c869292e9235412d6657e2e929"
+  },
+  {
+    "url": "/releases/archive/v2.14/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "cf83cf6e84d138283c80bc3a022b9ec8113e01aa1cee75ec399d23c69a8251be"
+  },
+  {
+    "url": "/releases/archive/v2.15/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "e441ba11781165066680d5e7825b73bc29c0e22c3a4a6cda657fc0417576bed0"
+  },
+  {
+    "url": "/releases/archive/v2.16/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "f8f58399f2bff0ec27c84575381111a822976945cd57676819eeb34c93883eae"
+  },
+  {
+    "url": "/releases/archive/v2.17/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "87ff92f6b2e4d649ec4e03f179043fcae1fa57445670987a14a7ba0ad75c323c"
+  },
+  {
+    "url": "/releases/archive/v2.18/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "ae3ab7d2a2af7899b244604e4d005f97810e190f74942d1b04405217d0d0c97e"
+  },
+  {
+    "url": "/releases/archive/v2.19/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "ceaa5d79dc36a28798a42e87369f9d864dfac26c9a4626df3aab870ae3c90ce2"
+  },
+  {
+    "url": "/releases/archive/v2.2/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "10196abf981e180dc9d1a6a288f88f7075c76255e2c5e033be07bbef2564df77"
+  },
+  {
+    "url": "/releases/archive/v2.20/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "99d1e96166186cebacfb5caa4340ef39a8262ab5b9d335641707bc186a5eecfa"
+  },
+  {
+    "url": "/releases/archive/v2.21/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "e11f14a4551b78a0b276276f21c86a70eb0f1fc03c2183cf28997f27abbb036f"
+  },
+  {
+    "url": "/releases/archive/v2.22/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "b473b77bba9516bf146cb86e3b7a3db89017acbe2a057bce10b8f6794b949154"
+  },
+  {
+    "url": "/releases/archive/v2.23/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "ecc2589bc599ae188e343322c71f289c87eca4d159870ae9902f455b461be54f"
+  },
+  {
+    "url": "/releases/archive/v2.24/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "0f74f03f2b2b674d74c4d0826151564e7bec7f3b39daad3dbb6b66066630caf1"
+  },
+  {
+    "url": "/releases/archive/v2.25/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "1c2c108a6bbc3388739218f384b55e8f6635f7c9cd6d05a2e1c5ea553dde7d9d"
+  },
+  {
+    "url": "/releases/archive/v2.26/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "97481b98cf0a4d538e0b35c494d4df6dddbf8a20555de003a37df80de592e511"
+  },
+  {
+    "url": "/releases/archive/v2.27/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "0c4c6565485501bcfce6976eccb084e4470675d903c79fa51865ddd17cfa29c6"
+  },
+  {
+    "url": "/releases/archive/v2.3/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "8622bcfcb986092d13bb2060e135d4ceeee0adaca7a307b7153f3ecde659b2f6"
+  },
+  {
+    "url": "/releases/archive/v2.4/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "b1d05036c5022f33f88c7062182cbef6a6c198771b687c26be7081e563347668"
+  },
+  {
+    "url": "/releases/archive/v2.5/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "19f91034b3ee94f596cf65d4e3548d4e0c9b496e3c25cb9e0879444305190a1f"
+  },
+  {
+    "url": "/releases/archive/v2.6/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2dc8691d95276c9d60877fde8418c97c6a3e632af2a6eb2932f8dacf88678efd"
+  },
+  {
+    "url": "/releases/archive/v2.7/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "841b9636dde68ff3a3c655c585ee1b8474be38e62ad10ee0b5a22c966d01bf31"
+  },
+  {
+    "url": "/releases/archive/v2.8/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "d0f620b481579521a30e2aeb5275764f4f74b1f2b51232f24ee96b2827b29c88"
+  },
+  {
+    "url": "/releases/archive/v2.9/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "70056ec064309d1a21095ffa5ecaf9fab4de9754c6c84feb783e242efef2dcc0"
+  },
+  {
+    "url": "/releases/docs-20261005/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "af5f0de08a261eae23db0b1051bf904724294e7933bdb94bdbc942c07be67ff1"
+  },
+  {
+    "url": "/releases/v1.0.0/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "b2315250d2ac590e17a8133c9c4ffec5c94aec2a21ecef8de411c8ce6fb8d18d"
+  },
+  {
+    "url": "/releases/v1.0/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "59f909558900cd75bf28cac4f54f16c6dfd2641de1ae3b928fd42ade2a358536"
+  },
+  {
+    "url": "/releases/v1.1.0/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "6706ccef710a09a9fd5a874d74fb88023d33e0e7072f72d0a5b952dd01037743"
+  },
+  {
+    "url": "/releases/v1.2.0/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "e379fda3590a37ca00fd02aac2777e3cc8a610718b29784428f15bdbe0c5405e"
+  },
+  {
+    "url": "/releases/v1.2.1/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "1b905161d02c01b1fee041254755a3e012d44e6fefa761fa8a02080bca0aa4be"
+  },
+  {
+    "url": "/releases/v1.2.2/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "3f3478b747815b38fcfe92a5a60fb7c0b9513fd16fdc4af79a0b7d96c07f6172"
+  },
+  {
+    "url": "/releases/v1.2.3/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "3d8c852770bbd761e56eccacf83055af7942440e8a244cc5109af4fae854d46d"
+  },
+  {
+    "url": "/releases/v1.2.4/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2bc5fdbbc2e41b1367cc82a3ffe94c872f6f70d5c9c58c82f79dafbd83910cda"
+  },
+  {
+    "url": "/releases/v1.2.5/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "cf2d73456f17bfcc6248c6559c0e8962da14e44c0e108a50f08d4b67576f65d8"
+  },
+  {
+    "url": "/releases/v1.2.6/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "ae4fa37aa3320c407a893b52cfcc1d240681e7803f404b6ee3466c9424663722"
+  },
+  {
+    "url": "/releases/v1.2/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "da1942060e95108be05e0288442069dcce5017e7b93ba86377c2320719ea4e0c"
+  },
+  {
+    "url": "/releases/v1.3/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "3aa90b9c5ce3d7dd7e9fe7ee63ca1b75fc0f026a6149fe5e7041b2373c9f5c59"
+  },
+  {
+    "url": "/releases/v1.5/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "39a74998031be34fdb5f75e74a4c8c2844e3c3cab9fccab5f8c9637c1d457013"
+  },
+  {
+    "url": "/releases/v1.6/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "0804e0c3cb114f6fbee080f959412bffa84a2a056166ce06a6d8e370c3a8c443"
+  },
+  {
+    "url": "/releases/v2.0/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "8d9ed23bc70cf32b8a40edd9e8a70536f92bf365d081bcc89795f1c4355a3b2b"
+  },
+  {
+    "url": "/releases/v2.1/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "9f6fca70c329d0ea5a444a12b8e5b7279c5a55fa0beb63b86a9645090b472095"
+  },
+  {
+    "url": "/releases/v2.10/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "86033a3a7cd5d17cf781db8213d5daeba4fec05a97d8c6d76dd650b9c66a030e"
+  },
+  {
+    "url": "/releases/v2.11.1/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "629309cd5b0d8af9c91d3ba1416421b72fbb22111fc42840c6f316c813e69a7c"
+  },
+  {
+    "url": "/releases/v2.11/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "5d5ad07bb59fe3be69fb49ca23760e47b6a07db96a8cd586231f4792213728fe"
+  },
+  {
+    "url": "/releases/v2.12.1/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "92311b956565b2fd95e4cb5860694cb38448c8ccc636685f02b564fb523c128e"
+  },
+  {
+    "url": "/releases/v2.12.2/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "54e5e11ea57bb317266cf46364304f1e0bc4728dce1517124d96ada6b3ee009d"
+  },
+  {
+    "url": "/releases/v2.12.3/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "902b209b4ef866bba19aea1f700cd1bb32bb060f7a5cfd03c56ec42824476189"
+  },
+  {
+    "url": "/releases/v2.12/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "d16d9bf6d353d6b56bfcfc4c8118af781a073fb59c7489d0bb4280e934d140c8"
+  },
+  {
+    "url": "/releases/v2.13/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "40b0a915a03c127e5a52203ce09fe85b044bd81609c2ee833aac698f9c75b4f8"
+  },
+  {
+    "url": "/releases/v2.14/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "c3eee2080cda2292ab580cbbd694f616f7ebfe7cd3449d178df530d14b1792ac"
+  },
+  {
+    "url": "/releases/v2.15/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "662d7d336ab0fe004e9011f072a189a44bdc49c1ac5562a9f13c991b5ba52f3f"
+  },
+  {
+    "url": "/releases/v2.16/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "4e289e354e13e87af34b4e44fed83564171b2f24d858832d04d0600dad9f512f"
+  },
+  {
+    "url": "/releases/v2.17/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "f475a18e8870473895a21d84c46c454eb309326c350186a052a2774a12ffe921"
+  },
+  {
+    "url": "/releases/v2.18/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "abde83d4a3542816cf0a66cb6ea2c6d6a82ca4ef79ec1c4b1405f885589ec138"
+  },
+  {
+    "url": "/releases/v2.19/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "17fc00456036998c6491caf6af372d8b7ce9c7f9faa181ff4943a7962f4a4baa"
+  },
+  {
+    "url": "/releases/v2.2/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "eb2dfb5ba133ab79dbfaedf0e1d7363a2b12e12a6eff9239dfd57b38915c7b12"
+  },
+  {
+    "url": "/releases/v2.20/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "58570d9609991d0384a13b257e04752f6cdf0e7b5ad25b49dec0c340834398af"
+  },
+  {
+    "url": "/releases/v2.21/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2a6e7ac05e0b5657309a83f86d756f5b58403ee4697b3470958ebe63e58fd7c6"
+  },
+  {
+    "url": "/releases/v2.22/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "d89e2a75f0e8e7954a4c494ffbd4a3f0beef46a809942dc034989bb82ac292b8"
+  },
+  {
+    "url": "/releases/v2.23/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "44b95da83b1842dd2320b706aa203e623297edc9f72c6e8ecf5446afba975886"
+  },
+  {
+    "url": "/releases/v2.24/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "62a78a92a810078b8b4e298fbc34c56098bb73ea1b3f1b532f8d37f3079bf7b3"
+  },
+  {
+    "url": "/releases/v2.25/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "a92dbf37c3a255837dea310f2642b045ddc471b11c1c36408228d8c57f4184f4"
+  },
+  {
+    "url": "/releases/v2.26/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "d2a1398567da91309e46337d72390a5d822844ba0313e99479978598cd77d816"
+  },
+  {
+    "url": "/releases/v2.27/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "4cd15aa85845d22ac4ed30e828db18b24f13a3fda81db141041be38b4513668b"
+  },
+  {
+    "url": "/releases/v2.3/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "6c2d57759dcba294e585e56d8e292831e89e837e6ca836daf8d88c72458ac653"
+  },
+  {
+    "url": "/releases/v2.4/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "737d17e6fe00078dd5d220b60865396d626a9893204c10c859a7b89ca34439a5"
+  },
+  {
+    "url": "/releases/v2.5/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "d56a37a17b93c277a55f767bad4284dbf0c604af1897a6308f403a9eebb3c02a"
+  },
+  {
+    "url": "/releases/v2.6/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "6380e61c42fa7820a9500660990be3c3f4ffb6663460eabbe102f684d571b568"
+  },
+  {
+    "url": "/releases/v2.7/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "365505f9dcace180e7648a7a331dbf811807750e6dec3a0d63b4d7d3c77d0cd8"
+  },
+  {
+    "url": "/releases/v2.8/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "040d7c1a7d85199674586119a1cb7be69d2db740294e857cba832d05d3f88c6b"
+  },
+  {
+    "url": "/releases/v2.9/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "94cb4443c9ef9696e4bcb7f3fa00fafebd0fbede0608fa8e72416af17bc3cdbc"
+  },
+  {
+    "url": "/screenshots/20261005/chatgpt-plugins.jpg",
+    "status": 200,
+    "build_match": true,
+    "sha256": "9b1fbb23697eb1d8eba98d692d13d9da3f01b2631a6f3b014554244f352501c2"
+  },
+  {
+    "url": "/screenshots/20261005/chatgpt-web-start.jpg",
+    "status": 200,
+    "build_match": true,
+    "sha256": "b3d7cfcb1d2f60fefcd52c34c5e06cbae397b20121bc05fd7ccfef0d8a0ff1f0"
+  },
+  {
+    "url": "/screenshots/20261005/claude-cowork-start.jpg",
+    "status": 200,
+    "build_match": true,
+    "sha256": "859b5b6eff6e10c62f32291472ec7dd5871827905cc54a90d92a79c816dd2b3c"
+  },
+  {
+    "url": "/screenshots/20261005/claude-plugins.jpg",
+    "status": 200,
+    "build_match": true,
+    "sha256": "345adc9d9f3155bfbe3a11930733c154076b83436ea3586cc2fde61f3bda49d4"
+  },
+  {
+    "url": "/screenshots/_pending.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/claude-design/cd-access-desktop.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/claude-design/cd-access-layout.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/claude-design/cd-admin-enable.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/claude-design/cd-design-sync.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/claude-design/cd-ds-github.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/claude-design/cd-ds-published.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/claude-design/cd-ds-settings.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/claude-design/cd-export-menu.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/claude-design/cd-first-prompt.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/claude-design/cd-handoff-cc.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/claude-design/cd-refine-controls.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/claude-design/cd-share-perms.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/cowork/cowork-computeruse.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/cowork/cowork-connector-add.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/cowork/cowork-connector-auth.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/cowork/cowork-enterprise-admin.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/cowork/cowork-firsttask-prompt.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/cowork/cowork-firsttask-result.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/cowork/cowork-install-enable.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/cowork/cowork-install-plan.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/cowork/cowork-permissions-dialog.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/cowork/cowork-plugins-detail.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/cowork/cowork-schedule-create.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/cowork/cowork-setup-folder.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/cowork/cowork-setup-skills.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/cowork/cowork-skills-invoke.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/design/cd-access-desktop.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/design/cd-access-layout.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/design/cd-admin-enable.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/design/cd-design-sync.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/design/cd-ds-github.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/design/cd-ds-published.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/design/cd-ds-settings.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/design/cd-export-menu.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/design/cd-first-prompt.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/design/cd-handoff-cc.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/design/cd-refine-controls.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/design/cd-share-perms.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/getting-started/gs-firsttask-1.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/getting-started/gs-firsttask-2.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2d6041c8054d16354940e9c7dbfecc671e351e8cd6cd1195ff313b52058d10bc"
+  },
+  {
+    "url": "/screenshots/getting-started/install-step1.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "4c8a7bcff26c672dc9e391edb6b5f99fd287eb7e3b42c74027dcddfcb6fe44bc"
+  },
+  {
+    "url": "/screenshots/getting-started/install-step3.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "1ff0c98304ca429d48f311c993ef8ab52cec893b3651ba52175dd0f7f1f991ac"
+  },
+  {
+    "url": "/screenshots/getting-started/quick-start-marketplace-1.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "a7cde37f1c178f88d78b656d516d195d65f694ae3cb84818a40900ed728342ca"
+  },
+  {
+    "url": "/screenshots/getting-started/quick-start-marketplace-2.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "155569767fce7139b71748bd598c242e7194ac2af62d1ffbf0a49d9de87adf36"
+  },
+  {
+    "url": "/screenshots/getting-started/quick-start-marketplace-3.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "3577c9eb081f0ad1cf2e4c6b19cf55cb71c7e0e3977ee7e31f0aad5c7fc7042d"
+  },
+  {
+    "url": "/screenshots/getting-started/quick-start-plugin-install-1.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "619f93bee649b46a0bbf9a0e45985693bfc5584770067dfba2e708720fd0579d"
+  },
+  {
+    "url": "/screenshots/getting-started/quick-start-plugin-install-2.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "f1c607f716f487c06b70330bb0b364326cc54550b8766556741afff8326ec063"
+  },
+  {
+    "url": "/screenshots/getting-started/quick-start-plugin-install-3.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "63415107290c58517666cf4afc6c5225d50a11617d62bbc835e56fab003609ff"
+  },
+  {
+    "url": "/screenshots/getting-started/quick-start-project-1.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "d8115af4fd90945ce7fa61c4e9e462e9ac130c704b4726f70df7e7f8a5a8d5d9"
+  },
+  {
+    "url": "/screenshots/getting-started/quick-start-project-2.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "5c91c763c5d21f4e8e0cdd95d9105a14d79b76c11b6143c49d8603e8a8addb1e"
+  },
+  {
+    "url": "/screenshots/getting-started/quick-start-project-3.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "30992c6dbad3d49ec1327804663f3ccf810418168b88e3479d0442bac2209164"
+  },
+  {
+    "url": "/screenshots/getting-started/quick-start-project-4.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "8c6f819d3cb9ec521c77493fa343f7d449cf3429a01a8e6e6b7ad33d399f7dc3"
+  },
+  {
+    "url": "/screenshots/getting-started/quick-start-project-5.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "215cd679f9758c013a9aec386fd6bc1de23e86411a533219c0d0171d1dc20711"
+  },
+  {
+    "url": "/screenshots/getting-started/quick-start-project-6.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "caef16cd731cfbcec5328bc18e32ea4ccda6e507ef36c0d47d97b10a79d7e1fb"
+  },
+  {
+    "url": "/screenshots/getting-started/quick-start-project-7.png",
+    "status": 200,
+    "build_match": true,
+    "sha256": "1d5db46c59debb59b693c4392e04fd96d99230834cd0ca0c677c325dc34a21b8"
+  },
+  {
+    "url": "/tags/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "20d322a5c896c2de8e5a23f9956f2c50f15070c99101698c11e747d2dd214eb1"
+  },
+  {
+    "url": "/tags/automation/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "cda2e85cc32cc0e6c78214962797aed1f8fc4a0746f529a2ce197db845ad7a78"
+  },
+  {
+    "url": "/tags/automation/page/1/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "9c17811a35b6dbc14e3d14ed54a1e7d5403db389eccf3c92738332831bb088a4"
+  },
+  {
+    "url": "/tags/business/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "d3d702b1ae31012fad72a4b02080222aa534dcb8ccaada5e01ae985f7355b888"
+  },
+  {
+    "url": "/tags/business/page/1/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "fc0ea74f338647b9254e36f61d19468d6c2684943419c7cc84f6b014c6b50ad1"
+  },
+  {
+    "url": "/tags/career/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "8ce661bf0b18cc27469d666d6bd3310438049cd52bd795a57334b850da03feaf"
+  },
+  {
+    "url": "/tags/career/page/1/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "b7a1b54dc18cb500f1ee5e5a589f2592dc01cc7fce9d98d90f54da4153bb90ec"
+  },
+  {
+    "url": "/tags/commerce/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "5bae21b8b384382f259ae47f482ff0cf23ed5348016a6bf5b717258a9e4a124c"
+  },
+  {
+    "url": "/tags/commerce/page/1/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "07b9837df033b22a96bb9d1e5f742e60a7ddca439bd060923ec41dd1e123ae4d"
+  },
+  {
+    "url": "/tags/content/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "4e89648d42377d49fd6ec670a87375887f433d70d40bb6bd6189729f8f985d52"
+  },
+  {
+    "url": "/tags/content/page/1/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "a2e9e21d721a7b3c8412474124d4a5ff0ccba358e9d22664c550a40558bc211e"
+  },
+  {
+    "url": "/tags/cookbook/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "258a5ee5e215dde77b5d7dd584588a165aa72a5acbe775f1c4e94b576a73ff9e"
+  },
+  {
+    "url": "/tags/cookbook/page/1/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "c5cec40de66347846f6c94cf1f141f32888c5e7fcd646996c668d3b6af0ef1f4"
+  },
+  {
+    "url": "/tags/cookbook/page/2/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "ceef861a2d69840de7b9f2678fd44482995f8915449d4319dba4979e74a26220"
+  },
+  {
+    "url": "/tags/cookbook/page/3/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "55dfe546b5c8aaecea2f28b92dc20482ea5a3a93b48bd53f2da61d6993b5268d"
+  },
+  {
+    "url": "/tags/cs/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "f84ce97066c3b66b2e3a054cba5e26eb452980a8ff2087650a2caedc6e8172db"
+  },
+  {
+    "url": "/tags/cs/page/1/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "410bcc4423f0d0452bf9e7387959019d0e56e310d1dc3f62e89a7e6c5819f014"
+  },
+  {
+    "url": "/tags/data/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "f7df767d75f5b33a988116c9896163caea6a2336204aa9abbb3f31492f6025d0"
+  },
+  {
+    "url": "/tags/data/page/1/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "3e771bec08a6f7bb0ff2c8304655ac9423dbab9ca93782265638b6e4c2c6c0f7"
+  },
+  {
+    "url": "/tags/documents/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "fd8654484b82b1e19562dd4a48f77300e25d8468e086c88e6f6c82fb8613f067"
+  },
+  {
+    "url": "/tags/documents/page/1/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "53f2252bad97cdac28baa2a4013e0900cc58c84bea5dbde85545e84f73526211"
+  },
+  {
+    "url": "/tags/foundations/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "cd74779a2f50a8a7ac0d535629299ab707602624cd1f3bc5e19fbe8169258449"
+  },
+  {
+    "url": "/tags/foundations/page/1/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "d15719df66a0956755b69e82c90b559233ddc4b77393cde1135bf79eca0845f3"
+  },
+  {
+    "url": "/tags/legal/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "a3dc56a91da2a1f1ba04a5432c75e7142abc50f7a0bf36bdc80737fa222592d1"
+  },
+  {
+    "url": "/tags/legal/page/1/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "df361afe4b20c6f0d60cad84ecc1665c6698ea4cdaeb4d228fb0c0bd96d09150"
+  },
+  {
+    "url": "/tags/marketing/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "f853a222eb99785b3884d31b5c13d34c0e65920cd34caeed46649fb568e2a2e5"
+  },
+  {
+    "url": "/tags/marketing/page/1/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "64bc95a9212761711cb481c03400377e5b1687c988d22a28ea354784dcd28e1d"
+  },
+  {
+    "url": "/tags/office/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "d843ecfa629b4f7cacd4eee33e553b3ea549ea285f018ff6bbdbecefe3798198"
+  },
+  {
+    "url": "/tags/office/page/1/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "ad6f3a3808f4501985ef8b25e6593afe2e4f13527f10f0c7843484d330ef027a"
+  },
+  {
+    "url": "/tags/operations/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "c3732cb00939b02d690b9d969bcfe22d2e9c1490a732bd10f0864a767116c60f"
+  },
+  {
+    "url": "/tags/operations/page/1/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "39e7eea3eab82e6a52bf9a6d0b4bd768efc832f8b7aa9f48f52d5451bcb0b1fe"
+  },
+  {
+    "url": "/tags/page/1/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "e1465fbfa162d67635658bc19919f2e63645ff33bba83a36b46e476366cc6a09"
+  },
+  {
+    "url": "/tags/page/2/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "bf88b2d80dcb92caac3de6f8553a325c155f00455a80458146b498d52b341db8"
+  },
+  {
+    "url": "/tags/people/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "04a660d0ab23d78f7393e8873d1fa58b299dcbff0bf823e57488d3ba175d253e"
+  },
+  {
+    "url": "/tags/people/page/1/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "c0c98ec51ae8dcfc9a54ef304ccce8eceb37edd124658dbbda298ea70f9c6eac"
+  },
+  {
+    "url": "/tags/projects/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "dfe1d504559e4f8e475ff6b830199662fa6dd430c5dbb45350d0f95a29b404af"
+  },
+  {
+    "url": "/tags/projects/page/1/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "7e90c67941dc53101469118ba63d557069a68001e0a52654a6f1aea571fd8673"
+  },
+  {
+    "url": "/tags/projects/page/2/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "e55b5cfb7f484410e8650c8435bcd00f7e6d107073e32dba87fbf9190bdd950f"
+  },
+  {
+    "url": "/tags/skills/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "2db44f4fc7c9d2117a39bd28afd6b315d0dae542a6ee7b5d1bdda5e213658e18"
+  },
+  {
+    "url": "/tags/skills/page/1/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "d172210ea8cb6545d5bf09000f393d64c14b2d446be021728e528ded7c13f4c0"
+  },
+  {
+    "url": "/tags/startup/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "f4a5b411f5f7637f7c5780d5c42c45127be02ef1021101e1309e4bc508a62bdd"
+  },
+  {
+    "url": "/tags/startup/page/1/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "91bfc268777e6397ec423ab8084f51a18acb83c9648e77c1fd433a3ed1a87750"
+  },
+  {
+    "url": "/tags/troubleshooting/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "bb9ecadb802d0b5678a5c27f95e360dcb2a1c33516384683769dc629f01a2849"
+  },
+  {
+    "url": "/tags/troubleshooting/page/1/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "00db3125917442d45e90452c8701c6673389d6e3c67fbcedb4933f05a52d0900"
+  },
+  {
+    "url": "/workflows/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "a36e1e213a27aabb3a0a6d50712df9b9d745722d7c12fa75dc22570ecb100395"
+  },
+  {
+    "url": "/workflows/experts/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "ce078b56a59af8675515ca48db3c46ff5681c04d00db0507e0ea73ddd9eda1c0"
+  },
+  {
+    "url": "/workflows/first-project/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "6c6794f02db049131c9616924f8996757a6bf528e9a162cd33fec299db087ec7"
+  },
+  {
+    "url": "/workflows/permissions/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "927aaf393c3b23fe6e5dcd68628183c6a33181ef3b8fc976423527c1893e5fb5"
+  },
+  {
+    "url": "/workflows/reuse/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "5cfd5bddfb65cb79bdd6081ba304ea0d0039e925e83af58e151b29112417a2c4"
+  },
+  {
+    "url": "/workflows/review/",
+    "status": 200,
+    "build_match": true,
+    "sha256": "8ee7282928bb55504d1b6c66af8c128f3d2ad2918865a23a2918399c841bd33d"
+  }
+]

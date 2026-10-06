@@ -1,0 +1,909 @@
+[
+  {
+    "path": "/",
+    "status": 200,
+    "bytes": 50760
+  },
+  {
+    "path": "/learn/contents/",
+    "status": 200,
+    "bytes": 110057
+  },
+  {
+    "path": "/getting-started/choose-app/",
+    "status": 200,
+    "bytes": 79108
+  },
+  {
+    "path": "/getting-started/projects/",
+    "status": 200,
+    "bytes": 85906
+  },
+  {
+    "path": "/getting-started/install/",
+    "status": 200,
+    "bytes": 94566
+  },
+  {
+    "path": "/getting-started/quick-start/",
+    "status": 200,
+    "bytes": 81901
+  },
+  {
+    "path": "/getting-started/questions/",
+    "status": 200,
+    "bytes": 84238
+  },
+  {
+    "path": "/getting-started/",
+    "status": 200,
+    "bytes": 78427
+  },
+  {
+    "path": "/getting-started/concepts/",
+    "status": 200,
+    "bytes": 82501
+  },
+  {
+    "path": "/getting-started/first-task/",
+    "status": 200,
+    "bytes": 83606
+  },
+  {
+    "path": "/learn/preparation/",
+    "status": 200,
+    "bytes": 84646
+  },
+  {
+    "path": "/learn/01-delegation/",
+    "status": 200,
+    "bytes": 90353
+  },
+  {
+    "path": "/learn/",
+    "status": 200,
+    "bytes": 81069
+  },
+  {
+    "path": "/learn/02-project-context/",
+    "status": 200,
+    "bytes": 93354
+  },
+  {
+    "path": "/learn/03-first-result/",
+    "status": 200,
+    "bytes": 92970
+  },
+  {
+    "path": "/learn/04-skills-plugins/",
+    "status": 200,
+    "bytes": 88007
+  },
+  {
+    "path": "/learn/05-expert-workflow/",
+    "status": 200,
+    "bytes": 91400
+  },
+  {
+    "path": "/learn/06-review-reuse/",
+    "status": 200,
+    "bytes": 92990
+  },
+  {
+    "path": "/learn/screens/",
+    "status": 200,
+    "bytes": 90299
+  },
+  {
+    "path": "/learn/teaching-guide/",
+    "status": 200,
+    "bytes": 85850
+  },
+  {
+    "path": "/workflows/first-project/",
+    "status": 200,
+    "bytes": 84602
+  },
+  {
+    "path": "/workflows/review/",
+    "status": 200,
+    "bytes": 78704
+  },
+  {
+    "path": "/workflows/reuse/",
+    "status": 200,
+    "bytes": 82592
+  },
+  {
+    "path": "/workflows/experts/",
+    "status": 200,
+    "bytes": 82699
+  },
+  {
+    "path": "/workflows/permissions/",
+    "status": 200,
+    "bytes": 82860
+  },
+  {
+    "path": "/workflows/",
+    "status": 200,
+    "bytes": 78066
+  },
+  {
+    "path": "/cookbook/tracks/track-hr/",
+    "status": 200,
+    "bytes": 92860
+  },
+  {
+    "path": "/cookbook/ir-deck/",
+    "status": 200,
+    "bytes": 92626
+  },
+  {
+    "path": "/cookbook/legal-nda-batch/",
+    "status": 200,
+    "bytes": 92928
+  },
+  {
+    "path": "/cookbook/guides/social-media/",
+    "status": 200,
+    "bytes": 93087
+  },
+  {
+    "path": "/cookbook/projects/voc-to-faq/",
+    "status": 200,
+    "bytes": 93295
+  },
+  {
+    "path": "/cookbook/contract-review/",
+    "status": 200,
+    "bytes": 92917
+  },
+  {
+    "path": "/cookbook/projects/contract-risk-report/",
+    "status": 200,
+    "bytes": 93561
+  },
+  {
+    "path": "/cookbook/guides/contract-drafting/",
+    "status": 200,
+    "bytes": 93373
+  },
+  {
+    "path": "/cookbook/projects/public-data-report/",
+    "status": 200,
+    "bytes": 94358
+  },
+  {
+    "path": "/cookbook/tracks/track-advertising/",
+    "status": 200,
+    "bytes": 93212
+  },
+  {
+    "path": "/cookbook/guides/data-analysis/",
+    "status": 200,
+    "bytes": 93838
+  },
+  {
+    "path": "/cookbook/tracks/track-data/",
+    "status": 200,
+    "bytes": 93636
+  },
+  {
+    "path": "/cookbook/design/",
+    "status": 200,
+    "bytes": 74901
+  },
+  {
+    "path": "/cookbook/tracks/track-marketing/",
+    "status": 200,
+    "bytes": 93099
+  },
+  {
+    "path": "/cookbook/tracks/track-documents/",
+    "status": 200,
+    "bytes": 92898
+  },
+  {
+    "path": "/cookbook/automation-recipes/",
+    "status": 200,
+    "bytes": 81731
+  },
+  {
+    "path": "/cookbook/guides/legal-risk/",
+    "status": 200,
+    "bytes": 93094
+  },
+  {
+    "path": "/cookbook/tracks/track-legal/",
+    "status": 200,
+    "bytes": 92978
+  },
+  {
+    "path": "/cookbook/tracks/track-appendix/",
+    "status": 200,
+    "bytes": 93234
+  },
+  {
+    "path": "/cookbook/projects/brand-to-landing/",
+    "status": 200,
+    "bytes": 93758
+  },
+  {
+    "path": "/cookbook/blog-pipeline/",
+    "status": 200,
+    "bytes": 92872
+  },
+  {
+    "path": "/cookbook/business-plan/",
+    "status": 200,
+    "bytes": 93005
+  },
+  {
+    "path": "/cookbook/projects/startup-feasibility/",
+    "status": 200,
+    "bytes": 93549
+  },
+  {
+    "path": "/cookbook/projects/smartstore-launch/",
+    "status": 200,
+    "bytes": 93662
+  },
+  {
+    "path": "/cookbook/guides/data-visualization/",
+    "status": 200,
+    "bytes": 93675
+  },
+  {
+    "path": "/cookbook/troubleshooting/",
+    "status": 200,
+    "bytes": 77040
+  },
+  {
+    "path": "/cookbook/skill-chaining/",
+    "status": 200,
+    "bytes": 77827
+  },
+  {
+    "path": "/cookbook/templates/",
+    "status": 200,
+    "bytes": 75563
+  },
+  {
+    "path": "/cookbook/best-practices/",
+    "status": 200,
+    "bytes": 77376
+  },
+  {
+    "path": "/cookbook/",
+    "status": 200,
+    "bytes": 76504
+  },
+  {
+    "path": "/cookbook/templates/excel/",
+    "status": 200,
+    "bytes": 92727
+  },
+  {
+    "path": "/cookbook/tracks/track-operations/",
+    "status": 200,
+    "bytes": 92820
+  },
+  {
+    "path": "/cookbook/projects/webnovel-project/",
+    "status": 200,
+    "bytes": 94000
+  },
+  {
+    "path": "/cookbook/templates/email/",
+    "status": 200,
+    "bytes": 93375
+  },
+  {
+    "path": "/cookbook/projects/career-transition-4weeks/",
+    "status": 200,
+    "bytes": 93806
+  },
+  {
+    "path": "/cookbook/tracks/track-commerce/",
+    "status": 200,
+    "bytes": 92977
+  },
+  {
+    "path": "/cookbook/templates/financial/",
+    "status": 200,
+    "bytes": 93230
+  },
+  {
+    "path": "/cookbook/tracks/track-finance/",
+    "status": 200,
+    "bytes": 93019
+  },
+  {
+    "path": "/cookbook/projects/gov-grant-application/",
+    "status": 200,
+    "bytes": 93479
+  },
+  {
+    "path": "/cookbook/tracks/track-product/",
+    "status": 200,
+    "bytes": 93125
+  },
+  {
+    "path": "/cookbook/report-automation/",
+    "status": 200,
+    "bytes": 92622
+  },
+  {
+    "path": "/cookbook/projects/weekly-report-routine/",
+    "status": 200,
+    "bytes": 93486
+  },
+  {
+    "path": "/cookbook/guides/",
+    "status": 200,
+    "bytes": 76069
+  },
+  {
+    "path": "/cookbook/tracks/",
+    "status": 200,
+    "bytes": 76821
+  },
+  {
+    "path": "/cookbook/projects/hiring-pipeline/",
+    "status": 200,
+    "bytes": 93642
+  },
+  {
+    "path": "/cookbook/templates/compliance/",
+    "status": 200,
+    "bytes": 92917
+  },
+  {
+    "path": "/cookbook/guides/content-marketing/",
+    "status": 200,
+    "bytes": 93309
+  },
+  {
+    "path": "/cookbook/tracks/track-content/",
+    "status": 200,
+    "bytes": 92614
+  },
+  {
+    "path": "/cookbook/guides/funding/",
+    "status": 200,
+    "bytes": 93110
+  },
+  {
+    "path": "/cookbook/design/presentation/",
+    "status": 200,
+    "bytes": 92522
+  },
+  {
+    "path": "/cookbook/projects/",
+    "status": 200,
+    "bytes": 80127
+  },
+  {
+    "path": "/cookbook/projects/sns-content-month/",
+    "status": 200,
+    "bytes": 93770
+  },
+  {
+    "path": "/plugins/mcp/install/",
+    "status": 200,
+    "bytes": 81666
+  },
+  {
+    "path": "/plugins/mcp/credentials/",
+    "status": 200,
+    "bytes": 86772
+  },
+  {
+    "path": "/plugins/license/",
+    "status": 200,
+    "bytes": 78651
+  },
+  {
+    "path": "/plugins/agents/",
+    "status": 200,
+    "bytes": 78579
+  },
+  {
+    "path": "/plugins/teams/",
+    "status": 200,
+    "bytes": 76526
+  },
+  {
+    "path": "/plugins/mcp/troubleshooting/",
+    "status": 200,
+    "bytes": 81331
+  },
+  {
+    "path": "/plugins/mcp/",
+    "status": 200,
+    "bytes": 81407
+  },
+  {
+    "path": "/plugins/install/",
+    "status": 200,
+    "bytes": 98674
+  },
+  {
+    "path": "/plugins/",
+    "status": 200,
+    "bytes": 76731
+  },
+  {
+    "path": "/plugins/higgsfield-setup/",
+    "status": 200,
+    "bytes": 82382
+  },
+  {
+    "path": "/plugins/open-source/",
+    "status": 200,
+    "bytes": 92919
+  },
+  {
+    "path": "/moai-agents/cs/",
+    "status": 200,
+    "bytes": 95718
+  },
+  {
+    "path": "/moai-agents/analyst/",
+    "status": 200,
+    "bytes": 97352
+  },
+  {
+    "path": "/moai-agents/designer/",
+    "status": 200,
+    "bytes": 98405
+  },
+  {
+    "path": "/moai-agents/marketer/",
+    "status": 200,
+    "bytes": 100650
+  },
+  {
+    "path": "/moai-agents/media/",
+    "status": 200,
+    "bytes": 99899
+  },
+  {
+    "path": "/moai-agents/lawyer/",
+    "status": 200,
+    "bytes": 96401
+  },
+  {
+    "path": "/moai-agents/officer/",
+    "status": 200,
+    "bytes": 98751
+  },
+  {
+    "path": "/moai-agents/seller/",
+    "status": 200,
+    "bytes": 105793
+  },
+  {
+    "path": "/moai-agents/story/",
+    "status": 200,
+    "bytes": 101588
+  },
+  {
+    "path": "/moai-agents/recruiter/",
+    "status": 200,
+    "bytes": 96014
+  },
+  {
+    "path": "/moai-agents/writer/",
+    "status": 200,
+    "bytes": 97509
+  },
+  {
+    "path": "/moai-agents/accountant/",
+    "status": 200,
+    "bytes": 98644
+  },
+  {
+    "path": "/moai-agents/career/",
+    "status": 200,
+    "bytes": 95879
+  },
+  {
+    "path": "/moai-agents/consultant/",
+    "status": 200,
+    "bytes": 96211
+  },
+  {
+    "path": "/moai-agents/coworker/",
+    "status": 200,
+    "bytes": 104807
+  },
+  {
+    "path": "/moai-agents/tutor/",
+    "status": 200,
+    "bytes": 97675
+  },
+  {
+    "path": "/moai-agents/pm/",
+    "status": 200,
+    "bytes": 84790
+  },
+  {
+    "path": "/moai-agents/threads-poster/",
+    "status": 200,
+    "bytes": 93821
+  },
+  {
+    "path": "/moai-agents/",
+    "status": 200,
+    "bytes": 78487
+  },
+  {
+    "path": "/help/about-claude/",
+    "status": 200,
+    "bytes": 77654
+  },
+  {
+    "path": "/help/office/microsoft-365/",
+    "status": 200,
+    "bytes": 77672
+  },
+  {
+    "path": "/help/office/",
+    "status": 200,
+    "bytes": 75072
+  },
+  {
+    "path": "/help/personalization/",
+    "status": 200,
+    "bytes": 77328
+  },
+  {
+    "path": "/help/account/",
+    "status": 200,
+    "bytes": 77542
+  },
+  {
+    "path": "/help/",
+    "status": 200,
+    "bytes": 78264
+  },
+  {
+    "path": "/help/source-index/",
+    "status": 200,
+    "bytes": 80588
+  },
+  {
+    "path": "/help/troubleshooting/",
+    "status": 200,
+    "bytes": 81012
+  },
+  {
+    "path": "/help/plans-billing/",
+    "status": 200,
+    "bytes": 76956
+  },
+  {
+    "path": "/help/usage-limits/",
+    "status": 200,
+    "bytes": 79703
+  },
+  {
+    "path": "/help/conversations/",
+    "status": 200,
+    "bytes": 80015
+  },
+  {
+    "path": "/help/attribution/",
+    "status": 200,
+    "bytes": 77495
+  },
+  {
+    "path": "/advanced/",
+    "status": 200,
+    "bytes": 75111
+  },
+  {
+    "path": "/advanced/verification/",
+    "status": 200,
+    "bytes": 77865
+  },
+  {
+    "path": "/advanced/documentation/",
+    "status": 200,
+    "bytes": 79117
+  },
+  {
+    "path": "/advanced/plugins/",
+    "status": 200,
+    "bytes": 78464
+  },
+  {
+    "path": "/releases/docs-20261005/",
+    "status": 200,
+    "bytes": 76679
+  },
+  {
+    "path": "/releases/v1.2.6/",
+    "status": 200,
+    "bytes": 88927
+  },
+  {
+    "path": "/releases/v1.2.5/",
+    "status": 200,
+    "bytes": 90649
+  },
+  {
+    "path": "/releases/v1.2.4/",
+    "status": 200,
+    "bytes": 87818
+  },
+  {
+    "path": "/releases/v1.2.3/",
+    "status": 200,
+    "bytes": 92271
+  },
+  {
+    "path": "/releases/v1.2.2/",
+    "status": 200,
+    "bytes": 89430
+  },
+  {
+    "path": "/releases/v1.2.1/",
+    "status": 200,
+    "bytes": 92949
+  },
+  {
+    "path": "/releases/v1.2.0/",
+    "status": 200,
+    "bytes": 83392
+  },
+  {
+    "path": "/releases/v1.0.0/",
+    "status": 200,
+    "bytes": 85040
+  },
+  {
+    "path": "/releases/",
+    "status": 200,
+    "bytes": 89486
+  },
+  {
+    "path": "/releases/v1.1.0/",
+    "status": 200,
+    "bytes": 84877
+  },
+  {
+    "path": "/releases/archive/v1.0/",
+    "status": 200,
+    "bytes": 114233
+  },
+  {
+    "path": "/releases/archive/v1.2/",
+    "status": 200,
+    "bytes": 116189
+  },
+  {
+    "path": "/releases/archive/v1.3/",
+    "status": 200,
+    "bytes": 126268
+  },
+  {
+    "path": "/releases/archive/v1.5/",
+    "status": 200,
+    "bytes": 114531
+  },
+  {
+    "path": "/releases/archive/v1.6/",
+    "status": 200,
+    "bytes": 92533
+  },
+  {
+    "path": "/releases/archive/v2.0/",
+    "status": 200,
+    "bytes": 124360
+  },
+  {
+    "path": "/releases/archive/v2.1/",
+    "status": 200,
+    "bytes": 117885
+  },
+  {
+    "path": "/releases/archive/v2.10/",
+    "status": 200,
+    "bytes": 98268
+  },
+  {
+    "path": "/releases/archive/v2.11/",
+    "status": 200,
+    "bytes": 95895
+  },
+  {
+    "path": "/releases/archive/v2.11.1/",
+    "status": 200,
+    "bytes": 97246
+  },
+  {
+    "path": "/releases/archive/v2.12/",
+    "status": 200,
+    "bytes": 92966
+  },
+  {
+    "path": "/releases/archive/v2.12.1/",
+    "status": 200,
+    "bytes": 85359
+  },
+  {
+    "path": "/releases/archive/v2.12.2/",
+    "status": 200,
+    "bytes": 81904
+  },
+  {
+    "path": "/releases/archive/v2.12.3/",
+    "status": 200,
+    "bytes": 82676
+  },
+  {
+    "path": "/releases/archive/v2.13/",
+    "status": 200,
+    "bytes": 98870
+  },
+  {
+    "path": "/releases/archive/v2.14/",
+    "status": 200,
+    "bytes": 88749
+  },
+  {
+    "path": "/releases/archive/v2.15/",
+    "status": 200,
+    "bytes": 92530
+  },
+  {
+    "path": "/releases/archive/v2.16/",
+    "status": 200,
+    "bytes": 99321
+  },
+  {
+    "path": "/releases/archive/v2.17/",
+    "status": 200,
+    "bytes": 98038
+  },
+  {
+    "path": "/releases/archive/v2.18/",
+    "status": 200,
+    "bytes": 94730
+  },
+  {
+    "path": "/releases/archive/v2.19/",
+    "status": 200,
+    "bytes": 92598
+  },
+  {
+    "path": "/releases/archive/v2.2/",
+    "status": 200,
+    "bytes": 92044
+  },
+  {
+    "path": "/releases/archive/v2.20/",
+    "status": 200,
+    "bytes": 96491
+  },
+  {
+    "path": "/releases/archive/v2.21/",
+    "status": 200,
+    "bytes": 97045
+  },
+  {
+    "path": "/releases/archive/v2.22/",
+    "status": 200,
+    "bytes": 96485
+  },
+  {
+    "path": "/releases/archive/v2.23/",
+    "status": 200,
+    "bytes": 79781
+  },
+  {
+    "path": "/releases/archive/v2.24/",
+    "status": 200,
+    "bytes": 82440
+  },
+  {
+    "path": "/releases/archive/v2.25/",
+    "status": 200,
+    "bytes": 83463
+  },
+  {
+    "path": "/releases/archive/v2.26/",
+    "status": 200,
+    "bytes": 80316
+  },
+  {
+    "path": "/releases/archive/v2.27/",
+    "status": 200,
+    "bytes": 81687
+  },
+  {
+    "path": "/releases/archive/v2.3/",
+    "status": 200,
+    "bytes": 117951
+  },
+  {
+    "path": "/releases/archive/v2.4/",
+    "status": 200,
+    "bytes": 103205
+  },
+  {
+    "path": "/releases/archive/v2.5/",
+    "status": 200,
+    "bytes": 98282
+  },
+  {
+    "path": "/releases/archive/v2.6/",
+    "status": 200,
+    "bytes": 101060
+  },
+  {
+    "path": "/releases/archive/v2.7/",
+    "status": 200,
+    "bytes": 93370
+  },
+  {
+    "path": "/releases/archive/v2.8/",
+    "status": 200,
+    "bytes": 104035
+  },
+  {
+    "path": "/releases/archive/v2.9/",
+    "status": 200,
+    "bytes": 93879
+  },
+  {
+    "path": "/releases/archive/",
+    "status": 200,
+    "bytes": 76300
+  },
+  {
+    "path": "/screenshots/20261006/chatgpt-download.jpg",
+    "status": 200,
+    "bytes": 67729,
+    "matches_saved_bytes": true
+  },
+  {
+    "path": "/screenshots/20261006/claude-download.jpg",
+    "status": 200,
+    "bytes": 50356,
+    "matches_saved_bytes": true
+  },
+  {
+    "path": "/screenshots/20261006/claude-desktop-plugins.png",
+    "status": 200,
+    "bytes": 259607,
+    "matches_saved_bytes": true
+  },
+  {
+    "path": "/screenshots/20261006/chatgpt-plugin-add.jpg",
+    "status": 200,
+    "bytes": 57756,
+    "matches_saved_bytes": true
+  },
+  {
+    "path": "/screenshots/20261006/chatgpt-plugin-detail.jpg",
+    "status": 200,
+    "bytes": 64556,
+    "matches_saved_bytes": true
+  },
+  {
+    "path": "/screenshots/20261006/claude-plugin-add.jpg",
+    "status": 200,
+    "bytes": 74816,
+    "matches_saved_bytes": true
+  },
+  {
+    "path": "/screenshots/20261006/claude-marketplace-url.jpg",
+    "status": 200,
+    "bytes": 74772,
+    "matches_saved_bytes": true
+  }
+]

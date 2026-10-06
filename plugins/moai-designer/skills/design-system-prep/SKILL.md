@@ -3,7 +3,8 @@ name: design-system-prep
 description: |
   사용자 브랜드 자산을 조사하고 출처가 드러나는 디자인 시스템 문서와
   Claude Design에 전달할 자료 목록을 준비합니다.
-version: "1.1.3"
+metadata:
+  version: "1.1.4"
 ---
 
 # 디자인 시스템 자료 준비

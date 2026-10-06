@@ -1,0 +1,44 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "moai-consultant",
+  "version": "1.2.8",
+  "description": "경영·창업 컨설팅 전담 AI 코워커 — 사업계획서·비즈니스 모델·시장 분석(TAM/SAM/SOM)·경영 진단 브리프·정부 지원사업 탐색·상권분석 보고서 작성. 예비 창업자·소상공인·스타트업 운영자를 위한 스킬을 제공합니다.",
+  "author": {
+    "name": "모두의 AI",
+    "email": "email@mo.ai.kr",
+    "url": "https://cowork.mo.ai.kr"
+  },
+  "homepage": "https://cowork.mo.ai.kr/plugins/",
+  "repository": "https://github.com/modu-ai/moai-cowork",
+  "license": "Apache-2.0",
+  "keywords": [
+    "moai",
+    "consultant",
+    "business",
+    "strategy",
+    "startup",
+    "컨설팅",
+    "사업계획서"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "💼 컨설턴트",
+        "shortDescription": "💼 컨설턴트 — 사업계획서·시장분석·창업 컨설팅",
+        "longDescription": "경영·창업 컨설팅 전담 AI 코워커 — 사업계획서·비즈니스 모델·시장 분석(TAM/SAM/SOM)·경영 진단 브리프·정부 지원사업 탐색·상권분석 보고서 작성. 예비 창업자·소상공인·스타트업 운영자를 위한 스킬을 제공합니다.",
+        "developerName": "모두의 AI",
+        "category": "Business",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://cowork.mo.ai.kr",
+        "defaultPrompt": [
+          "사업계획서 초안 작성해줘",
+          "정부 지원사업 매칭 찾아줘"
+        ],
+        "brandColor": "#3d7d5f"
+      }
+    }
+  }
+}

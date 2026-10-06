@@ -1,178 +1,187 @@
 main:
-  # ============================================================
-  # 플러그인 전용 목차 (2026-07 리뉴얼)
-  # 플러그인 외 섹션(시작하기·가이드·Chat·Cowork·Design·Code·CLI·도움말·쿡북·실전트랙)은
-  # 메뉴에서 제외했습니다. 콘텐츠 파일은 content/에 그대로 보존되어 URL 직접 접근과
-  # 기존 리다이렉트(aliases)는 계속 동작합니다. 필요 시 항목을 다시 추가하면 복원됩니다.
-  # ============================================================
-  - name: 모두의 코워크
-    icon: home
-    defaultOpen: true
-    sub:
-      - name: 홈 — 플러그인 패밀리
-        ref: /
-
   - name: 시작하기
     icon: lightbulb
     defaultOpen: true
     sub:
-      - name: 개요
-        ref: /getting-started
-      - name: 빠른 시작
-        ref: /getting-started/quick-start
-      - name: 핵심 개념
-        ref: /getting-started/concepts
+      - name: 홈
+        ref: /
+      - name: 처음 방문했다면
+        ref: /getting-started/
+      - name: 사용 환경 선택
+        ref: /getting-started/choose-app/
       - name: 데스크톱 앱 설치
-        ref: /getting-started/install
-      - name: 첫 작업
-        ref: /getting-started/first-task
-
-  - name: 플러그인 설치·운용
-    icon: plug
-    defaultOpen: true
-    sub:
-      - name: 개요
-        ref: /plugins
-      - name: 설치와 관리
-        ref: /plugins/install
-      - name: 전문가 에이전트 이해
-        ref: /plugins/agents
-      - name: 팀 구성 패턴
-        ref: /plugins/teams
-      - name: MCP 연동
-        ref: /plugins/mcp
-      - name: MCP 설치와 설정
-        ref: /plugins/mcp/install
-      - name: API 키 넣는 법
-        ref: /plugins/mcp/credentials
-      - name: MCP 문제 해결
-        ref: /plugins/mcp/troubleshooting
-      - name: Higgsfield MCP 설정
-        ref: /plugins/higgsfield-setup
-      - name: 라이선스와 산출물 권리
-        ref: /plugins/license
-      - name: 오픈소스 크레딧
-        ref: /plugins/open-source
-
-  - name: AI 코워커 소개
-    icon: bot
-    defaultOpen: true
-    sub:
-      - name: 코워커 한눈에
-        ref: /moai-agents
-      - name: PM (진입 허브)
-        ref: /moai-agents/pm
-      - name: 코워커
-        ref: /moai-agents/coworker
-      - name: 작가
-        ref: /moai-agents/writer
-      - name: 스토리 크리에이터
-        ref: /moai-agents/story
-      - name: 마케터
-        ref: /moai-agents/marketer
-      - name: 미디어 크리에이터
-        ref: /moai-agents/media
-      - name: 셀러
-        ref: /moai-agents/seller
-      - name: 사무관
-        ref: /moai-agents/officer
-      - name: 데이터 애널리스트
-        ref: /moai-agents/analyst
-      - name: 법무
-        ref: /moai-agents/lawyer
-      - name: 재무세무
-        ref: /moai-agents/accountant
-      - name: 인사채용
-        ref: /moai-agents/recruiter
-      - name: CS매니저
-        ref: /moai-agents/cs
-      - name: 컨설턴트
-        ref: /moai-agents/consultant
-      - name: 커리어코치
-        ref: /moai-agents/career
-      - name: 튜터
-        ref: /moai-agents/tutor
-      - name: 디자이너
-        ref: /moai-agents/designer
-      - name: SNS 크리에이터
-        ref: /moai-agents/threads-poster
-
-  - name: 쿡북
+        ref: /getting-started/install/
+      - name: 전체 목차와 학습 경로
+        ref: /learn/contents/
+      - name: 첫 결과물 만들기
+        ref: /getting-started/first-task/
+      - name: 핵심 개념
+        ref: /getting-started/concepts/
+      - name: 내 프로젝트 설정
+        ref: /getting-started/projects/
+      - name: 질문에 답하는 방법
+        ref: /getting-started/questions/
+  - name: 온라인 강의실
     icon: book
+    defaultOpen: true
+    sub:
+      - name: 수업 안내
+        ref: /learn/
+      - name: 준비 · 앱 설치와 기능 추가
+        ref: /learn/preparation/
+      - name: 1강 · 업무 맡기기
+        ref: /learn/01-delegation/
+      - name: 2강 · 프로젝트와 자료
+        ref: /learn/02-project-context/
+      - name: 3강 · 질문과 첫 결과
+        ref: /learn/03-first-result/
+      - name: 4강 · 스킬과 플러그인
+        ref: /learn/04-skills-plugins/
+      - name: 5강 · 전문가 업무 순서
+        ref: /learn/05-expert-workflow/
+      - name: 6강 · 검토와 반복 업무
+        ref: /learn/06-review-reuse/
+      - name: 실제 화면 안내
+        ref: /learn/screens/
+      - name: 강사용 수업 안내
+        ref: /learn/teaching-guide/
+  - name: 내 업무에 적용
+    icon: chef
     defaultOpen: false
     sub:
-      - name: 개요
-        ref: /cookbook
-      - name: 스킬 체이닝 가이드
-        ref: /cookbook/skill-chaining
-      - name: 베스트 프랙티스
-        ref: /cookbook/best-practices
-      - name: 자동화 레시피
-        ref: /cookbook/automation-recipes
-      - name: 블로그 파이프라인
-        ref: /cookbook/blog-pipeline
-      - name: 주간 보고서 자동화
-        ref: /cookbook/report-automation
-      - name: 사업계획서 자동화
-        ref: /cookbook/business-plan
-      - name: IR 덱 제작
-        ref: /cookbook/ir-deck
-      - name: 계약서 검토 리포트
-        ref: /cookbook/contract-review
-      - name: NDA 일괄 검토 파이프라인
-        ref: /cookbook/legal-nda-batch
-      - name: 트러블슈팅
-        ref: /cookbook/troubleshooting
-
+      - name: 프로젝트 업무 흐름
+        ref: /workflows/
+      - name: 첫 프로젝트
+        ref: /workflows/first-project/
+      - name: 전문가 분업
+        ref: /workflows/experts/
+      - name: 파일과 권한
+        ref: /workflows/permissions/
+      - name: 결과 검토
+        ref: /workflows/review/
+      - name: 반복 업무
+        ref: /workflows/reuse/
+      - name: 업무별 실습
+        ref: /cookbook/
+      - name: 실전 프로젝트
+        ref: /cookbook/projects/
+      - name: 분야별 학습
+        ref: /cookbook/tracks/
+      - name: 작성 템플릿
+        ref: /cookbook/templates/
+      - name: 업무 가이드
+        ref: /cookbook/guides/
+      - name: 디자인 실습
+        ref: /cookbook/design/
+  - name: 스킬과 플러그인
+    icon: plug
+    defaultOpen: false
+    sub:
+      - name: 기능과 설치 안내
+        ref: /plugins/
+      - name: 설치와 관리
+        ref: /plugins/install/
+      - name: 에이전트 이해
+        ref: /plugins/agents/
+      - name: 팀 구성
+        ref: /plugins/teams/
+      - name: MCP 연결
+        ref: /plugins/mcp/
+      - name: MCP 설정
+        ref: /plugins/mcp/install/
+      - name: API 키와 인증
+        ref: /plugins/mcp/credentials/
+      - name: 연결 문제 해결
+        ref: /plugins/mcp/troubleshooting/
+      - name: Higgsfield 설정
+        ref: /plugins/higgsfield-setup/
+      - name: 산출물 권리
+        ref: /plugins/license/
+      - name: 오픈소스 고지
+        ref: /plugins/open-source/
+  - name: 역할별 코워커
+    icon: bot
+    defaultOpen: false
+    sub:
+      - name: 역할 선택
+        ref: /moai-agents/
+      - name: PM
+        ref: /moai-agents/pm/
+      - name: 코워커
+        ref: /moai-agents/coworker/
+      - name: 작가
+        ref: /moai-agents/writer/
+      - name: 스토리 크리에이터
+        ref: /moai-agents/story/
+      - name: 마케터
+        ref: /moai-agents/marketer/
+      - name: 미디어 크리에이터
+        ref: /moai-agents/media/
+      - name: 셀러
+        ref: /moai-agents/seller/
+      - name: 사무관
+        ref: /moai-agents/officer/
+      - name: 데이터 애널리스트
+        ref: /moai-agents/analyst/
+      - name: 법무
+        ref: /moai-agents/lawyer/
+      - name: 재무세무
+        ref: /moai-agents/accountant/
+      - name: 인사채용
+        ref: /moai-agents/recruiter/
+      - name: CS매니저
+        ref: /moai-agents/cs/
+      - name: 컨설턴트
+        ref: /moai-agents/consultant/
+      - name: 커리어코치
+        ref: /moai-agents/career/
+      - name: 튜터
+        ref: /moai-agents/tutor/
+      - name: 디자이너
+        ref: /moai-agents/designer/
+      - name: SNS 크리에이터
+        ref: /moai-agents/threads-poster/
   - name: 도움말
     icon: question
     defaultOpen: false
     sub:
-      - name: 개요
-        ref: /help
-      - name: Claude 알아보기
-        ref: /help/about-claude
-      - name: 요금제와 결제
-        ref: /help/plans-billing
-      - name: 계정 관리
-        ref: /help/account
-      - name: 대화 관리
-        ref: /help/conversations
-      - name: 개인화와 설정
-        ref: /help/personalization
-      - name: 사용량과 한도
-        ref: /help/usage-limits
+      - name: 문제 찾기
+        ref: /help/
+      - name: 두 앱 알아보기
+        ref: /help/about-claude/
+      - name: 계정
+        ref: /help/account/
+      - name: 대화와 결과
+        ref: /help/conversations/
+      - name: 개인화
+        ref: /help/personalization/
+      - name: 요금과 결제
+        ref: /help/plans-billing/
+      - name: 사용량
+        ref: /help/usage-limits/
       - name: 문제 해결
-        ref: /help/troubleshooting
-      - name: 출처와 저작권 표기
-        ref: /help/attribution
-      - name: 가이드 문서 색인
-        ref: /help/source-index
-
-  - name: 릴리스 노트
-    icon: tag
+        ref: /help/troubleshooting/
+      - name: Office 파일
+        ref: /help/office/
+      - name: 출처 표기
+        ref: /help/attribution/
+      - name: 공식 자료 색인
+        ref: /help/source-index/
+  - name: 고급 설정과 운영
+    icon: star
     defaultOpen: false
     sub:
-      - name: 릴리스 홈
-        ref: /releases
-      - name: v1.2.6
-        ref: /releases/v1.2.6
-        isNew: true
-      - name: v1.2.5
-        ref: /releases/v1.2.5
-      - name: v1.2.4
-        ref: /releases/v1.2.4
-      - name: v1.2.3
-        ref: /releases/v1.2.3
-      - name: v1.2.2
-        ref: /releases/v1.2.2
-      - name: v1.2.1
-        ref: /releases/v1.2.1
-      - name: v1.2.0
-        ref: /releases/v1.2.0
-      - name: v1.1.0
-        ref: /releases/v1.1.0
-      - name: v1.0.0
-        ref: /releases/v1.0.0
-      - name: 이전 릴리스 아카이브
-        ref: /releases/archive
+      - name: 고급 문서
+        ref: /advanced/
+      - name: 개발자 설치
+        ref: /advanced/plugins/
+      - name: 검증과 배포
+        ref: /advanced/verification/
+      - name: 문서 제작과 촬영
+        ref: /advanced/documentation/
+      - name: 문서 개편 기록
+        ref: /releases/docs-20261005/
+      - name: 릴리스 정보
+        ref: /releases/
+      - name: 이전 릴리스
+        ref: /releases/archive/

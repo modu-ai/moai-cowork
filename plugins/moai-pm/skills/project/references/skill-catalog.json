@@ -1,0 +1,1863 @@
+{
+  "schema_version": 1,
+  "source": "modu-ai/moai-cowork",
+  "usage": "recommendation_only",
+  "plugins": [
+    {
+      "name": "moai-accountant",
+      "version": "1.3.9",
+      "description": "재무·세무 전담 AI 코워커 — 재무제표 분석·결산 관리·차이 분석·IR, 개인 세금 절약·가계 예산·투자 입문·보험 적합성 스킬. OpenDART 전자공시 MCP 연결을 지원합니다. 사업자·재무 담당자·개인 재테크 입문자를 위한 참고 자료이며 세무사·회계사 자문을 대체하지 않습니다."
+    },
+    {
+      "name": "moai-analyst",
+      "version": "1.3.7",
+      "description": "데이터·공공데이터 분석 전담 AI 코워커 — 데이터 프로파일링·시각화, 공공데이터 조회(부동산·경매·주식·KOSIS·건축물대장·DART 전자공시) 스킬. KOSIS 통계·건축HUB·DART MCP 연동. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 데이터 애널리스트·사무직·기획자·자영업 운영자."
+    },
+    {
+      "name": "moai-career",
+      "version": "1.2.7",
+      "description": "구직자 편 커리어 코칭 전담 AI 코워커 — 이력서·포트폴리오 첨삭, 면접 준비, 이직 전략까지 커리어 전환 실무 스킬. 인사채용(고용주 편)과 구분되는 구직자 관점입니다. 이런 분께 추천: 이직 준비자·취업 준비생·주니어 직장인."
+    },
+    {
+      "name": "moai-consultant",
+      "version": "1.2.8",
+      "description": "경영·창업 컨설팅 전담 AI 코워커 — 사업계획서·비즈니스 모델·시장 분석(TAM/SAM/SOM)·경영 진단 브리프·정부 지원사업 탐색·상권분석 보고서 작성. 예비 창업자·소상공인·스타트업 운영자를 위한 스킬을 제공합니다."
+    },
+    {
+      "name": "moai-coworker",
+      "version": "1.2.28",
+      "description": "실무 범용 코어 AI 코워커 — 브랜드·제안서·보고·협상·프로세스와 라이프스타일·자기계발 작업을 돕습니다."
+    },
+    {
+      "name": "moai-cs",
+      "version": "1.2.9",
+      "description": "고객지원·CRM 전담 AI 코워커 — 티켓 분류·응답 초안·에스컬레이션·지식베이스와 VOC 분석·채널 메시지까지 고객 접점 실무 스킬을 제공합니다. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 온라인 셀러·CS 담당자·1인 사업자."
+    },
+    {
+      "name": "moai-designer",
+      "version": "1.4.73",
+      "description": "브랜드 디자인 시스템과 DESIGN.md, 디자인 토큰, 로고·비주얼, 모션 랜딩 제작을 돕는 스킬. Claude Design 핸드오프를 읽고 공식 Higgsfield 연결 또는 앱 이미지 도구로 브랜드 이미지 작업을 진행합니다."
+    },
+    {
+      "name": "moai-lawyer",
+      "version": "1.4.17",
+      "description": "법무 전담 AI 코워커 — 계약 검토·NDA 트리아지·컴플라이언스 점검·법령/판례 리서치·국내외 특허/상표 선행조사·식약처 안전 기준 스킬. 국가법령정보 MCP(korean-law)로 인용을 검증하고, 특허/상표 공식 데이터 MCP(moai-mcp-ip)로 한국·미국·일본·유럽 DB를 조회합니다. 이런 분께 추천: 1인 사업자·스타트업 운영자. ※ 법률 자문 대체가 아닌 참고 자료입니다."
+    },
+    {
+      "name": "moai-marketer",
+      "version": "1.2.24",
+      "description": "마케팅 전담 AI 코워커 — 캠페인 기획·퍼포먼스 분석·키워드 리서치·그로스 실험·리텐션, 블로그·뉴스레터·SNS 콘텐츠 스킬. Meta Ads·게시 채널 MCP 연동. 일반 이미지는 ChatGPT 기본 도구를, 전문 미디어 제작은 연결된 도구와 moai-media 스킬을 확인합니다. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 마케터·콘텐츠 크리에이터·1인 브랜드."
+    },
+    {
+      "name": "moai-media",
+      "version": "3.3.15",
+      "description": "미디어 생성 전담 AI 코워커 — ChatGPT Work 기본 이미지 생성, Higgsfield 이미지·영상·제품 촬영·캐릭터 일관성(Soul/Element), ElevenLabs TTS/보이스클로닝, GPT Image 2.5·Gemini 3·Midjourney v8 프롬프트 빌더와 NotebookLM 연동. Higgsfield 3D·설명 영상 완성은 현재 연결에 제출·조립 도구가 있을 때만 진행합니다. ChatGPT Images 2.5는 기본 이미지 도구를 사용하고 Flare·Sunburst API 모델 ID 지정은 별도 경로를 확인합니다."
+    },
+    {
+      "name": "moai-officer",
+      "version": "1.3.9",
+      "description": "사무 문서 전담 AI 코워커 — 한국형 오피스 문서(HWPX·DOCX·XLSX·PPTX·PDF)·HTML 리포트/슬라이드 생성, 공문서 파싱, 노션 템플릿·생산성 루틴 스킬. kordoc MCP 연동. 공공데이터 조회·데이터 분석은 moai-analyst로, 라이프스타일·자기계발은 moai-coworker로 분리. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 사무직·기획자·자영업 운영자."
+    },
+    {
+      "name": "moai-pm",
+      "version": "1.7.0",
+      "description": "프로젝트 초기화 허브 AI 코워커 — /project로 진입합니다. Claude Cowork·ChatGPT Work에서 설치된 코워커를 확인하고 AGENTS.md와 호스트별 커스텀 에이전트를 생성하며, 이후 프로젝트 지침을 개선합니다. 비개발자도 자연어 한마디로 프로젝트를 시작할 수 있습니다."
+    },
+    {
+      "name": "moai-recruiter",
+      "version": "2.0.9",
+      "description": "인사·채용 전담 AI 코워커(고용주 편) — 채용 공고 분석·이력서 스크리닝·오퍼레터/근로계약서·성과평가·People Ops를 돕습니다. 구직자 편은 moai-career(커리어코치)로 분리되었습니다. 이런 분께 추천: 채용 담당자·인사 실무자."
+    },
+    {
+      "name": "moai-seller",
+      "version": "1.4.32",
+      "description": "이커머스 셀러 전담 AI 코워커 — 스마트스토어·아임웹·카페24 MCP 연동과 상세페이지·마켓플레이스·광고·CRM 등 커머스 실무 스킬. VOC·채널 메시지는 moai-cs(CS매니저)로 이관. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 온라인 셀러·이커머스 운영자."
+    },
+    {
+      "name": "moai-story",
+      "version": "1.2.5",
+      "description": "스토리/IP 창작 전담 AI 코워커 — 웹툰 제작 체인(기획→캐릭터→회차→식자→작화→QC)·웹소설 연재(기획→집필)·영상 시나리오·콘티·표지·IP 사업화 스킬. 플랫폼 제출 규격은 최신 공고를 확인하고, 이미지는 현재 앱의 도구로, Higgsfield 요청은 별도 공식 연결로 생성합니다. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 웹툰/웹소설 창작자·시나리오 작가·IP 콘텐츠 기획자."
+    },
+    {
+      "name": "moai-threads-poster",
+      "version": "2.0.6",
+      "description": "Threads·Instagram(Meta) 자율 발행 전담 AI 코워커 — 직접 Graph API 연결 MCP(월정액 없음). 세션 안에서 초안을 작성해 보여드리고 승인하면 텍스트·이미지·비디오를 즉시 발행합니다. 큐·예약·승인 상태머신은 없습니다. 예약·정기 발행은 사용 중인 앱의 지원 여부를 확인합니다. Facebook 개인 계정은 API 미지원(정책)이라 복붙만 지원합니다."
+    },
+    {
+      "name": "moai-tutor",
+      "version": "1.3.5",
+      "description": "교육 전담 AI 코워커 — 커리큘럼 설계·학습 자료·평가 문항 제작·강좌 운영 매뉴얼·논문 검색/작성·연구 보조 스킬. 강사와 학습자 양쪽 워크플로우를 지원합니다. 이런 분께 추천: 강사·교육 기획자·대학원생·연구자."
+    },
+    {
+      "name": "moai-writer",
+      "version": "1.5.14",
+      "description": "출판·텍스트 전담 AI 코워커 — 도서 기획·집필·퇴고·제안서·출판사 조사와 한국어 윤문을 돕습니다. 공개 맞춤법 검사기는 이용 조건과 원고 공개 범위를 확인한 뒤 사용자 주도로 사용합니다. 스토리/IP 창작은 별도 moai-story 플러그인이 담당합니다. 이런 분께 추천: 작가·1인 출판인·실용서 저자."
+    }
+  ],
+  "skills": [
+    {
+      "id": "moai-accountant:finance-audit",
+      "version": "1.0.2",
+      "description": "재무제표·결산 패키지·예산 차이·세액 계산·IR 모델의 숫자와 출처를 읽기 전용으로 대조합니다. 사용자가 재무 검수를 요청했거나 중요한 수치를 배포하기 전에 확인할 때 사용합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:c2ec1b0068e7fde794545850f355c15f9a39b6acb475b054565805ff8f609e9a"
+    },
+    {
+      "id": "moai-accountant:finance-close-management",
+      "version": "1.1.4",
+      "description": "월말·분기·연간 결산을 도와주는 스킬입니다. '결산 체크리스트 만들어줘', '4대보험 정산해줘', '급여 마감해줘'처럼 말하면 됩니다. K-IFRS 기준 계정 마감, 급여 정산, 세무 일정 관리, 결산 보고서 자동 생성을 지원합니다. 적용 연도의 공식 보험료율과 세무 일정을 확인해 반영합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:a8521507d5618584f8ee052897db6f9ec47c3795abbb19c42cb619ef4d3aca80"
+    },
+    {
+      "id": "moai-accountant:finance-econ-literacy",
+      "version": "1.1.4",
+      "description": "금리·환율·물가 같은 경제지표를 '내 돈' 관점에서 읽도록 도와주는 스킬입니다. '금리 오르면 어떻게 돼', '환율이 내 자산에 미치는 영향', '경제지표 읽는 법', 'GDP가 뭐야', '경기 사이클'처럼 말하면 됩니다. 금리·환율·물가(CPI)·GDP·고용·수출입 지표가 대출·예금·투자·소비에 어떻게 연결되는지 쉬운 언어로 설명합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:3047f825481d327a520fa6164fec535b098778072c818bcbdecb868865a7a6c8"
+    },
+    {
+      "id": "moai-accountant:finance-financial-statements",
+      "version": "1.1.4",
+      "description": "재무제표를 만들어주는 스킬입니다. '재무상태표 작성해줘', '손익계산서 분석해줘', 'K-IFRS 기준으로 재무제표 만들어줘'처럼 말하면 됩니다. 원장과 적용 회계기준을 확인해 재무제표 초안·주석·재무비율 분석을 지원합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:a3cc7e35887c015f5dcbc027f845f45b386cf56ba75dd6afcf87257a69e54623"
+    },
+    {
+      "id": "moai-accountant:finance-household-budget",
+      "version": "1.1.4",
+      "description": "월급 관리와 가계부, 예산 배분, 소비 회고를 도와주는 스킬입니다. '통장 쪼개기 해줘', '월급 관리법', '가계부 어떻게 써', '돈이 자꾸 새', '예산 짜줘'처럼 말하면 됩니다. 통장 쪼개기, 50/30/20 예산, 가계부 분류, 소비 회고 루틴으로 매달 저축 가능액을 확보하는 돈 관리 시스템을 설계합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:c6f783baf1b4968272f445afd91ca59de6153c26c2a668af848aa5ad29e7c76c"
+    },
+    {
+      "id": "moai-accountant:finance-insurance-fit",
+      "version": "1.1.4",
+      "description": "나에게 꼭 필요한 보험만 남기고 과보험·중복을 정리하도록 돕는 스킬입니다. '보험 점검해줘', '실손 꼭 들어야 해', '암보험 필요할까', '보험료가 너무 많아', '보험 리모델링'처럼 말하면 됩니다. 필요한 보험 진단(실손·암·종신·연금), 과보험·중복 점검, 생애주기별 우선순위, 보험 리모델링을 한국 보험 기준으로 안내합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:3c5c53255cb528a6ca4b23788a6675eb5370bbb219c7e62e1660b5f6517e6245"
+    },
+    {
+      "id": "moai-accountant:finance-invest-primer",
+      "version": "1.1.4",
+      "description": "투자를 처음 시작하는 사람에게 기본 원칙과 자산군, 초보 포트폴리오를 안내하는 스킬입니다. '투자 어떻게 시작해', '주식 초보', 'ETF가 뭐야', '분산투자 방법', '초보 포트폴리오 짜줘'처럼 말하면 됩니다. 분산·장기·리스크 관리 원칙, 자산군(주식/ETF/채권/부동산/예적금) 비교, 초보 포트폴리오, 투자 사기 회피를 한국 투자자 관점에서 설명합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:cac6601977262453e736e5b5e94073ae0bcccfb22494768cd6f9b19c957745e9"
+    },
+    {
+      "id": "moai-accountant:finance-investor-relations",
+      "version": "1.1.3",
+      "description": "근거가 확인된 투자자 자료와 가정이 표시된 재무 모델 초안을 작성합니다.\n다음과 같은 요청 시 사용하세요:\n- \"IR 덱 만들어줘\"\n- \"투자자 피치 자료 써줘\"\n- \"재무 모델 만들어줘\"\n- \"매출 예측 좀 해줘\"\n- \"밸류에이션 계산해줘\"\n- \"시리즈 A 투자 유치 자료 준비해줘\"\n- \"투자자 보고서 정리해줘\"\n회사의 단계와 자료에 맞춘 피치덱·재무 모델·예상 질문 Q&A를 만들고 필요한 형식으로 정리합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:23590f2cd0ad858504c79f6401cd5361bb269f025ff868574f14ed700a8eb745"
+    },
+    {
+      "id": "moai-accountant:finance-personal-tax-saver",
+      "version": "1.1.4",
+      "description": "근로자 연말정산에서 환급을 더 받도록 절세 전략을 짜주는 스킬입니다. '연말정산 환급 늘리는 법', '소득공제 뭐 챙겨', '연금저축 세액공제', '13월의 월급', '맞벌이 절세'처럼 말하면 됩니다. 소득공제와 세액공제의 구조 및 항목별 요건을 적용 연도 국세청 자료로 확인합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:0f3bf3912224490fdfb853d84229c9d0ed90cf0917e8c2d3b0a11d83a50a87b9"
+    },
+    {
+      "id": "moai-accountant:finance-tax-helper",
+      "version": "1.1.5",
+      "description": "세금 관련 질문에 답해주는 스킬입니다. '3.3% 원천징수 계산해줘', '종합소득세 신고 방법 알려줘', '부가세 신고 어떻게 해줘'처럼 말하면 됩니다. 소득 분류에 따른 원천징수, 종합소득세, 부가가치세, 홈택스 신고 절차를 한국 세법 기준으로 안내합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:27c71ef745cb0ef22e96aa654a4f2be6e3bcffe2a787c694d479b2b27d917a99"
+    },
+    {
+      "id": "moai-accountant:finance-variance-analysis",
+      "version": "1.1.4",
+      "description": "예산과 실적 차이를 분석해주는 스킬입니다. '예산 대비 실적 분석해줘', '매출 미달 원인 찾아줘', '비용 초과 분석해줘'처럼 말하면 됩니다. 매출·비용·이익 항목별 분산 원인 분석, KPI 추적, 수익성 개선 권고안 도출을 지원합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:beb9fa3f1702ccfdaa35496dd338e652743c61ad08191ce366ec9fad7fdf27e2"
+    },
+    {
+      "id": "moai-accountant:finance-wealth-roadmap",
+      "version": "1.1.4",
+      "description": "재테크를 어디서부터 시작할지 막막할 때 나만의 자산 관리 로드맵을 짜주는 스킬입니다. '재테크 어떻게 시작해', '종잣돈 모으는 법', '내 자산 관리 계획 세워줘', '월급으로 1억 모으기'처럼 말하면 됩니다. 재무 현황 진단 → 목표 설정 → 종잣돈 단계 → 자산 배분 → 자동화·점검의 5단계로 개인 맞춤 재테크 로드맵을 설계합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:8c9866c35419f9da9c4bd6d42e3116a591e01ad4cb6e4cd1dbb9b0031fd6db70"
+    },
+    {
+      "id": "moai-accountant:finance-workflow",
+      "version": "1.0.2",
+      "description": "재무제표·결산·예산 차이·IR·세무 안내가 섞인 요청에서 필요한 자료와 과세 연도를 확인하고 moai-accountant의 finance-* 스킬로 연결합니다. 단일 문서는 해당 전용 스킬을 바로 사용합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:b8e9ae6a6f76b63558036c76af7c8bf12bf495413a073c77c23f5c964485c4bc"
+    },
+    {
+      "id": "moai-analyst:data-building-ledger",
+      "version": "1.1.3",
+      "description": "국토교통부 건축HUB 건축물대장·건축인허가·주택인허가 실측 데이터로 한 필지의 용도지역·주용도·구조·규모·건폐율/용적률·세대/주차·사용승인일·내진·공시가격 시계열·노후도·철거멸실(석면)·인허가 파이프라인을 조회해 드립니다. archhub MCP의 11개 도구를 호출하므로 별도 설치·API 키가 필요 없습니다(공용키 hosted remote 커넥터).\n다음과 같은 요청 시 사용하세요:\n- \"자양동 2-2번지 건물 정보 한눈에\", \"이 필지 용도지역·건폐율·용적률 보여줘\"\n- \"자양동 건축물 통계 내줘\", \"이 동네 주용도 분포\"\n- \"광진구 자양동 노후건물 40년 넘은 것\", \"노후건축물 정비사업 대상 선별\"\n- \"자양동 철거된 건물 석면 포함\", \"철거멸실 현황\"\n- \"진행 중인 건축 인허가\", \"허가 났는데 사용승인 전인 건물\"\n- \"이 빌딩 층별로 뭐가 있는지\", \"층별 용도·면적\"\n- \"자양동 24-28번지 공시가격 추이\", \"공시가격 시계열\"\n- \"건축물대장 원본 보여줘\", \"건축인허가 이력\"\n건축사·시공·중개·감정평가·디벨로퍼·공무원이 실무에서 바로 쓰는 건축물 실체 데이터입니다.\n본 스킬은 \"건축물 실체(용도·구조·규모·규제·인허가·노후·철거)\" 전담입니다. \"실거래가/전월세 시세\"는 data-realestate를 사용하세요.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:87c2ed5359b8d1fab64d805d57f2191a20f0e96e188650aca86da916a2c36f31"
+    },
+    {
+      "id": "moai-analyst:data-court-auction",
+      "version": "1.1.2",
+      "description": "대법원 법원경매정보(courtauction.go.kr) 부동산 매각공고를 매각기일·법원·기일/기간\n입찰 기준으로 조회하고, 각 공고를 사건번호·용도·주소·감정평가액·최저매각가로\n펼쳐서 보여줍니다. 법원사무소 코드와 사건번호로 단건 직접 조회도 지원합니다.\nread-only이며 IP 차단 방지를 위해 호출당 약 2초 지연을 둡니다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"오늘 어디서 부동산 경매 열려?\", \"내일 매각공고 보여줘\"\n- \"서울중앙지방법원 2026-04-27 매각공고\", \"기일입찰만 보여줘\"\n- \"사건번호 2024타경100001 진행 상황 알려줘\"\n- \"법원 경매 매각공고\", \"courtauction.go.kr\", \"경매 사건 검색\"\n- \"감정평가액 최저매각가\", \"매각기일별 결과\", \"유찰 횟수\"\n- 자산 처분·경매 투자·실사 검토 시\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:5bf54c48991c20c231bd4e71b9a7ac6da9ca407d7699dc48908d951026c27692"
+    },
+    {
+      "id": "moai-analyst:data-explorer",
+      "version": "1.1.3",
+      "description": "CSV·Excel 데이터의 프로파일링·품질 보고서를 만들어 드립니다.\n다음과 같은 요청 시 사용하세요:\n- \"이 데이터 분석해줘\"\n- \"CSV 요약해줘\"\n- \"이상값 찾아줘\"\n- \"데이터 품질 체크해줘\"\n컬럼 요약·결측값/이상값 탐지·상관관계 분석을 거쳐 데이터 품질 보고서로 정리합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:068e13986984fe0233417e39148ea0cde6df92f6bb879abd5a0b84386767fd1e"
+    },
+    {
+      "id": "moai-analyst:data-provenance-audit",
+      "version": "1.0.1",
+      "description": "공공데이터 보고서·데이터셋 분석·차트의 숫자와 출처를 대조합니다. 사용자가 데이터 검수를 요청했거나 중요한 수치를 인용·배포하기 전에 확인할 때 사용합니다. 원본과 외부 상태를 수정하지 않습니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:ff1ca565907c38a771b892c88a884f728a99ab6b12a7af915cfae77cb2e2fe31"
+    },
+    {
+      "id": "moai-analyst:data-public",
+      "version": "1.1.2",
+      "description": "공공데이터포털(data.go.kr)·KOSIS 통계청의 실시간 통계를 정밀 조회·분석해 드립니다. 자연어 1줄 질문(인구·고용·출산·물가·미세먼지 등)은 korean-stats MCP(공용키 hosted, 발급 불필요)를 우선하고, 본 스킬은 data.go.kr OpenAPI 직접 제어·정밀 조회·고급 분석이 필요할 때 사용합니다.\n다음과 같은 요청 시 사용하세요:\n- \"data.go.kr API로 직접 조회해줘\"\n- \"KOSIS OpenAPI 파라미터 제어하면서 통계 가져와\"\n- \"공공데이터포털 특정 API 엔드포인트 호출\"\n- \"통계 찾아줘\", \"공공데이터 정밀 조회\", \"KOSIS 고급 분석\"\n자연어 KOSIS 통계 1줄 질문(예: \"광진구 고용률\")은 korean-stats MCP(14도구·92 키워드·17 시도·230+ 자치구, 공용키 hosted)를 우선하고, 본 스킬은 BYOK(DATA_GO_KR_API_KEY/KOSIS_API_KEY) 기반 정밀 제어 경로를 담당합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:a5d038b4241f6df2c70434e4fcbca068a0ea2487c4844ecf99e6516917fedcd3"
+    },
+    {
+      "id": "moai-analyst:data-realestate",
+      "version": "1.1.1",
+      "description": "국토교통부 실거래가 신고 데이터로 아파트·오피스텔·연립다세대·단독다가구·상업업무용 부동산의 매매·전월세 시세를 조회해 드립니다(별도 API 키 없이 바로 사용).\n다음과 같은 요청 시 사용하세요:\n- \"잠실 리센츠 2024년 매매 실거래가 찾아줘\"\n- \"강남구 아파트 실거래가 알려줘\"\n- \"마포구 아파트 전세 실거래 보여줘\"\n- \"성수동 오피스텔 월세 시세 조회해줘\"\n- \"용산구 상업업무용 건물 거래내역 찾아줘\"\n- \"전세 보증금 추이 알려줘\"\n- \"이 단지 평형별 시세 비교해줘\"\n지역·단지·거래년월로 실거래를 조회해 중위값·최소·최대와 대표 거래를 요약하고, 입지 분석이나 투자 검토로 이어집니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:e86a0e0fd72b814bbb3dba61da83ee7fdf508e9cf23fbcf2920c93403f30a4f7"
+    },
+    {
+      "id": "moai-analyst:data-stock",
+      "version": "1.1.1",
+      "description": "KRX(한국거래소) 상장 종목을 검색하고 종목 기본정보·일별 시세를 조회합니다.\nk-skill-proxy 경유로 호출하므로 사용자는 KRX_API_KEY 발급이나 별도 MCP 서버\n설치가 필요 없습니다. read-only 일별 snapshot이며 실시간 호가·체결은 제공하지\n않습니다. 투자 자문이 아닙니다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"삼성전자 종목코드\", \"005930 기본정보\", \"SK하이닉스 시세\"\n- \"KOSDAQ 알테오젠 종가/거래량\", \"코스피 시가총액\"\n- \"주식 종목 검색\", \"KRX 상장 종목\", \"한국 주식 시세\"\n- \"20260408 종가\", \"어제 거래량\", \"전일 등락률\"\n- moai-coworker의 DART 공시 분석을 보완하는 KRX 시세 데이터 필요 시\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:e7c462a0812a11bb93f818dfd9d2d86ef176c887f046d3fda920bc3b37529518"
+    },
+    {
+      "id": "moai-analyst:data-visualizer",
+      "version": "1.1.3",
+      "description": "데이터를 한눈에 보여주는 인터랙티브 차트·대시보드(HTML)를 만들어 드립니다.\n다음과 같은 요청 시 사용하세요:\n- \"차트 만들어줘\"\n- \"그래프 그려줘\"\n- \"시각화해줘\"\n- \"대시보드 만들어줘\"\n데이터 형식과 사용자의 기존 프로젝트에 맞춰 표·Mermaid·단일 HTML 차트·기존 앱의 차트 라이브러리 중 필요한 방식을 선택합니다. PPT·Word가 필요하면 사용할 수 있는 문서 도구로 연결합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:17f651f751530afe45a5d565cb9fa1c7ef6b52799c51fb0166e001e997e79c8a"
+    },
+    {
+      "id": "moai-analyst:data-workflow",
+      "version": "1.0.2",
+      "description": "공공데이터 조회와 자체 데이터셋 분석·시각화가 섞인 요청에서 범위·기간·출처를 확인하고 moai-analyst의 data-* 스킬로 연결합니다. 한 종류의 조회나 차트는 해당 전용 스킬을 바로 사용합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:c1e11e3fbff00eff90497b9bc75ab710166d5261b69d7bc86d6f35a16dfe32a4"
+    },
+    {
+      "id": "moai-career:career-claim-audit",
+      "version": "1.0.2",
+      "description": "이력서·자기소개서·포트폴리오·면접 준비 자료의 경력 주장, 성과 수치, 날짜와 개인정보 노출을 원자료와 대조합니다. 구직자가 제출 전 검수를 요청했을 때 사용하며 원본은 수정하지 않습니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:b4c7a5abf1fbb84cafd8f3bcd17b6661d010a2fb4f66e69da1c542783bd9c8f8"
+    },
+    {
+      "id": "moai-career:career-interview",
+      "version": "1.1.5",
+      "description": "한국 취준생·재직 이직자를 위한 면접 준비·모의 면접·답변 코칭 스킬입니다. \"면접 준비해줘\", \"예상 질문 뽑아줘\", \"모의 면접 해줘\", \"팀핏 질문 대비\"처럼 말하면 됩니다. AI 역량검사, 역량 면접(BEI), PT, 토론, 임원, 팀 협업 면접까지 유형별 대비 + 모의 면접 루프 (질문→답변→피드백) + 역질문 15종 + 화상/하이브리드 면접 가이드를 제공합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:0f262f4273c30850ec1bdbec0f1277380179468b96e7f09e53b771c5444276b6"
+    },
+    {
+      "id": "moai-career:career-junior-onboarding",
+      "version": "1.1.2",
+      "description": "신입·주니어가 첫 90일을 스스로 설계하도록 돕는 온보딩 코칭 스킬입니다. \"신입인데 뭘 해야 할지 모르겠어\", \"첫 출근 준비\", \"질문하는 법 알려줘\", \"사수가 없어\", \"일 빨리 배우고 싶어\"처럼 요청할 때 사용하세요. 입사 전 준비 → 첫 90일 정보 비대칭 해소 → 질문 3요소 프레임 → 보고 기술 → 사수 없이 성장하기 → 생산성 로드맵까지 단계별 워크플로우와 90일 온보딩 플랜, 질문 템플릿, 셀프 온보딩 체크리스트를 제공합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:a096d1faa5255039484b8f870f4fa4be9bf2fc8e101a36fed26ceb8558e60b7c"
+    },
+    {
+      "id": "moai-career:career-portfolio",
+      "version": "1.1.5",
+      "description": "한국 신입 취준생·재직자를 위한 분야별 포트폴리오 구성과 프로젝트 기술서 작성 스킬입니다. \"포트폴리오 만들어줘\", \"프로젝트 정리해줘\", \"노션 포트폴리오 구성해줘\"처럼 말하면 됩니다. 개발(GitHub·기술 블로그)/디자인(Figma·Behance)/마케팅/기획 분야별 + 검색되는 노션 포트폴리오 + 채용공고 맞춤형 1page 소개서와 프로젝트별 비중 조정을 지원합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:00af6165cf5e1494d74e220fe6bc956d3456d86a6b034fbf93fc5b5ee8018fef"
+    },
+    {
+      "id": "moai-career:career-resume",
+      "version": "1.1.5",
+      "description": "한국 취준생·재직 이직자를 위한 자기소개서·이력서·경력기술서·영문 CV·링크드인 작성 스킬입니다. \"자소서 써줘\", \"이력서 만들어줘\", \"경력기술서 정리해줘\", \"1page 셀링 시트 만들어줘\"처럼 말하면 됩니다. KKK-STAR 자소서, USP+CAR 이력서, ATS·블라인드·NCS 모드, 사실성 검토, 500/1000/1500자 분량 자동, 영문 CV·LinkedIn 헤드라인을 지원합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:12699495d7746884c27fbcec2354e5500979136711e442b0f3ade9b3a95c5af4"
+    },
+    {
+      "id": "moai-career:career-transition",
+      "version": "1.1.2",
+      "description": "이직·전직을 감정이 아닌 프로젝트로 설계하도록 돕는 커리어 전환 전략 스킬입니다. \"이직 준비 도와줘\", \"이직 타이밍인지 모르겠어\", \"연봉 협상 어떻게 하지\", \"경력기술서 서사 잡아줘\", \"퇴사 절차 알려줘\"처럼 요청할 때 사용하세요. 타이밍 진단 → 현황 분석 → 목표 설정 → 시장조사 → 갭 메우기 → 경력 서사 → 면접 → 연봉 협상 → 오프보딩까지 9단계 워크플로우와 이직 전략 캔버스, 연봉 협상 스크립트, 인수인계 체크리스트를 제공합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:42b0767b9450f19a67cd39413a719d6e1c0738f3531fd68f30edb681007852d0"
+    },
+    {
+      "id": "moai-career:career-workflow",
+      "version": "1.0.2",
+      "description": "구직자의 이력서·포트폴리오·면접·이직 계획이 함께 필요한 요청에서 실제 경험과 목표 직무를 확인하고 moai-career의 career-* 스킬로 연결합니다. 채용 담당자 편 업무는 moai-recruiter로 보냅니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:3ba4c2eedebbe966916f975443642e8cad862b786b9b2c158994e8c3d83cd42e"
+    },
+    {
+      "id": "moai-consultant:consult-brief",
+      "version": "1.1.3",
+      "description": "현황 진단부터 30-60-90일 실행 계획까지 담은 전문 컨설팅 제안서(브리프)를 만들어 드립니다.\n다음과 같은 요청 시 사용하세요:\n- \"컨설팅 제안서 만들어줘\"\n- \"경영 진단 보고서 써줘\"\n- \"우리 회사 컨설팅 브리프 작성해줘\"\n- \"전략 컨설팅 문서 정리해줘\"\n- \"경영 개선 제안서 만들어줘\"\n- \"비즈니스 진단 리포트 써줘\"\n- \"현황 분석하고 권고안까지 정리해줘\"\nExecutive Summary·현황 분석·문제 정의·권고사항·실행 로드맵 구조로 작성하며, 파일 변환 기능이 있으면 요청한 PPT 형식으로도 전달합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:3a308fb4069258cdd43f5b211c778fd04f9e6dc1693ee3860fa5ee640cb625ca"
+    },
+    {
+      "id": "moai-consultant:consult-feasibility-audit",
+      "version": "1.0.2",
+      "description": "사업계획서·시장 분석·지원사업 신청서·상권 보고서의 수치, 출처, 산식, 자격요건과 타당성 주장을 읽기 전용으로 검수합니다. 근거 없는 판정을 찾고 미검증 항목을 분리할 때 사용합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:07a5a43e606c1c6ea6564850af189acdfd81c6f2075c33c91c61962d1e0d8556"
+    },
+    {
+      "id": "moai-consultant:consult-gov-grant",
+      "version": "1.1.3",
+      "description": "현재 공고와 신청자 자료를 대조해 정부·공공기관 지원사업 후보와 사업계획서·신청서 초안을 정리합니다. 파일 생성 기능이 있으면 요청한 Word·한글·Excel 형식으로도 전달합니다.\n창업자·소상공인·중소기업·연구자·비영리단체·개인 누구나 쓸 수 있습니다.\n다음과 같은 요청 시 사용하세요:\n- \"정부 지원사업 찾아줘\"\n- \"우리 상황에 맞는 지원금 있어?\"\n- \"사업계획서 초안 써줘\"\n- \"지원서 작성 도와줘\"\n- \"이 신청서 심사 기준으로 검토해줘\"\n- \"마감 전에 뭐 준비해야 해?\"\n- \"예비창업패키지 신청서 만들어줘\"\n- \"지원금 어떻게 쓰는지 모르겠어\"\n지원사업 탐색·신청서 초안·서류 검토·확인한 마감 일정 정리를 지원합니다.\n학술·R&D 연구비 특화 스킬이 설치돼 있으면 연결하고, 없으면 이 스킬에서 현재 공고의 확인 가능한 항목만 다룹니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:b44abc205b25b5ab7f9b03d931f5097dca31ec9f2e447f01e1f20ffcb38c0609"
+    },
+    {
+      "id": "moai-consultant:consult-market",
+      "version": "1.1.3",
+      "description": "시장 규모(TAM/SAM/SOM)·경쟁사 분석·가격 전략을 정리한 시장 분석 보고서를 만들어 드립니다.\n다음과 같은 요청 시 사용하세요:\n- \"시장 규모 조사해줘\"\n- \"TAM SAM SOM 산출해줘\"\n- \"경쟁사 분석해줘\"\n- \"포지셔닝 맵 만들어줘\"\n- \"가격 전략 세워줘\"\n- \"고객 세분화 좀 해줘\"\n- \"시장 조사 보고서 써줘\"\n공개 데이터로 시장 규모·경쟁 구도·가격 모델을 분석하고, 인사이트와 권고안까지 정리합니다.\n오프라인 상권 자료는 이 플러그인의 consult-sbiz365로 연결합니다. 온라인 카테고리·검색 키워드 분석은 moai-seller:commerce-market-research가 설치돼 있으면 연결하고, 없으면 이 스킬에서 확인 가능한 시장 자료만 분석합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:43234c02421f9b1e4c532e4aff9baccf7b617155d7ca93abcdfec610cf596862"
+    },
+    {
+      "id": "moai-consultant:consult-sbiz365",
+      "version": "1.1.3",
+      "description": "소상공인365 상권분석 PDF에서 확인한 인구·매출·점포 자료를 분석하고, 추가로 확인할 창업 조건을 보고서로 정리합니다.\n다음과 같은 요청 시 사용하세요:\n- \"이 상권 PDF 분석해줘\"\n- \"소상공인365 보고서 분석해줘\"\n- \"이 지역에서 창업해도 될까?\"\n- \"창업 타당성 검토해줘\"\n- \"이 동네 카페 차려도 괜찮을까?\"\n- \"유동인구랑 경쟁 점포 분석해줘\"\n- \"예상 매출 어느 정도일지 봐줘\"\nPDF를 첨부하면 업종·예산·목적을 확인하고, 근거와 자료 공백을 분리한 보고서를 만듭니다.\n산업 단위는 이 플러그인의 consult-market으로 연결합니다. 온라인 카테고리·검색 키워드 분석은 moai-seller:commerce-market-research가 설치돼 있으면 연결하고, 없으면 확인 가능한 시장 자료만 분석합니다. 이 스킬은 오프라인 상권 단위를 다룹니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:56c2e55ab6e8146c17ea353e527e48ec2773a3781f768c9a45edd70c7ecf3ccf"
+    },
+    {
+      "id": "moai-consultant:consult-startup",
+      "version": "1.1.3",
+      "description": "제공된 자료를 바탕으로 아이디어·사업계획서·비즈니스 모델 캔버스·피치덱·재무 모델·실행 로드맵을 필요한 범위에서 정리합니다.\n다음과 같은 요청 시 사용하세요:\n- \"스타트업 계획 짜줘\"\n- \"창업 사업계획서 써줘\"\n- \"비즈니스 모델 만들어줘\"\n- \"피치덱 구성해줘\"\n- \"BM 캔버스 설계해줘\"\n- \"시장 분석부터 재무 모델까지 전체 플랜 만들어줘\"\n- \"투자자 피치 자료 준비해줘\"\n아이디어 검증·시장 분석·BM 설계·피치덱·재무 모델·로드맵을 단계별로 검토하고, 사용 가능한 파일 변환 기능이 있으면 요청한 형식으로 전달합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:b6e1e1260896bc6511de1d4e11ad8d6a902007e66e6e38194f851769011e77db"
+    },
+    {
+      "id": "moai-consultant:consult-strategy",
+      "version": "1.1.3",
+      "description": "사업계획서·비즈니스 모델·신시장 진출 같은 전략 문서를 검증된 프레임워크(SWOT·린 캔버스·블루오션·OKR 등)로 정리해 만들어 드립니다.\n다음과 같은 요청 시 사용하세요:\n- \"사업계획서 써줘\"\n- \"비즈니스 모델 만들어줘\"\n- \"SWOT 분석해줘\"\n- \"린 캔버스 작성해줘\"\n- \"블루오션 전략 세워줘\"\n- \"OKR 설정해줘\"\n- \"해외 진출 전략 짜줘\"\n현황 분석·전략 프레임워크·전략 방향·실행 로드맵 구조로 작성하며, 파일 변환 기능이 있으면 요청한 PPT 형식으로도 전달합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:aef1856e81bccd4d34d81039f08b63709309b474e1b7c890674dcb742f4c9b32"
+    },
+    {
+      "id": "moai-consultant:consult-workflow",
+      "version": "1.0.1",
+      "description": "사업계획서·시장 분석·지원사업·상권 타당성처럼 여러 경영 컨설팅 산출물이 필요한 요청에서 자료를 확인하고 moai-consultant의 consult-* 스킬로 작업을 연결합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:dcb4a26cec204c7470317ad9318e7a99ac7df921c879d560935f188bb604c103"
+    },
+    {
+      "id": "moai-coworker:ai-diagnostic",
+      "version": "1.1.3",
+      "description": "AI 기반 다차원 진단 분석 스킬. 기술, 프로세스, 사람, 비즈니스 4차원 병렬 진단을 통해 근본 원인을 식별하고 우선순위별 해결책을 제시합니다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"시스템 진단\", \"문제 분석\", \"원인 파악\", \"diagnostic\", \"트러블슈팅\"\n- \"근본 원인\", \"현황 점검\", \"문제 해결\", \"시스템 이슈\"\n- 복합적 원인이 의심되는 문제 상황 진단\n- 성능 저하, 오류 원인, 병목 파악\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:b3cde891599adda902f55dd6918c0591826f3deec12a678597f632bd0ed5f006"
+    },
+    {
+      "id": "moai-coworker:ai-prompting-basics",
+      "version": "1.1.2",
+      "description": "비개발자가 Claude Cowork나 ChatGPT Work에 목표·맥락·자료·출력 형식을 분명하게 요청하도록 돕는 대화 가이드. \"AI에게 어떻게 물어보면 좋아?\" 같은 질문에 활용.",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:d495ec30f56dc474344afd98d1ebcf41b81b2e92f76bd2a89f6c821b0320d58e"
+    },
+    {
+      "id": "moai-coworker:ai-slop-reviewer",
+      "version": "1.1.3",
+      "description": "AI가 생성한 텍스트에서 기계적 패턴(AI 슬롭)을 감지하고 자연스러운 문장으로 수정하는 스킬. 블로그, 뉴스레터, 카피, 사업계획서, 제안서, 보고서, 이메일, 랜딩 카피 등의 서술형 본문을 검수할 때 사용합니다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"AI 티 나는 부분 고쳐줘\", \"사람이 쓴 것처럼 수정해줘\", \"AI 슬롭 제거해줘\"\n- \"너무 AI 같아\", \"너무 딱딱해\", \"자연스럽게 다듬어줘\"\n- \"이 글 AI가 쓴 것 같아 보여서...\", \"어색한 표현 수정해줘\"\n- \"보고서가 너무 기계적이야\", \"이메일이 너무 형식적이야\"\n- \"AI 패턴 검사해줘\", \"기계적인 느낌 없애줘\"\n- Cowork/다른 AI 도구로 생성한 문서의 후처리 검수 요청 시\n- 글쓰기 결과물을 인간적인 톤으로 개선하고 싶을 때\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:166892cded154e4ca92dc917aa98b1d21e5ae058953c3197096b185683d39eaf"
+    },
+    {
+      "id": "moai-coworker:collab-brand-identity",
+      "version": "1.1.4",
+      "description": "기업·제품 브랜드의 이름·슬로건·톤앤매너·색상까지 한 번에 정리한 브랜드 가이드 문서를 만들어 드립니다.\n다음과 같은 요청 시 사용하세요:\n- \"친환경 생활용품 브랜드 만들어줘, 2030 여성 타깃\"\n- \"우리 스타트업 이름 후보 좀 지어줘\"\n- \"브랜드명은 정했으니 슬로건이랑 톤앤매너만 만들어줘\"\n- \"카페 브랜드 리뉴얼하고 싶어\"\n- \"회사 브랜드 색상이랑 로고 컨셉 잡아줘\"\n- \"브랜드 포지셔닝이랑 전략 정리해줘\"\n- \"브랜드 가이드라인 문서로 만들어줘\"\n- \"기업 브랜딩 처음부터 도와줘\"\n네이밍 후보 평가, 슬로건, 브랜드 스토리, 색상 시스템, 채널별 적용 가이드를 문서로 묶어 줍니다. 텍스트는 자체 검수하고, 현재 앱에 노출된 윤문 스킬이 있으면 추가로 다듬습니다.\n[책임 경계] vs moai-marketer:marketing-personal-branding: 이 스킬=기업·제품 브랜드, 저 스킬=개인·전문가 브랜드.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:15ee6670efe0112a2f1b9e098633d9b240a177ca456f690d3f81505c82af6a18"
+    },
+    {
+      "id": "moai-coworker:collab-conflict",
+      "version": "1.1.3",
+      "description": "까다로운 동료·소통빌런과 부딪힐 때 감정 상하지 않게 대응하고 거리를 지키도록 도와주는 스킬입니다. '이 사람 어떻게 대하지', '자꾸 떠넘기는 동료', '거절하는 법', '직장 인간관계 스트레스', '갈등 대응'처럼 말하면 됩니다. 유형별 대응 전략, 감정과 사안 분리, 정중한 거절, 관계 거리 두기로 직장 갈등을 소모전이 아니라 관리 가능한 문제로 바꿉니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:0ff9d86f5632e92d3099a34ba6cb2a937795051a84a6055b0d478b525999ab79"
+    },
+    {
+      "id": "moai-coworker:collab-exec-summary",
+      "version": "1.1.3",
+      "description": "긴 보고서와 분석 자료를 경영진이 읽을 수 있는 짧은 의사결정 요약으로 정리합니다.\n\"임원 보고용으로 요약해줘\", \"이사회 자료 핵심만 정리해줘\", \"What/So What/Now What으로 써줘\" 같은 요청에 사용합니다.\n원문에 없는 성과·재무 수치·결정 시한을 만들지 않고, 필요한 경우 문서 제작 스킬로 연결합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:55711e6d57fa59d85ceaf75e610eb7578336a4a7c0ffa3b672436438b6953aa8"
+    },
+    {
+      "id": "moai-coworker:collab-feedback-loop",
+      "version": "1.1.3",
+      "description": "피드백을 건설적으로 주고, 받은 피드백을 감정 상하지 않게 소화하도록 도와주는 스킬입니다. '피드백 어떻게 줘야 해', '부정적 피드백 받았는데 속상해', '피드백 전달하는 법', '중간 점검 요청하고 싶어'처럼 말하면 됩니다. SBI 구조로 건설적 피드백을 설계하고, 받은 피드백을 사실과 감정으로 분리해 소화하며, 먼저 피드백을 요청하는 법까지 다룹니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:980d0c26513ed47d912534653336891c87c349c5e66c5d82d38253006e0ce77c"
+    },
+    {
+      "id": "moai-coworker:collab-meeting",
+      "version": "1.1.3",
+      "description": "회의가 산으로 가지 않게 아젠다를 짜고 결론까지 끌고 가는 진행을 도와주는 스킬입니다. '회의 아젠다 짜줘', '이 회의 어떻게 진행하지', '회의가 자꾸 산으로 가', '의사결정 회의 준비', '회의록 정리'처럼 말하면 됩니다. 목적 정의 → 아젠다 설계 → 진행 규칙 → 의사결정 → 회의록·후속 액션의 5단계로 결론이 남는 회의를 설계합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:5e081cb578f1c531b86e6e55ab04e5971a03d61e0e7207354244715207154aad"
+    },
+    {
+      "id": "moai-coworker:collab-negotiation",
+      "version": "1.1.3",
+      "description": "1:1 면담을 준비하고, 상대를 설득하거나 무언가를 요청·협상할 때 대화를 설계해 주는 스킬입니다. '면담 준비해줘', '이거 어떻게 설득하지', '연봉 협상 어떻게', '부탁하는 법', '정중하게 요청하고 싶어'처럼 말하면 됩니다. 면담 목표 설정 → 상대 입장 파악 → 설득 구조 → 요청·거절 화법 → 합의·후속의 5단계로 관계를 지키며 원하는 걸 얻는 대화를 만듭니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:55b3a4de20aaf780dd146d9b0c97290f7f31c2bb4ac3fc39b21970cbe8c9b026"
+    },
+    {
+      "id": "moai-coworker:collab-pm-report",
+      "version": "1.1.4",
+      "description": "사용자가 제공한 업무 기록이나 연결 서비스의 실제 자료로 팀 주간보고를 작성합니다.\n\"이번 주 한 일 정리해줘\", \"주간보고 만들어줘\", \"임원용으로 요약해줘\" 같은 요청에 사용합니다.\n읽지 못한 데이터와 확인되지 않은 성과는 보고서에 사실처럼 넣지 않습니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:65b63a01d8fd1c137a3f6154d1eb46915df68b187542e158441fed63bd670348"
+    },
+    {
+      "id": "moai-coworker:collab-process",
+      "version": "1.1.4",
+      "description": "업무 프로세스를 문서화하고 표준화합니다. \"SOP 만들어줘\", \"구매 요청서 써줘\", \"회의록 정리해줘\", \"운영 매뉴얼 작성해줘\"라고 요청할 때 사용하세요. 운영 매뉴얼, SOP(표준 운영 절차), 조달 문서(구매 요청서·발주서), 회의록 작성 및 안건 관리를 지원합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:b73b6951b9dd45ad91e2a8d7d4c7e37d3e3d5b183321357fd3e27aecf54cc101"
+    },
+    {
+      "id": "moai-coworker:collab-productivity-report",
+      "version": "1.1.3",
+      "description": "직장에서 제출하는 주간업무보고를 빠르게 작성해주는 스킬입니다. '주간보고 작성해줘', '이번 주 한 일 정리', '주간업무보고', '팀장님께 보낼 보고', '한 주 업무 리뷰'처럼 말하면 됩니다. 한 주 성과·진행 중 일·이슈·다음 주 계획을 정해진 틀로 정리하고, 격식체/구어체 톤까지 맞춰 보고서 초안을 만들어줍니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:26766b7fe09c3024d518ca7403326fb6ca5730faab655f58936e4bdc3e6e490f"
+    },
+    {
+      "id": "moai-coworker:collab-proposal",
+      "version": "1.1.3",
+      "description": "실제 고객 요구사항이나 RFP를 바탕으로 B2B 영업·공공조달 제안서 초안을 작성합니다.\n\"제안서 써줘\", \"이 RFP 답변 초안\", \"나라장터 기술 제안서\" 요청에 사용합니다.\n공고별 요구사항과 자사 증빙을 대조하고, 확인되지 않은 자격·실적·가격·ROI는 채워 넣지 않습니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:a6a7b4270443add04ae7f52105c948bd93449d9ba6efb26f66aefbdfd556cc30"
+    },
+    {
+      "id": "moai-coworker:collab-report-speak",
+      "version": "1.1.3",
+      "description": "상사에게 보고하거나 누군가에게 무언가를 설명할 때 결론부터 명확하게 전달하도록 도와주는 스킬입니다. '이거 어떻게 보고하지', '결론부터 말하는 법', '팀장님한테 보고할 내용 정리해줘', '설명을 쉽게 하고 싶어'처럼 말하면 됩니다. 결론 먼저(두괄식) 구조, 상사 유형별 보고 방식, 상대 머리에 꽂히는 설명 순서로 30초 안에 전달되는 보고·설명을 설계합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:5036d03ff13d28aba3c57ff3c87e673354823dd40d8896fbff0f4a9f3ef6c229"
+    },
+    {
+      "id": "moai-coworker:collab-roadmap",
+      "version": "1.1.4",
+      "description": "프로젝트 로드맵·마일스톤 계획과 전략적 제휴(MOU) 초안, ESG 지속가능성 감사·DEI 전략 문서를 만들어 드립니다.\n다음과 같은 요청 시 사용하세요:\n- \"로드맵 정리해줘\"\n- \"마일스톤 계획 세워줘\"\n- \"MOU 초안 작성해줘\"\n- \"ESG 지속가능성 감사 해줘\"\n- \"DEI 정책 도입 로드맵 설계해줘\"\n- \"분기별 마일스톤과 담당자 정리해줘\"\n일정·리소스·파트너십·지속가능성 계획을 실행 가능한 문서로 정리하고, ai-slop-reviewer·korean-humanize으로 마무리할 수 있습니다.\n[책임 경계] 운영 케이던스(주간보고·스탠드업·회고·OKR 추적)는 moai-pm, 본 스킬은 제품 발견·로드맵/마일스톤 기획\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:ec6047c571e43ed53130d6423febbfac224ae1d9fe88b04972b7e28bede0f59f"
+    },
+    {
+      "id": "moai-coworker:collab-sales-playbook",
+      "version": "1.1.2",
+      "description": "고객군, 접근 메시지, 예상 질문과 성과 측정 방법을 영업 플레이북으로 정리합니다.\n\"영업 플레이북 만들어줘\", \"B2B 영업 계획 세워줘\", \"이의처리 시나리오 써줘\" 같은 요청에 사용하세요.\n제공된 제품·고객·실적 자료를 바탕으로 초안을 만들고 확인되지 않은 기업 정보와 효과 수치는 구분합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:295dea39e863b9513fecb818788cc3f48f05896a6fc21949a94b0ea0b7063618"
+    },
+    {
+      "id": "moai-coworker:collab-spec",
+      "version": "1.1.3",
+      "description": "제품 요구사항 문서(PRD), 기능 명세서, AI 도입 검토 문서를 작성합니다.\n\"PRD 작성해줘\", \"기능 명세서 만들어줘\", \"AI 도입 전략 정리해줘\" 같은 요청에 사용하세요.\n제공된 요구사항과 근거를 검토 가능한 문서로 정리하고 미결정 사항을 분리합니다.\n정부 지원사업 신청서는 moai-consultant:consult-gov-grant, 연구비 과제 신청서는 moai-tutor:education-grant-writer로 연결합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:8550b46fb719539f3e4d1474810d36c394be0b31c657433921fa43f51841a06d"
+    },
+    {
+      "id": "moai-coworker:collab-status-report",
+      "version": "1.1.4",
+      "description": "제공된 자료로 KPI 현황과 운영 보고서를 정리합니다. \"주간 보고서 작성해줘\", \"KPI 현황 정리해줘\", \"월간 성과 보고서 만들어줘\"라고 요청할 때 사용하세요.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:a292ff63f60815c6f593ec66e91ccdac13f37c936caa8e9d46925953bd82453b"
+    },
+    {
+      "id": "moai-coworker:collab-ux-design",
+      "version": "1.1.3",
+      "description": "제공된 화면·플로우를 휴리스틱과 접근성 관점에서 검토하고 개선안을 정리합니다.\n\"UX 디자인 검토해줘\", \"접근성 점검해줘\", \"사용자 플로우 분석해줘\" 같은 요청에 사용하세요.\n실제 사용자 인터뷰와 VOC 분석은 moai-coworker:collab-ux-research로 연결합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:5761688c92e0d4fa4cf74daf80c44749445389d17ba6aafb911ce6c3b113c25d"
+    },
+    {
+      "id": "moai-coworker:collab-ux-research",
+      "version": "1.1.3",
+      "description": "사용자 인터뷰 가이드와 사용성 테스트 계획을 만들고, 제공된 VOC·설문·NPS 자료를 분석합니다.\n\"인터뷰 질문지 만들어줘\", \"VOC 분석해줘\", \"페르소나 정리해줘\" 같은 요청에 사용하세요.\n화면의 휴리스틱·접근성 검토는 moai-coworker:collab-ux-design로 연결합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:34ef02fc53d603ebc108e450a73f8d4316a479055b25c61c7df2b62c43519c1b"
+    },
+    {
+      "id": "moai-coworker:collab-vendor",
+      "version": "1.1.3",
+      "description": "제공된 자료로 공급업체 평가 기준, 계약 관리 체크리스트, 공급망 위험 등록부를 만듭니다. \"벤더 비교해줘\", \"계약 관리 체계 잡아줘\", \"납품 위험 정리해줘\" 같은 요청에 사용하세요.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:a300ef8c65810e62d5bb402bc91794bc18b1816524d5366b4b98c08de0339e13"
+    },
+    {
+      "id": "moai-coworker:meta-feedback",
+      "version": "1.1.3",
+      "description": "사용자가 요청한 플러그인 버그 신고와 기능 제안을 GitHub 이슈 초안으로 정리하고, 등록 요청이 있으면 이슈를 생성합니다.\n\"버그 신고\", \"기능 요청\", \"이슈 등록\" 같은 요청에 사용하세요.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:ef5bd7197d190667ba98b4befe896837c02f2fd229f71a2fca6375d559cc5c51"
+    },
+    {
+      "id": "moai-coworker:meta-skill-builder",
+      "version": "1.1.4",
+      "description": "6-Phase 스킬 생성 워크플로우. revfactory/harness 방법론을 기반으로 체계적으로 새 스킬을 생성합니다.\n요구사항 분석부터 최종 검증까지 전체 생명주기를 관리합니다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"새 스킬 만들어줘\", \"스킬 생성\", \"meta-skill-builder\"\n- \"이 기능 스킬로 만들고 싶어\", \"스킬 제작\"\n- \"Vibe 스킬 추가\", \"새 플러그인 스킬\"\n- meta-skill-template으로 시작한 스킬의 체계적 생성이 필요할 때\n",
+      "invocation_scope": "workflow",
+      "digest": "sha256:3243576dd435fd8b3cd1150a98016a30b0e0cb0d677041fbecac03769b0286aa"
+    },
+    {
+      "id": "moai-coworker:meta-skill-template",
+      "version": "1.1.3",
+      "description": "SKILL.md 표준 템플릿. 새 스킬 생성 시 이 템플릿을 기반으로 작성합니다.\n스킬 작성 가이드라인과 필수 섹션 구조를 정의합니다.\n\n다음과 같은 요청 시 이 스킬을 참조하세요:\n- \"새 스킬 만들고 싶어\", \"스킬 템플릿\", \"SKILL.md 템플릿\"\n- \"스킬 작성 방법\", \"스킬 구조\", \"스킬 포맷\"\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:4a80f07d6804c7fcbaaa97b46471d7b9eb39780190ef32928880160b856da283"
+    },
+    {
+      "id": "moai-coworker:meta-skill-tester",
+      "version": "1.1.3",
+      "description": "스킬 품질 검증 절차. 실행 가능한 테스트 케이스를 확인하고 관측한 결과를 기록합니다.\nA/B·회귀·체인 테스트의 기록 방식과 4차원 평가 기준을 제공합니다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"스킬 테스트해줘\", \"스킬 검증\", \"meta-skill-tester\"\n- \"이 스킬 품질 확인해줘\", \"A/B 테스트\"\n- \"스킬 회귀 테스트\", \"스킬 체인 테스트\"\n- \"스킬 루브릭 스코어링\", \"4차원 평가\"\n- meta-skill-builder Phase 5 이후 검증이 필요할 때\n",
+      "invocation_scope": "workflow",
+      "digest": "sha256:e10d820a396e68c5ffecbbc048a61eda9d037c3deb06d009108f28bbe4cf3c98"
+    },
+    {
+      "id": "moai-coworker:personal-event",
+      "version": "1.1.3",
+      "description": "행사·세미나·결혼식의 준비 항목과 일정·예산 초안을 만듭니다. \"결혼 준비 체크리스트 만들어줘\", \"사내 세미나 기획해줘\", \"행사 진행 순서 짜줘\" 같은 요청에 사용하세요.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:691bc73377f301726ae8ed39ab394529b636e42a266bdecd48e86bea31c89f0d"
+    },
+    {
+      "id": "moai-coworker:personal-self-care",
+      "version": "1.1.2",
+      "description": "지치거나 쉬기 어렵다고 느끼는 사람이 일상 부담을 살피고 작은 자기돌봄 계획을 세우도록 돕습니다. \"번아웃인 것 같아\", \"쉬어도 쉰 것 같지 않아\" 같은 요청에 사용하세요.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:385c0f7e391535dd1410de9d6cf8cc7602395360e38bdcb524e246f13e48ea54"
+    },
+    {
+      "id": "moai-coworker:personal-travel",
+      "version": "1.1.3",
+      "description": "여행 목적·일정·예산에 맞춰 이동 동선과 예약 전 확인 사항을 정리합니다.\n\"여행 일정 짜줘\", \"숙소 비교해줘\", \"여행 예산 계획 세워줘\" 같은 요청에 사용하세요.\n실제 가격·운영시간·입국 요건은 여행 날짜와 공식 자료를 확인해 반영합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:d79b900a162212e4bbea85d95afb4812ee2bc9f132b2dc422b06e349c56f5adc"
+    },
+    {
+      "id": "moai-coworker:personal-wellness",
+      "version": "1.1.3",
+      "description": "일반적인 운동·식사·육아·노년기 돌봄 계획을 정리합니다. \"운동 루틴 만들어줘\", \"식단 짜줘\", \"아이와 할 활동 알려줘\", \"부모님 돌봄 서비스 알아봐줘\" 같은 요청에 사용하세요. 질환·발달·장기요양 등급을 진단하거나 판정하지 않습니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:fbf0a15ada64c8988630af299a4edfc6fa1aafd48dadd80f8384b5be0a2c4748"
+    },
+    {
+      "id": "moai-coworker:productivity-goal",
+      "version": "1.1.2",
+      "description": "개인 목표를 사용자의 상황에 맞는 실행 계획과 점검 방법으로 정리합니다. \"목표 세워줘\", \"12주 계획 짜줘\", \"만다라트 만들어줘\", \"개인 OKR 정리해줘\" 같은 요청에 사용하세요.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:67a84ce318f5bcc2749e22d4bec89f02994cb7f9900ac2ec3e05a825fe47f572"
+    },
+    {
+      "id": "moai-coworker:productivity-habit",
+      "version": "1.1.2",
+      "description": "새 행동을 생활에 맞게 시작하고 점검하는 작은 습관 계획을 만듭니다. \"습관 만들고 싶어\", \"모닝 루틴 짜줘\", \"습관 트래커 만들어줘\" 같은 요청에 사용하세요.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:dfe4c07238230b87db0d4fd19e759f9f164a4a59c2f3206ce39eec471a567daf"
+    },
+    {
+      "id": "moai-coworker:productivity-retro",
+      "version": "1.1.2",
+      "description": "사용자가 제공한 경험과 기록으로 개인·팀 회고를 정리합니다. \"이번 주 회고하고 싶어\", \"KPT로 정리해줘\", \"연말 회고 질문 만들어줘\" 같은 요청에 사용하세요.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:a905314c03f09556427b1cc1f2d0bef8ebee985e8c0e7c75e412ea8c4874dd41"
+    },
+    {
+      "id": "moai-cs:cs-channel-message",
+      "version": "1.1.3",
+      "description": "NCM 프레임워크(Need→Channel→Moment→Message→CTA)로 검색·광고·CRM·앱 푸시 채널별 메시지를 자동 생성하는 단일 채널 메시지 엔진입니다 — 채널 분기 메시지 15종 + 채널별 운영 카피(광고·톡톡·푸시·이메일) + 앱 푸시 기획(4원칙·3요소·변형 3안)을 한 곳에서 처리합니다.\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n\"채널별 메시지 만들어줘\", \"검색광고 카피 15종\", \"CRM 메시지 뽑아줘\", \"스마트스토어 배너 카피\", \"쿠팡 광고 문구\", \"카카오 알림톡 문구\", \"SNS 광고 카피 5종\", \"광고 헤드라인 만들어줘\", \"톡톡 응답 템플릿\", \"카트 이탈 메시지\", \"이메일 시퀀스 짜줘\", \"재구매 유도 알림톡\", \"앱 푸시 문구 만들어줘\", \"리텐션 푸시 카피 3안\", \"할인 푸시 알림\", \"게이미피케이션 푸시\"\n3개 동작 모드(채널 분기 메시지 15종 / 운영 카피 / 앱 푸시 기획)가 자연어로 자동 선택됩니다. 텍스트 산출물은 자체 검수하고, moai-coworker:ai-slop-reviewer가 설치돼 있으면 표현을 추가 점검합니다.\n[책임 경계] 페어 design-copywriting(도메인 비특정 단일 목적 카피)·moai-marketer:content-copywriting(이커머스 외 범용)과 구분 — 본 스킬은 이커머스 채널 운영 메시지 전용. 상세페이지 카피는 moai-seller:commerce-detail-page-copy가 설치돼 있으면 연결합니다. 발송 전 법규 검토는 담당자가 수행하며 moai-seller:commerce-message-compliance-kr가 있으면 추가로 사용합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:3b4ecd9e7afd84c41c8f964f1677d5323775dc06a8493c03af08f9ace0ad34f0"
+    },
+    {
+      "id": "moai-cs:cs-draft-response",
+      "version": "1.1.5",
+      "description": "고객 문의에 대한 응답 초안을 작성합니다. \"이 문의에 답변 초안 써줘\", \"환불 요청 이메일 답변 만들어줘\", \"카카오채널 응답 초안 작성해줘\"라고 요청할 때 사용하세요. 한국어 경어 기반 이메일·채팅·공식 답변서 초안을 채널별 어조에 맞게 생성합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:158eb4dbc024c1373e4bfe0194b682cde48fd6867c77009f4fd18ff4766a57f2"
+    },
+    {
+      "id": "moai-cs:cs-escalation",
+      "version": "1.1.5",
+      "description": "고객 불만 에스컬레이션을 처리하고 VOC를 분석합니다. \"불만 고객 대응 전략 세워줘\", \"VIP 고객 특별 응대 방법 알려줘\", \"주간 CS 요약 보고서 만들어줘\"라고 요청할 때 사용하세요. 에스컬레이션 레벨 배정, VIP 응대, VOC 분석, 주간 CS 요약 보고서 생성을 지원합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:7fe99f48355de2c4845b130516f23f4930d23f0dd4683372db5cc47e1c9f02be"
+    },
+    {
+      "id": "moai-cs:cs-kb-article",
+      "version": "1.1.4",
+      "description": "고객지원 지식베이스 문서를 작성합니다. \"FAQ 만들어줘\", \"트러블슈팅 가이드 작성해줘\", \"헬프센터 아티클 써줘\"라고 요청할 때 사용하세요. FAQ, 사용자 가이드, 트러블슈팅 문서, 정책 안내문을 Zendesk·Freshdesk·카카오비즈니스 형식에 맞게 생성합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:8c273c71b442811e13d2f6a34b710b077f57d622cb88b3efbc35c87eb1c144b6"
+    },
+    {
+      "id": "moai-cs:cs-quality-audit",
+      "version": "1.0.1",
+      "description": "고객 응답 초안·티켓 분류·에스컬레이션·VOC 보고서·FAQ를 원문의 문의와 셀러 정책에 대조해 읽기 전용으로 검수합니다. 미승인 약속, 개인정보 노출, 근거 없는 수치를 찾을 때 사용합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:ad63f9e104c5ceb1c62309759744d470b79f11c6e55bc14ec8b4d466e21f5349"
+    },
+    {
+      "id": "moai-cs:cs-ticket-triage",
+      "version": "1.1.4",
+      "description": "고객 지원 티켓을 신속하게 분류하고 우선순위를 배정합니다. \"이 문의를 어떻게 분류해야 하나요\", \"티켓 우선순위 정해줘\", \"고객 문의 긴급도 판단해줘\"라고 요청할 때 사용하세요. 유형 분류(기술/결제/배송/불만), 긴급도 등급(P1~P4), 담당팀 배정, 에스컬레이션 판단을 지원합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:0d0f30168dc75777331bdc7d94944cf69be38bf620102117ab99c9a572830f20"
+    },
+    {
+      "id": "moai-cs:cs-voc-triage",
+      "version": "1.1.4",
+      "description": "고객의 소리(VOC) 전체를 다루는 엄브렐러 스킬 — 멀티채널 리뷰를 통합 분석하고(리뷰는 VOC의 한 원천), 폭주하는 VOC의 처리 우선순위를 위험·법적 시한과 3축 분류로 판별합니다.\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n\"리뷰 모아서 분석해줘\", \"리뷰 분석해줘\", \"수백 개 리뷰 정리\", \"감정 분석 리뷰\", \"쿠팡 리뷰 키워드\", \"리뷰 인사이트 액션플랜\", \"멀티채널 리뷰 통합\", \"VOC 분류해줘\", \"VOC 처리 순서\", \"고객 문의 우선순위\", \"긴급 VOC 분류\", \"VOC 트리아지\"\n2개 동작 모드가 자연어로 자동 선택됩니다 — ① 리뷰 집계 모드(4채널 리뷰 → 감정·키워드·인사이트·액션플랜 4단 분석) ② VOC 분류·트리아지 모드(위험·법적 시한 우선 확인 → 고객 핏·빈도·핵심 가치 3축 분류 → 처리 순서와 응답 템플릿). 텍스트 산출물은 근거와 어조를 자체 검수하고, 다른 플러그인의 표현 검수 스킬이 설치돼 있으면 추가로 사용합니다.\n[책임 경계] 응답 메시지 카피 작성은 moai-cs:cs-channel-message, 분석 결과 PPT는 moai-officer:doc-pptx로 위임.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:53478400b0b5cd4fe7a7e843d8b60824f1a583f7723f1c7e1503eb3de909d62b"
+    },
+    {
+      "id": "moai-cs:cs-workflow",
+      "version": "1.0.1",
+      "description": "고객 문의 분류부터 응답·에스컬레이션·FAQ·VOC 분석까지 여러 고객지원 산출물을 함께 만들 때 실제 문의와 셀러 정책을 확인하고 moai-cs의 cs-* 스킬로 연결합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:fbd79b77047c1233c7276ae3f431ecd74db1f1006796660ca6f1aaf5bb984869"
+    },
+    {
+      "id": "moai-designer:design-brand-system",
+      "version": "1.1.3",
+      "description": "제공된 브랜드 자료와 화면 목적을 바탕으로 웹 시각 디자인 토큰과 컴포넌트 사양을 만듭니다.\n색상·서체·간격·레이아웃·접근성 검토가 필요할 때 사용하세요.\nClaude Cowork와 ChatGPT Work에서는 사용자 자료를 바로 입력으로 받고, MoAI 프로젝트에서는 기존 브랜드 파일을 함께 확인합니다.\n",
+      "invocation_scope": "workflow",
+      "digest": "sha256:c4103a98185fbc964ac38196418964d82d33be7f6ea2be03b2d26961a164b7af"
+    },
+    {
+      "id": "moai-designer:design-brand-visual",
+      "version": "1.1.5",
+      "description": "브랜드 자료에 맞는 히어로·OG·목업·마스코트 이미지의 구도와 제약을 정하고 실제 이미지 생성 경로로 보냅니다.\nChatGPT Work에서는 현재 대화의 이미지 생성 도구를, Higgsfield 지정 요청에는 이 플러그인의 공식 Higgsfield 연결을 사용합니다.\n\"브랜드 히어로 이미지 만들어줘\", \"OG 이미지 생성해줘\", \"마스코트 다른 포즈로 그려줘\" 같은 요청에 사용하세요.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:e634f561aaa39b763d5179be1ef274a2bceaa8be488c7fc8302be01031178db7"
+    },
+    {
+      "id": "moai-designer:design-brief",
+      "version": "1.1.3",
+      "description": "화면·프로토타입·시각 문서 제작 요청을 검토 가능한 디자인 브리프로 정리합니다.\n\"Claude Design 브리프 만들어줘\", \"디자인 요청 정리해줘\", \"프로토타입 프롬프트 작성해줘\" 같은 요청에 사용하세요.\n사용자 자료에 없는 대상·브랜드·참고 사례는 미정으로 남깁니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:473fd1ff44a8a5742b42a5f2b41ec4835513282b5722ac4d6b1b0e58908d5f28"
+    },
+    {
+      "id": "moai-designer:design-copywriting",
+      "version": "1.1.4",
+      "description": "브랜드 보이스와 실제 제품 자료에 맞춰 웹 화면의 제목·설명·버튼·오류 문구를 작성합니다.\n디자인 파이프라인이 필요하면 섹션별 JSON으로, 단독 요청이면 사용자가 원하는 형식으로 제공합니다.\n수치·보증·후기는 확인된 근거가 있을 때만 사용합니다.\n",
+      "invocation_scope": "workflow",
+      "digest": "sha256:1468d6336b521e49d5489fa37219d513d5e5c8063db9126894579576de84da13"
+    },
+    {
+      "id": "moai-designer:design-gui-guide",
+      "version": "1.1.2",
+      "description": "모든 화면을 구성하는 10개 GUI 요소(버튼·폼·메뉴·링크·다이얼로그·알림·아이콘·체크박스/라디오·탭·검색)와 보너스 2(윈도우·포인터)에 대한 증거 기반 사용성 가이드라인 86종.\nUX Tigers(Jakob Nielsen, 2026-07-29) \"10 GUI Design Elements\"를 shadcn 컴포넌트와 1:1로 매핑해 한국어 실용 지침으로 증류.\ndesign-prompt-builder 패턴 3(디자인 시스템 생성)·패턴 6(사용성 감사)이 컴포넌트별 체크리스트로 참조.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"컴포넌트 사용성 가이드라인\"\n- \"GUI 위젯 설계 규칙\"\n- \"버튼/폼/다이얼로그 잘 만드는 법\"\n- \"Nielsen GUI 가이드라인\"\n- \"디자인 시스템 컴포넌트 감사 체크리스트\"\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:e0319bb7abb0ba1a3d92dc7c4973ef10e0a789fdc05d6f52b7ee6ec4162a5a94"
+    },
+    {
+      "id": "moai-designer:design-handoff",
+      "version": "1.1.4",
+      "description": "디자인 브리프와 실제 브랜드·화면 자료로 Claude Design 또는 코드 구현에 넘길 핸드오프 문서를 만듭니다.\n\"디자인 핸드오프 준비해줘\", \"Claude Design에 넘길 프롬프트 써줘\" 같은 요청에 사용하세요.\nMoAI 프로젝트의 기존 다섯 파일 경로는 해당 파이프라인에서 필요할 때 사용합니다.\n",
+      "invocation_scope": "workflow",
+      "digest": "sha256:87c2d7f128a5582fb1a175fe3f95ec4b232a248da243d7ba8417271ef73675ab"
+    },
+    {
+      "id": "moai-designer:design-handoff-reader",
+      "version": "1.1.4",
+      "description": "사용자가 제공한 Claude Design 핸드오프 파일·폴더·링크를 읽고 구현에 필요한 디자인 결정과 미확인 사항을 정리합니다.\n\"핸드오프 분석해줘\", \"디자인 파일 읽어줘\", \"구현 지시 정리해줘\" 같은 요청에 사용하세요.\n파일 형식과 내용은 실제 받은 자료에서 확인합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:739fff925ccee91bb2df73d4d7a0010cbfcf6b25b059498f854d8fa9301fd96e"
+    },
+    {
+      "id": "moai-designer:design-iteration-loop",
+      "version": "1.1.3",
+      "description": "반복적 디자인 품질 개선을 위한 빌더-평가자 GAN 루프 워크플로. 스프린트 컨트랙트 협상, 4차원 평가(디자인 품질·오리지널리티·완결성·기능성), 정체 감지, 에스컬레이션 프로토콜을 구현합니다. design.yaml에서 파라미터를 읽습니다.\n\nUse for the Builder-Evaluator GAN loop: iterative design-quality improvement via Sprint Contract negotiation, 4-dimension scoring (Design Quality, Originality, Completeness, Functionality), stagnation detection, and escalation.\n",
+      "invocation_scope": "workflow",
+      "digest": "sha256:20bdc6ce61bddc5d83f04e26d5b80dd04ed6d12d605c332332eac04ef6e95d43"
+    },
+    {
+      "id": "moai-designer:design-landing-motion",
+      "version": "1.1.6",
+      "description": "기억에 남는 다이나믹 랜딩 페이지를 만듭니다. 브리프에서 컨셉 스파인을 뽑고, 시그니처 효과를 하나만\n골라 끝까지 완성하며, 필요한 비주얼은 기존 자산 또는 사용 가능한 이미지 생성 경로로 준비합니다.\n스크롤 스크럽·시차 레이어·WebGL 디스플레이스먼트·파티클·마스크 리빌·수평 레일·키네틱 타이포 등을\n다루고, React/Next(R3F·Framer Motion·GSAP)와 정적 사이트(바닐라 three.js·GSAP) 양쪽으로 냅니다.\n다음과 같은 요청 시 사용하세요:\n- \"랜딩 페이지 만들어 줘\", \"히어로 인상적으로\"\n- \"스크롤에 반응하는 사이트\", \"스크롤하면 영상이 재생되는\"\n- \"three.js 넣어 줘\", \"WebGL 효과\", \"3D로 보이게\"\n- \"패럴랙스\", \"마우스 따라 움직이는\", \"파티클\"\n- \"어워드 받을 만한 사이트\", \"밋밋해 보여\"\n호스팅·배포·도메인·DB는 범위 밖입니다. 코드는 사용자 프로젝트 안에 만들며 외부 호스팅에 올리지\n않습니다. 브랜드 이미지 한 장만 필요하면 design-brand-visual을 쓰세요.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:626877160f320dbdfcbc48cb67bf3c648059e42d259d68608885b0c34a20dc61"
+    },
+    {
+      "id": "moai-designer:design-logo",
+      "version": "1.1.4",
+      "description": "디자인 시스템에 맞는 로고를 생성합니다. 프로젝트의 토큰(색·타이포·형태 언어)과 브랜드 보이스를\n먼저 읽어 생성 프롬프트에 반영하므로, 만들어진 로고가 브랜드와 어긋나지 않습니다. 로고는 히어로·OG\n이미지와 달리 작아도 보이고 컬러·흑백·단색으로 변형되어야 하므로 벡터/심볼 접근으로 다룹니다.\n다음과 같은 요청 시 사용하세요:\n- \"로고 만들어 줘\", \"브랜드 마크 디자인\"\n- \"워드마크\", \"레터마크\", \"심볼 로고\"\n- \"앱 아이콘 만들어 줘\", \"파비콘 디자인\"\n- \"로고 컨셉 몇 개 뽑아 줘\", \"로고 아이디어\"\n- \"기존 로고 다른 스타일로\", \"로고 리디자인\"\n이 스킬은 로고 타입·브랜드 정합·제약과 실제 산출물 점검을 맡습니다. ChatGPT Work에서는 네이티브\n이미지 생성으로 컨셉을 만들 수 있고, 사용자가 선택한 Higgsfield 경로의 모델·출력 형식은 실행 전에\n확인합니다. 최종 벡터 마스터가 필요한 경우 실제 SVG 결과를 별도로 검증합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:f2eb4ba59e476e5cb45713e7a0b75b45711002547a82ebf2cbdbbb97f3b4f5f4"
+    },
+    {
+      "id": "moai-designer:design-prompt-builder",
+      "version": "1.1.4",
+      "description": "사용자의 UX 디자인 요청을 실행 가능한 프롬프트로 정리합니다. 정보 구조·리서치·디자인 시스템·\n마이크로카피·온보딩·사용성·대시보드·접근성·폼·프로토타입 테스트 중 필요한 관점만 고릅니다.\nClaude Design에 전달할 수 있으며, ChatGPT Work 등 다른 디자인 대화에도 맞게 씁니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:0f0dd2e963200c50acd81d3f0406f43c87e537763a712d8f2946bcde8eaa9185"
+    },
+    {
+      "id": "moai-designer:design-slop-check",
+      "version": "1.1.4",
+      "description": "디자인 결과물의 한국어·영어 카피에서 상투적인 표현, 근거 없는 주장, 어색한 문장 구조를\n문맥과 브랜드 말투에 비추어 검토하고 수정안을 제안합니다. Claude Design·ChatGPT Work의\n화면 문구, CTA, 오류 메시지, 랜딩 카피에 사용합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:4903e7f188519892a7d359ebf9436ae69444c97202ab0609a3c031e6a46f2d84"
+    },
+    {
+      "id": "moai-designer:design-sync-upload",
+      "version": "1.3.2",
+      "description": "브랜드·디자인 시스템 자료를 Claude Design에 전달할 수 있게 준비하고, 현재 세션에서 확인된\n업로드 경로로 진행합니다. Claude Cowork는 대화·첨부, ChatGPT Work는 전달 패키지와 앱 UI\n안내를 기본으로 하며, DesignSync 도구가 실제로 있을 때만 그 계약을 확인해 사용합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:b23613ceb086afb9c271bf80210f7fae97aba5827053e4757ad3acc50691c481"
+    },
+    {
+      "id": "moai-designer:design-system-library",
+      "version": "1.1.14",
+      "description": "글로벌 브랜드 디자인 시스템 참고 자료(Claude · ClickHouse · Clay 포함)의 색·타이포·간격·컴포넌트 구조를 읽고, 사용자 브랜드에 맞는 HTML 디자인 토큰을 설계합니다. Tailwind Play CDN 예시는 개발용이며 최종 산출물은 대상 환경에서 렌더·대비를 검증합니다.\n별도로 설치된 moai-officer:doc-html-report에서 design_system을 지정하면 토큰 참고 자료로 쓸 수 있습니다. Claude Design 핸드오프 시에는 DESIGN.md 지침 소스로 제공됩니다.\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"Claude 스타일로 HTML 보고서 만들어줘\"\n- \"ClickHouse 다크 테마로 랜딩 만들어줘\"\n- \"Clay 디자인 시스템 적용해서 문서 생성\"\n- \"브랜드 디자인 시스템 골라서 HTML로\"\n- \"Notion / Linear / Stripe 스타일로 리포트\"\n- \"어두운 테마 / 따뜻한 화이트 테마로\"\n- \"Claude Design에 올릴 디자인 시스템 자료 정리\"\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:9591a9f508c6c02df44e01cb2bee54672bed62be23cfce6565dcf6fa6cb94c47"
+    },
+    {
+      "id": "moai-designer:design-system-prep",
+      "version": "1.1.4",
+      "description": "사용자 브랜드 자산을 조사하고 출처가 드러나는 디자인 시스템 문서와\nClaude Design에 전달할 자료 목록을 준비합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:c2cebf4f642b07f5ea78a76d126bacb2383fbc4ed066179dc1e2992e33fc7016"
+    },
+    {
+      "id": "moai-designer:design-tokens-transformer",
+      "version": "1.1.3",
+      "description": "실제 디자인 토큰을 DTCG 형식과 프로젝트의 CSS 변수·테마 형식 사이에서\n변환하고, 매핑 손실과 색 대비를 확인합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:219f6c53dd547059a9f819419d702b4bde32691838d9136948a9950323a3fd3a"
+    },
+    {
+      "id": "moai-designer:design-workflow",
+      "version": "1.1.4",
+      "description": "디자인 자료를 프로젝트의 브랜드 기준과 함께 읽고, 확인된 토큰과 자산을\n구현에 전달합니다. 프로젝트 설정이 있을 때만 MoAI 전용 경로를 사용합니다.\n",
+      "invocation_scope": "workflow",
+      "digest": "sha256:c1eac344334ea267ffb934b05ad662c2a83436ad3064249568832a0ed26dcd39"
+    },
+    {
+      "id": "moai-lawyer:legal-compliance-check",
+      "version": "1.1.3",
+      "description": "한국 사업자의 규제 준수 자료를 점검하고, 확인한 근거와 미확인 항목을\n나눠 갭 분석·내부 감사·ESG 보고 초안을 작성합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:9ff3f7901ccd3f403ac896f0bc224b47a0ebeca79b7374df0cbef2085585e38e"
+    },
+    {
+      "id": "moai-lawyer:legal-contract-review",
+      "version": "1.1.3",
+      "description": "계약서의 조항별 위험과 누락 사항을 검토하고, 이용약관·개인정보 처리방침·\nSLA 등의 초안을 실제 서비스 사실과 현행 공식 근거에 맞춰 작성합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:05c777e9c50380b5527494d9919a67a8c568dcd2c67856e97acd1b13bc579811"
+    },
+    {
+      "id": "moai-lawyer:legal-evidence-audit",
+      "version": "1.0.2",
+      "description": "계약 검토·법령 조사·규제·특허 보고서의 인용 검증 기록, 적용 시점, 위험 등급과 누락 쟁점을 원자료에 대조합니다. 원본을 수정하지 않는 제출 전 검수에 사용합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:da7ff582cd73cc149ab78c490d53fa0fbb9643378fc685568aeb1713318158af"
+    },
+    {
+      "id": "moai-lawyer:legal-ip-search-report",
+      "version": "1.0.3",
+      "description": "상표 선행검색과 특허 선행기술·권리상태를 한국·미국·일본·유럽 공식 데이터베이스로 조사하고, 검색 로그·위험 평가·국가별 출원 전략이 담긴 의사결정용 보고서를 만들어 드립니다. 연결된 API의 자격증명을 확인하고, 없으면 공식 공개 검색 화면의 조사 범위를 표시합니다.\n다음과 같은 요청 시 사용하세요:\n- \"이 브랜드명 상표 등록 가능한지 한국·미국·일본까지 조사해줘\"\n- \"상표 선행조사 보고서 만들어줘. 35류·42류야\"\n- \"이 기술 해외 선행특허 조사하고 출원 전략 짜줘\"\n- \"경쟁사 특허 권리상태·패밀리 확인해줘 (EP·US 포함)\"\n- \"FTO 예비조사 보고서 작성해줘\"\n- \"특허·상표 API 키는 어디서 받아?\"\n국내 특허 목록만 빠르게 뽑을 때는 moai-lawyer:legal-patent-search, 동향·청구항 대비·출원서 초안은 moai-lawyer:legal-patent-analyzer로 이어집니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:abebb6fade4cbbd82d7c884433ad4355d7cb2acc6753479ae3bdbe9140962827"
+    },
+    {
+      "id": "moai-lawyer:legal-iros-registry-automation",
+      "version": "1.1.4",
+      "description": "대법원 인터넷등기소에서 법인·부동산 등기사항증명서를 여러 건 확인할 때\n사용자 직접 로그인·결제와 공식 화면 기반 자료 정리를 돕습니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:6cf2433318752bbc008f0383dd2ce4f460aed2a57bdc15e719de5e8184211cfe"
+    },
+    {
+      "id": "moai-lawyer:legal-law-research",
+      "version": "1.1.2",
+      "description": "한국 법령·판례·행정자료의 공식 원문과 적용 시점을 확인하고,\n인용의 출처와 아직 검증하지 못한 부분을 구분합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:aacab76cbe0fc955b04ad8732e08acb3a55ba7522ae010ec6db3fb4d7cdab31e"
+    },
+    {
+      "id": "moai-lawyer:legal-legal-risk",
+      "version": "1.1.3",
+      "description": "사용자 조직의 계약·규제·지식재산 위험을 실제 자료와 공식 법령에 비춰\n식별하고, 근거·불확실성·다음 확인을 정리합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:6255844079b957574dfc516a2d3c85e1fc8980b2cd0ae928b27bfa136c7173ed"
+    },
+    {
+      "id": "moai-lawyer:legal-mfds-safety",
+      "version": "1.1.2",
+      "description": "의약품·건강기능식품·식품 회수 정보를 식약처 공식 자료에서 확인하고,\n제품 일치 여부와 의료진에게 확인할 사항을 정리합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:80a2a78d527cd8601786f8ad3f4e9fbec47e53cb3a6396c442348cd9170b6b7a"
+    },
+    {
+      "id": "moai-lawyer:legal-nda-triage",
+      "version": "1.1.3",
+      "description": "비밀유지계약서의 비밀정보 범위, 사용 목적, 예외, 보존 기간과\n반환·손해배상 조항을 당사자 입장에서 빠르게 검토합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:bdb567b9bc7f1e0e8a2e959545046af91c08e4b42081ed1f89326ce35f617a14"
+    },
+    {
+      "id": "moai-lawyer:legal-patent-analyzer",
+      "version": "1.1.4",
+      "description": "특허 동향, 선행기술, 청구항 비교, 실시 자유(FTO) 검토 자료와 출원서 초안을 실제 확인한 특허 문헌에 근거해 작성합니다. 한국 특허 검색은 legal-patent-search, 해외 조사는 legal-ip-search-report와 연계합니다.",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:358ac28b3ca293bd316b632877953b07ca775431e23afe8704de7cd9c05a9d5a"
+    },
+    {
+      "id": "moai-lawyer:legal-patent-search",
+      "version": "1.2.2",
+      "description": "KIPRIS Plus MCP가 연결되면 한국 특허·실용신안·상표를 조회하고, 연결되지 않으면 공식 KIPRIS 검색 화면에서 확인 가능한 범위의 결과를 정리합니다. 선행기술·특허 동향 요청에도 사용합니다.",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:282771284cad9dc4635d9d2fea3808ef8841b1b91a24a5aed9fcc9a84d19a655"
+    },
+    {
+      "id": "moai-lawyer:legal-service-launch-checklist",
+      "version": "1.1.3",
+      "description": "앱·웹·커머스 서비스 출시 전 실제 서비스 구조에 적용될 수 있는 한국 법령을 확인하고 증거 기반 점검표를 만듭니다. AI·개인정보·결제·광고 등은 해당 조건에서만 검토합니다.",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:a3e9b942b55336280485d140d0e9ccabbadc0fe51e4231805aef549274841458"
+    },
+    {
+      "id": "moai-lawyer:legal-workflow",
+      "version": "1.0.3",
+      "description": "한국 법령·계약·규제·특허에 걸친 복합 요청에서 문서와 적용 시점을 확인하고 moai-lawyer의 legal-* 스킬로 연결합니다. 법령·판례 인용은 현재 연결된 법률 자료 도구로 확인합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:af4877273c55c07d17f0906e3bfa30b1b74298162bf021d16d79cd4a462864fb"
+    },
+    {
+      "id": "moai-marketer:content-blog",
+      "version": "1.1.5",
+      "description": "네이버 블로그·티스토리·브런치스토리·WordPress·Ghost 글을 독자와 발행 채널에 맞춰 작성합니다. 실제 자료와 출처를 확인하고, 검색 노출을 보장하지 않는 초안과 발행 준비 자료를 만듭니다.",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:13a8e042d9f5bad7efdbcae3d9f316d0e08c1ffae7a1635aee72b5773da90b18"
+    },
+    {
+      "id": "moai-marketer:content-card-news",
+      "version": "1.1.6",
+      "description": "인스타그램·스레드·카카오 채널 등에 맞는 카드뉴스의 원고, 디자인 지시, 캡션과 실제 이미지를 준비합니다. ChatGPT 기본 이미지 생성과 사용자가 지정한 Higgsfield 생성을 구분합니다.",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:5a82187cf20d02580254d08a0ef005781024abd19c71a3eb2de92afe6d60474e"
+    },
+    {
+      "id": "moai-marketer:content-copywriting",
+      "version": "1.1.4",
+      "description": "제품·브랜드 자료를 바탕으로 헤드라인, CTA, 슬로건, 광고 문구와 스토리보드 카피를 작성합니다. 성능·가격·후기·희소성 주장은 실제 근거와 조건을 확인합니다.",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:9b1fbd3961c0c7f2df2838d5ca1b43433d74d2a00f2727043dbe5e4cf4399e93"
+    },
+    {
+      "id": "moai-marketer:content-editorial-calendar",
+      "version": "1.1.2",
+      "description": "블로그·소셜·이메일·영상의 발행 계획을 실제 제작 역량, 캠페인 날짜와 승인 단계에 맞춰 작성합니다. 계획과 발행 완료 상태를 구분합니다.",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:e51608bda54bd681c105b4516d209bd1f264bfbdcbced22fedd418009f85fd52"
+    },
+    {
+      "id": "moai-marketer:content-email-sequence",
+      "version": "1.1.3",
+      "description": "가입·구매·재참여 흐름의 이메일 발송 조건, 제목과 본문 초안을 설계합니다. 광고성 정보 해당 여부와 수신 동의·거부 상태를 확인하고 발송 완료를 단정하지 않습니다.",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:0c72f8cdbc2cb14dc7a48eb2af16dc2ac3a0f9b22277782c2d35b43845d2f606"
+    },
+    {
+      "id": "moai-marketer:content-newsletter",
+      "version": "1.1.3",
+      "description": "실제 확인한 자료로 뉴스레터 제목·프리헤더·본문과 발행 계획을 작성합니다. 웹 아카이브 게시와 구독자 이메일 발송을 구분하고, 성과 수치를 보장하지 않습니다.",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:7983af92480086e2a93b5305cf891cba2f63364a2625e9bda53d6ab44eeaf64f"
+    },
+    {
+      "id": "moai-marketer:content-sns-content",
+      "version": "1.1.5",
+      "description": "인스타그램·카카오 채널·Threads·X·LinkedIn·Facebook·YouTube Shorts용 원고와 캡션을 실제 브랜드 자료와 채널 규격에 맞춰 작성합니다. 이미지 생성, 초안, 예약, 게시 상태를 구분합니다.",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:e407c5fb24b7cb27d421459c9be1c12237b7c903cae5406e02646a60340ac116"
+    },
+    {
+      "id": "moai-marketer:marketing-campaign-planner",
+      "version": "1.1.5",
+      "description": "광고·SNS·이메일을 묶은 캠페인 기획안과 A/B 테스트, 인플루언서 협업, 고객 여정·CRM 전략을 작성합니다.\n확인된 사업 자료와 가정을 구분하고, 예산·성과 수치를 임의로 확정하지 않습니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:38bcbdc77b69b6df073a62e36b9550c4b3cf20f38d8b92b6bb26513118254c6a"
+    },
+    {
+      "id": "moai-marketer:marketing-evidence-audit",
+      "version": "1.0.1",
+      "description": "캠페인 계획·예산·광고 카피·콘텐츠 일정·성과 보고서의 수치, 출처, 계산, 채널 제약과 주장 근거를 읽기 전용으로 검수합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:a24587f42223b8df057a8e2aad9cea1dff192f91c4879ef425db4c1fa1370983"
+    },
+    {
+      "id": "moai-marketer:marketing-growth-experiment",
+      "version": "1.1.3",
+      "description": "A/B 테스트와 추천·무료 도구·공동 마케팅 등의 성장 실험을 설계하고 우선순위를 정합니다.\n실제 기준선과 표본을 확인해 측정·중지 기준을 정하며, 미실행 실험의 결과를 만들지 않습니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:133c62e3ab65dc494010f0d77a61a3c8fbb6fa59ec152c1a89004df2f51b73a8"
+    },
+    {
+      "id": "moai-marketer:marketing-keyword-research",
+      "version": "1.1.3",
+      "description": "네이버·구글 검색에서 고객이 쓰는 질의를 찾고 검색 의도와 실제 자료를 기준으로 콘텐츠 후보를 정리합니다.\n검색량·경쟁도·AI 검색 인용 가능성을 실측 없이 확정하지 않습니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:f975419599856a2a75c341f9e360eddea853ed993f34eae9fc6520a13f31a02f"
+    },
+    {
+      "id": "moai-marketer:marketing-landing-page",
+      "version": "1.1.4",
+      "description": "캠페인·이벤트·리드 수집용 랜딩페이지의 구조와 카피를 설계하고, 요청 시 기존 프로젝트에 맞춰 구현합니다.\n확인되지 않은 후기·성과·가격·혜택을 만들지 않으며 이미지 생성 경로와 게시 상태를 구분합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:398403e6c815ecca9a3e2eee583907d7843a4e3efd3fde6b5b5c08ca99524e80"
+    },
+    {
+      "id": "moai-marketer:marketing-landing-page-conversion-audit",
+      "version": "1.1.2",
+      "description": "기존 랜딩페이지의 메시지·신뢰 자료·전환 흐름을 점검하고 개선 우선순위를 제안합니다.\n실제 광고·분석 자료 없이 이탈 원인, 점수, 개선 효과를 확정하지 않습니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:96cb0749eebea918d73a0cc93702d1869085e30f8ebbe2854d7b0d6d3e4c21c1"
+    },
+    {
+      "id": "moai-marketer:marketing-meta-ads-analyzer",
+      "version": "1.1.3",
+      "description": "Meta 광고 보고서나 실제 연결된 계정에서 조회한 데이터를 분석해 확인된 성과와 개선 가설을 정리합니다.\n원본의 집계 단위와 기여 설정을 확인하고, 없는 교차 데이터·벤치마크·예상 효과를 만들지 않습니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:fdc8fbd32131b746b5548b8a514867f1406f557d23da2e42d30294cfc510b8cd"
+    },
+    {
+      "id": "moai-marketer:marketing-meta-ads-manager",
+      "version": "1.1.2",
+      "description": "연결된 Meta 광고 계정의 캠페인·광고세트·광고를 사용자가 요청한 범위에서 조회·생성·수정·중지합니다.\n계정과 도구 권한을 실제로 확인하고, 지출이 시작되는 상태와 결과 ID를 분명히 보고합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:dfe5c304e0f1bc94fb79f28845b71555c4a8bdfe3ec5bb9c8bf0f7bc00f8ebb7"
+    },
+    {
+      "id": "moai-marketer:marketing-performance-report",
+      "version": "1.1.3",
+      "description": "사용자가 제공한 GA4·광고·판매 데이터를 기간과 지표 정의를 맞춰 분석하고 마케팅 성과 보고서를 작성합니다.\n실제 연결·집계하지 않은 플랫폼 데이터와 성과 수치를 만들어 내지 않습니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:6a6f79391fdc412c19ca981cb06eeddc7c12a0fb0195e1e6e5772ecef8242bdf"
+    },
+    {
+      "id": "moai-marketer:marketing-personal-branding",
+      "version": "1.1.5",
+      "description": "개인의 확인된 경력·작업물·전문 분야를 바탕으로 포지셔닝, 프로필과 콘텐츠·채널 계획을 정리합니다.\n성과·직함·후기와 플랫폼 알고리즘 효과를 만들어 내지 않습니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:ba06810bca49f5da2b1c2eb266da2079babbe8b034585653f3d52e1043789898"
+    },
+    {
+      "id": "moai-marketer:marketing-pixel-audit",
+      "version": "1.1.2",
+      "description": "Meta Pixel·Conversions API와 Google 태그·전환 측정의 설치 및 이벤트 흐름을 실제 증거로 점검합니다.\n사이트 화면만으로 서버 이벤트나 광고 계정 설정을 검증했다고 말하지 않습니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:1b4ffa5210b98d6122a8643d0d9e6c96f93773f932c3053e32d7147f3ce2ec2c"
+    },
+    {
+      "id": "moai-marketer:marketing-retention",
+      "version": "1.1.4",
+      "description": "고객 이탈을 진단하고 재참여·윈백 캠페인, 취소 화면의 안내 문구, 코호트 지표를 설계합니다.\n\"이탈 방지 캠페인\", \"윈백 이메일\", \"미접속 고객 재참여\", \"헬스 스코어\", \"취소 플로우\" 요청에 사용하세요.\n고객 상태·발송 자격·실제 제공 가능한 혜택을 먼저 확인하고, 확인되지 않은 수치나 성과는 추정으로 표시합니다.\n구매 주기·구독 운영·단위경제 계산은 moai-seller의 해당 스킬로 연결합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:b11bcbfa126143cee949c3798054e3c360765029eae7a8e0298cc3a601b15192"
+    },
+    {
+      "id": "moai-marketer:marketing-seo-audit",
+      "version": "1.1.4",
+      "description": "네이버·구글 검색과 AI 검색 노출을 실제 페이지와 검색 도구 자료로 점검하고 개선 우선순위를 정합니다.\n\"블로그 SEO 감사\", \"네이버 노출 점검\", \"구글 기술 SEO\", \"AI 검색 인용 확인\", \"네이버 플레이스 점검\" 요청에 사용하세요.\n검색량·순위·인용 여부에 접근하지 못하면 미확인으로 보고하며 상위 노출을 보장하지 않습니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:ce2b858dc200d10fb9329a232607b778da9c7d10a5013f7769ccff4827cc5e57"
+    },
+    {
+      "id": "moai-marketer:marketing-target-script",
+      "version": "1.1.4",
+      "description": "확인된 고객 문제와 제품 근거를 연결해 채널별 메시지 초안과 실험안을 만듭니다.\n\"타겟 메시징\", \"페르소나 기반 카피\", \"이메일·SNS·랜딩 메시지\", \"광고 카피 A/B 테스트\" 요청에 사용하세요.\n고객 속성·효능·성과·인증·할인 조건을 추측해 광고 문구로 만들지 않습니다.\n채널별 최종 카피는 moai-marketer:content-copywriting 등 적합한 제작 스킬로 연결할 수 있습니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:b4dadcd5403f003cf59182eed0bb35c669cca6607cb598b6614b47e97176836c"
+    },
+    {
+      "id": "moai-marketer:marketing-workflow",
+      "version": "1.0.3",
+      "description": "캠페인·콘텐츠·광고·성과 보고서가 함께 필요한 마케팅 요청에서 목표와 근거를 확인하고 moai-marketer의 marketing-*·content-* 스킬로 작업을 연결합니다. 이미지는 현재 호스트의 도구를 확인하고 전문 제작 스킬은 설치된 경우에 사용합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:4f3a47699267784b04af65b6304cbad630d1215fab3743e835be94201b65c074"
+    },
+    {
+      "id": "moai-marketer:marketing-youtube-podcast-planner",
+      "version": "1.1.4",
+      "description": "유튜브 영상과 팟캐스트 에피소드의 기획서·대본 개요·쇼노트·배포 초안을 만듭니다.\n\"유튜브 영상 기획\", \"팟캐스트 포맷\", \"대본 아웃라인\", \"쇼노트\" 요청에 사용하세요.\n실제 영상·오디오 파일, 녹음 타임코드, 플랫폼 계정이 없으면 제작·게시 완료를 주장하지 않습니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:20e5c9bc148ae87eb0fa8eee3c4e1e1ad8f09ca9a081d6c824ec6ec69c38abd8"
+    },
+    {
+      "id": "moai-media:media-asset-production",
+      "version": "1.1.1",
+      "description": "(구명칭 호환 스텁) 콘텐츠 캘린더는 `moai-marketer:content-editorial-calendar`, 유튜브·팟캐스트 기획은 `moai-marketer:marketing-youtube-podcast-planner`로 분리됨. 직접 호출하지 않는다.\n",
+      "invocation_scope": "workflow",
+      "digest": "sha256:01a67eef7fc32251f4cfc71b9ae4d196110503f5b630a3ad7ba79423f5da8feb"
+    },
+    {
+      "id": "moai-media:media-audio-gen",
+      "version": "1.3.3",
+      "description": "통합 오디오 생성 스킬. 현재 연결된 ElevenLabs MCP 도구를 확인하고 TTS, 보이스 클로닝, 다국어 더빙, 효과음 생성 중 사용 가능한 기능을 실행.\n\"목소리 생성\", \"TTS\", \"음성 합성\", \"보이스 클로닝\", \"더빙\", \"나레이션\", \"효과음\", \"AI 음성\" 요청 시 사용.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:aa69080b419e173291b0f746928c72d03f02fdb937f422e0877d6515cf21048d"
+    },
+    {
+      "id": "moai-media:media-brand-audit",
+      "version": "1.0.2",
+      "description": "생성된 이미지·영상·오디오 또는 생성 프롬프트의 브랜드 정합성과 권리·비용 표시를 증거로 검수합니다. 사용자가 미디어 검수나 배포 전 확인을 요청했거나 브랜드 핵심 산출물의 추가 검수가 필요할 때 사용합니다. 생성 작업을 실행하지 않습니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:ea07fecbbc597ba50d7a1fd1583b0042d718043ff20d05230f49f9d3a2530bd3"
+    },
+    {
+      "id": "moai-media:media-codex-image",
+      "version": "2.1.3",
+      "description": "ChatGPT Work에서 현재 대화의 기본 이미지 도구로 이미지를 직접 만듭니다.\nOpenAI는 ChatGPT Images 2.5를 데스크톱에도 배포한다고 안내합니다.\nFlare·Sunburst API 모델 ID를 정확히 지정한 요청은 moai-mcp-openai 도구로 생성합니다.\n기존 스킬 이름과의 호환을 위해 media-codex-image 이름을 유지합니다. Higgsfield 계정의\n모델로 생성하라는 요청은 media-higgsfield-image에 맡깁니다.\n\n다음 요청에 사용하세요:\n- \"ChatGPT로 이미지 만들어줘\", \"GPT Image 2.5로 이미지 생성해줘\"\n- \"이미지를 직접 만들어줘\", \"이 사진을 ChatGPT에서 편집해줘\"\n- \"codex 이미지 생성\" (기존 호출 호환)\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:bfb0eb8abcde71075f09f11b4e0557a5cb115e72b40a1815e356173ae8c0bc9a"
+    },
+    {
+      "id": "moai-media:media-gemini-3-image-prompt",
+      "version": "1.1.9",
+      "description": "Google Gemini 3 Pro Image (a.k.a. Nano Banana Pro) 전용 이미지 프롬프트 빌더. 사용자 자연어 한 줄과 현재 런타임의 질문 채널로 프리셋·미세조정 정보를 수집해 Google 공식 가이드의 장면·구도·조명 원칙을 참고한 5-component 내부 템플릿([Subject+Adj] doing [Action] in [Location]. [Composition]. [Lighting]. [Style]. [Constraint/Text])으로 변환합니다. Google AI Studio · Vertex AI · Gemini 앱에 복붙 가능한 프롬프트를 만들고 GPT Image 2.5·Midjourney 프롬프트도 비교용으로 출력합니다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"Gemini 이미지 프롬프트 만들어줘\", \"나노바나나 프롬프트\"\n- \"Nano Banana Pro 프롬프트\", \"Gemini 3 Pro Image 프롬프트\"\n- \"Google AI Studio 이미지 프롬프트\", \"Vertex AI 이미지 프롬프트\"\n- \"/media-gemini-3-image-prompt\" (직접 호출)\n\n본 스킬은 프롬프트 텍스트 산출 전용입니다. Gemini 이미지 자체 생성은 현재 앱에 Gemini 모델을 실행하는 연결이 확인될 때만 진행하고, 연결이 없으면 완성된 프롬프트를 제공합니다. 사용자가 Higgsfield를 지정했을 때만 해당 연결을 사용합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:e68038ddec3d44928065d7e3cab4e624830f3038ae69035b78728e60ee26f47d"
+    },
+    {
+      "id": "moai-media:media-gpt-image-prompt",
+      "version": "2.0.8",
+      "description": "OpenAI GPT Image 2.5(Flare·Sunburst) 전용 이미지 프롬프트 텍스트 빌더. 사용자 자연어 요청에서 필요한 맥락을 수집하고, OpenAI 공식 이미지 프롬프팅 가이드의 8가지 원칙에 맞춰 ChatGPT·OpenAI API·Higgsfield에서 쓸 프롬프트를 출력합니다. 모델·품질·크기·배경 파라미터는 API나 Higgsfield에서 지정할 때만 별도로 표시합니다. 같은 입력으로 Gemini 3 Pro Image · Midjourney V8 프롬프트도 만들 수 있습니다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"GPT 이미지 프롬프트 만들어줘\", \"ChatGPT 이미지 프롬프트\"\n- \"GPT Image 2.5 프롬프트\", \"gpt-image-2.5 프롬프트 작성\", \"Flare·Sunburst용 프롬프트\"\n- \"GPT-image-2 프롬프트\"(사용자가 지목한 모델을 유지하고 2.5 이전은 선택지로 안내)\n- \"OpenAI 이미지 프롬프트\", \"GPT용 이미지 편집 프롬프트\"\n- \"/media-gpt-image-prompt\" (직접 호출)\n\n이미지 자동 생성은 페어 스킬 media-higgsfield-image(Higgsfield) 또는 media-codex-image(ChatGPT 기본 이미지 도구)를 사용하세요. 본 스킬은 프롬프트 텍스트 산출 전용입니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:086221b5e26e5b8c2334e6283120bad41ca21fbcdfae3f2276cd3384a9a1a13a"
+    },
+    {
+      "id": "moai-media:media-higgsfield-assets",
+      "version": "1.3.4",
+      "description": "현재 Higgsfield 연결에서 제공하는 이미지·영상 이외의 생성과 후처리를 다룹니다. 3D 메시(GLB) 생성·리깅·애니메이션,\n오디오(효과음·앰비언스·음악·TTS), 완성 영상의 바이럴 점수 분석, 그리고 업스케일·리프레임·아웃페인팅·\n배경 제거 같은 기존 에셋 후처리가 범위입니다.\n다음과 같은 요청 시 사용하세요:\n- \"이 사진을 3D 모델로 만들어줘\", \"GLB로 뽑아줘\", \"캐릭터 리깅해줘\"\n- \"효과음 만들어줘\", \"배경음악 깔아줘\", \"이 대본 한국어로 읽어줘\"\n- \"이 광고 영상 훅이 괜찮은지 점수 내줘\", \"바이럴 가능성 분석\"\n- \"이 이미지 4K로 키워줘\", \"세로 영상으로 리프레임\", \"배경 지워줘\", \"캔버스 넓혀줘\"\n모델 id·파라미터는 하드코딩하지 않고 현재 연결의 모델 상세 도구로 라이브 조회합니다. 새 이미지·영상을 처음부터\n만드는 요청은 media-higgsfield-image / media-higgsfield-video를 사용하세요.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:37449b4c489de7bb2333f0623bdc98c3079b8c3cad7b43fdd820e9b759c51062"
+    },
+    {
+      "id": "moai-media:media-higgsfield-core",
+      "version": "1.3.5",
+      "description": "Higgsfield MCP 이미지·영상 생성의 공유 코어. media-higgsfield-image / media-higgsfield-video가\n로드하는 SSOT(single source of truth)로, 호출 스키마·라이브 카탈로그 조회 프로토콜·공통 크래프트\n규칙(R1–R5)·인터뷰 슬롯·잡 수명주기를 정의합니다. Claude의 MCP 연결과 ChatGPT의\n공식 Higgsfield 플러그인에서 다른 도구 이름을 런타임에 구분합니다.\n다음과 같은 상황에서 로드됩니다:\n- media-higgsfield-image 또는 media-higgsfield-video가 호출 계약을 참조할 때\n- Higgsfield 모델의 파라미터를 하드코딩하지 않고 런타임 조회해야 할 때\n- 현재 앱의 Higgsfield 도구 이름과 입력 스키마를 런타임에 확인해야 할 때\n이 스킬은 단독 실행 스킬이 아니라 두 소비 스킬이 참조하는 공유 코어입니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:278c0d342fd1c4bb0cc174e8d1b47c1da05f6762fccce15035344fed3aeaccb2"
+    },
+    {
+      "id": "moai-media:media-higgsfield-explainer",
+      "version": "1.3.5",
+      "description": "Higgsfield 연결의 조립 도구가 제공될 때 내레이션이 깔린 비실사 설명 영상을 만듭니다. 10초 블록 단위로 내레이션 한 줄과\n영상 한 컷을 짝지어 만든 뒤, 서버에서 순서대로 조립해 완성 MP4를 반환합니다.\n다음과 같은 요청 시 사용하세요:\n- \"이 주제로 설명 영상 만들어줘\"\n- \"이 문서를 나레이션 영상으로\"\n- \"얼굴 안 나오는 내레이션 영상\"\n- \"마스코트가 설명하는 영상\"\n- \"이 이야기를 애니메이션으로 풀어줘\"\n1~10분(블록 = 분×6)을 지원하고, 스타일 프리셋 라이브 카탈로그·마스코트/무인물 모드·16:9와 9:16·\n선택적 자막을 다룹니다. 실사 영상, 광고·UGC, 토킹헤드, 팟캐스트, 단발 클립은 범위 밖이며\nmedia-higgsfield-video를 사용하세요.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:c00ac04a90f1bc00100c43e5f76e85ab2145da8ffb484b13c39eaeb8b1f0a9e3"
+    },
+    {
+      "id": "moai-media:media-higgsfield-identity",
+      "version": "1.3.6",
+      "description": "Higgsfield 연결에서 재사용 가능한 인물·사물 일관성 참조를 만듭니다. Soul Character(학습형 identity 모델)와\nReference Element(즉시 생성형 참조) 중 어느 쪽을 써야 하는지 판정하고, 선택된 경로로 생성·조회합니다.\n다음과 같은 요청 시 사용하세요:\n- \"내 얼굴로 Soul 만들어줘\", \"디지털 트윈 학습시켜줘\"\n- \"이 캐릭터 계속 똑같이 나오게 해줘\"\n- \"나랑 친구 둘 다 나오는 이미지\"\n- \"이 제품을 여러 컷에 일관되게 넣어줘\"\n- \"학습해둔 캐릭터 목록 보여줘\"\nSoul ID의 직접 전달은 한 생성에 1개만·soul 계열 모델 전용이고, Element는 즉시 만들어지며\n한 프롬프트에 여러 개를 배치할 수 있고 사람이 아닌 대상도 됩니다. 학습된 Soul은 연결에 따라 Elements에서\n재사용될 수 있습니다. 이 분기를 잘못 고르면 되돌릴 수 없는\n학습 비용이 발생하므로, 경로가 불명확하면 생성하지 않고 blocker를 반환합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:9f10baad910d91a240e28153cdd3a732ae85c5c3e34fc22444ad37d261a6bacd"
+    },
+    {
+      "id": "moai-media:media-higgsfield-image",
+      "version": "1.3.8",
+      "description": "Higgsfield 계정의 이미지 모델로 이미지를 생성합니다. Claude의 MCP 연결과 ChatGPT의 공식\nHiggsfield 플러그인에서 현재 노출된 모델·견적·생성 도구를 확인해 호출합니다.\n다음과 같은 요청 시 사용하세요:\n- \"Higgsfield로 이미지 만들어 줘\"\n- \"Soul로 인물 이미지\"\n- \"Nano Banana Pro로 카드뉴스 이미지\"\n- \"시네마틱 키 비주얼 만들어줘\"\n- \"캐릭터 일관성 있는 시리즈 이미지\"\n- \"DTC 광고 이미지(Marketing Studio)\"\nSoul·Nano Banana·GPT Image·Seedream·FLUX·Recraft·Marketing Studio 등 계열의 프롬프트 크래프트는\nreferences/prompt-craft/*.md에 출처와 함께 큐레이션돼 있고, 실제 파라미터(모델 id·해상도·비율·비용)는\n런타임에 라이브 조회합니다. 프롬프트만 필요하면 media-gpt-image-prompt 등 해당 모델의\n프롬프트 스킬을 사용하세요.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:5c7e8de6eacf800f41fd5f97790f07b9c73e3e9b3538ef4d91478b86cee86059"
+    },
+    {
+      "id": "moai-media:media-higgsfield-product",
+      "version": "1.3.4",
+      "description": "Higgsfield로 브랜드·제품 비주얼을 만들라는 요청을 촬영 모드로 판정하고, 그 모드에 맞는\n프롬프트 구조를 조립해 Claude의 MCP 또는 ChatGPT의 공식 Higgsfield 플러그인으로 생성합니다. 스튜디오 컷·라이프스타일·핀터레스트 핀·히어로 배너·캐러셀·\n광고 크리에이티브 팩·가상 피팅·컨셉추얼·리스타일이 범위입니다.\n다음과 같은 요청 시 사용하세요:\n- \"Higgsfield로 제품 사진 만들어줘\", \"Higgsfield 스튜디오 컷\"\n- \"Higgsfield에서 이 제품이 카페에 놓인 장면\"\n- \"Higgsfield 핀터레스트 핀\", \"Higgsfield 웹사이트 히어로 배너\"\n주의: 공식 product-photoshoot 전용 강화기와 일반 이미지 모델의 직접 생성은 서로 다른 경로입니다.\n현재 연결에 전용 기능이 없으면 한계를 밝히고 모드별 프롬프트를 직접 조립합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:663eef662e5813f1e6beae87f098740348fd427f4f16540964006ca6123db182"
+    },
+    {
+      "id": "moai-media:media-higgsfield-video",
+      "version": "1.3.4",
+      "description": "Higgsfield 계정의 영상 모델로 영상을 생성합니다. Claude의 MCP 연결과 ChatGPT의 공식\nHiggsfield 플러그인에서 현재 노출된 모델·견적·생성 도구를 확인해 호출합니다.\n다음과 같은 요청 시 사용하세요:\n- \"Higgsfield 영상 만들어줘\"\n- \"Veo로 영상\"\n- \"Kling으로 영상\"\n- \"Seedance로 다이내믹 영상\"\n- \"Cinema Studio로 시네마틱 영상\"\n- \"Marketing Studio UGC 광고 영상\"\nVeo·Kling·Seedance·Cinema Studio·Marketing Studio·Wan·Gemini Omni·Grok 등 계열의 프롬프트 크래프트는\nreferences/prompt-craft/*.md에 출처와 함께 큐레이션돼 있고(계열마다 규칙이 다름 — 범용 공식 없음),\n실제 파라미터(모델 id·해상도·비율·길이·비용)는 런타임에 라이브 조회합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:059eee72fdd6994a22511d35669e2840f04a668ffe385bab31751eb67252aed4"
+    },
+    {
+      "id": "moai-media:media-midjourney-v8-prompt",
+      "version": "2.0.5",
+      "description": "Midjourney V8 이미지 프롬프트 빌더. 현재 기본 V8.2를 기준으로 짧은 이미지 설명과 지원되는 파라미터를 만들고, 사용자가 V8.1을 지정하면 그 버전을 유지합니다. 참조 이미지는 Edit Model, 스타일 참조는 `--sref`를 안내합니다. GPT Image 2.5·Gemini 이미지 프롬프트도 함께 출력합니다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"미드저니 프롬프트 만들어줘\", \"MJ 프롬프트\"\n- \"Midjourney 프롬프트\", \"/imagine 프롬프트 작성\"\n- \"Midjourney v8 프롬프트\", \"미드저니 8.1 프롬프트\", \"미드저니 8.2 프롬프트\"\n- \"--sref 프롬프트\", \"--oref 프롬프트\", \"스타일 코드 프롬프트\"\n- \"/media-midjourney-v8-prompt\" (직접 호출)\n\n본 스킬은 프롬프트 텍스트만 산출합니다. 실제 생성은 사용자가 Midjourney 웹 또는 Discord에서 실행합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:24953cc7c51643ab40b3c1bd12bcfabeba1b814389b211f9498ef24971ecaa67"
+    },
+    {
+      "id": "moai-media:media-notebooklm-slide-prompt",
+      "version": "1.1.3",
+      "description": "강연·강의·세미나 본문 마크다운을 입력받아 (1) NotebookLM Studio에 그대로 붙여 넣을 슬라이드 데크 생성 프롬프트와 (2) 슬라이드별 나노바나나(Gemini 3 Pro Image, a.k.a. Nano Banana Pro) 5-Component 이미지 프롬프트를 동시 산출하는 prompt-builder 스킬.\n\nNotebookLM Studio의 공식 4축(Format/Length/Output language/Prompt)을 정확히 매핑하고, 슬라이드별 시각 자료는 Google DeepMind 공식 가이드의 5-Component 구조(Style·Subject·Setting·Action·Composition)에 따라 작성한다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"NotebookLM 슬라이드 프롬프트\", \"NotebookLM 프롬프트\", \"NotebookLM 데크\"\n- \"강의 슬라이드 프롬프트\", \"강연 슬라이드 자료\", \"세션 슬라이드 프롬프트\"\n- \"Detailed Deck\", \"Presenter Slides\", \"프레젠터 슬라이드\", \"디테일드 데크\"\n- \"슬라이드 이미지 프롬프트\", \"나노바나나 슬라이드\", \"Nano Banana 슬라이드\"\n- \"본문 MD를 NotebookLM 프롬프트로 변환\", \"강연용 슬라이드 자료 만들어줘\"\n- \"PPT 발표 자료 프롬프트\", \"발표 슬라이드 통째로 생성\"\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:22647dac276c4d1bcf912222cac2df6ab17fd889be83fe9dd13a8de3efd5b93f"
+    },
+    {
+      "id": "moai-media:media-production",
+      "version": "1.0.5",
+      "description": "이미지·영상·오디오 제작 요청의 산출물과 제공자를 확인하고 해당 moai-media 스킬로 이어갑니다. 단일 이미지도 사용자가 지정한 제공자를 먼저 확인합니다. ChatGPT 이미지는 media-codex-image, Higgsfield는 media-higgsfield-image, Gemini·Midjourney는 해당 생성 연결이 있을 때만 사용하고 없으면 프롬프트를 제공합니다. 연결된 ElevenLabs 오디오도 라우팅합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:fa574a9e7ec30c65ed42777ef25ad59cb3443b23d51875bbce72c2703baafc31"
+    },
+    {
+      "id": "moai-officer:doc-data-audit",
+      "version": "1.0.1",
+      "description": "보고서·슬라이드·스프레드시트·공문서의 수치, 차트, 날짜, 형식과 개인정보를 원자료에 대조합니다. 문서 파일을 수정하지 않는 제출 전 검수에 사용합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:84024c857fd0a94414a46f0cf38a6fb1dab845cf7223365fad93a725dc59922c"
+    },
+    {
+      "id": "moai-officer:doc-design-library",
+      "version": "1.1.2",
+      "description": "moai-designer의 디자인 시스템 라이브러리에 연결해 사용자가 선택한 브랜드 토큰을 단일 파일 HTML 산출물에 적용합니다.\n본 스킬은 moai-designer 플러그인의 정본(canonical)을 가리키는 포인터입니다 — 실제 시스템 토큰·컴포넌트 정의·샘플은 `moai-designer:design-system-library`에서 관리합니다(cowork 중복 사본은 경계 계약 \"산출물=cowork, 체계=design\"에 따라 제거됨).\n다음과 같은 요청 시 사용하세요:\n- \"Claude 스타일로 HTML 보고서 만들어줘\" / \"브랜드 디자인 시스템 골라서 HTML로\"\n- \"Claude Design에 올릴 디자인 시스템 자료 정리\"\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:95b5286715d78e0a4d751c7ca2af59b7ffafd2db702d4416ad5c436b1e729dd0"
+    },
+    {
+      "id": "moai-officer:doc-docx",
+      "version": "1.1.3",
+      "description": "편집 가능한 워드(.docx) 문서를 만들어 드립니다 — 보고서, 계약서, 제안서, 공문서, 기획서를 한국형 디자인 톤으로 바로 쓸 수 있게 출력합니다.\n다음과 같은 요청 시 사용하세요:\n- \"보고서 워드 파일로 만들어줘\"\n- \"계약서 DOCX로 작성해줘\"\n- \"공문서 양식대로 써줘\"\n- \"제안서 워드 문서 만들어줘\"\n- \"사업 기획서 docx로 정리해줘\"\n- \"협조 공문 한 장 작성해줘\"\n- \"분기 보고서를 깔끔한 톤으로 워드로 뽑아줘\"\n사용자 브랜드와 제출처 서식을 우선하고, 요청받은 경우 Claude 톤 예시도 참고할 수 있습니다.\n보고서·문서를 워드(.docx) 파일로 만들 때 사용 가능한 문서 생성 기능을 확인하고 결과 파일을 검증합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:0840a241b53e0e71a034b59e8ae4616c00b5bafd90c387627abadc6508d90d27"
+    },
+    {
+      "id": "moai-officer:doc-html-report",
+      "version": "1.2.3",
+      "description": "마크다운 보고서를 브라우저에서 열리는 단일 HTML 파일로 구성합니다. 선택한 폰트·디자인 시스템에 따라 인터넷 연결이 필요할 수 있으므로 오프라인 결과를 확인합니다.\n다음과 같은 요청 시 사용하세요:\n- \"이 보고서 HTML 파일로 만들어줘\"\n- \"주간 현황 보고서를 하나의 HTML로 렌더해줘\"\n- \"재무제표를 HTML 보고서로 변환해줘\"\n- \"인시던트 리포트를 HTML로 정리해줘\"\n- \"프린트 가능한 사업계획서 HTML로 만들어줘\"\n- \"이메일에 붙일 수 있는 HTML 리포트 만들어줘\"\n현황·인시던트·사업계획·설명서·재무·PR 6종 서식 중 보고서 내용에 맞는 것을 고릅니다.\nPDF 파일이 필요하면 현재 사용 가능한 변환 기능을 확인하고 실제 변환 결과의 내용·레이아웃을 검사하세요.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:d11d3868993fdf1834eb2e7aeb8e23aeb15966c33ebc46db83a883c07acf286a"
+    },
+    {
+      "id": "moai-officer:doc-html-slide",
+      "version": "1.2.7",
+      "description": "발표용 슬라이드 덱을 브라우저에서 바로 열리는 단일 HTML로 만듭니다. 인포그래픽은 정확한 숫자·라벨을 인라인 SVG로 렌더링합니다. 실사·일러스트는 앱의 기본 이미지 생성 도구 또는 사용자가 지정한 Higgsfield 연결로 만듭니다. 필요하면 doc-pptx 체이닝으로 편집 가능한 .pptx도 산출합니다.\n다음과 같은 요청 시 사용하세요:\n- \"발표 슬라이드 HTML로 만들어줘\"\n- \"키노트 덱 단일 HTML 파일로 렌더해줘\"\n- \"사업계획서 슬라이드 10장, 브라우저에서 바로 열리게\"\n- \"데이터 시각화 인포그래픽 슬라이드 HTML로\"\n- \"슬라이드 만들고 PPTX로도 저장해줘\"\n- \"투자 피칭 덱 인터랙티브 HTML로\"\n- \"발표 자료를 HTML 슬라이드 + 편집 가능 PPTX 둘 다\"\n현재 설치된 design-system-library 브랜드 토큰 중 테마를 고릅니다. getdesign.md 링크는 공식 브랜드 규격이 아닌 외부 참고 자료입니다.\nPDF 배포본이 필요하면 브라우저 `?print-pdf` 인쇄 모드를 쓰거나, 생성한 HTML을 moai-officer:doc-pdf로 넘겨 변환하세요 (weasyprint를 직접 설치·호출하지 말 것).\n[책임 경계] vs moai-officer:doc-pptx: 이 스킬=브라우저에서 바로 열리는 단일 .html 슬라이드 덱(편집 가능 .pptx는 doc-pptx 체이닝으로 산출). vs moai-media:media-notebooklm-slide-prompt: 저 스킬=NotebookLM 입력용 프롬프트(파일 생성 없음). vs moai-officer:doc-html-report: 저 스킬=연속 스크롤 문서/보고서(슬라이드 덱이 아님).\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:625203af69f95f0685b7f28017bab0db85b49969bffab6fff5545ddd85c1fedc"
+    },
+    {
+      "id": "moai-officer:doc-hwp",
+      "version": "1.1.3",
+      "description": "아래아한글(.hwpx) 문서를 만들어 드립니다 — 한컴오피스에서 열리는 공문서·기안서·품의서·보고서를 작성하고, 기존 HWP 파일을 HWPX로 변환합니다.\n다음과 같은 요청 시 사용하세요:\n- \"한글 파일로 공문서 만들어줘\"\n- \"HWP 문서 작성해줘\"\n- \"아래한글 기안서 써줘\"\n- \"한글로 품의서 작성해줘\"\n- \"협조 요청 공문 한글 파일로\"\n- \"기존 HWP 파일을 HWPX로 변환해줘\"\n- \"한글 문서에서 텍스트만 추출해줘\"\n한컴오피스(아래아한글) 호환 표준 양식을 따르며, 한컴이 없는 환경이면 워드(.docx) 생성으로 대체할 수 있습니다.\n아래아한글(.hwpx) 문서를 만들 때는 현재 앱의 실제 문서 생성 기능을 확인하고 이 스킬의 검수 절차를 적용하세요.\n[책임 경계] vs moai-officer:doc-docx: 이 스킬=한컴 .hwpx 한글 파일, 저 스킬=MS 워드 .docx 파일.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:ef00c72916e5aedc3c19bdf4759e4b738f4dc6f1e42996ce320208b853bc33a7"
+    },
+    {
+      "id": "moai-officer:doc-notion-template",
+      "version": "1.1.2",
+      "description": "노션 올인원 업무관리·목표·회고 템플릿의 구조를 설계해주는 스킬입니다. '노션 템플릿 만들어줘', '올인원 업무관리 대시보드', '노션 목표 관리', '노션 회고 템플릿', '노션 구조 짜줘'처럼 말하면 됩니다. 데이터베이스·뷰·속성 구조를 설계해, 흩어진 메모를 한곳에 모으는 노션 대시보드의 뼈대를 만들어줍니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:fc2d9215432d394eb0bce620bf4eac778852dcd6d975048d7d77534ca676dac1"
+    },
+    {
+      "id": "moai-officer:doc-pdf",
+      "version": "1.1.3",
+      "description": "HTML·Markdown·JSON·일반 텍스트를 PDF로 만들거나 기존 문서를 PDF로 변환할 때 사용합니다.\n현재 호스트의 PDF 출력 기능을 확인하고, 결과 파일의 내용·글꼴·페이지 배치를 검수합니다.\n요청 예: \"PDF로 만들어줘\", \"HTML 보고서를 PDF로\", \"한글 PDF 출력\", \"Markdown을 PDF로\".\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:fc70311457f0b64eee0791b9403bd6da443d16c39e664cb4f9968fa05465c2a4"
+    },
+    {
+      "id": "moai-officer:doc-pptx",
+      "version": "1.1.2",
+      "description": "발표자료의 내용과 디자인을 설계하고 실제 지원되는 도구로 PPTX 파일을 만듭니다.\n요청 예: \"발표자료 PPT로\", \"보고서를 슬라이드로\", \"교육자료 PPT 만들어줘\".\n결과 파일의 내용·글꼴·그림·차트를 다시 열어 검수합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:2dda2046e8d2184cf94cc90fa41962f1d54196b6209ac0927ba727b80cfefddc"
+    },
+    {
+      "id": "moai-officer:doc-reader",
+      "version": "1.1.2",
+      "description": "HWP·HWPX·HWPML·PDF·XLSX·DOCX 등 문서의 내용을 읽고 표·메타데이터·양식 필드를 확인할 때 사용합니다.\n연결된 kordoc MCP의 실제 도구로 형식을 감지하고 결과와 경고를 원본에 대조합니다.\n요청 예: \"이 HWP 파일 읽어줘\", \"PDF 표 추출해줘\", \"두 문서 비교해줘\", \"양식 필드 확인해줘\".\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:e4ec13164dea818d0dbced61135ab3cfbfe7d2a0076ba7c69abb39d0e9645e84"
+    },
+    {
+      "id": "moai-officer:doc-workflow",
+      "version": "1.0.2",
+      "description": "보고서·슬라이드·표·한국 공문서·노션 구조 등 여러 문서 산출물을 준비할 때 입력 자료와 형식을 확인하고 moai-officer의 doc-*·productivity-* 스킬로 작업을 연결합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:dbd8dd46b85308147aca2e180f05817c579d760f0c4484d812c74f6f859a821c"
+    },
+    {
+      "id": "moai-officer:doc-xlsx",
+      "version": "1.1.2",
+      "description": "데이터 표·수식·차트를 XLSX 파일로 만들 때 사용합니다.\n현재 호스트의 스프레드시트 출력 기능을 확인하고, 원본 수치와 저장된 파일을 대조합니다.\n요청 예: \"매출 분석표 엑셀로\", \"예산 추적표 만들어줘\", \"KPI 차트를 XLSX로\".\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:96c153e5fcc694e128f787e5bc52871a057534eacffee4e833550581591e48b2"
+    },
+    {
+      "id": "moai-officer:productivity-briefing",
+      "version": "1.1.2",
+      "description": "업계 뉴스·정책·시장 지표·경쟁사 공개 정보를 확인해 업무용 브리핑을 작성합니다.\n요청 예: \"오늘 비즈니스 브리핑\", \"주간 시장 동향\", \"경쟁사 공개 발표 요약\".\n운영 데이터 기반 이커머스 브리핑은 moai-seller:commerce-morning-brief를 사용합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:bb785a4442ad17a045bc464e95c19cf080893c9487306eab684c8f5a1afa24bf"
+    },
+    {
+      "id": "moai-officer:productivity-time",
+      "version": "1.1.4",
+      "description": "하루·한 주의 시간을 주도적으로 설계하도록 도와주는 시간관리 스킬입니다. '시간관리 어떻게 해', '야근 줄이고 싶어', '블록식스로 일정 짜줘', '덩어리 시간 만들기', '우선순위 정해줘'처럼 말하면 됩니다. 블록식스·덩어리 시간·우선순위 매트릭스로 일정을 구조화하고, 실제 업무량에 맞게 조정합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:77c7b98896b85bc55e3f9b38a04d1f70c4c91169db291acb8b0868d119a9c0c9"
+    },
+    {
+      "id": "moai-officer:setup-mcp-connector",
+      "version": "1.1.5",
+      "description": "Claude Cowork와 ChatGPT Work에서 Google Drive·Notion·Higgsfield 등의 외부 앱과\n설치된 MoAI 플러그인의 MCP 연결·인증 상태를 확인하고 문제를 좁혀 안내합니다.\n앱 설치, 계정 연결, 도구 노출, 실제 읽기 호출을 각각 구분합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:aa60e9bb21b57e8842cc8baa4f6db83b3efe33819b380efb252c68070dc18832"
+    },
+    {
+      "id": "moai-pm:project",
+      "version": "1.7.0",
+      "description": "AI 코워커 플러그인 패밀리('MoAI-Cowork, 모두의 코워크')의 **프로젝트 초기화 단일 진입점**.\n`/project <자연어 지시>`로 진입한다 — Claude Cowork·ChatGPT Work 데스크톱 작업을 담당하는\nDesktop 슈퍼 오케스트레이터/어드바이저다. 소크라테스 인터뷰로 맥락을 파악하고, 설치된 플러그인 인벤토리를 스캔한 뒤,\n**프로젝트 전용 커스텀 에이전트와 스킬 체인**을 설계해 `AGENTS.md`(폴더 지침 정본, ≤500라인)와 이를 `@AGENTS.md`로 불러오는 `CLAUDE.md`·호스트별 에이전트 파일·`.moai/` 스캐폴드를 생성한다.\n이후 사용 중 신호를 감지하면 스스로 개선한다(재귀적 자가 개선). 개발 프로젝트 초기화는 이 마켓플레이스의 범위 밖이다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"새 프로젝트 시작\", \"프로젝트 설정 도와줘\", \"AGENTS.md 만들어줘\", \"CLAUDE.md 만들어줘\" (개발 프로젝트가 아닐 때)\n- \"/project ...\", \"/project update\", \"/project evolve\", \"/project doctor\"\n- \"이어서 진행\", \"설치 완료\", \"다시 진행\" — 설치 완료 후 재개 요청\n- \"에이전트 개선해줘\", \"지침 업데이트해줘\", \"AGENTS.md 업데이트해줘\", \"플러그인 업데이트됐어\", \"새 스킬/MCP 동기화해줘\" — 재귀적 자가 개선·플러그인 업데이트 동기화 진입\n- 사업·콘텐츠·디자인·커머스·법무·재무·인사 등 비개발 자연어 요청을 적합한 AI 코워커 플러그인으로 라우팅해야 할 때\n\n이 스킬은 **이름·회사 같은 글로벌 프로필을 재질문하지 않는다.** 프로젝트마다 \"이번에 뭘 할 건지\"만 인터뷰한다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:4fa6702402079222ed7430fc55800b51b94d707f92fd0922deeabcacc5148d70"
+    },
+    {
+      "id": "moai-recruiter:hr-draft-offer",
+      "version": "1.1.4",
+      "description": "채용 제안서와 근로계약서를 작성해주는 스킬입니다. \"오퍼 레터 만들어줘\", \"근로계약서 초안 작성해줘\", \"연봉 협상 문서 써줘\"처럼 말하면 됩니다. 근로기준법 준수 기반 채용 제안서, 처우 조건 정리, 공식 기준에 따른 공제액 검토, 스톡옵션 조건의 누락 점검을 지원합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:006836b1a99cc10320b835da7415de526ec41bcc1ebf45398a778bd713c97bf7"
+    },
+    {
+      "id": "moai-recruiter:hr-employment",
+      "version": "1.1.5",
+      "description": "채용 프로세스 전반을 관리해주는 스킬입니다. \"JD 작성해줘\", \"면접 질문 만들어줘\", \"신입 온보딩 계획 짜줘\"처럼 말하면 됩니다. 채용 공고 작성, 면접 설계, 평가 기준 수립, 온보딩 체크리스트, 멘토링 프로그램 설계를 지원합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:19c29a52c65fca3e028c87574e7bac50d0b6852104f11ebdf4ed56a972211eec"
+    },
+    {
+      "id": "moai-recruiter:hr-job-analysis",
+      "version": "1.1.3",
+      "description": "한국 취준생·재직 이직자를 위한 채용공고(JD) 분해·기업 리서치·헤드헌터 오퍼 검증 스킬입니다. \"채용공고 분석해줘\", \"JD 분석\", \"이 회사 어때?\", \"헤드헌터 오퍼 검토\"처럼 말하면 됩니다. JD에서 필수/우대 역량 추출 + 본인 경험 매칭 + DART·잡플래닛·블라인드·사람인 공고 이력 종합 분석을 지원합니다. 각 자료의 현재성·출처를 확인합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:cb59c4fc96af93a42c9c08d1ede8e4bd742b7559bdf6d62825cd656ee93a7a39"
+    },
+    {
+      "id": "moai-recruiter:hr-operations",
+      "version": "1.1.5",
+      "description": "원격 근무와 팀 운영 정책을 설계해주는 스킬입니다. \"재택근무 정책 만들어줘\", \"협업 도구 추천해줘\", \"비동기 커뮤니케이션 가이드 만들어줘\"처럼 말하면 됩니다. 원격·하이브리드 근무 정책, 협업 도구 선정 기준, 생산성 관리 프레임워크, 직원 경험 설계를 지원합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:32c8f4d26cd95a4dcb862cd5fd31c421d6fd1cf0b8de65db404d10e23ee85837"
+    },
+    {
+      "id": "moai-recruiter:hr-performance-review",
+      "version": "1.1.4",
+      "description": "성과평가 체계를 설계하고 실행을 도와주는 스킬입니다. \"OKR 설정해줘\", \"성과 리뷰 템플릿 만들어줘\", \"피드백 면담 스크립트 써줘\"처럼 말하면 됩니다. MBO·OKR·KPI 체계 구축, 360도 평가 설계, 인사 고과 가이드, 피드백 면담 스크립트 작성을 지원합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:cbf08b9ff7fb50b632ed78107f34a0e3889c9dbfbecaad811f513df57f117e76"
+    },
+    {
+      "id": "moai-recruiter:hr-resume-screener",
+      "version": "2.0.1",
+      "description": "이력서와 직무기술서를 대조해 직무 관련 근거·확인할 항목·면접 질문 초안을 정리합니다.\n사진·생년월일·가족관계 등 직무와 무관한 개인정보는 평가에 사용하지 않습니다.\n합격·거절·순위·적합도 점수는 만들지 않으며 채용 담당자가 직접 검토합니다.\n\"이력서 검토\", \"지원자 평가\", \"서류 스크리닝\", \"NCS 직무 근거 정리\" 요청에 사용하세요.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:9d5c3976e3abfdaf8025716408aa4aa23bae7b9ac233d464f97e64f98ef0acf0"
+    },
+    {
+      "id": "moai-recruiter:hr-screening-audit",
+      "version": "1.0.2",
+      "description": "채용공고·지원자 평가표·면접 질문·성과평가 기준을 직무 요건과 제출 자료에 대조합니다. 차별 소지, 자동 결정 표현, 개인정보 노출을 읽기 전용으로 검수합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:e76552c012181e9712f9fca8c3c4a66aa0f4f627f1bd569b8e83071d81778746"
+    },
+    {
+      "id": "moai-recruiter:hr-workflow",
+      "version": "1.0.1",
+      "description": "채용공고·지원자 평가·오퍼·성과평가·인사 운영이 함께 필요한 고용주 편 요청에서 직무 기준과 자료를 확인하고 moai-recruiter의 hr-* 스킬로 연결합니다. 구직자 편은 moai-career로 연결합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:fffb132ca00892ab1c1af494c15a22710e2dd7af18bbabe7ad98255540a91806"
+    },
+    {
+      "id": "moai-seller:commerce-ad-claim-compliance-kr",
+      "version": "1.1.3",
+      "description": "[책임 경계] 광고·상세페이지·리스팅 \"문구·표현\" 법규 검증 게이트 전담 — ① 표시광고법 부당표시 6유형 체크리스트 ② 식약처 건강기능식품·화장품 의약품-오인 표현 금지 목록 ③ 전자상거래법 필수 고지(청약철회 7일·통신판매업 신고번호·사업자정보·배송/반품 비용) 점검. 페어 commerce-message-compliance-kr(정통망법 메시지 발송 규제)와 명확히 구분 — 본 스킬은 카피의 표현 적법성, 페어는 발송 채널·시간·동의 적법성.\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n\"표시광고법 점검\", \"이 광고 문구 괜찮아?\", \"과장광고 검사\", \"허위광고 체크\", \"건강기능식품 표현 검사\", \"화장품 광고 심의\", \"의약품 오인 표현\", \"다이어트 문구 써도 돼?\", \"미백 표현 가능해?\", \"전자상거래법 필수 표기\", \"청약철회 고지 점검\", \"상세페이지 법규 검사\", \"광고 카피 컴플라이언스\".\n입력 카피 → 유형별 위험 신호 검사 → 확인한 근거와 수정안 제시. 제품 인허가·증빙·현행 법령이 확인되지 않으면 적법성 PASS를 선언하지 않습니다.\n※ 본 스킬은 법률 자문이 아니며, 최종 판단은 변호사·심의기관 확인이 필요합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:d758c8dc4be5ee6d3280e51132d3ddcc938ad32d5b5b6886671a725b20940059"
+    },
+    {
+      "id": "moai-seller:commerce-automation-audit",
+      "version": "1.1.2",
+      "description": "셀러의 반복 업무, 예외, 데이터 품질, 연동 권한을 조사하고 자동화 후보의 우선순위와 사람의 승인 지점을 설계합니다. 실제 업무량·비용·오류 기록이 없으면 효과 수치를 만들지 않습니다. \"자동화 진단\", \"매장 자동화 우선순위\", \"주문·정산 자동화 로드맵\" 요청에 사용합니다. 보고서 작성 후 연결된 ai-slop-reviewer와 korean-humanize가 있으면 순서대로 검수합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:545b8c7417a7bfca88b73bcea15088e3d82297e9c52d10265f49507da7e021fa"
+    },
+    {
+      "id": "moai-seller:commerce-coupang-ad-optimizer",
+      "version": "1.1.1",
+      "description": "(구명칭 호환 스텁) `moai-seller:commerce-marketplace-coupang-ads`로 이름 변경됨. 직접 호출하지 않는다.\n",
+      "invocation_scope": "workflow",
+      "digest": "sha256:3f2c3b96b3bcdcfbedea0a3ed4fb43ef8a00e722772f19a84d85af612bfab0c3"
+    },
+    {
+      "id": "moai-seller:commerce-detail-page-copy",
+      "version": "1.1.2",
+      "description": "상품 근거 자료를 바탕으로 상세페이지 카피를 작성하거나 현재 페이지를 진단합니다. 13개 섹션 구조, 페르소나별 대안, 마크다운 미리보기를 제공합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:b5e6f6736aa60abf593911c315780c8dc28c06446354c6cd3f4cc169285d0ba7"
+    },
+    {
+      "id": "moai-seller:commerce-detail-page-image",
+      "version": "1.1.6",
+      "description": "한국 이커머스 상세페이지 13섹션 이미지를 생성하고, 실행 환경에 이미지 합성 도구가 있으면 1080×12720 단일 PNG로 합성하는 스킬입니다. \"상세페이지 이미지 만들어줘\", \"13섹션 합성 이미지\", \"상폐 이미지\", \"1080 12720 합성\"처럼 말하면 됩니다. commerce-detail-page-copy의 13섹션 카피와 사용자 상품 사진을 받아 섹션별 이미지 프롬프트를 작성하고, ChatGPT에서는 사용 가능한 기본 이미지 도구를 우선 확인하고, Images 2.5 요청은 세션의 모델을 확인합니다. Flare·Sunburst API 모델 ID 지정 요청은 별도 API 경로를 확인합니다. 사용자가 Higgsfield를 지정하면 호스트에 맞는 공식 연결로 이미지를 생성한 뒤 Python과 Pillow가 실행 가능한 환경에서는 1080×12720 세로 합성 PNG를 직접 조립합니다(합성 로직은 이 문서에 인라인 코드로 포함).\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:980a751ed3ed1b5aa817e9b13cb52b76ee116ce2eca7a235697ad10737a5e1cb"
+    },
+    {
+      "id": "moai-seller:commerce-detail-page-planner",
+      "version": "1.1.5",
+      "description": "상품 상세페이지의 핵심 메시지, 정보 순서, 사진 목록, 채널별 확인 사항을 기획합니다. 확인된 사양과 실제 고객 자료를 바탕으로 카피·이미지 제작 전에 브리프를 만듭니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:8eecc49d0983d5de919e1bbc7c16dca1c3cc2a8fb3bae778a8d5d5f2e3cb9ec0"
+    },
+    {
+      "id": "moai-seller:commerce-early-fan-builder",
+      "version": "1.1.2",
+      "description": "신생 브랜드의 초기 고객과 관계를 만드는 계획을 세웁니다.\n요청 예: \"초기 팬 구축\", \"첫 구매자와 소통\", \"추천 프로그램 설계\".\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:9c5e3cefc6aa00c9afcca5c30fd6c3a53e80fb25d07985c640345c07b7acf887"
+    },
+    {
+      "id": "moai-seller:commerce-influencer-collab",
+      "version": "1.1.2",
+      "description": "인플루언서 협업·체험단·고객 콘텐츠 재사용 계획을 세우고 경제적 이해관계 표시를 확인합니다.\n요청 예: \"인플루언서 협업\", \"체험단 운영\", \"후기 리그램 동의\".\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:7dbf51c5b871bb819cd9f52fd5121e54d4f5780d46ea843f3aa31e91efa529a8"
+    },
+    {
+      "id": "moai-seller:commerce-integrated-strategy",
+      "version": "1.1.2",
+      "description": "판매 채널·상품·광고·고객 데이터를 함께 살펴 실행 우선순위를 제안합니다. 입력 자료의 기준일과 확인 범위를 표시하고 채널별 가격·프로모션·재구매 전략을 가설로 정리합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:192c7fc1e5ea6f5138115ffc605236bb111ad842aa7011fcf6b9a50fdd5127cc"
+    },
+    {
+      "id": "moai-seller:commerce-jtbd-persona",
+      "version": "1.1.2",
+      "description": "고객 리뷰·문의·인터뷰에서 구매 맥락과 해결하려는 일을 분석하고, 근거가 충분할 때 고객 유형을 묘사합니다. \"JTBD 분석\", \"리뷰 기반 페르소나\", \"구매 결정 요인\" 요청에 사용합니다. 검수 스킬이 연결돼 있으면 문장 검수에 사용합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:53f6439f5cba6693dad28f99396debf386f472429e87f8a3c5ac1463ed5985bf"
+    },
+    {
+      "id": "moai-seller:commerce-live-commerce",
+      "version": "1.1.3",
+      "description": "네이버·카카오·그립·쿠팡 등 판매 채널의 현재 방송 조건을 확인하고, 검증된 상품 정보와 실제 혜택으로 라이브 진행안·스크립트를 작성합니다. \"쇼핑라이브 기획\", \"라이브 방송 대본\", \"라이브 커머스 채널 비교\" 요청에 사용합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:b56c7482ebd5f13852c2d76e56f1de6629a8e9bd015c9be7f1d4e12f80f38a3d"
+    },
+    {
+      "id": "moai-seller:commerce-ltv-cac-architect",
+      "version": "1.1.2",
+      "description": "고객 코호트별 획득비용·공헌이익·재구매를 계산해 LTV/CAC와 회수 시점을 검토합니다.\n요청 예: \"LTV 계산\", \"신규 고객 CAC\", \"광고비 회수 기간\", \"채널별 재구매율\".\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:b0f4123b49edbfe89359d923a1791fc9c1899210c16b608c98083eb05da8e31b"
+    },
+    {
+      "id": "moai-seller:commerce-margin-audit",
+      "version": "1.0.1",
+      "description": "상품 등록안·상세페이지·가격표·광고 및 프로모션 계획의 원가, 수수료, 할인과 마진 계산을 읽기 전용으로 재검산합니다. 채널 제약과 주장 근거도 함께 확인합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:7da0c4726fbd1f25af83321f0128bffe275e5f923ae071b6a0465c42ee52e89a"
+    },
+    {
+      "id": "moai-seller:commerce-margin-calculator",
+      "version": "1.1.2",
+      "description": "상품별 주문 공헌이익과 광고비를 반영한 손익분기 ROAS를 계산합니다.\n실제 정산 수수료·세금 처리·할인 부담·배송비 자료를 확인한 경우에만 결과를 확정합니다.\n요청 예: \"이 상품 마진 계산\", \"본전 ROAS\", \"수수료와 쿠폰 반영해줘\".\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:09221dd55ef99160eda346e9cf0654fe99752c260a080802e329382c6340993a"
+    },
+    {
+      "id": "moai-seller:commerce-market-research",
+      "version": "1.1.2",
+      "description": "판매자가 새 상품이나 카테고리를 검토할 때 시장·경쟁·검색 자료를 출처와 기간별로 정리합니다. \"카테고리 시장조사\", \"경쟁 상품 조사\", \"검색 추세 확인\" 요청에 사용합니다. 자료가 없으면 규모·성장률·경쟁 강도를 만들지 않습니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:30f98fb0e43ec12c2d057d90ce10849db0ef5c12c647b30d73ac5b33d1eed2c9"
+    },
+    {
+      "id": "moai-seller:commerce-marketplace-coupang",
+      "version": "1.1.3",
+      "description": "쿠팡 상품 등록 자료를 현재 판매자 유형·카테고리·이미지·배송 조건과 대조합니다. \"쿠팡 상세페이지\", \"쿠팡 상품 등록\", \"쿠팡 SEO\", \"쿠팡 우수상품\", \"쿠팡 정책\", \"쿠팡 금지문구\", \"로켓배송 등록\", \"로켓배송과 판매자배송 비교\" 요청에 사용합니다. 확인되지 않은 노출 우대·수수료·배송 약속을 만들지 않습니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:b1fbe5e42461f7ea9bdc9eb5e62b295afa573019f00d4e5a0486f8e9a322b3ce"
+    },
+    {
+      "id": "moai-seller:commerce-marketplace-coupang-ads",
+      "version": "1.1.2",
+      "description": "쿠팡 광고 계정의 실제 보고서와 상품 공헌이익을 대조해 캠페인·상품·키워드별\n조정안을 작성합니다. \"쿠팡 광고 분석\", \"AI스마트광고 세팅\",\n\"매출최적화 캠페인\", \"수동키워드 광고\", \"검색·비검색 영역\",\n\"목표 ROAS\", \"자동규칙\", \"키워드 제외\", \"오디언스 플러스\" 요청에 사용합니다.\n현재 계정에서 확인하지 않은 예산·목표 수익률·광고 기능을 확정하지 않습니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:3ca8da8be0104202a4f540030bdbcbfeb0ee40ee2706d9ad1fda2250b8ed33ee"
+    },
+    {
+      "id": "moai-seller:commerce-marketplace-crowdfunding",
+      "version": "1.1.3",
+      "description": "와디즈·텀블벅 등 한국 크라우드펀딩 채널의 프로젝트 기획·심사 준비·리워드 구성·정산 점검을 돕는 스킬입니다. \"와디즈 펀딩\", \"텀블벅 프로젝트\", \"크라우드펀딩 기획\", \"리워드 구성\", \"선주문 펀딩\"처럼 말하면 됩니다. 상품과 제작 단계, 메이커 자격, 실제 계약 조건을 확인해 프로젝트 스토리와 준비 자료를 정리합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:8d285441968bf2ddb7bfac73ec516ab256d9dc8eb69c441ae6b53379c3d7d11b"
+    },
+    {
+      "id": "moai-seller:commerce-marketplace-curation",
+      "version": "1.1.3",
+      "description": "카카오 메이커스·무신사·29CM 등 한국 큐레이션 커머스 채널의 입점 제안 자료를 준비하는 스킬입니다. \"카카오 메이커스 입점\", \"무신사 셀러\", \"29CM 입점\", \"큐레이션 셀렉션\", \"주문생산 펀딩\"처럼 말하면 됩니다. 브랜드·상품·생산 역량을 실제 신청 경로와 대조해 확인할 항목을 정리합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:a8930c73004521a1cfff0ca3446b9d98b82611c14df3251042b83c0a168bb06f"
+    },
+    {
+      "id": "moai-seller:commerce-marketplace-d2c",
+      "version": "1.1.2",
+      "description": "카페24·아임웹·메이크샵 등 한국 자사몰 빌더를 비교하고 개설 준비를 돕습니다. \"카페24 등록\", \"아임웹 쇼핑몰\", \"자사몰 만들기\", \"D2C 브랜드 쇼핑몰\"처럼 요청하세요. 현재 요금·결제·배송 조건과 판매자의 실제 비용을 확인해 운영 계획을 작성합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:76ccbd99dd7e44c235ef1181b12d5466b7a365d87b15a2e0da61c3fe1b5de1ef"
+    },
+    {
+      "id": "moai-seller:commerce-marketplace-naver",
+      "version": "1.1.3",
+      "description": "네이버 스마트스토어·11번가·G마켓·옥션 상품 등록 자료를 현재 판매자 계정의 카테고리·이미지·검색어·고지 조건과 대조합니다. \"스마트스토어 등록\", \"네이버 쇼핑 SEO\", \"11번가 가이드\", \"옥션 등록\", \"오픈마켓 상세페이지 검토\", \"마켓별 상품명과 이미지 확인\" 요청에 사용합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:015858aa92e65720d0a09956c211f33ca22ef21752411f5c325ab6937d73b3db"
+    },
+    {
+      "id": "moai-seller:commerce-marketplace-naver-ads",
+      "version": "1.1.2",
+      "description": "네이버 광고 계정의 보고서와 상품 공헌이익을 대조해 검색어·소재·입찰·예산의\n조정안을 작성합니다. \"네이버 광고 분석\", \"쇼핑검색광고 세팅\",\n\"파워링크 키워드\", \"품질지수\", \"브랜드검색\", \"GFA\",\n\"네이버 광고 보고서\", \"스마트스토어 광고 최적화\" 요청에 사용합니다.\n계정에 보이지 않는 광고 유형·입찰 기준·전환 실적을 만들지 않습니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:44fd925c46c21b7d88906cd88b694c6f8229763dec71df18e0daea9a6251acb7"
+    },
+    {
+      "id": "moai-seller:commerce-message-compliance-kr",
+      "version": "1.1.3",
+      "description": "한국 광고성 메시지 발송 전 정보통신망법과 채널 정책을 점검합니다. 문자·이메일·앱 알림·카카오 비즈메시지의 광고성 여부, 수신 동의, 야간 발송, 표시·수신거부 방법을 확인합니다. 광고 문구 자체의 표시광고 심사는 commerce-ad-claim-compliance-kr을 사용합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:1d212f0c075da76eb98f18e17592e94c27ebc4f30a2b2e2a234f7e4a254bd741"
+    },
+    {
+      "id": "moai-seller:commerce-morning-brief",
+      "version": "1.1.2",
+      "description": "연결된 매장 자료나 사용자가 제공한 주문·문의·광고 데이터를 기준 시각에 맞춰 요약합니다.\n요청 예: \"오늘 매장 현황\", \"어제 주문 요약\", \"채널별 신규 주문 합계\".\n외부 뉴스 브리핑은 moai-officer:productivity-briefing을 사용합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:f8af5945ecf4029194c335fd452eea3639e88e94419b07ceea97a92b2618098c"
+    },
+    {
+      "id": "moai-seller:commerce-product-detail",
+      "version": "1.1.3",
+      "description": "판매 채널에 맞는 상품 상세 콘텐츠를 설계하고, 자사몰이나 웹사이트용 HTML·React\n코드를 작성합니다. \"스마트스토어 상세페이지\", \"쿠팡 상세페이지\",\n\"카카오 선물하기 상품 설명\", \"SaaS 제품 페이지 React\" 요청에 사용합니다.\n마켓 상품 등록 규격은 현재 판매자 계정에서 확인하며, 코드가 마켓 에디터에\n그대로 업로드된다고 약속하지 않습니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:ab448804cdd1611f719eeef014cddb2849cdb84b4bb490907480743f71471475"
+    },
+    {
+      "id": "moai-seller:commerce-product-image-pipeline",
+      "version": "1.1.5",
+      "description": "상품 이미지와 선택적 영상을 제작하고 사용자가 지정한 채널에 맞게 검수하는 워크플로입니다. ChatGPT Work에서는 노출된 기본 이미지 도구를 우선 확인합니다. Images 2.5 요청은 현재 세션의 모델을 확인하고, Flare·Sunburst API 모델 ID 지정 요청은 별도 API 경로를 확인합니다. Higgsfield를 요청하면 현재 호스트의 공식 연결에서 노출된 도구를 확인해 사용합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:adb69f3e6c04a59e8165338cae1a6d839a5873f430aae9ac80edd1233397abde"
+    },
+    {
+      "id": "moai-seller:commerce-product-naming",
+      "version": "1.1.2",
+      "description": "상품 정보와 확인된 검색어를 바탕으로 판매 채널별 상품명 후보를 만듭니다. \"상품명 후보\", \"검색어를 반영한 이름\", \"등록 전 상품명 점검\" 요청에 사용합니다. 검색량·플랫폼 정책·CTR 성과를 확인하지 않았으면 수치나 PASS 판정을 만들지 않습니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:42ec1450480bb91bbabcb78c2930a1ff71ce9cd56c7c08acb3af8c8160e24789"
+    },
+    {
+      "id": "moai-seller:commerce-product-photo-brief",
+      "version": "1.1.6",
+      "description": "사용자가 제공한 상품 사진을 분석하여 ProductDNA를 추출하고, 13섹션 상세페이지에 부족한 컷을 식별, 추가 촬영을 위한 구체적인 브리프를 작성해주는 스킬입니다. \"상품 사진 분석해줘\", \"촬영 브리프 만들어줘\", \"부족한 컷 알려줘\", \"어떤 사진이 더 필요해?\"처럼 말하면 됩니다. 형태·소재·색상·시그니처 앵글·포지셔닝(mass/premium_indie/luxury)을 추출하고, 선택한 섹션별 사용 가능한 컷 매핑 + 추가 촬영 권장 리스트를 산출합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:506da7d0f2d327925a7e45577e91cd92d3a26d71420f674ce823c4afca849b09"
+    },
+    {
+      "id": "moai-seller:commerce-promotion-planner",
+      "version": "1.1.2",
+      "description": "판매자의 목표·재고·공헌이익·고객 동의를 확인해 단일 프로모션의 혜택과 운영안을 기획합니다. \"프로모션 기획\", \"사전 예약 혜택\", \"한정 판매 행사\" 요청에 사용합니다. 사례 성과나 고객 반응을 근거 없이 만들어 내지 않습니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:33c4d2de7bfd99c80dc94638b34ac4b67367deb53fcd050c527eb08fc3a8b619"
+    },
+    {
+      "id": "moai-seller:commerce-repurchase-timer",
+      "version": "1.1.2",
+      "description": "실제 고객의 구매 간격과 수신 동의를 바탕으로 재구매 연락 시점을 설계합니다.\n요청 예: \"재구매 시점 분석\", \"리마인드 발송 계획\", \"고객 코호트 재구매율\".\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:5ed1078aa2d3967e2045d1bad958b4e84d98a80d1f7fccc76b57b36b1158990e"
+    },
+    {
+      "id": "moai-seller:commerce-season-calendar",
+      "version": "1.1.2",
+      "description": "판매 지역·채널·상품군에 맞는 시즌 행사와 준비 일정을 정리합니다.\n요청 예: \"연간 시즌 캘린더\", \"명절 판매 준비\", \"블랙프라이데이 계획\".\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:1219211e483db482ef6e97aa8d57a0d38d97f1e69bb450b908da81a22a94a083"
+    },
+    {
+      "id": "moai-seller:commerce-subscription-strategist",
+      "version": "1.1.2",
+      "description": "상품·서비스의 구독 모델을 설계할 때 구매 주기, 제공 가치, 수익성, 해지 경험을 검토합니다.\n요청 예: \"구독 모델 설계\", \"정기 배송이 맞을까\", \"구독 이탈 줄이기\".\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:8c3d06243f7824d426a565883fa1f98fd847fc7620d99e05257ef1095b630227"
+    },
+    {
+      "id": "moai-seller:commerce-workflow",
+      "version": "1.0.2",
+      "description": "상품 상세페이지·마켓 등록·가격·프로모션·재구매 계획을 함께 준비할 때 상품 사실과 채널 조건을 확인하고 moai-seller의 commerce-* 스킬로 연결합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:4f8ca93e565cf495e639e38fcdc100b2d8ce0a089ad6378a1a6ed6cd6cc36588"
+    },
+    {
+      "id": "moai-story:story-ad-conti",
+      "version": "1.1.1",
+      "description": "story-conti의 광고 프리셋으로 통합됨 (폐지).",
+      "invocation_scope": "workflow",
+      "digest": "sha256:e25166402b7c2bc07489a53487f142664c4db7e3637e7251b893c767febcc650"
+    },
+    {
+      "id": "moai-story:story-character-sheet",
+      "version": "1.1.3",
+      "description": "캐릭터 시트 스킬 — 인물·동물의 비주얼 시트(외형 8항목)와 일관성 앵커를 설계하고, 이미지 참조 세트의 사양을 정한다. 실제 이미지 생성은 현재 앱의 이미지 도구를 확인하고, 사용자가 Higgsfield를 지정한 경우에는 이 플러그인의 공식 연결에서 비용을 확인한다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"캐릭터 시트\", \"인물 설정\", \"캐릭터 비주얼\"\n- \"동물 캐릭터 외형\", \"펫 캐릭터 시트\"\n- \"일관성 앵커\", \"캐릭터 일관성 어떻게\"\n- \"Soul ID 학습 세트\", \"레퍼런스 이미지 사양\"\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:64dd3bcb98d4089cdcc703e95c6e604b6b68b1d3722dd403dfeaf0255c78693f"
+    },
+    {
+      "id": "moai-story:story-conti",
+      "version": "1.1.3",
+      "description": "영상 콘티·스토리보드 스킬 — 씬을 정지 프레임 보드로 분해하고 화각·앵글·전환을 설계한다. 드라마·영화 프리셋과 광고 콘티 프리셋(15초/30초, TVC/디지털, 브랜드 가이드 준수)을 모두 다룬다. 생성 실행은 현재 앱의 이미지 도구 또는 사용자가 지정한 Higgsfield 공식 연결의 실제 기능을 확인한다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"콘티\", \"스토리보드\", \"프레임 시퀀스\", \"씬 분할\"\n- \"연출 콘티\", \"촬영 콘티\", \"드라마 콘티\", \"영화 콘티\"\n- \"광고 콘티\", \"광고 스토리보드\", \"CF 콘티\", \"브랜드 콘티\", \"제품 영상 콘티\"\n- \"화각 설계\", \"앵글 구성\", \"컷 전환\"\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:f6ca28d10222e1c21d8ff58933b49e4691e3cf3f638f3a16abefa1afb430acff"
+    },
+    {
+      "id": "moai-story:story-continuity-audit",
+      "version": "1.0.1",
+      "description": "웹툰·웹소설 회차, 시나리오, 시놉시스, 캐릭터 시트와 IP 피치 자료의 인물·사건·설정 연속성 및 권리 주장을 읽기 전용으로 대조합니다. 웹툰 이미지 결함은 story-webtoon-qc로 연결합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:ddc9ec6315d26a48b48a07b001bf8992b236a45225985c2d0a3cf8a6cb373701"
+    },
+    {
+      "id": "moai-story:story-cover-art",
+      "version": "1.1.3",
+      "description": "표지·썸네일 스킬 — 단행본 인쇄 표지 / 웹툰 썸네일·타이틀 카드 / 웹소설 표지 3분기로 구도·시선 유도·제목 자리를 설계한다. 규격 수치는 story-webtoon-spec 허브를, 폰트 라이선스는 moai-designer를 참조한다. 생성 실행은 현재 앱의 이미지 도구 또는 사용자가 지정한 Higgsfield 공식 연결에서 확인한다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"책 표지\", \"단행본 표지\", \"웹툰 썸네일\", \"타이틀 카드\", \"웹소설 표지\"\n- \"표지 구도\", \"표지 시안\", \"커버 아트\"\n- \"썸네일 가독성\", \"모바일 표지\"\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:0ff78553f2e2bfe383cd7333639d08afedcfc265b33ce2640803f8314de0061e"
+    },
+    {
+      "id": "moai-story:story-ip-pitch",
+      "version": "1.1.3",
+      "description": "IP 사업화 스킬 — 완성작을 2차 저작(드라마화·영화화·게임·굿즈·웹툰↔웹소설 전환)으로 피칭하는 문서와 판권 제안서를 작성한다. 문체부 표준계약서 유형·2차적저작물작성권 유보·한국저작권위원회 등록 구조를 개요로 다룬다. 계약 심화는 moai-lawyer 라우팅.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"IP 피칭\", \"판권 제안\", \"2차 저작\", \"판권 제안서\"\n- \"웹툰 드라마화\", \"웹소설 웹툰화\", \"IP 확장\"\n- \"IP 가치 평가\", \"저작권\", \"표준계약서\"\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:553908e1acdc0f119e033aa2c65e607607ac129036682d7d145650d28acbc057"
+    },
+    {
+      "id": "moai-story:story-previz",
+      "version": "1.1.3",
+      "description": "시네마틱 프리비즈 스킬 — 카메라 무빙·렌즈·조명을 지정한 숏 리스트를 설계한다. 달리·팬·틸트·크레인·핸드헬드 같은 카메라 무빙 어휘로 촬영 전 프리비즈 릴을 구성한다. 콘티(정지 프레임) 다음 단계이며, 영상 생성은 현재 앱 또는 Higgsfield 공식 연결에서 실제 도구를 확인한다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"프리비즈\", \"시네마틱 숏\", \"프리비즈 릴\"\n- \"카메라 무빙\", \"달리\", \"팬\", \"틸트\", \"크레인 샷\"\n- \"렌즈 선택\", \"숏 리스트\"\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:13752db4681f05d478d3f98c4990d50816e47e8a0a2ff0412a5559ecacb60751"
+    },
+    {
+      "id": "moai-story:story-project",
+      "version": "1.1.5",
+      "description": "작품 유형을 파악해 웹툰·웹소설·영상(시놉시스·시나리오·콘티·프리비즈)·표지·IP 사업화 파이프라인으로 라우팅하는 moai-story 플러그인의 진입점 스킬. 사용자의 한마디 요청에서 장르를 분류해 알맞은 story-* 스킬 체인으로 안내한다. 출판 도서는 moai-writer로 분기한다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"웹툰 기획할래\", \"웹소설 연재하고 싶어\"\n- \"시나리오 작성\", \"시놉시스 써줘\"\n- \"콘티 만들어줘\", \"광고 스토리보드\"\n- \"캐릭터 시트\", \"책 표지 일러스트\"\n- \"프리비즈\", \"IP 피칭 문서\"\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:50baee9ae55d67879c58c37f6d9f87489bec07c0ed73b2429e05b14dfe5e83e8"
+    },
+    {
+      "id": "moai-story:story-screenplay",
+      "version": "1.1.3",
+      "description": "시나리오 대본 스킬 — 씬 넘버·지문·대사를 한국 드라마 대본 표기 관행과 영화 시나리오 국내 관행으로 작성한다. S# 넘버링, 지문/대사 들여쓰기, 원고 분량 환산, 회당 씬 수, 제출 시 표지/인물소개 구성을 다룬다. 시놉시스를 받아 촬영 가능한 단위의 대본으로 전개한다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"시나리오\", \"대본\", \"씬 작성\"\n- \"드라마 대본\", \"영화 시나리오\"\n- \"씬 넘버\", \"S#\", \"지문\", \"대사\"\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:88dac47f3fd337cc74b4d3c36841de68aecf59f7cbc20be28b5d08776e3823b1"
+    },
+    {
+      "id": "moai-story:story-series-bible",
+      "version": "1.1.4",
+      "description": "연재 상태 원장 스킬. 마스터 기획서와 에피소드 현황표로 이전 회차의 설정·복선·진행 상태를 복원한다. 신규 기획과 시리즈 재호출 두 모드로 진입하고, 재호출 시 확인 가능한 기존 원고와 전체 흐름을 살펴 이번 화를 설계한다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"시리즈 기획서 만들어줘\", \"연재 마스터 문서\", \"웹툰 기획서 시작\"\n- \"기획서 있어 ep## 만들어줘\", \"다음 화 이어서\", \"시리즈 재호출\"\n- \"지금까지 몇 화 나왔지\", \"에피소드 현황표 갱신\", \"연재 상태 정리\"\n- \"회차 파일명 어떻게\", \"제목 공백 처리\"\n- (체인 시작/종료) 회차 작성 전 상태 확립, 회차 완료 후 상태 갱신\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:873a4cfe1631a0dca352c0ba3259b009462af9c6a701f7644561b0501e482d55"
+    },
+    {
+      "id": "moai-story:story-synopsis",
+      "version": "1.1.3",
+      "description": "영상 시놉시스 스킬 — 로그라인·기획의도·인물·구성을 한 문서로 정리한다. 편성 형태와 공모·지원사업 제출 규격은 해당 제작사와 주최 기관의 현재 공고를 확인한다. story-screenplay의 선행 스킬.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"시놉시스\", \"로그라인\", \"기획의도\"\n- \"드라마 기획서\", \"영화 시놉\", \"웹드라마 기획\"\n- \"인물 소개\", \"회차 구성\", \"16부작 구성\"\n- \"극본공모 제출\", \"지원사업 서류\"\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:afe91cbbd913f8907597661ad0c97ba665da1ce2395c96fd620e0ef9f7c03b2e"
+    },
+    {
+      "id": "moai-story:story-webnovel-planner",
+      "version": "1.1.3",
+      "description": "웹소설 연재 기획 스킬 — 후보 플랫폼의 현재 연재·결제·공모·독점 조건을 공식 안내와 계약으로 확인하고 작품에 맞는 연재 구조를 설계한다. 회차 집필은 story-webnovel-writer에 위임한다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"웹소설 기획\", \"웹소설 플랫폼 선택\", \"어느 플랫폼에 연재\"\n- \"문피아 연재\", \"노벨피아 연재\", \"조아라 연재\"\n- \"카카오페이지 소설\", \"네이버시리즈 소설\", \"리디 웹소설\"\n- \"웹소설 연재 구조\", \"웹소설 태그 전략\", \"독점/비독점\"\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:ebe5ff9edd6d0e85c13eb0d28f30edf54636bcfd4f49a44feba73e0c81714d8f"
+    },
+    {
+      "id": "moai-story:story-webnovel-writer",
+      "version": "1.1.3",
+      "description": "웹소설 회차 집필 스킬 — 작품의 장르·인물·연재 조건에 맞춰 한 회를 쓰고 끝맺음을 설계한다. 플랫폼이 미정이면 초안의 분량과 게시 조건을 가정으로 표시한다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"웹소설 회차 집필\", \"웹소설 한 회 써줘\"\n- \"웹소설 절단\", \"클리프행어 설계\", \"회차 끝 어떻게\"\n- \"현판 문법\", \"로판 문법\", \"무협 클리셰\", \"회귀/빙의/환생\"\n- \"연참 주기\", \"회차 분량 조율\"\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:920f71292383745394f2fb9c803148ce2f646bbfb37e45990f05f46ab7282bde"
+    },
+    {
+      "id": "moai-story:story-webtoon-art",
+      "version": "1.1.3",
+      "description": "웹툰 작화 프롬프트 조립 스킬 — 화풍 앵커를 고정하고, 컷별 복붙 프롬프트를 조립하고, 첨부 이미지 서수를 1:1로 매핑하고, 멀티 이미지 세션 컨텍스트를 관리한다. 스타일 참조에서 피사체가 새어 그려지는 것을 내용물 가드로 막는다. 생성 실행은 현재 앱의 이미지 도구 또는 사용자가 지정한 Higgsfield 공식 연결에서 확인한다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"웹툰 작화 프롬프트\", \"컷 프롬프트 조립\"\n- \"화풍 통일\", \"스타일 앵커\", \"참조 이미지 첨부 순서\"\n- \"캐릭터 일관성 프롬프트\", \"첨부 서수 매핑\"\n- \"멀티 컷 세션\", \"여러 컷 연속 생성\"\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:6e117445b3b3232cb620d4ea8723f4e66675ce9d700869057c1dea978478304c"
+    },
+    {
+      "id": "moai-story:story-webtoon-episode",
+      "version": "1.1.3",
+      "description": "웹툰 회차 스킬 — 회차 플롯을 짜고, 세로 스크롤 컷으로 분할하고, 컷마다 프레임 연출·인물 배치를 지시한다. 컷 수는 감정 비트가 정하고, 컷 높이와 여백 띠가 호흡을 만든다. 말풍선·식자는 story-webtoon-lettering으로 분리한다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"웹툰 회차 대본\", \"컷 분할\", \"컷 나누기\"\n- \"웹툰 연출\", \"감정 컷 프레임\", \"인물이 컷 넘게\"\n- \"세로 스크롤 리듬\", \"여백 띠\", \"스크롤 호흡\"\n- \"회차 플롯\", \"훅 배치\", \"클리프행어\"\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:16239ad091cc4b632922e0d5c172df9a2ecdb7a17c99e094ff204cc1e3d97694"
+    },
+    {
+      "id": "moai-story:story-webtoon-lettering",
+      "version": "1.1.3",
+      "description": "세로 스크롤 웹툰의 식자 전담 스킬. 말풍선 종류를 고르고, 한 원고 = 한 서체를 스킬이 결정하고, 한국어 효과음(SFX) 스타일을 지정하고, 2패스 오버레이로 SFX를 안전하게 얹는 워크플로우를 제공한다. 말풍선·SFX 사전은 '사람이 읽는 설명'이 아니라 AI 이미지 프롬프트에 그대로 복붙하는 작동 토큰이다. AI 작화에서 한글 서체가 컷마다 흔들리는 1순위 품질 문제를 서체 통일 규칙으로 잡는다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"말풍선 어떤 걸 써\", \"외침 풍선\", \"생각 풍선 프롬프트\", \"말풍선 꼬리\"\n- \"효과음 스타일\", \"쾅 SFX 어떻게\", \"한글 의성어 글자 스타일\"\n- \"웹툰 서체 통일\", \"글씨체가 컷마다 달라\", \"한 원고 한 서체\"\n- \"SFX 나중에 얹기\", \"2패스로 효과음\", \"효과음만 추가\"\n- \"식자 어떻게\", \"타이틀 서체\", \"간판 글씨 서체\"\n- (체인 중간 호출) story-webtoon-episode·art·qc가 말풍선·서체·SFX 규격을 확인하려 할 때\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:a5bcb265f46ca3ae57c7eddcc89565721b45a84aded751c5964de811800c8eb1"
+    },
+    {
+      "id": "moai-story:story-webtoon-planner",
+      "version": "1.1.3",
+      "description": "웹툰 기획 스킬 — 세계관·연재구조·시리즈 아크·훅 전략과 등장인물 구성을 설계한다. 플랫폼 데뷔 경로·회차 분량은 현재 공식 안내를 확인한다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"웹툰 기획\", \"웹툰 세계관\", \"연재 구조 어떻게\"\n- \"시리즈 아크 짜줘\", \"웹툰 시즌 구성\", \"관통 주제\"\n- \"네이버웹툰 연재 기획\", \"카카오웹툰 기획\"\n- \"웹툰 캐릭터 몇 명\", \"레귤러 인원\", \"훅 전략\"\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:8303a1407f5a373e277c2d83f516955cb4b6f99c50528eb47bf19f444874d665"
+    },
+    {
+      "id": "moai-story:story-webtoon-qc",
+      "version": "1.1.4",
+      "description": "웹툰 산출 이미지 검수 스킬 — 그려진 그림이 지시대로 나왔는지 판정한다. 결함 7종을 확인 위치·수정 문구와 함께 점검하고, 세로 스크롤 규격 적합성과 일관성 앵커 위반을 판정한다. 썸네일로 놓치는 결함은 의심 컷만 crop 확대해 확인하고, 한 결함을 고치다 다른 것을 놓치는 터널비전을 막는다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"이 컷 이상해\", \"생성 결과 검수\", \"웹툰 이미지 QC\"\n- \"캐릭터가 달라 보여\", \"무기 개수 이상해\", \"좌우 바뀐 것 같아\"\n- \"일관성 앵커 위반\", \"세로 규격 맞는지\"\n- \"쌍검 나왔어\", \"안경이 생겼어\"\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:2562317aa601ccebf65ef63b7557a3bd045d96454ed8b2eb497d8edb318136cd"
+    },
+    {
+      "id": "moai-story:story-webtoon-spec",
+      "version": "1.1.2",
+      "description": "한국 웹툰 플랫폼 규격 확인 허브. 원고·썸네일·표지 규격, 데뷔·투고 경로, 회차 분량과 무료·유료 공개 조건을 현재 공식 안내에서 확인한다. 다른 story-* 스킬이 제출 조건을 물을 때 참고한다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"네이버웹툰 원고 규격 알려줘\", \"웹툰 캔버스 가로폭\", \"회차 세로 길이\"\n- \"도전만화 어떻게 올려\", \"베스트도전 승격 기준\", \"웹툰 데뷔 경로\"\n- \"카카오웹툰 투고\", \"네이버시리즈 표지 비율\", \"웹툰 썸네일 크기\"\n- \"기다무가 뭐야\", \"미리보기 유료 전환\", \"웹툰 회차 몇 컷\"\n- \"말칸 말고 정식 용어\", \"웹툰 용어 사전\"\n- (체인 중간 호출) 다른 story-* 스킬이 원고 규격·데뷔 경로·용어를 확인하려 할 때\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:955ae1620615e9bb30baa658583969b351408f50accdcf0735d28fe85db23166"
+    },
+    {
+      "id": "moai-threads-poster:instagram-comments",
+      "version": "1.3.3",
+      "description": "Instagram 미디어의 댓글을 관리합니다 — 목록 조회, 답글 작성, 댓글 숨김. `instagram_manage_comments` 권한이 부여된 경우에만 동작합니다. 발행된 게시물의 댓글 모더레이션(응대/정리) 에 사용합니다.\n다음과 같은 요청 시 사용하세요:\n- \"인스타 게시물 댓글 확인해줘\"\n- \"이 댓글에 답글 달아줘\"\n- \"스팸 댓글 숨겨줘\"\n- \"최근 포스트 댓글 정리해줘\"\n- \"특정 댓글 숨김 처리해줘\"\n[책임 경계] vs 형제 스킬: Instagram 댓글 *조회/답글/숨김* 만 담당합니다. 포스트 발행은 instagram-post 스킬, 인사이트 조회는 instagram_insights 도구를 직접 사용하세요.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:799275c591647595592823d9720c12dc4b906d9329b164bccf685b02c89d88c6"
+    },
+    {
+      "id": "moai-threads-poster:instagram-post",
+      "version": "1.2.3",
+      "description": "주제를 Instagram 게시글(이미지/비디오/릴) 초안으로 작성해 즉시 발행합니다. 저장된 문체 프로필이 있으면 자동 적용합니다. 큐·예약·상태머신 없이 세션 안에서 직접 발행합니다. 예약·정기 발행은 사용 중인 앱의 예약 기능을 확인합니다.\n다음과 같은 요청 시 사용하세요:\n- \"이 주제로 Instagram 포스트 작성해줘\"\n- \"인스타에 올릴 이미지 캡션 써줘\"\n- \"이 영상 인스타 릴로 올려줘\" (share_to_feed)\n- \"인스타에 비디오 게시해줘\"\n- \"이 뉴스를 Instagram 용으로 요약해줘\"\n- \"이 초안 인스타에 바로 올려줘\" (승인 → 즉시 발행)\n[책임 경계] vs 형제 스킬: Instagram 이미지/비디오/릴 *초안 작성·즉시 발행* 만 담당합니다. 댓글 관리는 instagram-comments 스킬, Threads 발행은 threads-* 스킬, 멀티 채널 포맷은 threads-multichannel 스킬을 사용하세요. 예약·정기 발행은 앱에서 지원 여부를 확인합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:4d7150a3fed18e38a10d2fe234a474e473046ba185c3903c0130fbce47b7f679"
+    },
+    {
+      "id": "moai-threads-poster:threads-multichannel",
+      "version": "1.2.4",
+      "description": "하나의 텍스트를 Threads(직접 발행) / Facebook(복붙) / X(복붙, free=스레드 분할·premium=단일) 용으로 각각 포맷합니다. 발행은 하지 않고 포맷만 — Facebook·X 출력은 사용자가 직접 복붙하고, Threads 출력은 승인 시 threads_publish_text 로 즉시 발행합니다.\n다음과 같은 요청 시 사용하세요:\n- \"이 글 페이스북/엑스에도 올릴 수 있게 해줘\"\n- \"X 스레드로 쪼개줘\" (무료 tier 280자 분할)\n- \"트위터용 스레드 만들어줘\"\n- \"Facebook 이랑 X 용으로도 포맷해줘\"\n- \"이 초안 멀티 채널로 변환해줘\"\n- \"X premium 으로 한 번에 올릴 수 있게 해줘\"\n[책임 경계] vs 형제 스킬: *포맷만* 담당합니다 — Facebook/X 로 발행하지 않습니다 (사용자가 복붙). Threads 직접 발행은 threads-post-draft / threads_publish_* 도구가 담당합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:e55048fba0802f9efc664212f8bfab9061edafa01a87adf260aee96d19dc0d27"
+    },
+    {
+      "id": "moai-threads-poster:threads-post-draft",
+      "version": "1.2.4",
+      "description": "주제를 Threads 게시글 초안으로 작성합니다. 저장된 문체 프로필이 있으면 적용합니다. 발행 전에 사실·개인정보·문장·글자 수를 점검하고 최종본을 사용자가 명시적으로 승인해야 Graph API 로 발행합니다. 예약·정기 발행은 현재 앱의 지원 여부를 확인합니다.\n다음과 같은 요청 시 사용하세요:\n- \"이 주제로 Threads 포스트 작성해줘\"\n- \"Threads에 올릴 글 초안 만들어줘\"\n- \"이 뉴스를 Threads용으로 요약해줘\"\n- \"블로그 글을 Threads 포스트로 변환해줘\"\n- \"내 문체로 초안 작성해줘\" (저장된 프로필 자동 적용)\n- \"이 초안 그대로 Threads에 올려줘\" (최종 점검 → 승인 → 즉시 발행)\n[책임 경계] vs 형제 스킬: 초안 작성(저장된 문체 프로필 적용 포함)·발행 전 최종 점검·승인 후 즉시 발행을 담당합니다. 문체 *분석·저장*은 threads-style-learn, 멀티 채널(Facebook/X) 포맷은 threads-multichannel이 담당합니다. 이미지·비디오는 같은 점검·승인 절차를 거친 뒤 해당 MCP 발행 도구를 사용하세요. 예약·정기 발행은 본 스킬 범위 밖입니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:8c088a085aa896914a9d3cf2cc26ce4a187feb5a65a19601c742e3336c7f3a1a"
+    },
+    {
+      "id": "moai-threads-poster:threads-style-learn",
+      "version": "1.1.3",
+      "description": "과거 Facebook/Threads 포스팅 3-10개를 붙여넣으면 문체를 분석해 style profile 파일로 저장합니다. 이후 threads-post-draft 가 저장된 프로필을 자동으로 불러와 적용합니다.\n다음과 같은 요청 시 사용하세요:\n- \"내 문체 학습해줘\"\n- \"이전 포스팅들 보고 문체 분석해줘\"\n- \"내 글투 분석해서 저장해줘\"\n- \"스타일 프로필 만들어줘\"\n- \"이전 스레드/페이스북 글로 문체 학습해줘\"\n- \"내 톤앤매너 분석해줘\"\n[책임 경계] vs 형제 스킬: 문체 *분석* 과 프로필 *저장* 만 담당합니다. 저장된 프로필을 적용해 초안을 작성·발행하는 건 threads-post-draft, 여러 채널(Threads/Facebook/X) 포맷은 threads-multichannel 이 담당합니다. 이 스킬은 발행을 하지 않습니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:35e42f202c540f39ee14293dfaec198e024df5614cff4400f0e7a12492c3a6d3"
+    },
+    {
+      "id": "moai-tutor:education-assessment-audit",
+      "version": "1.0.1",
+      "description": "커리큘럼·평가 문항·정답·해설·학습자료·학술 인용을 원자료에 대조합니다. 목표와 평가의 정렬, 문항 재풀이, 출처 진위를 읽기 전용으로 검수합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:83eb62f374607edf966203181ec142ec97aff11ab6cfadc5b76a77ca0260ee97"
+    },
+    {
+      "id": "moai-tutor:education-assessment-creator",
+      "version": "1.1.3",
+      "description": "정답과 해설이 포함된 시험 문제지·모의고사·오답 분석표를 만들어 드립니다.\n다음과 같은 요청 시 사용하세요:\n- \"정보처리기사 실기 모의문제 10개 만들어줘\"\n- \"이 단원에서 나올 만한 내신 예상 문제 출제해줘\"\n- \"수강생 이해도 확인할 형성평가 퀴즈 만들어줘\"\n- \"공무원 5지선다 모의고사 만들어줘\"\n- \"TOEIC 700점 목표 4주 학습 계획 세워줘\"\n- \"수능 기출 패턴 분석하고 약점 진단해줘\"\n- \"이 문제의 오답 분석표랑 보충 학습 방향 정리해줘\"\n- \"자격증 시험 대비 퀴즈랑 해설 같이 만들어줘\"\n난이도 배분과 정답·해설을 갖춘 평가 문항을 만들고, 오답 분석표로 보충 학습 방향까지 짚어 드립니다.\n[책임 경계] vs moai-tutor:education-curriculum-designer: 이 스킬=시험 문제 출제와 채점, 저 스킬=강의 커리큘럼과 학습 목표 설계.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:182596662d17104e9c37d509cef7f3fc81bb582dac8735aeafd409bcbf7c5f17"
+    },
+    {
+      "id": "moai-tutor:education-course-followup-sequence",
+      "version": "1.1.2",
+      "description": "강의·연수 뒤 수강생에게 보낼 감사·피드백·후기 요청 문구와 발송 계획을 작성합니다.\n요청 예: \"강의 후기 요청 메시지 써줘\", \"수강생 피드백 설문 안내해줘\", \"강의 후속 연락 계획 세워줘\".\n실제 발송, 할인 제공, 후기 공개는 운영자의 권한·조건 확인 후 진행합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:386783ec880b5524d64c4d837d6d1fd11537cea2493539bddd33a28d2c1469fc"
+    },
+    {
+      "id": "moai-tutor:education-course-operations-manual",
+      "version": "1.1.2",
+      "description": "강의·연수·워크숍의 시간표, 담당자 동선, 사전 안내, 설비 점검, 장애 대응을 한 운영 매뉴얼로 정리합니다.\n요청 예: \"강의 운영 매뉴얼 만들어줘\", \"워크숍 시간표와 준비물 정리해줘\", \"장비 장애 대응표 만들어줘\".\n실제 장소·인력·일정이 미정이면 가정을 표시하고 확인할 항목을 남깁니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:0464aa45f6bb2e3f533e9eb478218bc3a4279bed7562de204dfd630957f2fd28"
+    },
+    {
+      "id": "moai-tutor:education-curriculum-designer",
+      "version": "1.1.2",
+      "description": "학습 대상과 목표에 맞춰 강의 목차, 차시별 활동, 평가 방법을 설계합니다.\n요청 예: \"Python 입문 커리큘럼 짜줘\", \"신입사원 역량 모델 설계해줘\", \"기존 강의계획서 개선해줘\".\n실제 강의 일정·학습자 수준·성과 자료가 없으면 가정을 표시합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:c203c305bc4b3f131a8911dfa78e660f52166ccd5ca1770c9e9a0d5ca6b80c14"
+    },
+    {
+      "id": "moai-tutor:education-grant-writer",
+      "version": "1.1.3",
+      "description": "연구비·교육 연구 과제의 공고문과 공식 제출 서식에 맞춰 신청서 초안을 작성합니다.\n요청 예: \"NRF 연구계획서 초안\", \"IITP R&D 제안서\", \"KIAT 연구개발계획서\".\n사업별 자격·평가표·예산 규칙은 해당 공고에서 확인한 뒤 반영합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:65f3ffdb14f93616ecf9201c7259fff0f82748bd2e48092c33800c23760c1398"
+    },
+    {
+      "id": "moai-tutor:education-learning-material",
+      "version": "1.2.2",
+      "description": "확인된 학습 내용을 목표·설명·예제·복습으로 정리해 브라우저용 HTML 학습자료를 만듭니다.\n도식·차트·수식·코드가 필요할 때만 해당 렌더러를 추가합니다.\n요청 예: \"이 내용으로 HTML 학습자료 만들어줘\", \"개념을 도식과 예제로 설명해줘\".\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:822506a85b959044a3e1f5c3e724b32cfa0cccda47b0b564f755989faf313730"
+    },
+    {
+      "id": "moai-tutor:education-learning-project",
+      "version": "1.1.3",
+      "description": "학습자가 자기 목표를 관리할 프로젝트 폴더와 로드맵·진도 기록을 만듭니다.\n요청 예: \"파이썬 입문 학습 프로젝트\", \"영어 회화 진도 추적\", \"기존 공부 계획 정리\".\nClaude Cowork·ChatGPT Work에서 같은 AGENTS.md 지침을 사용합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:7290fd42da62d4409faf3b07444f491bcc3558bbba6a724a0e8544d463db7599"
+    },
+    {
+      "id": "moai-tutor:education-paper-search",
+      "version": "1.1.2",
+      "description": "KCI·RISS·학술지 사이트 등 접근 가능한 검색원에서 실제 논문을 찾아 서지와 초록 확인 범위를 정리합니다.\n요청 예: \"선행연구 찾아줘\", \"KCI 논문 검색\", \"참고문헌 BibTeX로 정리\".\n검색 결과와 원문 열람 여부를 분리하고 가짜 인용을 만들지 않습니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:a8bfdf2a705b9a87488bf2758c8d4536bc3eb36ea45bfb39b74639ce5d1c20ad"
+    },
+    {
+      "id": "moai-tutor:education-paper-writer",
+      "version": "1.1.3",
+      "description": "연구자가 제공한 방법·자료·실제 결과와 확인된 문헌을 바탕으로 논문 구조와 문장 초안을 작성합니다.\n요청 예: \"서론 초안\", \"연구 결과를 논의로 정리\", \"확인한 참고문헌을 학술지 형식으로 정리\".\n데이터·결과·인용을 만들지 않습니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:f7bf7501d9be240993bd389515331bdb2c05a57197c03c6a5750babf5f7f3ec6"
+    },
+    {
+      "id": "moai-tutor:education-research-assistant",
+      "version": "1.1.2",
+      "description": "학술 문헌 검토, 연구 질문·방법 검토, 제공된 데이터의 분석 계획과 근거 정리를 돕습니다.\n요청 예: \"문헌 검토 보고서\", \"연구 계획 점검\", \"제공한 설문 결과 해석\".\n실제 검색·원문 열람·분석 실행 여부를 구분합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:692d3823091ec3f7c1a851e06c4c3193e1f270cbe22ab2161eebbc49f8c4d6e9"
+    },
+    {
+      "id": "moai-tutor:education-tutor-research",
+      "version": "1.1.2",
+      "description": "학습 질문의 사실·개념·예제를 공식 문서와 확인 가능한 자료로 조사해 학습용 근거 노트를 만듭니다.\n요청 예: \"현재 공식 문서 기준으로 설명해줘\", \"이 개념을 예제로 조사해줘\".\n학술 문헌 검토가 필요하면 education-research-assistant를 사용합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:2dc659a44f66b9043f697cee73f141fe216bbfacfe3240ea78ee648fc865b57e"
+    },
+    {
+      "id": "moai-tutor:education-workflow",
+      "version": "1.0.1",
+      "description": "커리큘럼·학습자료·평가·운영 계획이나 학술 자료를 함께 만들 때 학습자 수준과 목표를 확인하고 moai-tutor의 education-* 스킬로 연결합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:409ab44ed890ee08c7cc2303fe0a9811096f5d58e2820563fdc8cb35671abc74"
+    },
+    {
+      "id": "moai-writer:book-author-bio",
+      "version": "1.1.3",
+      "description": "도서 저자 약력·저자의 말·SNS·강연 통합 작성 — 저자가 타깃 페르소나에게 \"왜 이 사람이 이 책을 쓰는가\"를 1분 안에 설득하는 핵심 문서. book-target-reader의 페르소나·JTBD를 입력받아 4 장르별 신뢰 신호(학력·실무 경력·수상·팬덤·SNS·강연)를 자동 분기. 짧은 약력(50자)·중간(200자)·긴(500자) 3 길이 + 저자의 말(500-800자) 동시 산출.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"저자 약력\", \"저자 소개\", \"프로필 작성\"\n- \"저자의 말\", \"머리말\", \"들어가는 글\"\n- \"저자 신뢰 신호\", \"출판 프로필\"\n- \"북스타그래머 프로필\", \"SNS 약력\"\n- \"강연·강의 약력\"\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:4deebb542a57e92bc9b01c3a1641503d1145012bec01b716cf0c77fc65d6e7f9"
+    },
+    {
+      "id": "moai-writer:book-chapter-writer",
+      "version": "1.1.3",
+      "description": "도서 본문 챕터 초고 집필 — 꼭지 단위 작성·분량 확인·인용 처리·장르별 문체 조정. book-outline-designer의 챕터 시놉시스 또는 사용자가 제공한 개요를 바탕으로 한 꼭지의 초고를 작성한다. 목표 분량은 실제 글자 수로 확인하고 투고처의 계산 기준을 우선한다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"챕터 본문 작성\", \"꼭지 집필\", \"원고 작성\"\n- \"도서 본문\", \"장 본문\", \"초고 작성\"\n- \"장르별 문체\", \"출판 원고 작성\"\n- \"인용 처리\", \"각주 표기\", \"도표 삽입\"\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:70fc936a6f5a5180e24e130bf9b9251a903a51163185b6e303f4746bb75fc041"
+    },
+    {
+      "id": "moai-writer:book-concept-planner",
+      "version": "1.1.3",
+      "description": "도서 컨셉서 초안 작성. 책의 목적·독자·차별점을 정리하고 실제 확인한 비교 도서와 시장 자료만 반영한다. 출판사 제출 조건과 출판 경로는 현재 공식 안내와 저자의 목표를 확인한다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"책 컨셉서 작성\", \"도서 기획서\", \"출판 컨셉\"\n- \"책 한 줄 소개\", \"30자 카피\", \"300자 시놉시스\"\n- \"도서 USP 설계\", \"책 차별화 포인트\", \"시장 포지셔닝\"\n- \"베스트셀러 분석\", \"장르별 출판사 컨벤션\"\n- \"자비 출판 vs 출판사 투고 의사결정\"\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:990710939077e4c48cc74e568c40a50dd9e808ec22c4ac7a300895c083cf4516"
+    },
+    {
+      "id": "moai-writer:book-manuscript-audit",
+      "version": "1.0.1",
+      "description": "도서 원고·챕터·출판사 제안서의 인물·설정·시점·사실 앵커와 출판 정보 근거를 읽기 전용으로 대조합니다. 윤문 후 의미와 수치 보존도 검수합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:204f55c3cadf9f054313e4f5d22a6769bb66351a1e42dc25a3fc3952027d9c95"
+    },
+    {
+      "id": "moai-writer:book-outline-designer",
+      "version": "1.1.2",
+      "description": "도서 목차와 장별 시놉시스 초안을 설계한다. 저자가 제공한 책의 목적·독자·주제·목표 분량을 바탕으로 필요한 수준의 부·장·꼭지를 구성하고, 확인된 자료와 가설을 구분한다. 투고처의 분량·형식은 현재 공식 안내를 우선한다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"책 목차 설계\", \"도서 목차\", \"장·꼭지 구성\"\n- \"챕터 시놉시스\", \"분량 배분\", \"꼭지 단위 기획\"\n- \"책 구성안\", \"출판 기획서 목차\"\n- \"장르별 목차 패턴\", \"실용서 목차 / 소설 플롯\"\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:1d8b8fea71b9be9c26cb8398ed883a5ffafed7b2aaefcb02158218dc708bdca9"
+    },
+    {
+      "id": "moai-writer:book-proposal-writer",
+      "version": "1.1.3",
+      "description": "출판사 투고용 제안서 초안 작성. 책의 개요·독자 자료·목차·저자 이력과 확인된 마케팅 활동을 정리하고, 대상 출판사나 공모의 현재 공식 제출 조건에 맞춘다. 부족한 자료와 미확인 조건은 명시한다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"출판 제안서 작성\", \"출판기획서\", \"투고 제안서\"\n- \"출판사 투고\", \"원고 투고\", \"기획서 제출\"\n- \"샘플 챕터 첨부\", \"원고 미리보기\"\n- \"출판 마케팅 플랜\", \"저자 마케팅 활동\"\n- \"출판사별 양식 변환\"\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:84855b67e2ab86d0d7607656905bb2e309fcd2ebac8e7ee3537660a4826eaa5b"
+    },
+    {
+      "id": "moai-writer:book-publisher-matcher",
+      "version": "1.1.2",
+      "description": "도서 제안서와 장르를 바탕으로 현재 투고를 받는 출판사·공모 경로를 조사해 비교합니다. 제출 방법, 최근 출간 분야, 권리 조건의 확인 여부를 출처와 함께 정리합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:87d282cb55197ad42b0ac54d33715078d65376a97e46e33de32b597a6403314d"
+    },
+    {
+      "id": "moai-writer:book-revision-coach",
+      "version": "1.1.4",
+      "description": "도서 본문 퇴고·교열 코치 — 7 단계 점검(어법·문체·논리·인용·분량·시각자료·일관성)으로 원고를 다듬는 스킬. 국립국어원 어문규범과 대상 출판사의 실제 투고 양식을 확인한다. 원고 자체 점검을 수행하고, 노출된 한국어 검수 스킬을 필요할 때 연결한다. 미확인 출처·저작권·투고 양식은 완료로 표시하지 않는다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"원고 퇴고\", \"교열\", \"본문 다듬기\"\n- \"출판 직전 검수\", \"투고 전 정리\"\n- \"문장 다듬기\", \"어법 점검\", \"문체 일관성\"\n- \"논리 흐름 검증\", \"분량 정리\"\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:9ba57dfdec1deb53fd6619d9bdb66f720b85aff48a46d3b21407fc21eeeb33ca"
+    },
+    {
+      "id": "moai-writer:book-target-reader",
+      "version": "1.1.2",
+      "description": "도서 타깃 독자 페르소나·JTBD·페인포인트를 사용자 자료와 확인된 조사 결과로 정리한다. 가상 페르소나와 실제 독자 데이터, 확인된 수치와 추정을 구분한다.\n\n다음과 같은 요청 시 반드시 이 스킬을 사용하세요:\n- \"타깃 독자 페르소나 설계\", \"독자 분석\", \"독자 정의\"\n- \"JTBD\", \"Jobs To Be Done\", \"독자가 책으로 해결하려는 일\"\n- \"페인포인트 매트릭스\", \"독자 고민 정리\"\n- \"독서 행동 분석\", \"책 구매 동기\"\n- \"독자 페르소나 카드 작성\"\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:a6b4cb06b02423ffbc615d471c466788dbfa6da1aa1a56bda0b92a65c71d58fe"
+    },
+    {
+      "id": "moai-writer:book-workflow",
+      "version": "1.0.2",
+      "description": "도서 콘셉트·독자·목차·챕터·출판 제안서를 함께 준비할 때 원고와 목표를 확인하고 moai-writer의 book-* 스킬로 연결합니다. 웹툰·웹소설·시나리오는 moai-story로 연결합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:892956f3ed21fafc61b22d8da2e7a8cb2e038a503f664422313b9f37a07661d1"
+    },
+    {
+      "id": "moai-writer:korean-humanize",
+      "version": "1.4.7",
+      "description": "한국어 초안의 번역투·기계적인 구성·과도한 강조를 검토하고 장르에 맞게 윤문합니다.\n“AI 티 없애줘”, “번역투 제거”, “사람이 쓴 것처럼 다듬어줘” 요청에 사용합니다.\n고유명사·수치·날짜·인용·핵심 의미를 보존하며 최종 전문 검수와 변경률 검증을 수행합니다.\n단순 맞춤법 교정·번역·내용을 추가하는 재작성·코드·데이터 표에는 사용하지 않습니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:a902df24e18af0c38f709588e099cbf5dff5cc729f84b4c343d79c565d03c87e"
+    },
+    {
+      "id": "moai-writer:korean-spell-check",
+      "version": "1.1.2",
+      "description": "한국어 문장의 맞춤법·띄어쓰기·문법을 확인하고 교정 이유를 정리합니다. 공개 바른한글 검사기를 사용할 때는 현재 이용 조건을 확인하고 사용자가 허용한 텍스트만 화면에서 검수합니다.\n",
+      "invocation_scope": "user-or-workflow",
+      "digest": "sha256:deff960deb7e22180fcaf61f1c3b39131945bcaa0bb4e3a2d6986e8bacd3543a"
+    }
+  ]
+}

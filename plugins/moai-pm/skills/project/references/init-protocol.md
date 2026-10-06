@@ -41,29 +41,11 @@ Phase 8: API 키 / 커넥터 + 첫 실행 안내
 
 사용자의 **이 프로젝트 맥락**만 수집한다. 이름·회사·역할 같은 **글로벌 프로필 정보는 묻지 않는다**.
 
-**[HARD] 질문은 불필요하게 나눠 내지 않는다.** 과거의 1-1/1-2/1-3 3연발 순차 호출은 폐기됐다. 한 라운드에는 현재 런타임의 질문 채널이 허용하는 수만큼 묶어 묻고, 남은 축은 다음 라운드에 확인한다.
+질문 채널·상한·자유 입력·응답 대기는 `question-protocol.md`를 따른다. 현재 호스트·Project 종류는 `host-capabilities.md`로 먼저 확인한다.
 
-### S1 — 일괄 진단 라운드 (구조화 질문 1회)
+### S1 — 필요한 맥락 확인
 
-> **런타임별 상한**: Claude `AskUserQuestion` 최대 4질문 × 각 4옵션 · ChatGPT Work `request_user_input` **1질문 권장·3 초과 금지 × 각 2~3옵션**. 두 곳에서 같은 인터뷰를 돌린다면 **1질문 × 3옵션**을 공통 단위로 잡는다 — 잘려 나간 질문은 한쪽에서만 물어지고, 같은 프로젝트가 런타임에 따라 다른 깊이로 세워진다.
-
-질문은 **고정 세트가 아니다.** 아래 풀에서 이번 프로젝트에 정보 이득이 큰 순으로 고르고, 현재 런타임의 한 호출 상한 안에서 배치한다.
-
-| # | 축 | 형태 예시(현재 도구 상한에 맞게 조정) | 기본 선택지 예시 |
-|---|---|---|---|
-| ① | 업무 유형 | multiSelect 4옵션 | 사업 기획·전략 / 콘텐츠 제작 / 문서·행정 / 제품·연구 |
-| ② | 주요 산출물 | 4옵션(+Other 자유입력) | 보고서·기획서 / 마케팅 콘텐츠 / 계약·공문 / 데이터·분석물 |
-| ③ | 대상 독자·수신자 | 4옵션 | 경영진·투자자 / 고객·소비자 / 내부 팀·부서 / 공공기관·심사역 |
-| ④ | 톤·형식 제약 | 4옵션 | 공식·격식체 / 캐주얼·대화체 / 산업 전문용어 / 제약 없음 |
-| ⑤ | 산출물 포맷 | multiSelect 4옵션 | 한글(HWP) / PPTX·Word / 웹·노션·마크다운 / 이미지·영상 |
-| ⑥ | 작업 주기·마감 | 4옵션 | 일회성 / 주간 반복 / 월간 반복 / 상시·수시 |
-| ⑦ | 기존 자료 유무 | 4옵션 | 기존 산출물 있음 / 레퍼런스만 있음 / 브랜드 가이드 있음 / 백지에서 시작 |
-| ⑧ | 반드시 피할 것 | 4옵션(+Other) | 과장·단정 표현 / 특정 경쟁사 언급 / 개인정보 노출 / 없음 |
-| ⑨ | 배경·동기 (소크라테스 축) | 4옵션(+Other) | 신규 사업 착수 / 기존 업무 자동화 / 품질 편차 해소 / 인력 부족 보완 |
-
-**슬롯 채우기 규칙 (HARD)**: 진입 발화·기존 `./AGENTS.md`·`.moai/context.md`에서 **이미 확보된 축은 질문 목록에서 제거**한다. 나머지는 현재 도구의 질문·옵션 상한에 맞춰 묻고, 초과한 축은 다음 라운드로 넘긴다. 두 런타임 공통 설계는 1질문 × 3옵션을 쓴다.
-
-**작성 규칙**: 도구가 옵션별 `description`을 지원할 때만 설명을 붙인다. 문자열 옵션만 받으면 선택 결과가 분명한 짧은 문구를 쓴다. 첫 옵션에만 `(권장)` 라벨. 자유 서술은 도구가 제공하는 입력란을 쓴다.
+기존 자료와 사용자 발화에서 목적·산출물·독자·문체·업무 방식·품질·자산·제약을 읽는다. 이번 업무에 필요한 누락만 질문한다. 선택형으로 충분하면 현재 스키마에 맞는 옵션을 제공하고, 원문·구체적인 사실·자유 서술이 필요하면 지원 채널로 받는다. 이미 받은 답을 질문에서 제외한다. 호출당 질문 수나 옵션 수를 두 호스트의 공통 상수로 정하지 않는다.
 
 ### S2 — 보강 라운드 (조건부, 구조화 질문 추가 호출)
 
@@ -80,7 +62,7 @@ Phase 8: API 키 / 커넥터 + 첫 실행 안내
 
 ### 종료 판정
 
-라운드 수를 미리 정하지 않는다. **A등급 + 필수 B등급이 채워지면 종료**한다. 수집 결과는 메모리에 임시 저장되며, Phase 6에서 `AGENTS.md`에 직접 기록된다. 별도 `moai-profile.md`를 생성하지 않는다.
+라운드 수를 미리 정하지 않는다. **A등급 + 필수 B등급이 채워지면 종료**한다. 실제 답·출처·유예 사항은 `context.answers`·`context.questions`와 `.moai/context.md`에 보존하고, Phase 6에서 공통 지침과 연결한다. 별도 `moai-profile.md`를 생성하지 않는다.
 
 ---
 
@@ -90,54 +72,31 @@ Phase 8: API 키 / 커넥터 + 첫 실행 안내
 
 **[HARD] 스캔 필터링 — moai-cowork 출처만 인정 (동적 도출)**: 설치 위치에는 다른 마켓플레이스 플러그인도 섞일 수 있다. 현재 호스트의 플러그인 목록과 접근 가능한 설치 파일을 대조해 **moai-cowork(modu-ai/moai-cowork) 출처 플러그인만** 인벤토리에 포함한다. 다른 호스트의 설치 파일이 보인다는 이유로 현재 호스트에서 사용할 수 있다고 표시하지 않는다.
 
-**[HARD] 플러그인 집합은 하드코딩 화이트리스트가 아니라 동적으로 도출한다.** `moai-*` 접두어이면서 moai-cowork 마켓플레이스 출처인 플러그인을 `plugin.json` 스캔으로 식별한다. 마켓플레이스에 신규 플러그인이 추가되면 자동으로 포함된다. **카운트(플러그인 수·스킬 수)는 하드코딩하지 않는다** — `.claude-plugin/marketplace.json`이 로스터 정본이다.
+**[HARD] 플러그인 집합은 하드코딩 화이트리스트가 아니라 동적으로 도출한다.** `moai-*` 접두어이면서 moai-cowork 마켓플레이스 출처인 플러그인을 `plugin.json` 스캔으로 식별한다. 마켓플레이스에 신규 플러그인이 추가되면 자동으로 포함된다. **카운트(플러그인 수·스킬 수)는 하드코딩하지 않는다** — 현재 호스트 노출 목록이 실제 사용 가능 상태의 근거다. 접근 가능한 marketplace 또는 내부 `skill-catalog.json`은 추천 목록이다.
 
 **소스 A — 현재 호스트의 플러그인·스킬 목록**: 앱이 보여 주는 설치 플러그인과 이 세션에 노출된 스킬을 먼저 확인한다. 앱 목록에 없어도 파일이 있다는 이유만으로 설치되었다고 기록하지 않는다. 세션 스킬 목록이 제공되지 않으면 그 상태를 `미확인`으로 남긴다.
 
-**소스 B — 접근 가능한 설치 파일**: 호스트가 제공한 설치 경로에서 `.claude-plugin/plugin.json` 또는 `.codex-plugin/plugin.json`을 찾아 이름·버전·출처를 읽는다. 폴더 깊이를 고정하지 않고 중복 매니페스트는 플러그인 루트로 합친다. 각 `skills/*/SKILL.md`의 frontmatter를 읽어 스킬과 소속 플러그인을 연결한다. 파일 도구가 없고 명령 실행만 가능하면 현재 OS의 파일 탐색 기능으로 같은 순서를 수행한다. 특정 셸·`$HOME`·Unix 경로를 전제로 하지 않는다.
+**소스 B — 접근 가능한 설치 파일**: 호스트가 제공한 설치 경로에서 루트 `plugin.json` 또는 호환 `.claude-plugin/plugin.json`·`.codex-plugin/plugin.json`을 찾아 이름·버전·출처를 읽는다. 폴더 깊이를 고정하지 않고 중복 매니페스트는 플러그인 루트로 합친다. 각 `skills/*/SKILL.md`의 frontmatter를 읽어 스킬과 소속 플러그인을 연결한다. 파일 도구가 없고 명령 실행만 가능하면 현재 OS의 파일 탐색 기능으로 같은 순서를 수행한다. 특정 셸·`$HOME`·Unix 경로를 전제로 하지 않는다.
 
 **[HARD] 0개 또는 불일치는 조사 대상이다.** 사용자가 설치했다고 말하거나 세션에 MoAI 스킬이 보이는데 파일 검사 결과가 0개라면 빈 인벤토리로 진행하지 않는다. 호스트 목록과 경로를 다시 확인하고, 접근할 수 없는 출처는 `미확인`으로 기록한다. 설치 파일 존재, 세션 노출, 실제 호출 가능은 각각 별도 상태로 보관한다.
 
 ### 2-2. `.moai/config.json` 인벤토리 스냅샷 스키마
 
-**[HARD] 아래 네 필드는 없으면 후속 기능이 통째로 죽는다.** `plugins_installed`의 **버전**과 `skills_available`의 **digest**가 없으면 `update`가 "변경된 스킬"을 영영 검출하지 못하고, `template_version`·`hard_block_digests`가 없으면 HARD 블록 재동기화가 사용자 편집과 구 템플릿을 구분하지 못한다(`update-protocol.md` §4-1). `sensitivity`가 없으면 맞춤법 단계가 fail-open 된다. `coverage`가 없으면 재개(resume) 시 이미 답한 축을 **다시 묻게 된다** — 커버리지 표(SKILL.md §Socratic Interview)의 24축 상태를 그대로 저장한다.
+버전 2 계약은 `references/templates/config.schema.json`을 따른다. 기존 프로젝트의 사용자 값·`plugins_installed`·`template_version`·`hard_block_digests`·민감도·커버리지는 이관 시 보존한다. `skills_available` 키는 실제 `plugin:skill`이며, 버전은 `metadata.version`에서 읽고 digest는 실제 본문에서 계산한다. 설치·노출·호출은 `installed/exposed/callable`, 추천 목록은 `catalog`, 미확인은 `unknown`으로 구분한다.
 
-```json
-{
-  "scanned_at": "2026-07-11T00:00:00+09:00",
-  "plugins_installed": { "moai-pm": "1.5.0", "moai-coworker": "1.2.0" },
-  "skills_available": {
-    "content-blog": { "plugin": "moai-coworker", "digest": "sha256:..." },
-    "ai-slop-reviewer": { "plugin": "moai-coworker", "digest": "sha256:..." }
-  },
-  "template_version": "1.5.0",
-  "hard_block_digests": { "6. 한국어 품질 체인 (HARD)": "sha256:...", "...": "..." },
-  "sensitivity": "public | sensitive | unknown",
-  "coverage": {
-    "A": { "1": "충족", "2": "충족", "3": "유예" },
-    "H": { "22": "충족", "23": "미확인", "24": "유예" }
-  },
-  "confidence": { "moai-pm": "HIGH" }
-}
-```
+`context.answers`에 실제 값·출처·검증 여부, `context.questions`에 프로젝트에서 도출한 질문 ID·영향 단계·상태를 저장한다. 고정 24축이나 선택되지 않은 값을 만들지 않는다. `workflows`에는 선행 단계·소유 스킬·쓰기 경로·계정 참조·완료 기준·실행 상태·증거를 둔다. `host`에는 현재 관찰한 Project 종류·실행 위치·분업 기능과 권한·실제 한도를 기록한다.
+
+파일을 만든 뒤 `scripts/project_contract.py validate --config <설정 경로> --root <작업 폴더>`로 계약·참조·의존성을 검사한다. 이 검사는 실제 호스트 적용·업무 실행을 대신하지 않는다.
 
 ### 2-3. Phase 1 답변 기반 매칭
 
 | 업무 유형 | 우선 코워커(플러그인) |
 |----------|------------|
-| 사업 기획·전략 | 코워커(business-* 스킬군) |
-| 콘텐츠 제작 | 마케터(content-*, marketing-* 스킬군) |
-| 문서·행정 | 사무관(office-*), 법무(legal-*) |
-| 제품·연구 | 코워커(spec/ux 스킬군), 튜터(education-* 스킬군) |
-| 이커머스 | 셀러(commerce-* 스킬군) |
-| 출판·원고·웹툰·IP | 작가(book-*), 스토리(story-*) |
-| 디자인 핸드오프·브랜드 | 디자이너(cd-*, moai-domain-design 스킬군) |
+| 프로젝트 업무 | 후보 찾기 |
+|---|---|
+| 사업·문서·디자인·법무·재무·교육·커머스·창작 | 현재 노출된 스킬의 실제 목적·입력·출력·필요 MCP를 읽고 선택 |
 
-라우터 허브는 project 스킬(`/project` 진입). 실무/콘텐츠/사무 도메인은 코워커로 수렴하며, 스토리는 `moai-story`, 출판은 `moai-writer`, 디자인은 `moai-designer`로 분기된다. `ai-slop-reviewer`는 `moai-coworker`, `korean-humanize`는 `moai-writer` 소속이다. 각각 설치·노출 상태를 확인한 뒤 텍스트 후처리 체인에 넣는다.
-
----
-
-## Phase 3: 스킬 체인 설계 (핵심)
+접두어만으로 소속을 추정하지 않는다. 내부 카탈로그의 qualified ID와 현재 인벤토리를 대조하고, `expert-contract.md`로 프로젝트 전문가를 배치한다. 한국어 검수는 실제 노출 상태와 문서 민감도를 따른다.
 
 ### 3-1. 체인 구성 규칙
 
@@ -179,7 +138,7 @@ for each skill in chain_skills:
 
 ### 4-2. 스킬 → 플러그인 매핑
 
-스킬군 → 소속 플러그인 매핑은 **`.claude-plugin/marketplace.json` 로스터를 정본으로 삼는다** — 하드코딩 매핑 테이블을 유지하지 않는다(신규 플러그인 추가 시 자동 반영). 참고 패턴: `business-*`/`content-*`/`marketing-*`/`office-*`/`legal-*`/`finance-*`/`education-*`/`media-*`/`general-*` → `moai-coworker`; `commerce-*` → `moai-seller`; `book-*` → `moai-writer`; `story-*` → `moai-story`; `cd-*`/디자인 도메인 → `moai-designer`; 개발 도메인 스킬 → `moai`; `project`(PM 허브) → `moai-pm`.
+소속은 현재 인벤토리의 `plugin:skill`에서 읽는다. 내부 `skill-catalog.json`의 후보와 대조하되 추천 목록을 설치 증거로 쓰지 않는다. 이름 패턴으로 다른 플러그인에 배정하지 않는다.
 
 ### 4-3. 누락 발견 시 질문 채널로 선택지 제시
 
@@ -244,25 +203,27 @@ for each skill in chain_skills:
 
 ## Phase 5: 설계 확인
 
-현재 런타임의 질문 채널로 1질문, 3옵션을 제시한다: 승인(권장) / 수정 / 취소. 질문할 수 없으면 설계를 확정하지 않고 결정을 기다린다.
+설계를 짧게 보여준다. 기존 요청이 설정 생성을 승인하고 필수 입력이 충분하면 진행한다. 빠진 결정이나 충돌이 있을 때만 `question-protocol.md`에 따라 해당 부분을 확인한다.
 
 ---
 
 ## Phase 6: 지침 생성 (AGENTS.md 정본 + CLAUDE.md 포인터)
 
-`references/templates/AGENTS.md.tmpl`을 로드하여 변수를 치환하고 `./AGENTS.md`에 쓴다. 이어서 `references/templates/CLAUDE.md.tmpl`을 **치환 없이 그대로** `./CLAUDE.md`에 복사해 `@AGENTS.md` 포인터를 만든다(본문 복제 금지). 상세 변수 치환 테이블·생성 절차·포인터 규칙은 `agentsmd-generator.md` 참조. 생성 원칙: AGENTS.md ≤500라인, 스킬 체인 최대 10개, 8개 HARD 규칙 블록 항상 포함, UTF-8/LF/한국어.
+`references/templates/AGENTS.md.tmpl`을 로드하여 변수를 치환하고 `./AGENTS.md`에 쓴다. 이어서 `references/templates/CLAUDE.md.tmpl`을 **치환 없이 그대로** `./CLAUDE.md`에 복사해 `@AGENTS.md` 포인터를 만든다(본문 복제 금지). 상세 변수 치환·byte 예산·포인터 규칙은 `agentsmd-generator.md` 참조. 파일 생성 다음에는 `host-capabilities.md`의 Project 적용·새 대화 읽기 확인을 수행한다. 생성 원칙: AGENTS.md ≤500라인과 실제 호스트 byte 한도, 본문에는 주요 스킬 체인 최대 10개(전체 정의는 config.json에 보존), 8개 HARD 규칙 블록 항상 포함, UTF-8/LF/한국어.
 
 ---
 
 ## Phase 7: 커스텀 에이전트 생성
 
-Phase 3-6 결과를 바탕으로 커스텀 에이전트를 **Claude용 `.claude/agents/*.md`(markdown+YAML frontmatter)와 Codex용 `.codex/agents/*.toml`(TOML: `name`·`description`·`developer_instructions`, `model`·`sandbox_mode` 선택) 양쪽**으로 생성한다. 절차·frontmatter·7-step 루프는 project 스킬 SKILL.md §Custom Agent & Skill-Chain Design 참조.
+Phase 3-6 결과를 바탕으로 커스텀 에이전트를 **Claude용 `.claude/agents/*.md`(markdown+YAML frontmatter)와 Codex용 `.codex/agents/*.toml`(TOML: `name`·`description`·`developer_instructions`, `model`·`sandbox_mode` 선택) 중 현재 지원되는 형식**으로 생성한다. 호출 불가 환경은 부모가 같은 전문가 계약을 실행한다. 절차·frontmatter·7-step 루프는 project 스킬 SKILL.md §Custom Agent & Skill-Chain Design 참조.
 
 ---
 
 ## Phase 8: API 키 / 커넥터 + 첫 실행 안내
 
 Phase 2에서 선택된 플러그인이 API 키를 요구하면 해당 서비스의 현재 인증 방식을 확인해 등록을 안내한다. 공식 MCP가 계정 연결을 제공하면 앱 안에서 연결·인증한다.
+
+아래는 연결 예시다. 실제 필요한 연결은 선택한 워크플로우·매니페스트·서버 README에서 확인하고, 계정 파일과 회전 토큰은 `account-bindings.md`에 따라 프로젝트별로 배선한다.
 
 | # | 서비스 | 환경변수 | 용도 | 발급처 |
 |---|--------|---------|------|--------|
@@ -287,8 +248,8 @@ API 키가 필요한 서비스의 안내 위치: `./.moai/credentials.env`(프�
 
 ### 복원 흐름
 
-1. `.moai/cache/init-progress.json` 존재 확인(없으면 "저장된 진행 상태가 없습니다. `/project`로 새로 시작하세요.")
-2. `init-progress.json` 로드(Phase 1-3 결과 복원)
+1. `.moai/cache/init-progress.json` 또는 `.moai/config.json`·`.moai/context.md`를 확인한다. 캐시가 없어도 저장된 실제 맥락이 있으면 그것을 복원하고 미확인 단계만 진행한다.
+2. 존재하는 상태 파일에서 실제 답·질문 상태·체인·호스트 관측을 복원한다. 없는 항목은 미확인으로 남긴다.
 3. Phase 2 Inventory 재실행(설치 확인)
 4. Phase 4 Gap Detection 재검증(여전히 누락 시 §4-3의 런타임별 선택지 제시, 0건이면 Phase 5로 진행)
 5. Phase 5 이후는 정상 흐름과 동일
@@ -297,26 +258,16 @@ API 키가 필요한 서비스의 안내 위치: `./.moai/credentials.env`(프�
 
 ## API 키 관리 — "API 키 설정할래" (자연어)
 
-사용자가 "API 키 설정할래"·"키 등록할래"라고 하면 Phase 8 안내 흐름이 6개 API 키를 조회·변경·추가·삭제한다.
+사용자가 "API 키 설정할래"·"키 등록할래"라고 하면 현재 작업에 필요한 연결만 확인하고 대상 계정 참조와 인증 경로를 안내한다. 키 값은 대화·지침·설정·로그에 기록하지 않는다. 이미 연결된 계정과 변경 권한은 재사용한다.
 
 ---
 
 ## 구조화 질문 제약 준수 요약 (런타임별)
 
-**[HARD] 호출 수가 아니라 라운드 수를 센다.** 한 라운드는 질문 여러 개를 묶은 **1회 호출**이다. 질문 1개당 1회 호출하는 분할 방식은 금지한다.
+**[HARD] 질문은 필요와 현재 도구 스키마로 구성한다.** 여러 질문을 묶을 수 있으면 관련 질문을 묶고, 자유 입력·파일 자료가 필요하면 지원 채널을 사용한다. 호출 횟수나 빈 슬롯을 목표로 삼지 않는다. 정본은 `question-protocol.md`다.
 
-| Phase | 호출 | Claude — 질문 / 옵션 | ChatGPT Work — 질문 / 옵션 |
-|-------|------|----------------------|---------------------------|
-| Phase 1 · S1 일괄 진단 | 1 | 최대 4 / 각 ≤4 | **1 (최대 3) / 각 2~3** |
-| Phase 1 · 후속 라운드(커버리지 미충족 시) | 0-N (상한 없음) | 최대 4 / 각 ≤4 | **1 (최대 3) / 각 2~3** |
-| Phase 4 Gap Detection(조건부) | 0-1 | 1 / 4 | 1 / **3** |
-| Phase 5 설계 확인 | 1 | 1 / 3 | 1 / 3 |
-| Phase 8 API 키(조건부) | 0-1 | 1-2 / 최대 4 (multiSelect) | 1-2 / **3** (multiSelect 없음 — 필요하면 라운드를 나눈다) |
-
-모든 Phase에 `Other`가 자동으로 붙는다(양쪽 런타임 공통). 직접 넣지 않는다.
-
-- 정상 경로(맥락 충분): **총 2회 호출** — S1 + Phase 5 확인.
-- 최대 경로: S1 + S2 반복 + Gap + 확인 + API 키. S2 반복이 2회를 넘으면 종료 선택지를 함께 제시한다.
-- **[HARD] ChatGPT Work에서는 라운드가 늘어난다.** 한 화면에 4질문을 담을 수 없으므로 같은 커버리지를 채우려면 호출 수가 더 필요하다. **이것을 이유로 질문을 줄이지 않는다** — 커버리지가 종료 조건이지 호출 수가 아니다.
-- **[HARD] 현재 세션의 질문 도구를 먼저 확인한다.** `request_user_input_async`가 노출된 세션은 Default 모드에서도 질문할 수 있다. 응답은 후속 사용자 메시지로 오며, 도구 호출 직후의 반환값을 답으로 해석하지 않는다. 질문 도구가 전혀 없으면 필요한 입력을 명시한 blocker를 반환한다. 절차는 `../SKILL.md` §ChatGPT Work 참조.
-- 모든 질문은 **현재 세션에 노출된 구조화 질문 도구**로 묻는다. 도구의 실제 스키마와 질문 수·선택지 수 상한을 따른다. 자유 서술 질문·텍스트 대화형 심화 인터뷰는 사용하지 않는다(`Other` 옵션이 자유입력을 흡수한다).
+- 현재 노출된 도구의 질문·선택지 개수, 자유 입력, 파일 첨부 지원을 먼저 확인한다.
+- 관련 질문을 묶되 빈 슬롯을 채우려고 질문을 만들지 않는다. 주관식 자료가 필요하면 지원하는 입력 경로를 사용한다.
+- 비동기 도구 반환·기본 선택·시간 경과는 답변이 아니다. 답이 필요한 작업은 대기 상태로 보존하고 독립 작업을 진행한다.
+- 기존 요청이 설계·변경을 이미 승인하면 확인 질문을 반복하지 않는다.
+- 질문 채널이 없을 때는 상위 호스트의 대체 규칙을 따르며, 필수 입력이 없으면 해당 단계의 blocker를 반환한다.

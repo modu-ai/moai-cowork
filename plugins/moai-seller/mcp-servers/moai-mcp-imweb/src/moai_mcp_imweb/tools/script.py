@@ -5,6 +5,8 @@ from typing import Literal, Union
 
 from pydantic import BaseModel, ConfigDict, Field
 
+from mcp.types import ToolAnnotations
+
 from .._app import mcp
 from .._base import get_client
 
@@ -34,7 +36,7 @@ class UpdateScriptBody(BaseModel):
 
 Body = Union[CreateScriptBody, UpdateScriptBody]
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=False, destructiveHint=True, idempotentHint=False, openWorldHint=True))
 def imweb_script(action: Literal["read_script_by_unit_code", "create_script", "update_script", "delete_script"], params: dict | None = None, body: Body | None = None, paginate: bool = False) -> dict:
     r"""스크립트 도구 — 4개 action 을 디스패치합니다.
 

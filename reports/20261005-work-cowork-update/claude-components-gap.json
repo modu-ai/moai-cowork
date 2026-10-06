@@ -1,0 +1,6 @@
+{
+  "directory_invocations": 32,
+  "exit_zero": 32,
+  "contents_inspected": 0,
+  "verdict": "NOT-RUN for component validation; empty contents cannot establish a pass"
+}

@@ -1,0 +1,40 @@
+{
+  "tabs_arrow": true,
+  "form_result": "주간 보고서 초안 · Claude Cowork · 결과 검토 포함",
+  "copy_matches": true,
+  "quiz_open": true,
+  "console_errors": [],
+  "historical_renderer_errors": [
+    {
+      "level": "error",
+      "message": "ChunkLoadError: Loading chunk 8484 failed.\n(error: http://127.0.0.1:1314/js/8484-4e8ca186.chunk.min.js)\n    at o.f.j (http://127.0.0.1:1314/_vendor-mermaid.js:2:627691)\n    at http://127.0.0.1:1314/_vendor-mermaid.js:2:625133\n    at Array.reduce (<anonymous>)\n    at o.e (http://127.0.0.1:1314/_vendor-mermaid.js:2:625112)\n    at loader (http://127.0.0.1:1314/_vendor-mermaid.js:2:633987)\n    at Diagram.fromText (http://127.0.0.1:1314/_vendor-mermaid.js:2:644756)\n    at Object.render (http://127.0.0.1:1314/_vendor-mermaid.js:2:649578)\n    at http://127.0.0.1:1314/_vendor-mermaid.js:2:654252\n    at new Promise (<anonymous>)\n    at performCall (http://127.0.0.1:1314/_vendor-mermaid.js:2:654229)",
+      "timestamp": "2026-10-05T20:59:13.772Z",
+      "url": "http://127.0.0.1:1314/_vendor-mermaid.js"
+    },
+    {
+      "level": "error",
+      "message": "ChunkLoadError: Loading chunk 5322 failed.\n(error: http://127.0.0.1:1314/js/5322-6b8eff67.chunk.min.js)\n    at o.f.j (http://127.0.0.1:1314/_vendor-mermaid.js:2:627691)\n    at http://127.0.0.1:1314/_vendor-mermaid.js:2:625133\n    at Array.reduce (<anonymous>)\n    at o.e (http://127.0.0.1:1314/_vendor-mermaid.js:2:625112)\n    at loader (http://127.0.0.1:1314/_vendor-mermaid.js:2:635855)\n    at Diagram.fromText (http://127.0.0.1:1314/_vendor-mermaid.js:2:644756)\n    at Object.render (http://127.0.0.1:1314/_vendor-mermaid.js:2:649578)\n    at http://127.0.0.1:1314/_vendor-mermaid.js:2:654252\n    at new Promise (<anonymous>)\n    at performCall (http://127.0.0.1:1314/_vendor-mermaid.js:2:654229)",
+      "timestamp": "2026-10-05T20:59:13.782Z",
+      "url": "http://127.0.0.1:1314/_vendor-mermaid.js"
+    },
+    {
+      "level": "error",
+      "message": "ChunkLoadError: Loading chunk 8484 failed.\n(error: http://127.0.0.1:1314/js/8484-4e8ca186.chunk.min.js)\n    at o.f.j (http://127.0.0.1:1314/_vendor-mermaid.js:2:627691)\n    at http://127.0.0.1:1314/_vendor-mermaid.js:2:625133\n    at Array.reduce (<anonymous>)\n    at o.e (http://127.0.0.1:1314/_vendor-mermaid.js:2:625112)\n    at loader (http://127.0.0.1:1314/_vendor-mermaid.js:2:633987)\n    at Diagram.fromText (http://127.0.0.1:1314/_vendor-mermaid.js:2:644756)\n    at Object.render (http://127.0.0.1:1314/_vendor-mermaid.js:2:649578)\n    at http://127.0.0.1:1314/_vendor-mermaid.js:2:654252\n    at new Promise (<anonymous>)\n    at performCall (http://127.0.0.1:1314/_vendor-mermaid.js:2:654229)",
+      "timestamp": "2026-10-05T20:59:13.782Z",
+      "url": "http://127.0.0.1:1314/_vendor-mermaid.js"
+    },
+    {
+      "level": "error",
+      "message": "ChunkLoadError: Loading chunk 8484 failed.\n(error: http://127.0.0.1:1314/js/8484-4e8ca186.chunk.min.js)\n    at o.f.j (http://127.0.0.1:1314/_vendor-mermaid.js:2:627691)\n    at http://127.0.0.1:1314/_vendor-mermaid.js:2:625133\n    at Array.reduce (<anonymous>)\n    at o.e (http://127.0.0.1:1314/_vendor-mermaid.js:2:625112)\n    at loader (http://127.0.0.1:1314/_vendor-mermaid.js:2:633987)\n    at Diagram.fromText (http://127.0.0.1:1314/_vendor-mermaid.js:2:644756)\n    at Object.render (http://127.0.0.1:1314/_vendor-mermaid.js:2:649578)\n    at http://127.0.0.1:1314/_vendor-mermaid.js:2:654252\n    at new Promise (<anonymous>)\n    at performCall (http://127.0.0.1:1314/_vendor-mermaid.js:2:654229)",
+      "timestamp": "2026-10-05T20:59:13.791Z",
+      "url": "http://127.0.0.1:1314/_vendor-mermaid.js"
+    },
+    {
+      "level": "error",
+      "message": "ChunkLoadError: Loading chunk 8484 failed.\n(error: http://127.0.0.1:1314/js/8484-4e8ca186.chunk.min.js)\n    at o.f.j (http://127.0.0.1:1314/_vendor-mermaid.js:2:627691)\n    at http://127.0.0.1:1314/_vendor-mermaid.js:2:625133\n    at Array.reduce (<anonymous>)\n    at o.e (http://127.0.0.1:1314/_vendor-mermaid.js:2:625112)\n    at loader (http://127.0.0.1:1314/_vendor-mermaid.js:2:633987)\n    at Diagram.fromText (http://127.0.0.1:1314/_vendor-mermaid.js:2:644756)\n    at Object.render (http://127.0.0.1:1314/_vendor-mermaid.js:2:649578)\n    at http://127.0.0.1:1314/_vendor-mermaid.js:2:654252\n    at new Promise (<anonymous>)\n    at performCall (http://127.0.0.1:1314/_vendor-mermaid.js:2:654229)",
+      "timestamp": "2026-10-05T20:59:13.801Z",
+      "url": "http://127.0.0.1:1314/_vendor-mermaid.js"
+    }
+  ],
+  "final_test_started_at": "2026-10-05T21:20:07.096Z"
+}

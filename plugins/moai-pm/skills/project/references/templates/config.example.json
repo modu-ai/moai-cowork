@@ -1,0 +1,57 @@
+{
+  "schema_version": 2,
+  "project": {
+    "name": "교육 자료 프로젝트 예시",
+    "purpose": "학습자에 맞는 교육 자료 작성"
+  },
+  "host": {
+    "surface": "unknown",
+    "project_kind": "unknown",
+    "execution_location": "미확인",
+    "observations": [],
+    "instruction_status": "unverified",
+    "subagents": null,
+    "delegation_authorized": false,
+    "max_concurrent": 1
+  },
+  "sensitivity": "unknown",
+  "plugins_installed": {},
+  "skills_available": {},
+  "context": {
+    "answers": {
+      "purpose": {
+        "value": "교육 자료 작성",
+        "source": "예시 입력이며 실제 사용자 답이 아님",
+        "verified": false
+      }
+    },
+    "questions": [
+      {
+        "id": "learner",
+        "text": "학습자의 수준과 목표는 무엇인가요?",
+        "affected_steps": [
+          "curriculum"
+        ],
+        "status": "waiting"
+      }
+    ]
+  },
+  "experts": {},
+  "workflows": [
+    {
+      "id": "curriculum",
+      "depends_on": [],
+      "skills": [],
+      "operation": "write",
+      "write_set": [
+        "output/curriculum.md"
+      ],
+      "outputs": [
+        "output/curriculum.md"
+      ],
+      "completion_criteria": "사용자 학습 목표와 교육 원고를 대조한다",
+      "status": "blocked",
+      "evidence": []
+    }
+  ]
+}

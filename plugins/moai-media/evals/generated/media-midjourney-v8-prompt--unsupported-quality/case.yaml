@@ -1,0 +1,35 @@
+schema_version: '1.1'
+name: media-midjourney-v8-prompt--unsupported-quality
+description: 사용자가 V8에서 지원하지 않는 --q 4를 입력
+runs: 1
+tags:
+- generated
+- media-midjourney-v8-prompt
+execution:
+  prompt: '다음 프로젝트 업무를 수행해 주세요. 미확인 정보는 만들지 말고 필요한 맥락을 요청하세요.
+
+
+    미드저니 V8.2 인물 사진 프롬프트, --hd --q 4, 9:16'
+  allowed_tools:
+  - Read
+  - Glob
+  - Grep
+  - Skill
+  max_turns: 12
+  timeout_seconds: 180
+graders:
+- name: skill-fired
+  type: tool_used
+  tool: Skill
+  input_match: '"skill"\s*:\s*"(?:[\w-]+:)?media\-midjourney\-v8\-prompt"'
+- name: quality
+  type: llm
+  focus: trace
+  criteria: "입력 사실·제약과 아래 사례의 기대 결과를 대조한다. 모든 적용 가능한 조건을 만족하면 PASS, 하나라도 위반하면 FAIL이다.\
+    \ false 값은 해당 동작·주장이 없어야 한다는 뜻이다. 정보·도구·fixture가 부족하면 모델이 이를 명시했는지 확인하되, 원래 조건을\
+    \ 충족하지 못한 실행을 임의로 PASS로 바꾸지 않는다. 단어가 있다는 이유만으로 사실성·산술·법적 판단·의미 보존을 통과시키지 않는다.\
+    \ 원격 호출·파일 생성·독립 검수의 주장은 실제 trace와 산출물로 확인한다.\n\n{\n  \"expected_output\": {\n\
+    \    \"format\": \"markdown\",\n    \"contains\": [\n      \"--hd\",\n      \"\
+    --ar 9:16\"\n    ],\n    \"assertion\": [\n      \"--q 4가 V8.2에서 지원되지 않는다고 설명\"\
+    ,\n      \"출력할 Midjourney 프롬프트에서는 --q 4를 제거\",\n      \"--hd 비용을 4배 또는 --q와 16배로\
+    \ 계산하지 않음\"\n    ]\n  }\n}"

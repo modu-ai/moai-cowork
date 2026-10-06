@@ -2,7 +2,8 @@
 name: marketing-workflow
 description: |
   캠페인·콘텐츠·광고·성과 보고서가 함께 필요한 마케팅 요청에서 목표와 근거를 확인하고 moai-marketer의 marketing-*·content-* 스킬로 작업을 연결합니다. 이미지는 현재 호스트의 도구를 확인하고 전문 제작 스킬은 설치된 경우에 사용합니다.
-version: "1.0.2"
+metadata:
+  version: "1.0.3"
 ---
 
 # 마케팅 작업 경로

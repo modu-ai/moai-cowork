@@ -10,7 +10,8 @@ description: |
   - "이 초안 멀티 채널로 변환해줘"
   - "X premium 으로 한 번에 올릴 수 있게 해줘"
   [책임 경계] vs 형제 스킬: *포맷만* 담당합니다 — Facebook/X 로 발행하지 않습니다 (사용자가 복붙). Threads 직접 발행은 threads-post-draft / threads_publish_* 도구가 담당합니다.
-version: "1.2.3"
+metadata:
+  version: "1.2.4"
 ---
 
 # 멀티 채널 포맷 (threads-multichannel)

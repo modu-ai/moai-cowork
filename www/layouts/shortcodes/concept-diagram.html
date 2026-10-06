@@ -1,0 +1,16 @@
+{{- $key := .Get 0 -}}
+{{- $meta := index .Site.Data.concepts $key -}}
+{{- if not $meta -}}{{ errorf "정의되지 않은 개념 그림: %s" $key }}{{- end -}}
+{{- $source := readFile (printf "assets/diagrams/%s.mmd" $key) -}}
+<figure class="concept-figure">
+  {{ if eq (.Get 1) "pixel" }}
+  <div class="figure-scroll" role="region" tabindex="0" aria-label="{{ $meta.title }}">
+    <a href="{{ printf "infographics/kindle/%s-ko.png" $key | relURL }}" target="_blank" rel="noopener"><img src="{{ printf "infographics/kindle/%s-ko.png" $key | relURL }}" alt="{{ $meta.reading }}" loading="lazy" decoding="async" /></a>
+  </div>
+  <a class="figure-open" href="{{ printf "infographics/kindle/%s-ko.png" $key | relURL }}" target="_blank" rel="noopener">그림 크게 보기</a>
+  {{ else }}
+  <pre class="gdoc-mermaid kindle-mermaid" role="region" tabindex="0" aria-label="{{ $meta.title }}">{{ $source }}</pre>
+  {{ end }}
+  <figcaption>{{ $meta.reading }}</figcaption>
+</figure>
+{{ range $meta.explanation }}<p>{{ . }}</p>{{ end }}

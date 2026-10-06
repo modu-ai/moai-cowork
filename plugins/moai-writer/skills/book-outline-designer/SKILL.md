@@ -8,7 +8,8 @@ description: |
   - "챕터 시놉시스", "분량 배분", "꼭지 단위 기획"
   - "책 구성안", "출판 기획서 목차"
   - "장르별 목차 패턴", "실용서 목차 / 소설 플롯"
-version: "1.1.1"
+metadata:
+  version: "1.1.2"
 ---
 
 # book-outline-designer

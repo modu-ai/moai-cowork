@@ -1,0 +1,16 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "moai-mcp-threads-poster": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "./mcp-servers/moai-mcp-threads-poster",
+        "moai-mcp-threads-poster"
+      ],
+      "cwd": "./",
+      "type": "stdio"
+    }
+  }
+}

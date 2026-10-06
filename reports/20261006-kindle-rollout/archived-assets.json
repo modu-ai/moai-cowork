@@ -1,0 +1,947 @@
+[
+  {
+    "old": "www/static/infographics/attribution-flow.png",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/attribution-flow.png",
+    "sha256": "be630096de2e3936cd4b7e7dbb8aca62f030ee08a56c2a3d4d1d6a9b6871bcb6"
+  },
+  {
+    "old": "www/static/infographics/core-concepts.png",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/core-concepts.png",
+    "sha256": "0854c9756bc2f2c4a9f82109ea489dd8bc9b6cac9a3935ea7ccf0a946d29c31c"
+  },
+  {
+    "old": "www/static/infographics/coworker-concept.png",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/coworker-concept.png",
+    "sha256": "8a5301b667506d7857916167a95335a33c8760cc0dcdb427cd0895d1d3426b20"
+  },
+  {
+    "old": "www/static/infographics/coworker-family-map.png",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/coworker-family-map.png",
+    "sha256": "465a5d5435c5cbf6fec49db2dcf37f061237e5c796f6501dafc92528cd21b3fb"
+  },
+  {
+    "old": "www/static/infographics/docsite-map.png",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/docsite-map.png",
+    "sha256": "0f62ffd462f54cb2b0829d17a5e72d3d319dbf0af04e169d37891edf7e878daa"
+  },
+  {
+    "old": "www/static/infographics/expert-workflow-ko.png",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/expert-workflow-ko.png",
+    "sha256": "770c37fc0fdb3db598c4ef11929c9229157bd3bb3c6a46a5822610901b91670f"
+  },
+  {
+    "old": "www/static/infographics/first-workflow-ko.png",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/first-workflow-ko.png",
+    "sha256": "359afbf5467f95b53ac1b1df65161956394687507839c592bec30ef9f126a075"
+  },
+  {
+    "old": "www/static/infographics/install-3steps.png",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/install-3steps.png",
+    "sha256": "352fac5684cf72aca16ea82c7028608b8af391d09e5540b7b33d7deaed3bc6f8"
+  },
+  {
+    "old": "www/static/infographics/install-manage-flow.png",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/install-manage-flow.png",
+    "sha256": "7c3ba956a6be88015dcd0a6111b195de3ef4e27cee18f421d71cc5a49b8a14b7"
+  },
+  {
+    "old": "www/static/infographics/mcp-bridge.png",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/mcp-bridge.png",
+    "sha256": "c9411faddc36d9d40395218942f93d138a380380d85b5c131568bdb9bdc3e453"
+  },
+  {
+    "old": "www/static/infographics/pages/account-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/account-mobile.svg",
+    "sha256": "163e75af6cd1959029d31605d9e1e39d6c08b70d5a272f4e3b8946518e931957"
+  },
+  {
+    "old": "www/static/infographics/pages/account.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/account.svg",
+    "sha256": "775f125bd0bc4ff94dd9cd5c8469d3fa55d5d2bef56529252ee25c851ca17f79"
+  },
+  {
+    "old": "www/static/infographics/pages/attribution-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/attribution-mobile.svg",
+    "sha256": "fa253325e57388ad593eb5fade1e645152615fb18c7fb256f66ce4f33a375dea"
+  },
+  {
+    "old": "www/static/infographics/pages/attribution.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/attribution.svg",
+    "sha256": "47769345524f4907078bd7a48d90fbc13cc19d2d6dc9f0c28f1802d13dc977d0"
+  },
+  {
+    "old": "www/static/infographics/pages/authoring-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/authoring-mobile.svg",
+    "sha256": "2621f7ea99d6d43eb08fd1baac21297d7d8c425423cafc8067507d34a9fc44cb"
+  },
+  {
+    "old": "www/static/infographics/pages/authoring.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/authoring.svg",
+    "sha256": "0cbd136eb5ae1dd370c448587efe5b036d0e4f1f3015572c69e8dc7e917fe344"
+  },
+  {
+    "old": "www/static/infographics/pages/choose-recipe-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/choose-recipe-mobile.svg",
+    "sha256": "8380a69fd7328e22e803d3f69ce501371d8260dfccdea03ac6fc70d81f6a683c"
+  },
+  {
+    "old": "www/static/infographics/pages/choose-recipe.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/choose-recipe.svg",
+    "sha256": "0c0b35ac148bd295149576dc70084e5949da63d64ffaa58af95f94bd84860f1a"
+  },
+  {
+    "old": "www/static/infographics/pages/connector-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/connector-mobile.svg",
+    "sha256": "abc5945ce1f16789ca713e053371954fbc9ceef9ad35947b710578eb1b67911c"
+  },
+  {
+    "old": "www/static/infographics/pages/connector.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/connector.svg",
+    "sha256": "7c60f254b69b2ebb422aee0f1cb231e039579af233db289907e5d3115f0a5688"
+  },
+  {
+    "old": "www/static/infographics/pages/cost-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/cost-mobile.svg",
+    "sha256": "15fb63b9e15960749b9812a7c447618e05dd8cd86b14e32844bbc768621cdd6e"
+  },
+  {
+    "old": "www/static/infographics/pages/cost.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/cost.svg",
+    "sha256": "167c97fb0c5bb66c691845123468e10232244008d8f3123d3c3426e9493dea2e"
+  },
+  {
+    "old": "www/static/infographics/pages/credentials-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/credentials-mobile.svg",
+    "sha256": "7b93dfa2244a8b01914c5fb84f7a95420e9d47f608dbbe97f7b9bb691edecf0d"
+  },
+  {
+    "old": "www/static/infographics/pages/credentials.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/credentials.svg",
+    "sha256": "771eccba3e93e5966be1e974db2ba21ad6954004837120cf5a6fdd8b12bd6985"
+  },
+  {
+    "old": "www/static/infographics/pages/environment-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/environment-mobile.svg",
+    "sha256": "dddc6e4aeaa02b446b9ab13df45a038d8dff4a396150622b1f15a55fc2d773ac"
+  },
+  {
+    "old": "www/static/infographics/pages/environment.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/environment.svg",
+    "sha256": "77a4b145c38cecbbf2bd496f9db8f092b625d7a8f4ecb86e9fdb972b288cbe69"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-blog-pipeline-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-blog-pipeline-mobile.svg",
+    "sha256": "b2d436aca0d9c97814321ec48640dcd62f01070098248c65712cd77ef2e4fb70"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-blog-pipeline.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-blog-pipeline.svg",
+    "sha256": "12f781a53c4fa94328c9ddde03c35263c61c8f041a95f56f1443b83c6a94ba08"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-business-plan-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-business-plan-mobile.svg",
+    "sha256": "b7fc4618917885cb39ee21db3318bdd2af5a2889a3e95015ced5de24d3db6c7e"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-business-plan.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-business-plan.svg",
+    "sha256": "4bfa8399ad44ed7d9a795ce13af86e34512f4dc103797bc7f4de0bbb291f93ea"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-contract-review-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-contract-review-mobile.svg",
+    "sha256": "6d770bfdb5a81797143734cb337a85e66410479e7e4b179d1ac742812312f2c8"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-contract-review.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-contract-review.svg",
+    "sha256": "ef501067a7f8579193e07c324dfdef54ca861d9f468f47baa113f96133eac024"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-design-presentation-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-design-presentation-mobile.svg",
+    "sha256": "fc66c93c3af0fd64ffa8cf9833105fc36a55eb2840f638cfa7bc78516f6f12b1"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-design-presentation.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-design-presentation.svg",
+    "sha256": "ac0b85b3be7259a2efbf8ec35dcc6a1d839c3ae91cbd41875931def6dc293538"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-guides-content-marketing-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-guides-content-marketing-mobile.svg",
+    "sha256": "6717efc5d9f3e5e04dbabded16d4e7142d4d516ea8d657f066454caa722b3420"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-guides-content-marketing.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-guides-content-marketing.svg",
+    "sha256": "f79f811b5d2957707e9ee7c5379155af4e478123d6ebc0e764a567767587b337"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-guides-contract-drafting-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-guides-contract-drafting-mobile.svg",
+    "sha256": "62523a32ba18474d852fd9088f12d6aef213aa849d3ae47b76de97adee9b542a"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-guides-contract-drafting.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-guides-contract-drafting.svg",
+    "sha256": "99adc449a401298e271051cbcd201548609b571304d5fd4c108f071dff7d3893"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-guides-data-analysis-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-guides-data-analysis-mobile.svg",
+    "sha256": "663f1bc3a273517323d97c905c537618f7bc04123ed0f7f117da030e9f3cdf01"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-guides-data-analysis.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-guides-data-analysis.svg",
+    "sha256": "40b61e3dbe4fabbc1136a7deae62532e424c06f511dbfbe951c40ad32ff90532"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-guides-data-visualization-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-guides-data-visualization-mobile.svg",
+    "sha256": "6f0c91b9351746faf7d0c1b24e28d07b0b7511cedfee178034f29e7692c25ad5"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-guides-data-visualization.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-guides-data-visualization.svg",
+    "sha256": "75ba63321543586115a99b5226c3e8d039d89bd84668ac4b4e093ddc30d70573"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-guides-funding-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-guides-funding-mobile.svg",
+    "sha256": "090cc214e01e5b477d5310fc6cc063007006a53026177b5b0e4bb8ca97c006bc"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-guides-funding.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-guides-funding.svg",
+    "sha256": "2ef2c9852faa72d866c92ddd1a34c82cc1b2f74695011d8137f7b296e685020f"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-guides-legal-risk-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-guides-legal-risk-mobile.svg",
+    "sha256": "40ae068e3c1433b10a7b8e900bb5f43705e0018c98f6ca7f3f7edf6ffd082d83"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-guides-legal-risk.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-guides-legal-risk.svg",
+    "sha256": "5ff0995064c808b0756adb179b274e4c3e814eda61f2e1b9641fe1ee2d7b0c23"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-guides-social-media-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-guides-social-media-mobile.svg",
+    "sha256": "5e538309643cd3d4650858ebd539b8791d6cba518b72845da8909602d96e340a"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-guides-social-media.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-guides-social-media.svg",
+    "sha256": "27c474d6aa5a15a5b9b6a29554a813687ccb91fce67e18d100bc0fe70947a863"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-ir-deck-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-ir-deck-mobile.svg",
+    "sha256": "a3769d573dfa4d4c2daa2250e14568ab217e8fe2cbeaa26a4e8ba63a4cd48f7d"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-ir-deck.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-ir-deck.svg",
+    "sha256": "307ec6eaca2c169aa75f1686408354ee0cc77ddb7be5f3d036048ddc5cd8c8d8"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-legal-nda-batch-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-legal-nda-batch-mobile.svg",
+    "sha256": "e554a738ad83c2395c66d8d358879b34d21d1d1127068fc6ac5336eac9ceb88e"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-legal-nda-batch.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-legal-nda-batch.svg",
+    "sha256": "c0c9894f45f50d22db988e4c258c5226b65317944fb80d3bf7f665f6369434a8"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-projects-brand-to-landing-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-projects-brand-to-landing-mobile.svg",
+    "sha256": "0f76ca9a0e95aae2d889f7541f778cd2928c9fcc51cc0ba20e1e84f55560da94"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-projects-brand-to-landing.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-projects-brand-to-landing.svg",
+    "sha256": "21c606b6fe053ca50796ecfdbeb1e39fe184c1dbfc3191def202df66835a41d3"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-projects-career-transition-4weeks-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-projects-career-transition-4weeks-mobile.svg",
+    "sha256": "7a2985fca04fcb693da030becf92ba93d4cd8b6a42ef6e7132cb08aa0c0294c7"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-projects-career-transition-4weeks.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-projects-career-transition-4weeks.svg",
+    "sha256": "e51199a2cdc63362e3a86c5eff63e64036f41a6e34e64c7ec246d5029254c8c9"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-projects-contract-risk-report-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-projects-contract-risk-report-mobile.svg",
+    "sha256": "064ab44f94306f15fb42eed14926714b1ae420f06f11404dde017205964c7b89"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-projects-contract-risk-report.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-projects-contract-risk-report.svg",
+    "sha256": "0a38f2b26acac0c190078be79bd7b0fb7e892622b5aeaf9a229c59589f72bbdd"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-projects-gov-grant-application-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-projects-gov-grant-application-mobile.svg",
+    "sha256": "1949c1b36ffe79fa71e51d2933368026c8edcb31b600c74edbf30889cb747eee"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-projects-gov-grant-application.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-projects-gov-grant-application.svg",
+    "sha256": "eef85b55576c10cb48d7dbd56a409cf2c9234f7570af0c02cfb1c950e050ce84"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-projects-hiring-pipeline-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-projects-hiring-pipeline-mobile.svg",
+    "sha256": "4d79496f4529f50fedb7d539f3fe315647ba9873e1379721e12a618b40087207"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-projects-hiring-pipeline.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-projects-hiring-pipeline.svg",
+    "sha256": "781f185fddb4d98ddcde6f8c124c0cedf8674333e541e844c4fde1256e9c2cca"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-projects-public-data-report-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-projects-public-data-report-mobile.svg",
+    "sha256": "2ef994055b6d2a2eb79f4f44d7c58247a7a558a34e0958960ec5559c3b3fc9f6"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-projects-public-data-report.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-projects-public-data-report.svg",
+    "sha256": "384ed7107e60b764f5264fce1f40cda33ae33c224e7732ee4d1212af2c0e679e"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-projects-smartstore-launch-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-projects-smartstore-launch-mobile.svg",
+    "sha256": "65f4193af311fb2fa420920023fdaae3fcc6654a32f61279eb012eb4e4b069a9"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-projects-smartstore-launch.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-projects-smartstore-launch.svg",
+    "sha256": "78686633be105db1185968cc5c67b55d04908bc6058d3d2999933683dbd90611"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-projects-sns-content-month-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-projects-sns-content-month-mobile.svg",
+    "sha256": "1ad8d9be6dcc1bc12d429a90bf7da40acec1fed899ab65a7a75ac2488ff42769"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-projects-sns-content-month.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-projects-sns-content-month.svg",
+    "sha256": "e49b6aa53b9d51f92a9a33b1ae1a1bc8a9583daf2d4b43cb5e4a5e82b0afa7fc"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-projects-startup-feasibility-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-projects-startup-feasibility-mobile.svg",
+    "sha256": "b5e4413f35103d6452ae3fed804ef615ae6761d9d67a366f0b98e83af55704b4"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-projects-startup-feasibility.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-projects-startup-feasibility.svg",
+    "sha256": "aa99af178e9b43364a3e8995e267bb48fcb4c5225dbbf23590a0fadd865f459c"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-projects-voc-to-faq-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-projects-voc-to-faq-mobile.svg",
+    "sha256": "c9b566a53a7e01965747c0b4ef7cb5b2f82fe8e765aeb354d998f7fde28ea188"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-projects-voc-to-faq.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-projects-voc-to-faq.svg",
+    "sha256": "86db468c0c402431597588a09555c9f27f9a1cc0fa036863bc21f0c36ebf07ad"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-projects-webnovel-project-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-projects-webnovel-project-mobile.svg",
+    "sha256": "17f19a5a95def0776e7653655ffa5eb5aac3709b852854fe16e06bd143c473c4"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-projects-webnovel-project.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-projects-webnovel-project.svg",
+    "sha256": "f667d7206a2631f3bec9006f2b1cbf65b6fa270aaf7272a9da895da5de287c37"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-projects-weekly-report-routine-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-projects-weekly-report-routine-mobile.svg",
+    "sha256": "6d1776e98b5ca4ec6dc432660e304dacc5ce96f53357decf3f09f85864921cdd"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-projects-weekly-report-routine.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-projects-weekly-report-routine.svg",
+    "sha256": "43248287b83a4e68957c67912e8a8f76484b72603d4dc6c7f303457e4bbfe664"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-report-automation-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-report-automation-mobile.svg",
+    "sha256": "482044e4c6cd56ffc408ad2beee09020feca8182142b3be8e96fb3c2f53fc436"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-report-automation.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-report-automation.svg",
+    "sha256": "31fceef2913022689ec59bafbce5bab905d690664fe3e63e04621b6ce1610cb3"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-templates-compliance-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-templates-compliance-mobile.svg",
+    "sha256": "288cd704d136bcfaaa9da4d66d8f5ee0aa158430f6b7155ecc00885f31ac423f"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-templates-compliance.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-templates-compliance.svg",
+    "sha256": "05cba0ad9eafaf87040eaa7ef8b22d39df7a989c08878cb07a6f4920ad85930a"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-templates-email-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-templates-email-mobile.svg",
+    "sha256": "d93704c1c458de76e5d41fa7f62eec91d94dc7afddab6f1eda5a91f48461ea86"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-templates-email.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-templates-email.svg",
+    "sha256": "60ece385ffae5cd44a1e30223540041ed7a7fb1e0e38519195f55ea5c0d7e91f"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-templates-excel-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-templates-excel-mobile.svg",
+    "sha256": "2b156d661524eee6f96effc84b38649523f53e8b913c94c1de161896478c222d"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-templates-excel.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-templates-excel.svg",
+    "sha256": "a37101f07a6c74f8c7b247c49af7bd8eec3cc477ff92c4dba17cc464f99a7e49"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-templates-financial-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-templates-financial-mobile.svg",
+    "sha256": "3163e9fa4cd6d8cccb21c3cff625184bb2a9545fc12b6c885359d709257b3301"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-templates-financial.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-templates-financial.svg",
+    "sha256": "c0e6c83443d51656d3c611ece366ed99cfc144a1df1a07c2fbd6e18a39c46d77"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-tracks-track-advertising-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-tracks-track-advertising-mobile.svg",
+    "sha256": "8d3fe3ca6a935db7f2f2ff9d767ee51ad4d688b1afc03c0812aafa2174264d5c"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-tracks-track-advertising.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-tracks-track-advertising.svg",
+    "sha256": "a701370039aa36b1558f3e96dd3b7eacbed6d902dbfa786bfbb0bfff06b320bf"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-tracks-track-appendix-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-tracks-track-appendix-mobile.svg",
+    "sha256": "bb2b736c82716cbd31fd543b11eaa65ca05b7c1b2441d2285b0451930e0c8514"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-tracks-track-appendix.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-tracks-track-appendix.svg",
+    "sha256": "cfadabb2e8b90811c5dd2ed5aa1efd4e34863df3e1563e356962f6942ed7875b"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-tracks-track-commerce-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-tracks-track-commerce-mobile.svg",
+    "sha256": "a545efec711790c178513c0176beb000940cab639f6c3bdd4e4a4cad2101a161"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-tracks-track-commerce.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-tracks-track-commerce.svg",
+    "sha256": "1862e3be0abce57a09356d1ced7e45269c282ced97689644d4725bbd3b9df76e"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-tracks-track-content-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-tracks-track-content-mobile.svg",
+    "sha256": "f9b518b71313c542bdf5c54438f1a6f8202c0f5f7022b018af0de6165667e81a"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-tracks-track-content.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-tracks-track-content.svg",
+    "sha256": "f60befcbb643626b5aec7ad10dd1a2bdc1be2248c65947fb506a4fd2bc4cecac"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-tracks-track-data-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-tracks-track-data-mobile.svg",
+    "sha256": "0f49ecd2c493b6370c61d091a02b968f2b12bb66e63d216feca98d9f65ce3a0a"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-tracks-track-data.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-tracks-track-data.svg",
+    "sha256": "588d0d43044d0341f7f72a8c0e949f0cf7a0926897d8a6f80789eb8d914d9fa1"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-tracks-track-documents-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-tracks-track-documents-mobile.svg",
+    "sha256": "b1cd56c6a662c9a2d7dc8082a0785424b27e04c7fb59ca2a49d06fd1e547a7a7"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-tracks-track-documents.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-tracks-track-documents.svg",
+    "sha256": "d2698dc9835b81168a9ecdcbc87defdbb51f8ccef312e64ab658d077a8fe084d"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-tracks-track-finance-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-tracks-track-finance-mobile.svg",
+    "sha256": "d632591c7749957bfc7b8554d9bbac451b57f426ea5520db3e767d3335afe6fe"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-tracks-track-finance.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-tracks-track-finance.svg",
+    "sha256": "1b2f34dc0622d0931567e6ee0a275126b46ffc60a9b804475070a322f35afc18"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-tracks-track-hr-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-tracks-track-hr-mobile.svg",
+    "sha256": "3e2fc1b8ee75023fd7d6a721d57a2dee360cb70d1b90315101e71a0d1b901e5e"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-tracks-track-hr.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-tracks-track-hr.svg",
+    "sha256": "be4bf6e4896e6e5ac1be0f1e0ce632db1ec327d801f772dff60d8ea84ad0a5e5"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-tracks-track-legal-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-tracks-track-legal-mobile.svg",
+    "sha256": "301a4487d4f524cc59b1b4a69e971055a02088219f390a57e80b48ba5481a4e8"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-tracks-track-legal.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-tracks-track-legal.svg",
+    "sha256": "7831941552552d14427707748e2084f3a0ad3190d91cf3e14ba36af8d79eacfb"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-tracks-track-marketing-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-tracks-track-marketing-mobile.svg",
+    "sha256": "0bdcb00a11ead7b586c91d2e0c1f63cf50edacc75963f0c6477a113062d7a63d"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-tracks-track-marketing.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-tracks-track-marketing.svg",
+    "sha256": "54e952342a11e848833ee5bfcda6310051cc3ce20a55a9e27f421fa4c12ef47e"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-tracks-track-operations-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-tracks-track-operations-mobile.svg",
+    "sha256": "aa22afc4350328dc2eef62de5a9a6800befefa0679f3abcb8d0a61abdbf0f415"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-tracks-track-operations.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-tracks-track-operations.svg",
+    "sha256": "2ff3e68fb72aa9e3c34ded39b37d3057bc48624fac7d7b4687993184ffa6f391"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-tracks-track-product-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-tracks-track-product-mobile.svg",
+    "sha256": "8f675b6158ff7fdf0bd5706d3d5204b5be8d425e34fecec81ad4c88ad8f0af11"
+  },
+  {
+    "old": "www/static/infographics/pages/example-cookbook-tracks-track-product.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-cookbook-tracks-track-product.svg",
+    "sha256": "6c46659ec0b0247ad9786d4610d6ab316335542b6b0d58cf04069999bd5d19eb"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-accountant-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-accountant-mobile.svg",
+    "sha256": "b00d61b0ce69b1966c208776b9daf1d6548b72a07d4c05a6f659b2d1af49f634"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-accountant.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-accountant.svg",
+    "sha256": "ae5a31eb46282e8644f71a0614227084d0b4a2cccaedc95a87a3fd487f5a8e55"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-analyst-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-analyst-mobile.svg",
+    "sha256": "3ff58ddbeceac9b0ab1fe85f51ea0841ced3d32c6353b6130ec055c41d0fbcf3"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-analyst.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-analyst.svg",
+    "sha256": "5f23b8b5b35628862df9620d5d097971ca31b336ab878d8d1f318c5c671ce44a"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-career-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-career-mobile.svg",
+    "sha256": "463bcbfb3335975afc807cb7d4d2dab8a5f4ef70ad09381bb7b6b7760e028281"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-career.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-career.svg",
+    "sha256": "490cb371dcf683b68d35221befde084ee35a24ff7a2af2bdf8f83bf3cf923711"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-consultant-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-consultant-mobile.svg",
+    "sha256": "1d41d624d659e75e6c1c3ded25e67afbf77fd92a46a0733a84f5b803181d7327"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-consultant.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-consultant.svg",
+    "sha256": "160fc1f9b9eb71cdbc6df98bcebd122f7734e90f76a9a0c33c04809fbc20b703"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-coworker-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-coworker-mobile.svg",
+    "sha256": "9a9def85a656f01ab77c8bd8a3b1c0d5739256af7dcebacc581529bfe88101e7"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-coworker.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-coworker.svg",
+    "sha256": "3721507db459c824ffb2e2734b506ef76022dbdb8df4b47317711c6eb4f7167c"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-cs-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-cs-mobile.svg",
+    "sha256": "c65bd15d624ca753032ac389e38559c19a79b94922147295acdbcd44cfb07421"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-cs.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-cs.svg",
+    "sha256": "ba7a18784cc994f2b6eebbf039528e301269c0b4515ac6d042702bb198891d01"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-designer-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-designer-mobile.svg",
+    "sha256": "5f039db38aaa2367cbd55943f77dc492db02c3dd5f9c1c02ad5443a6541aa79a"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-designer.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-designer.svg",
+    "sha256": "a1dfeb7de404ddd9ba0cd53bdb65d3c0a52c2eae31ca7eb2cf53a607fc4a69b7"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-lawyer-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-lawyer-mobile.svg",
+    "sha256": "3be98cceed90d6a71dc1056dc0a8ae3faad7a555bdb2c789c1a8ad5a67803850"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-lawyer.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-lawyer.svg",
+    "sha256": "ecda7f7ca543937a237900ae6b205d3a30597b01120d8e66dff939e91fa78d1c"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-marketer-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-marketer-mobile.svg",
+    "sha256": "66204eaf9433e87306669729c3de87302eb067abb9ec076361bfb0148d35fd84"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-marketer.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-marketer.svg",
+    "sha256": "e697cbb9888f37cea64d23aba3e67628909f152b2e2316097aa9c2991e45031b"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-media-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-media-mobile.svg",
+    "sha256": "1ed613cba918ae4f6238fad8e12bf1ab6f48188a1463af2da1a22eff9d396c13"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-media.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-media.svg",
+    "sha256": "5471cc8f31b203a3ea18e934b0ae981f831bd632451b1b4dd47f427d60793bba"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-officer-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-officer-mobile.svg",
+    "sha256": "0fe634bd5527ef2d9d16fbbbf2e2e82b779f1c467508011f2d4b568c4d44f21d"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-officer.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-officer.svg",
+    "sha256": "65ea9e99e19156ebdb9c7dd89f8a64475d659db6ebd65f9bf0a48645914c4ce1"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-recruiter-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-recruiter-mobile.svg",
+    "sha256": "1187c5b45b2189ea7032f2e9f45fe9d89c0786ae9849225701ead1759ff0bfbb"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-recruiter.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-recruiter.svg",
+    "sha256": "d13ed7468cf091ca0e3d3cf7c07850c44ce55a28dd58f87ed5ae3da0d95d7abf"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-seller-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-seller-mobile.svg",
+    "sha256": "bc86054b221324861beaf590e9abb4b0098b17f45ea75f9432b0a5482b049143"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-seller.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-seller.svg",
+    "sha256": "ab867a3f4174149706c5048860c33614b92a2b6f8ff411da99ac22ac2d3eba21"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-story-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-story-mobile.svg",
+    "sha256": "300863a8f905f14bce2c5fbe0e2547058ba76394d258abb41a51e76f5714f55c"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-story.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-story.svg",
+    "sha256": "1e76865370dd0941bfdf29888e5b62e43c678f9abf09cf9078c45c4617fba756"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-threads-poster-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-threads-poster-mobile.svg",
+    "sha256": "3b6dbc044e0ed9213074f3585b105622ba7cce40ed9cee53239888ce709e7fff"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-threads-poster.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-threads-poster.svg",
+    "sha256": "d1aad7895cea8a1f66a8be3b3197233b0ca8c2f30fc3ad831291b9f6b832c07b"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-tutor-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-tutor-mobile.svg",
+    "sha256": "f7ae5bb81aff14d8e5aa2746f8fd82af85c69b0398af6df37fcfe5b2e212abbb"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-tutor.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-tutor.svg",
+    "sha256": "820ba854e6a6f6876d0d4789e438a95b5d73b9418bd2a4fbbea852c7b553e729"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-writer-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-writer-mobile.svg",
+    "sha256": "dac8fe07024736d819b54aba0743e8a8d10fabb3ee9d9dde373949254830bde6"
+  },
+  {
+    "old": "www/static/infographics/pages/example-moai-agents-writer.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/example-moai-agents-writer.svg",
+    "sha256": "cc0789d95df371f5be287fa0c7d650f551be3be212a73ad0e556f1bc7a1da839"
+  },
+  {
+    "old": "www/static/infographics/pages/handoff-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/handoff-mobile.svg",
+    "sha256": "676e3a51812293e139aaf9346618b7857df9fb312b940293653ebdf937b35689"
+  },
+  {
+    "old": "www/static/infographics/pages/handoff.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/handoff.svg",
+    "sha256": "60fd7ce3b3fde024cf792a3fd438477819453c20e4f909362ded96de75643b60"
+  },
+  {
+    "old": "www/static/infographics/pages/higgsfield-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/higgsfield-mobile.svg",
+    "sha256": "cb520f7bf5df81f39ba6667b072d1ac55d7722a94e5fe5b7dd2441f079c31ca8"
+  },
+  {
+    "old": "www/static/infographics/pages/higgsfield.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/higgsfield.svg",
+    "sha256": "5b6b15391f42f762c2b71a90db834371d5495d64bf1312c10223e31476979706"
+  },
+  {
+    "old": "www/static/infographics/pages/install-states-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/install-states-mobile.svg",
+    "sha256": "54ecce41ffb482c94d7d6d0ad81f4be860a82ce627bae04ace08c7cefae64c9e"
+  },
+  {
+    "old": "www/static/infographics/pages/install-states.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/install-states.svg",
+    "sha256": "a97e74fd76b61d6d1ed6f799de5858dd1c04039e84647158a50c77d71fd11be5"
+  },
+  {
+    "old": "www/static/infographics/pages/learning-path-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/learning-path-mobile.svg",
+    "sha256": "59aef76d0bb127416d9c4c78d4493df86b66ef45386449af67b50dce1ddcf7b9"
+  },
+  {
+    "old": "www/static/infographics/pages/learning-path.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/learning-path.svg",
+    "sha256": "52cf04a9b923506d5d2d1499e56e0e2fbabdabc4fc0e272b8435a411399deda6"
+  },
+  {
+    "old": "www/static/infographics/pages/limits-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/limits-mobile.svg",
+    "sha256": "41ec4edde20fc3b41d8991972bea0131e8cc1f2ab7953b632fd9428938710105"
+  },
+  {
+    "old": "www/static/infographics/pages/limits.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/limits.svg",
+    "sha256": "7139c938335c7ec08ef8e48e542d68bed183b64432be0369cf710d8f7e8c517e"
+  },
+  {
+    "old": "www/static/infographics/pages/office-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/office-mobile.svg",
+    "sha256": "25a2940e764b257f2ade82c125b223f0ef32d4745f6a283eb03cc00b56eda45e"
+  },
+  {
+    "old": "www/static/infographics/pages/office.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/office.svg",
+    "sha256": "7307b4004413d94a6a198e0a0689cdc88dc73eb2440bd811f84dfdeff9e89b48"
+  },
+  {
+    "old": "www/static/infographics/pages/permissions-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/permissions-mobile.svg",
+    "sha256": "a86406be36233e0f7154ba396b2bbe1b8eab0d2917812f1418db635280ed5a55"
+  },
+  {
+    "old": "www/static/infographics/pages/permissions.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/permissions.svg",
+    "sha256": "ef2b9e92c847d51f4661d4484d192a968bba4fe4781e7c692c1c85abd46eefc2"
+  },
+  {
+    "old": "www/static/infographics/pages/personalization-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/personalization-mobile.svg",
+    "sha256": "96b85786f586e8c8006d742541500aa7a066caf3757cca96e576b5f631c762be"
+  },
+  {
+    "old": "www/static/infographics/pages/personalization.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/personalization.svg",
+    "sha256": "e3067d80e12f79fd92367f8b6e67442971a2c386db0712b6a2b566155d83eb9e"
+  },
+  {
+    "old": "www/static/infographics/pages/pm-setup-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/pm-setup-mobile.svg",
+    "sha256": "bd684dce9463f45688b88df5a2b6f5c429de59de8d07b7b34d1eaf978aebffef"
+  },
+  {
+    "old": "www/static/infographics/pages/pm-setup.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/pm-setup.svg",
+    "sha256": "fde57055a653a24ec67b89db363605ade89ca71c287558d1560c13edbd5a8af0"
+  },
+  {
+    "old": "www/static/infographics/pages/questions-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/questions-mobile.svg",
+    "sha256": "198b25d8f8155a8226a67db54f6322cfd946117850c8fa20ff56b0f02db28d9f"
+  },
+  {
+    "old": "www/static/infographics/pages/questions.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/questions.svg",
+    "sha256": "8c30ee3bbd7ce0b3e28495acd543f8dd4c36459e0071e6d1854dc431d37a5c5d"
+  },
+  {
+    "old": "www/static/infographics/pages/report-status-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/report-status-mobile.svg",
+    "sha256": "710f9e09420dc2bafc43cbc8b1e6e651c4304657f9d9206b7785cc6fc627a174"
+  },
+  {
+    "old": "www/static/infographics/pages/report-status.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/report-status.svg",
+    "sha256": "a54c4fdb98d198d31ea36b48e36cc829b579109eaf059ca071a758b8c44d82e9"
+  },
+  {
+    "old": "www/static/infographics/pages/reuse-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/reuse-mobile.svg",
+    "sha256": "ffb0b2b5511ab797fad8159a5a541d37c352204fbf10a22f43c73b2bb6c4b591"
+  },
+  {
+    "old": "www/static/infographics/pages/reuse.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/reuse.svg",
+    "sha256": "f6ba5d75b01b2666c4a14d2a2e4621271955e74de5a1099105fc28a33d1d6407"
+  },
+  {
+    "old": "www/static/infographics/pages/review-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/review-mobile.svg",
+    "sha256": "e5d829240e80c9aea0f9ab1a7f3ba1a6e7807a45832991e58f4f8d3a91968f78"
+  },
+  {
+    "old": "www/static/infographics/pages/review.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/review.svg",
+    "sha256": "fd8d9120d766e1cfc59bed8e3d348c3fd0ebf16fd2bc6fbd4b7d76bdac88e486"
+  },
+  {
+    "old": "www/static/infographics/pages/server-modes-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/server-modes-mobile.svg",
+    "sha256": "8881966ef78d4cec595e643dbe8d7cc7f7a4153b22afe49941f6d8e9f2de1b91"
+  },
+  {
+    "old": "www/static/infographics/pages/server-modes.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/server-modes.svg",
+    "sha256": "01547478a989daeca0fb5a7f29126f15af3481b9472f3a768bd369fa5567c934"
+  },
+  {
+    "old": "www/static/infographics/pages/skills-agents-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/skills-agents-mobile.svg",
+    "sha256": "a420d50d737aba699bbf3dd16370ccc1b9125fe83ca8b94a0e6d300fa4a44f18"
+  },
+  {
+    "old": "www/static/infographics/pages/skills-agents.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/skills-agents.svg",
+    "sha256": "6c15c23f9f131d968cf704a7de1ddd39f6af50cd57c2c46f0be660933fb10124"
+  },
+  {
+    "old": "www/static/infographics/pages/teaching-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/teaching-mobile.svg",
+    "sha256": "db999e96662c3eb6bde736e60071912e008bf8cce50b051203b83056c935e4ee"
+  },
+  {
+    "old": "www/static/infographics/pages/teaching.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/teaching.svg",
+    "sha256": "e96d0797d92b87be77b160ae940663dd24938b6172c20bf03fb1a3aad9ca8049"
+  },
+  {
+    "old": "www/static/infographics/pages/team-handoff-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/team-handoff-mobile.svg",
+    "sha256": "5a6a8597ccaadc3a7cc0ea09ac377751848f787e4c0eccced98a47c09c196adf"
+  },
+  {
+    "old": "www/static/infographics/pages/team-handoff.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/team-handoff.svg",
+    "sha256": "3703b2b5fa0213f4c3ff2c8942f03cd436636c59647fe8a99c65ed71d0842b72"
+  },
+  {
+    "old": "www/static/infographics/pages/troubleshooting-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/troubleshooting-mobile.svg",
+    "sha256": "cf3f7e8eb1f392ec798c25a87e978501decaf57b8fd3a2651f955bb3ce25f0cf"
+  },
+  {
+    "old": "www/static/infographics/pages/troubleshooting.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/troubleshooting.svg",
+    "sha256": "5b4200006749786c6f72d8b8dd0d9b792ef72b4d58f5f9a506355d056769e3d8"
+  },
+  {
+    "old": "www/static/infographics/pages/verification-mobile.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/verification-mobile.svg",
+    "sha256": "d916d0bd611d21d183dedad80ff56fa6f5091b8c7e3bd159c9a99d8a9544112b"
+  },
+  {
+    "old": "www/static/infographics/pages/verification.svg",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/pages/verification.svg",
+    "sha256": "44789f69cad2422c8d778a565133989fcf07be49d92cf07e8afe1980df6141da"
+  },
+  {
+    "old": "www/static/infographics/project-concepts-ko.png",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/project-concepts-ko.png",
+    "sha256": "1aba5b64dc1197254bf78e116d73ee977a257f8177052723ce4bd57ebedca78c"
+  },
+  {
+    "old": "www/static/infographics/project-context-ko.png",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/project-context-ko.png",
+    "sha256": "e7684bd25b7e0f30debfd936363b91fad2ab604b898e6152dff9ca608838b169"
+  },
+  {
+    "old": "www/static/infographics/project-flow.png",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/project-flow.png",
+    "sha256": "863f38bd84778e8ae78c8e31d4f84a306cae464b368e501a92620ce2a2d01fe8"
+  },
+  {
+    "old": "www/static/infographics/quickstart-5min.png",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/quickstart-5min.png",
+    "sha256": "5df61c875ce67cab2e9e08b10cad739606706703324f044a401113ca57b3ac73"
+  },
+  {
+    "old": "www/static/infographics/skill-chain-flow.png",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/skill-chain-flow.png",
+    "sha256": "f4370e0265b7914819b2845b4e8fe5d10d43f3bf9ee6bd9bc80adaa565f1f775"
+  },
+  {
+    "old": "www/static/infographics/skill-chaining-pattern.png",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/skill-chaining-pattern.png",
+    "sha256": "92bceb032b3c6c5803980f7437d1c347c2717853651b5a205ef4b5b44fc32c9e"
+  },
+  {
+    "old": "www/static/infographics/team-pattern.png",
+    "archive": "reports/20261006-kindle-rollout/archived-infographics/team-pattern.png",
+    "sha256": "8a4cf23edc919f636dead5be6aadf926e967ecab24ff85cf67fc3d5e4ddde886"
+  }
+]

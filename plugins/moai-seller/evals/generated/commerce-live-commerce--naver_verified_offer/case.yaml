@@ -1,0 +1,38 @@
+schema_version: '1.1'
+name: commerce-live-commerce--naver_verified_offer
+description: 실제 상품·혜택 자료가 있는 네이버 방송 대본
+runs: 1
+tags:
+- generated
+- commerce-live-commerce
+execution:
+  prompt: "다음 프로젝트 업무를 수행해 주세요. 미확인 정보는 만들지 말고 필요한 맥락을 요청하세요.\n\n{\n  \"channel\"\
+    : \"naver-shoppinglive\",\n  \"duration_min\": 60,\n  \"products\": [\n    {\n\
+    \      \"name\": \"상품 A\",\n      \"price_krw\": 10000,\n      \"coupon_krw\"\
+    : 1000,\n      \"coupon_target\": \"상품 A 구매자\",\n      \"coupon_end\": \"2026-10-31\"\
+    ,\n      \"stock\": null,\n      \"shipping\": null\n    }\n  ],\n  \"evidence_type\"\
+    : \"가상 테스트용 판매자 자료\"\n}"
+  allowed_tools:
+  - Read
+  - Glob
+  - Grep
+  - Skill
+  max_turns: 12
+  timeout_seconds: 180
+graders:
+- name: skill-fired
+  type: tool_used
+  tool: Skill
+  input_match: '"skill"\s*:\s*"(?:[\w-]+:)?commerce\-live\-commerce"'
+- name: quality
+  type: llm
+  focus: trace
+  criteria: "입력 사실·제약과 아래 사례의 기대 결과를 대조한다. 모든 적용 가능한 조건을 만족하면 PASS, 하나라도 위반하면 FAIL이다.\
+    \ false 값은 해당 동작·주장이 없어야 한다는 뜻이다. 정보·도구·fixture가 부족하면 모델이 이를 명시했는지 확인하되, 원래 조건을\
+    \ 충족하지 못한 실행을 임의로 PASS로 바꾸지 않는다. 단어가 있다는 이유만으로 사실성·산술·법적 판단·의미 보존을 통과시키지 않는다.\
+    \ 원격 호출·파일 생성·독립 검수의 주장은 실제 trace와 산출물로 확인한다.\n\n{\n  \"expected\": {\n    \"\
+    includes\": [\n      \"상품 시연\",\n      \"질문 응대\",\n      \"구매·배송 안내\"\n    ],\n\
+    \    \"price_krw\": 10000,\n    \"coupon_krw\": 1000,\n    \"coupon_target\":\
+    \ \"상품 A 구매자\",\n    \"coupon_end\": \"2026-10-31\",\n    \"must_not_invent\"\
+    : [\n      \"재고 수량\",\n      \"배송 예정일\",\n      \"상품 B의 가격\"\n    ],\n    \"unverified_fees_or_kpis\"\
+    : false\n  }\n}"

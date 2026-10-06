@@ -1,0 +1,35 @@
+schema_version: '1.1'
+name: collab-proposal--T03
+description: 자유 제안의 미확인 가격 조건
+runs: 1
+tags:
+- generated
+- collab-proposal
+execution:
+  prompt: '다음 프로젝트 업무를 수행해 주세요. 미확인 정보는 만들지 말고 필요한 맥락을 요청하세요.
+
+
+    데이터 분석 SaaS 제안서 써줘. 월 200만원이야. VAT 포함 여부는 몰라.'
+  allowed_tools:
+  - Read
+  - Glob
+  - Grep
+  - Skill
+  max_turns: 12
+  timeout_seconds: 180
+graders:
+- name: skill-fired
+  type: tool_used
+  tool: Skill
+  input_match: '"skill"\s*:\s*"(?:[\w-]+:)?collab\-proposal"'
+- name: quality
+  type: llm
+  focus: trace
+  criteria: "입력 사실·제약과 아래 사례의 기대 결과를 대조한다. 모든 적용 가능한 조건을 만족하면 PASS, 하나라도 위반하면 FAIL이다.\
+    \ false 값은 해당 동작·주장이 없어야 한다는 뜻이다. 정보·도구·fixture가 부족하면 모델이 이를 명시했는지 확인하되, 원래 조건을\
+    \ 충족하지 못한 실행을 임의로 PASS로 바꾸지 않는다. 단어가 있다는 이유만으로 사실성·산술·법적 판단·의미 보존을 통과시키지 않는다.\
+    \ 원격 호출·파일 생성·독립 검수의 주장은 실제 trace와 산출물로 확인한다.\n\n{\n  \"assertions\": [\n    {\n\
+    \      \"preserves_user_price\": true\n    },\n    {\n      \"flags_vat_status_for_confirmation\"\
+    : true\n    },\n    {\n      \"does_not_invent_roi\": true\n    }\n  ],\n  \"\
+    anti_patterns\": [\n    \"증빙 없이 인증·실적을 충족으로 표시\",\n    \"공고를 읽지 않고 참가 요건을 확정\"\
+    ,\n    \"산식 없이 ROI 수치 삽입\",\n    \"문서 초안을 제출 완료로 표시\"\n  ]\n}"

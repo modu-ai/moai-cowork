@@ -1,0 +1,13 @@
+{
+  "images": [
+    {
+      "alt": "데이터 분석 가이드 한눈에 보기 · 준비할 자료 → 작업의 핵심 → 검토 기준 → 만들 결과",
+      "complete": true,
+      "currentSrc": "http://127.0.0.1:1313/infographics/pages/example-cookbook-guides-data-analysis.svg",
+      "naturalWidth": 800
+    }
+  ],
+  "scrollWidth": 1269,
+  "url": "http://127.0.0.1:1313/cookbook/guides/data-analysis/",
+  "width": 1269
+}

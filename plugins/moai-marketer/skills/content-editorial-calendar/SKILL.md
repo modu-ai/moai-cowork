@@ -1,7 +1,8 @@
 ---
 name: content-editorial-calendar
 description: 블로그·소셜·이메일·영상의 발행 계획을 실제 제작 역량, 캠페인 날짜와 승인 단계에 맞춰 작성합니다. 계획과 발행 완료 상태를 구분합니다.
-version: "1.1.1"
+metadata:
+  version: "1.1.2"
 ---
 
 # 콘텐츠 발행 캘린더

@@ -1,0 +1,156 @@
+{
+  "html_files": 290,
+  "internal_references": 26792,
+  "fragment_references": 3549,
+  "images": 419,
+  "search_entries": 172,
+  "sitemap_entries": 194,
+  "classroom_rows": 6,
+  "classroom_types": {
+    "배송": 3,
+    "반품": 2,
+    "결제": 1
+  },
+  "worked_arithmetic": [
+    {
+      "path": "www/content/cookbook/guides/data-analysis.md",
+      "expected": [
+        50,
+        34,
+        68.0
+      ],
+      "actual": [
+        50,
+        34,
+        68
+      ]
+    },
+    {
+      "path": "www/content/cookbook/guides/data-visualization.md",
+      "expected": [
+        50,
+        34,
+        68.0
+      ],
+      "actual": [
+        50,
+        34,
+        68
+      ]
+    },
+    {
+      "path": "www/content/cookbook/projects/public-data-report.md",
+      "expected": [
+        50,
+        34,
+        68.0
+      ],
+      "actual": [
+        50,
+        34,
+        68
+      ]
+    },
+    {
+      "path": "www/content/cookbook/templates/excel.md",
+      "expected": [
+        25000
+      ],
+      "actual": [
+        25000
+      ]
+    },
+    {
+      "path": "www/content/cookbook/templates/financial.md",
+      "expected": [
+        2000000,
+        800000,
+        500000,
+        700000
+      ],
+      "actual": [
+        2000000,
+        800000,
+        500000,
+        700000
+      ]
+    },
+    {
+      "path": "www/content/cookbook/tracks/track-data.md",
+      "expected": [
+        50,
+        34,
+        68.0
+      ],
+      "actual": [
+        50,
+        34,
+        68
+      ]
+    },
+    {
+      "path": "www/content/cookbook/tracks/track-documents.md",
+      "expected": [
+        25000
+      ],
+      "actual": [
+        25000
+      ]
+    },
+    {
+      "path": "www/content/cookbook/tracks/track-finance.md",
+      "expected": [
+        2000000,
+        800000,
+        500000,
+        700000
+      ],
+      "actual": [
+        2000000,
+        800000,
+        500000,
+        700000
+      ]
+    },
+    {
+      "path": "www/content/moai-agents/accountant.md",
+      "expected": [
+        2000000,
+        800000,
+        500000,
+        700000
+      ],
+      "actual": [
+        2000000,
+        800000,
+        500000,
+        700000
+      ]
+    },
+    {
+      "path": "www/content/moai-agents/analyst.md",
+      "expected": [
+        50,
+        34,
+        68.0
+      ],
+      "actual": [
+        50,
+        34,
+        68
+      ]
+    },
+    {
+      "path": "www/content/moai-agents/officer.md",
+      "expected": [
+        25000
+      ],
+      "actual": [
+        25000
+      ]
+    }
+  ],
+  "lessons": 6,
+  "errors": [],
+  "scope": "built_site_local_references_and_fixtures_only"
+}

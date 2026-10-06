@@ -5,6 +5,8 @@ from typing import Literal, Union
 
 from pydantic import BaseModel, ConfigDict, Field
 
+from mcp.types import ToolAnnotations
+
 from .._app import mcp
 from .._base import get_client
 
@@ -342,7 +344,7 @@ class UpdateOrderSectionItemExchangeApproveBody(BaseModel):
 
 Body = Union[UpdateOrderShippingOperationBody, UpdateOrderSectionShippingOperationBody, UpdateOrderSectionItemShippingOperationBody, CreateOrderInvoiceBody, UpdateOrderInvoiceBody, RemoveOrderInvoiceBody, CreateOrderSectionInvoiceBody, UpdateOrderSectionInvoiceBody, CreateOrderSectionItemInvoiceBody, UpdateOrderCancelRequestBody, UpdateOrderSectionCancelRequestBody, UpdateOrderSectionItemCancelRequestBody, UpdateOrderCancelRejectBody, UpdateOrderSectionCancelRejectBody, UpdateOrderSectionItemCancelRejectBody, UpdateOrderReturnRequestBody, UpdateOrderSectionReturnRequestBody, UpdateOrderSectionItemReturnRequestBody, UpdateOrderReturnRejectBody, UpdateOrderSectionReturnRejectBody, UpdateOrderSectionItemReturnRejectBody, UpdateOrderExchangeRequestBody, UpdateOrderSectionExchangeRequestBody, UpdateOrderSectionItemExchangeRequestBody, UpdateOrderExchangeRejectBody, UpdateOrderSectionExchangeRejectBody, UpdateOrderSectionCancelApproveBody, UpdateOrderSectionItemCancelApproveBody, UpdateOrderSectionReturnApproveBody, UpdateOrderSectionItemReturnApproveBody, UpdateOrderSectionExchangeApproveBody, UpdateOrderSectionItemExchangeApproveBody]
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=False, destructiveHint=True, idempotentHint=False, openWorldHint=True))
 def imweb_order(action: Literal["read_all_parcel_company_list", "read_all_shipping_place_list", "read_all_order", "read_one_order_by_order_no", "read_all_order_section", "read_one_order_section", "read_all_order_section_item", "read_one_order_section_item", "read_order_coupons", "update_order_shipping_operation", "update_order_section_shipping_operation", "update_order_section_item_shipping_operation", "create_order_invoice", "update_order_invoice", "remove_order_invoice", "create_order_section_invoice", "update_order_section_invoice", "remove_order_section_invoice", "create_order_section_item_invoice", "update_order_cancel_request", "update_order_section_cancel_request", "update_order_section_item_cancel_request", "update_order_cancel_reject", "update_order_section_cancel_reject", "update_order_section_item_cancel_reject", "update_order_return_request", "update_order_section_return_request", "update_order_section_item_return_request", "update_order_section_retrieve_complete", "update_order_return_reject", "update_order_section_return_reject", "update_order_section_item_return_reject", "update_order_exchange_request", "update_order_section_exchange_request", "update_order_section_item_exchange_request", "update_order_exchange_reject", "update_order_section_exchange_reject", "update_order_section_item_exchange_reject", "update_order_section_cancel_approve", "update_order_section_item_cancel_approve", "update_order_section_return_approve", "update_order_section_item_return_approve", "update_order_section_exchange_approve", "update_order_section_item_exchange_approve"], params: dict | None = None, body: Body | None = None, paginate: bool = False) -> dict:
     r"""주문 도구 — 44개 action 을 디스패치합니다.
 

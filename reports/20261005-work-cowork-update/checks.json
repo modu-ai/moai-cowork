@@ -1,0 +1,289 @@
+[
+  {
+    "label": "plugin-wiring",
+    "command": [
+      "python3",
+      "scripts/check-plugin-runtimes.py"
+    ],
+    "cwd": "/Users/goos/.codex/worktrees/b0aa/moai-cowork",
+    "head": "2c3cef1d24e88b3bfe8db61c713ffae317b346d0",
+    "exit_code": 0,
+    "output_file": "plugin-wiring.log",
+    "tail": "참고  moai-media: `higgsfield` 는 Claude 에만 있습니다 — 의도한 제외인지 확인하세요\n참고  moai-seller: `higgsfield` 는 Claude 에만 있습니다 — 의도한 제외인지 확인하세요\n\n검사한 플러그인 18개 — 오류 0건, 참고 2건"
+  },
+  {
+    "label": "core-sync",
+    "command": [
+      "python3",
+      "scripts/sync-mcp-core.py",
+      "--check"
+    ],
+    "cwd": "/Users/goos/.codex/worktrees/b0aa/moai-cowork",
+    "head": "2c3cef1d24e88b3bfe8db61c713ffae317b346d0",
+    "exit_code": 0,
+    "output_file": "core-sync.log",
+    "tail": "[정합] plugins/moai-lawyer/mcp-servers/moai-mcp-ip\n[정합] plugins/moai-media/mcp-servers/moai-mcp-openai\n[정합] plugins/moai-seller/mcp-servers/moai-mcp-cafe24\n[정합] plugins/moai-seller/mcp-servers/moai-mcp-imweb\n[정합] plugins/moai-seller/mcp-servers/moai-mcp-smartstore\n[정합] plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster"
+  },
+  {
+    "label": "launcher",
+    "command": [
+      "uv",
+      "run",
+      "--no-project",
+      "--python",
+      "3.11",
+      "--with",
+      "pytest",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "plugins/_shared/mcp-launch/test_mcp_launch.py"
+    ],
+    "cwd": "/Users/goos/.codex/worktrees/b0aa/moai-cowork",
+    "head": "2c3cef1d24e88b3bfe8db61c713ffae317b346d0",
+    "exit_code": 0,
+    "output_file": "launcher.log",
+    "tail": ".....................s....                                               [100%]\n25 passed, 1 skipped in 0.11s"
+  },
+  {
+    "label": "korean-humanize",
+    "command": [
+      "uv",
+      "run",
+      "--no-project",
+      "--python",
+      "3.11",
+      "python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "plugins/moai-writer/skills/korean-humanize/tests",
+      "-p",
+      "test_*.py",
+      "-q"
+    ],
+    "cwd": "/Users/goos/.codex/worktrees/b0aa/moai-cowork",
+    "head": "2c3cef1d24e88b3bfe8db61c713ffae317b346d0",
+    "exit_code": 0,
+    "output_file": "korean-humanize.log",
+    "tail": "                           [--baseline-v2 BASELINE_V2] [--json]\npython3 -m unittest: 인자 오류: the following arguments are required: --after\n게이트 실행 불가: [Errno 2] No such file or directory: '/nonexistent_a'\n{\"zero_width_removed\": 1, \"special_spaces_folded\": 1, \"changed\": true, \"chars_before\": 9, \"chars_after\": 8, \"note\": \"측정 기준을 하나로 맞추는 전처리다. AI 워터마크 제거 기능이 아니며, 탐지 회피 목적으로 쓰지 않는다.\"}\n----------------------------------------------------------------------\nRan 137 tests in 0.601s\n\nOK"
+  },
+  {
+    "label": "skill-contracts",
+    "command": [
+      "uv",
+      "run",
+      "--no-project",
+      "--python",
+      "3.11",
+      "--with",
+      "skills-ref==0.1.1",
+      "--with",
+      "jsonschema==4.25.1",
+      "--with",
+      "pyyaml==6.0.3",
+      "python",
+      "scripts/check-skill-contracts.py"
+    ],
+    "cwd": "/Users/goos/.codex/worktrees/b0aa/moai-cowork",
+    "head": "2c3cef1d24e88b3bfe8db61c713ffae317b346d0",
+    "exit_code": 0,
+    "output_file": "skill-contracts.log",
+    "tail": "{\n  \"skills\": 252,\n  \"packages\": 18,\n  \"errors\": [],\n  \"scope\": \"offline_contracts_only\"\n}"
+  },
+  {
+    "label": "dev-skills-sync",
+    "command": [
+      "python3",
+      "scripts/sync-dev-skills.py",
+      "--check"
+    ],
+    "cwd": "/Users/goos/.codex/worktrees/b0aa/moai-cowork",
+    "head": "2c3cef1d24e88b3bfe8db61c713ffae317b346d0",
+    "exit_code": 0,
+    "output_file": "dev-skills-sync.log",
+    "tail": "{\"wrappers\": 17, \"errors\": []}"
+  },
+  {
+    "label": "evals-sync",
+    "command": [
+      "uv",
+      "run",
+      "--no-project",
+      "--with",
+      "pyyaml==6.0.3",
+      "python",
+      "scripts/sync-skill-evals.py",
+      "--check"
+    ],
+    "cwd": "/Users/goos/.codex/worktrees/b0aa/moai-cowork",
+    "head": "2c3cef1d24e88b3bfe8db61c713ffae317b346d0",
+    "exit_code": 0,
+    "output_file": "evals-sync.log",
+    "tail": "{\"cases\": 174, \"runnable_definitions\": 174, \"fixture_gaps\": 0, \"errors\": [], \"model_runs\": 0}"
+  },
+  {
+    "label": "pm-contract",
+    "command": [
+      "uv",
+      "run",
+      "--no-project",
+      "--python",
+      "3.11",
+      "python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "plugins/moai-pm/skills/project/tests",
+      "-q"
+    ],
+    "cwd": "/Users/goos/.codex/worktrees/b0aa/moai-cowork",
+    "head": "2c3cef1d24e88b3bfe8db61c713ffae317b346d0",
+    "exit_code": 0,
+    "output_file": "pm-contract.log",
+    "tail": "----------------------------------------------------------------------\nRan 19 tests in 0.008s\n\nOK"
+  },
+  {
+    "label": "moai-mcp-core",
+    "command": [
+      "uv",
+      "run",
+      "--python",
+      "3.11",
+      "--group",
+      "dev",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider"
+    ],
+    "cwd": "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/_shared/moai-mcp-core",
+    "head": "2c3cef1d24e88b3bfe8db61c713ffae317b346d0",
+    "exit_code": 0,
+    "output_file": "moai-mcp-core.log",
+    "tail": "........................................................................ [ 88%]\n.........                                                                [100%]\n81 passed in 0.91s\nUsing CPython 3.11.11\nCreating virtual environment at: /var/folders/kt/nq2q81cn4gx3y41r7x47ggmr0000gn/T/moai-cowork-audit-dkqh_ynv/moai-mcp-core/venv\n   Building moai-mcp-core @ file:///Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/_shared/moai-mcp-core\n      Built moai-mcp-core @ file:///Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/_shared/moai-mcp-core\nInstalled 13 packages in 34ms"
+  },
+  {
+    "label": "moai-mcp-ip",
+    "command": [
+      "uv",
+      "run",
+      "--python",
+      "3.11",
+      "--group",
+      "dev",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider"
+    ],
+    "cwd": "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-lawyer/mcp-servers/moai-mcp-ip",
+    "head": "2c3cef1d24e88b3bfe8db61c713ffae317b346d0",
+    "exit_code": 0,
+    "output_file": "moai-mcp-ip.log",
+    "tail": "................................                                         [100%]\n32 passed in 3.25s\nUsing CPython 3.11.11\nCreating virtual environment at: /var/folders/kt/nq2q81cn4gx3y41r7x47ggmr0000gn/T/moai-cowork-audit-dkqh_ynv/moai-mcp-ip/venv\nInstalled 35 packages in 75ms"
+  },
+  {
+    "label": "moai-mcp-openai",
+    "command": [
+      "uv",
+      "run",
+      "--python",
+      "3.11",
+      "--group",
+      "dev",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider"
+    ],
+    "cwd": "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-media/mcp-servers/moai-mcp-openai",
+    "head": "2c3cef1d24e88b3bfe8db61c713ffae317b346d0",
+    "exit_code": 0,
+    "output_file": "moai-mcp-openai.log",
+    "tail": "......                                                                   [100%]\n6 passed in 1.35s\nUsing CPython 3.11.11\nCreating virtual environment at: /var/folders/kt/nq2q81cn4gx3y41r7x47ggmr0000gn/T/moai-cowork-audit-dkqh_ynv/moai-mcp-openai/venv\nInstalled 36 packages in 71ms"
+  },
+  {
+    "label": "moai-mcp-cafe24",
+    "command": [
+      "uv",
+      "run",
+      "--python",
+      "3.11",
+      "--group",
+      "dev",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider"
+    ],
+    "cwd": "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-seller/mcp-servers/moai-mcp-cafe24",
+    "head": "2c3cef1d24e88b3bfe8db61c713ffae317b346d0",
+    "exit_code": 0,
+    "output_file": "moai-mcp-cafe24.log",
+    "tail": "............                                                             [100%]\n12 passed in 0.27s\nUsing CPython 3.11.11\nCreating virtual environment at: /var/folders/kt/nq2q81cn4gx3y41r7x47ggmr0000gn/T/moai-cowork-audit-dkqh_ynv/moai-mcp-cafe24/venv\nInstalled 36 packages in 188ms"
+  },
+  {
+    "label": "moai-mcp-imweb",
+    "command": [
+      "uv",
+      "run",
+      "--python",
+      "3.11",
+      "--group",
+      "dev",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider"
+    ],
+    "cwd": "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-seller/mcp-servers/moai-mcp-imweb",
+    "head": "2c3cef1d24e88b3bfe8db61c713ffae317b346d0",
+    "exit_code": 0,
+    "output_file": "moai-mcp-imweb.log",
+    "tail": "..................................                                       [100%]\n34 passed in 2.02s\nUsing CPython 3.11.11\nCreating virtual environment at: /var/folders/kt/nq2q81cn4gx3y41r7x47ggmr0000gn/T/moai-cowork-audit-dkqh_ynv/moai-mcp-imweb/venv\nInstalled 36 packages in 193ms"
+  },
+  {
+    "label": "moai-mcp-smartstore",
+    "command": [
+      "uv",
+      "run",
+      "--python",
+      "3.11",
+      "--extra",
+      "dev",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider"
+    ],
+    "cwd": "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-seller/mcp-servers/moai-mcp-smartstore",
+    "head": "2c3cef1d24e88b3bfe8db61c713ffae317b346d0",
+    "exit_code": 0,
+    "output_file": "moai-mcp-smartstore.log",
+    "tail": "............................                                             [100%]\n28 passed in 3.55s\nUsing CPython 3.11.11\nCreating virtual environment at: /var/folders/kt/nq2q81cn4gx3y41r7x47ggmr0000gn/T/moai-cowork-audit-dkqh_ynv/moai-mcp-smartstore/venv\nInstalled 41 packages in 108ms"
+  },
+  {
+    "label": "moai-mcp-threads-poster",
+    "command": [
+      "uv",
+      "run",
+      "--python",
+      "3.11",
+      "--group",
+      "dev",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider"
+    ],
+    "cwd": "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster",
+    "head": "2c3cef1d24e88b3bfe8db61c713ffae317b346d0",
+    "exit_code": 0,
+    "output_file": "moai-mcp-threads-poster.log",
+    "tail": "........................................................................ [ 58%]\n...................................................                      [100%]\n123 passed in 1.64s\nUsing CPython 3.11.11\nCreating virtual environment at: /var/folders/kt/nq2q81cn4gx3y41r7x47ggmr0000gn/T/moai-cowork-audit-dkqh_ynv/moai-mcp-threads-poster/venv\nInstalled 36 packages in 99ms"
+  }
+]

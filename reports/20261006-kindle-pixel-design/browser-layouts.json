@@ -1,0 +1,4052 @@
+[
+  {
+    "body_width": 375,
+    "clips": [],
+    "duplicate_ids": [],
+    "style": "kindle",
+    "texts": [
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "모두의 코워크"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H1",
+        "text": "AI에게 일을 맡기는 법."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "P",
+        "text": "자료와 기준을 건네고,질문에 답하며,결과를 함께 확인합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "ChatGPT Work와 Claude Cowork로 작은 업무부터 시작하세요. 내 프로젝트에 맞는 방법을 찾"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "한 번의 대화에서, 나의 업무 방식으로"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "처음에는 보고서 한 장이면 충분합니다. 목표와 자료를 준비하고 결과를 검토해 보세요. 같은 일을 다시 할 때"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LI",
+        "text": "01AI에게 일 맡기기목표·자료·완료 기준을 한 요청에 담습니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "H3",
+        "text": "AI에게 일 맡기기"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "목표·자료·완료 기준을 한 요청에 담습니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LI",
+        "text": "02프로젝트와 자료계속 쓸 지침과 이번에 제공할 자료를 구분합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "H3",
+        "text": "프로젝트와 자료"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "계속 쓸 지침과 이번에 제공할 자료를 구분합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LI",
+        "text": "03첫 보고서 만들기질문에 답하고, 원문에 맞는 숫자와 상태를 확인합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "H3",
+        "text": "첫 보고서 만들기"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "질문에 답하고, 원문에 맞는 숫자와 상태를 확인합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LI",
+        "text": "04스킬과 플러그인업무에 필요한 방법과 실제 사용할 수 있는 기능을 고릅니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "H3",
+        "text": "스킬과 플러그인"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "업무에 필요한 방법과 실제 사용할 수 있는 기능을 고릅니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LI",
+        "text": "05전문가의 업무 순서 →선행 작업과 독립 작업을 구분하고 결과를 인계합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "H3",
+        "text": "전문가의 업무 순서 →"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "선행 작업과 독립 작업을 구분하고 결과를 인계합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LI",
+        "text": "06검토와 반복 업무잘된 방법을 지침에 반영하고 다음 업무에 적용합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "H3",
+        "text": "검토와 반복 업무"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "잘된 방법을 지침에 반영하고 다음 업무에 적용합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "이름보다, 실제로 가능한 일"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "앱에 프로젝트를 만든 뒤에는 제공한 자료와 지침이 이번 작업에서 읽혔는지 확인하세요. 컴퓨터 폴더 연결과 외"
+      }
+    ],
+    "view": "home",
+    "width": 375,
+    "contentWidth": 335,
+    "fontLoaded": "true",
+    "images": [],
+    "requestedWidth": 390
+  },
+  {
+    "body_width": 375,
+    "clips": [],
+    "duplicate_ids": [],
+    "style": "kindle",
+    "texts": [
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "차근차근 배우기 / 05"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H1",
+        "text": "전문가가 함께일하는 순서"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "분석은 먼저, 작성은 나누어서,검토는 두 결과를 모은 뒤에."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "이번 수업에서 배울 내용"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LI",
+        "text": "각 담당자의 입력과 결과를 정합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LI",
+        "text": "함께 진행할 수 있는 작업을 찾습니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LI",
+        "text": "원문과 정책을 기준으로 두 결과를 검토합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "어떤 일이 동시에 가능할까요?"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "문의 분석이 끝나면 FAQ와 안내문은 같은 유형 표와 정책을 받아 각각 작성할 수 있습니다. 검토 담당자는 "
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "SUMMARY",
+        "text": "순서를 글로 읽기"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "목표와 자료 확인 → 문의 분석 → FAQ와 안내문을 각각 작성 → 두 결과 합치기 → 원문·정책으로 검토 "
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "FAQ 초안과 안내문 초안을 별도 파일로 만들고, 합칠 담당자와 기준을 정합니다. 별도 에이전트 실행을 지원"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "담당자에게 무엇을 넘길까요?"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "“FAQ를 맡아 줘”라는 역할 이름만으로는 충분하지 않습니다. 받을 자료, 만들 결과, 시작할 조건을 함께 "
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "CAPTION",
+        "text": "문의 6건을 처리하는 역할별 입력·출력"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "역할"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "받는 자료"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "만드는 결과"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "시작 조건"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "분석"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "문의 원문"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "유형 표·원문 ID"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "자료 읽기 확인 후"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "FAQ 작성"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "유형 표·정책"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "FAQ 초안"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "분석 완료 후"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "안내문 작성"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "유형 표·정책"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "안내문 초안"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "분석 완료 후"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "검토"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "원문·정책·두 초안"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "수정 목록"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "결과 합친 후"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "직접 요청해 보세요"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "가상 문의 자료로 먼저 실행해 보세요. 실제 사용할 수 있는 스킬과 에이전트 기능을 확인한 뒤, 역할에 맞는"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "초안과 완료를 구분하세요"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "보고서의 숫자와 상태는 서로 다른 정보입니다. 답변한 문의 수와 검토 전 FAQ 수를 모두 “완료”로 합치면"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "CAPTION",
+        "text": "가상 주간 메모의 상태 구분"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "항목"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "상태"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "다음에 확인할 일"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "문의 12건 답변"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "답변 완료"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "원문 수치와 대조"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "FAQ 초안 4개"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "검토 전"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "FAQ 내용 검토"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "배송 지연 원인"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "미확인"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "원인 자료 요청"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "안내문 수정"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "예정"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "담당자·기한 확인"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "H3",
+        "text": "직접 판단해 보세요"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "검토 담당자를 초안 작성과 동시에 시작해도 될까요?"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "SUMMARY",
+        "text": "답안과 해설 보기"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "작성된 초안을 검토하려면 초안이 먼저 필요합니다. 정책 자료 자체의 누락을 살피는 일은 별도로 진행할 수 있"
+      }
+    ],
+    "view": "lesson",
+    "width": 375,
+    "contentWidth": 335,
+    "fontLoaded": "true",
+    "images": [
+      {
+        "content": 768,
+        "width": 333
+      }
+    ],
+    "requestedWidth": 390
+  },
+  {
+    "body_width": 375,
+    "clips": [],
+    "duplicate_ids": [],
+    "style": "kindle",
+    "texts": [
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "관계 · 분기 · 인계 · 반복"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H1",
+        "text": "그림이 필요한 곳에,도식을 씁니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "픽셀 그림으로 업무가 갈라지고 다시 만나는 모습과 자료의 연결 관계를 보여 줍니다. 분기와 인계는 편집 가능"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "분기와 합류"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "선행 분석이 끝나야 작성 작업을 나눌 수 있고, 두 초안이 모여야 검토할 수 있습니다. 검토를 통과한 결과는"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "질문과 보류"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "필수 정보가 없으면 해당 작업을 보류합니다. 그 조건과 무관한 작업만 별도로 진행합니다. 답을 받기 전에는 "
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "예",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "아니요",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "예",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "아직",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "요청 · 자료 읽기",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "정보 충분?",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "해당 작업 진행",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "질문 · 해당 작업 보류",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "답변 받음?",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "미정으로 남기기",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "무관한 별도 작업 진행",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "프로젝트와 폴더의 경계"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "앱 프로젝트에 모은 맥락과 컴퓨터의 실제 파일은 역할이 다릅니다. 점선 연결은 실행 환경이 폴더 접근·저장을"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "담당자 사이의 인계"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "초안만 보내지 말고 원문·기준·근거를 함께 넘깁니다. 검토 의견은 작성 담당자에게 돌아가고, 확인된 결과와 "
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "사용자",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "검토",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "작성",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "PM",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "사용자",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "검토",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "작성",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "PM",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "원문 · 기준",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "초안 · 근거",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "수정 의견",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "수정한 초안",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "검토 결과 · 미정 사항",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "결과 파일 · 확인할 일",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "다음 업무로 이어지는 순환"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "검토에서 찾은 기준을 지침에 남기면 다음 업무가 같은 출발점에서 시작됩니다."
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 696,
+        "tag": "text",
+        "text": "작게 실행",
+        "viewBox": "0 0 696 99.5"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 696,
+        "tag": "text",
+        "text": "결과 검토",
+        "viewBox": "0 0 696 99.5"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 696,
+        "tag": "text",
+        "text": "기준 보완",
+        "viewBox": "0 0 696 99.5"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 696,
+        "tag": "text",
+        "text": "다시 적용",
+        "viewBox": "0 0 696 99.5"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "수치 차트는 비교를 돕습니다"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "A지역은 24/30건, B지역은 10/20건을 처리했습니다. 전체 완료율은 두 비율의 평균이 아니라, 완료 "
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 640,
+        "tag": "text",
+        "text": "A지역",
+        "viewBox": "0 0 640 280"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 640,
+        "tag": "text",
+        "text": "80%",
+        "viewBox": "0 0 640 280"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 640,
+        "tag": "text",
+        "text": "B지역",
+        "viewBox": "0 0 640 280"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 640,
+        "tag": "text",
+        "text": "50%",
+        "viewBox": "0 0 640 280"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 640,
+        "tag": "text",
+        "text": "전체",
+        "viewBox": "0 0 640 280"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 640,
+        "tag": "text",
+        "text": "68%",
+        "viewBox": "0 0 640 280"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(87, 87, 87)",
+        "font": "16px",
+        "svg_width": 640,
+        "tag": "text",
+        "text": "0",
+        "viewBox": "0 0 640 280"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(87, 87, 87)",
+        "font": "16px",
+        "svg_width": 640,
+        "tag": "text",
+        "text": "50",
+        "viewBox": "0 0 640 280"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(87, 87, 87)",
+        "font": "16px",
+        "svg_width": 640,
+        "tag": "text",
+        "text": "100%",
+        "viewBox": "0 0 640 280"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "CAPTION",
+        "text": "차트의 원자료"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "구분"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "완료 / 문의"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "완료율"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "A지역"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "24 / 30"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "80%"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "B지역"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "10 / 20"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "50%"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "전체"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "34 / 50"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "68%"
+      }
+    ],
+    "view": "diagrams",
+    "width": 375,
+    "contentWidth": 335,
+    "fontLoaded": "true",
+    "images": [
+      {
+        "content": 768,
+        "width": 333
+      },
+      {
+        "content": 768,
+        "width": 333
+      }
+    ],
+    "requestedWidth": 390
+  },
+  {
+    "body_width": 375,
+    "clips": [],
+    "duplicate_ids": [],
+    "style": "kindle",
+    "texts": [
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "킨들 · 픽셀 디자인 시스템"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H1",
+        "text": "읽는 흐름을 지키는구성 요소"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "먹색 글자, 가는 구분선, 읽는 면과 넉넉한 행간.색 대신 글자·선·형태로 의미를 구분합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "색과 글꼴"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "버튼과 상태"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "완료는 먹색 면, 검토 전은 파선, 미확인은 점선으로 표시합니다. 상태 이름을 항상 함께 적습니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "탭과 접기"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "SUMMARY",
+        "text": "공통 검토 기준 보기"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "원문과 결과의 숫자·상태를 비교하고, 미정인 내용을 추측해서 채우지 않았는지 확인합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "질문과 입력"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LABEL",
+        "text": "이번 업무의 목표"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LABEL",
+        "text": "사용 환경ChatGPT WorkClaude Cowork"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LABEL",
+        "text": "원문과 결과를 비교해 검토하기"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "안내와 확인 문제"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "배송 지연 원인은 미확인으로 남기고, 확인된 정책으로 작성 가능한 FAQ부터 진행합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "H3",
+        "text": "확인 문제"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "FAQ가 검토 전 초안이라면 어떤 상태로 표시할까요?"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "SUMMARY",
+        "text": "답안과 해설 보기"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "“검토 전”으로 표시합니다. 작성 개수와 최종 완료 여부는 서로 다른 정보입니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "표·코드·도식"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "비교와 상태는 HTML 표로, 복사할 요청은 코드 블록으로, 의존 관계와 분기는 Mermaid로 표현합니다."
+      }
+    ],
+    "view": "components",
+    "width": 375,
+    "contentWidth": 335,
+    "fontLoaded": "true",
+    "images": [],
+    "requestedWidth": 390
+  },
+  {
+    "body_width": 753,
+    "clips": [],
+    "duplicate_ids": [],
+    "style": "kindle",
+    "texts": [
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "모두의 코워크"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "48px",
+        "tag": "H1",
+        "text": "AI에게 일을 맡기는 법."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "P",
+        "text": "자료와 기준을 건네고,질문에 답하며,결과를 함께 확인합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "ChatGPT Work와 Claude Cowork로 작은 업무부터 시작하세요. 내 프로젝트에 맞는 방법을 찾"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "한 번의 대화에서, 나의 업무 방식으로"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "처음에는 보고서 한 장이면 충분합니다. 목표와 자료를 준비하고 결과를 검토해 보세요. 같은 일을 다시 할 때"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LI",
+        "text": "01AI에게 일 맡기기목표·자료·완료 기준을 한 요청에 담습니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "H3",
+        "text": "AI에게 일 맡기기"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "목표·자료·완료 기준을 한 요청에 담습니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LI",
+        "text": "02프로젝트와 자료계속 쓸 지침과 이번에 제공할 자료를 구분합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "H3",
+        "text": "프로젝트와 자료"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "계속 쓸 지침과 이번에 제공할 자료를 구분합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LI",
+        "text": "03첫 보고서 만들기질문에 답하고, 원문에 맞는 숫자와 상태를 확인합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "H3",
+        "text": "첫 보고서 만들기"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "질문에 답하고, 원문에 맞는 숫자와 상태를 확인합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LI",
+        "text": "04스킬과 플러그인업무에 필요한 방법과 실제 사용할 수 있는 기능을 고릅니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "H3",
+        "text": "스킬과 플러그인"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "업무에 필요한 방법과 실제 사용할 수 있는 기능을 고릅니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LI",
+        "text": "05전문가의 업무 순서 →선행 작업과 독립 작업을 구분하고 결과를 인계합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "H3",
+        "text": "전문가의 업무 순서 →"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "선행 작업과 독립 작업을 구분하고 결과를 인계합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LI",
+        "text": "06검토와 반복 업무잘된 방법을 지침에 반영하고 다음 업무에 적용합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "H3",
+        "text": "검토와 반복 업무"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "잘된 방법을 지침에 반영하고 다음 업무에 적용합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "이름보다, 실제로 가능한 일"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "앱에 프로젝트를 만든 뒤에는 제공한 자료와 지침이 이번 작업에서 읽혔는지 확인하세요. 컴퓨터 폴더 연결과 외"
+      }
+    ],
+    "view": "home",
+    "width": 753,
+    "contentWidth": 477,
+    "fontLoaded": "true",
+    "images": [],
+    "requestedWidth": 768
+  },
+  {
+    "body_width": 753,
+    "clips": [],
+    "duplicate_ids": [],
+    "style": "kindle",
+    "texts": [
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "차근차근 배우기 / 05"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "48px",
+        "tag": "H1",
+        "text": "전문가가 함께일하는 순서"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "분석은 먼저, 작성은 나누어서,검토는 두 결과를 모은 뒤에."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "이번 수업에서 배울 내용"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LI",
+        "text": "각 담당자의 입력과 결과를 정합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LI",
+        "text": "함께 진행할 수 있는 작업을 찾습니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LI",
+        "text": "원문과 정책을 기준으로 두 결과를 검토합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "어떤 일이 동시에 가능할까요?"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "문의 분석이 끝나면 FAQ와 안내문은 같은 유형 표와 정책을 받아 각각 작성할 수 있습니다. 검토 담당자는 "
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "SUMMARY",
+        "text": "순서를 글로 읽기"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "목표와 자료 확인 → 문의 분석 → FAQ와 안내문을 각각 작성 → 두 결과 합치기 → 원문·정책으로 검토 "
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "FAQ 초안과 안내문 초안을 별도 파일로 만들고, 합칠 담당자와 기준을 정합니다. 별도 에이전트 실행을 지원"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "담당자에게 무엇을 넘길까요?"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "“FAQ를 맡아 줘”라는 역할 이름만으로는 충분하지 않습니다. 받을 자료, 만들 결과, 시작할 조건을 함께 "
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "CAPTION",
+        "text": "문의 6건을 처리하는 역할별 입력·출력"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "역할"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "받는 자료"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "만드는 결과"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "시작 조건"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "분석"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "문의 원문"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "유형 표·원문 ID"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "자료 읽기 확인 후"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "FAQ 작성"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "유형 표·정책"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "FAQ 초안"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "분석 완료 후"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "안내문 작성"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "유형 표·정책"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "안내문 초안"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "분석 완료 후"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "검토"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "원문·정책·두 초안"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "수정 목록"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "결과 합친 후"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "직접 요청해 보세요"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "가상 문의 자료로 먼저 실행해 보세요. 실제 사용할 수 있는 스킬과 에이전트 기능을 확인한 뒤, 역할에 맞는"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "초안과 완료를 구분하세요"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "보고서의 숫자와 상태는 서로 다른 정보입니다. 답변한 문의 수와 검토 전 FAQ 수를 모두 “완료”로 합치면"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "CAPTION",
+        "text": "가상 주간 메모의 상태 구분"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "항목"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "상태"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "다음에 확인할 일"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "문의 12건 답변"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "답변 완료"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "원문 수치와 대조"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "FAQ 초안 4개"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "검토 전"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "FAQ 내용 검토"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "배송 지연 원인"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "미확인"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "원인 자료 요청"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "안내문 수정"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "예정"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "담당자·기한 확인"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "H3",
+        "text": "직접 판단해 보세요"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "검토 담당자를 초안 작성과 동시에 시작해도 될까요?"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "SUMMARY",
+        "text": "답안과 해설 보기"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "작성된 초안을 검토하려면 초안이 먼저 필요합니다. 정책 자료 자체의 누락을 살피는 일은 별도로 진행할 수 있"
+      }
+    ],
+    "view": "lesson",
+    "width": 753,
+    "contentWidth": 477,
+    "fontLoaded": "true",
+    "images": [
+      {
+        "content": 768,
+        "width": 475
+      }
+    ],
+    "requestedWidth": 768
+  },
+  {
+    "body_width": 753,
+    "clips": [],
+    "duplicate_ids": [],
+    "style": "kindle",
+    "texts": [
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "관계 · 분기 · 인계 · 반복"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "48px",
+        "tag": "H1",
+        "text": "그림이 필요한 곳에,도식을 씁니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "픽셀 그림으로 업무가 갈라지고 다시 만나는 모습과 자료의 연결 관계를 보여 줍니다. 분기와 인계는 편집 가능"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "분기와 합류"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "선행 분석이 끝나야 작성 작업을 나눌 수 있고, 두 초안이 모여야 검토할 수 있습니다. 검토를 통과한 결과는"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "질문과 보류"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "필수 정보가 없으면 해당 작업을 보류합니다. 그 조건과 무관한 작업만 별도로 진행합니다. 답을 받기 전에는 "
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "예",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "아니요",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "예",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "아직",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "요청 · 자료 읽기",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "정보 충분?",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "해당 작업 진행",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "질문 · 해당 작업 보류",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "답변 받음?",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "미정으로 남기기",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "무관한 별도 작업 진행",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "프로젝트와 폴더의 경계"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "앱 프로젝트에 모은 맥락과 컴퓨터의 실제 파일은 역할이 다릅니다. 점선 연결은 실행 환경이 폴더 접근·저장을"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "담당자 사이의 인계"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "초안만 보내지 말고 원문·기준·근거를 함께 넘깁니다. 검토 의견은 작성 담당자에게 돌아가고, 확인된 결과와 "
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "사용자",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "검토",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "작성",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "PM",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "사용자",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "검토",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "작성",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "PM",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "원문 · 기준",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "초안 · 근거",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "수정 의견",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "수정한 초안",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "검토 결과 · 미정 사항",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "결과 파일 · 확인할 일",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "다음 업무로 이어지는 순환"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "검토에서 찾은 기준을 지침에 남기면 다음 업무가 같은 출발점에서 시작됩니다."
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 696,
+        "tag": "text",
+        "text": "작게 실행",
+        "viewBox": "0 0 696 99.5"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 696,
+        "tag": "text",
+        "text": "결과 검토",
+        "viewBox": "0 0 696 99.5"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 696,
+        "tag": "text",
+        "text": "기준 보완",
+        "viewBox": "0 0 696 99.5"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 696,
+        "tag": "text",
+        "text": "다시 적용",
+        "viewBox": "0 0 696 99.5"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "수치 차트는 비교를 돕습니다"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "A지역은 24/30건, B지역은 10/20건을 처리했습니다. 전체 완료율은 두 비율의 평균이 아니라, 완료 "
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 640,
+        "tag": "text",
+        "text": "A지역",
+        "viewBox": "0 0 640 280"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 640,
+        "tag": "text",
+        "text": "80%",
+        "viewBox": "0 0 640 280"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 640,
+        "tag": "text",
+        "text": "B지역",
+        "viewBox": "0 0 640 280"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 640,
+        "tag": "text",
+        "text": "50%",
+        "viewBox": "0 0 640 280"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 640,
+        "tag": "text",
+        "text": "전체",
+        "viewBox": "0 0 640 280"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 640,
+        "tag": "text",
+        "text": "68%",
+        "viewBox": "0 0 640 280"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(87, 87, 87)",
+        "font": "16px",
+        "svg_width": 640,
+        "tag": "text",
+        "text": "0",
+        "viewBox": "0 0 640 280"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(87, 87, 87)",
+        "font": "16px",
+        "svg_width": 640,
+        "tag": "text",
+        "text": "50",
+        "viewBox": "0 0 640 280"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(87, 87, 87)",
+        "font": "16px",
+        "svg_width": 640,
+        "tag": "text",
+        "text": "100%",
+        "viewBox": "0 0 640 280"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "CAPTION",
+        "text": "차트의 원자료"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "구분"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "완료 / 문의"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "완료율"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "A지역"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "24 / 30"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "80%"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "B지역"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "10 / 20"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "50%"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "전체"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "34 / 50"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "68%"
+      }
+    ],
+    "view": "diagrams",
+    "width": 753,
+    "contentWidth": 477,
+    "fontLoaded": "true",
+    "images": [
+      {
+        "content": 768,
+        "width": 475
+      },
+      {
+        "content": 768,
+        "width": 475
+      }
+    ],
+    "requestedWidth": 768
+  },
+  {
+    "body_width": 753,
+    "clips": [],
+    "duplicate_ids": [],
+    "style": "kindle",
+    "texts": [
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "킨들 · 픽셀 디자인 시스템"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "48px",
+        "tag": "H1",
+        "text": "읽는 흐름을 지키는구성 요소"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "먹색 글자, 가는 구분선, 읽는 면과 넉넉한 행간.색 대신 글자·선·형태로 의미를 구분합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "색과 글꼴"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "버튼과 상태"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "완료는 먹색 면, 검토 전은 파선, 미확인은 점선으로 표시합니다. 상태 이름을 항상 함께 적습니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "탭과 접기"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "SUMMARY",
+        "text": "공통 검토 기준 보기"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "원문과 결과의 숫자·상태를 비교하고, 미정인 내용을 추측해서 채우지 않았는지 확인합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "질문과 입력"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LABEL",
+        "text": "이번 업무의 목표"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LABEL",
+        "text": "사용 환경ChatGPT WorkClaude Cowork"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LABEL",
+        "text": "원문과 결과를 비교해 검토하기"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "안내와 확인 문제"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "배송 지연 원인은 미확인으로 남기고, 확인된 정책으로 작성 가능한 FAQ부터 진행합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "H3",
+        "text": "확인 문제"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "FAQ가 검토 전 초안이라면 어떤 상태로 표시할까요?"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "SUMMARY",
+        "text": "답안과 해설 보기"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "“검토 전”으로 표시합니다. 작성 개수와 최종 완료 여부는 서로 다른 정보입니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "표·코드·도식"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "비교와 상태는 HTML 표로, 복사할 요청은 코드 블록으로, 의존 관계와 분기는 Mermaid로 표현합니다."
+      }
+    ],
+    "view": "components",
+    "width": 753,
+    "contentWidth": 477,
+    "fontLoaded": "true",
+    "images": [],
+    "requestedWidth": 768
+  },
+  {
+    "body_width": 1425,
+    "clips": [],
+    "duplicate_ids": [],
+    "style": "kindle",
+    "texts": [
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "모두의 코워크"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "48px",
+        "tag": "H1",
+        "text": "AI에게 일을 맡기는 법."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "P",
+        "text": "자료와 기준을 건네고,질문에 답하며,결과를 함께 확인합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "ChatGPT Work와 Claude Cowork로 작은 업무부터 시작하세요. 내 프로젝트에 맞는 방법을 찾"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "한 번의 대화에서, 나의 업무 방식으로"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "처음에는 보고서 한 장이면 충분합니다. 목표와 자료를 준비하고 결과를 검토해 보세요. 같은 일을 다시 할 때"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LI",
+        "text": "01AI에게 일 맡기기목표·자료·완료 기준을 한 요청에 담습니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "H3",
+        "text": "AI에게 일 맡기기"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "목표·자료·완료 기준을 한 요청에 담습니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LI",
+        "text": "02프로젝트와 자료계속 쓸 지침과 이번에 제공할 자료를 구분합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "H3",
+        "text": "프로젝트와 자료"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "계속 쓸 지침과 이번에 제공할 자료를 구분합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LI",
+        "text": "03첫 보고서 만들기질문에 답하고, 원문에 맞는 숫자와 상태를 확인합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "H3",
+        "text": "첫 보고서 만들기"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "질문에 답하고, 원문에 맞는 숫자와 상태를 확인합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LI",
+        "text": "04스킬과 플러그인업무에 필요한 방법과 실제 사용할 수 있는 기능을 고릅니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "H3",
+        "text": "스킬과 플러그인"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "업무에 필요한 방법과 실제 사용할 수 있는 기능을 고릅니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LI",
+        "text": "05전문가의 업무 순서 →선행 작업과 독립 작업을 구분하고 결과를 인계합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "H3",
+        "text": "전문가의 업무 순서 →"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "선행 작업과 독립 작업을 구분하고 결과를 인계합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LI",
+        "text": "06검토와 반복 업무잘된 방법을 지침에 반영하고 다음 업무에 적용합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "H3",
+        "text": "검토와 반복 업무"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "잘된 방법을 지침에 반영하고 다음 업무에 적용합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "이름보다, 실제로 가능한 일"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "앱에 프로젝트를 만든 뒤에는 제공한 자료와 지침이 이번 작업에서 읽혔는지 확인하세요. 컴퓨터 폴더 연결과 외"
+      }
+    ],
+    "view": "home",
+    "width": 1425,
+    "contentWidth": 800,
+    "fontLoaded": "true",
+    "images": [],
+    "requestedWidth": 1440
+  },
+  {
+    "body_width": 1425,
+    "clips": [],
+    "duplicate_ids": [],
+    "style": "kindle",
+    "texts": [
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "차근차근 배우기 / 05"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "48px",
+        "tag": "H1",
+        "text": "전문가가 함께일하는 순서"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "분석은 먼저, 작성은 나누어서,검토는 두 결과를 모은 뒤에."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "이번 수업에서 배울 내용"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LI",
+        "text": "각 담당자의 입력과 결과를 정합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LI",
+        "text": "함께 진행할 수 있는 작업을 찾습니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LI",
+        "text": "원문과 정책을 기준으로 두 결과를 검토합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "어떤 일이 동시에 가능할까요?"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "문의 분석이 끝나면 FAQ와 안내문은 같은 유형 표와 정책을 받아 각각 작성할 수 있습니다. 검토 담당자는 "
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "SUMMARY",
+        "text": "순서를 글로 읽기"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "목표와 자료 확인 → 문의 분석 → FAQ와 안내문을 각각 작성 → 두 결과 합치기 → 원문·정책으로 검토 "
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "FAQ 초안과 안내문 초안을 별도 파일로 만들고, 합칠 담당자와 기준을 정합니다. 별도 에이전트 실행을 지원"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "담당자에게 무엇을 넘길까요?"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "“FAQ를 맡아 줘”라는 역할 이름만으로는 충분하지 않습니다. 받을 자료, 만들 결과, 시작할 조건을 함께 "
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "CAPTION",
+        "text": "문의 6건을 처리하는 역할별 입력·출력"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "역할"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "받는 자료"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "만드는 결과"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "시작 조건"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "분석"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "문의 원문"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "유형 표·원문 ID"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "자료 읽기 확인 후"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "FAQ 작성"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "유형 표·정책"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "FAQ 초안"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "분석 완료 후"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "안내문 작성"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "유형 표·정책"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "안내문 초안"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "분석 완료 후"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "검토"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "원문·정책·두 초안"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "수정 목록"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "결과 합친 후"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "직접 요청해 보세요"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "가상 문의 자료로 먼저 실행해 보세요. 실제 사용할 수 있는 스킬과 에이전트 기능을 확인한 뒤, 역할에 맞는"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "초안과 완료를 구분하세요"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "보고서의 숫자와 상태는 서로 다른 정보입니다. 답변한 문의 수와 검토 전 FAQ 수를 모두 “완료”로 합치면"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "CAPTION",
+        "text": "가상 주간 메모의 상태 구분"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "항목"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "상태"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "다음에 확인할 일"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "문의 12건 답변"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "답변 완료"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "원문 수치와 대조"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "FAQ 초안 4개"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "검토 전"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "FAQ 내용 검토"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "배송 지연 원인"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "미확인"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "원인 자료 요청"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "안내문 수정"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "예정"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "담당자·기한 확인"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "H3",
+        "text": "직접 판단해 보세요"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "검토 담당자를 초안 작성과 동시에 시작해도 될까요?"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "SUMMARY",
+        "text": "답안과 해설 보기"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "작성된 초안을 검토하려면 초안이 먼저 필요합니다. 정책 자료 자체의 누락을 살피는 일은 별도로 진행할 수 있"
+      }
+    ],
+    "view": "lesson",
+    "width": 1425,
+    "contentWidth": 800,
+    "fontLoaded": "true",
+    "images": [
+      {
+        "content": 798,
+        "width": 798
+      }
+    ],
+    "requestedWidth": 1440
+  },
+  {
+    "body_width": 1425,
+    "clips": [],
+    "duplicate_ids": [],
+    "style": "kindle",
+    "texts": [
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "관계 · 분기 · 인계 · 반복"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "48px",
+        "tag": "H1",
+        "text": "그림이 필요한 곳에,도식을 씁니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "픽셀 그림으로 업무가 갈라지고 다시 만나는 모습과 자료의 연결 관계를 보여 줍니다. 분기와 인계는 편집 가능"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "분기와 합류"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "선행 분석이 끝나야 작성 작업을 나눌 수 있고, 두 초안이 모여야 검토할 수 있습니다. 검토를 통과한 결과는"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "질문과 보류"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "필수 정보가 없으면 해당 작업을 보류합니다. 그 조건과 무관한 작업만 별도로 진행합니다. 답을 받기 전에는 "
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "예",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "아니요",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "예",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "아직",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "요청 · 자료 읽기",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "정보 충분?",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "해당 작업 진행",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "질문 · 해당 작업 보류",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "답변 받음?",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "미정으로 남기기",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 598,
+        "tag": "text",
+        "text": "무관한 별도 작업 진행",
+        "viewBox": "0 0 598 612"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "프로젝트와 폴더의 경계"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "앱 프로젝트에 모은 맥락과 컴퓨터의 실제 파일은 역할이 다릅니다. 점선 연결은 실행 환경이 폴더 접근·저장을"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "담당자 사이의 인계"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "초안만 보내지 말고 원문·기준·근거를 함께 넘깁니다. 검토 의견은 작성 담당자에게 돌아가고, 확인된 결과와 "
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "사용자",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "검토",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "작성",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "PM",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "사용자",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "검토",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "작성",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "PM",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "원문 · 기준",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "초안 · 근거",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "수정 의견",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "수정한 초안",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "검토 결과 · 미정 사항",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 616,
+        "tag": "text",
+        "text": "결과 파일 · 확인할 일",
+        "viewBox": "-20 -10 616 381"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "다음 업무로 이어지는 순환"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "검토에서 찾은 기준을 지침에 남기면 다음 업무가 같은 출발점에서 시작됩니다."
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 696,
+        "tag": "text",
+        "text": "작게 실행",
+        "viewBox": "0 0 696 99.5"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 696,
+        "tag": "text",
+        "text": "결과 검토",
+        "viewBox": "0 0 696 99.5"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 696,
+        "tag": "text",
+        "text": "기준 보완",
+        "viewBox": "0 0 696 99.5"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 696,
+        "tag": "text",
+        "text": "다시 적용",
+        "viewBox": "0 0 696 99.5"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "수치 차트는 비교를 돕습니다"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "A지역은 24/30건, B지역은 10/20건을 처리했습니다. 전체 완료율은 두 비율의 평균이 아니라, 완료 "
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 640,
+        "tag": "text",
+        "text": "A지역",
+        "viewBox": "0 0 640 280"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 640,
+        "tag": "text",
+        "text": "80%",
+        "viewBox": "0 0 640 280"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 640,
+        "tag": "text",
+        "text": "B지역",
+        "viewBox": "0 0 640 280"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 640,
+        "tag": "text",
+        "text": "50%",
+        "viewBox": "0 0 640 280"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 640,
+        "tag": "text",
+        "text": "전체",
+        "viewBox": "0 0 640 280"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "svg_width": 640,
+        "tag": "text",
+        "text": "68%",
+        "viewBox": "0 0 640 280"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(87, 87, 87)",
+        "font": "16px",
+        "svg_width": 640,
+        "tag": "text",
+        "text": "0",
+        "viewBox": "0 0 640 280"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(87, 87, 87)",
+        "font": "16px",
+        "svg_width": 640,
+        "tag": "text",
+        "text": "50",
+        "viewBox": "0 0 640 280"
+      },
+      {
+        "background": "rgb(244, 244, 239)",
+        "color": "rgb(87, 87, 87)",
+        "font": "16px",
+        "svg_width": 640,
+        "tag": "text",
+        "text": "100%",
+        "viewBox": "0 0 640 280"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "CAPTION",
+        "text": "차트의 원자료"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "구분"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "완료 / 문의"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "완료율"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "A지역"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "24 / 30"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "80%"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "B지역"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "10 / 20"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "50%"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TH",
+        "text": "전체"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "34 / 50"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "TD",
+        "text": "68%"
+      }
+    ],
+    "view": "diagrams",
+    "width": 1425,
+    "contentWidth": 800,
+    "fontLoaded": "true",
+    "images": [
+      {
+        "content": 798,
+        "width": 798
+      },
+      {
+        "content": 798,
+        "width": 798
+      }
+    ],
+    "requestedWidth": 1440
+  },
+  {
+    "body_width": 1425,
+    "clips": [],
+    "duplicate_ids": [],
+    "style": "kindle",
+    "texts": [
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "킨들 · 픽셀 디자인 시스템"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "48px",
+        "tag": "H1",
+        "text": "읽는 흐름을 지키는구성 요소"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "먹색 글자, 가는 구분선, 읽는 면과 넉넉한 행간.색 대신 글자·선·형태로 의미를 구분합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "색과 글꼴"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "버튼과 상태"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "완료는 먹색 면, 검토 전은 파선, 미확인은 점선으로 표시합니다. 상태 이름을 항상 함께 적습니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "탭과 접기"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "SUMMARY",
+        "text": "공통 검토 기준 보기"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(85, 85, 85)",
+        "font": "16px",
+        "tag": "P",
+        "text": "원문과 결과의 숫자·상태를 비교하고, 미정인 내용을 추측해서 채우지 않았는지 확인합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "질문과 입력"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LABEL",
+        "text": "이번 업무의 목표"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LABEL",
+        "text": "사용 환경ChatGPT WorkClaude Cowork"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "LABEL",
+        "text": "원문과 결과를 비교해 검토하기"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "안내와 확인 문제"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "배송 지연 원인은 미확인으로 남기고, 확인된 정책으로 작성 가능한 FAQ부터 진행합니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "H3",
+        "text": "확인 문제"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "FAQ가 검토 전 초안이라면 어떤 상태로 표시할까요?"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "SUMMARY",
+        "text": "답안과 해설 보기"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "“검토 전”으로 표시합니다. 작성 개수와 최종 완료 여부는 서로 다른 정보입니다."
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "32px",
+        "tag": "H2",
+        "text": "표·코드·도식"
+      },
+      {
+        "background": "rgb(233, 233, 229)",
+        "color": "rgb(32, 32, 32)",
+        "font": "16px",
+        "tag": "P",
+        "text": "비교와 상태는 HTML 표로, 복사할 요청은 코드 블록으로, 의존 관계와 분기는 Mermaid로 표현합니다."
+      }
+    ],
+    "view": "components",
+    "width": 1425,
+    "contentWidth": 800,
+    "fontLoaded": "true",
+    "images": [],
+    "requestedWidth": 1440
+  }
+]

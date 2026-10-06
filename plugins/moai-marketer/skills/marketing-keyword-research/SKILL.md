@@ -3,7 +3,8 @@ name: marketing-keyword-research
 description: |
   네이버·구글 검색에서 고객이 쓰는 질의를 찾고 검색 의도와 실제 자료를 기준으로 콘텐츠 후보를 정리합니다.
   검색량·경쟁도·AI 검색 인용 가능성을 실측 없이 확정하지 않습니다.
-version: "1.1.2"
+metadata:
+  version: "1.1.3"
 ---
 
 # 키워드 리서치

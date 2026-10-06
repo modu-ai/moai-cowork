@@ -1,0 +1,17 @@
+{{ $current := .Page.RelPermalink }}
+{{ $labels := dict "getting-started" "처음 시작하기" "learn" "준비 수업과 온라인 강의" "workflows" "프로젝트 업무 진행" "cookbook" "업무별 실습" "plugins" "스킬·플러그인·연결" "moai-agents" "역할별 전문가" "help" "도움말과 출처" "advanced" "고급 설정과 운영" "releases" "개편과 릴리스 기록" }}
+{{ range slice "getting-started" "learn" "workflows" "cookbook" "plugins" "moai-agents" "help" "advanced" "releases" }}
+  {{ $section := . }}
+  <h3>{{ index $labels . }}</h3>
+  <ul>
+  {{ with $.Site.GetPage $section }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <ul>{{ partial "document-tree.html" (dict "pages" .Pages "current" $current) }}</ul>
+    </li>
+  {{ end }}
+  </ul>
+{{ end }}
+<details><summary>과거 릴리스 전체 목록</summary>
+<p>아래 기록의 기능·이름·설치법은 해당 릴리스 시점의 설명입니다. 현재 사용법은 위 학습·설치 안내를 확인하세요.</p>
+<ul>{{ range (where .Site.Pages "Section" "releases").ByTitle }}{{ if strings.Contains .RelPermalink "/releases/archive/" }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}{{ end }}</ul>
+</details>

@@ -10,7 +10,8 @@ description: |
   - "내 문체로 초안 작성해줘" (저장된 프로필 자동 적용)
   - "이 초안 그대로 Threads에 올려줘" (최종 점검 → 승인 → 즉시 발행)
   [책임 경계] vs 형제 스킬: 초안 작성(저장된 문체 프로필 적용 포함)·발행 전 최종 점검·승인 후 즉시 발행을 담당합니다. 문체 *분석·저장*은 threads-style-learn, 멀티 채널(Facebook/X) 포맷은 threads-multichannel이 담당합니다. 이미지·비디오는 같은 점검·승인 절차를 거친 뒤 해당 MCP 발행 도구를 사용하세요. 예약·정기 발행은 본 스킬 범위 밖입니다.
-version: "1.2.3"
+metadata:
+  version: "1.2.4"
 ---
 
 # Threads 초안 작성·직접 발행 (threads-post-draft)

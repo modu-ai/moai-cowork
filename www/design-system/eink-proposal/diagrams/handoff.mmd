@@ -1,0 +1,13 @@
+sequenceDiagram
+accTitle: 작성 결과와 검토 의견의 인계
+accDescr: PM이 작성 담당자에게 원문과 기준을 전달한다. 작성 담당자는 초안과 근거를 검토 담당자에게 넘긴다. 수정 의견을 받으면 작성 담당자가 고치고, 검토가 끝난 결과를 사용자에게 전달한다.
+  participant P as PM
+  participant W as 작성
+  participant R as 검토
+  participant U as 사용자
+  P->>W: 원문 · 기준
+  W->>R: 초안 · 근거
+  R-->>W: 수정 의견
+  W->>R: 수정한 초안
+  R->>P: 검토 결과 · 미정 사항
+  P->>U: 결과 파일 · 확인할 일

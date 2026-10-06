@@ -12,7 +12,8 @@ description: |
   - "시장 조사 보고서 써줘"
   공개 데이터로 시장 규모·경쟁 구도·가격 모델을 분석하고, 인사이트와 권고안까지 정리합니다.
   오프라인 상권 자료는 이 플러그인의 consult-sbiz365로 연결합니다. 온라인 카테고리·검색 키워드 분석은 moai-seller:commerce-market-research가 설치돼 있으면 연결하고, 없으면 이 스킬에서 확인 가능한 시장 자료만 분석합니다.
-version: "1.1.2"
+metadata:
+  version: "1.1.3"
 ---
 
 # 시장 분석가 (Market Analyst)

@@ -5,6 +5,8 @@ from typing import Literal, Union
 
 from pydantic import BaseModel, ConfigDict, Field
 
+from mcp.types import ToolAnnotations
+
 from .._app import mcp
 from .._base import get_client
 
@@ -81,7 +83,7 @@ class CreateShopCouponByGroupTypeBody(BaseModel):
 
 Body = Union[ChangeShopPointByMemberBody, ChangeShopPointByGroupTypeBody, CreateShopCouponDefinitionBody, CreateShopCouponBody, CreateShopCouponBulkBody, CreateShopCouponByGroupTypeBody]
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=False, destructiveHint=True, idempotentHint=False, openWorldHint=True))
 def imweb_promotion(action: Literal["read_member_shop_point_by_filter", "read_member_shop_point_log", "change_shop_point_by_member", "change_shop_point_by_group_type", "read_one_shop_coupon_by_coupon_code", "read_shop_coupon_by_filter", "create_shop_coupon_definition", "create_shop_coupon", "create_shop_coupon_bulk", "create_shop_coupon_by_group_type", "read_coupon_issue_list", "read_shop_coupon_issue_target_list", "read_member_shop_coupon_issue_target_list", "read_member_coupon_issue_list"], params: dict | None = None, body: Body | None = None, paginate: bool = False) -> dict:
     r"""프로모션 (적립금/쿠폰) 도구 — 14개 action 을 디스패치합니다.
 

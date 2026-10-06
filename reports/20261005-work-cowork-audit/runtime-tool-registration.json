@@ -1,0 +1,62 @@
+[
+  {
+    "server": "moai-mcp-ip",
+    "registered_tools": 18,
+    "without_annotations": 18,
+    "total_input_schema_bytes": 7516,
+    "largest_tool": [
+      1722,
+      "kipris_trademark_search"
+    ]
+  },
+  {
+    "server": "moai-mcp-openai",
+    "registered_tools": 1,
+    "without_annotations": 1,
+    "total_input_schema_bytes": 604,
+    "largest_tool": [
+      604,
+      "openai_image_generate"
+    ]
+  },
+  {
+    "server": "moai-mcp-smartstore",
+    "registered_tools": 90,
+    "without_annotations": 90,
+    "total_input_schema_bytes": 17964,
+    "largest_tool": [
+      346,
+      "customer_inquiry_answer_update"
+    ]
+  },
+  {
+    "server": "moai-mcp-imweb",
+    "registered_tools": 8,
+    "without_annotations": 8,
+    "total_input_schema_bytes": 96787,
+    "largest_tool": [
+      44830,
+      "imweb_order"
+    ]
+  },
+  {
+    "server": "moai-mcp-cafe24",
+    "registered_tools": 20,
+    "without_annotations": 20,
+    "total_input_schema_bytes": 37467,
+    "largest_tool": [
+      3519,
+      "cafe24_order"
+    ]
+  },
+  {
+    "server": "moai-mcp-threads-poster",
+    "registered_tools": 17,
+    "without_annotations": 17,
+    "total_input_schema_bytes": 3253,
+    "largest_tool": [
+      348,
+      "threads_format_multi_channel"
+    ]
+  }
+]

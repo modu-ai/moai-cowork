@@ -1,310 +1,111 @@
 ---
-title: "마케팅 트랙"
-weight: 30
-description: "브랜드 전략·SNS·상세페이지·SEO까지 moai-marketer 스킬 조합으로 마케팅 본부 자동화."
-geekdocBreadcrumb: true
 tags: [cookbook, marketing]
-date: 2026-08-07T00:00:00+09:00
-lastmod: 2026-08-22T00:00:00+09:00
+title: "마케팅 트랙"
+description: "제품·고객·브랜드·목표를 준비해 마케팅 실행안을 만드는 실습"
+weight: 10
+date: 2026-10-05T00:00:00+09:00
+lastmod: 2026-10-06
+geekdocBreadcrumb: true
 ---
 
-# 트랙 — 마케팅·콘텐츠
+**이 실습의 결과는 마케팅 실행안입니다.** ChatGPT Work와 Claude Cowork 모두 목표와 자료를 제공하는 방식으로 시작합니다. 실제 서비스 연결과 지원 도구는 현재 앱에서 확인하세요.
 
-> **사용 방식**: 사용자가 짧은 한 줄 요청만 하면 시스템이 AskUserQuestion으로 맥락 수집 → 자동 체인 실행. 
 
-브랜드 전략부터 SNS 운영, 상세페이지 전환율, SEO 감사까지 — `moai-marketer` 플러그인으로 마케팅 본부 하나를 덮는 트랙입니다.
+<!--more-->
 
-## 트랙이 무엇인가 — 한 줄 요청이 산출물이 되기까지
 
-트랙(track)은 단일 스킬이 아니라, 한 가지 일(예: 마케팅)을 끝내는 데 필요한 스킬 여러 개를 미리 엮어둔 **세트 메뉴 패키지**입니다. 음식점에 비유하면 쉽습니다. 손님이 "비빔밥 하나 주세요"라고 한 줄만 말해도 점원이 곧바로 "고기 빼시나요? 매운 정도는? 국물 따로 드릴까요?"라고 **맥락을 물어본 뒤**(=시스템 인터뷰), 주방에서 밥·나물·고기를 차례로 담고(=체인의 각 스킬), 마지막에 플레이팅하고 맛보기(=품질 검수)까지 거쳐 완성된 한 그릇을 내옵니다.
+## 준비물
 
-트랙도 같은 방식으로 동작합니다. 사용자가 "B2B SaaS 브랜드 리뉴얼안 만들어줘"라고 한 줄을 입력하면, 시스템이 먼저 **시스템 인터뷰**(여기서는 AskUserQuestion, 즉 시스템이 사용자에게 몇 가지 선택지로 맥락을 물어보는 절차)로 타깃 고객·산출물 형식·핵심 포인트 같은 필수 정보 3-4개를 수집합니다. 그다음 수집된 맥락을 바탕으로 **체인**(여러 스킬이 화살표로 이어진 파이프라인)을 자동으로 실행합니다 — 브랜드 아이덴티티를 만드는 스킬 → 문서로 저장하는 스킬 → AI 특유 어투를 솎아내는 품질 스킬 순서로. 각 스킬은 앞 스킬의 결과물을 입력받아 다음 결과물을 넘겨주므로, 사용자는 스킬을 일일이 부를 필요 없이 한 줄로 전체 과정을 끝냅니다.
+제품·고객·브랜드·목표를 준비합니다. 실습에서는 가상 자료나 공개 가능한 자료를 사용할 수 있습니다. [관련 역할](/moai-agents/marketer/)의 스킬을 추가하려면 [설치 안내](/plugins/install/)를 확인합니다.
 
-아래 시퀀스는 이 흐름을 시간 순서대로 보여줍니다. 사용자 입력 한 줄에서 출발해 인터뷰 수집, 체인 자동 실행, 최종 산출물 도착까지 단계가 어떻게 이어지는지가 핵심입니다.
+## 첫 요청
 
-```mermaid
-sequenceDiagram
-   autonumber
-   participant U as 사용자
-   participant S as 시스템
-   participant I as 인터뷰 (AskUserQuestion)
-   participant C as 스킬 체인
-   participant Q as 품질 스킬
-
-   U->>S: "B2B SaaS 브랜드 리뉴얼안 만들어줘"
-   S->>I: 맥락 부족 감지
-   I->>U: 타깃 고객·산출물·핵심 포인트 3-4문항
-   U->>I: 선택지 응답
-   I->>C: 맥락 전달
-   C->>C: collab-brand-identity (브랜드 설계)
-   C->>C: doc-docx (문서 저장)
-   C->>Q: 원문 전달
-   Q->>Q: ai-slop-reviewer (AI 티 검수)
-   Q-->>U: 최종 산출물 (한 그릇 완성)
+```text
+제공한 자료로 마케팅 실행안을 만들어 줘.
+목표·독자·결과 형식을 먼저 확인하고 부족한 정보는 질문해 줘.
+자료 확인, 요구 정리, 초안, 검토 순서로 진행해 줘.
+자료 없는 사실과 수치는 만들지 말고 미정 항목을 표시해 줘.
+외부 게시·발송·계정 변경 없이 검토용 결과부터 보여 줘.
 ```
 
-```mermaid
-flowchart LR
-   S1["① 사용자 입력<br/>한 줄 자연어 요청<br/>예: B2B SaaS 브랜드 리뉴얼안 만들어줘"]
-   S2["② 시스템 인터뷰<br/>AskUserQuestion으로<br/>맥락 3-4문항 수집<br/>(타깃 고객·산출물 형식·핵심 포인트)"]
-   S3["③ 스킬 체인 자동 실행"]
-   S4["④ 최종 산출물<br/>완성된 한 그릇<br/>(브랜드 아이덴티티 문서 +<br/>검수 완료된 원고)"]
+## 진행 순서
 
-   S1 --> S2 --> S3 --> S4
+1. **자료 확인:** 제품·고객·브랜드·목표 중 읽을 수 있는 것과 없는 것을 구분합니다.
+2. **맥락 확인:** 독자·형식·범위를 질문에 답해 정합니다.
+3. **초안 작성:** 자료 확인, 요구 정리, 초안, 검토 순서로 진행합니다.
+4. **검토:** 주장 근거·대상·평가 기준을 확인합니다.
+5. **수정·저장:** 변경할 부분을 지정하고 결과를 별도 위치에 저장합니다.
 
-   subgraph chain["스킬 체인"]
-       direction LR
-       C1["collab-brand-identity<br/>(브랜드 설계)"]
-       C2["doc-docx<br/>(문서 저장)"]
-       C3["ai-slop-reviewer<br/>(AI 티 검수 · 품질)"]
-       C1 --> C2 --> C3
-   end
+독립적인 조사만 병렬로 진행하고, 앞 결과가 필요한 작성·변환은 순차로 진행합니다. [전문가 분업](/workflows/experts/)의 역할·입출력 계약을 사용할 수 있습니다.
+
+## 가상 예제로 더 이해하기
+
+아래 자료와 모범 설명은 수업을 위해 작성했습니다. 실제 회사·고객의 실적이나 앱 실행 결과가 아닙니다. 먼저 제공 자료로 작은 결과를 만든 뒤 자신의 자료로 바꿔 보세요.
+
+```text
+가상 무선 스탠드: USB-C 충전, 밝기 3단계, 높이 28cm. 사용 시간·판매가·인증 여부는 자료에 없음. 대상은 책상 공간을 정리하려는 사용자.
 ```
 
-## 트랙 지도
+### 먼저 확인할 질문
 
-```mermaid
-flowchart TB
-   Brand["브랜드 아이덴티티<br/>collab-brand-identity"] --> Voice["브랜드 보이스"]
-   Voice --> Channels{"배포 채널"}
-   Channels -->|블로그| Blog["content-blog"]
-   Channels -->|카드뉴스| Card["content-card-news"]
-   Channels -->|뉴스레터| News["content-newsletter"]
-   Channels -->|SNS 피드| Social["content-sns-content"]
-   Channels -->|상세페이지| Detail["commerce-product-detail"]
-   Channels -->|랜딩| Landing["marketing-landing-page"]
+게시 채널과 독자는 누구인가요? 가격·사용 시간·근거 자료가 있나요? 답을 모르면 해당 항목을 미정으로 남기고, 그 정보 없이 가능한 범위를 정합니다.
 
-   Blog --> SEO["marketing-seo-audit"]
-   Social --> Campaign["marketing-campaign-planner"]
-   Campaign --> Report["marketing-performance-report"]
+### 모범 결과를 읽는 방법
+
+USB-C 충전과 밝기 조절이라는 확인된 특징으로 초안을 씁니다. 가격과 사용 시간은 확인 필요 목록으로 분리합니다. 문장과 서식은 달라도 이 기준을 충족하는지 직접 비교합니다. 원문 위치·출처·상태가 결과에 함께 남으면 다음 검토자에게 넘기기 쉽습니다.
+
+### 직접 비교할 모범 결과
+
+| 항목 | 결과 예시 | 근거·상태 |
+|---|---|---|
+| 제목 초안 | 책상 위에 두는 USB-C 충전 스탠드 | 표현 제안·게시 전 |
+| 사양 | 높이 28cm · 밝기 3단계 | 제공 자료에서 확인 |
+| 제외한 주장 | 사용 시간·판매가·인증·최저가 | 자료 없음 |
+| 다음 확인 | 사용 사진 권한과 링크·상품 정보 원본 | 확인 필요 |
+
+### 흔한 실수와 수정 요청
+
+하루 종일 사용, 업계 최저가 같은 근거 없는 표현을 넣습니다. 이때는 결과 전체를 다시 만들어 달라는 말보다, 틀린 기준과 고칠 위치를 구체적으로 알려 주세요.
+
+```text
+제공 자료에 없는 사용 시간과 최저가 표현은 삭제해 줘. 확인된 특징과 구매 전에 확인할 항목을 나눠 줘.
+수정한 부분과 아직 확인할 항목을 따로 알려 줘.
 ```
 
-## 3단계 마케팅 파이프라인 — 왜 브랜드가 먼저이고 성과가 마지막인가
+### 확인 문제
 
-이 트랙은 위 트랙 지도가 보여주는 것처럼 Part 1(브랜드) → Part 2(콘텐츠) → Part 3(성과) 세 단계로 나뉩니다. 이 순서는 임의가 아니라, 집을 짓는 순서와 같습니다. 먼저 **뼈대**(브랜드 아이덴티티·보이스·Part 1)를 세우고, 그 뼈대 위에 **방마다 인테리어**(블로그·카드뉴스·상세페이지 같은 콘텐츠·Part 2)를 입힌 뒤, 다 지은 다음에 **거주자 만족도와 에너지 효율을 측정**(캠페인 성과 보고·Part 3)합니다.
+제품 소개를 더 설득력 있게 하려고 없는 수치를 넣어도 될까요?
 
-뼈대 없이 인테리어부터 하면 집이 무너지듯, 브랜드 보이스(=브랜드가 말하는 톤과 태도)를 정하지 않고 SNS 글부터 쓰면 채널마다 어투가 흔들립니다. 그래서 Part 1에서 "이 브랜드는 누구에게, 어떤 톤으로 말하는가"를 먼저 고정합니다. 그 위에서 Part 2가 그 보이스를 바탕으로 실제 콘텐츠를 만들고, Part 3는 만들어진 콘텐츠의 효과(전환율·노출·클릭)를 측정합니다. 각 Part는 앞 Part의 산출물에 의존하므로 순서를 거꾸로 뒤집으면 결과가 흔들립니다 — 콘텐츠 없이 성과를 측정할 수 없고, 브랜드 보이스 없이 콘텐츠 톤을 맞출 수 없습니다.
+<details><summary>답안과 해설 보기</summary>
 
-```mermaid
-flowchart LR
-   P1["Part 1 — 브랜드·전략<br/>(뼈대 세우기)<br/><br/>collab-brand-identity<br/>marketing-personal-branding"]
-   P2["Part 2 — 콘텐츠 제작<br/>(인테리어 입히기)<br/><br/>content-blog · content-card-news<br/>content-newsletter · content-sns-content<br/>commerce-product-detail · marketing-landing-page"]
-   P3["Part 3 — 캠페인·성과<br/>(거주 만족도 측정)<br/><br/>marketing-campaign-planner<br/>marketing-performance-report<br/>marketing-seo-audit · content-email-sequence"]
+넣지 않습니다. 확인된 특징을 독자의 사용 상황과 연결하고, 수치가 필요하면 근거 자료를 요청합니다.
 
-   P1 -->|"보이스·아이덴티티 전달"| P2
-   P2 -->|"만들어진 콘텐츠 전달"| P3
+</details>
 
-   style P1 fill:#fbf0dc,stroke:#c47b2a,color:#09110f
-   style P2 fill:#e6e6e6,stroke:#757575,color:#09110f
-   style P3 fill:#e8f1ec,stroke:#265240,color:#09110f
-```
+### 내 업무로 바꿔 보기
 
----
+예제의 자료를 자신의 공개 가능한 자료로 바꾸고, 결과의 독자와 형식을 다시 정합니다. 변하지 않는 검토 기준은 프로젝트 지침에 저장하고, 이번 작업의 수치와 미정 조건은 새 자료로 제공합니다. [프로젝트와 자료 수업](/learn/02-project-context/)에서 구분 방법을 확인합니다.
 
-## Part 1 {{< icon sparkles >}} 브랜드·전략
+## 사용할 수 있는 스킬 후보
 
-### brand-identity — 아이덴티티 설계
+아래는 이 업무에 참고할 수 있는 패키지 기능입니다. 실제 설치·노출 상태를 먼저 확인하며 이 순서로 반드시 자동 실행된다는 뜻은 아닙니다.
 
-네이밍·슬로건·톤앤매너·비주얼 가이드라인을 패키지로 산출.
+- `moai-coworker:ai-slop-reviewer`
+- `moai-coworker:collab-brand-identity`
+- `moai-writer:korean-humanize`
+- `moai-writer:korean-spell-check`
+- `moai-marketer:content-blog`
 
-{{< terminal title="claude — cowork" raw="true" >}}
-B2B SaaS 브랜드 리뉴얼안 만들어줘
-{{< /terminal >}}
+## 완료 기준
 
-시스템 인터뷰: ① 현재 브랜드명·피드백 ② 타깃 고객(B2B/B2C, 연령·직무) ③ 산출물(네이밍 후보 수·로고 컨셉·컬러 팔레트) ④ 출력 형식(DOCX/PPTX)
+결과물에 사용 자료와 미확인 항목이 표시되어 있습니다. 주장 근거·대상·평가 기준을 직접 확인했습니다. 파일을 요청한 경우 저장된 파일을 열어 확인합니다. 실제 게시·발송·예약 작업은 별도의 실행 결과로 확인합니다.
 
-체인: `collab-brand-identity → doc-docx → ai-slop-reviewer`
+## 막혔을 때
 
-### personal-branding — 개인 전문가 포지셔닝
+자료나 연결이 없으면 제공 자료로 가능한 초안과 다음 준비 목록을 요청합니다. 원문·수치가 다르면 해당 위치와 근거를 지정해 고칩니다. 전문 판단이 필요한 부분은 근거와 쟁점을 정리하고 해당 업무 책임자가 확인합니다.
 
-CEO·임원·전문가 개인의 전문성을 브랜드화.
+[결과 검토](/workflows/review/) · [반복 업무](/workflows/reuse/) · [다른 실습 선택](/cookbook/)
 
-{{< terminal title="claude — cowork" raw="true" >}}
-12년차 중소기업 컨설턴트 개인 브랜딩 전략 짜줘
-{{< /terminal >}}
+## 공식 문서와 참고 자료
 
-시스템 인터뷰: ① 전문 영역·경력 ② 타깃 포지션 ③ 채널(링크드인·브런치·유튜브) ④ 콘텐츠 빈도
-
-체인: `marketing-personal-branding → doc-docx → ai-slop-reviewer`
-
----
-
-## Part 2 {{< icon sparkles >}} 콘텐츠 제작
-
-### blog — 포스팅 자동화
-
-네이버·티스토리·브런치·WordPress·Ghost 6개 플랫폼 맞춤 SEO 최적화.
-
-{{< terminal title="claude — cowork" raw="true" >}}
-2026년 중소기업 세액공제 변화 네이버 블로그 포스트 써줘
-{{< /terminal >}}
-
-시스템 인터뷰: ① 플랫폼·SEO 키워드 ② 분량·톤 ③ 타깃 독자 ④ 발행 여부
-
-체인: `content-blog → ai-slop-reviewer → korean-spell-check → korean-humanize → 최종 검수`
-
-### card-news — 인스타 카드뉴스
-
-AI 이미지 생성 기반 캐러셀 10장.
-
-{{< terminal title="claude — cowork" raw="true" >}}
-방금 만든 블로그 포스트를 카드뉴스로 변환해줘
-{{< /terminal >}}
-
-시스템 인터뷰: ① 플랫폼 비율(인스타 1080×1350·페북 1080×1080) ② 스타일·포인트 컬러 ③ 장수 ④ CTA 문구
-
-체인: `content-card-news → media-higgsfield-image → ai-slop-reviewer`
-
-### newsletter — 뉴스레터
-
-구독자 확보·오픈율 최적화 포함.
-
-{{< terminal title="claude — cowork" raw="true" >}}
-이번 주 금요일 뉴스레터 만들어줘
-{{< /terminal >}}
-
-시스템 인터뷰: ① 브랜드·타깃 구독자 ② 이번 호 주제 ③ 분량·CTA ④ A/B 테스트 제목 후보 수
-
-체인: `content-newsletter → ai-slop-reviewer → korean-spell-check`
-
-### content-sns-content — SNS 콘텐츠
-
-인스타·스레드·X·링크드인·유튜브쇼츠·카카오·네이버 7개 플랫폼 개별 최적화.
-
-{{< terminal title="claude — cowork" raw="true" >}}
-이번 주 블로그 포스트를 SNS 7개 플랫폼에 맞게 변환해줘
-{{< /terminal >}}
-
-시스템 인터뷰: ① 대상 플랫폼 ② 톤(전문가/친근) ③ 해시태그 전략 ④ 이미지 동반 여부
-
-체인: `content-sns-content → media-higgsfield-image(이미지 필요 시) → ai-slop-reviewer`
-
-### product-detail — 상세페이지
-
-네이버 스마트스토어·쿠팡·카카오 커머스 규격.
-
-{{< terminal title="claude — cowork" raw="true" >}}
-신제품 워크북 프로 네이버 스마트스토어 상세페이지 만들어줘
-{{< /terminal >}}
-
-시스템 인터뷰: ① 제품 카테고리·가격대 ② 타깃 고객 ③ 핵심 USP 3가지 ④ 구매 혜택
-
-체인: `commerce-product-detail → media-higgsfield-image(제품 이미지) → ai-slop-reviewer`
-
-### landing-page — 단독 랜딩
-
-고전환율 원페이지 설계.
-
-{{< terminal title="claude — cowork" raw="true" >}}
-다가오는 세무 웨비나 랜딩 페이지 만들어줘
-{{< /terminal >}}
-
-시스템 인터뷰: ① 목적(가입·예약·구매) ② 타깃 전환율 ③ 구성 요소(강사·후기·FAQ 포함 여부) ④ HTML 단일 vs 멀티페이지
-
-체인: `marketing-landing-page → ai-slop-reviewer`
-
----
-
-## Part 3 {{< icon sparkles >}} 캠페인·성과
-
-### campaign-planner — 그로스해킹
-
-A/B 테스트 설계·인플루언서 전략·CRM 자동화.
-
-{{< terminal title="claude — cowork" raw="true" >}}
-신제품 런칭 8주 캠페인 기획해줘
-{{< /terminal >}}
-
-시스템 인터뷰: ① 목표(가입·매출·인지도) ② 예산·기간 ③ 채널 믹스 ④ A/B 테스트 세트 수
-
-체인: `marketing-campaign-planner → doc-docx → ai-slop-reviewer`
-
-### performance-report — 성과 보고서
-
-GA4·네이버 광고·메타 광고·카카오모먼트 데이터 통합 분석.
-
-{{< terminal title="claude — cowork" raw="true" >}}
-지난 달 마케팅 성과 보고서 만들어줘
-{{< /terminal >}}
-
-시스템 인터뷰: ① 데이터 소스(CSV 경로) ② 분석 차원(채널·캠페인·퍼널) ③ 수신자(경영진/실무) ④ 출력 형식(PPTX/DOCX)
-
-체인: `marketing-performance-report → data-visualizer → doc-pptx → ai-slop-reviewer`
-
-### seo-audit — 네이버·구글·GEO 통합 감사
-
-AI 검색(GEO) 최적화까지 포함.
-
-{{< terminal title="claude — cowork" raw="true" >}}
-blog.smartflow.co.kr SEO 종합 감사해줘
-{{< /terminal >}}
-
-시스템 인터뷰: ① 도메인 ② 감사 범위(온페이지·기술·GEO) ③ 경쟁사 도메인 ④ 우선순위 항목 수
-
-체인: `marketing-seo-audit → doc-docx → ai-slop-reviewer`
-
-### email-sequence — 이메일 드립
-
-정보통신망법 준수 기반 자동화 시퀀스.
-
-{{< terminal title="claude — cowork" raw="true" >}}
-신규 가입자 온보딩 이메일 시퀀스 7편 만들어줘
-{{< /terminal >}}
-
-시스템 인터뷰: ① 시퀀스 주기(Day 0/1/3/7/14/21/30) ② 톤·CTA 강도 ③ 발신자 정보 ④ 수신거부 처리
-
-체인: `content-email-sequence → ai-slop-reviewer → korean-spell-check`
-
----
-
-## 체인 읽는 법 — 화살표가 뜻하는 것과 품질 스킬이 항상 끝에 오는 이유
-
-이 트랙의 각 스킬 아래에는 `content-blog → ai-slop-reviewer → korean-spell-check → korean-humanize → 최종 검수` 같은 **체인 표기**가 붙어 있습니다. 화살표(`→`)는 "왼쪽 스킬의 결과물을 오른쪽 스킬이 입력받아 이어 처리한다"는 뜻입니다. 즉 `content-blog`가 쓴 원고를 `ai-slop-reviewer`가 검수하고, 그 결과를 `korean-spell-check`가 맞춤법 점검하고, 마지막으로 `korean-humanize`이 사람이 쓴 것처럼 다듬고, 원문과 대조하는 `최종 검수`를 통과해야 산출물이 나가는 식으로 한 방향으로 흘러갑니다.
-
-이 화살표 끝에는 항상 같은 얼굴이 반복해 붙습니다 — `ai-slop-reviewer`, `korean-spell-check`, `korean-humanize` 같은 **품질 스킬**들입니다. 왜 끝인가. 세탁 라인에 비유하면 명확해집니다. 옷을 먼저 만들고(도메인 스킬) → 포장하고(포맷 스킬) → 마지막에 검수·다림질·보풀 제거(품질 스킬) 순서로 돌아갑니다. 다림질(품질)을 맨 앞에 하면 구겨진 옷을 다릴 수 없듯, 검수할 원문이 없는 상태에서 `ai-slop-reviewer`를 부르면 의미가 없습니다. 그래서 품질 스킬은 항상 체인의 맨 끝에 옵니다.
-
-아래 '자주 걸리는 지점' 절의 "AI 티 나는 문장" 항목이 바로 이 품질 스킬이 잡아내는 대상입니다. 품질 스킬을 체인 끝에 두는 이유와, 그것이 실제로 무엇을 잡아내는지를 함께 보면 체인 표기가 왜 저 모양으로 생겼는지 한눈에 들어옵니다.
-
-```mermaid
-flowchart LR
-   D["도메인 스킬<br/>(내용 만들기)<br/><br/>content-blog · content-newsletter<br/>collab-brand-identity"]
-   F["포맷 스킬<br/>(형태 갖추기)<br/><br/>doc-docx<br/>doc-pptx"]
-   Q["품질 스킬<br/>(검수·다듬기)<br/><br/>ai-slop-reviewer<br/>korean-humanize"]
-
-   D -->|"원문 전달"| F
-   F -->|"완성본 전달"| Q
-
-   style D fill:#e6e6e6,stroke:#757575,color:#09110f
-   style F fill:#fbf0dc,stroke:#c47b2a,color:#09110f
-   style Q fill:#e8f1ec,stroke:#265240,color:#09110f
-```
-
-## 자주 걸리는 지점
-
-### AI 티 나는 문장
-
-특히 블로그·뉴스레터는 [AI 슬롭 검수](/cookbook/skill-chaining/)가 필수입니다. 시스템이 본문 완성 → `ai-slop-reviewer → korean-humanize → 최종 검수` 자동 호출로 처리합니다.
-
-### 이미지 생성 비용
-
-카드뉴스 10장 × 3세트 = 30장. `media-higgsfield-image`로 생성하며 장당 수 초 + 토큰이 소요됩니다. 시스템이 자동으로 배치 병렬 생성으로 속도 절감합니다.
-
-### 채널별 분량 규정 위반
-
-인스타 캡션 2,200자 · X 280자 · 링크드인 3,000자 등 플랫폼 제한이 다릅니다. 시스템이 플랫폼별 제한을 자동 인식하고 분량을 조정합니다.
-
-### 법적 리스크
-
-의약·금융·건강 광고는 각 산업 표시 광고법 준수 필수. 시스템이 카피 생성 후 `legal-compliance-check`를 체인에 자동 삽입합니다.
-
-## 다음 읽을거리
-
-- [트랙 — 데이터](/cookbook/tracks/track-data/)
-- [트랙 — 문서](/cookbook/tracks/track-documents/)
-- [블로그 파이프라인](/cookbook/blog-pipeline/)
-
----
-
-### Sources
-- [Claude — Cowork](https://claude.com/product/cowork)
-- [modu-ai/moai-cowork — moai-marketer](https://github.com/modu-ai/moai-cowork)
+- [관련 플러그인 원본](https://github.com/modu-ai/moai-cowork/tree/main/plugins/moai-marketer)

@@ -1,0 +1,1530 @@
+{
+  "head": "2c3cef1d24e88b3bfe8db61c713ffae317b346d0",
+  "baseline_recheck": "git archive HEAD plugins → temporary directory → skills_ref.validate",
+  "summary": {
+    "validator_version": "0.1.1",
+    "checked": 252,
+    "passed": 0,
+    "failed": 252,
+    "error_classes": {
+      "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed.": 242,
+      "Unexpected fields in frontmatter: user-invocable, version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed.": 10,
+      "Description exceeds 1024 character limit (1483 chars)": 1
+    }
+  },
+  "skills": [
+    {
+      "path": "plugins/moai-accountant/skills/finance-audit/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-accountant/skills/finance-close-management/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-accountant/skills/finance-econ-literacy/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-accountant/skills/finance-financial-statements/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-accountant/skills/finance-household-budget/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-accountant/skills/finance-insurance-fit/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-accountant/skills/finance-invest-primer/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-accountant/skills/finance-investor-relations/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-accountant/skills/finance-personal-tax-saver/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-accountant/skills/finance-tax-helper/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-accountant/skills/finance-variance-analysis/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-accountant/skills/finance-wealth-roadmap/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-accountant/skills/finance-workflow/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-analyst/skills/data-building-ledger/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-analyst/skills/data-court-auction/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-analyst/skills/data-explorer/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-analyst/skills/data-provenance-audit/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-analyst/skills/data-public/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-analyst/skills/data-realestate/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-analyst/skills/data-stock/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-analyst/skills/data-visualizer/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-analyst/skills/data-workflow/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-career/skills/career-claim-audit/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-career/skills/career-interview/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-career/skills/career-junior-onboarding/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-career/skills/career-portfolio/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-career/skills/career-resume/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-career/skills/career-transition/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-career/skills/career-workflow/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-consultant/skills/consult-brief/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-consultant/skills/consult-feasibility-audit/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-consultant/skills/consult-gov-grant/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-consultant/skills/consult-market/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-consultant/skills/consult-sbiz365/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-consultant/skills/consult-startup/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-consultant/skills/consult-strategy/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-consultant/skills/consult-workflow/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/ai-diagnostic/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/ai-prompting-basics/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/ai-slop-reviewer/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-brand-identity/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-conflict/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-exec-summary/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-feedback-loop/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-meeting/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-negotiation/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-pm-report/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-process/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-productivity-report/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-proposal/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-report-speak/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-roadmap/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-sales-playbook/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-spec/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-status-report/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-ux-design/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-ux-research/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-vendor/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/meta-feedback/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/meta-skill-builder/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: user-invocable, version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/meta-skill-template/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/meta-skill-tester/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: user-invocable, version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/personal-event/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/personal-self-care/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/personal-travel/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/personal-wellness/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/productivity-goal/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/productivity-habit/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-coworker/skills/productivity-retro/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-cs/skills/cs-channel-message/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-cs/skills/cs-draft-response/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-cs/skills/cs-escalation/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-cs/skills/cs-kb-article/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-cs/skills/cs-quality-audit/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-cs/skills/cs-ticket-triage/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-cs/skills/cs-voc-triage/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-cs/skills/cs-workflow/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-brand-system/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: user-invocable, version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-brand-visual/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-brief/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-copywriting/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: user-invocable, version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-gui-guide/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-handoff/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: user-invocable, version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-handoff-reader/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-iteration-loop/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: user-invocable, version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-landing-motion/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-logo/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-prompt-builder/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-slop-check/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-sync-upload/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-system-library/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-system-prep/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-tokens-transformer/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-workflow/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: user-invocable, version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-lawyer/skills/legal-compliance-check/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-lawyer/skills/legal-contract-review/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-lawyer/skills/legal-evidence-audit/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-lawyer/skills/legal-ip-search-report/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-lawyer/skills/legal-iros-registry-automation/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-lawyer/skills/legal-law-research/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-lawyer/skills/legal-legal-risk/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-lawyer/skills/legal-mfds-safety/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-lawyer/skills/legal-nda-triage/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-lawyer/skills/legal-patent-analyzer/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-lawyer/skills/legal-patent-search/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-lawyer/skills/legal-service-launch-checklist/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-lawyer/skills/legal-workflow/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-marketer/skills/content-blog/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-marketer/skills/content-card-news/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-marketer/skills/content-copywriting/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-marketer/skills/content-editorial-calendar/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-marketer/skills/content-email-sequence/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-marketer/skills/content-newsletter/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-marketer/skills/content-sns-content/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-campaign-planner/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-evidence-audit/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-growth-experiment/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-keyword-research/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-landing-page/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-landing-page-conversion-audit/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-meta-ads-analyzer/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-meta-ads-manager/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-performance-report/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-personal-branding/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-pixel-audit/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-retention/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-seo-audit/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-target-script/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-workflow/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-youtube-podcast-planner/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-media/skills/media-asset-production/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: user-invocable, version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-media/skills/media-audio-gen/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-media/skills/media-brand-audit/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-media/skills/media-codex-image/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-media/skills/media-gemini-3-image-prompt/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-media/skills/media-gpt-image-prompt/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-media/skills/media-higgsfield-assets/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-media/skills/media-higgsfield-core/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-media/skills/media-higgsfield-explainer/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-media/skills/media-higgsfield-identity/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-media/skills/media-higgsfield-image/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-media/skills/media-higgsfield-product/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-media/skills/media-higgsfield-video/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-media/skills/media-midjourney-v8-prompt/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-media/skills/media-notebooklm-slide-prompt/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-media/skills/media-production/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-officer/skills/doc-data-audit/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-officer/skills/doc-design-library/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-officer/skills/doc-docx/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-officer/skills/doc-html-report/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-officer/skills/doc-html-slide/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-officer/skills/doc-hwp/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-officer/skills/doc-notion-template/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-officer/skills/doc-pdf/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-officer/skills/doc-pptx/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-officer/skills/doc-reader/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-officer/skills/doc-workflow/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-officer/skills/doc-xlsx/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-officer/skills/productivity-briefing/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-officer/skills/productivity-time/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-officer/skills/setup-mcp-connector/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-pm/skills/project/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-recruiter/skills/hr-draft-offer/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-recruiter/skills/hr-employment/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-recruiter/skills/hr-job-analysis/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-recruiter/skills/hr-operations/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-recruiter/skills/hr-performance-review/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-recruiter/skills/hr-resume-screener/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-recruiter/skills/hr-screening-audit/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-recruiter/skills/hr-workflow/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-ad-claim-compliance-kr/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-automation-audit/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-coupang-ad-optimizer/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: user-invocable, version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-detail-page-copy/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-detail-page-image/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-detail-page-planner/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-early-fan-builder/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-influencer-collab/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-integrated-strategy/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-jtbd-persona/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-live-commerce/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-ltv-cac-architect/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-margin-audit/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-margin-calculator/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-market-research/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-marketplace-coupang/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-marketplace-coupang-ads/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-marketplace-crowdfunding/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-marketplace-curation/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-marketplace-d2c/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-marketplace-naver/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-marketplace-naver-ads/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-message-compliance-kr/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-morning-brief/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-product-detail/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-product-image-pipeline/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-product-naming/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-product-photo-brief/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-promotion-planner/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-repurchase-timer/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-season-calendar/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-subscription-strategist/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-workflow/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-story/skills/story-ad-conti/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: user-invocable, version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-story/skills/story-character-sheet/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-story/skills/story-conti/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-story/skills/story-continuity-audit/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-story/skills/story-cover-art/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-story/skills/story-ip-pitch/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-story/skills/story-previz/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-story/skills/story-project/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-story/skills/story-screenplay/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-story/skills/story-series-bible/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-story/skills/story-synopsis/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-story/skills/story-webnovel-planner/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-story/skills/story-webnovel-writer/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-story/skills/story-webtoon-art/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-story/skills/story-webtoon-episode/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-story/skills/story-webtoon-lettering/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-story/skills/story-webtoon-planner/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-story/skills/story-webtoon-qc/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-story/skills/story-webtoon-spec/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-threads-poster/skills/instagram-comments/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-threads-poster/skills/instagram-post/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-threads-poster/skills/threads-multichannel/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-threads-poster/skills/threads-post-draft/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-threads-poster/skills/threads-style-learn/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-tutor/skills/education-assessment-audit/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-tutor/skills/education-assessment-creator/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-tutor/skills/education-course-followup-sequence/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-tutor/skills/education-course-operations-manual/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-tutor/skills/education-curriculum-designer/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-tutor/skills/education-grant-writer/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-tutor/skills/education-learning-material/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-tutor/skills/education-learning-project/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-tutor/skills/education-paper-search/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-tutor/skills/education-paper-writer/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-tutor/skills/education-research-assistant/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-tutor/skills/education-tutor-research/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-tutor/skills/education-workflow/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-writer/skills/book-author-bio/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-writer/skills/book-chapter-writer/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-writer/skills/book-concept-planner/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-writer/skills/book-manuscript-audit/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-writer/skills/book-outline-designer/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-writer/skills/book-proposal-writer/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-writer/skills/book-publisher-matcher/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-writer/skills/book-revision-coach/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-writer/skills/book-target-reader/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-writer/skills/book-workflow/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    },
+    {
+      "path": "plugins/moai-writer/skills/korean-humanize/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed.",
+        "Description exceeds 1024 character limit (1483 chars)"
+      ]
+    },
+    {
+      "path": "plugins/moai-writer/skills/korean-spell-check/SKILL.md",
+      "errors": [
+        "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+      ]
+    }
+  ]
+}

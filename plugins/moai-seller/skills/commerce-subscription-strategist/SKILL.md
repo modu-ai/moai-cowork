@@ -3,7 +3,8 @@ name: commerce-subscription-strategist
 description: |
   상품·서비스의 구독 모델을 설계할 때 구매 주기, 제공 가치, 수익성, 해지 경험을 검토합니다.
   요청 예: "구독 모델 설계", "정기 배송이 맞을까", "구독 이탈 줄이기".
-version: "1.1.1"
+metadata:
+  version: "1.1.2"
 ---
 
 # 구독 모델 설계

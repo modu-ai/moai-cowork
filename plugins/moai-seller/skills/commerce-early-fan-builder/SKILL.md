@@ -3,7 +3,8 @@ name: commerce-early-fan-builder
 description: |
   신생 브랜드의 초기 고객과 관계를 만드는 계획을 세웁니다.
   요청 예: "초기 팬 구축", "첫 구매자와 소통", "추천 프로그램 설계".
-version: "1.1.1"
+metadata:
+  version: "1.1.2"
 ---
 
 # 초기 고객 관계 만들기

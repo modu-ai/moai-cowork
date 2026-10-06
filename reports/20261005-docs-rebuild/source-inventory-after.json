@@ -1,0 +1,857 @@
+[
+  {
+    "path": "www/content/_index.md",
+    "bytes": 3332,
+    "sha256": "fa53285ebced6c55eedf781c77edd14e221ed0c3f7eb26183b2a13ad99618b84"
+  },
+  {
+    "path": "www/content/advanced/_index.md",
+    "bytes": 624,
+    "sha256": "448b7d1bf1d10161a88ca43298b6776f6efed6522fb35f6222535eaacddbf522"
+  },
+  {
+    "path": "www/content/advanced/documentation.md",
+    "bytes": 1517,
+    "sha256": "23251859a923718e81a9470a49cdc141ad1062825a2ea676c61df746eaa0b2d4"
+  },
+  {
+    "path": "www/content/advanced/plugins.md",
+    "bytes": 1769,
+    "sha256": "ecb0a2b1e2f456f540a254b459fabe867e98357bb5b3f0003eabbeb332826044"
+  },
+  {
+    "path": "www/content/advanced/verification.md",
+    "bytes": 1497,
+    "sha256": "fe5b315b7920ee7fd19d0ad6056bc3065202f59305e923f481c4c515a912ee8d"
+  },
+  {
+    "path": "www/content/cookbook/_index.md",
+    "bytes": 1661,
+    "sha256": "446536fc088ba58cc3145dbdd697cd5ad1b42904c09525150fc19bdfde9d7c80"
+  },
+  {
+    "path": "www/content/cookbook/automation-recipes.md",
+    "bytes": 1923,
+    "sha256": "389565edfadc7520d3bf72b1ca93092f4716b4ad348abc4dd287001ce5333dea"
+  },
+  {
+    "path": "www/content/cookbook/best-practices.md",
+    "bytes": 1397,
+    "sha256": "64367bde6643d18f3a591be662325e7500a587c104305ec164f0c8f4857f9b3d"
+  },
+  {
+    "path": "www/content/cookbook/blog-pipeline.md",
+    "bytes": 5615,
+    "sha256": "aed1161648d62028ce5c5998ed3912811daa670533ff4613e7e53bc833d76afc"
+  },
+  {
+    "path": "www/content/cookbook/business-plan.md",
+    "bytes": 5531,
+    "sha256": "1f33e0150f712f16bcc6898c835194c4d92d419e5a2040e57eab693d25e8f340"
+  },
+  {
+    "path": "www/content/cookbook/contract-review.md",
+    "bytes": 5612,
+    "sha256": "96da399284918d6d9ccacb9b919536f09e4c6be3a86de6da94194cba4445ef7c"
+  },
+  {
+    "path": "www/content/cookbook/design/_index.md",
+    "bytes": 531,
+    "sha256": "64b81abe672e61ce3b5a93faaa1847b87bb581f0c56e527a7db097d262eed756"
+  },
+  {
+    "path": "www/content/cookbook/design/presentation.md",
+    "bytes": 5354,
+    "sha256": "a6bdf86720a49ccb343b3762409fb6b2616da7601f806145bcdc7b7988240c59"
+  },
+  {
+    "path": "www/content/cookbook/guides/_index.md",
+    "bytes": 904,
+    "sha256": "841c1c69f439f022f4eb606541e4316e0fe891f78dda1effe2af7121d0a7ebc2"
+  },
+  {
+    "path": "www/content/cookbook/guides/content-marketing.md",
+    "bytes": 5536,
+    "sha256": "491a601bff5db2444fbfe93148634b70632d0db766123071bade53daaaac72ff"
+  },
+  {
+    "path": "www/content/cookbook/guides/contract-drafting.md",
+    "bytes": 5572,
+    "sha256": "43488df33b8543925eea8897309a133d7bc5bc857165ecb62d5b8df196069a07"
+  },
+  {
+    "path": "www/content/cookbook/guides/data-analysis.md",
+    "bytes": 5382,
+    "sha256": "2313c1edf9a8940c7819e7c1f8d6f1461a16b02abb6095c52b9cdd9a421ee834"
+  },
+  {
+    "path": "www/content/cookbook/guides/data-visualization.md",
+    "bytes": 5220,
+    "sha256": "e371e5632ae0bab22730bd5461b5831dffbded133cfd7e677c4c3c3246ec29d0"
+  },
+  {
+    "path": "www/content/cookbook/guides/funding.md",
+    "bytes": 5525,
+    "sha256": "87d625551625db670456dfe6fb4ad93c9e918d1a774786a51d2f0938db2299b0"
+  },
+  {
+    "path": "www/content/cookbook/guides/legal-risk.md",
+    "bytes": 5502,
+    "sha256": "442e9a0492e25ffb08a6e151a3a55944e31c0ba909103308cf7c392d2c67dec8"
+  },
+  {
+    "path": "www/content/cookbook/guides/social-media.md",
+    "bytes": 5557,
+    "sha256": "f095708d425f8ec655acea14dcba0b64ab56999d924e84ef8bded4d34e21eff4"
+  },
+  {
+    "path": "www/content/cookbook/ir-deck.md",
+    "bytes": 5516,
+    "sha256": "fecbd23166422d0c458ad63fbca32dc9aeb1fc8abab68663359f2850f5d41c49"
+  },
+  {
+    "path": "www/content/cookbook/legal-nda-batch.md",
+    "bytes": 5658,
+    "sha256": "dc6a913b78c651cdfd3bea5a26bdfd93da23044187e0a0be740442f6ee2d05a7"
+  },
+  {
+    "path": "www/content/cookbook/projects/_index.md",
+    "bytes": 1516,
+    "sha256": "7d2d8cc0c48cc30c76455c96861fe9a4f6e4771f8687d5324e2de19a039399d0"
+  },
+  {
+    "path": "www/content/cookbook/projects/brand-to-landing.md",
+    "bytes": 5641,
+    "sha256": "ddb87f3c6855ba7cd8c2161705bcae39f4b375afe5047cfc911f9653df3679af"
+  },
+  {
+    "path": "www/content/cookbook/projects/career-transition-4weeks.md",
+    "bytes": 5669,
+    "sha256": "96165e1580de68bc13e504e4b9ea7da55f404ce5a8ca309bd3b1a5794e6e9f8b"
+  },
+  {
+    "path": "www/content/cookbook/projects/contract-risk-report.md",
+    "bytes": 5561,
+    "sha256": "7fe36f8a6f13772122f8630a6d026a9428987c086872453caee7b49497ea7393"
+  },
+  {
+    "path": "www/content/cookbook/projects/gov-grant-application.md",
+    "bytes": 5573,
+    "sha256": "bc4c5e70b5436fb5d07b37a7e5ca3deda62a2e87c4b0d77233536872db2cc261"
+  },
+  {
+    "path": "www/content/cookbook/projects/hiring-pipeline.md",
+    "bytes": 5653,
+    "sha256": "aac05e0abd49e74d04b6044b1f300f43b0b9f9bfeb9f09e3ecc45c9aaf72cf35"
+  },
+  {
+    "path": "www/content/cookbook/projects/public-data-report.md",
+    "bytes": 5504,
+    "sha256": "6a6cce3fb619c20aed1e956c46eb933f4de70c5f13d4f212326ba446e05b5ead"
+  },
+  {
+    "path": "www/content/cookbook/projects/smartstore-launch.md",
+    "bytes": 5663,
+    "sha256": "62ba3116fccb7c160a0a16d565b4da6da5a1f5599660fd58533831450e589b01"
+  },
+  {
+    "path": "www/content/cookbook/projects/sns-content-month.md",
+    "bytes": 5627,
+    "sha256": "1a28dd00b87850c507d8d0b6648f0ab12b9a2ef7fba9a1dd9db3a8447cbbc7a7"
+  },
+  {
+    "path": "www/content/cookbook/projects/startup-feasibility.md",
+    "bytes": 5602,
+    "sha256": "46a12968e73344e93f8b7a374d0c2155ecbf54b47a70102071abf2b705c8004d"
+  },
+  {
+    "path": "www/content/cookbook/projects/voc-to-faq.md",
+    "bytes": 5592,
+    "sha256": "005d1e48fb68400ad44e8ea816dc71489ea29103e4c7ff0542a5d0957c2c59c7"
+  },
+  {
+    "path": "www/content/cookbook/projects/webnovel-project.md",
+    "bytes": 5619,
+    "sha256": "1e1e5b1a3006d487a0e6029255764e80b91bb7e6d94bda97267e05497de34e0b"
+  },
+  {
+    "path": "www/content/cookbook/projects/weekly-report-routine.md",
+    "bytes": 5487,
+    "sha256": "d2f8d78f64f98001e4777a30c983c814d7d99d53c4ed9ceaff64de0d17e96a4e"
+  },
+  {
+    "path": "www/content/cookbook/report-automation.md",
+    "bytes": 5509,
+    "sha256": "ab4f0ddde2c741b68e10f21c0cb7db86af7d8e9ebc12bb1c7801c84d3b93cc54"
+  },
+  {
+    "path": "www/content/cookbook/skill-chaining.md",
+    "bytes": 1463,
+    "sha256": "4cbd2771b2ec7b83057e99a1904ccf91741be42c2fdb1102cb3a363f2bfbaf1f"
+  },
+  {
+    "path": "www/content/cookbook/templates/_index.md",
+    "bytes": 709,
+    "sha256": "d0651a1199de7bacffb7c260c878b77fcdfb848844e32bf9e7f148dd818ac24a"
+  },
+  {
+    "path": "www/content/cookbook/templates/compliance.md",
+    "bytes": 5462,
+    "sha256": "e4c83acb0d7d72268add4c4c325be7f85ac562536a2f951255f43b80c8fbcdd0"
+  },
+  {
+    "path": "www/content/cookbook/templates/email.md",
+    "bytes": 5493,
+    "sha256": "9827104427bb1f236dd3d07da629d18a0eaf54a6e9b91b5bcde4b773a7548ca9"
+  },
+  {
+    "path": "www/content/cookbook/templates/excel.md",
+    "bytes": 5365,
+    "sha256": "0b59aeb14ca19acc9467a593cf4cae6952504dc5317884821204bdac431e5bca"
+  },
+  {
+    "path": "www/content/cookbook/templates/financial.md",
+    "bytes": 5501,
+    "sha256": "55baec4c72b91089ac307fd27fd5d811ce83f928eb95a84a492f3b12807e7d1c"
+  },
+  {
+    "path": "www/content/cookbook/tracks/_index.md",
+    "bytes": 1103,
+    "sha256": "37f0ab4ca5c20c56c2a33c0b41a5b23c15719610683b16845a7389435dea43f9"
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-advertising.md",
+    "bytes": 5531,
+    "sha256": "0ac80c27d29e9d373a90e863ef8fc86d8ab88ae1f750db6660878a57e99d9ef6"
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-appendix.md",
+    "bytes": 5466,
+    "sha256": "94ee1931610230e445beee3808bae703372418b2f01e787a099e658d08880850"
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-commerce.md",
+    "bytes": 5413,
+    "sha256": "bb79ab16fb959795cf128cda452af2179af6f761d3ff0a63b54556c27ced2bdb"
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-content.md",
+    "bytes": 5288,
+    "sha256": "482f866db545678e78915760e2ff8e90170a1d5370e62ecf63399169283d1bcd"
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-data.md",
+    "bytes": 5313,
+    "sha256": "b1a95651c2c366dfe611e1aecce852ac5ef6620d842f96ff32bc67d4c04e91ec"
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-documents.md",
+    "bytes": 5315,
+    "sha256": "98846190666faf56847a236ba7e7730556c0e934237b35a9b31196df046975bf"
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-finance.md",
+    "bytes": 5390,
+    "sha256": "5b1b54dcd2f3a197d865c1ba68bf4458e2ec1ec2ea4096b5c91310d4ac879c71"
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-hr.md",
+    "bytes": 5470,
+    "sha256": "0524d89ccd56d8e64f0321c1ba2ff3771075852e1e73957a393a0d88f55d8ab4"
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-legal.md",
+    "bytes": 5463,
+    "sha256": "6aeb0feeb5da200d0e104ed05a6cd10938a711ab0e1ca1922d3bfbc7cb956437"
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-marketing.md",
+    "bytes": 5453,
+    "sha256": "2031326ea9aadb3725d147b66c9c3578d6494133759680dd360cd7a180323dd1"
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-operations.md",
+    "bytes": 5269,
+    "sha256": "e5dd861a465446e1f44a36ca335fbbe45c9b6ea9cffebacdb4f97c8583795210"
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-product.md",
+    "bytes": 5279,
+    "sha256": "14a82094749a1de4ddf5f7d52fba7ec8f141df9531caeced9693c47111eee780"
+  },
+  {
+    "path": "www/content/cookbook/troubleshooting.md",
+    "bytes": 1180,
+    "sha256": "44e8f101be174db73b84602d94374ab25e00c3b9ccb599dba63db75ae1f0d31a"
+  },
+  {
+    "path": "www/content/getting-started/_index.md",
+    "bytes": 1933,
+    "sha256": "1e44a01cf974318d2a57f385e4ea3646ee40dd9d11ff9bc73ddb789333eda6e7"
+  },
+  {
+    "path": "www/content/getting-started/choose-app.md",
+    "bytes": 2748,
+    "sha256": "ebb490146d0becfe5000ac6a4e0dbe7b78822ea573e211724bc0c8f2277a4925"
+  },
+  {
+    "path": "www/content/getting-started/concepts.md",
+    "bytes": 3037,
+    "sha256": "a4af86363e3b7f758d3d62701c2b9b92c54621dba90877ed57678580bd0953c4"
+  },
+  {
+    "path": "www/content/getting-started/first-task.md",
+    "bytes": 2933,
+    "sha256": "56f0d0d3fed4701dd9d01cd9a347810a039943bee48e87a39e3f1c3894d6f026"
+  },
+  {
+    "path": "www/content/getting-started/install.md",
+    "bytes": 2226,
+    "sha256": "50c94c65fa51e823f2c1e46c69924d034dd08719b2fefea5243f312d729b34eb"
+  },
+  {
+    "path": "www/content/getting-started/projects.md",
+    "bytes": 3890,
+    "sha256": "43e51566ed246201847d2daf7dac6cd3b6454842233806c9ae14f38cfcb58ead"
+  },
+  {
+    "path": "www/content/getting-started/questions.md",
+    "bytes": 2309,
+    "sha256": "1398ae9fc1d4bc675db14418dbb29a7ec63eb52189433942a5a0205bb1a859c6"
+  },
+  {
+    "path": "www/content/getting-started/quick-start.md",
+    "bytes": 2208,
+    "sha256": "a3683f0ebbde1030dcfdf4142a52f629902422cb57d9e2e7513ec0ede98b5884"
+  },
+  {
+    "path": "www/content/help/_index.md",
+    "bytes": 1000,
+    "sha256": "bd265a50ce5ed212297ad813b262b34ef9e5df338560ad096efe074a3531146e"
+  },
+  {
+    "path": "www/content/help/about-claude.md",
+    "bytes": 1533,
+    "sha256": "81a27674c0c65adf6313a2f18b80b0cbc008be32036c62dcb69fd44d2b23c8a2"
+  },
+  {
+    "path": "www/content/help/account.md",
+    "bytes": 1560,
+    "sha256": "ed787beebdf0714c6e923c10e6e0d2ba300f20b35e2c9e583fc3f40991537939"
+  },
+  {
+    "path": "www/content/help/attribution.md",
+    "bytes": 1342,
+    "sha256": "df63ab54f7ea277baf8fd6a59e8e46cbfdc51a2ac5fa583767d5e97be7003e94"
+  },
+  {
+    "path": "www/content/help/conversations.md",
+    "bytes": 1547,
+    "sha256": "921bef93532aed19caaa474cff839b621db5a88c0b59aaae70867b6c8aacbaca"
+  },
+  {
+    "path": "www/content/help/office/_index.md",
+    "bytes": 632,
+    "sha256": "01b6b9deccacbca859d6c82fc1da6a5e9380437f594a28cd59f72c459b3b523e"
+  },
+  {
+    "path": "www/content/help/office/microsoft-365.md",
+    "bytes": 1626,
+    "sha256": "4a04fcbe2ee8918cb85f8f2a9cc641a2f43c7538dd1b42718a314242e4a043cf"
+  },
+  {
+    "path": "www/content/help/personalization.md",
+    "bytes": 1590,
+    "sha256": "19a7ba0b1a52d209076d13cfe36bea89d140a9490a7a87c2d1e1f4a8fb8fab30"
+  },
+  {
+    "path": "www/content/help/plans-billing.md",
+    "bytes": 1411,
+    "sha256": "29e931904805114a986394373daef65ac97d4b038bae584715fe7572feacd7a5"
+  },
+  {
+    "path": "www/content/help/source-index.md",
+    "bytes": 2138,
+    "sha256": "4b128ba579a17482aa22e92636155018937ef369aaf0809d7917daaa47993b3e"
+  },
+  {
+    "path": "www/content/help/troubleshooting.md",
+    "bytes": 1938,
+    "sha256": "52ea3d6a86dcabed2029ab6f3ffb224e21bce3c9c4124129c6a610d93d27aeb1"
+  },
+  {
+    "path": "www/content/help/usage-limits.md",
+    "bytes": 1503,
+    "sha256": "0b4d499fba34f946e8c7c5b8460dff6aeff8219b0ddcc74fdf15f53d985962b4"
+  },
+  {
+    "path": "www/content/learn/01-delegation.md",
+    "bytes": 5129,
+    "sha256": "7e2288611cb5a0c69bf5aa91589aae76feab4b9a2756848005dae585dbadf5ad"
+  },
+  {
+    "path": "www/content/learn/02-project-context.md",
+    "bytes": 6348,
+    "sha256": "c6b9b23a206cf0b9e19b7cb8b4899d0a49ddba82ade18feed593b6481bc10c19"
+  },
+  {
+    "path": "www/content/learn/03-first-result.md",
+    "bytes": 5326,
+    "sha256": "624306d968406e0f3a37e507b75679c318a6c544b5ffd2dabcfe936186dd2723"
+  },
+  {
+    "path": "www/content/learn/04-skills-plugins.md",
+    "bytes": 5165,
+    "sha256": "4d281022f95903a79f1518be3307d29997e9602a5e6f8af291a4d69aff55530a"
+  },
+  {
+    "path": "www/content/learn/05-expert-workflow.md",
+    "bytes": 5365,
+    "sha256": "81331a3def01990764ac745e0172b3709af2f4aa9467d93427f57f22fde3500c"
+  },
+  {
+    "path": "www/content/learn/06-review-reuse.md",
+    "bytes": 5116,
+    "sha256": "c14eff1ad6b8a8ea3a8d0f010e791b936dd6c2ac7ce62551b354168221f8b1ae"
+  },
+  {
+    "path": "www/content/learn/_index.md",
+    "bytes": 3240,
+    "sha256": "f99a0dcc2bcf67007ec9328e8ce8e26df97ba280ce483e079adf0411c187ec35"
+  },
+  {
+    "path": "www/content/learn/screens.md",
+    "bytes": 4369,
+    "sha256": "2a8e390f71f4364af965dd8c035dd597299263d65bb7acee23f30353bb44798d"
+  },
+  {
+    "path": "www/content/learn/teaching-guide.md",
+    "bytes": 4398,
+    "sha256": "f1873fc83229f0f4d6d5341528d20ad99e3e01cbe90fad32f2f27958c1cd8e57"
+  },
+  {
+    "path": "www/content/moai-agents/_index.md",
+    "bytes": 1854,
+    "sha256": "a24cf573619c7c2eb8064a3a0d674fd8919a98716281a63f5f19527c58c8f7da"
+  },
+  {
+    "path": "www/content/moai-agents/accountant.md",
+    "bytes": 4499,
+    "sha256": "b5c0a713bea027c23a9c402d407157601ccc0c3569c4f685a902eb4704373546"
+  },
+  {
+    "path": "www/content/moai-agents/analyst.md",
+    "bytes": 4360,
+    "sha256": "f86f2956d078857a839c0d922b13a8f0dd00f286601b6f23b55a2b3469d444e7"
+  },
+  {
+    "path": "www/content/moai-agents/career.md",
+    "bytes": 4500,
+    "sha256": "3543dbafc196f255c4af1071b3ca81ff52998017623eb92c5086376ee9c2354f"
+  },
+  {
+    "path": "www/content/moai-agents/consultant.md",
+    "bytes": 4450,
+    "sha256": "1f6a3cf2531bac990b0d9ecfd24f46f6162050e96d24de1e51b1a4e062dc4f01"
+  },
+  {
+    "path": "www/content/moai-agents/coworker.md",
+    "bytes": 4205,
+    "sha256": "e58304c45110ec6e744d56f831ec85d4f12fad475a46735ba3c25118da5a5e29"
+  },
+  {
+    "path": "www/content/moai-agents/cs.md",
+    "bytes": 4489,
+    "sha256": "490b342e124d850f31edfb2e68f5b7dda041e089dc7224589790395867090ca6"
+  },
+  {
+    "path": "www/content/moai-agents/designer.md",
+    "bytes": 4467,
+    "sha256": "342ab660d27804c2006045742f82d6b4395538744a06a3c7b86e644089f80de6"
+  },
+  {
+    "path": "www/content/moai-agents/lawyer.md",
+    "bytes": 4498,
+    "sha256": "e75a80fbacc781a5893eddd7951d0df7da181192cd127ab19f8648f8a06771b0"
+  },
+  {
+    "path": "www/content/moai-agents/marketer.md",
+    "bytes": 4506,
+    "sha256": "6e8a83c11310ac2ba2156ca2d0a9a78a541b18d3c0f3aee122c89b6928e9a161"
+  },
+  {
+    "path": "www/content/moai-agents/media.md",
+    "bytes": 4664,
+    "sha256": "9980a59d5acb9ca40f34a2a56f1ea7bc8e65f26cee6bf610099323be14f0a4ef"
+  },
+  {
+    "path": "www/content/moai-agents/officer.md",
+    "bytes": 4420,
+    "sha256": "22f959e42fb97609d350d07fb5c1702f71337060bf56b191cbda47053163f3ea"
+  },
+  {
+    "path": "www/content/moai-agents/pm.md",
+    "bytes": 2626,
+    "sha256": "83033f6ecf932e782e8296564ce10bed874f072336741378ab11bdcbc6654883"
+  },
+  {
+    "path": "www/content/moai-agents/recruiter.md",
+    "bytes": 4498,
+    "sha256": "a45d5308e71fb10307a4ceb57131cc1367cc053bf71e80afed274131978d01ca"
+  },
+  {
+    "path": "www/content/moai-agents/seller.md",
+    "bytes": 4474,
+    "sha256": "5c5a32b5b5bb9a8e04f67de3d5ad19e27d3f7b3f9053d6a68292b6151bbcfd3d"
+  },
+  {
+    "path": "www/content/moai-agents/story.md",
+    "bytes": 4461,
+    "sha256": "c06dd4d40749a1b5b4f4faf2e3b36106d11e17264b731253f83093e73e53ba32"
+  },
+  {
+    "path": "www/content/moai-agents/threads-poster.md",
+    "bytes": 4375,
+    "sha256": "0360701378ad1e9b1ec6ef79148d1a8e9c61c0d722ee6adc85c6278b2b151baf"
+  },
+  {
+    "path": "www/content/moai-agents/tutor.md",
+    "bytes": 4484,
+    "sha256": "95cb069fba45a32530b9cc575f3b641c0e92a6340b117a9f822b505f1d4a772d"
+  },
+  {
+    "path": "www/content/moai-agents/writer.md",
+    "bytes": 4300,
+    "sha256": "ca07eea51e00925950a551d3efce2f5f6b615b805f4d636296e38796d4bda9b9"
+  },
+  {
+    "path": "www/content/plugins/_index.md",
+    "bytes": 1816,
+    "sha256": "008b60eb67ad44b53e0331f7a83764c946dadf67914e612280015ffa90a9f196"
+  },
+  {
+    "path": "www/content/plugins/agents.md",
+    "bytes": 2110,
+    "sha256": "67a5c7ee11e7badcd9802fa8bfd674b4ec6b81ed9c22dc63185a4232756617ef"
+  },
+  {
+    "path": "www/content/plugins/higgsfield-setup.md",
+    "bytes": 4622,
+    "sha256": "54d87d0b4fc937007e2b0a7d9ed232bea299a981522e70114714e748109d3f65"
+  },
+  {
+    "path": "www/content/plugins/install.md",
+    "bytes": 3492,
+    "sha256": "6bb89c4f66348a24e233c4b9fa15b5a777ff5707c76e7a2761b3bdc08f4cf189"
+  },
+  {
+    "path": "www/content/plugins/license.md",
+    "bytes": 1709,
+    "sha256": "2c133f345be192412413de8ea3059fa2d9db3693d64eb25cd6ce4b34829f299e"
+  },
+  {
+    "path": "www/content/plugins/mcp/_index.md",
+    "bytes": 2040,
+    "sha256": "e75da4c211f473e684a29af9878f089fcca434bd5ae26fe1e3fc02bc63398c29"
+  },
+  {
+    "path": "www/content/plugins/mcp/credentials.md",
+    "bytes": 3550,
+    "sha256": "f84517e4ede10e189d6ab642bfcea6146812403aae5ba6f7788678941fc7407e"
+  },
+  {
+    "path": "www/content/plugins/mcp/install.md",
+    "bytes": 2156,
+    "sha256": "e222d9a9f8ed736151a4ef632ba9168cdb9c5c28ec7bcb8ff890f40e91ce7921"
+  },
+  {
+    "path": "www/content/plugins/mcp/troubleshooting.md",
+    "bytes": 1649,
+    "sha256": "17031c89e76fb98a20c3e9687276ce637ba0e7367854caca8e51e3910e45774d"
+  },
+  {
+    "path": "www/content/plugins/open-source.md",
+    "bytes": 7947,
+    "sha256": "93f1d379b9752f826959a817d6b3993a1526532974c15649e79faf774d78c79c"
+  },
+  {
+    "path": "www/content/plugins/teams.md",
+    "bytes": 1470,
+    "sha256": "6c3fcc183a1586b4ee590dd30646f27803cfe5858b66c0ebffb578cf6b17a4c0"
+  },
+  {
+    "path": "www/content/releases/_index.md",
+    "bytes": 6718,
+    "sha256": "6909fa93baefa5af03248297c78615248a8275d9adc261ff2a8556143c830a02"
+  },
+  {
+    "path": "www/content/releases/archive/_index.md",
+    "bytes": 1567,
+    "sha256": "ffe6cc9c5cfea6aefbe023f1b93de7a0b9afeb47f24a044e3a76f94dee6a20ad"
+  },
+  {
+    "path": "www/content/releases/archive/v1.0.md",
+    "bytes": 10501,
+    "sha256": "45541fda46e0e37b60f1128675bf8021ce363cecc64e7c53402b11fcdd54f710"
+  },
+  {
+    "path": "www/content/releases/archive/v1.2.md",
+    "bytes": 8842,
+    "sha256": "3520fcb6b6a113600129dbf3a34b9b294ae39da11b5fa6633a5668e4df22c91c"
+  },
+  {
+    "path": "www/content/releases/archive/v1.3.md",
+    "bytes": 9944,
+    "sha256": "9d91d2f6f468a022ae0de3369479f2379394d737c28ddbfb26877524ff494eba"
+  },
+  {
+    "path": "www/content/releases/archive/v1.5.md",
+    "bytes": 10232,
+    "sha256": "0c39d08e086ac7e0b2c91ad31c44a970049bcea8462e9baac49423411e265317"
+  },
+  {
+    "path": "www/content/releases/archive/v1.6.md",
+    "bytes": 6078,
+    "sha256": "fac8bfb77373c0b96849d81143da9e507c96862d12f9cac89cb10edf04c039b2"
+  },
+  {
+    "path": "www/content/releases/archive/v2.0.md",
+    "bytes": 14813,
+    "sha256": "e9afb19b75ad3d868d6703d604078f9fd437bb8d90eb950f5afc8598a1101df8"
+  },
+  {
+    "path": "www/content/releases/archive/v2.1.md",
+    "bytes": 12064,
+    "sha256": "488d0f49dcac12cf9b5e8e8d0efc45af2a5d6f3c8d0c4a2321782bc19695779f"
+  },
+  {
+    "path": "www/content/releases/archive/v2.10.md",
+    "bytes": 8143,
+    "sha256": "5cef8f6ed36976b08a2a4d6efb03b84ca47bca85e2fd1cbcbced662a9c6e6717"
+  },
+  {
+    "path": "www/content/releases/archive/v2.11.1.md",
+    "bytes": 6756,
+    "sha256": "e9fecf46fcb293c5925b36f7deeb38bbba1684e220da38605422e84e2395b255"
+  },
+  {
+    "path": "www/content/releases/archive/v2.11.md",
+    "bytes": 8628,
+    "sha256": "b41ff01bebda9d3cef489396d26984d35149f6b82014a9912809346ae80b0c92"
+  },
+  {
+    "path": "www/content/releases/archive/v2.12.1.md",
+    "bytes": 3621,
+    "sha256": "79c6dcc09767172eb568cc7f91fa83c63424fc658a813e17ab842cecafcbf93f"
+  },
+  {
+    "path": "www/content/releases/archive/v2.12.2.md",
+    "bytes": 2404,
+    "sha256": "aeb2c113f8728fc0d185634fe4b84ae648f1d6ebf85f2b04f73d318e5cf85896"
+  },
+  {
+    "path": "www/content/releases/archive/v2.12.3.md",
+    "bytes": 2843,
+    "sha256": "790242aa50a9f5df6b9556991ddbda4f41494352ca76cba91f3f2eb7ac5577e8"
+  },
+  {
+    "path": "www/content/releases/archive/v2.12.md",
+    "bytes": 6397,
+    "sha256": "2db323a7959a64067af340b96b23eff7e32c912756cec4c3b2028e21f9571100"
+  },
+  {
+    "path": "www/content/releases/archive/v2.13.md",
+    "bytes": 6157,
+    "sha256": "e0400ea5c01cc71836c83fb59af89f93e9f9b8340259ad4bebdba9833d477c6d"
+  },
+  {
+    "path": "www/content/releases/archive/v2.14.md",
+    "bytes": 5531,
+    "sha256": "bc9aca221cb13b98d97e376219d0fb9ea92a859e4c1eee96d62bd336378889f6"
+  },
+  {
+    "path": "www/content/releases/archive/v2.15.md",
+    "bytes": 4944,
+    "sha256": "ec37787beb1af11504a0b7b4df7b681619d18aa94cd1fa4a3fc3749c20eae553"
+  },
+  {
+    "path": "www/content/releases/archive/v2.16.md",
+    "bytes": 8626,
+    "sha256": "180130f6865ce0970312f597e77414fe35c82e4f19be5efd70734e6d5a60400b"
+  },
+  {
+    "path": "www/content/releases/archive/v2.17.md",
+    "bytes": 8812,
+    "sha256": "b48f2d018cebeef47040caf182d99eb5d2dcc1b4c8a553c316e8b8e1fc4e0a93"
+  },
+  {
+    "path": "www/content/releases/archive/v2.18.md",
+    "bytes": 9155,
+    "sha256": "dbe746ab95f6401080de3f8808b4b29e20869d6e8a59695733378f9234f5ee5c"
+  },
+  {
+    "path": "www/content/releases/archive/v2.19.md",
+    "bytes": 6784,
+    "sha256": "da44b0146a1112a0acf1cf8c5a48f0e1146b1b7b44557e0b9b0ff3ff32968b09"
+  },
+  {
+    "path": "www/content/releases/archive/v2.2.md",
+    "bytes": 7069,
+    "sha256": "a34b708b81f4775c1fdf5dc5b372a09907f56c132fe1f54f3f52a22899af1c42"
+  },
+  {
+    "path": "www/content/releases/archive/v2.20.md",
+    "bytes": 7741,
+    "sha256": "37dd83feac6accae9c7147d5b0ae85206924bf75d82974c1678c180b9356903d"
+  },
+  {
+    "path": "www/content/releases/archive/v2.21.md",
+    "bytes": 8819,
+    "sha256": "93ae8feb1c4be688eecdd106f500d6ef8cb33d28e28465645b873b01b4a8d2b1"
+  },
+  {
+    "path": "www/content/releases/archive/v2.22.md",
+    "bytes": 8375,
+    "sha256": "eafd0bd39f3e0f136f8e5efaafd7a1c8a23aa05021728085ae1367668d54dc6c"
+  },
+  {
+    "path": "www/content/releases/archive/v2.23.md",
+    "bytes": 1786,
+    "sha256": "aa12e7db8d49b539ec40e7caf131aa8ceadae74b56124c5d42ba8ec648e65c5f"
+  },
+  {
+    "path": "www/content/releases/archive/v2.24.md",
+    "bytes": 2674,
+    "sha256": "8abc848fd04b9c01889fdfdfd61310d534abb40e0d109580c6bf170d2795a550"
+  },
+  {
+    "path": "www/content/releases/archive/v2.25.md",
+    "bytes": 3611,
+    "sha256": "91bfcde37ccfd540bca53259ba76052f13b5dd50cad54f0703069f4e9dee33f2"
+  },
+  {
+    "path": "www/content/releases/archive/v2.26.md",
+    "bytes": 1946,
+    "sha256": "cc76c2b17d8ba390dc94d6e4e5df57378a7d3f6ec0fa96494b2a4bacbcdfa3f8"
+  },
+  {
+    "path": "www/content/releases/archive/v2.27.md",
+    "bytes": 2074,
+    "sha256": "bb5311e1c65fd12511635ac69d2a2fa63944034e579d34fb343bc0261c13b9d2"
+  },
+  {
+    "path": "www/content/releases/archive/v2.3.md",
+    "bytes": 16366,
+    "sha256": "1c6ae3da4fab9547553dd5374a4f087fb98eeabe7b461181c848b137f7ee16ec"
+  },
+  {
+    "path": "www/content/releases/archive/v2.4.md",
+    "bytes": 9878,
+    "sha256": "7d8feb81d7a69d9d1f00ebf88e28748e2d28e40ea47ee883c1b1981b65087dd7"
+  },
+  {
+    "path": "www/content/releases/archive/v2.5.md",
+    "bytes": 11123,
+    "sha256": "ce1550205a47435002676f49038e1ef3fa486ac740c58e54da45659fc9bc3771"
+  },
+  {
+    "path": "www/content/releases/archive/v2.6.md",
+    "bytes": 11183,
+    "sha256": "1adb25f6e99c3f9c8645ffd80cf7e317ac682812ae371686d72174c8154e655a"
+  },
+  {
+    "path": "www/content/releases/archive/v2.7.md",
+    "bytes": 7477,
+    "sha256": "a9094ff7829eae5fd83cd11c9b563b3c85f60237578acf7ff7724bb947b8d512"
+  },
+  {
+    "path": "www/content/releases/archive/v2.8.md",
+    "bytes": 11232,
+    "sha256": "f89a52cfa42726fb6b499590ae3417cbdedb47c6636fdd507adde20f8b0474c7"
+  },
+  {
+    "path": "www/content/releases/archive/v2.9.md",
+    "bytes": 7615,
+    "sha256": "330255afe2750e2cd923cb3efcb1d01306f2ffe5b9b4f38274fe1dfc32be14bb"
+  },
+  {
+    "path": "www/content/releases/docs-20261005.md",
+    "bytes": 1515,
+    "sha256": "91da9b8034e127f1fe704130755b97eb1d1f6edcf3d5a299e8cb3174e8c3c15f"
+  },
+  {
+    "path": "www/content/releases/v1.0.0.md",
+    "bytes": 4086,
+    "sha256": "f4fd36e3d04da868f0aa4d9051f63e80d526f211272bb4584c0eb6a661098945"
+  },
+  {
+    "path": "www/content/releases/v1.1.0.md",
+    "bytes": 4620,
+    "sha256": "66d6dc96dcbe6d5050e42df9bd7c7d9339cc98324de2758f5547dfc816724392"
+  },
+  {
+    "path": "www/content/releases/v1.2.0.md",
+    "bytes": 4348,
+    "sha256": "9b3a192d2bcbf08af405a7f9990c1b4a29c4b5eb426d958cbf49b2e0d458d14b"
+  },
+  {
+    "path": "www/content/releases/v1.2.1.md",
+    "bytes": 8536,
+    "sha256": "a79f6fb5660e038d791b56640c1e5c897a0ffec2652b68e39b0fdbc792d2c82c"
+  },
+  {
+    "path": "www/content/releases/v1.2.2.md",
+    "bytes": 5772,
+    "sha256": "5951aff79460722ae75e6f6e843f215bda8ada8f78142b114908bdc6982ba62d"
+  },
+  {
+    "path": "www/content/releases/v1.2.3.md",
+    "bytes": 9349,
+    "sha256": "0dedd919bebd372129b299e4e5eb0bb451e3601d07668945adcc648d1c5d3408"
+  },
+  {
+    "path": "www/content/releases/v1.2.4.md",
+    "bytes": 6583,
+    "sha256": "01a784d119bbb19e3f6f015dedd363404ba4118595dbb06913cdedb4b8d2ed71"
+  },
+  {
+    "path": "www/content/releases/v1.2.5.md",
+    "bytes": 7544,
+    "sha256": "735a3cbff4efb2d820a47c4f49eb032920cb83b3e9cf6e755c634a6a84fb27ed"
+  },
+  {
+    "path": "www/content/releases/v1.2.6.md",
+    "bytes": 5908,
+    "sha256": "e962dbba742ed832701848575a5df1e7309756159d788cac5f8fad5c64e80beb"
+  },
+  {
+    "path": "www/content/workflows/_index.md",
+    "bytes": 1083,
+    "sha256": "30ffd6b1792c2c698ded98aa74ca5edd1e907b3cf99eee3f9d2017b7718e20fe"
+  },
+  {
+    "path": "www/content/workflows/experts.md",
+    "bytes": 2792,
+    "sha256": "214b4facb10c1a2bc0b3da80f96b6ca69aeed1b7bfc51a1db9029aee94625922"
+  },
+  {
+    "path": "www/content/workflows/first-project.md",
+    "bytes": 2705,
+    "sha256": "bdb13c87bd1ef7f79600fe3df7ce5a897a2cd981f253dde43f143b425d4da1bd"
+  },
+  {
+    "path": "www/content/workflows/permissions.md",
+    "bytes": 2132,
+    "sha256": "f1376d881d9042220e982c7fdf9abdf31d796cfd34860e54acaaf6a6957af7f8"
+  },
+  {
+    "path": "www/content/workflows/reuse.md",
+    "bytes": 2065,
+    "sha256": "da5ad4fade4c95b91171f81b6fdc04f19f19c4f7bb429143f3ac43f0c455d139"
+  },
+  {
+    "path": "www/content/workflows/review.md",
+    "bytes": 1762,
+    "sha256": "cad3ea63c667d80edcb26b9cd162345c85db6cb9b6e9460f939122a208b7c4a7"
+  }
+]

@@ -1,7 +1,8 @@
 ---
 name: content-blog
 description: 네이버 블로그·티스토리·브런치스토리·WordPress·Ghost 글을 독자와 발행 채널에 맞춰 작성합니다. 실제 자료와 출처를 확인하고, 검색 노출을 보장하지 않는 초안과 발행 준비 자료를 만듭니다.
-version: "1.1.4"
+metadata:
+  version: "1.1.5"
 ---
 
 # 블로그 글 작성

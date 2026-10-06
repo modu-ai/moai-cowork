@@ -2,7 +2,8 @@
 name: productivity-retro
 description: >
   사용자가 제공한 경험과 기록으로 개인·팀 회고를 정리합니다. "이번 주 회고하고 싶어", "KPT로 정리해줘", "연말 회고 질문 만들어줘" 같은 요청에 사용하세요.
-version: "1.1.1"
+metadata:
+  version: "1.1.2"
 ---
 
 # 회고 정리

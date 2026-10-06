@@ -3,7 +3,8 @@ name: marketing-meta-ads-manager
 description: |
   연결된 Meta 광고 계정의 캠페인·광고세트·광고를 사용자가 요청한 범위에서 조회·생성·수정·중지합니다.
   계정과 도구 권한을 실제로 확인하고, 지출이 시작되는 상태와 결과 ID를 분명히 보고합니다.
-version: "1.1.1"
+metadata:
+  version: "1.1.2"
 ---
 
 # Meta 광고 운영

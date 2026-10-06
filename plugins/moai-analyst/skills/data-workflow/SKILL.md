@@ -2,7 +2,8 @@
 name: data-workflow
 description: |
   공공데이터 조회와 자체 데이터셋 분석·시각화가 섞인 요청에서 범위·기간·출처를 확인하고 moai-analyst의 data-* 스킬로 연결합니다. 한 종류의 조회나 차트는 해당 전용 스킬을 바로 사용합니다.
-version: "1.0.1"
+metadata:
+  version: "1.0.2"
 ---
 
 # 데이터 작업 경로 선택

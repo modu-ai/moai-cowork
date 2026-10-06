@@ -1,8 +1,9 @@
 ---
 name: story-ad-conti
 description: story-conti의 광고 프리셋으로 통합됨 (폐지).
-user-invocable: false
-version: "1.1.0"
+metadata:
+  invocation-scope: "workflow"
+  version: "1.1.1"
 ---
 
 # story-ad-conti (폐지 — story-conti로 통합)

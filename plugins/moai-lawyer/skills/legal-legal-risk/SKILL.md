@@ -3,7 +3,8 @@ name: legal-legal-risk
 description: |
   사용자 조직의 계약·규제·지식재산 위험을 실제 자료와 공식 법령에 비춰
   식별하고, 근거·불확실성·다음 확인을 정리합니다.
-version: "1.1.2"
+metadata:
+  version: "1.1.3"
 ---
 
 # 법적 리스크 분석

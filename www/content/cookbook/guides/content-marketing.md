@@ -1,104 +1,110 @@
 ---
 title: "콘텐츠 마케팅 전략"
-weight: 60
-description: "블로그 · 캠페인 · 채널 믹스 · KPI를 moai-marketer 스킬로 운영하는 전략."
+description: "대상 고객·제품·콘텐츠 목표를 준비해 콘텐츠 운영안을 만드는 실습"
+weight: 10
+date: 2026-10-05T00:00:00+09:00
+lastmod: 2026-10-06
 geekdocBreadcrumb: true
-date: 2026-08-07T00:00:00+09:00
-lastmod: 2026-08-07T00:00:00+09:00
 ---
-> 콘텐츠 마케팅은 한 번의 히트가 아니라 *지속 가능한 발행 리듬*에서 효과가 나옵니다. 모두의 코워크는 기획·작성·검수·게시 전 단계를 자동화해 그 리듬을 만들 수 있게 합니다.
 
-```mermaid
-flowchart TD
-   A["campaign-planner<br/>캠페인 기획"] --> B["blog / copywriting<br/>콘텐츠 작성"]
-   B --> C["seo-audit<br/>SEO 최적화"]
-   C --> D["ai-slop-reviewer<br/>톤 검수"]
-   D --> E["performance-report<br/>성과 분석"]
-   E -- "피드백" --> A
+**이 실습의 결과는 콘텐츠 운영안입니다.** ChatGPT Work와 Claude Cowork 모두 목표와 자료를 제공하는 방식으로 시작합니다. 실제 서비스 연결과 지원 도구는 현재 앱에서 확인하세요.
 
-   style A fill:#e6e6e6,stroke:#757575,color:#09110f
-   style E fill:#e8f1ec,stroke:#265240,color:#09110f
+
+<!--more-->
+
+
+## 준비물
+
+대상 고객·제품·콘텐츠 목표를 준비합니다. 실습에서는 가상 자료나 공개 가능한 자료를 사용할 수 있습니다. [관련 역할](/moai-agents/marketer/)의 스킬을 추가하려면 [설치 안내](/plugins/install/)를 확인합니다.
+
+## 첫 요청
+
+```text
+제공한 자료로 콘텐츠 운영안을 만들어 줘.
+목표·독자·결과 형식을 먼저 확인하고 부족한 정보는 질문해 줘.
+대상 고객, 메시지, 채널, 검토 기준을 정한 뒤 콘텐츠를 작성해 줘.
+자료 없는 사실과 수치는 만들지 말고 미정 항목을 표시해 줘.
+외부 게시·발송·계정 변경 없이 검토용 결과부터 보여 줘.
 ```
 
-## 사용 스킬
+## 진행 순서
 
-| 단계 | 스킬 | 용도 |
+1. **자료 확인:** 대상 고객·제품·콘텐츠 목표 중 읽을 수 있는 것과 없는 것을 구분합니다.
+2. **맥락 확인:** 독자·형식·범위를 질문에 답해 정합니다.
+3. **초안 작성:** 대상 고객, 메시지, 채널, 검토 기준을 정한 뒤 콘텐츠를 작성합니다.
+4. **검토:** 브랜드 기준·주장 근거·평가 지표를 확인합니다.
+5. **수정·저장:** 변경할 부분을 지정하고 결과를 별도 위치에 저장합니다.
+
+독립적인 조사만 병렬로 진행하고, 앞 결과가 필요한 작성·변환은 순차로 진행합니다. [전문가 분업](/workflows/experts/)의 역할·입출력 계약을 사용할 수 있습니다.
+
+## 가상 예제로 더 이해하기
+
+아래 자료와 모범 설명은 수업을 위해 작성했습니다. 실제 회사·고객의 실적이나 앱 실행 결과가 아닙니다. 먼저 제공 자료로 작은 결과를 만든 뒤 자신의 자료로 바꿔 보세요.
+
+```text
+가상 무선 스탠드: USB-C 충전, 밝기 3단계, 높이 28cm. 사용 시간·판매가·인증 여부는 자료에 없음. 대상은 책상 공간을 정리하려는 사용자.
+```
+
+### 먼저 확인할 질문
+
+게시 채널과 독자는 누구인가요? 가격·사용 시간·근거 자료가 있나요? 답을 모르면 해당 항목을 미정으로 남기고, 그 정보 없이 가능한 범위를 정합니다.
+
+### 모범 결과를 읽는 방법
+
+USB-C 충전과 밝기 조절이라는 확인된 특징으로 초안을 씁니다. 가격과 사용 시간은 확인 필요 목록으로 분리합니다. 문장과 서식은 달라도 이 기준을 충족하는지 직접 비교합니다. 원문 위치·출처·상태가 결과에 함께 남으면 다음 검토자에게 넘기기 쉽습니다.
+
+### 직접 비교할 모범 결과
+
+| 항목 | 결과 예시 | 근거·상태 |
 |---|---|---|
-| 캠페인 기획 | `moai-marketer:marketing-campaign-planner` | 그로스해킹·인플루언서·A/B 테스트 |
-| 블로그 작성 | `moai-marketer:content-blog` | 네이버·티스토리·브런치·WordPress·Ghost |
-| 카피 작성 | `moai-marketer:content-copywriting` | 헤드라인·CTA·슬로건 |
-| SEO 최적화 | `moai-marketer:marketing-seo-audit` | 네이버·구글·AI 검색 통합 |
-| 성과 분석 | `moai-marketer:marketing-performance-report` | GA4·네이버 광고·메타·카카오모먼트 |
-| AI 슬롭 검수 | `moai-coworker:ai-slop-reviewer` | 발행 전 자연어 톤 검수 |
+| 제목 초안 | 책상 위에 두는 USB-C 충전 스탠드 | 표현 제안·게시 전 |
+| 사양 | 높이 28cm · 밝기 3단계 | 제공 자료에서 확인 |
+| 제외한 주장 | 사용 시간·판매가·인증·최저가 | 자료 없음 |
+| 다음 확인 | 사용 사진 권한과 링크·상품 정보 원본 | 확인 필요 |
 
-## 콘텐츠 운영 4단계
+### 흔한 실수와 수정 요청
 
-### 1. 페르소나·여정 정의
+하루 종일 사용, 업계 최저가 같은 근거 없는 표현을 넣습니다. 이때는 결과 전체를 다시 만들어 달라는 말보다, 틀린 기준과 고칠 위치를 구체적으로 알려 주세요.
 
-{{< terminal title="claude — cowork" raw="true" >}}
-우리 타겟 고객 페르소나 3개 만들어줘. 각각 페인 포인트·정보 수집 채널·구매 결정 트리거.
-첨부 파일 고객 인터뷰 데이터 참고.
-{{< /terminal >}}
+```text
+제공 자료에 없는 사용 시간과 최저가 표현은 삭제해 줘. 확인된 특징과 구매 전에 확인할 항목을 나눠 줘.
+수정한 부분과 아직 확인할 항목을 따로 알려 줘.
+```
 
-`marketing-campaign-planner` 스킬이 고객 여정 맵까지 한 번에 그립니다.
+### 확인 문제
 
-### 2. 채널 믹스
+제품 소개를 더 설득력 있게 하려고 없는 수치를 넣어도 될까요?
 
-| 채널 | 역할 | 발행 빈도 |
-|---|---|---|
-| 블로그 | 검색 진입 + 권위 | 주 2회 |
-| 뉴스레터 | 충성 고객 유지 | 주 1회 |
-| SNS (인스타·LinkedIn) | 인지도 + 인게이지먼트 | 주 3-5회 |
-| 영상 (유튜브·릴스) | 신규 도달 | 월 2회 |
+<details><summary>답안과 해설 보기</summary>
 
-### 3. 콘텐츠 캘린더
+넣지 않습니다. 확인된 특징을 독자의 사용 상황과 연결하고, 수치가 필요하면 근거 자료를 요청합니다.
 
-{{< terminal title="claude — cowork" raw="true" >}}
-다음 달 콘텐츠 캘린더 짜줘. 월~금 발행, 채널별 키워드 + 톤 + CTA 명시.
-시즌 이슈(추석·단풍)도 반영.
-{{< /terminal >}}
+</details>
 
-### 4. 성과 분석
+### 내 업무로 바꿔 보기
 
-{{< terminal title="claude — cowork" raw="true" >}}
-지난달 마케팅 성과 보고서 만들어줘. GA4·네이버 광고·메타 통합.
-채널별 ROAS·전환율·LTV/CAC, 인사이트 5개.
-{{< /terminal >}}
+예제의 자료를 자신의 공개 가능한 자료로 바꾸고, 결과의 독자와 형식을 다시 정합니다. 변하지 않는 검토 기준은 프로젝트 지침에 저장하고, 이번 작업의 수치와 미정 조건은 새 자료로 제공합니다. [프로젝트와 자료 수업](/learn/02-project-context/)에서 구분 방법을 확인합니다.
 
-## 워크플로우 예시 — 블로그 1편 발행
+## 사용할 수 있는 스킬 후보
 
-{{< terminal title="claude — cowork" raw="true" >}}
-노션 활용법 블로그 1편 써줘. 30대 직장인 대상, 2500자, SEO 키워드 '노션 템플릿'.
-네이버 블로그 발행 형식. AI 슬롭 검수까지 마쳐서.
-{{< /terminal >}}
+아래는 이 업무에 참고할 수 있는 패키지 기능입니다. 실제 설치·노출 상태를 먼저 확인하며 이 순서로 반드시 자동 실행된다는 뜻은 아닙니다.
 
-체인:
-1. `marketing-campaign-planner` (앵글 기획)
-2. `content-blog` (본문 작성)
-3. `marketing-seo-audit` (SEO 점검)
-4. `ai-slop-reviewer` (검수)
+- `moai-coworker:ai-slop-reviewer`
+- `moai-marketer:content-blog`
+- `moai-marketer:content-copywriting`
+- `moai-marketer:marketing-campaign-planner`
+- `moai-marketer:marketing-performance-report`
 
-## 한국 콘텐츠 마케팅 특이점
+## 완료 기준
 
-- **네이버 검색 비중** — 한국 B2C는 네이버 검색이 50% 이상. 네이버 블로그·카페 + 인플루언서 조합 필수.
-- **카톡 채널** — 뉴스레터보다 카톡 채널 친구 1명이 더 비싼 자산일 수 있음.
-- **애드밴티지 광고** — 메타·구글뿐 아니라 네이버 GFA·카카오모먼트도 검토 필수.
+결과물에 사용 자료와 미확인 항목이 표시되어 있습니다. 브랜드 기준·주장 근거·평가 지표을 직접 확인했습니다. 파일을 요청한 경우 저장된 파일을 열어 확인합니다. 실제 게시·발송·예약 작업은 별도의 실행 결과로 확인합니다.
 
-## 자주 겪는 실수
+## 막혔을 때
 
-- **양 우선, 질 부족** — 주 5편 발행하다 3개월에 멈추는 것보다 주 2편을 12개월 유지하는 게 효과적.
-- **KPI를 트래픽으로만** — 트래픽 → 리드 → 매출 깔때기 전체로 측정.
-- **단일 채널 의존** — 한 채널이 알고리즘 변경으로 죽을 때 전부 무너집니다. 3개 이상 채널 분산.
+자료나 연결이 없으면 제공 자료로 가능한 초안과 다음 준비 목록을 요청합니다. 원문·수치가 다르면 해당 위치와 근거를 지정해 고칩니다. 전문 판단이 필요한 부분은 근거와 쟁점을 정리하고 해당 업무 책임자가 확인합니다.
 
-## 다음 단계
+[결과 검토](/workflows/review/) · [반복 업무](/workflows/reuse/) · [다른 실습 선택](/cookbook/)
 
-- [SNS 최적화 가이드](../social-media/)
-- [이메일 마케팅 템플릿](../../templates/email/)
-- [트랙 — 마케팅](../../tracks/track-marketing/)
+## 공식 문서와 참고 자료
 
----
-
-### Sources
-
-- moai-marketer 플러그인 [`marketing-campaign-planner`](https://github.com/modu-ai/moai-cowork/blob/main/plugins/moai-marketer/skills/marketing-campaign-planner/SKILL.md), [`marketing-seo-audit`](https://github.com/modu-ai/moai-cowork/blob/main/plugins/moai-marketer/skills/marketing-seo-audit/SKILL.md), [`marketing-performance-report`](https://github.com/modu-ai/moai-cowork/blob/main/plugins/moai-marketer/skills/marketing-performance-report/SKILL.md)
-- moai-marketer 플러그인 [`content-blog`](https://github.com/modu-ai/moai-cowork/blob/main/plugins/moai-marketer/skills/content-blog/SKILL.md)
+- [관련 플러그인 원본](https://github.com/modu-ai/moai-cowork/tree/main/plugins/moai-marketer)

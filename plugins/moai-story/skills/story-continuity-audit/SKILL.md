@@ -2,7 +2,8 @@
 name: story-continuity-audit
 description: |
   웹툰·웹소설 회차, 시나리오, 시놉시스, 캐릭터 시트와 IP 피치 자료의 인물·사건·설정 연속성 및 권리 주장을 읽기 전용으로 대조합니다. 웹툰 이미지 결함은 story-webtoon-qc로 연결합니다.
-version: "1.0.0"
+metadata:
+  version: "1.0.1"
 ---
 
 # 서사 연속성 검수

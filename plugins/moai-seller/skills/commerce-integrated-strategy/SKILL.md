@@ -3,7 +3,8 @@ name: commerce-integrated-strategy
 description: >
   판매 채널·상품·광고·고객 데이터를 함께 살펴 실행 우선순위를 제안합니다.
   입력 자료의 기준일과 확인 범위를 표시하고 채널별 가격·프로모션·재구매 전략을 가설로 정리합니다.
-version: "1.1.1"
+metadata:
+  version: "1.1.2"
 ---
 
 # 이커머스 통합 전략

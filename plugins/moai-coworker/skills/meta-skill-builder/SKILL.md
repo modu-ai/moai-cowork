@@ -9,8 +9,9 @@ description: |
   - "이 기능 스킬로 만들고 싶어", "스킬 제작"
   - "Vibe 스킬 추가", "새 플러그인 스킬"
   - meta-skill-template으로 시작한 스킬의 체계적 생성이 필요할 때
-user-invocable: false
-version: "1.1.3"
+metadata:
+  invocation-scope: "workflow"
+  version: "1.1.4"
 ---
 
 # Skill Builder — 6-Phase 스킬 생성 워크플로우
@@ -135,7 +136,7 @@ Phase 6: Review         → 품질 게이트 통과 확인, 파일 배치
 **필수 적용:**
 
 1. meta-skill-template의 필수 섹션 구조 사용
-2. Frontmatter에는 `name`, `description`, `version`을 포함하고 현재 앱·플러그인 포맷의 지원 필드를 확인
+2. Frontmatter에는 `name`, `description`, 문자열 `metadata.version`을 포함하고 Agent Skills 공통 규격을 검사
 3. 트리거 키워드는 대상 플러그인의 실제 스킬 목록과 대조해 중복을 검사
 4. 사용 예시 최소 2개 포함
 5. 관련 스킬 섹션에 before/after/alternative 관계 명시
@@ -208,7 +209,7 @@ test_cases:
 
 **체크리스트:**
 
-- [ ] Frontmatter 형식 준수 (`name`, `description`, `version`과 현재 런타임이 지원하는 필드)
+- [ ] Frontmatter 형식 준수 (`name`, `description`, `metadata.version`과 공통 허용 필드)
 - [ ] 필수 섹션 모두 존재 (개요, 트리거, 워크플로우, 예시, 출력, 주의사항, 관련 스킬)
 - [ ] 트리거 키워드가 기존 스킬과 중복되지 않음
 - [ ] 수정한 스킬의 `version`, 양쪽 `plugin.json`, 마켓플레이스 버전을 같은 변경에서 갱신

@@ -4,7 +4,8 @@ description: |
   사용자의 UX 디자인 요청을 실행 가능한 프롬프트로 정리합니다. 정보 구조·리서치·디자인 시스템·
   마이크로카피·온보딩·사용성·대시보드·접근성·폼·프로토타입 테스트 중 필요한 관점만 고릅니다.
   Claude Design에 전달할 수 있으며, ChatGPT Work 등 다른 디자인 대화에도 맞게 씁니다.
-version: "1.1.3"
+metadata:
+  version: "1.1.4"
 ---
 
 # design-prompt-builder — UX 작업 프롬프트

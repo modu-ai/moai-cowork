@@ -1,0 +1,44 @@
+[
+  {
+    "answerCount": 1,
+    "firstHeading": "이번 수업에서 배울 내용",
+    "scrollWidth": 1269,
+    "url": "http://127.0.0.1:1313/learn/01-delegation/",
+    "width": 1269
+  },
+  {
+    "answerCount": 1,
+    "firstHeading": "이번 수업에서 배울 내용",
+    "scrollWidth": 1269,
+    "url": "http://127.0.0.1:1313/learn/02-project-context/",
+    "width": 1269
+  },
+  {
+    "answerCount": 1,
+    "firstHeading": "이번 수업에서 배울 내용",
+    "scrollWidth": 1269,
+    "url": "http://127.0.0.1:1313/learn/03-first-result/",
+    "width": 1269
+  },
+  {
+    "answerCount": 1,
+    "firstHeading": "이번 수업에서 배울 내용",
+    "scrollWidth": 1269,
+    "url": "http://127.0.0.1:1313/learn/04-skills-plugins/",
+    "width": 1269
+  },
+  {
+    "answerCount": 1,
+    "firstHeading": "이번 수업에서 배울 내용",
+    "scrollWidth": 1269,
+    "url": "http://127.0.0.1:1313/learn/05-expert-workflow/",
+    "width": 1269
+  },
+  {
+    "answerCount": 1,
+    "firstHeading": "이번 수업에서 배울 내용",
+    "scrollWidth": 1269,
+    "url": "http://127.0.0.1:1313/learn/06-review-reuse/",
+    "width": 1269
+  }
+]

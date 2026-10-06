@@ -3,7 +3,8 @@ name: legal-compliance-check
 description: |
   한국 사업자의 규제 준수 자료를 점검하고, 확인한 근거와 미확인 항목을
   나눠 갭 분석·내부 감사·ESG 보고 초안을 작성합니다.
-version: "1.1.2"
+metadata:
+  version: "1.1.3"
 ---
 
 # 규제 준수 점검

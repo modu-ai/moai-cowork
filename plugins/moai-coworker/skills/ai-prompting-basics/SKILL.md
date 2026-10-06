@@ -1,7 +1,8 @@
 ---
 name: ai-prompting-basics
 description: 비개발자가 Claude Cowork나 ChatGPT Work에 목표·맥락·자료·출력 형식을 분명하게 요청하도록 돕는 대화 가이드. "AI에게 어떻게 물어보면 좋아?" 같은 질문에 활용.
-version: "1.1.1"
+metadata:
+  version: "1.1.2"
 ---
 
 # ai-prompting-basics — 비개발자용 AI 대화 가이드

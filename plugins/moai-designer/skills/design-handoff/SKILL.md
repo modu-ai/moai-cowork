@@ -4,8 +4,9 @@ description: |
   디자인 브리프와 실제 브랜드·화면 자료로 Claude Design 또는 코드 구현에 넘길 핸드오프 문서를 만듭니다.
   "디자인 핸드오프 준비해줘", "Claude Design에 넘길 프롬프트 써줘" 같은 요청에 사용하세요.
   MoAI 프로젝트의 기존 다섯 파일 경로는 해당 파이프라인에서 필요할 때 사용합니다.
-user-invocable: false
-version: "1.1.3"
+metadata:
+  invocation-scope: "workflow"
+  version: "1.1.4"
 ---
 
 # 디자인 핸드오프 작성

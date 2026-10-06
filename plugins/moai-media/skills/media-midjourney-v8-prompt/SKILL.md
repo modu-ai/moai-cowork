@@ -11,7 +11,8 @@ description: |
   - "/media-midjourney-v8-prompt" (직접 호출)
 
   본 스킬은 프롬프트 텍스트만 산출합니다. 실제 생성은 사용자가 Midjourney 웹 또는 Discord에서 실행합니다.
-version: "2.0.4"
+metadata:
+  version: "2.0.5"
 ---
 
 # Midjourney V8 Prompt Builder — 현재 버전의 파라미터 + 3개 모델 프롬프트

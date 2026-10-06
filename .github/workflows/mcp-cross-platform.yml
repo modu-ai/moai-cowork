@@ -13,7 +13,18 @@ on:
       - "plugins/*/.codex-plugin/plugin.json"
       - "plugins/*/.mcp.json"
       - "plugins/*/mcp-servers/**"
-      - "plugins/moai-writer/skills/korean-humanize/**"
+      - "plugins/*/skills/**"
+      - "plugins/*/plugin.json"
+      - "plugins/*/mcp.json"
+      - ".agents/skills/**"
+      - "scripts/check-skill-contracts.py"
+      - "scripts/check-mcp-annotations.py"
+      - "scripts/sync-plugin-contracts.py"
+      - "scripts/sync-skill-evals.py"
+      - "scripts/skill-evals-index.json"
+      - "plugins/*/evals/**"
+      - "scripts/sync-dev-skills.py"
+      - "scripts/schemas/**"
       - "scripts/check-plugin-runtimes.py"
       - "scripts/sync-mcp-core.py"
   push:
@@ -28,13 +39,27 @@ on:
       - "plugins/*/.codex-plugin/plugin.json"
       - "plugins/*/.mcp.json"
       - "plugins/*/mcp-servers/**"
-      - "plugins/moai-writer/skills/korean-humanize/**"
+      - "plugins/*/skills/**"
+      - "plugins/*/plugin.json"
+      - "plugins/*/mcp.json"
+      - ".agents/skills/**"
+      - "scripts/check-skill-contracts.py"
+      - "scripts/check-mcp-annotations.py"
+      - "scripts/sync-plugin-contracts.py"
+      - "scripts/sync-skill-evals.py"
+      - "scripts/skill-evals-index.json"
+      - "plugins/*/evals/**"
+      - "scripts/sync-dev-skills.py"
+      - "scripts/schemas/**"
       - "scripts/check-plugin-runtimes.py"
       - "scripts/sync-mcp-core.py"
   workflow_dispatch:
 
 permissions:
   contents: read
+
+env:
+  PYTHONUTF8: "1"
 
 jobs:
   plugin-wiring:
@@ -53,6 +78,14 @@ jobs:
           version: "0.9.3"
       - name: Check plugin wiring and launcher copies
         run: uv run --python 3.11 python scripts/check-plugin-runtimes.py
+      - name: Check common packages and skill contracts
+        run: uv run --no-project --python 3.11 --with skills-ref==0.1.1 --with jsonschema==4.25.1 --with pyyaml==6.0.3 python scripts/check-skill-contracts.py
+      - name: Check generated behavioral evals
+        run: uv run --no-project --python 3.11 --with pyyaml==6.0.3 python scripts/sync-skill-evals.py --check
+      - name: Check developer wrappers
+        run: uv run --no-project --python 3.11 python scripts/sync-dev-skills.py --check
+      - name: Check PM execution contracts
+        run: uv run --no-project --python 3.11 python -m unittest discover -s plugins/moai-pm/skills/project/tests -q
       - name: Check shared core copies
         run: uv run --python 3.11 python scripts/sync-mcp-core.py --check
 
@@ -106,6 +139,8 @@ jobs:
         uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
         with:
           version: "0.9.3"
+      - name: Check runtime tool annotations
+        run: uv run --python 3.11 --directory ${{ matrix.server.path }} ${{ matrix.server.dev }} python "${{ github.workspace }}/scripts/check-mcp-annotations.py" --server "moai-mcp-${{ matrix.server.name }}"
       - name: Run server tests
         run: uv run --python 3.11 --directory ${{ matrix.server.path }} ${{ matrix.server.dev }} pytest -q
 

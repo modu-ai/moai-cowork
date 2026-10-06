@@ -52,6 +52,36 @@ class TestIsUnset:
 
 
 class TestPrecedence:
+    @pytest.mark.parametrize("service", ["smartstore", "imweb", "cafe24", "threads", "openai", "ip"])
+    def test_project_file_selected_for_every_service(self, tmp_path, monkeypatch, service):
+        path = tmp_path / "project-account.json"
+        path.write_text('{"ACCOUNT_REF": "project-a"}', encoding="utf-8")
+        monkeypatch.setenv(service.upper() + "_CREDENTIALS_FILE", str(path))
+        store = CredentialStore(service)
+        assert store.path == path
+        assert store.get("ACCOUNT_REF") == "project-a"
+
+    def test_two_projects_keep_separate_file_accounts(self, tmp_path, monkeypatch):
+        a, b = tmp_path / "a.json", tmp_path / "b.json"
+        a.write_text('{"ACCOUNT_REF": "a"}', encoding="utf-8")
+        b.write_text('{"ACCOUNT_REF": "b"}', encoding="utf-8")
+        monkeypatch.setenv("SVC_CREDENTIALS_FILE", str(a))
+        first = CredentialStore("svc")
+        monkeypatch.setenv("SVC_CREDENTIALS_FILE", str(b))
+        second = CredentialStore("svc")
+        assert first.get("ACCOUNT_REF") == "a"
+        assert second.get("ACCOUNT_REF") == "b"
+
+    def test_explicit_path_has_priority_over_project_env(self, tmp_path, monkeypatch):
+        monkeypatch.setenv("SVC_CREDENTIALS_FILE", str(tmp_path / "other.json"))
+        explicit = tmp_path / "explicit.json"
+        assert CredentialStore("svc", path=explicit).path == explicit
+
+    def test_unexpanded_project_path_keeps_legacy_default(self, monkeypatch):
+        monkeypatch.setenv("SVC_CREDENTIALS_FILE", "${SVC_CREDENTIALS_FILE}")
+        from moai_mcp_core.tokenstore import DEFAULT_DIR
+        assert CredentialStore("svc").path == DEFAULT_DIR / "svc.json"
+
     def test_환경변수가_파일을_이긴다(self, creds_file, monkeypatch):
         path = creds_file({"API_KEY": "from-file"})
         monkeypatch.setenv("API_KEY", "from-env")

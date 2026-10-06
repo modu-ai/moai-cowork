@@ -1,0 +1,26 @@
+schema_version: '1.1'
+name: project-application
+runs: 1
+tags:
+- pm
+- regression
+execution:
+  prompt: 계정의 ChatGPT Work Project에서 온라인 강의 출시를 준비하려고 해. 내 컴퓨터에는 AGENTS.md를 만들어 뒀지만
+    앱에는 아직 적용하지 않았어. 다음에 무엇을 해야 할지 프로젝트 설정을 안내해 줘.
+  max_turns: 12
+  timeout_seconds: 180
+  allowed_tools:
+  - Read
+  - Glob
+  - Grep
+  - Skill
+graders:
+- name: skill-fired
+  type: tool_used
+  tool: Skill
+  input_match: '"skill"\s*:\s*"(?:[\w-]+:)?project"'
+- name: quality
+  type: llm
+  focus: trace
+  criteria: 계정 Project와 로컬 파일을 구분하고 실제 지원되는 적용 경로와 새 대화의 읽기 확인을 제시한다. file_created와
+    project_applied/read_confirmed를 구분한다. 파일만 만들면 자동 적용됐다고 주장하면 FAIL.

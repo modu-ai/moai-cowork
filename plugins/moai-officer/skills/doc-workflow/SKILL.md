@@ -2,7 +2,8 @@
 name: doc-workflow
 description: |
   보고서·슬라이드·표·한국 공문서·노션 구조 등 여러 문서 산출물을 준비할 때 입력 자료와 형식을 확인하고 moai-officer의 doc-*·productivity-* 스킬로 작업을 연결합니다.
-version: "1.0.1"
+metadata:
+  version: "1.0.2"
 ---
 
 # 사무 문서 작업 경로

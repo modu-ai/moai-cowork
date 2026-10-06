@@ -4,7 +4,8 @@ description: |
   사용자 인터뷰 가이드와 사용성 테스트 계획을 만들고, 제공된 VOC·설문·NPS 자료를 분석합니다.
   "인터뷰 질문지 만들어줘", "VOC 분석해줘", "페르소나 정리해줘" 같은 요청에 사용하세요.
   화면의 휴리스틱·접근성 검토는 moai-coworker:collab-ux-design로 연결합니다.
-version: "1.1.2"
+metadata:
+  version: "1.1.3"
 ---
 
 # UX 리서치

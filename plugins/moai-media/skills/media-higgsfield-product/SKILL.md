@@ -10,7 +10,8 @@ description: |
   - "Higgsfield 핀터레스트 핀", "Higgsfield 웹사이트 히어로 배너"
   주의: 공식 product-photoshoot 전용 강화기와 일반 이미지 모델의 직접 생성은 서로 다른 경로입니다.
   현재 연결에 전용 기능이 없으면 한계를 밝히고 모드별 프롬프트를 직접 조립합니다.
-version: "1.3.3"
+metadata:
+  version: "1.3.4"
 ---
 
 # Higgsfield 제품 촬영 (media-higgsfield-product)

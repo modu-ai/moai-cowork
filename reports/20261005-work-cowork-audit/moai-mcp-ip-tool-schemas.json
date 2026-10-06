@@ -1,0 +1,856 @@
+[
+  {
+    "name": "ip_check_access",
+    "title": null,
+    "description": "조사 전에 데이터 소스별 자격증명 설정 여부를 확인한다 (값은 절대 돌려주지 않음).\n\n    Args:\n        sources: 확인할 소스 ID 목록. kipris-plus · uspto-odp · uspto-tsdr · jpo · epo-ops.\n            비우면 전부.\n        verify: true면 설정된 소스에 최소 호출을 보내 실제 연결(인증 성공·상품 이용 기간 만료·서버 오류)을\n            확인한다. 사용자가 \"설정 완료\"라고 한 뒤에 쓴다.\n\n    Returns: ready, missing, 소스별 status(configured/missing)·registration_url·coverage·limits·tools,\n        credential_file, how_to_set. verify=true면 소스별 verification 추가.\n    ",
+    "inputSchema": {
+      "properties": {
+        "sources": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Sources"
+        },
+        "verify": {
+          "default": false,
+          "title": "Verify",
+          "type": "boolean"
+        }
+      },
+      "title": "ip_check_accessArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": true,
+      "title": "ip_check_accessDictOutput",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "name": "kipris_patent_search",
+    "title": null,
+    "description": "한국 특허·실용신안 검색 (KIPRIS Plus getAdvancedSearch).\n\n    Args:\n        word: 전체 필드 자유 검색어.\n        invention_title / abstract / claim: 발명의 명칭·요약·청구범위 검색어.\n        ipc_number: IPC 분류 (예: G06N).\n        applicant / inventors / right_holder: 출원인·발명자·권리자.\n        patent / utility: 특허·실용신안 포함 여부.\n        status: 행정상태. 빈 값=전체, A=공개, C=취하, F=소멸, G=포기, I=무효, J=거절, R=등록.\n        sort_spec: PD·AD·GD·OPD·FD·FOD·RD 중 하나 (공식 명세 값).\n        page_no / num_of_rows: 페이지(1부터)·페이지 크기(최대 500).\n        extra_params: 공식 명세에 있으나 여기서 따로 받지 않는 파라미터 (예: 날짜 범위 YYYYMMDD~YYYYMMDD).\n\n    Returns: total_count(전체 건수), returned_count, items(발명의 명칭·출원번호·출원일·등록상태·IPC·요약 등), query.\n    ",
+    "inputSchema": {
+      "properties": {
+        "word": {
+          "default": "",
+          "title": "Word",
+          "type": "string"
+        },
+        "invention_title": {
+          "default": "",
+          "title": "Invention Title",
+          "type": "string"
+        },
+        "abstract": {
+          "default": "",
+          "title": "Abstract",
+          "type": "string"
+        },
+        "claim": {
+          "default": "",
+          "title": "Claim",
+          "type": "string"
+        },
+        "ipc_number": {
+          "default": "",
+          "title": "Ipc Number",
+          "type": "string"
+        },
+        "applicant": {
+          "default": "",
+          "title": "Applicant",
+          "type": "string"
+        },
+        "inventors": {
+          "default": "",
+          "title": "Inventors",
+          "type": "string"
+        },
+        "right_holder": {
+          "default": "",
+          "title": "Right Holder",
+          "type": "string"
+        },
+        "patent": {
+          "default": true,
+          "title": "Patent",
+          "type": "boolean"
+        },
+        "utility": {
+          "default": true,
+          "title": "Utility",
+          "type": "boolean"
+        },
+        "status": {
+          "default": "",
+          "title": "Status",
+          "type": "string"
+        },
+        "sort_spec": {
+          "default": "",
+          "title": "Sort Spec",
+          "type": "string"
+        },
+        "desc_sort": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Desc Sort"
+        },
+        "page_no": {
+          "default": 1,
+          "title": "Page No",
+          "type": "integer"
+        },
+        "num_of_rows": {
+          "default": 20,
+          "title": "Num Of Rows",
+          "type": "integer"
+        },
+        "extra_params": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Extra Params"
+        }
+      },
+      "title": "kipris_patent_searchArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": true,
+      "title": "kipris_patent_searchDictOutput",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "name": "kipris_patent_detail",
+    "title": null,
+    "description": "한국 특허·실용신안 서지 상세 (출원번호 기준, 하이픈 허용).",
+    "inputSchema": {
+      "properties": {
+        "application_number": {
+          "title": "Application Number",
+          "type": "string"
+        }
+      },
+      "required": [
+        "application_number"
+      ],
+      "title": "kipris_patent_detailArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": true,
+      "title": "kipris_patent_detailDictOutput",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "name": "kipris_trademark_search",
+    "title": null,
+    "description": "한국 상표 검색 (KIPRIS Plus trademarkInfoSearchService getAdvancedSearch).\n\n    Args:\n        trademark_name: 상표명칭 검색. trademark_name_match: 상표명칭 일치 검색.\n        free_search: 자유 검색. classification: 니스 류 (예: 35). similarity_code: 유사군 코드 (KIPRIS 유사군 코드표 기준).\n        designated_goods: 지정상품. applicant_name / agent_name / right_holder: 출원인·대리인·등록권자.\n        vienna_code: 도형 분류. application_date / registration_date: YYYYMMDD~YYYYMMDD.\n        statuses: 권리상태 필터 — application·registration·refused·expiration·withdrawal·publication·cancel·abandonment.\n            비우면 전부 포함 (공식 규칙상 하나 이상 true 필요).\n        mark_types: trademark·serviceMark·trademarkServiceMark·businessEmblem·collectiveMark·geoOrgMark·\n            internationalMark·certMark·geoCertMark. 비우면 전부.\n        compositions: character·figure·compositionCharacter·figureComposition·sound·fragrance·color·dimension·\n            colorMixed·hologram·motion·visual·invisible. 비우면 전부.\n        page_no / num_of_rows: 페이지·페이지 크기(최대 500).\n        extra_params: 공식 명세의 나머지 파라미터 (예: publicationDate, sortSpec).\n\n    Returns: total_count, items(title·applicationNumber·applicationStatus·classificationCode·applicantName·\n        regPrivilegeName·출원/등록일·drawing 이미지 주소 등), query.\n    ",
+    "inputSchema": {
+      "properties": {
+        "trademark_name": {
+          "default": "",
+          "title": "Trademark Name",
+          "type": "string"
+        },
+        "trademark_name_match": {
+          "default": "",
+          "title": "Trademark Name Match",
+          "type": "string"
+        },
+        "free_search": {
+          "default": "",
+          "title": "Free Search",
+          "type": "string"
+        },
+        "classification": {
+          "default": "",
+          "title": "Classification",
+          "type": "string"
+        },
+        "similarity_code": {
+          "default": "",
+          "title": "Similarity Code",
+          "type": "string"
+        },
+        "designated_goods": {
+          "default": "",
+          "title": "Designated Goods",
+          "type": "string"
+        },
+        "applicant_name": {
+          "default": "",
+          "title": "Applicant Name",
+          "type": "string"
+        },
+        "agent_name": {
+          "default": "",
+          "title": "Agent Name",
+          "type": "string"
+        },
+        "right_holder": {
+          "default": "",
+          "title": "Right Holder",
+          "type": "string"
+        },
+        "vienna_code": {
+          "default": "",
+          "title": "Vienna Code",
+          "type": "string"
+        },
+        "application_date": {
+          "default": "",
+          "title": "Application Date",
+          "type": "string"
+        },
+        "registration_date": {
+          "default": "",
+          "title": "Registration Date",
+          "type": "string"
+        },
+        "statuses": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Statuses"
+        },
+        "mark_types": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Mark Types"
+        },
+        "compositions": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Compositions"
+        },
+        "page_no": {
+          "default": 1,
+          "title": "Page No",
+          "type": "integer"
+        },
+        "num_of_rows": {
+          "default": 30,
+          "title": "Num Of Rows",
+          "type": "integer"
+        },
+        "extra_params": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Extra Params"
+        }
+      },
+      "title": "kipris_trademark_searchArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": true,
+      "title": "kipris_trademark_searchDictOutput",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "name": "kipris_trademark_detail",
+    "title": null,
+    "description": "한국 상표 서지·행정처리 이력 상세 (출원번호 기준).",
+    "inputSchema": {
+      "properties": {
+        "application_number": {
+          "title": "Application Number",
+          "type": "string"
+        }
+      },
+      "required": [
+        "application_number"
+      ],
+      "title": "kipris_trademark_detailArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": true,
+      "title": "kipris_trademark_detailDictOutput",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "name": "uspto_patent_search",
+    "title": null,
+    "description": "미국 특허 출원 검색 (USPTO Open Data Portal).\n\n    Args:\n        q: 검색식. 불리언(AND/OR/NOT)·와일드카드·`필드:값`·범위 `[a TO b]` 지원.\n        filters: [{\"name\": 필드, \"value\": [값...]}]. range_filters: [{\"field\", \"valueFrom\", \"valueTo\"}].\n        sort: [{\"field\", \"order\": \"asc\"|\"desc\"}]. fields: 돌려받을 필드 목록.\n        offset / limit: 페이지 시작·크기(1~100).\n\n    Returns: request(보낸 본문), data(ODP 원본 JSON — 총 건수와 출원 목록).\n    ",
+    "inputSchema": {
+      "properties": {
+        "q": {
+          "default": "",
+          "title": "Q",
+          "type": "string"
+        },
+        "filters": {
+          "anyOf": [
+            {
+              "items": {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Filters"
+        },
+        "range_filters": {
+          "anyOf": [
+            {
+              "items": {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Range Filters"
+        },
+        "sort": {
+          "anyOf": [
+            {
+              "items": {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Sort"
+        },
+        "fields": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fields"
+        },
+        "offset": {
+          "default": 0,
+          "title": "Offset",
+          "type": "integer"
+        },
+        "limit": {
+          "default": 25,
+          "title": "Limit",
+          "type": "integer"
+        }
+      },
+      "title": "uspto_patent_searchArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": true,
+      "title": "uspto_patent_searchDictOutput",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "name": "uspto_patent_application",
+    "title": null,
+    "description": "미국 특허 출원 메타데이터 (출원번호 기준, 예: 16123456 또는 16/123,456).",
+    "inputSchema": {
+      "properties": {
+        "application_number": {
+          "title": "Application Number",
+          "type": "string"
+        }
+      },
+      "required": [
+        "application_number"
+      ],
+      "title": "uspto_patent_applicationArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": true,
+      "title": "uspto_patent_applicationDictOutput",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "name": "uspto_trademark_status",
+    "title": null,
+    "description": "미국 상표 사건 상태 (USPTO TSDR, ST.96 XML을 구조화해 반환).\n\n    USPTO는 상표 문자 검색 API를 제공하지 않는다. 후보는 USPTO Trademark Search 웹 화면에서 찾고,\n    찾은 번호로 이 도구를 불러 상태·소유자·지정상품을 확인한다.\n\n    Args:\n        number: 사건 번호. 접두어 포함(sn78787878)도 허용.\n        number_type: sn(일련번호·8자리) · rn(등록번호) · ref(참조번호) · ir(국제등록번호).\n    ",
+    "inputSchema": {
+      "properties": {
+        "number": {
+          "title": "Number",
+          "type": "string"
+        },
+        "number_type": {
+          "default": "sn",
+          "title": "Number Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "number"
+      ],
+      "title": "uspto_trademark_statusArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": true,
+      "title": "uspto_trademark_statusDictOutput",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "name": "jpo_patent_progress",
+    "title": null,
+    "description": "일본 특허 경과 정보 (출원번호 10자리: 서기 4자리+6자리, 예: 2020008423). simple=true면 간이 경과.",
+    "inputSchema": {
+      "properties": {
+        "application_number": {
+          "title": "Application Number",
+          "type": "string"
+        },
+        "simple": {
+          "default": false,
+          "title": "Simple",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "application_number"
+      ],
+      "title": "jpo_patent_progressArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": true,
+      "title": "jpo_patent_progressDictOutput",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "name": "jpo_patent_registration",
+    "title": null,
+    "description": "일본 특허 등록 정보 (출원번호 10자리).",
+    "inputSchema": {
+      "properties": {
+        "application_number": {
+          "title": "Application Number",
+          "type": "string"
+        }
+      },
+      "required": [
+        "application_number"
+      ],
+      "title": "jpo_patent_registrationArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": true,
+      "title": "jpo_patent_registrationDictOutput",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "name": "jpo_trademark_progress",
+    "title": null,
+    "description": "일본 상표 경과 정보 (출원번호 10자리). 표시용 상표·음역·지정상품·권리자 포함.",
+    "inputSchema": {
+      "properties": {
+        "application_number": {
+          "title": "Application Number",
+          "type": "string"
+        }
+      },
+      "required": [
+        "application_number"
+      ],
+      "title": "jpo_trademark_progressArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": true,
+      "title": "jpo_trademark_progressDictOutput",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "name": "jpo_trademark_registration",
+    "title": null,
+    "description": "일본 상표 등록 정보 (출원번호 10자리).",
+    "inputSchema": {
+      "properties": {
+        "application_number": {
+          "title": "Application Number",
+          "type": "string"
+        }
+      },
+      "required": [
+        "application_number"
+      ],
+      "title": "jpo_trademark_registrationArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": true,
+      "title": "jpo_trademark_registrationDictOutput",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "name": "jpo_case_number_reference",
+    "title": null,
+    "description": "일본 사건 번호 상호 참조 — 공개·등록번호로 출원번호 등을 찾는다.\n\n    Args:\n        right: patent 또는 trademark.\n        kind: patent는 application·publication·registration, trademark는 application·registration.\n        number: 번호(숫자).\n    ",
+    "inputSchema": {
+      "properties": {
+        "right": {
+          "title": "Right",
+          "type": "string"
+        },
+        "kind": {
+          "title": "Kind",
+          "type": "string"
+        },
+        "number": {
+          "title": "Number",
+          "type": "string"
+        }
+      },
+      "required": [
+        "right",
+        "kind",
+        "number"
+      ],
+      "title": "jpo_case_number_referenceArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": true,
+      "title": "jpo_case_number_referenceDictOutput",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "name": "jpo_applicant_lookup",
+    "title": null,
+    "description": "일본 출원인·대리인 코드 조회 (정확한 이름 기준). right: patent 또는 trademark.",
+    "inputSchema": {
+      "properties": {
+        "right": {
+          "title": "Right",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "right",
+        "name"
+      ],
+      "title": "jpo_applicant_lookupArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": true,
+      "title": "jpo_applicant_lookupDictOutput",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "name": "epo_search",
+    "title": null,
+    "description": "유럽·국제 공개 특허 검색 (EPO OPS, CQL).\n\n    Args:\n        cql: CQL 검색식. 예: ta=\"solid state battery\" and pa=\"samsung\" and pd>=2020\n            (ta=명칭·요약, pa=출원인, ic/cpc=분류, pd=공개일).\n        start / end: 결과 범위 (한 번에 최대 100건, 끝 값 2,000 이하).\n        with_biblio: true면 서지 요약을 함께 받는다(응답이 커진다).\n    ",
+    "inputSchema": {
+      "properties": {
+        "cql": {
+          "title": "Cql",
+          "type": "string"
+        },
+        "start": {
+          "default": 1,
+          "title": "Start",
+          "type": "integer"
+        },
+        "end": {
+          "default": 25,
+          "title": "End",
+          "type": "integer"
+        },
+        "with_biblio": {
+          "default": false,
+          "title": "With Biblio",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "cql"
+      ],
+      "title": "epo_searchArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": true,
+      "title": "epo_searchDictOutput",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "name": "epo_biblio",
+    "title": null,
+    "description": "EPO 서지 정보. reference_type: publication·application·priority. input_format: docdb(EP.1000000.A1) 또는 epodoc(EP1000000).",
+    "inputSchema": {
+      "properties": {
+        "reference_type": {
+          "title": "Reference Type",
+          "type": "string"
+        },
+        "number": {
+          "title": "Number",
+          "type": "string"
+        },
+        "input_format": {
+          "default": "docdb",
+          "title": "Input Format",
+          "type": "string"
+        }
+      },
+      "required": [
+        "reference_type",
+        "number"
+      ],
+      "title": "epo_biblioArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": true,
+      "title": "epo_biblioDictOutput",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "name": "epo_family",
+    "title": null,
+    "description": "INPADOC 특허 패밀리. constituent: 빈 값·biblio·legal (legal이면 패밀리 구성원별 법적 상태 포함).",
+    "inputSchema": {
+      "properties": {
+        "reference_type": {
+          "title": "Reference Type",
+          "type": "string"
+        },
+        "number": {
+          "title": "Number",
+          "type": "string"
+        },
+        "input_format": {
+          "default": "docdb",
+          "title": "Input Format",
+          "type": "string"
+        },
+        "constituent": {
+          "default": "",
+          "title": "Constituent",
+          "type": "string"
+        }
+      },
+      "required": [
+        "reference_type",
+        "number"
+      ],
+      "title": "epo_familyArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": true,
+      "title": "epo_familyDictOutput",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "name": "epo_legal",
+    "title": null,
+    "description": "INPADOC 법적 상태 이력. 공식 법적 상태 표시는 지연될 수 있으므로 중요한 권리는 원등록부로 재확인한다.",
+    "inputSchema": {
+      "properties": {
+        "reference_type": {
+          "title": "Reference Type",
+          "type": "string"
+        },
+        "number": {
+          "title": "Number",
+          "type": "string"
+        },
+        "input_format": {
+          "default": "docdb",
+          "title": "Input Format",
+          "type": "string"
+        }
+      },
+      "required": [
+        "reference_type",
+        "number"
+      ],
+      "title": "epo_legalArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": true,
+      "title": "epo_legalDictOutput",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  }
+]

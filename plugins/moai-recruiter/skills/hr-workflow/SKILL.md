@@ -2,7 +2,8 @@
 name: hr-workflow
 description: |
   채용공고·지원자 평가·오퍼·성과평가·인사 운영이 함께 필요한 고용주 편 요청에서 직무 기준과 자료를 확인하고 moai-recruiter의 hr-* 스킬로 연결합니다. 구직자 편은 moai-career로 연결합니다.
-version: "1.0.0"
+metadata:
+  version: "1.0.1"
 ---
 
 # 고용주 편 채용 작업 경로

@@ -1,0 +1,235 @@
+[
+  {
+    "scrollWidth": 379,
+    "url": "http://127.0.0.1:1313/",
+    "visibleImages": [
+      {
+        "complete": true,
+        "naturalWidth": 300,
+        "src": "http://127.0.0.1:1313/logos/moai-logo-1-WH.png"
+      },
+      {
+        "complete": true,
+        "naturalWidth": 1200,
+        "src": "http://127.0.0.1:1313/mascots/MoAI-Mascot-Teaching.png"
+      }
+    ],
+    "width": 379
+  },
+  {
+    "pictureSource": "http://127.0.0.1:1313/infographics/pages/report-status-mobile.svg",
+    "scrollWidth": 379,
+    "url": "http://127.0.0.1:1313/learn/03-first-result/",
+    "visibleImages": [
+      {
+        "complete": true,
+        "naturalWidth": 300,
+        "src": "http://127.0.0.1:1313/logos/moai-logo-1-WH.png"
+      },
+      {
+        "complete": true,
+        "naturalWidth": 1536,
+        "src": "http://127.0.0.1:1313/infographics/first-workflow-ko.png"
+      }
+    ],
+    "width": 379
+  },
+  {
+    "pictureSource": "http://127.0.0.1:1313/infographics/pages/choose-recipe-mobile.svg",
+    "scrollWidth": 379,
+    "url": "http://127.0.0.1:1313/plugins/",
+    "visibleImages": [
+      {
+        "complete": true,
+        "naturalWidth": 300,
+        "src": "http://127.0.0.1:1313/logos/moai-logo-1-WH.png"
+      }
+    ],
+    "width": 379
+  },
+  {
+    "pictureSource": "http://127.0.0.1:1313/infographics/pages/choose-recipe-mobile.svg",
+    "scrollWidth": 379,
+    "url": "http://127.0.0.1:1313/moai-agents/",
+    "visibleImages": [
+      {
+        "complete": true,
+        "naturalWidth": 300,
+        "src": "http://127.0.0.1:1313/logos/moai-logo-1-WH.png"
+      },
+      {
+        "complete": true,
+        "naturalWidth": 800,
+        "src": "http://127.0.0.1:1313/infographics/pages/choose-recipe-mobile.svg"
+      }
+    ],
+    "width": 379
+  },
+  {
+    "pictureSource": "http://127.0.0.1:1313/infographics/pages/questions-mobile.svg",
+    "scrollWidth": 379,
+    "url": "http://127.0.0.1:1313/getting-started/questions/",
+    "visibleImages": [
+      {
+        "complete": true,
+        "naturalWidth": 300,
+        "src": "http://127.0.0.1:1313/logos/moai-logo-1-WH.png"
+      },
+      {
+        "complete": true,
+        "naturalWidth": 800,
+        "src": "http://127.0.0.1:1313/infographics/pages/questions-mobile.svg"
+      }
+    ],
+    "width": 379
+  },
+  {
+    "pictureSource": "http://127.0.0.1:1313/infographics/pages/example-cookbook-guides-data-analysis-mobile.svg",
+    "scrollWidth": 379,
+    "url": "http://127.0.0.1:1313/cookbook/guides/data-analysis/",
+    "visibleImages": [
+      {
+        "complete": true,
+        "naturalWidth": 300,
+        "src": "http://127.0.0.1:1313/logos/moai-logo-1-WH.png"
+      },
+      {
+        "complete": true,
+        "naturalWidth": 800,
+        "src": "http://127.0.0.1:1313/infographics/pages/example-cookbook-guides-data-analysis-mobile.svg"
+      }
+    ],
+    "width": 379
+  },
+  {
+    "scrollWidth": 757,
+    "url": "http://127.0.0.1:1313/",
+    "visibleImages": [
+      {
+        "complete": true,
+        "naturalWidth": 300,
+        "src": "http://127.0.0.1:1313/logos/moai-logo-1-WH.png"
+      },
+      {
+        "complete": true,
+        "naturalWidth": 1200,
+        "src": "http://127.0.0.1:1313/mascots/MoAI-Mascot-Teaching.png"
+      }
+    ],
+    "width": 757
+  },
+  {
+    "pictureSource": "http://127.0.0.1:1313/infographics/pages/report-status.svg",
+    "scrollWidth": 757,
+    "url": "http://127.0.0.1:1313/learn/03-first-result/",
+    "visibleImages": [
+      {
+        "complete": true,
+        "naturalWidth": 300,
+        "src": "http://127.0.0.1:1313/logos/moai-logo-1-WH.png"
+      },
+      {
+        "complete": true,
+        "naturalWidth": 1536,
+        "src": "http://127.0.0.1:1313/infographics/first-workflow-ko.png"
+      }
+    ],
+    "width": 757
+  },
+  {
+    "pictureSource": "http://127.0.0.1:1313/infographics/pages/choose-recipe.svg",
+    "scrollWidth": 757,
+    "url": "http://127.0.0.1:1313/plugins/",
+    "visibleImages": [
+      {
+        "complete": true,
+        "naturalWidth": 300,
+        "src": "http://127.0.0.1:1313/logos/moai-logo-1-WH.png"
+      },
+      {
+        "complete": true,
+        "naturalWidth": 800,
+        "src": "http://127.0.0.1:1313/infographics/pages/choose-recipe.svg"
+      }
+    ],
+    "width": 757
+  },
+  {
+    "pictureSource": "http://127.0.0.1:1313/infographics/pages/choose-recipe.svg",
+    "scrollWidth": 757,
+    "url": "http://127.0.0.1:1313/moai-agents/",
+    "visibleImages": [
+      {
+        "complete": true,
+        "naturalWidth": 300,
+        "src": "http://127.0.0.1:1313/logos/moai-logo-1-WH.png"
+      },
+      {
+        "complete": true,
+        "naturalWidth": 800,
+        "src": "http://127.0.0.1:1313/infographics/pages/choose-recipe.svg"
+      }
+    ],
+    "width": 757
+  },
+  {
+    "pictureSource": "http://127.0.0.1:1313/infographics/pages/questions.svg",
+    "scrollWidth": 757,
+    "url": "http://127.0.0.1:1313/getting-started/questions/",
+    "visibleImages": [
+      {
+        "complete": true,
+        "naturalWidth": 300,
+        "src": "http://127.0.0.1:1313/logos/moai-logo-1-WH.png"
+      },
+      {
+        "complete": true,
+        "naturalWidth": 800,
+        "src": "http://127.0.0.1:1313/infographics/pages/questions.svg"
+      }
+    ],
+    "width": 757
+  },
+  {
+    "pictureSource": "http://127.0.0.1:1313/infographics/pages/example-cookbook-guides-data-analysis.svg",
+    "scrollWidth": 757,
+    "url": "http://127.0.0.1:1313/cookbook/guides/data-analysis/",
+    "visibleImages": [
+      {
+        "complete": true,
+        "naturalWidth": 300,
+        "src": "http://127.0.0.1:1313/logos/moai-logo-1-WH.png"
+      },
+      {
+        "complete": true,
+        "naturalWidth": 800,
+        "src": "http://127.0.0.1:1313/infographics/pages/example-cookbook-guides-data-analysis.svg"
+      }
+    ],
+    "width": 757
+  },
+  {
+    "scrollWidth": 589,
+    "searchRight": 573,
+    "url": "http://127.0.0.1:1313/",
+    "width": 589
+  },
+  {
+    "scrollWidth": 590,
+    "searchRight": 574,
+    "url": "http://127.0.0.1:1313/",
+    "width": 590
+  },
+  {
+    "scrollWidth": 839,
+    "searchRight": 807,
+    "url": "http://127.0.0.1:1313/",
+    "width": 839
+  },
+  {
+    "scrollWidth": 840,
+    "searchRight": 824.90625,
+    "url": "http://127.0.0.1:1313/",
+    "width": 840
+  }
+]

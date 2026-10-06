@@ -1,0 +1,403 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MoAI-Cowork 프로젝트 실행 계약 버전 2",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 2
+    },
+    "project": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "name",
+        "purpose"
+      ],
+      "additionalProperties": true
+    },
+    "host": {
+      "type": "object",
+      "properties": {
+        "surface": {
+          "enum": [
+            "openai-work",
+            "openai-local",
+            "claude-project",
+            "claude-local",
+            "claude-code",
+            "unknown"
+          ]
+        },
+        "project_kind": {
+          "enum": [
+            "account",
+            "local",
+            "synced",
+            "unknown"
+          ]
+        },
+        "execution_location": {
+          "type": "string",
+          "minLength": 1
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "instruction_status": {
+          "enum": [
+            "unverified",
+            "file_created",
+            "project_applied",
+            "read_confirmed"
+          ]
+        },
+        "subagents": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "delegation_authorized": {
+          "type": "boolean"
+        },
+        "max_concurrent": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "surface",
+        "project_kind",
+        "execution_location",
+        "observations",
+        "instruction_status",
+        "subagents",
+        "delegation_authorized",
+        "max_concurrent"
+      ],
+      "additionalProperties": true
+    },
+    "sensitivity": {
+      "enum": [
+        "public",
+        "sensitive",
+        "unknown"
+      ]
+    },
+    "plugins_installed": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "skills_available": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^moai-[a-z0-9-]+:[a-z0-9-]+$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "plugin": {
+            "type": "string",
+            "minLength": 1
+          },
+          "version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "digest": {
+            "type": "string",
+            "pattern": "^sha256:[a-f0-9]{64}$"
+          },
+          "status": {
+            "enum": [
+              "catalog",
+              "installed",
+              "exposed",
+              "callable",
+              "unavailable",
+              "unknown"
+            ]
+          },
+          "observed_at": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "plugin",
+          "version",
+          "digest",
+          "status"
+        ],
+        "additionalProperties": true
+      }
+    },
+    "context": {
+      "type": "object",
+      "properties": {
+        "answers": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "value": {},
+              "source": {
+                "type": "string",
+                "minLength": 1
+              },
+              "verified": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "value",
+              "source"
+            ],
+            "additionalProperties": true
+          }
+        },
+        "questions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              },
+              "affected_steps": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "status": {
+                "enum": [
+                  "waiting",
+                  "answered",
+                  "deferred",
+                  "not_applicable"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "text",
+              "status"
+            ],
+            "additionalProperties": true
+          }
+        }
+      },
+      "required": [
+        "answers",
+        "questions"
+      ],
+      "additionalProperties": true
+    },
+    "experts": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "type": "string",
+            "minLength": 1
+          },
+          "skills": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^moai-[a-z0-9-]+:[a-z0-9-]+$"
+            }
+          },
+          "inputs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "outputs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "write_set": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "verification": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "missing_context": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "role",
+          "skills",
+          "inputs",
+          "outputs",
+          "write_set",
+          "verification",
+          "missing_context"
+        ],
+        "additionalProperties": true
+      }
+    },
+    "workflows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "agent": {
+            "type": "string",
+            "minLength": 1
+          },
+          "depends_on": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "skills": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^moai-[a-z0-9-]+:[a-z0-9-]+$"
+            }
+          },
+          "operation": {
+            "enum": [
+              "read",
+              "write",
+              "external_write"
+            ]
+          },
+          "write_set": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "outputs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "completion_criteria": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "pending",
+              "running",
+              "blocked",
+              "completed",
+              "failed"
+            ]
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "account_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "authorization": {
+            "enum": [
+              "granted",
+              "unknown",
+              "denied"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "depends_on",
+          "skills",
+          "operation",
+          "write_set",
+          "outputs",
+          "completion_criteria",
+          "status",
+          "evidence"
+        ],
+        "additionalProperties": true
+      }
+    },
+    "template_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "hard_block_digests": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "coverage": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "project",
+    "host",
+    "sensitivity",
+    "skills_available",
+    "context",
+    "experts",
+    "workflows"
+  ],
+  "additionalProperties": true
+}

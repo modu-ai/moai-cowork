@@ -201,6 +201,8 @@ def render_module(tag, slug, tool_name, label, ops):
     else:
         out.append("from typing import Literal")
     out.append("")
+    out.append("from mcp.types import ToolAnnotations")
+    out.append("")
     out.append("from .._app import mcp")
     out.append("from .._base import get_client")
     out.append("")
@@ -263,7 +265,9 @@ def render_module(tag, slug, tool_name, label, ops):
     doc.append("Returns: API JSON.")
     docstring = "\n".join(doc)
 
-    out.append("@mcp.tool()")
+    read_only = all(o["method"] in {"GET", "HEAD"} for o in ops)
+    destructive = not read_only
+    out.append(f"@mcp.tool(annotations=ToolAnnotations(readOnlyHint={read_only}, destructiveHint={destructive}, idempotentHint={read_only}, openWorldHint=True))")
     out.append(
         f"def {tool_name}(action: {literal}, params: dict | None = None, "
         f"body: {body_param_ann} = None, paginate: bool = False) -> dict:"

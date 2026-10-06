@@ -1,6 +1,6 @@
 # 디자인 시스템 → getdesign.md 링크 매핑표
 
-현재 설치된 [`moai-designer:design-system-library`](../../../moai-designer/skills/design-system-library/SKILL.md)의 브랜드 시스템에 대한 [`getdesign.md`](https://getdesign.md) 참고 링크입니다. 이 사이트는 브랜드 공식 규격이 아닌 독립 분석이며, 아래 링크는 먼저 해당 브랜드의 목록 페이지를 엽니다. 상세 디자인은 목록에서 다시 선택합니다. 링크와 토큰 값은 사용 전에 확인합니다.
+현재 설치된 `moai-designer:design-system-library`의 브랜드 시스템에 대한 [`getdesign.md`](https://getdesign.md) 참고 링크입니다. 이 사이트는 브랜드 공식 규격이 아닌 독립 분석이며, 아래 링크는 먼저 해당 브랜드의 목록 페이지를 엽니다. 상세 디자인은 목록에서 다시 선택합니다. 링크와 토큰 값은 사용 전에 확인합니다.
 
 ## URL 패턴
 

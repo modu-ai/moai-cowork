@@ -1,0 +1,47 @@
+[
+  {
+    "path": "plugins/moai-cs/skills/cs-draft-response/SKILL.md",
+    "line": 94,
+    "target": "references/kr-honorific-tone.md"
+  },
+  {
+    "path": "plugins/moai-cs/skills/cs-kb-article/SKILL.md",
+    "line": 125,
+    "target": "references/kr-honorific-tone.md"
+  },
+  {
+    "path": "plugins/moai-cs/skills/cs-escalation/SKILL.md",
+    "line": 126,
+    "target": "references/kr-honorific-tone.md"
+  },
+  {
+    "path": "plugins/moai-officer/skills/doc-docx/SKILL.md",
+    "line": 86,
+    "target": "references/kr-official-forms.md"
+  },
+  {
+    "path": "plugins/moai-coworker/skills/collab-process/SKILL.md",
+    "line": 65,
+    "target": "references/kr-official-forms.md"
+  },
+  {
+    "path": "plugins/moai-coworker/skills/collab-negotiation/SKILL.md",
+    "line": 61,
+    "target": "references/kr-honorific-tone.md"
+  },
+  {
+    "path": "plugins/moai-career/skills/career-junior-onboarding/SKILL.md",
+    "line": 140,
+    "target": "references/kr-pii-masking.md"
+  },
+  {
+    "path": "plugins/moai-career/skills/career-transition/SKILL.md",
+    "line": 160,
+    "target": "references/kr-pii-masking.md"
+  },
+  {
+    "path": "plugins/moai-story/skills/story-ad-conti/SKILL.md",
+    "line": 12,
+    "target": "references/ad-conti-preset.md"
+  }
+]

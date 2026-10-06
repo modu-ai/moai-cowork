@@ -1,226 +1,110 @@
 ---
 title: "운영 트랙"
-weight: 27
-description: "운영팀·PM·CS·B2B 영업을 위한 통합 워크플로우. moai-coworker·moai-pm·moai-cs를 한 줄 요청으로 자동 처리."
+description: "업무 절차·팀 기준을 준비해 운영 절차와 보고서를 만드는 실습"
+weight: 10
+date: 2026-10-05T00:00:00+09:00
+lastmod: 2026-10-06
 geekdocBreadcrumb: true
-date: 2026-08-07T00:00:00+09:00
-lastmod: 2026-08-13T00:00:00+09:00
 ---
 
-> **대상**: 운영팀, PM, 고객지원(CS) 매니저, B2B 영업 담당자, 사내 어시스턴트
-> **전제**: moai-coworker 활성화 + (선택) moai-pm · moai-cs 중 필요한 것
-> **소요**: 시나리오당 약 3-10분 (반복은 스케줄로 자동화)
+**이 실습의 결과는 운영 절차와 보고서입니다.** ChatGPT Work와 Claude Cowork 모두 목표와 자료를 제공하는 방식으로 시작합니다. 실제 서비스 연결과 지원 도구는 현재 앱에서 확인하세요.
 
-## 무엇을 할 수 있나
 
-```mermaid
-flowchart TD
-   subgraph 회의["회의·보고"]
-       A1["collab-pm-report<br/>주간 보고서"]
-       A2["collab-status-report<br/>상태 보고"]
-       A3["collab-meeting<br/>SOP·회의록"]
-   end
-   subgraph CS["고객 지원"]
-       B1["cs-ticket-triage<br/>티켓 분류"]
-       B2["cs-draft-response<br/>응답 초안"]
-       B3["cs-kb-article<br/>FAQ"]
-       B4["cs-escalation<br/>에스컬레이션"]
-   end
-   subgraph Sales["B2B 영업"]
-       C1["collab-proposal<br/>12섹션 제안서"]
-   end
-   subgraph Vendor["벤더 관리"]
-       D1["collab-vendor<br/>공급사 관리"]
-   end
-   회의 -.-> CS
-   회의 -.-> Sales
-   회의 -.-> Vendor
+<!--more-->
+
+
+## 준비물
+
+업무 절차·팀 기준을 준비합니다. 실습에서는 가상 자료나 공개 가능한 자료를 사용할 수 있습니다. [관련 역할](/moai-agents/coworker/)의 스킬을 추가하려면 [설치 안내](/plugins/install/)를 확인합니다.
+
+## 첫 요청
+
+```text
+제공한 자료로 운영 절차와 보고서을 만들어 줘.
+목표·독자·결과 형식을 먼저 확인하고 부족한 정보는 질문해 줘.
+자료 확인, 요구 정리, 초안, 검토 순서로 진행해 줘.
+자료 없는 사실과 수치는 만들지 말고 미정 항목을 표시해 줘.
+외부 게시·발송·계정 변경 없이 검토용 결과부터 보여 줘.
 ```
 
-## 한 줄 요청 예시 4종
+## 진행 순서
 
-| # | 한 줄 요청 | 자동 체인 |
+1. **자료 확인:** 업무 절차·팀 기준 중 읽을 수 있는 것과 없는 것을 구분합니다.
+2. **맥락 확인:** 독자·형식·범위를 질문에 답해 정합니다.
+3. **초안 작성:** 자료 확인, 요구 정리, 초안, 검토 순서로 진행합니다.
+4. **검토:** 담당·인계·미정 사항을 확인합니다.
+5. **수정·저장:** 변경할 부분을 지정하고 결과를 별도 위치에 저장합니다.
+
+독립적인 조사만 병렬로 진행하고, 앞 결과가 필요한 작성·변환은 순차로 진행합니다. [전문가 분업](/workflows/experts/)의 역할·입출력 계약을 사용할 수 있습니다.
+
+## 가상 예제로 더 이해하기
+
+아래 자료와 모범 설명은 수업을 위해 작성했습니다. 실제 회사·고객의 실적이나 앱 실행 결과가 아닙니다. 먼저 제공 자료로 작은 결과를 만든 뒤 자신의 자료로 바꿔 보세요.
+
+```text
+문의 12건 답변, FAQ 초안 4개, 배송 지연 원인 미확인. 다음 행동은 안내문 수정과 FAQ 검토.
+```
+
+### 먼저 확인할 질문
+
+독자는 팀장인가요? 담당자와 기한은 정했나요? 답을 모르면 해당 항목을 미정으로 남기고, 그 정보 없이 가능한 범위를 정합니다.
+
+### 모범 결과를 읽는 방법
+
+문의 12건은 답변 완료, FAQ 4개는 검토 전 초안으로 나눕니다. 배송 지연 원인과 다음 행동의 담당자는 확인 필요로 표시합니다. 문장과 서식은 달라도 이 기준을 충족하는지 직접 비교합니다. 원문 위치·출처·상태가 결과에 함께 남으면 다음 검토자에게 넘기기 쉽습니다.
+
+### 직접 비교할 모범 결과
+
+| 항목 | 결과 예시 | 근거·상태 |
 |---|---|---|
-| 1 | "매주 금요일 우리 팀 주간보고 자동화해줘" | collab-pm-report → doc-docx → ai-slop-reviewer → Slack 발송 (스케줄) |
-| 2 | "오늘 들어온 CS 티켓 50개 분류해줘" | cs-ticket-triage → 우선순위 → cs-draft-response |
-| 3 | "RFP 첨부했어. B2B 제안서 만들어줘" | collab-proposal → doc-docx → ai-slop-reviewer |
-| 4 | "공급사 평가표 1분기 만들어줘" | collab-vendor → doc-xlsx |
+| 답변 실적 | 문의 12건 답변 완료 | 완료 |
+| 문서 작업 | FAQ 초안 4개 작성 | 검토 전 초안 |
+| 미해결 사항 | 배송 지연 원인 | 미확인 |
+| 다음 행동 | 안내문 수정 · FAQ 검토 | 담당자·기한 미정 |
 
----
+### 흔한 실수와 수정 요청
 
-## 시나리오 ① 주간 보고서 스케줄 자동화 (패턴 4, 약 5분 설정)
-
-### 사용자 입력
-
-{{< terminal title="claude — cowork" raw="true" >}}
-매주 금요일 오후 4시에 우리 팀 주간보고 자동 발송해줘
-{{< /terminal >}}
-
-### 시스템 인터뷰
-
-1. **데이터 소스**: Notion · Linear · Asana · Slack MCP / CSV 업로드 / 수동 입력
-2. **수신자**: 임원 (격식체) / 팀 (구어체) / 둘 다
-3. **발송 채널**: 슬랙 채널·이메일·노션 페이지
-4. **포함 섹션**: 이번 주 / 다음 주 / 이슈·블로커 / 도움 요청 (4분할 표준)
-5. **자동 발송 vs 검토 후 발송**
-
-### 자동 체인 (매주 자동 반복)
-
-```mermaid
-flowchart TD
-   Cron["매주 금 16:00"] --> Fetch["MCP 자동 fetch<br/>Notion·Linear·Slack"]
-   Fetch --> Gen["collab-pm-report<br/>임원체·팀체 2 버전"]
-   Gen --> S1["doc-docx"]
-   S1 --> S2["ai-slop-reviewer"]
-   S2 --> Send["Slack #weekly 채널 발송"]
-   style Cron fill:#fbf0dc,stroke:#c47b2a
-```
-
-### 산출물
-
-- 매주 금요일 16:00 자동 발송: `90_Output/wbr/2026-W17-{임원|팀}.docx` 2개
-- Slack #weekly 채널 알림 (썸네일 + 핵심 KPI 3개)
-
----
-
-## 시나리오 ② CS 티켓 일괄 분류·응답 (배치, 약 10분)
-
-### 사용자 입력
-
-{{< terminal title="claude — cowork" raw="true" >}}
-오늘 들어온 CS 티켓 50개 분류해줘
-{{< /terminal >}}
-
-### 시스템 인터뷰
-
-1. **티켓 소스**: Zendesk · Intercom · CSV / 자유 텍스트
-2. **분류 기준**: 긴급도 (KTAS 5단계) / 유형 (환불·배송·제품·기타)
-3. **응답 자동 작성**: 예/아니오 (예 시 `cs-draft-response` 자동 호출)
-4. **에스컬레이션 기준**: VIP 고객 · 환불 거부 · 식약처 신고 위협
-
-### 자동 체인
-
-`cs-ticket-triage` (KTAS 5단계 분류) → `cs-voc-triage` (3축 점수, 이커머스인 경우) → `cs-draft-response` (응답 초안 50건) → `ai-slop-reviewer` → `cs-escalation` (Level 1-2 자동 알림)
-
-### 산출물
+FAQ 4개를 최종 완료로 쓰거나 배송 지연 원인을 추정합니다. 이때는 결과 전체를 다시 만들어 달라는 말보다, 틀린 기준과 고칠 위치를 구체적으로 알려 주세요.
 
 ```text
-Level 1 (즉시, <1시간): 3건 — 대표 직접 사과 + 환불 즉시
-Level 2 (응급, <4시간): 8건 — CS팀장 응답 + 1:1 솔루션
-Level 3 (긴급, <24시간): 18건 — CS 표준 응답 자동 발송
-Level 4 (준응급, <72시간): 15건 — 자동 응답 + 72시간 처리
-Level 5 (비응급, <1주): 6건 — 자동 응답 + 감사 표현
+FAQ는 초안 상태야. 담당자와 기한은 미정으로 남기고 원인은 확인 필요로 고쳐 줘.
+수정한 부분과 아직 확인할 항목을 따로 알려 줘.
 ```
 
----
+### 확인 문제
 
-## 시나리오 ③ B2B 제안서 작성 (약 8분)
+보고서의 문장이 자연스럽다면 숫자와 상태 비교를 생략해도 될까요?
 
-### 사용자 입력
+<details><summary>답안과 해설 보기</summary>
 
-{{< terminal title="claude — cowork" raw="true" >}}
-[고객사명] RFP 첨부했어. 제안서 만들어줘
-{{< /terminal >}}
+생략하지 않습니다. 12건과 4개, 완료와 초안의 상태가 원문과 같은지 확인합니다.
 
-### 시스템 인터뷰
+</details>
 
-1. **우리 솔루션 한 줄** + **핵심 차별점 3개**
-2. **가격대 + 일정** (월 50만 30석 · 4주 PoC + 3개월 본 도입)
-3. **레퍼런스 자료** 폴더 경로 (자동 인용)
-4. **출력 형식**: DOCX 본문 / PPTX 발표 30장 / 둘 다
+### 내 업무로 바꿔 보기
 
-### 자동 체인
+예제의 자료를 자신의 공개 가능한 자료로 바꾸고, 결과의 독자와 형식을 다시 정합니다. 변하지 않는 검토 기준은 프로젝트 지침에 저장하고, 이번 작업의 수치와 미정 조건은 새 자료로 제공합니다. [프로젝트와 자료 수업](/learn/02-project-context/)에서 구분 방법을 확인합니다.
 
-`collab-proposal` (12섹션 표준 목차 + Three C's: Compliant · Complete · Compelling) → `doc-docx` 또는 `doc-pptx` → `ai-slop-reviewer`
+## 사용할 수 있는 스킬 후보
 
-### 산출물
+아래는 이 업무에 참고할 수 있는 패키지 기능입니다. 실제 설치·노출 상태를 먼저 확인하며 이 순서로 반드시 자동 실행된다는 뜻은 아닙니다.
 
-- 12섹션 제안서 본문 (표지·Exec Summary·회사 소개·시장·솔루션·기술 스펙·일정·운영·레퍼런스·가격·리스크·부록)
-- Three C's 자동 체크 (RFP 누락 항목 경고 / 빈 섹션 표기 / 정량 수치 보강 제안)
+- `moai-coworker:ai-slop-reviewer`
+- `moai-coworker:collab-meeting`
+- `moai-coworker:collab-pm-report`
+- `moai-coworker:collab-proposal`
+- `moai-coworker:collab-status-report`
 
----
+## 완료 기준
 
-## 시나리오 ④ 공급사 평가표 자동화 (약 5분)
+결과물에 사용 자료와 미확인 항목이 표시되어 있습니다. 담당·인계·미정 사항을 직접 확인했습니다. 파일을 요청한 경우 저장된 파일을 열어 확인합니다. 실제 게시·발송·예약 작업은 별도의 실행 결과로 확인합니다.
 
-### 사용자 입력
+## 막혔을 때
 
-{{< terminal title="claude — cowork" raw="true" >}}
-1분기 공급사 평가표 만들어줘. 공급사 12곳
-{{< /terminal >}}
+자료나 연결이 없으면 제공 자료로 가능한 초안과 다음 준비 목록을 요청합니다. 원문·수치가 다르면 해당 위치와 근거를 지정해 고칩니다. 전문 판단이 필요한 부분은 근거와 쟁점을 정리하고 해당 업무 책임자가 확인합니다.
 
-### 시스템 인터뷰
+[결과 검토](/workflows/review/) · [반복 업무](/workflows/reuse/) · [다른 실습 선택](/cookbook/)
 
-1. **공급사 명단**: CSV / 폴더 / 자유 입력
-2. **평가 기준**: 가격 · 품질 · 납기 · 응답성 · 안정성 (기본 5축, 사용자 추가 가능)
-3. **가중치**: 자동 균등 / 사용자 명시
-4. **출력 형식**: XLSX (자동 차트) / DOCX
+## 공식 문서와 참고 자료
 
-### 자동 체인
-
-`collab-vendor` (5축 평가 매트릭스) → `doc-xlsx` (조건부 서식 + 레이더 차트 + 종합 점수 순위)
-
----
-
-## AskUserQuestion 표준 슬롯 (운영 트랙 공통)
-
-| 슬롯 | 예시 값 |
-|---|---|
-| 데이터 소스 | Notion · Linear · Asana · Slack · CSV · 자유 텍스트 |
-| 톤 | 임원체·팀체·격식·친근 |
-| 발송 채널 | Slack 채널·이메일·노션·MS Teams |
-| 자동화 주기 | 매일·매주·매월·이벤트 트리거 |
-| 검토 단계 | 즉시 발송 / 사용자 컨펌 후 |
-
----
-
-## 스케줄 자동화 — 운영 트랙 핵심
-
-운영 트랙은 **패턴 4 (스케줄 자동화)** 활용 비중이 가장 높습니다.
-
-```text
-일일: 모닝 브리핑 (commerce-morning-brief) + 신규 주문 요약
-매주: 주간보고 (collab-pm-report) + KPI 대시보드
-매월: 월간 성과 (collab-status-report) + 공급사 평가
-분기: 인사평가 (hr-performance-review) + OKR 점검
-```
-
-### 자동화 추가 명령
-
-{{< terminal title="claude — cowork" raw="true" >}}
-매일 오전 8시 우리 매장 어제 주문·문의·트렌드·ROAS 4영역 1줄 브리핑 슬랙으로 보내줘
-{{< /terminal >}}
-
-→ `commerce-morning-brief` (어제 주문·신규 문의·트렌드·ROAS 4영역 1줄 통합) 매일 자동 실행
-
----
-
-## 자주 묻는 질문
-
-### Q. Notion·Linear·Slack MCP 없이도 주간보고 가능한가요?
-
-예. 자유 텍스트 입력 fallback 자동 동작. MCP 있으면 자동 수집, 없으면 사용자가 4분할(이번 주/다음 주/이슈/도움) 입력만 하면 됨.
-
-### Q. CS 티켓 응답을 사용자 검토 없이 자동 발송하면 위험하지 않나요?
-
-기본값: **Level 3-5 자동 발송 / Level 1-2 사용자 검토 후 발송**. AskUserQuestion에서 조정 가능. 모든 응답은 `ai-slop-reviewer` 후처리.
-
-### Q. B2B 제안서 12섹션이 우리 회사에 안 맞아요.
-
-`collab-proposal`는 표준 12섹션을 자동 채우지만 본인 회사 양식 .docx 첨부 시 그 구조를 따라 자동 생성합니다.
-
----
-
-## 다음 단계
-
-- [**표준 패턴**](../) — 특히 패턴 4 (스케줄 자동화)
-- **[문서 트랙](../track-documents/)** — 사업계획서·IR
-- **[법무 트랙](../track-legal/)** — 계약·NDA
-- **[moai-pm 플러그인](/moai-agents/pm/)** · **[moai-cs](/moai-agents/cs/)** · **[moai-coworker](/moai-agents/coworker/)**
-
----
-
-### Sources
-
-- [moai-coworker · moai-pm · moai-cs 디렉터리](https://github.com/modu-ai/moai-cowork)
-- KTAS 응급실 5단계 분류 체계
-- B2B 제안서 Three C's (Compliant · Complete · Compelling) 원칙
+- [관련 플러그인 원본](https://github.com/modu-ai/moai-cowork/tree/main/plugins/moai-coworker)

@@ -9,7 +9,8 @@ description: |
   - "도서 USP 설계", "책 차별화 포인트", "시장 포지셔닝"
   - "베스트셀러 분석", "장르별 출판사 컨벤션"
   - "자비 출판 vs 출판사 투고 의사결정"
-version: "1.1.2"
+metadata:
+  version: "1.1.3"
 ---
 
 # book-concept-planner

@@ -8,7 +8,8 @@ description: |
   - "근본 원인", "현황 점검", "문제 해결", "시스템 이슈"
   - 복합적 원인이 의심되는 문제 상황 진단
   - 성능 저하, 오류 원인, 병목 파악
-version: "1.1.2"
+metadata:
+  version: "1.1.3"
 ---
 
 # ai-diagnostic

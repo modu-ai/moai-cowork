@@ -1,0 +1,62 @@
+(() => {
+  const views = [...document.querySelectorAll('[data-view]')];
+  const links = [...document.querySelectorAll('[data-view-link]')];
+  const variants = [...document.querySelectorAll('[data-variant]')];
+  const showView = () => {
+    const name = location.hash.slice(1).split('?')[0] || 'home';
+    const anchor = document.getElementById(name);
+    const target = views.find(v => v.dataset.view === name) || anchor?.closest('[data-view]') || (anchor ? views.find(v => !v.hidden) : views[0]);
+    views.forEach(v => { v.hidden = v !== target; });
+    links.forEach(a => {
+      if (a.dataset.viewLink === target.dataset.view) a.setAttribute('aria-current', 'page');
+      else a.removeAttribute('aria-current');
+    });
+    document.querySelector('[data-toc]').hidden = target.dataset.view !== 'lesson';
+    document.title = target.querySelector('h1').innerText.replace(/\s+/g, ' ') + ' · 모두의 코워크 시안';
+    if (anchor) anchor.scrollIntoView();
+    else window.scrollTo(0, 0);
+  };
+  const style = new URLSearchParams(location.search).get('style') === 'reader' ? 'reader' : 'paper';
+  const setStyle = (name) => {
+    document.body.dataset.style = name;
+    variants.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.variant === name)));
+    const url = new URL(location.href);
+    url.searchParams.set('style', name);
+    history.replaceState(null, '', url);
+  };
+  variants.forEach(b => b.addEventListener('click', () => setStyle(b.dataset.variant)));
+  document.querySelectorAll('[role=tablist]').forEach(list => {
+    const tabs = [...list.querySelectorAll('[role=tab]')];
+    const select = (tab, focus = false) => {
+      tabs.forEach(b => {
+        const active = b === tab;
+        b.setAttribute('aria-selected', String(active));
+        b.tabIndex = active ? 0 : -1;
+        document.getElementById(b.getAttribute('aria-controls')).hidden = !active;
+      });
+      if (focus) tab.focus();
+    };
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => select(tab));
+      tab.addEventListener('keydown', e => {
+        const next = {ArrowRight: tabs[(i + 1) % tabs.length], ArrowLeft: tabs[(i - 1 + tabs.length) % tabs.length], Home: tabs[0], End: tabs[tabs.length - 1]}[e.key];
+        if (next) { e.preventDefault(); select(next, true); }
+      });
+    });
+  });
+  document.querySelector('[data-copy]').addEventListener('click', async e => {
+    const button = e.currentTarget;
+    try {
+      await navigator.clipboard.writeText(document.querySelector('[data-request]').textContent);
+      button.textContent = '복사됨';
+    } catch { button.textContent = '복사하지 못함'; }
+  });
+  document.querySelector('[data-form]').addEventListener('submit', e => {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    document.querySelector('[data-form-result]').textContent = data.get('review') ? `${data.get('goal') || '업무'} · ${data.get('app')} · 결과 검토 포함` : '결과 검토 항목도 확인해 주세요.';
+  });
+  window.addEventListener('hashchange', showView);
+  setStyle(style);
+  showView();
+})();

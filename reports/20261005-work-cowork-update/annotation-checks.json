@@ -1,0 +1,68 @@
+[
+  {
+    "server": "moai-mcp-ip",
+    "command": [
+      "/var/folders/kt/nq2q81cn4gx3y41r7x47ggmr0000gn/T/moai-cowork-audit-gnr10pbv/moai-mcp-ip/venv/bin/python",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/scripts/check-mcp-annotations.py",
+      "--server",
+      "moai-mcp-ip"
+    ],
+    "exit_code": 0,
+    "output": "{\"server\": \"moai-mcp-ip\", \"registered_tools\": 18, \"errors\": [], \"remote_operations_invoked\": 0}\n"
+  },
+  {
+    "server": "moai-mcp-openai",
+    "command": [
+      "/var/folders/kt/nq2q81cn4gx3y41r7x47ggmr0000gn/T/moai-cowork-audit-gnr10pbv/moai-mcp-openai/venv/bin/python",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/scripts/check-mcp-annotations.py",
+      "--server",
+      "moai-mcp-openai"
+    ],
+    "exit_code": 0,
+    "output": "{\"server\": \"moai-mcp-openai\", \"registered_tools\": 1, \"errors\": [], \"remote_operations_invoked\": 0}\n"
+  },
+  {
+    "server": "moai-mcp-smartstore",
+    "command": [
+      "/var/folders/kt/nq2q81cn4gx3y41r7x47ggmr0000gn/T/moai-cowork-audit-gnr10pbv/moai-mcp-smartstore/venv/bin/python",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/scripts/check-mcp-annotations.py",
+      "--server",
+      "moai-mcp-smartstore"
+    ],
+    "exit_code": 0,
+    "output": "{\"server\": \"moai-mcp-smartstore\", \"registered_tools\": 90, \"errors\": [], \"remote_operations_invoked\": 0}\n"
+  },
+  {
+    "server": "moai-mcp-imweb",
+    "command": [
+      "/var/folders/kt/nq2q81cn4gx3y41r7x47ggmr0000gn/T/moai-cowork-audit-gnr10pbv/moai-mcp-imweb/venv/bin/python",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/scripts/check-mcp-annotations.py",
+      "--server",
+      "moai-mcp-imweb"
+    ],
+    "exit_code": 0,
+    "output": "{\"server\": \"moai-mcp-imweb\", \"registered_tools\": 8, \"errors\": [], \"remote_operations_invoked\": 0}\n"
+  },
+  {
+    "server": "moai-mcp-cafe24",
+    "command": [
+      "/var/folders/kt/nq2q81cn4gx3y41r7x47ggmr0000gn/T/moai-cowork-audit-gnr10pbv/moai-mcp-cafe24/venv/bin/python",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/scripts/check-mcp-annotations.py",
+      "--server",
+      "moai-mcp-cafe24"
+    ],
+    "exit_code": 0,
+    "output": "{\"server\": \"moai-mcp-cafe24\", \"registered_tools\": 20, \"errors\": [], \"remote_operations_invoked\": 0}\n"
+  },
+  {
+    "server": "moai-mcp-threads-poster",
+    "command": [
+      "/var/folders/kt/nq2q81cn4gx3y41r7x47ggmr0000gn/T/moai-cowork-audit-gnr10pbv/moai-mcp-threads-poster/venv/bin/python",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/scripts/check-mcp-annotations.py",
+      "--server",
+      "moai-mcp-threads-poster"
+    ],
+    "exit_code": 0,
+    "output": "{\"server\": \"moai-mcp-threads-poster\", \"registered_tools\": 17, \"errors\": [], \"remote_operations_invoked\": 0}\n"
+  }
+]

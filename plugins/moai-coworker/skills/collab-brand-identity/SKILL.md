@@ -13,7 +13,8 @@ description: |
   - "기업 브랜딩 처음부터 도와줘"
   네이밍 후보 평가, 슬로건, 브랜드 스토리, 색상 시스템, 채널별 적용 가이드를 문서로 묶어 줍니다. 텍스트는 자체 검수하고, 현재 앱에 노출된 윤문 스킬이 있으면 추가로 다듬습니다.
   [책임 경계] vs moai-marketer:marketing-personal-branding: 이 스킬=기업·제품 브랜드, 저 스킬=개인·전문가 브랜드.
-version: "1.1.3"
+metadata:
+  version: "1.1.4"
 ---
 
 # 브랜드 아이덴티티 (Brand Identity)

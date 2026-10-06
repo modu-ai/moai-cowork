@@ -1,0 +1,74 @@
+[
+  {
+    "url": "/",
+    "texts": 57,
+    "min_contrast": 6.124507228735727,
+    "low": []
+  },
+  {
+    "url": "/learn/01-delegation/",
+    "texts": 111,
+    "min_contrast": 6.124507228735727,
+    "low": []
+  },
+  {
+    "url": "/learn/02-project-context/",
+    "texts": 118,
+    "min_contrast": 6.124507228735727,
+    "low": []
+  },
+  {
+    "url": "/learn/03-first-result/",
+    "texts": 135,
+    "min_contrast": 6.124507228735727,
+    "low": []
+  },
+  {
+    "url": "/learn/04-skills-plugins/",
+    "texts": 96,
+    "min_contrast": 6.124507228735727,
+    "low": []
+  },
+  {
+    "url": "/learn/05-expert-workflow/",
+    "texts": 110,
+    "min_contrast": 6.124507228735727,
+    "low": []
+  },
+  {
+    "url": "/learn/06-review-reuse/",
+    "texts": 117,
+    "min_contrast": 6.124507228735727,
+    "low": []
+  },
+  {
+    "url": "/getting-started/questions/",
+    "texts": 63,
+    "min_contrast": 6.124507228735727,
+    "low": []
+  },
+  {
+    "url": "/cookbook/guides/data-analysis/",
+    "texts": 103,
+    "min_contrast": 6.124507228735727,
+    "low": []
+  },
+  {
+    "url": "/plugins/mcp/credentials/",
+    "texts": 90,
+    "min_contrast": 6.124507228735727,
+    "low": []
+  },
+  {
+    "url": "/releases/archive/v2.14/",
+    "texts": 78,
+    "min_contrast": 6.124507228735727,
+    "low": []
+  },
+  {
+    "url": "/downloads/classroom/",
+    "texts": 7,
+    "min_contrast": 13.38508118256608,
+    "low": []
+  }
+]

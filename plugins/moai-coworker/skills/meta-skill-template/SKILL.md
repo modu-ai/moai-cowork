@@ -7,7 +7,8 @@ description: |
   다음과 같은 요청 시 이 스킬을 참조하세요:
   - "새 스킬 만들고 싶어", "스킬 템플릿", "SKILL.md 템플릿"
   - "스킬 작성 방법", "스킬 구조", "스킬 포맷"
-version: "1.1.2"
+metadata:
+  version: "1.1.3"
 ---
 
 # SKILL.md Standard Template
@@ -26,21 +27,25 @@ description: |                              # 필수. 목적 + 트리거 키워�
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
   - "<트리거 문장 1>"
   - "<트리거 문장 2>"
-version: "0.1.0"                       # 이 저장소의 변경 이력 관리 필드
+metadata:
+  version: "0.1.0"                       # 사용자 메타데이터는 문자열 값
 ---
 ```
 
-`name`과 `description`은 양쪽 호스트가 스킬을 찾을 때 쓰는 핵심 정보입니다. `version`은
-이 저장소의 버전 관리 규칙에 따라 유지합니다. `user-invocable` 같은 호스트별 필드는
+`name`과 `description`은 양쪽 호스트가 스킬을 찾을 때 쓰는 핵심 정보입니다. 버전은
+`metadata.version` 문자열로 유지합니다. 설명은 1~1024자이며 이름은 디렉터리와 일치해야 합니다. `user-invocable` 같은 호스트별 필드는
 공통 템플릿에 넣지 말고, 해당 호스트의 최신 문서와 실제 앱 동작을 확인한 뒤 결정합니다.
 사용자 명령 진입점이 필요하다면 양쪽 호스트에서 각각 지원하는 방식을 확인합니다.
 
 참고: [OpenAI 스킬 작성](https://developers.openai.com/plugins/build/skills),
-[OpenAI 스킬 개념](https://developers.openai.com/plugins/concepts/skills).
+[OpenAI 스킬 개념](https://developers.openai.com/plugins/concepts/skills),
+[Agent Skills 규격](https://agentskills.io/specification).
 
-### 금지 필드 (v1.3.0 정책)
+### 공통 형식
 
-- `metadata:` 블록 (version, status, updated, tags)
+허용 최상위 필드는 `name`, `description`, `license`, `compatibility`, `metadata`, `allowed-tools`입니다. 추가 정보는 문자열 값의 `metadata`에 넣습니다.
+
+- 최상위 `version`, 호스트 전용 `user-invocable`
 - `keywords:` (비표준)
 - 본문 상단 `> vX.Y.Z | ...` 버전 배너
 
@@ -130,8 +135,8 @@ version: "0.1.0"                       # 이 저장소의 변경 이력 관리 �
 
 작성 완료 후 반드시 확인:
 
-- [ ] Frontmatter에 `name`, `description`, `version` 필드 존재
-- [ ] `metadata:` 블록 없음 (v1.3.0 정책)
+- [ ] `name`, `description`, `metadata.version`이 공통 규격을 만족함
+- [ ] `skills-ref` 표준 검사와 저장소의 스킬 계약 검사를 통과함
 - [ ] 작업을 실행하는 데 필요한 입력·단계·출력·실패 처리가 설명됨
 - [ ] 실제 사용 상황에 맞는 예시가 있음
 - [ ] 트리거 키워드가 다른 스킬과 중복되지 않음

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "cafe24-catalog-mcp": {
+      "type": "streamable-http",
+      "url": "https://mcp-catalog.cafe24.com/api/mcp"
+    },
+    "moai-mcp-smartstore": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "./mcp-servers/moai-mcp-smartstore",
+        "moai-mcp-smartstore"
+      ],
+      "cwd": "./",
+      "type": "stdio"
+    },
+    "moai-mcp-imweb": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "./mcp-servers/moai-mcp-imweb",
+        "moai-mcp-imweb"
+      ],
+      "cwd": "./",
+      "type": "stdio"
+    },
+    "moai-mcp-cafe24": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "./mcp-servers/moai-mcp-cafe24",
+        "moai-mcp-cafe24"
+      ],
+      "cwd": "./",
+      "type": "stdio"
+    }
+  }
+}

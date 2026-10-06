@@ -1,0 +1,16 @@
+{
+  "copy_exact": true,
+  "answer_open": true,
+  "figure": {
+    "client": 337,
+    "scroll": 2,
+    "width": 768
+  },
+  "menu_open": "true",
+  "menu_closed": "false",
+  "search_results": 24,
+  "copy_expected": "정책의 2일은 도착 기한이 아니라 출고 기한이야.\n그 표현을 고치고 배송 완료 시점은 보장하지 말아 줘.\n모든 FAQ에 정책 근거와 확인 필요 항목을 다시 확인해 줘.",
+  "copy_actual": "정책의 2일은 도착 기한이 아니라 출고 기한이야.\n그 표현을 고치고 배송 완료 시점은 보장하지 말아 줘.\n모든 FAQ에 정책 근거와 확인 필요 항목을 다시 확인해 줘.",
+  "download_path": "/Users/goos/Downloads/문의 (1).csv",
+  "download_csv": "﻿id,유형,문의\nQ1,배송,언제 출고되나요?\nQ2,배송,출고 알림을 받았는데 언제 도착하나요?\nQ3,배송,주말에도 출고하나요?\nQ4,반품,반품 신청은 어떻게 하나요?\nQ5,반품,반품 비용은 누가 부담하나요?\nQ6,결제,카드 결제가 승인되지 않았어요.\n"
+}

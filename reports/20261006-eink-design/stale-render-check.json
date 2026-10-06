@@ -1,0 +1,14 @@
+[
+  {
+    "changed": "diagram",
+    "exit_code": 1,
+    "stderr_tail": "AssertionError: 도식 원본을 바꾼 뒤에는 실제 렌더링을 다시 해야 합니다.",
+    "rejected": true
+  },
+  {
+    "changed": "config",
+    "exit_code": 1,
+    "stderr_tail": "AssertionError",
+    "rejected": true
+  }
+]

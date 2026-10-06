@@ -8,7 +8,8 @@ description: |
   - "시리즈 아크 짜줘", "웹툰 시즌 구성", "관통 주제"
   - "네이버웹툰 연재 기획", "카카오웹툰 기획"
   - "웹툰 캐릭터 몇 명", "레귤러 인원", "훅 전략"
-version: "1.1.2"
+metadata:
+  version: "1.1.3"
 ---
 
 # story-webtoon-planner: 웹툰 연재 기획

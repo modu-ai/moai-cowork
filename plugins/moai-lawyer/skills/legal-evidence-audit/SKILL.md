@@ -2,7 +2,8 @@
 name: legal-evidence-audit
 description: |
   계약 검토·법령 조사·규제·특허 보고서의 인용 검증 기록, 적용 시점, 위험 등급과 누락 쟁점을 원자료에 대조합니다. 원본을 수정하지 않는 제출 전 검수에 사용합니다.
-version: "1.0.1"
+metadata:
+  version: "1.0.2"
 ---
 
 # 법무 산출물 근거 검수

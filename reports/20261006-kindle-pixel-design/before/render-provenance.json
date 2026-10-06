@@ -1,0 +1,13 @@
+{
+  "render_method": "CUA live browser DOM export",
+  "renderer": "repository Mermaid bundle",
+  "bundle_sha256": "f10966e425e8b6577dccc09a6c13c0711d768e8477e5671ca43b7591b456413f",
+  "config_hash": "04f69117a24db8bc8aa80855a32d7d022a8d50a2491f330a4a4ee361f0b07051",
+  "source_hashes": {
+    "context.mmd": "30de02302349e19a2b3807be58c4fb9e2258027a572a81bc65718070fa16198b",
+    "handoff.mmd": "98d2d0ecdb49f45f0c6627433b16cd0d9d23cc91f2042d53a84066880af803b4",
+    "parallel.mmd": "9b857634ebc2f4f91dee2610f45169dd4b107eb8f4d028045c97ef62c72a034e",
+    "questions.mmd": "f3a7368b103d393c1167c8e0756a3281fcd377add8867459c2c1eadee739b947",
+    "reuse.mmd": "f971fd930ec3a0cd66ce595147e68cbcb85c405cecf400d292faef19e73e2ec4"
+  }
+}

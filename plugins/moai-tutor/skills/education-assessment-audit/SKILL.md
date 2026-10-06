@@ -2,7 +2,8 @@
 name: education-assessment-audit
 description: |
   커리큘럼·평가 문항·정답·해설·학습자료·학술 인용을 원자료에 대조합니다. 목표와 평가의 정렬, 문항 재풀이, 출처 진위를 읽기 전용으로 검수합니다.
-version: "1.0.0"
+metadata:
+  version: "1.0.1"
 ---
 
 # 교육 산출물 검수

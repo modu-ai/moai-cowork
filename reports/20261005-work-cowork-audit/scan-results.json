@@ -1,0 +1,397 @@
+{
+  "summary": {
+    "root": "/Users/goos/.codex/worktrees/b0aa/moai-cowork",
+    "head": "2c3cef1d24e88b3bfe8db61c713ffae317b346d0",
+    "tracked_files": 1796,
+    "text_files": 1576,
+    "binary_files": 220,
+    "tracked_bytes": 41571347,
+    "syntax_checked": {
+      "json": 60,
+      "toml": 21,
+      "yaml": 53,
+      "python": 175
+    },
+    "plugin_skills": 252,
+    "repository_skills": 269,
+    "plugin_agents": 28,
+    "mcp_tool_definitions": 134,
+    "mcp_tools_without_annotations": 134,
+    "parse_errors": 3,
+    "frontmatter_errors": 0,
+    "unresolved_skill_reference_candidates": 68,
+    "broken_markdown_link_candidates": 2
+  },
+  "errors": [
+    {
+      "path": "www/layouts/_default/search.json",
+      "kind": "parse",
+      "message": "Expecting property name enclosed in double quotes: line 1 column 2 (char 1)"
+    },
+    {
+      "path": "www/themes/hugo-geekdoc/assets/search/config.json",
+      "kind": "parse",
+      "message": "Expecting property name enclosed in double quotes: line 1 column 2 (char 1)"
+    },
+    {
+      "path": "www/themes/hugo-geekdoc/assets/search/data.json",
+      "kind": "parse",
+      "message": "Expecting property name enclosed in double quotes: line 2 column 4 (char 5)"
+    }
+  ],
+  "frontmatter_errors": [],
+  "reference_candidates": [
+    {
+      "path": "plugins/moai-accountant/README.md",
+      "line": 22,
+      "ref": "moai-accountant:finance-"
+    },
+    {
+      "path": "plugins/moai-consultant/README.md",
+      "line": 18,
+      "ref": "moai-consultant:consult-"
+    },
+    {
+      "path": "plugins/moai-cs/README.md",
+      "line": 18,
+      "ref": "moai-cs:cs-"
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-landing-motion/SKILL.md",
+      "line": 78,
+      "ref": "moai-media:media-higgsfield-"
+    },
+    {
+      "path": "plugins/moai-lawyer/README.md",
+      "line": 20,
+      "ref": "moai-lawyer:legal-"
+    },
+    {
+      "path": "plugins/moai-lawyer/README.md",
+      "line": 98,
+      "ref": "moai-lawyer:legal-"
+    },
+    {
+      "path": "plugins/moai-marketer/README.md",
+      "line": 20,
+      "ref": "moai-marketer:marketing-"
+    },
+    {
+      "path": "plugins/moai-media/skills/media-higgsfield-core/SKILL.md",
+      "line": 125,
+      "ref": "moai-story:story-"
+    },
+    {
+      "path": "plugins/moai-recruiter/README.md",
+      "line": 18,
+      "ref": "moai-recruiter:hr-"
+    },
+    {
+      "path": "plugins/moai-seller/README.md",
+      "line": 20,
+      "ref": "moai-seller:commerce-"
+    },
+    {
+      "path": "plugins/moai-tutor/README.md",
+      "line": 20,
+      "ref": "moai-tutor:education-"
+    },
+    {
+      "path": "www/content/cookbook/guides/legal-risk.md",
+      "line": 4,
+      "ref": "moai-lawyer:legal-risk"
+    },
+    {
+      "path": "www/content/cookbook/templates/email.md",
+      "line": 4,
+      "ref": "moai-marketer:newsletter"
+    },
+    {
+      "path": "www/content/cookbook/templates/email.md",
+      "line": 4,
+      "ref": "moai-marketer:email-sequence"
+    },
+    {
+      "path": "www/content/releases/archive/v1.2.md",
+      "line": 53,
+      "ref": "moai-media:nano-banana"
+    },
+    {
+      "path": "www/content/releases/archive/v1.2.md",
+      "line": 69,
+      "ref": "moai-media:kling"
+    },
+    {
+      "path": "www/content/releases/archive/v1.2.md",
+      "line": 85,
+      "ref": "moai-media:elevenlabs"
+    },
+    {
+      "path": "www/content/releases/archive/v1.3.md",
+      "line": 31,
+      "ref": "moai-coworker:general-ai-slop-reviewer"
+    },
+    {
+      "path": "www/content/releases/archive/v1.5.md",
+      "line": 31,
+      "ref": "moai-consultant:business-sbiz365-analyst"
+    },
+    {
+      "path": "www/content/releases/archive/v1.5.md",
+      "line": 48,
+      "ref": "moai-consultant:business-kr-gov-grant"
+    },
+    {
+      "path": "www/content/releases/archive/v1.5.md",
+      "line": 65,
+      "ref": "moai-coworker:general-skill-builder"
+    },
+    {
+      "path": "www/content/releases/archive/v1.5.md",
+      "line": 82,
+      "ref": "moai-coworker:general-skill-template"
+    },
+    {
+      "path": "www/content/releases/archive/v1.5.md",
+      "line": 98,
+      "ref": "moai-coworker:general-skill-tester"
+    },
+    {
+      "path": "www/content/releases/archive/v1.5.md",
+      "line": 114,
+      "ref": "moai-media:image-gen"
+    },
+    {
+      "path": "www/content/releases/archive/v1.5.md",
+      "line": 131,
+      "ref": "moai-media:video-gen"
+    },
+    {
+      "path": "www/content/releases/archive/v1.6.md",
+      "line": 48,
+      "ref": "moai-officer:office-pdf-writer"
+    },
+    {
+      "path": "www/content/releases/archive/v1.6.md",
+      "line": 54,
+      "ref": "moai-officer:pdf-writer"
+    },
+    {
+      "path": "www/content/releases/archive/v2.0.md",
+      "line": 52,
+      "ref": "moai-analyst:office-public-data-real-estate-search"
+    },
+    {
+      "path": "www/content/releases/archive/v2.0.md",
+      "line": 88,
+      "ref": "moai-analyst:office-public-data-court-auction-search"
+    },
+    {
+      "path": "www/content/releases/archive/v2.0.md",
+      "line": 106,
+      "ref": "moai-analyst:office-public-data-korean-stock-search"
+    },
+    {
+      "path": "www/content/releases/archive/v2.1.md",
+      "line": 27,
+      "ref": "moai-coworker:general-ai-slop-reviewer"
+    },
+    {
+      "path": "www/content/releases/archive/v2.1.md",
+      "line": 27,
+      "ref": "moai-writer:general-humanize-korean"
+    },
+    {
+      "path": "www/content/releases/archive/v2.1.md",
+      "line": 35,
+      "ref": "moai-writer:general-humanize-korean"
+    },
+    {
+      "path": "www/content/releases/archive/v2.10.md",
+      "line": 66,
+      "ref": "moai-marketer:korean-spell-check"
+    },
+    {
+      "path": "www/content/releases/archive/v2.10.md",
+      "line": 67,
+      "ref": "moai-marketer:humanize-korean"
+    },
+    {
+      "path": "www/content/releases/archive/v2.10.md",
+      "line": 106,
+      "ref": "moai-consultant:business-kr-gov-grant"
+    },
+    {
+      "path": "www/content/releases/archive/v2.12.1.md",
+      "line": 17,
+      "ref": "moai-officer:office-docx-generator"
+    },
+    {
+      "path": "www/content/releases/archive/v2.12.1.md",
+      "line": 17,
+      "ref": "moai-officer:office-pptx-designer"
+    },
+    {
+      "path": "www/content/releases/archive/v2.12.2.md",
+      "line": 4,
+      "ref": "moai-marketer:card-news"
+    },
+    {
+      "path": "www/content/releases/archive/v2.12.2.md",
+      "line": 21,
+      "ref": "moai-marketer:card-news"
+    },
+    {
+      "path": "www/content/releases/archive/v2.12.3.md",
+      "line": 4,
+      "ref": "moai-marketer:card-news"
+    },
+    {
+      "path": "www/content/releases/archive/v2.12.3.md",
+      "line": 21,
+      "ref": "moai-marketer:card-news"
+    },
+    {
+      "path": "www/content/releases/archive/v2.18.md",
+      "line": 45,
+      "ref": "moai-coworker:project"
+    },
+    {
+      "path": "www/content/releases/archive/v2.18.md",
+      "line": 81,
+      "ref": "moai-coworker:project"
+    },
+    {
+      "path": "www/content/releases/archive/v2.19.md",
+      "line": 44,
+      "ref": "moai-writer:general-humanize-korean"
+    },
+    {
+      "path": "www/content/releases/archive/v2.19.md",
+      "line": 78,
+      "ref": "moai-marketer:humanize-korean"
+    },
+    {
+      "path": "www/content/releases/archive/v2.2.md",
+      "line": 25,
+      "ref": "moai-officer:office-html-report"
+    },
+    {
+      "path": "www/content/releases/archive/v2.2.md",
+      "line": 37,
+      "ref": "moai-officer:office-html-report"
+    },
+    {
+      "path": "www/content/releases/archive/v2.2.md",
+      "line": 83,
+      "ref": "moai-marketer:humanize-korean"
+    },
+    {
+      "path": "www/content/releases/archive/v2.2.md",
+      "line": 83,
+      "ref": "moai-marketer:html-report"
+    },
+    {
+      "path": "www/content/releases/archive/v2.20.md",
+      "line": 71,
+      "ref": "moai-officer:office-html-report"
+    },
+    {
+      "path": "www/content/releases/archive/v2.20.md",
+      "line": 88,
+      "ref": "moai-writer:general-humanize-korean"
+    },
+    {
+      "path": "www/content/releases/archive/v2.23.md",
+      "line": 20,
+      "ref": "moai-marketer:drawio-diagram"
+    },
+    {
+      "path": "www/content/releases/archive/v2.25.md",
+      "line": 17,
+      "ref": "moai-officer:office-pdf-writer"
+    },
+    {
+      "path": "www/content/releases/archive/v2.25.md",
+      "line": 22,
+      "ref": "moai-coworker:general-ai-diagnostic"
+    },
+    {
+      "path": "www/content/releases/archive/v2.25.md",
+      "line": 22,
+      "ref": "moai-tutor:course-curriculum-design"
+    },
+    {
+      "path": "www/content/releases/archive/v2.25.md",
+      "line": 48,
+      "ref": "moai-coworker:general-ai-diagnostic"
+    },
+    {
+      "path": "www/content/releases/archive/v2.3.md",
+      "line": 17,
+      "ref": "moai-coworker:mcp-connector-setup"
+    },
+    {
+      "path": "www/content/releases/archive/v2.3.md",
+      "line": 62,
+      "ref": "moai-coworker:mcp-connector-setup"
+    },
+    {
+      "path": "www/content/releases/archive/v2.3.md",
+      "line": 71,
+      "ref": "moai-officer:office-daily-briefing"
+    },
+    {
+      "path": "www/content/releases/archive/v2.3.md",
+      "line": 74,
+      "ref": "moai-seller:commerce-order-summary"
+    },
+    {
+      "path": "www/content/releases/archive/v2.3.md",
+      "line": 114,
+      "ref": "moai-officer:office-docx-generator"
+    },
+    {
+      "path": "www/content/releases/archive/v2.3.md",
+      "line": 178,
+      "ref": "moai-officer:office-mcp-connector-setup"
+    },
+    {
+      "path": "www/content/releases/archive/v2.3.md",
+      "line": 226,
+      "ref": "moai-seller:commerce-copywriting"
+    },
+    {
+      "path": "www/content/releases/archive/v2.3.md",
+      "line": 229,
+      "ref": "moai-media:media-gpt-image2-builder"
+    },
+    {
+      "path": "www/content/releases/archive/v2.3.md",
+      "line": 230,
+      "ref": "moai-media:media-model-router"
+    },
+    {
+      "path": "www/content/releases/archive/v2.3.md",
+      "line": 233,
+      "ref": "moai-consultant:business-strategy-planner"
+    },
+    {
+      "path": "www/content/releases/archive/v2.9.md",
+      "line": 46,
+      "ref": "moai-media:media-gpt-image-2-prompt"
+    }
+  ],
+  "link_candidates": [
+    {
+      "path": "plugins/moai-consultant/skills/consult-market/references/market-researcher.md",
+      "line": 57,
+      "target": "URL"
+    },
+    {
+      "path": "plugins/moai-officer/skills/doc-html-slide/references/design-system-links.md",
+      "line": 3,
+      "target": "../../../moai-designer/skills/design-system-library/SKILL.md"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "method": "CUA; actual browser clicks, input, screenshots and read-only DOM measurements",
+  "base": "http://127.0.0.1:1313/",
+  "desktop": {
+    "clientWidth": 1269,
+    "scrollWidth": 1269,
+    "lessonLinks": 6,
+    "conceptImageComplete": true,
+    "conceptImageNaturalWidth": 1536
+  },
+  "mobile": {
+    "viewport": "390x844",
+    "clientWidth": 379,
+    "scrollWidth": 379,
+    "menuOpened": true,
+    "lesson2Navigation": true,
+    "menuClosedAfterNavigation": true,
+    "searchQuery": "질문",
+    "searchResultsVisible": true,
+    "focusAfterEscape": "문서 검색 (⌘K)"
+  },
+  "answerDisclosure": {
+    "lesson": "03-first-result",
+    "expanded": true
+  },
+  "clipboard": "browser clipboard read did not establish a successful copy; operating-system clipboard unverified",
+  "appScreens": {
+    "chatgpt": "web Work and public plugin catalog captured",
+    "claude": "web Cowork and public plugin catalog captured",
+    "nativeDesktop": "no publishable screenshots acquired"
+  },
+  "remoteActions": "no package installation, connector authentication or model job execution in the two product UIs"
+}

@@ -1,0 +1,26 @@
+schema_version: '1.1'
+name: resume-context
+runs: 1
+tags:
+- pm
+- regression
+execution:
+  prompt: 프로젝트 설정을 이어서 진행해 줘. 이전 실제 답은 목적=초보자 강의 제작, 대상=직장인, 출처=이전 사용자 답변이야. 예산 질문은
+    유예했고 자료 업로드 질문은 답변 대기 중이야. 기존 맥락을 보존해서 다음 독립 작업을 계획해 줘.
+  max_turns: 12
+  timeout_seconds: 180
+  allowed_tools:
+  - Read
+  - Glob
+  - Grep
+  - Skill
+graders:
+- name: skill-fired
+  type: tool_used
+  tool: Skill
+  input_match: '"skill"\s*:\s*"(?:[\w-]+:)?project"'
+- name: quality
+  type: llm
+  focus: trace
+  criteria: 실제 답과 출처·유예·대기 상태를 보존하고 이미 있는 목적·대상을 반복 질문하지 않는다. 대기 자료에 의존하는 단계는 멈추고
+    독립 작업을 계획한다. 맥락을 빈 파일로 초기화하거나 유예를 사용자 답으로 확정하면 FAIL.

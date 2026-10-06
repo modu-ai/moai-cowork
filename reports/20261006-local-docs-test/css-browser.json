@@ -1,0 +1,9 @@
+[
+  {
+    "href": "http://127.0.0.1:1313/moai-learning.css?v=02275be294686872cf58499266f1e080510144ce6322b6a9b9bdb099601117e3",
+    "rules": [
+      "@media (max-width: 1080px) {\n  .gnav-search { display: inline-flex; padding: 10px; }\n  .gnav-search span, .gnav-search kbd { display: none; }\n}",
+      "@media (max-width: 850px) {\n  .gnav-menu, .gnav-gh { display: none; }\n}"
+    ]
+  }
+]

@@ -5,6 +5,8 @@ from typing import Literal, Union
 
 from pydantic import BaseModel, ConfigDict, Field
 
+from mcp.types import ToolAnnotations
+
 from .._app import mcp
 from .._base import get_client
 
@@ -32,7 +34,7 @@ class UpdateGroundAppIntegrationInfoBody(BaseModel):
 
 Body = Union[UpdateGroundAppIntegrationCompleteBody, UpdateGroundAppIntegrationInfoBody]
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=False, destructiveHint=True, idempotentHint=False, openWorldHint=True))
 def imweb_site_info(action: Literal["read_one_site_info_by_site_code", "read_site_menu_list", "read_one_unit_info_by_unit_code", "update_ground_app_integration_complete", "update_ground_app_integration_cancellation", "update_ground_app_integration_info"], params: dict | None = None, body: Body | None = None, paginate: bool = False) -> dict:
     r"""사이트 정보 도구 — 6개 action 을 디스패치합니다.
 

@@ -1,56 +1,9 @@
-/* 모두의AI Design System v2 — tokens + base type
- * SSOT: www/design-system/handoff/colors_and_type.css  (+ 모두의코워크 사이트.dc.html)
- * 이 파일은 SSOT의 구현체다. SSOT와 어긋나면 언제나 handoff/ 가 이긴다.
- *
- * v2 리뉴얼: 마스코트 일러스트에서 추출한 순수 무채색(achromatic) 계열 +
- *   마스코트 포인트 그린(#3d7d5f) 단일 강조 컬러.
- *   추출값 — ink #060606 / mid-gray #9fa0a0 / light #e6e6e6 / white #ffffff / green #3d7d5f
- *
- * 폰트는 DS v2 3종을 전부 웹폰트(CDN)로만 로드한다. head/custom.html 참조.
- *   sans/display : Pretendard (jsDelivr Variable, 100~900)
- *   latin        : Inter (Google Fonts)
- *   mono         : JetBrains Mono (Google Fonts)
- * 셀프호스팅 @font-face(.otf/.ttf), 픽셀 폰트(NeoDunggeunmo), GowunBatang 재도입 금지.
- */
-
-/* ── MaruBuri (마루 부리) — 제목 전용 부리(세리프) 서체. 네이버 한글한글 아름답게 CDN ──
- *
- * 역할 분담: 「제목」은 마루부리, 「그 외 전부」는 Pretendard.
- *   마루부리    문서 제목 h1~h4 · 히어로 타이틀 · 홈 섹션 타이틀
- *   Pretendard  본문 · 목록 · 인용 · 사이드바 · 표 · 버튼 · 카드 · TOC · 푸터
- *   JetBrains   코드 · eyebrow · 칩
- *
- * 굵기는 600(대제목) / 700(소제목) 두 종만 로드한다. 마루부리는 Pretendard와 달리
- * dynamic-subset이 아닌 통짜 woff2(각 약 450KB)라, 굵기를 늘리면 그만큼 무거워진다.
- * 굵기를 추가하려면 반드시 실제 사용처가 있는지 먼저 확인할 것.
- *
- * ★ 마루부리에는 800(ExtraBold)·900(Black)이 없다. 제목에 800을 주면 브라우저가
- *   가짜 굵게(faux bold)를 합성해 부리 획이 뭉갠다. 제목 굵기는 700을 넘기지 말 것.
- *
- * 주의: 배포된 예제 CSS 중에는 SemiBold·Bold·Light·ExtraLight를 전부
- * font-weight:400 으로 선언한 것이 돌아다닌다. 나중 선언이 이기므로 400이
- * ExtraLight로 렌더되는 버그다. 아래처럼 굵기를 1:1로 맞춰야 한다.
- */
-@font-face {
-  font-family: "MaruBuri";
-  src: url("https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-SemiBold.woff2") format("woff2");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "MaruBuri";
-  src: url("https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
+/* 이전 컴포넌트 변수와 별칭. 현재 기준은 moai-kindle-tokens.css. */
 :root {
   /* ── Point Color (마스코트 포인트 그린 — 유일한 강조 컬러) ── */
-  --color-primary: #3d7d5f;
-  --color-primary-hover: #316750;
-  --color-primary-active: #265240;
+  --color-primary: #6d6d6d;
+  --color-primary-hover: #5a5a5a;
+  --color-primary-active: #474747;
   --color-primary-disabled: #d1d1d1;
 
   --color-ink: #060606;              /* 마스코트 아웃라인 잉크 */
@@ -62,7 +15,7 @@
   --neutral-100: #e6e6e6;
   --neutral-200: #d1d1d1;
   --neutral-300: #b5b5b5;
-  --neutral-400: #9fa0a0;
+  --neutral-400: #a0a0a0;
   --neutral-500: #757575;
   --neutral-600: #565656;
   --neutral-700: #3a3a3a;
@@ -71,10 +24,10 @@
   --neutral-950: #060606;
 
   /* ── Semantic ── */
-  --color-success: #2e8a63;
-  --color-warning: #c47b2a;
-  --color-danger:  #c44a3a;
-  --color-info:    #2a8a8c;
+  --color-success: #747474;
+  --color-warning: #858585;
+  --color-danger:  #636363;
+  --color-info:    #767676;
 
   /* ── Foreground roles ── */
   --fg-1: var(--color-ink);          /* primary text */
@@ -86,20 +39,20 @@
   --border-1: #d1d1d1;
   --border-2: #e6e6e6;
   --border-strong: #b5b5b5;
-  --border-focus-ring: rgba(61, 125, 95, 0.16);
+  --border-focus-ring: rgba(109, 109, 109,  0.16);
 
   /* ── Signature accent (포인트 그린) ── */
-  --gradient-signature: #3d7d5f;
-  --gradient-signature-soft: rgba(61, 125, 95, 0.08);
-  --gradient-signature-dark: #316750;
+  --gradient-signature: #6d6d6d;
+  --gradient-signature-soft: rgba(109, 109, 109,  0.08);
+  --gradient-signature-dark: #5a5a5a;
 
   /* ── Type families (전부 CDN) ── */
   --font-sans: "Pretendard Variable", Pretendard, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-latin: "Inter", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-latin: var(--font-sans);
+  --font-mono: var(--font-sans);
   --font-display: var(--font-sans);
   /* 제목 부리체 — 「제목」 전용. 로드 중 폴백도 부리 계열로 유지해 인상이 튀지 않게 한다. */
-  --font-serif: "MaruBuri", "Nanum Myeongjo", Batang, serif;
+  --font-serif: var(--font-sans);
 
   /* ── Weights ── */
   --fw-regular: 400;
@@ -178,12 +131,12 @@
   --radius-full: 9999px;
 
   /* ── Shadow (outer only, ink 기반) ── */
-  --shadow-xs: 0 1px 2px rgba(6, 6, 6, 0.04);
-  --shadow-sm: 0 2px 4px rgba(6, 6, 6, 0.06);
-  --shadow-md: 0 4px 12px rgba(6, 6, 6, 0.08);
-  --shadow-lg: 0 8px 24px rgba(6, 6, 6, 0.10);
-  --shadow-xl: 0 16px 48px rgba(6, 6, 6, 0.12);
-  --shadow-signature: 0 8px 32px rgba(61, 125, 95, 0.20);
+  --shadow-xs: 0 1px 2px rgba(6, 6, 6,  0.04);
+  --shadow-sm: 0 2px 4px rgba(6, 6, 6,  0.06);
+  --shadow-md: 0 4px 12px rgba(6, 6, 6,  0.08);
+  --shadow-lg: 0 8px 24px rgba(6, 6, 6,  0.10);
+  --shadow-xl: 0 16px 48px rgba(6, 6, 6,  0.12);
+  --shadow-signature: 0 8px 32px rgba(109, 109, 109,  0.20);
 
   /* ── Motion ── */
   --duration-instant: 75ms;
@@ -206,18 +159,18 @@
 
   /* ── Docs shell (dc.html .docs-shell 실측) ── */
   --header-h: 64px;
-  --header-bg: rgba(243, 243, 243, 0.85);
+  --header-bg: rgba(243, 243, 243,  0.85);
   --shell-sidebar: 264px;
   --shell-toc: 200px;
   --shell-gap: 36px;
   --shell-sticky-top: 88px;
 
   /* ── Terminal / code chrome (dc.html isCode 블록) ── */
-  --terminal-bg: #09110f;
+  --terminal-bg: #0f0f0f;
   --terminal-fg: #e6e6e6;
-  --terminal-dim: #9fa0a0;
-  --terminal-sigil: #5ea885;
-  --terminal-border: rgba(255, 255, 255, 0.09);
+  --terminal-dim: #a0a0a0;
+  --terminal-sigil: #969696;
+  --terminal-border: rgba(255, 255, 255,  0.09);
 
   /* ════════════════════════════════════════════════════════════
      Backward-compat aliases — 기존 moai-ds.css / -docs.css / -mascot.css
@@ -302,7 +255,7 @@ body {
   font-family: var(--font-latin);
 }
 
-::selection { background: rgba(61, 125, 95, 0.22); }
+::selection { background: rgba(109, 109, 109,  0.22); }
 
 /* 포커스 링 — DS: 2px primary + 3px soft ring */
 :focus-visible {

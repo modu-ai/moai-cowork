@@ -3,7 +3,8 @@ name: legal-mfds-safety
 description: |
   의약품·건강기능식품·식품 회수 정보를 식약처 공식 자료에서 확인하고,
   제품 일치 여부와 의료진에게 확인할 사항을 정리합니다.
-version: "1.1.1"
+metadata:
+  version: "1.1.2"
 ---
 
 # 식약처 의약품·식품 정보 확인

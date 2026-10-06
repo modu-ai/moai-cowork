@@ -4,7 +4,8 @@ description: |
   연결된 매장 자료나 사용자가 제공한 주문·문의·광고 데이터를 기준 시각에 맞춰 요약합니다.
   요청 예: "오늘 매장 현황", "어제 주문 요약", "채널별 신규 주문 합계".
   외부 뉴스 브리핑은 moai-officer:productivity-briefing을 사용합니다.
-version: "1.1.1"
+metadata:
+  version: "1.1.2"
 ---
 
 # 매장 운영 브리핑

@@ -13,6 +13,7 @@
 
     <nav class="gnav-menu" aria-label="문서 메뉴">
       <a class="gnav-link{{ if hasPrefix $rel "/getting-started/" }} active{{ end }}" href="/getting-started/">시작하기</a>
+      <a class="gnav-link{{ if hasPrefix $rel "/learn/" }} active{{ end }}" href="/learn/">온라인 강의실</a>
       <a class="gnav-link{{ if hasPrefix $rel "/plugins/" }} active{{ end }}" href="/plugins/">플러그인</a>
       <a class="gnav-link{{ if hasPrefix $rel "/cookbook/" }} active{{ end }}" href="/cookbook/">쿡북</a>
       <a class="gnav-link{{ if hasPrefix $rel "/moai-agents/" }} active{{ end }}" href="/moai-agents/">AI 코워커</a>
@@ -40,7 +41,7 @@
   <div class="cw-search-modal__panel" role="dialog" aria-modal="true" aria-label="문서 검색">
     <div class="cw-search-modal__head">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3" stroke-linecap="round"/></svg>
-      <input type="search" class="cw-search-modal__input" placeholder="문서·플러그인·스킬 검색..." data-search-input autocomplete="off" />
+      <input type="search" class="cw-search-modal__input" aria-label="검색어" placeholder="문서·플러그인·스킬 검색..." data-search-input autocomplete="off" />
       <kbd class="cw-search-modal__kbd" data-search-close>ESC</kbd>
     </div>
     <div class="cw-search-modal__body" data-search-results>
@@ -58,12 +59,14 @@
   if (!modal || !input || !results) return;
 
   let index = null;
+  let returnFocus = null;
   const loadIndex = () => {
     if (index) return Promise.resolve(index);
     return fetch('/search.json').then(r => r.ok ? r.json() : []).then(d => { index = d; return d; }).catch(() => { index = []; return []; });
   };
 
   const open = () => {
+    returnFocus = document.activeElement;
     modal.hidden = false;
     document.body.style.overflow = 'hidden';
     setTimeout(() => input.focus(), 50);
@@ -74,6 +77,7 @@
     document.body.style.overflow = '';
     input.value = '';
     results.innerHTML = '<div class="cw-search-modal__hint">검색어를 입력하세요. 최소 2자 이상.</div>';
+    if (returnFocus) returnFocus.focus();
   };
 
   document.querySelectorAll('[data-search-trigger]').forEach(b => b.addEventListener('click', (e) => { e.preventDefault(); open(); }));

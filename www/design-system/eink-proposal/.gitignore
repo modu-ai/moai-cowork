@@ -1,0 +1,5 @@
+# 로컬 렌더링 준비용. build.py --prepare-render로 다시 만든다.
+_render.html
+_vendor-mermaid.js
+js
+_render-js

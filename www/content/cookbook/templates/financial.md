@@ -1,107 +1,110 @@
 ---
 title: "재무 모델링 템플릿"
-weight: 20
-description: "3년 P&L · cash-flow · cohort · funding need 5개 시트 표준 재무 모델 템플릿."
+description: "실적·비용·성장 가정·기간을 준비해 재무 모델 초안을 만드는 실습"
+weight: 10
+date: 2026-10-05T00:00:00+09:00
+lastmod: 2026-10-06
 geekdocBreadcrumb: true
-date: 2026-08-07T00:00:00+09:00
-lastmod: 2026-08-13T00:00:00+09:00
 ---
-> 투자 검토에서 통하는 재무 모델은 *복잡함이 아니라 검증 가능함*에서 신뢰를 얻습니다. 5개 시트, 가정과 결과의 명확한 분리, 가정을 바꾸면 결과가 자동으로 따라가는 구조 — 이 셋이면 충분합니다.
 
-```mermaid
-flowchart TD
-   A["financial-statements<br/>K-IFRS 재무제표"] --> B["variance-analysis<br/>분산 분석"]
-   B --> C["close-management<br/>결산"]
-   C --> D["doc-xlsx<br/>5시트 통합 모델"]
+**이 실습의 결과는 재무 모델 초안입니다.** ChatGPT Work와 Claude Cowork 모두 목표와 자료를 제공하는 방식으로 시작합니다. 실제 서비스 연결과 지원 도구는 현재 앱에서 확인하세요.
 
-   style A fill:#e6e6e6,stroke:#757575,color:#09110f
-   style D fill:#e8f1ec,stroke:#265240,color:#09110f
+
+<!--more-->
+
+
+## 준비물
+
+실적·비용·성장 가정·기간을 준비합니다. 실습에서는 가상 자료나 공개 가능한 자료를 사용할 수 있습니다. [관련 역할](/moai-agents/accountant/)의 스킬을 추가하려면 [설치 안내](/plugins/install/)를 확인합니다.
+
+## 첫 요청
+
+```text
+제공한 자료로 재무 모델 초안을 만들어 줘.
+목표·독자·결과 형식을 먼저 확인하고 부족한 정보는 질문해 줘.
+가정을 별도로 기록하고 계산과 시나리오를 확인해 줘.
+자료 없는 사실과 수치는 만들지 말고 미정 항목을 표시해 줘.
+외부 게시·발송·계정 변경 없이 검토용 결과부터 보여 줘.
 ```
 
-## 사용 스킬
+## 진행 순서
 
-| 스킬 | 역할 |
-|---|---|
-| `moai-accountant:finance-financial-statements` | K-IFRS 기준 재무상태표·손익계산서·현금흐름표 |
-| `moai-accountant:finance-variance-analysis` | 예산 대비 실적 분산 분석 |
-| `moai-accountant:finance-close-management` | 결산·급여 정산 |
-| `moai-officer:doc-xlsx` | 5개 시트 통합 모델 출력 |
+1. **자료 확인:** 실적·비용·성장 가정·기간 중 읽을 수 있는 것과 없는 것을 구분합니다.
+2. **맥락 확인:** 독자·형식·범위를 질문에 답해 정합니다.
+3. **초안 작성:** 가정을 별도로 기록하고 계산과 시나리오를 확인합니다.
+4. **검토:** 가정과 실적 구분·수식·기간·현금흐름을 확인합니다.
+5. **수정·저장:** 변경할 부분을 지정하고 결과를 별도 위치에 저장합니다.
 
-## 5개 시트 표준 구조
+독립적인 조사만 병렬로 진행하고, 앞 결과가 필요한 작성·변환은 순차로 진행합니다. [전문가 분업](/workflows/experts/)의 역할·입출력 계약을 사용할 수 있습니다.
 
-### Sheet 1 — Assumptions
+## 가상 예제로 더 이해하기
 
-모든 가정 단가·증가율·전환율을 한 시트에 모읍니다. 다른 시트는 이 시트만 참조.
+아래 자료와 모범 설명은 수업을 위해 작성했습니다. 실제 회사·고객의 실적이나 앱 실행 결과가 아닙니다. 먼저 제공 자료로 작은 결과를 만든 뒤 자신의 자료로 바꿔 보세요.
 
-| 항목 | 단위 | 값 | 비고 |
-|---|---|---|---|
-| 평균 단가 (ARPU) | KRW | 50,000 | 월별 |
-| 신규 고객 증가율 | % | 15 | 월별 MoM |
-| Churn | % | 5 | 월별 |
-| CAC | KRW | 80,000 | 마케팅·세일즈 합계 |
-| 평균 인건비 | KRW | 5,500,000 | 월 1인당 |
+```text
+가상 계획: 판매량 100개, 개당 판매가 20,000원, 개당 변동비 8,000원, 고정비 500,000원. 모두 전망 가정이며 실제 실적이 아님.
+```
 
-### Sheet 2 — P&L (월별 36개월)
+### 먼저 확인할 질문
 
-매출 → COGS → 매출총이익 → OpEx → EBITDA → 순이익. 모든 셀은 Sheet 1을 참조.
+실적과 전망 중 어떤 자료인가요? 세금·수수료·기타 비용은 포함됐나요? 답을 모르면 해당 항목을 미정으로 남기고, 그 정보 없이 가능한 범위를 정합니다.
 
-### Sheet 3 — Cash flow
+### 모범 결과를 읽는 방법
 
-영업·투자·재무 활동 3분류. 누적 현금잔고가 음수로 빠지지 않는지 확인.
+매출 2,000,000원, 변동비 800,000원, 고정비 500,000원입니다. 이 가정만의 차액은 700,000원이며 미제공 비용을 제외한 계산임을 표시합니다. 문장과 서식은 달라도 이 기준을 충족하는지 직접 비교합니다. 원문 위치·출처·상태가 결과에 함께 남으면 다음 검토자에게 넘기기 쉽습니다.
 
-### Sheet 4 — Cohort
+### 직접 비교할 모범 결과
 
-월 가입 코호트별 누적 매출 + 리텐션. LTV 계산 근거.
+| 항목 | 결과 예시 | 근거·상태 |
+|---|---|---|
+| 매출 가정 | 2,000,000원 | 100개 × 20,000원 |
+| 변동비 가정 | 800,000원 | 100개 × 8,000원 |
+| 고정비 가정 | 500,000원 | 제공 가정 |
+| 이 가정의 차액 | 700,000원 | 매출 − 변동비 − 고정비 |
+| 미반영 범위 | 세금·수수료 등 미제공 비용 | 최종 순이익·실적 아님 |
 
-### Sheet 5 — Funding need
+### 흔한 실수와 수정 요청
 
-자금 소요 + 사용 계획. 라운드별 (Pre-seed · Seed · Series A) 누적.
+계획 숫자를 확정 실적으로 쓰거나 제공하지 않은 세금과 수수료까지 포함한 이익으로 설명합니다. 이때는 결과 전체를 다시 만들어 달라는 말보다, 틀린 기준과 고칠 위치를 구체적으로 알려 주세요.
 
-## 워크플로우 예시 — 36개월 모델 자동 생성
+```text
+모든 입력은 가정이라고 표시해 줘. 차액은 미제공 비용 제외 계산으로 설명하고 추가 비용 확인 목록을 만들어 줘.
+수정한 부분과 아직 확인할 항목을 따로 알려 줘.
+```
 
-{{< terminal title="claude — cowork" raw="true" >}}
-시리즈 A 투자 검토용 재무 모델 만들어줘. 36개월, 5개 시트(Assumptions/P&L/Cash/Cohort/Funding).
-가정은 다음과 같음 — ARPU 50,000원, 신규 MoM 15%, Churn 5%, CAC 80,000원.
-xlsx 한 파일로 저장.
-{{< /terminal >}}
+### 확인 문제
 
-체인:
-1. `finance-financial-statements`
-2. `doc-xlsx`
+700,000원을 확정 순이익으로 보고해도 될까요?
 
-## 가정 변경 테스트
+<details><summary>답안과 해설 보기</summary>
 
-투자자가 "Churn 7%로 가정하면?" 같은 질문을 던졌을 때 5초 안에 답할 수 있어야 합니다.
+아닙니다. 가정에 따른 단순 차액이며 실제 실적과 누락 비용을 확인해야 합니다.
 
-{{< terminal title="claude — cowork" raw="true" >}}
-방금 만든 모델의 Assumptions 시트에서 Churn을 7%로 바꿔 결과 비교해줘.
-기존(5%) vs 변경(7%) 상태에서 24개월 매출과 EBITDA를 표로 정리.
-{{< /terminal >}}
+</details>
 
-## K-IFRS 결산 보고
+### 내 업무로 바꿔 보기
 
-스타트업이 시리즈 A 이후 결산 보고서가 필수가 되면:
+예제의 자료를 자신의 공개 가능한 자료로 바꾸고, 결과의 독자와 형식을 다시 정합니다. 변하지 않는 검토 기준은 프로젝트 지침에 저장하고, 이번 작업의 수치와 미정 조건은 새 자료로 제공합니다. [프로젝트와 자료 수업](/learn/02-project-context/)에서 구분 방법을 확인합니다.
 
-{{< terminal title="claude — cowork" raw="true" >}}
-2026년 K-IFRS 기준 재무제표 만들어줘. 손익계산서·재무상태표·현금흐름표 풀 세트.
-1년치 거래 데이터는 첨부 엑셀에.
-{{< /terminal >}}
+## 사용할 수 있는 스킬 후보
 
-## 자주 겪는 실수
+아래는 이 업무에 참고할 수 있는 패키지 기능입니다. 실제 설치·노출 상태를 먼저 확인하며 이 순서로 반드시 자동 실행된다는 뜻은 아닙니다.
 
-- **Assumptions 시트를 만들지 않고 P&L에 숫자 직접 입력** — 가정 변경 시 일일이 고쳐야 합니다.
-- **차트가 너무 많음** — 핵심 차트 3개만(매출 곡선, 현금잔고, 코호트). 나머지는 표.
-- **연간 모델만 작성** — 시리즈 A에서는 월별 36개월이 표준입니다.
+- `moai-officer:doc-xlsx`
+- `moai-accountant:finance-close-management`
+- `moai-accountant:finance-financial-statements`
+- `moai-accountant:finance-variance-analysis`
 
-## 다음 단계
+## 완료 기준
 
-- [투자 유치 가이드](../../guides/funding/)
-- [엑셀 고급 기법](../excel/)
-- [트랙 — 재무](../../tracks/track-finance/)
+결과물에 사용 자료와 미확인 항목이 표시되어 있습니다. 가정과 실적 구분·수식·기간·현금흐름을 직접 확인했습니다. 파일을 요청한 경우 저장된 파일을 열어 확인합니다. 실제 게시·발송·예약 작업은 별도의 실행 결과로 확인합니다.
 
----
+## 막혔을 때
 
-### Sources
+자료나 연결이 없으면 제공 자료로 가능한 초안과 다음 준비 목록을 요청합니다. 원문·수치가 다르면 해당 위치와 근거를 지정해 고칩니다. 전문 판단이 필요한 부분은 근거와 쟁점을 정리하고 해당 업무 책임자가 확인합니다.
 
-- moai-accountant 플러그인 [`finance-financial-statements`](https://github.com/modu-ai/moai-cowork/blob/main/plugins/moai-accountant/skills/finance-financial-statements/SKILL.md), [`finance-variance-analysis`](https://github.com/modu-ai/moai-cowork/blob/main/plugins/moai-accountant/skills/finance-variance-analysis/SKILL.md)
-- moai-officer 플러그인 [`doc-xlsx`](https://github.com/modu-ai/moai-cowork/blob/main/plugins/moai-officer/skills/doc-xlsx/SKILL.md)
+[결과 검토](/workflows/review/) · [반복 업무](/workflows/reuse/) · [다른 실습 선택](/cookbook/)
+
+## 공식 문서와 참고 자료
+
+- [관련 플러그인 원본](https://github.com/modu-ai/moai-cowork/tree/main/plugins/moai-accountant)

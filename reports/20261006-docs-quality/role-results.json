@@ -1,0 +1,21 @@
+{
+  "added_tables": [
+    "www/content/moai-agents/accountant.md",
+    "www/content/moai-agents/career.md",
+    "www/content/moai-agents/consultant.md",
+    "www/content/moai-agents/coworker.md",
+    "www/content/moai-agents/cs.md",
+    "www/content/moai-agents/designer.md",
+    "www/content/moai-agents/lawyer.md",
+    "www/content/moai-agents/marketer.md",
+    "www/content/moai-agents/media.md",
+    "www/content/moai-agents/officer.md",
+    "www/content/moai-agents/recruiter.md",
+    "www/content/moai-agents/seller.md",
+    "www/content/moai-agents/story.md",
+    "www/content/moai-agents/threads-poster.md",
+    "www/content/moai-agents/tutor.md",
+    "www/content/moai-agents/writer.md"
+  ],
+  "existing_chart_table": "www/content/moai-agents/analyst.md"
+}

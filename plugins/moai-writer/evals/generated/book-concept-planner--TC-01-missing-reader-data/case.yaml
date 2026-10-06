@@ -1,0 +1,41 @@
+schema_version: '1.1'
+name: book-concept-planner--TC-01-missing-reader-data
+description: 독자 조사 없이 컨셉서 초안 작성
+runs: 1
+tags:
+- generated
+- book-concept-planner
+execution:
+  prompt: '다음 프로젝트 업무를 수행해 주세요. 미확인 정보는 만들지 말고 필요한 맥락을 요청하세요.
+
+
+    가제는 "퇴근 뒤 작은 실험"이야. 내가 제공한 자료는 2년 동안 기록한
+
+    프로젝트 노트와 다음 목차뿐이야: 시작하기, 기록하기, 돌아보기.
+
+    독자 인터뷰와 구매 자료는 없어. 이 책의 컨셉서 초안을 작성해 줘.
+
+    '
+  allowed_tools:
+  - Read
+  - Glob
+  - Grep
+  - Skill
+  max_turns: 12
+  timeout_seconds: 180
+graders:
+- name: skill-fired
+  type: tool_used
+  tool: Skill
+  input_match: '"skill"\s*:\s*"(?:[\w-]+:)?book\-concept\-planner"'
+- name: quality
+  type: llm
+  focus: trace
+  criteria: "입력 사실·제약과 아래 사례의 기대 결과를 대조한다. 모든 적용 가능한 조건을 만족하면 PASS, 하나라도 위반하면 FAIL이다.\
+    \ false 값은 해당 동작·주장이 없어야 한다는 뜻이다. 정보·도구·fixture가 부족하면 모델이 이를 명시했는지 확인하되, 원래 조건을\
+    \ 충족하지 못한 실행을 임의로 PASS로 바꾸지 않는다. 단어가 있다는 이유만으로 사실성·산술·법적 판단·의미 보존을 통과시키지 않는다.\
+    \ 원격 호출·파일 생성·독립 검수의 주장은 실제 trace와 산출물로 확인한다.\n\n{\n  \"assertions\": [\n    {\n\
+    \      \"type\": \"contains\",\n      \"value\": \"가설\"\n    },\n    {\n     \
+    \ \"type\": \"contains\",\n      \"value\": \"미확인\"\n    }\n  ],\n  \"expected\"\
+    : [\n    {\n      \"reader_claims\": \"가설_또는_미확인\"\n    },\n    {\n      \"market_numbers\"\
+    : \"근거_없으면_기재_안함\"\n    }\n  ]\n}"

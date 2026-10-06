@@ -4,8 +4,9 @@
 
 `/project` Phase 6에서 호출되는 프로젝트 지침 생성 프로토콜. 폴더 지침의 **정본은 `./AGENTS.md` 한 파일**이며(**500라인 이내**), `./CLAUDE.md`는 그 정본을 `@AGENTS.md` 한 줄로 불러오는 **포인터**다. 두 파일에 같은 내용을 복제하지 않는다 — 복제는 한쪽만 고쳤을 때 조용히 어긋나기 때문이다.
 
-- `AGENTS.md` — Codex(ChatGPT Work)가 자동 로드하는 정본. 전체 지침 본문이 여기에만 있다.
-- `CLAUDE.md` — Claude(Cowork/Code)가 자동 로드하며, `@AGENTS.md` 임포트로 정본을 세션 시작 시 펼쳐 읽는다. 결과적으로 두 런타임이 **같은 지침**을 본다(기능 동등).
+- `AGENTS.md` — 폴더 지침 정본. 로컬 Codex에서 실제 발견 경로·byte 예산을 확인한다.
+- `CLAUDE.md` — 필요한 Code 호환 경로의 `@AGENTS.md` 포인터. 직접 읽기·import·Project UI 적용은 호스트별로 관찰한다. 정본은 복제하지 않는다.
+- 계정/폴더 Project UI 지침과 소스는 `host-capabilities.md`에 따라 별도로 적용·읽기 확인한다.
 
 스킬 상세 내용은 두 파일 어디에도 복사하지 않고, 실행 시 해당 스킬(SKILL.md)을 런타임에 로드하여 사용한다.
 
@@ -18,29 +19,13 @@
 
 ---
 
-## 0. 설계 원칙 (외부 표준 대조 · 2026-08-27)
+## 0. 지침 분량과 호스트 적용
 
-`AGENTS.md`는 우리가 만든 관습이 아니라 **공개 표준**이다. 2025년 8월 OpenAI 주도로 Google·Cursor·Factory가 참여해 오픈 스펙으로 정식화됐고, 2025년 12월 Linux Foundation의 Agentic AI Foundation에 기증됐다. 2025년 12월 기준 6만 개 이상의 오픈소스 프로젝트와 20개 이상의 AI 코딩 도구가 채택했다. **필수 필드는 없다** — 평범한 마크다운이고 에이전트가 본문을 그대로 읽는다.
+지침에는 프로젝트 목적·판단 기준·권한·완료 조건·상세 자료 읽기 경로를 둔다. 스킬 본문·사례·카탈로그를 복사하지 않는다. `@AGENTS.md` import는 실제 읽힐 때 본문을 펼치므로 그 자체가 맥락 사용량을 줄이지는 않는다.
 
-여기서 따르는 원칙 넷:
+500줄은 운영 상한이며 목표가 아니다. 생성 결과와 실제 발견된 프로젝트 지침 체인의 UTF-8 바이트를 함께 검사한다. Codex 기본 한도는 32 KiB이며 현재 설정을 확인해 사용한다. Project UI의 한도는 해당 호스트에서 별도로 확인한다. 예산 초과 시 상세 체인을 기존 `config.json`에 보존하고 지침에는 접근 경로를 남긴다. 필수 판단·안전·검수 조건을 삭제하거나 임의로 호스트 한도를 높이지 않는다.
 
-1. **최소·정확 (minimal and precise).** 불필요한 요구사항은 에이전트 성능을 **실제로 해친다** — 에이전트가 무시해서가 아니라 **충실히 따르기 때문에** 탐색 범위가 넓어지고 추론 비용이 오른다. 기본 자세는 이렇다: **다른 곳에 적을 수 있는 제약은 여기 두지 않는다.** 스킬 본문·레퍼런스·MCP 설정으로 밀어낼 수 있으면 민다.
-2. **계층 구조.** 루트에 보편 `AGENTS.md`, 모노레포면 패키지별 중첩 `AGENTS.md`, 도구별 오버라이드, MCP 설정은 옆에 둔다. 한 파일에 다 넣지 않는다.
-3. **임포트는 컨텍스트를 줄이지 않는다.** `@경로` 임포트는 인라인으로 **펼쳐져** 그대로 창을 차지한다. 파일을 쪼개는 것은 **사람이 관리하기 위한 것**이지 토큰을 아끼기 위한 것이 아니다. 토큰을 실제로 아끼는 것은 **스킬의 점진적 공개**(필요할 때만 본문 로드)뿐이다.
-4. **문서는 변경과 같은 커밋에서 갱신한다.** 코드를 바꾸고 지침을 나중에 고치면 그 사이 모든 실행이 낡은 지침으로 돈다.
-
-### 라인 예산에 대한 정직한 기록
-
-업계 권장은 **200줄 이하**다 — 긴 파일도 전부 로드되지만 **분량이 늘수록 지시 준수율이 떨어진다.** 이 프로젝트는 상한을 **500줄**로 두기로 했다(운영자 결정, 2026-08-27). 담아야 할 HARD 규칙이 실제로 늘었기 때문이다.
-
-그래서 예산을 올리는 대신 **원칙 1·2를 더 엄격히 적용한다.**
-
-- HARD 블록은 **판단 기준과 금지선만** 적고, 절차·예시·근거는 스킬 레퍼런스로 민다
-- 500줄은 **상한이지 목표가 아니다.** 300줄에서 끝낼 수 있으면 300줄에서 끝낸다
-- 새 규칙을 추가할 때는 **어느 기존 줄을 지울 수 있는지 함께 본다**
-- 생성 후 400줄을 넘으면 그 사실을 사용자에게 알리고, 어느 구획이 큰지 보고한다
-
-> 출처: [AGENTS.md Specification (ASDLC.io)](https://asdlc.io/practices/agents-md-spec/) · [AGENTS.md Complete Guide 2026 (codersera)](https://codersera.com/blog/agents-md-complete-guide-2026/) · [CLAUDE.md Guide 2026 (Serenities AI)](https://serenitiesai.com/articles/claude-md-complete-guide-2026) · [Claude Code memory (Anthropic docs)](https://docs.anthropic.com/en/docs/claude-code/memory)
+공식 근거: [OpenAI AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md), [Claude Code memory](https://code.claude.com/docs/en/memory), [OpenAI Projects](https://learn.chatgpt.com/docs/projects). 호스트 분기는 `host-capabilities.md`를 따른다.
 
 ---
 
@@ -48,11 +33,11 @@
 
 ```
 <프로젝트>/
-├── AGENTS.md              ← 폴더 지침 정본(≤500라인). Codex가 자동 로드
+├── AGENTS.md              ← 폴더 지침 정본(≤500라인). 호스트 발견·읽기 확인
 ├── CLAUDE.md              ← 포인터(한 줄). `@AGENTS.md` 임포트만
 └── .moai/
     ├── config.json         ← 플러그인·커넥터·API 키 참조
-    ├── context.md           ← 프로젝트 맥락 누적
+    ├── context.md           ← 실제 답·출처·유예 요약
     └── evolution/
 ```
 
@@ -92,7 +77,7 @@
 
 ### 2.3 스킬 체인 기록
 
-Phase 3에서 설계된 각 산출물 체인을 `{workflow_chains}` 슬롯에 인라인 스킬 체인으로 주입한다. 최대 **10개 체인까지** 나열한다. 나머지 체인은 안내하지 않고, 사용자가 "어떤 코워커 있어?"로 물을 때 안내한다(제거된 `/project catalog`는 참조 유도에 쓰지 않는다).
+Phase 3에서 설계된 각 산출물 체인을 `{workflow_chains}` 슬롯에 인라인 스킬 체인으로 주입한다. 최대 **10개 체인까지** 나열한다. 전체 체인은 `.moai/config.json`의 `workflows`에 보존하고 본문에 해당 목록을 읽는 경로를 반드시 남긴다. 목록 요청에는 저장된 전체 정의를 확인해 안내한다.
 
 체인 블록의 형태는 다음과 같다.
 
@@ -155,9 +140,9 @@ Phase 3에서 설계된 각 산출물 체인을 `{workflow_chains}` 슬롯에 �
 | 변수 | 출처 |
 |------|------|
 | `{version}` | `moai-pm/.claude-plugin/plugin.json` `version` |
-| `{date}` | 오늘 날짜(YYYY-MM-DD) |
-| `{connectors_and_apikeys}` | Phase 8에서 등록된 키·커넥터 요약 |
-| `{project_context_notes}` | 초기값 비어있음(실행 중 자동 누적) |
+| `{date}` | 현재 관찰한 날짜(YYYY-MM-DD) |
+| `{connectors_and_apikeys}` | 현재 확인한 커넥터·계정 참조·인증 상태(비밀값 제외) |
+| `{project_context_notes}` | 인터뷰의 실제 사실·출처·유예 요약 및 호스트 적용 상태 |
 
 ### 4.4 사용 금지 변수
 
@@ -168,12 +153,14 @@ Phase 3에서 설계된 각 산출물 체인을 `{workflow_chains}` 슬롯에 �
 ## 5. 생성 절차
 
 1. 템플릿 로드: `references/templates/AGENTS.md.tmpl`을 Read.
-2. 변수 수집: Phase 1 인터뷰 결과 + Phase 2 인벤토리 + Phase 3 체인 설계 + Phase 8 등록 키.
+2. 변수 수집: Phase 1 인터뷰 결과 + Phase 2 인벤토리 + Phase 3 체인 설계 + 현재 관찰한 커넥터·계정 참조.
 3. 치환: 각 `{변수}`를 수집된 값으로 치환한다.
-4. 길이 검증: `wc -l`이 500라인 이하인지 확인. 초과 시 스킬 체인 나열을 최대 10개로 자동 축소한다. **8개 HARD 규칙 블록은 축소·삭제 대상이 아니다.**
+4. 예산 검증: 500라인과 현재 호스트의 발견 체인 byte 한도를 검사한다. 초과 시 상세는 config.json에 보존하고 본문은 요약·접근 경로로 줄인다. **8개 HARD 규칙 블록은 축소·삭제 대상이 아니다.**
 5. 주석 제거 + Write: 템플릿의 HTML 주석(출처 표기 포함)은 생성 결과에서 전부 제거한 뒤 `./AGENTS.md`에 저장한다.
 6. 포인터 생성: `references/templates/CLAUDE.md.tmpl`을 **치환 없이 그대로** `./CLAUDE.md`에 Write한다(§2.4 HARD 규칙 준수).
-7. 보조 파일 생성: `./.moai/config.json`, `./.moai/context.md`(빈 파일), `./.moai/evolution/log.md`(빈 파일 — 개선 이력 정본).
+7. 보조 파일 생성: 버전 2 계약의 `./.moai/config.json`, 실제 인터뷰 사실·출처·유예를 담은 `./.moai/context.md`, `./.moai/evolution/log.md`(없을 때만 초기화). 기존 답·사용자 편집·개선 이력을 빈 파일로 덮어쓰지 않는다.
+8. 계약 검사: `scripts/project_contract.py validate --config <설정> --root <작업 폴더>`와 `budget --files <실제 발견 체인> --limit <현재 한도>`를 실행한다.
+9. 호스트 적용: `host-capabilities.md`의 Project 지침·소스 적용 및 새 대화 읽기 확인을 수행한다. 파일 생성·UI 적용·대표 업무 실행을 별개로 보고한다.
 
 ---
 
@@ -190,7 +177,10 @@ Phase 3에서 설계된 각 산출물 체인을 `{workflow_chains}` 슬롯에 �
 - [ ] 스킬 체인 블록이 `{workflow_chains}` 자리에 주입됨
 - [ ] 8개 `## N. … (HARD)` 블록 전부 고정 포함됨
 - [ ] `요청 평가 사다리` / `파일 생성 기준` / `맥락 적용 규칙` / `톤 규칙` / `인용·저작권 가드` 블록 포함
-- [ ] `.moai/config.json` 생성됨
+- [ ] `.moai/config.json`의 qualified ID·맥락·의존성·상태 계약 검사 통과
+- [ ] `.moai/context.md`에 실제 답·출처·유예가 보존됨
+- [ ] 실제 발견 지침 체인의 byte 예산 통과
+- [ ] Project 적용·새 대화 읽기·대표 업무의 실행/미실행 상태 기록
 - [ ] 프로필 관련 변수 흔적 없음
 
 검증 명령 예시:
@@ -223,7 +213,7 @@ grep -m1 -v '^[[:space:]]*$' ./CLAUDE.md       # == @AGENTS.md
 4. **포인터 교체**: `./CLAUDE.md`를 `CLAUDE.md.tmpl` 내용으로 덮어쓴다.
 5. **검증**: §6 체크리스트를 실행한다.
 
-**개선 경로 예산 재검증**: 자가 개선 diff가 `AGENTS.md`를 수정한 경우에도 §5-4 길이 검증(`wc -l` ≤ 500)을 재실행한다. 라인 예산은 생성 시 1회 검증이 아니라 **`AGENTS.md`가 수정될 때마다 지켜야 하는 불변식**이며, 초과 시 축소 대상은 생성 시와 동일하다(체인 나열만 — 8개 HARD 블록은 축소 대상이 아니다).
+**개선 경로 예산 재검증**: 자가 개선 diff가 `AGENTS.md`를 수정한 경우에도 §5-4 길이 검증과 실제 발견 체인 byte 검사를 재실행한다. 라인 예산은 생성 시 1회 검증이 아니라 **`AGENTS.md`가 수정될 때마다 지켜야 하는 불변식**이며, 초과 시 축소 대상은 생성 시와 동일하다(체인 나열만 — 8개 HARD 블록은 축소 대상이 아니다).
 
 ---
 

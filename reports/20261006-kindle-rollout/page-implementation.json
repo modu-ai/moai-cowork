@@ -1,0 +1,1493 @@
+[
+  {
+    "page": "www/content/_index.md",
+    "sha256": "8a8a4283b2af7c9a7ded1bf16188cf593807a6af84f15c0fe5b4443933aeaa93",
+    "diagrams": [
+      [
+        "first-workflow",
+        ""
+      ]
+    ],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/advanced/_index.md",
+    "sha256": "68f9db70f5ada3bb657b543f2397b7c1c0dbdb6d3082b504654d5f1b41fa7862",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/advanced/documentation.md",
+    "sha256": "ac11345c5783f890382e77ba3db6b8e97f3c93535eb7d384a0004c4b93d24a91",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/advanced/plugins.md",
+    "sha256": "7e350c249dbf747a06579bd83ef774761408c28594670eb056edefde9b0e5feb",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/advanced/verification.md",
+    "sha256": "52bf517ba59a01a3f5048aac20f9746b30ff9131d468a4fa938e12cc0a8db81e",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/_index.md",
+    "sha256": "d2a786725fae33180c9e368fcd169bb6fc7e87fc8ed1344a6ac8ed5848870e9d",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/automation-recipes.md",
+    "sha256": "b4100d1bdf62bda008ee6566f5df7b8296ade711ef7350ddba18f825f78d92bf",
+    "diagrams": [
+      [
+        "reuse",
+        "pixel"
+      ]
+    ],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/best-practices.md",
+    "sha256": "0d3ad63a251bdbf1330fa85ffb246b79fc3adb2809f320f96c7a8b200138b72d",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/blog-pipeline.md",
+    "sha256": "1afcb0f367fc408d6ee4f9bf76b13e647355c90b84f77612f5e3bf0faa084dcf",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/business-plan.md",
+    "sha256": "451bb6d9d9a8c803f7e815e43ac5f39babb5a08766d883e7fb0cf2b198d5cb44",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/contract-review.md",
+    "sha256": "2b7fdff1c597654d3b193704078b45f425608e2bec74d37e7e463aafc191934d",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/design/_index.md",
+    "sha256": "caadf4610e42cb115c0280f54fe6e3daf84a5c82e642de745e5345a16eb1e0f4",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/design/presentation.md",
+    "sha256": "452972b8d838d222af84382a44e80f0dd8cc302b109043e06adc54f4a3baba6e",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/guides/_index.md",
+    "sha256": "8786e01e86c25112c58443051d7d3fb52725e22e7d9718e4fad2272715ff90d7",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/guides/content-marketing.md",
+    "sha256": "e85ba90c69465fd8597b19f85fc1f1122175a5a41ac592c9a2f724ad8220711f",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/guides/contract-drafting.md",
+    "sha256": "aba0bb4092e784d5413d4ef0b930a9705eb35ba59a364fe22d408fed557cc1e1",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/guides/data-analysis.md",
+    "sha256": "42fa1dffc10dd02dd275458e866b2910f5ceafa226ecd8ec35e43ff363f543c2",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 1,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/guides/data-visualization.md",
+    "sha256": "e371f397a02d3dbb37c7ba02ff85365f6b4f208949674ab6e1f31f899238f822",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 1,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/guides/funding.md",
+    "sha256": "0e77344a0789862e463fecfd968e7053d951682ab545d30c22556c44c11b36d7",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/guides/legal-risk.md",
+    "sha256": "c1e047206d52f6a0f6a904a45b5736671470296118bd68a312ed32aaf6cc08b2",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/guides/social-media.md",
+    "sha256": "6c818c7904040e26c6b2516df5a2f4da5bb10b475a89cad69e0bd41ee54dce6d",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/ir-deck.md",
+    "sha256": "0ffd53faa3d34c87d7996b32dd442c2a6508e7a16e9a75b17a4e42fb3285500f",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/legal-nda-batch.md",
+    "sha256": "7078aca78022ddc42a589208ef257e69e4786ae2d6df763e404e6f56d688e905",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/projects/_index.md",
+    "sha256": "698313e14952860fedeb51546f95753add331002cd94dfa5ca1cfe785f32b2c8",
+    "diagrams": [
+      [
+        "pm-setup",
+        ""
+      ]
+    ],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/projects/brand-to-landing.md",
+    "sha256": "309bb9530d860f09cfcac91d495b0e0f693e6b7ad443af651eb56fb63753362a",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/projects/career-transition-4weeks.md",
+    "sha256": "cd701b38b5acad3b8030612cb539f4d82c6318270dd3e7cc40fed3753bf649c1",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/projects/contract-risk-report.md",
+    "sha256": "a681b5bb848dd38e1964bc1655cd32bd8f328adf5dbdf67afeca5d38cde7b8db",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/projects/gov-grant-application.md",
+    "sha256": "80631bf4f6522426ece91ad5d75894cf5b9534a21b4afa88955e1d5b876d0e82",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/projects/hiring-pipeline.md",
+    "sha256": "beea1c2d783d2198e2b59691b30e503f328adea2d2d5618eb9245c8b5796c3c3",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/projects/public-data-report.md",
+    "sha256": "0e9b681d7095b68d2010de0eac6dbcc6dcb327da3d2e25d191e5a687d6d8400a",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 1,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/projects/smartstore-launch.md",
+    "sha256": "b867f7f577bebd662500c1f18a01198818369c0d4f05dfe409613195c91e91e0",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/projects/sns-content-month.md",
+    "sha256": "62fa4080df53b82ce65d82002bb6a6994e1f71c95a07a557537c228371969d50",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/projects/startup-feasibility.md",
+    "sha256": "a7f87d2a45bc79e7c170439a2f572219dc42b25b2c594cc3e761964a41e58bb7",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/projects/voc-to-faq.md",
+    "sha256": "23fe77a2f2d415ca0ca5c5d3063757454b00c95e99ab3497c3408a89b442475f",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/projects/webnovel-project.md",
+    "sha256": "b00535226eff32b97ba46b0015097334b0251b4a319b9dd118172a1d86423103",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/projects/weekly-report-routine.md",
+    "sha256": "e29c1878edd08c76d02edd39e8b4823e0a4bef636ef3c4f647372fdfc4cfae90",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/report-automation.md",
+    "sha256": "aa28479c6f78b7506483211f9e7eea4efc3432e86ec5cfec0efdcb7828c3633e",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/skill-chaining.md",
+    "sha256": "d3a6ac68db2089c69a209854f700a77e1812a8b0be016987ee2e859495442531",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/templates/_index.md",
+    "sha256": "d1a034958d46da1b8d24e6ba2d0e1be45b2e662f4e75e254330a54c45983d664",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/templates/compliance.md",
+    "sha256": "ee62b3d148cb16bf8ca6891e03cfec36b2443ddcf5a72e37f89f613ec7c6df7b",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/templates/email.md",
+    "sha256": "50b1508f6c61bf8825cfdc0678a2f51c1345f8660d7a016f3010cb2d092634be",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/templates/excel.md",
+    "sha256": "993874a733a2fa2ecf64d60556f9e907b84fa2327e18fe0df8969978c846e1e0",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/templates/financial.md",
+    "sha256": "338842990c3b25ca6d0ffd9fc1074bb313fb8a67c04fa4630fe04af2345f7f75",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/tracks/_index.md",
+    "sha256": "c775d7caec9511afe855e7581198843a0926938e9a848b7c85a2a488fc3188d3",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/tracks/track-advertising.md",
+    "sha256": "b81baf6558df1230414cc595a7e5f1c08acb02b9c191e3e0f1617c414e65d650",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/tracks/track-appendix.md",
+    "sha256": "ede608e8487d31dfbb45085b9dffea0dc0818116e4bc21235a457847852c506b",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/tracks/track-commerce.md",
+    "sha256": "03ae4bafb17afee286e6f94b31772deea50b9f15f5f3944d1af66f932edb967f",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/tracks/track-content.md",
+    "sha256": "c3e830dc5e2eb484c180d8e2ad45fd82fc25fe9da57241ac127bf485f7b26d6b",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/tracks/track-data.md",
+    "sha256": "562cb7fcf7c4399d3617d708b62b07013c3620c0899495ee2543a85f01283811",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 1,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/tracks/track-documents.md",
+    "sha256": "ed96ee07a1785d2f632c2be5820e478256cebec8149da9c0960161f2f0545679",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/tracks/track-finance.md",
+    "sha256": "21d0ab49b22f7bd26b8981abf1e06dafeecfb3b8677c0ab90a4a7da0e75bf123",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/tracks/track-hr.md",
+    "sha256": "1fa74999b29f1e3d1ac1acc83e781ac5ac05ecd10db22be98502deb61a591125",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/tracks/track-legal.md",
+    "sha256": "b36b0576d9ea03e7012182284e19195a7fadad60338b16939550ecec5a0fa5f6",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/tracks/track-marketing.md",
+    "sha256": "6b4366cfc05fa508b7c2ddb4145074f4b9e53cd73526e63f24a58a59be5eae97",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/tracks/track-operations.md",
+    "sha256": "fdb0e4f89af985753a4db73f3bac8c211a4ec2613aea192dada6c1a9915f2691",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/tracks/track-product.md",
+    "sha256": "4488c43ffb432f7edd28a9757b2091c6dda2e0f85470ae8e8e5fdf3fb32d6f77",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/cookbook/troubleshooting.md",
+    "sha256": "e20b0b184d89322f74d4bf2b29ebbadbb7c8d14ac04f411b81562ef92fd2e413",
+    "diagrams": [
+      [
+        "troubleshooting",
+        ""
+      ]
+    ],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/getting-started/_index.md",
+    "sha256": "27cd7b9381abdde5602a2846dcba54367955ee6152bff3b24205578fb7f5654c",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/getting-started/choose-app.md",
+    "sha256": "ba46f869891ea8a043139f0249f4acb63688f4fbb1ad1bc4b23c918ca7775994",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/getting-started/concepts.md",
+    "sha256": "11c30c21b286f150bae340b2f1effca9f5815472e5b6c59ec03030017bb69cb9",
+    "diagrams": [
+      [
+        "concepts",
+        ""
+      ]
+    ],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/getting-started/first-task.md",
+    "sha256": "646fd2e89f0a509ef65746aaf9c5a52d9e2634927f31786ed090984f13ee3f47",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/getting-started/install.md",
+    "sha256": "50c94c65fa51e823f2c1e46c69924d034dd08719b2fefea5243f312d729b34eb",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/getting-started/projects.md",
+    "sha256": "f83dfdd13b4629cbf0771755371dde0f75d7b354a1887a95c115e8023218dbaf",
+    "diagrams": [],
+    "pixel_images": [
+      "/infographics/kindle/context-ko.png"
+    ],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/getting-started/questions.md",
+    "sha256": "c839ae2baa398e3cebcb1b45aa6afda360b16c4904be81868766547285a31b7e",
+    "diagrams": [
+      [
+        "questions",
+        ""
+      ]
+    ],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/getting-started/quick-start.md",
+    "sha256": "e75932d7051c8277a3f4774737ea616fe5b28fa03e57e38a608aa414d2a21383",
+    "diagrams": [
+      [
+        "first-workflow",
+        ""
+      ]
+    ],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/help/_index.md",
+    "sha256": "7afd956a937adc4a9ead7aedaa9e2d6ea8d04658e4e361d2cd40695200b9317e",
+    "diagrams": [
+      [
+        "troubleshooting",
+        ""
+      ]
+    ],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/help/about-claude.md",
+    "sha256": "c1c836678845783da259ae1b8e545f69051877bde4d7dc2d8d64b0b20fd7319c",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/help/account.md",
+    "sha256": "93d8c7d6fb5f270bd4e1b57f06ef3ba7d8e00d1e60a04a6fc7dda9d87ae287bd",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/help/attribution.md",
+    "sha256": "0d8af90ff8aa09fbe891246382beaa54a50966cc477f21235b4613b2651d11c5",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/help/conversations.md",
+    "sha256": "331e12b2cc5f10c08583244ec01c86031385b0c446c7572692efdc4c1f33d86a",
+    "diagrams": [
+      [
+        "handoff",
+        ""
+      ]
+    ],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/help/office/_index.md",
+    "sha256": "5485c91c0e47261a256b72051bf1e47388c6920172f1368170e56f79590500f9",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/help/office/microsoft-365.md",
+    "sha256": "da388856c1aeb1fb7d86ed9f14385335a8f8f8ff80c313ba1968b02f9cced998",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/help/personalization.md",
+    "sha256": "1f96e67929904c1034a0e3473f55e64e4d2a1ee917aa27207b9a513a7b6560f0",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/help/plans-billing.md",
+    "sha256": "5a262d4cdc5fa699c489184bebac9f55e781e7b6aa9e7cb1205a3d9bd6d9ef0c",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/help/source-index.md",
+    "sha256": "e2f66bbec571fe855d0e15f4dbc1e33339a9657a8680e41cbd900a6e15b26e4c",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/help/troubleshooting.md",
+    "sha256": "65f65cdd903936b4ea28d3be080d5c2a17aee7ce32a3946bb78b137a54b18d46",
+    "diagrams": [
+      [
+        "troubleshooting",
+        ""
+      ]
+    ],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/help/usage-limits.md",
+    "sha256": "394a1690447bdf25360f190bb703dbe2217af2c0b9858013c5e5b7737ecb0a7c",
+    "diagrams": [
+      [
+        "limits",
+        ""
+      ]
+    ],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/learn/01-delegation.md",
+    "sha256": "0aaeb4c7a9f475d3f5eea122b70ba8534dfd97f4cc4458ecac5dc8eb75ba238e",
+    "diagrams": [
+      [
+        "concepts",
+        ""
+      ]
+    ],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/learn/02-project-context.md",
+    "sha256": "02bb18fa50b628cfd762d69c1d982e4887c145b3cd8f1ea9327d131156df51b7",
+    "diagrams": [],
+    "pixel_images": [
+      "/infographics/kindle/context-ko.png"
+    ],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/learn/03-first-result.md",
+    "sha256": "f104fa00b107fc0dbabe8e6e8aaea6c095d231836515ca36f162e3fc0ba84dc7",
+    "diagrams": [
+      [
+        "first-workflow",
+        ""
+      ]
+    ],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/learn/04-skills-plugins.md",
+    "sha256": "fe1aaa520d3628cdda4524d57ebbaee38fabf25ac5e9995d80055c7497d4b6c6",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/learn/05-expert-workflow.md",
+    "sha256": "d117c46d187acdca52fbfe0e83c46277cd6963e7a3236c0542a1102a3134e966",
+    "diagrams": [],
+    "pixel_images": [
+      "/infographics/kindle/parallel-ko.png"
+    ],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/learn/06-review-reuse.md",
+    "sha256": "958b3fb3f9f33f11504860627b823df4527060208d11d3119d4415b166fa1472",
+    "diagrams": [
+      [
+        "reuse",
+        "pixel"
+      ]
+    ],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/learn/_index.md",
+    "sha256": "aea80eefa2cd32822323a770adae94503acd645fcf6dce134b71866e62b2fdd3",
+    "diagrams": [
+      [
+        "first-workflow",
+        ""
+      ]
+    ],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/learn/screens.md",
+    "sha256": "2a8e390f71f4364af965dd8c035dd597299263d65bb7acee23f30353bb44798d",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/learn/teaching-guide.md",
+    "sha256": "efb1ddaff2df842a52dd18f947e0e94055aa44c0b3fe595ca4d596b2613e3dc8",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/moai-agents/_index.md",
+    "sha256": "fff5ffe6b6491c37e62e2965dbdef2a58f6bbfb7c54384fe1df1cde85b32a062",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/moai-agents/accountant.md",
+    "sha256": "91ffa673b51b93f5ccff747b69d229c795896a64046d7ea4b76f5c896600b331",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/moai-agents/analyst.md",
+    "sha256": "d64f70877e210b03dc885ced5974d37fe60d3cc3790a06f4f72ab232e5dfb6c6",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 1,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/moai-agents/career.md",
+    "sha256": "9baee47055e9168f31401e10300003ad39085bf75de44c2ce536fd568a929f6b",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/moai-agents/consultant.md",
+    "sha256": "e8b64c48fb854b5a28e941a23a704230720c6336e2734b2fd79bee476d6be0f0",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/moai-agents/coworker.md",
+    "sha256": "e270ba6d116d2baba73138fc97a1e9fdd8cf349c87cfaef5187ed313871834b7",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/moai-agents/cs.md",
+    "sha256": "9ecc5534bf6298159751d6cbd16230968fa7d86c17df97235660f03ae0cd23ef",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/moai-agents/designer.md",
+    "sha256": "319d8e1166c34bddb87f5f16571f859ca8161615ae714d07ec7ee319c16d4f96",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/moai-agents/lawyer.md",
+    "sha256": "4e0e16a8b8f02ea8f7e9db5dbdf3f3c1a18dff5dcf95f7961457fe94bc4be3c4",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/moai-agents/marketer.md",
+    "sha256": "659fa18820efca88cd8204509dde584fba9d2ce41b507f59fb10f7e1ef468469",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/moai-agents/media.md",
+    "sha256": "07d5ab93d991bef6e231192a804c9e25fc1cfb0ad700ad5a1811958fb89c79dc",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/moai-agents/officer.md",
+    "sha256": "468cab7f2e297c71209d72984ab9ab816ec8cf148093b762d6dd2f523a829dcc",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/moai-agents/pm.md",
+    "sha256": "ae9727256bcba04986ba9b86607feb94b6a5d25e15527042a821ba1caba15d49",
+    "diagrams": [
+      [
+        "pm-setup",
+        ""
+      ]
+    ],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/moai-agents/recruiter.md",
+    "sha256": "dc4d5b8e36d7b40268d85c0c60801e3ede8925ee35c4e25b56de7fb14df98918",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/moai-agents/seller.md",
+    "sha256": "989ad5deb903b4c82f7263e875602f5182acaa6c77df03bcd2fa8f9d551c1758",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/moai-agents/story.md",
+    "sha256": "0f2f8f5f86049adf3c700ee8289ce0555230d57d3a5ae888a70f7fd2a08d13ee",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/moai-agents/threads-poster.md",
+    "sha256": "f8d597d2e0b16f284a30ad5a05bfe4a702c19d114a8d213097a05476b39603b3",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/moai-agents/tutor.md",
+    "sha256": "c63fdc130a7546f8b114acffb15599ef81ffa8c0c5fb1e113ea62e62a3fb04a2",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/moai-agents/writer.md",
+    "sha256": "0cc262a2276e94158261014721a027da41d5517e74163a755abc6b5abaf538a6",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/plugins/_index.md",
+    "sha256": "6a4253ca72b9af81b6eb4299559488952ad42c47a7238e38de268fdacfeae30c",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/plugins/agents.md",
+    "sha256": "8a7d6e1ac3f6d079b9fe29c5985280c375443767931d3eb772cd9d37c02dea2d",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/plugins/higgsfield-setup.md",
+    "sha256": "baddaf4448a9a1b10729fc32e869803837cf477f131f232cca7f74f7b2237900",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/plugins/install.md",
+    "sha256": "6bb89c4f66348a24e233c4b9fa15b5a777ff5707c76e7a2761b3bdc08f4cf189",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/plugins/license.md",
+    "sha256": "2c133f345be192412413de8ea3059fa2d9db3693d64eb25cd6ce4b34829f299e",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/plugins/mcp/_index.md",
+    "sha256": "7cc4d593543ba2aa4e5dabadcdd01e15f99908da2f9bf9d5d01b9525077d6ab3",
+    "diagrams": [
+      [
+        "server-modes",
+        ""
+      ]
+    ],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/plugins/mcp/credentials.md",
+    "sha256": "1875b6832626084fc34c00e7652c9f93708ac110e201f10973b50d1f50fda36e",
+    "diagrams": [
+      [
+        "credentials",
+        ""
+      ]
+    ],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/plugins/mcp/install.md",
+    "sha256": "a83bb703656217739ecdb07efb131db3c08d9205bc622c8e3066d5e27ad09d92",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/plugins/mcp/troubleshooting.md",
+    "sha256": "677b2461a2fd4ed68314c0b9353102983b48f21b1d8af985e18011a598e2d365",
+    "diagrams": [
+      [
+        "troubleshooting",
+        ""
+      ]
+    ],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/plugins/open-source.md",
+    "sha256": "93f1d379b9752f826959a817d6b3993a1526532974c15649e79faf774d78c79c",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/plugins/teams.md",
+    "sha256": "cd42ce7994fa56bb8d3609adc83f11549cca34012a07f020c0c452bf0d4b3ae6",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/_index.md",
+    "sha256": "6909fa93baefa5af03248297c78615248a8275d9adc261ff2a8556143c830a02",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/_index.md",
+    "sha256": "ffe6cc9c5cfea6aefbe023f1b93de7a0b9afeb47f24a044e3a76f94dee6a20ad",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v1.0.md",
+    "sha256": "45541fda46e0e37b60f1128675bf8021ce363cecc64e7c53402b11fcdd54f710",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v1.2.md",
+    "sha256": "3520fcb6b6a113600129dbf3a34b9b294ae39da11b5fa6633a5668e4df22c91c",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v1.3.md",
+    "sha256": "9d91d2f6f468a022ae0de3369479f2379394d737c28ddbfb26877524ff494eba",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v1.5.md",
+    "sha256": "0c39d08e086ac7e0b2c91ad31c44a970049bcea8462e9baac49423411e265317",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v1.6.md",
+    "sha256": "fac8bfb77373c0b96849d81143da9e507c96862d12f9cac89cb10edf04c039b2",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.0.md",
+    "sha256": "e9afb19b75ad3d868d6703d604078f9fd437bb8d90eb950f5afc8598a1101df8",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.1.md",
+    "sha256": "488d0f49dcac12cf9b5e8e8d0efc45af2a5d6f3c8d0c4a2321782bc19695779f",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.10.md",
+    "sha256": "5cef8f6ed36976b08a2a4d6efb03b84ca47bca85e2fd1cbcbced662a9c6e6717",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.11.1.md",
+    "sha256": "e9fecf46fcb293c5925b36f7deeb38bbba1684e220da38605422e84e2395b255",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.11.md",
+    "sha256": "b41ff01bebda9d3cef489396d26984d35149f6b82014a9912809346ae80b0c92",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.12.1.md",
+    "sha256": "79c6dcc09767172eb568cc7f91fa83c63424fc658a813e17ab842cecafcbf93f",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.12.2.md",
+    "sha256": "aeb2c113f8728fc0d185634fe4b84ae648f1d6ebf85f2b04f73d318e5cf85896",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.12.3.md",
+    "sha256": "790242aa50a9f5df6b9556991ddbda4f41494352ca76cba91f3f2eb7ac5577e8",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.12.md",
+    "sha256": "2db323a7959a64067af340b96b23eff7e32c912756cec4c3b2028e21f9571100",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.13.md",
+    "sha256": "e0400ea5c01cc71836c83fb59af89f93e9f9b8340259ad4bebdba9833d477c6d",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.14.md",
+    "sha256": "bc9aca221cb13b98d97e376219d0fb9ea92a859e4c1eee96d62bd336378889f6",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.15.md",
+    "sha256": "ec37787beb1af11504a0b7b4df7b681619d18aa94cd1fa4a3fc3749c20eae553",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.16.md",
+    "sha256": "1a88b7e02f87cefa7825a7a347e8ec9841abce7c0ae89f66b8da29078dfd1107",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.17.md",
+    "sha256": "b234d23f5779adb4e56508109aec726552d7520e8a17efd19a455a0e5fad971f",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.18.md",
+    "sha256": "8e0516532274c45d7a962c82fce23d0f4e3f9dfdb855b72b17c8978309698ce4",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.19.md",
+    "sha256": "d0a7c84353b438e37421ec438dd4adea5350289f7dabdf42519448ddcad174a9",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.2.md",
+    "sha256": "a34b708b81f4775c1fdf5dc5b372a09907f56c132fe1f54f3f52a22899af1c42",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.20.md",
+    "sha256": "37dd83feac6accae9c7147d5b0ae85206924bf75d82974c1678c180b9356903d",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.21.md",
+    "sha256": "93ae8feb1c4be688eecdd106f500d6ef8cb33d28e28465645b873b01b4a8d2b1",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.22.md",
+    "sha256": "eafd0bd39f3e0f136f8e5efaafd7a1c8a23aa05021728085ae1367668d54dc6c",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.23.md",
+    "sha256": "aa12e7db8d49b539ec40e7caf131aa8ceadae74b56124c5d42ba8ec648e65c5f",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.24.md",
+    "sha256": "8abc848fd04b9c01889fdfdfd61310d534abb40e0d109580c6bf170d2795a550",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.25.md",
+    "sha256": "91bfcde37ccfd540bca53259ba76052f13b5dd50cad54f0703069f4e9dee33f2",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.26.md",
+    "sha256": "cc76c2b17d8ba390dc94d6e4e5df57378a7d3f6ec0fa96494b2a4bacbcdfa3f8",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.27.md",
+    "sha256": "bb5311e1c65fd12511635ac69d2a2fa63944034e579d34fb343bc0261c13b9d2",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.3.md",
+    "sha256": "c5f4cec4758f70da4c2d9782e02d48332646353d6b86f615e29a5d55ac71f2d9",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.4.md",
+    "sha256": "0da02a5aeb15ac4faa20c0a9453c0d1ec4a9929b3b3ac6ddf8d91e2cbff7cd3a",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.5.md",
+    "sha256": "4c4a2d39a592294cb09d701ff4faeadb91b7a36f1f355f7ef3f3c2fc3e595463",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.6.md",
+    "sha256": "6f97aea6a381977eea0b36a62c87d3d5261c209bc7ba4d8a705ad509ad1c0410",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.7.md",
+    "sha256": "bd419af8a55dc7437521c6826741a2be3333446b2995e941d298c3d7274274af",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.8.md",
+    "sha256": "5d5248193064e3f05e73501c8321750111460a38ab78d8d4ce9f417ab65ff196",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/archive/v2.9.md",
+    "sha256": "7822213a980168793073eecef456a3706c47b43bd344438c1c484d9bd9ba52e3",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/docs-20261005.md",
+    "sha256": "91da9b8034e127f1fe704130755b97eb1d1f6edcf3d5a299e8cb3174e8c3c15f",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/v1.0.0.md",
+    "sha256": "f4fd36e3d04da868f0aa4d9051f63e80d526f211272bb4584c0eb6a661098945",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/v1.1.0.md",
+    "sha256": "66d6dc96dcbe6d5050e42df9bd7c7d9339cc98324de2758f5547dfc816724392",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/v1.2.0.md",
+    "sha256": "9b3a192d2bcbf08af405a7f9990c1b4a29c4b5eb426d958cbf49b2e0d458d14b",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/v1.2.1.md",
+    "sha256": "a79f6fb5660e038d791b56640c1e5c897a0ffec2652b68e39b0fdbc792d2c82c",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/v1.2.2.md",
+    "sha256": "5951aff79460722ae75e6f6e843f215bda8ada8f78142b114908bdc6982ba62d",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/v1.2.3.md",
+    "sha256": "0dedd919bebd372129b299e4e5eb0bb451e3601d07668945adcc648d1c5d3408",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/v1.2.4.md",
+    "sha256": "01a784d119bbb19e3f6f015dedd363404ba4118595dbb06913cdedb4b8d2ed71",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/v1.2.5.md",
+    "sha256": "735a3cbff4efb2d820a47c4f49eb032920cb83b3e9cf6e755c634a6a84fb27ed",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/releases/v1.2.6.md",
+    "sha256": "e962dbba742ed832701848575a5df1e7309756159d788cac5f8fad5c64e80beb",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/workflows/_index.md",
+    "sha256": "65219b46b08d6a54464e1f534fbba7adeab57c8808e8be3086e1973bf47af519",
+    "diagrams": [
+      [
+        "pm-setup",
+        ""
+      ]
+    ],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/workflows/experts.md",
+    "sha256": "562974e5ae2b4c0908a9b6027d6808cbd30b286148c39fffdaed876d59e4d577",
+    "diagrams": [],
+    "pixel_images": [
+      "/infographics/kindle/parallel-ko.png"
+    ],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/workflows/first-project.md",
+    "sha256": "2c511c94ad8d422434b03f1c3991472bb4fe7eb0b4a70dfb228bfd7a7ce109fe",
+    "diagrams": [
+      [
+        "pm-setup",
+        ""
+      ]
+    ],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/workflows/permissions.md",
+    "sha256": "6fe30230ec56fedab7940a9273a7732667855d3dd3765059838216383be2b2ef",
+    "diagrams": [
+      [
+        "permissions",
+        ""
+      ]
+    ],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/workflows/reuse.md",
+    "sha256": "10eda410681ac0353dab77dcbabf0d23824b59ec65344e7ef315237734d2772d",
+    "diagrams": [
+      [
+        "reuse",
+        "pixel"
+      ]
+    ],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  },
+  {
+    "page": "www/content/workflows/review.md",
+    "sha256": "fab13174c195f15dc013e1aa47ddd12b161470166767d0fb5bdca97d0bda316f",
+    "diagrams": [],
+    "pixel_images": [],
+    "data_chart": 0,
+    "text_card_blocks": 0
+  }
+]

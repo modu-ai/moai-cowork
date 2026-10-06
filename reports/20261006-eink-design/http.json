@@ -1,0 +1,19 @@
+[
+  {
+    "url": "http://127.0.0.1:1314/?style=paper",
+    "status": 200,
+    "bytes": 196377,
+    "matches_source": true
+  },
+  {
+    "url": "http://127.0.0.1:1314/?style=reader",
+    "status": 200,
+    "bytes": 196377,
+    "matches_source": true
+  },
+  {
+    "url": "http://127.0.0.1:1313/",
+    "status": 200,
+    "bytes": 50239
+  }
+]

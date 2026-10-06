@@ -2,7 +2,8 @@
 name: hr-screening-audit
 description: |
   채용공고·지원자 평가표·면접 질문·성과평가 기준을 직무 요건과 제출 자료에 대조합니다. 차별 소지, 자동 결정 표현, 개인정보 노출을 읽기 전용으로 검수합니다.
-version: "1.0.1"
+metadata:
+  version: "1.0.2"
 ---
 
 # 채용 평가 근거 검수

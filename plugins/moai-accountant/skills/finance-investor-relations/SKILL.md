@@ -11,7 +11,8 @@ description: |
   - "시리즈 A 투자 유치 자료 준비해줘"
   - "투자자 보고서 정리해줘"
   회사의 단계와 자료에 맞춘 피치덱·재무 모델·예상 질문 Q&A를 만들고 필요한 형식으로 정리합니다.
-version: "1.1.2"
+metadata:
+  version: "1.1.3"
 ---
 
 # 투자자 관계 (Investor Relations)

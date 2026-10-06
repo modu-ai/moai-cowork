@@ -1,0 +1,48 @@
+schema_version: '1.1'
+name: ai-diagnostic--TC-003
+description: 복합적 문제에서 근거와 가설을 구분하는 진단
+runs: 1
+tags:
+- generated
+- ai-diagnostic
+execution:
+  prompt: "다음 프로젝트 업무를 수행해 주세요. 미확인 정보는 만들지 말고 필요한 맥락을 요청하세요.\n\n{\n  \"problem_description\"\
+    : \"(1) 배송 시간이 2일에서 5일로 지연 (고객 불만 급증)\\n(2) 재고 부족으로 주문 취소율 15% (이전 3%)\\n(3) 창고\
+    \ 직원 이탈률 40% (번아웃이라는 설명은 검증 전)\\n(4) IT 시스템 다운타임 10시간/월 (이전 2시간)\\n(5) 물류 비용이\
+    \ 매출의 25% (외부 비교 기준은 미확인)\\n\",\n  \"context\": {\n    \"system_type\": \"이커머스\
+    \ 물류 시스템 (WMS + OMS)\",\n    \"recent_changes\": \"- 3개월 전 창고 이전 (용량 2배 확장)\\\
+    n- 신규 WMS 도입 (구현 불완전 상태)\\n- 고용주 세제 혜택 종료로 직원 사기 저하\\n\",\n    \"environment\"\
+    : \"On-premise 창고 시스템, Cloud OMS\",\n    \"team_size\": \"- 창고 직원: 50명 (신규 30명,\
+    \ 경력 20명)\\n- IT: 5명 (WMS 2명, OMS 3명)\\n\",\n    \"business_impact\": \"- NPS:\
+    \ +40 → -15 (고객 불만 급증)\\n- 재고 회전율: 12회/년 → 6회/년\\n- 매출: 전월 대비 8% 감소\\n\"\n  },\n\
+    \  \"symptoms\": [\n    \"배송 지연 (2일 → 5일)\",\n    \"주문 취소율 15% (이전 3%)\",\n  \
+    \  \"창고 직원 이탈률 40%\",\n    \"시스템 다운타임 10시간/월\",\n    \"물류 비용 25% (비교 기준 미확인)\"\
+    \n  ]\n}"
+  allowed_tools:
+  - Read
+  - Glob
+  - Grep
+  - Skill
+  max_turns: 12
+  timeout_seconds: 180
+graders:
+- name: skill-fired
+  type: tool_used
+  tool: Skill
+  input_match: '"skill"\s*:\s*"(?:[\w-]+:)?ai\-diagnostic"'
+- name: quality
+  type: llm
+  focus: trace
+  criteria: "입력 사실·제약과 아래 사례의 기대 결과를 대조한다. 모든 적용 가능한 조건을 만족하면 PASS, 하나라도 위반하면 FAIL이다.\
+    \ false 값은 해당 동작·주장이 없어야 한다는 뜻이다. 정보·도구·fixture가 부족하면 모델이 이를 명시했는지 확인하되, 원래 조건을\
+    \ 충족하지 못한 실행을 임의로 PASS로 바꾸지 않는다. 단어가 있다는 이유만으로 사실성·산술·법적 판단·의미 보존을 통과시키지 않는다.\
+    \ 원격 호출·파일 생성·독립 검수의 주장은 실제 trace와 산출물로 확인한다.\n\n{\n  \"expected_output\": {\n\
+    \    \"contains_sections\": [\n      \"증상 요약\",\n      \"가설 목록\",\n      \"차원별\
+    \ 진단 결과\",\n      \"원인 분석\",\n      \"해결책 우선순위\",\n      \"실행 계획\"\n    ],\n \
+    \   \"contains_dimensions\": [\n      \"기술 차원\",\n      \"프로세스 차원\",\n      \"\
+    사람 차원\",\n      \"비즈니스 차원\"\n    ],\n    \"contains_keywords\": [\n      \"WMS\"\
+    ,\n      \"OMS\",\n      \"배송 지연\",\n      \"재고 부족\",\n      \"직원 이탈\",\n    \
+    \  \"다운타임\",\n      \"물류 비용\"\n    ],\n    \"has_hypotheses_with_priority\": true,\n\
+    \    \"has_cross_dimensional_analysis\": true,\n    \"has_prioritized_actions_without_invented_deadlines\"\
+    : true,\n    \"distinguishes_hypotheses_from_verified_causes\": true,\n    \"\
+    does_not_invent_impact_metrics\": true\n  }\n}"

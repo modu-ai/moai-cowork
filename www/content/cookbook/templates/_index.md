@@ -1,28 +1,18 @@
 ---
-title: "템플릿 모음"
-weight: 85
-description: "재무 모델·이메일·엑셀·컴플라이언스 등 즉시 복사해 변형할 수 있는 실무 템플릿."
+title: "업무 템플릿"
+description: "원하는 결과물을 고르고 준비물과 첫 요청부터 시작합니다"
+weight: 10
+date: 2026-10-05T00:00:00+09:00
+lastmod: 2026-10-06
 geekdocBreadcrumb: true
-geekdocCollapseSection: true
-date: 2026-08-07T00:00:00+09:00
-lastmod: 2026-08-07T00:00:00+09:00
 ---
-복사 → 변형 → 즉시 활용. 각 템플릿은 관련 모두의 코워크 스킬과 함께 동작하도록 설계되어 있습니다.
 
-```mermaid
-flowchart TD
-   A["템플릿 선택"] --> B["프롬프트로<br/>파라미터 입력"]
-   B --> C["스킬 체인<br/>실행"]
-   C --> D["ai-slop-reviewer<br/>검수"]
-   D --> E["최종 산출물"]
+<!--more-->
 
-   style A fill:#e6e6e6,stroke:#757575,color:#09110f
-   style E fill:#d6e7de,stroke:#3d7d5f,stroke-width:2px,color:#09110f
-```
+## 복사하기 전에 자료를 맞추세요
 
-## 템플릿 목록
+템플릿은 이메일·지출표·재무 계산·준수 확인의 결과 형식을 익히는 예제입니다. 자신의 원문과 미정 항목으로 바꾸고, 숫자·수신 대상·적용 범위를 직접 검토하세요.
 
-- [컴플라이언스 체크리스트](./compliance/) — `moai-lawyer:legal-compliance-check`
-- [재무 모델링 템플릿](./financial/) — `moai-accountant:finance-financial-statements` + `moai-officer:doc-xlsx`
-- [엑셀 고급 기법](./excel/) — `moai-officer:doc-xlsx`
-- [이메일 마케팅 템플릿](./email/) — `moai-marketer:content-newsletter` + `moai-marketer:content-email-sequence`
+{{< section-index >}}
+
+[모든 실습](/cookbook/) · [결과 검토 수업](/learn/06-review-reuse/)

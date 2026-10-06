@@ -1,0 +1,15 @@
+{
+  "render_method": "CUA live browser DOM export; pinned local pixel font loaded before layout",
+  "renderer": "repository Mermaid bundle with font-wait-only local bootstrap",
+  "bundle_sha256": "f10966e425e8b6577dccc09a6c13c0711d768e8477e5671ca43b7591b456413f",
+  "helper_sha256": "40a731b80f31e8dda94164048a6a76e58591803c3c9d213030f7e6f880fe6cea",
+  "config_hash": "66ff2b46f6b64a82fe8a4de19ce7bcf25eb9cc7b32694d225661e1717e39b2bb",
+  "font_sha256": "0c0ca9cd73f692a5da5d7fb39737902aa9ea312537237779972a9d81ef0a33bf",
+  "source_hashes": {
+    "questions.mmd": "f3a7368b103d393c1167c8e0756a3281fcd377add8867459c2c1eadee739b947",
+    "parallel.mmd": "9b857634ebc2f4f91dee2610f45169dd4b107eb8f4d028045c97ef62c72a034e",
+    "handoff.mmd": "98d2d0ecdb49f45f0c6627433b16cd0d9d23cc91f2042d53a84066880af803b4",
+    "reuse.mmd": "f971fd930ec3a0cd66ce595147e68cbcb85c405cecf400d292faef19e73e2ec4",
+    "context.mmd": "30de02302349e19a2b3807be58c4fb9e2258027a572a81bc65718070fa16198b"
+  }
+}

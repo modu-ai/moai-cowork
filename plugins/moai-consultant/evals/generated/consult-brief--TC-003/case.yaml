@@ -1,0 +1,41 @@
+schema_version: '1.1'
+name: consult-brief--TC-003
+description: 복잡한 다차원 문제 상황에서 브리프 생성
+runs: 1
+tags:
+- generated
+- consult-brief
+execution:
+  prompt: "다음 프로젝트 업무를 수행해 주세요. 미확인 정보는 만들지 말고 필요한 맥락을 요청하세요.\n\n{\n  \"industry\"\
+    : \"제조업 (반도체 장비)\",\n  \"problem_definition\": \"(1) 미국 중국 기술 경쟁으로 공급망 리스크 급증\\\
+    n(2) 핵심 인력 이탈률 25% (특히 R&D)\\n(3) 신제품 개발 지연으로 시장 점유율 7%→4% 하락\\n(4) 원자재 가격 상승으로\
+    \ 영업이익률 12%→6% 축소\\n(5) ESG 규제 강화로 탄소 배출 저감 필요\\n\",\n  \"project_scope\": [\n\
+    \    \"공급망 다각화 전략\",\n    \"인력 리텐션 및 R&D 역량 강화\",\n    \"신제품 개발 프로세스 최적화\",\n\
+    \    \"원가 절감 및 가격 전략\",\n    \"ESG 로드맵 수립\"\n  ],\n  \"budget\": \"50억 원 (2년)\"\
+    ,\n  \"timeline\": \"24개월 (2026-2027)\"\n}"
+  allowed_tools:
+  - Read
+  - Glob
+  - Grep
+  - Skill
+  max_turns: 12
+  timeout_seconds: 180
+graders:
+- name: skill-fired
+  type: tool_used
+  tool: Skill
+  input_match: '"skill"\s*:\s*"(?:[\w-]+:)?consult\-brief"'
+- name: quality
+  type: llm
+  focus: trace
+  criteria: "입력 사실·제약과 아래 사례의 기대 결과를 대조한다. 모든 적용 가능한 조건을 만족하면 PASS, 하나라도 위반하면 FAIL이다.\
+    \ false 값은 해당 동작·주장이 없어야 한다는 뜻이다. 정보·도구·fixture가 부족하면 모델이 이를 명시했는지 확인하되, 원래 조건을\
+    \ 충족하지 못한 실행을 임의로 PASS로 바꾸지 않는다. 단어가 있다는 이유만으로 사실성·산술·법적 판단·의미 보존을 통과시키지 않는다.\
+    \ 원격 호출·파일 생성·독립 검수의 주장은 실제 trace와 산출물로 확인한다.\n\n{\n  \"expected_output\": {\n\
+    \    \"contains_sections\": [\n      \"Executive Summary\",\n      \"현황 분석\",\n\
+    \      \"문제 정의\",\n      \"분석 프레임워크\",\n      \"권고사항\",\n      \"실행 계획\",\n  \
+    \    \"리스크 분석\"\n    ],\n    \"contains_keywords\": [\n      \"공급망\",\n      \"\
+    R&D\",\n      \"ESG\",\n      \"원가 절감\",\n      \"탄소 배출\",\n      \"인력 리텐션\"\n\
+    \    ],\n    \"frameworks_used\": [],\n    \"has_recommendations_priority\": true,\n\
+    \    \"has_risk_assessment\": true,\n    \"has_24_month_roadmap\": true,\n   \
+    \ \"cross_dimensional_analysis\": true\n  }\n}"

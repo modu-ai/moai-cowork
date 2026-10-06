@@ -1,0 +1,15 @@
+{
+  "root": "/Users/goos/.codex/worktrees/b0aa/moai-cowork",
+  "head": "2c3cef1d24e88b3bfe8db61c713ffae317b346d0",
+  "branch": "(detached HEAD)",
+  "source_session_id": "01a10aae-6716-7681-b5d7-d558155d9f86",
+  "prototype_sha256": "2657bfb5bc0cf1a5d370091a954e52ce38d427f5e0917fae71df7d9d87dd157c",
+  "prototype_bytes": 196377,
+  "preview_server": {
+    "url": "http://127.0.0.1:1314/",
+    "pid": 86652,
+    "exec_session": 99073
+  },
+  "original_docs_server": "http://127.0.0.1:1313/",
+  "public_site_deployed": false
+}

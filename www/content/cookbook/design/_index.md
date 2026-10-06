@@ -1,25 +1,18 @@
 ---
 title: "디자인 원칙"
-weight: 90
-description: "프레젠테이션·랜딩 페이지·시각 자료 디자인 원칙."
+description: "원하는 결과물을 고르고 준비물과 첫 요청부터 시작합니다"
+weight: 10
+date: 2026-10-05T00:00:00+09:00
+lastmod: 2026-10-06
 geekdocBreadcrumb: true
-geekdocCollapseSection: true
-date: 2026-08-07T00:00:00+09:00
-lastmod: 2026-08-13T00:00:00+09:00
 ---
-모두의 코워크의 디자인 계열 스킬을 사용할 때 참고할 수 있는 원칙 모음입니다.
 
-```mermaid
-flowchart TD
-   A["콘텐츠 기획"] --> B["디자인 원칙<br/>적용"]
-   B --> C["doc-pptx<br/>또는 design-landing-motion"]
-   C --> D["ai-slop-reviewer<br/>검수"]
-   D --> E["최종 산출물"]
+<!--more-->
 
-   style A fill:#e6e6e6,stroke:#757575,color:#09110f
-   style E fill:#d6e7de,stroke:#3d7d5f,stroke-width:2px,color:#09110f
-```
+## 내용의 흐름부터 디자인하세요
 
-## 가이드
+발표 목적과 독자를 정하고 원문을 검토한 뒤 화면을 구성합니다. 숫자나 단순 목록은 표로, 단계·분기·관계는 도식으로 설명합니다. 실제 앱 메뉴는 직접 촬영한 사진을 사용합니다.
 
-- [프레젠테이션 디자인 원칙](./presentation/) — `moai-officer:doc-pptx`로 만든 슬라이드를 더 좋게 만드는 룰
+{{< section-index >}}
+
+[전체 목차](/learn/contents/)

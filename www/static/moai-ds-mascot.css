@@ -13,7 +13,7 @@
 .moai-mascot {
   display: inline-block;
   vertical-align: middle;
-  filter: drop-shadow(0 8px 24px rgba(0, 109, 104, 0.15));
+  filter: drop-shadow(0 8px 24px rgba(85, 85, 85,  0.15));
 }
 
 /* 홈 hero 마스코트 band */

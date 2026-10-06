@@ -4,7 +4,8 @@ description: |
   학습자가 자기 목표를 관리할 프로젝트 폴더와 로드맵·진도 기록을 만듭니다.
   요청 예: "파이썬 입문 학습 프로젝트", "영어 회화 진도 추적", "기존 공부 계획 정리".
   Claude Cowork·ChatGPT Work에서 같은 AGENTS.md 지침을 사용합니다.
-version: "1.1.2"
+metadata:
+  version: "1.1.3"
 ---
 
 # 자기주도 학습 프로젝트

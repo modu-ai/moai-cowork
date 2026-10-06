@@ -1,0 +1,1739 @@
+[
+  {
+    "name": "moai-accountant",
+    "claude_manifest": {
+      "name": "moai-accountant",
+      "displayName": "💰 재무·세무 담당",
+      "version": "1.3.8",
+      "description": "재무·세무 전담 AI 코워커 — 재무제표 분석·결산 관리·차이 분석·IR, 개인 세금 절약·가계 예산·투자 입문·보험 적합성 스킬. OpenDART 전자공시 MCP 연결을 지원합니다. 사업자·재무 담당자·개인 재테크 입문자를 위한 참고 자료이며 세무사·회계사 자문을 대체하지 않습니다.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr"
+      },
+      "license": "Apache-2.0",
+      "userConfig": {
+        "DART_API_KEY": {
+          "type": "string",
+          "title": "OpenDART 인증키",
+          "description": "OpenDART에서 인증키를 신청해 입력하세요. 발급 조건과 호출 한도는 신청 화면의 현재 안내를 확인하세요.",
+          "sensitive": true
+        }
+      }
+    },
+    "codex_manifest": {
+      "name": "moai-accountant",
+      "version": "1.3.8",
+      "description": "재무·세무 전담 AI 코워커 — 재무제표 분석·결산 관리·차이 분석·IR, 개인 세금 절약·가계 예산·투자 입문·보험 적합성 스킬. OpenDART 전자공시 MCP 연결을 지원합니다. 사업자·재무 담당자·개인 재테크 입문자를 위한 참고 자료이며 세무사·회계사 자문을 대체하지 않습니다.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr",
+        "url": "https://cowork.mo.ai.kr"
+      },
+      "homepage": "https://cowork.mo.ai.kr/plugins/",
+      "repository": "https://github.com/modu-ai/moai-cowork",
+      "license": "Apache-2.0",
+      "keywords": [
+        "moai",
+        "accountant",
+        "finance",
+        "tax",
+        "accounting",
+        "재무",
+        "세무"
+      ],
+      "skills": "./skills/",
+      "mcpServers": {
+        "dart": {
+          "command": "uv",
+          "args": [
+            "run",
+            "--script",
+            "./mcp-launch/mcp_launch.py",
+            "--service",
+            "dart",
+            "--keys",
+            "DART_API_KEY",
+            "--",
+            "npx",
+            "-y",
+            "korean-dart-mcp"
+          ],
+          "cwd": "."
+        }
+      },
+      "interface": {
+        "displayName": "💰 재무·세무 담당",
+        "shortDescription": "💰 재무·세무 담당 — 재무제표·세무·가계 재무",
+        "longDescription": "재무·세무 전담 AI 코워커 — 재무제표 분석·결산 관리·차이 분석·IR, 개인 세금 절약·가계 예산·투자 입문·보험 적합성 스킬. OpenDART 전자공시 MCP 연결을 지원합니다. 사업자·재무 담당자·개인 재테크 입문자를 위한 참고 자료이며 세무사·회계사 자문을 대체하지 않습니다.",
+        "developerName": "모두의 AI",
+        "category": "Finance",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://cowork.mo.ai.kr",
+        "defaultPrompt": [
+          "이번 분기 재무제표 분석해줘",
+          "종합소득세 절세 방안 정리해줘"
+        ],
+        "brandColor": "#3d7d5f"
+      }
+    },
+    "claude_mcp": {
+      "mcpServers": {
+        "dart": {
+          "$comment": "OpenDART 전자공시용 제3자 MCP. 도구 목록과 호출 한도는 설치된 서버 및 OpenDART의 현재 안내를 확인한다. 인증키는 앱 입력란 또는 개인 자격증명 파일에서 런처가 읽는다.",
+          "command": "uv",
+          "args": [
+            "run",
+            "--script",
+            "${CLAUDE_PLUGIN_ROOT}/mcp-launch/mcp_launch.py",
+            "--service",
+            "dart",
+            "--keys",
+            "DART_API_KEY",
+            "--",
+            "npx",
+            "-y",
+            "korean-dart-mcp"
+          ],
+          "env": {
+            "DART_API_KEY": "${user_config.DART_API_KEY}"
+          }
+        }
+      }
+    },
+    "skills": 13,
+    "agents": 2
+  },
+  {
+    "name": "moai-analyst",
+    "claude_manifest": {
+      "name": "moai-analyst",
+      "displayName": "📊 데이터 애널리스트",
+      "version": "1.3.6",
+      "description": "데이터·공공데이터 분석 전담 AI 코워커 — 데이터 프로파일링·시각화, 공공데이터 조회(부동산·경매·주식·KOSIS·건축물대장) 스킬. KOSIS 통계·건축HUB·DART 전자공시 MCP 연동. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 데이터 애널리스트·사무직·기획자·자영업 운영자.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr"
+      },
+      "license": "Apache-2.0",
+      "userConfig": {
+        "DART_API_KEY": {
+          "type": "string",
+          "title": "OpenDART 인증키",
+          "description": "opendart.fss.or.kr 회원가입 후 인증키 신청 — 이메일로 즉시 발급되는 40자 키입니다. 하루 20,000건 무료.",
+          "sensitive": true
+        }
+      }
+    },
+    "codex_manifest": {
+      "name": "moai-analyst",
+      "version": "1.3.6",
+      "description": "데이터·공공데이터 분석 전담 AI 코워커 — 데이터 프로파일링·시각화, 공공데이터 조회(부동산·경매·주식·KOSIS·건축물대장·DART 전자공시) 스킬. KOSIS 통계·건축HUB·DART MCP 연동. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 데이터 애널리스트·사무직·기획자·자영업 운영자.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr",
+        "url": "https://cowork.mo.ai.kr"
+      },
+      "homepage": "https://cowork.mo.ai.kr/plugins/",
+      "repository": "https://github.com/modu-ai/moai-cowork",
+      "license": "Apache-2.0",
+      "keywords": [
+        "moai",
+        "analyst",
+        "data",
+        "public-data",
+        "visualization",
+        "데이터",
+        "공공데이터"
+      ],
+      "skills": "./skills/",
+      "mcpServers": {
+        "korean-stats": {
+          "type": "http",
+          "url": "https://mcp.gomdori.app/stats"
+        },
+        "archhub": {
+          "type": "http",
+          "url": "https://mcp.gomdori.app/archhub"
+        },
+        "dart": {
+          "command": "uv",
+          "args": [
+            "run",
+            "--script",
+            "./mcp-launch/mcp_launch.py",
+            "--service",
+            "dart",
+            "--keys",
+            "DART_API_KEY",
+            "--",
+            "npx",
+            "-y",
+            "korean-dart-mcp"
+          ],
+          "cwd": "."
+        }
+      },
+      "interface": {
+        "displayName": "📊 데이터 애널리스트",
+        "shortDescription": "📊 데이터 애널리스트 — 공공데이터 조회·시각화 분석",
+        "longDescription": "데이터·공공데이터 분석 전담 AI 코워커 — 데이터 프로파일링·시각화, 공공데이터 조회(부동산·경매·주식·KOSIS·건축물대장·DART 전자공시) 스킬. KOSIS 통계·건축HUB·DART MCP 연동. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 데이터 애널리스트·사무직·기획자·자영업 운영자.",
+        "developerName": "모두의 AI",
+        "category": "Data",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://cowork.mo.ai.kr",
+        "defaultPrompt": [
+          "지역 부동산 시장 분석해줘",
+          "KOSIS 인구통계 시각화해줘"
+        ],
+        "brandColor": "#3d7d5f"
+      }
+    },
+    "claude_mcp": {
+      "mcpServers": {
+        "korean-stats": {
+          "$comment": "KOSIS 국가데이터처 통계 MCP (chrisryugj/korean-stats-mcp, MIT) — 14도구. 92 키워드 + 100+ 자연어 별칭, 17 시도 + 230+ 자치구 시군 라우팅, 시계열 추세/순위, 출처(통계표 ID) 자동 인용, 추계/잠정치 구분. 공용키 탑재 remote 커넥터(URL만 등록, 사용자 API 키 발급 불필요). 라이브 스킬: moai-analyst:data-public(KOSIS 자연어 조회 우선 라우팅).",
+          "type": "http",
+          "url": "https://mcp.gomdori.app/stats"
+        },
+        "archhub": {
+          "$comment": "국토교통부 건축HUB MCP (chrisryugj/archhub-mcp, MIT) — 11도구. 건축물대장·건축인허가·주택인허가 + 법정동코드 + 한 필지 종합카드(building_profile)·층별 구성·동 단위 통계·노후건축물·철거멸실(석면)·인허가 파이프라인·공시가격 시계열. 공용키 탑재 remote 커넥터(URL만 등록). data.go.kr 공식 API 실측값, 출처 명시, [NOT_FOUND] 환각방지. 라이브 스킬: moai-analyst:data-building-ledger.",
+          "type": "http",
+          "url": "https://mcp.gomdori.app/archhub"
+        },
+        "dart": {
+          "$comment": "OpenDART 전자공시 MCP (chrisryugj/korean-dart-mcp, MIT) — 83개 API를 15 도구로 압축. 공시·재무·지분·XBRL(markdown_full 전체 계정 + 계산 검증) + 버핏급 애널리스트 프레임(insider_signal·disclosure_anomaly·buffett_quality_snapshot) + HWP/PDF 첨부 마크다운화(kordoc 엔진) + 90일 자동분할. 사전 설치: Node.js 20.19+(LTS 권장). 회사명/종목코드/corp_code 자동 해결(SQLite FTS, 첫 기동 시 11.6만건 덤프 약 5-10초). 키 발급: opendart.fss.or.kr 회원가입 → 인증키 신청(이메일 즉시, 40자, 일 20,000건 무료).",
+          "command": "uv",
+          "args": [
+            "run",
+            "--script",
+            "${CLAUDE_PLUGIN_ROOT}/mcp-launch/mcp_launch.py",
+            "--service",
+            "dart",
+            "--keys",
+            "DART_API_KEY",
+            "--",
+            "npx",
+            "-y",
+            "korean-dart-mcp"
+          ],
+          "env": {
+            "DART_API_KEY": "${user_config.DART_API_KEY}"
+          }
+        }
+      }
+    },
+    "skills": 9,
+    "agents": 2
+  },
+  {
+    "name": "moai-career",
+    "claude_manifest": {
+      "name": "moai-career",
+      "displayName": "🧭 커리어코치",
+      "version": "1.2.6",
+      "description": "구직자 편 커리어 코칭 전담 AI 코워커 — 이력서·포트폴리오 첨삭, 면접 준비, 이직 전략까지 커리어 전환 실무 스킬. 인사채용(고용주 편)과 구분되는 구직자 관점입니다. 이런 분께 추천: 이직 준비자·취업 준비생·주니어 직장인.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr"
+      },
+      "license": "Apache-2.0"
+    },
+    "codex_manifest": {
+      "name": "moai-career",
+      "version": "1.2.6",
+      "description": "구직자 편 커리어 코칭 전담 AI 코워커 — 이력서·포트폴리오 첨삭, 면접 준비, 이직 전략까지 커리어 전환 실무 스킬. 인사채용(고용주 편)과 구분되는 구직자 관점입니다. 이런 분께 추천: 이직 준비자·취업 준비생·주니어 직장인.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr",
+        "url": "https://cowork.mo.ai.kr"
+      },
+      "homepage": "https://cowork.mo.ai.kr/plugins/",
+      "repository": "https://github.com/modu-ai/moai-cowork",
+      "license": "Apache-2.0",
+      "keywords": [
+        "moai",
+        "career",
+        "resume",
+        "interview",
+        "job",
+        "커리어",
+        "이력서"
+      ],
+      "skills": "./skills/",
+      "interface": {
+        "displayName": "🧭 커리어코치",
+        "shortDescription": "🧭 커리어코치 — 이력서 첨삭·면접 준비·이직 전략",
+        "longDescription": "구직자 편 커리어 코칭 전담 AI 코워커 — 이력서·포트폴리오 첨삭, 면접 준비, 이직 전략까지 커리어 전환 실무 스킬. 인사채용(고용주 편)과 구분되는 구직자 관점입니다. 이런 분께 추천: 이직 준비자·취업 준비생·주니어 직장인.",
+        "developerName": "모두의 AI",
+        "category": "Career",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://cowork.mo.ai.kr",
+        "defaultPrompt": [
+          "이력서 첨삭해줘",
+          "면접 예상 질문 정리해줘"
+        ],
+        "brandColor": "#3d7d5f"
+      }
+    },
+    "claude_mcp": {},
+    "skills": 7,
+    "agents": 2
+  },
+  {
+    "name": "moai-consultant",
+    "claude_manifest": {
+      "name": "moai-consultant",
+      "displayName": "💼 컨설턴트",
+      "version": "1.2.7",
+      "description": "경영·창업 컨설팅 전담 AI 코워커 — 사업계획서·비즈니스 모델·시장 분석(TAM/SAM/SOM)·경영 진단 브리프·정부 지원사업 탐색·상권분석 보고서 작성. 예비 창업자·소상공인·스타트업 운영자를 위한 스킬을 제공합니다.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr"
+      },
+      "license": "Apache-2.0"
+    },
+    "codex_manifest": {
+      "name": "moai-consultant",
+      "version": "1.2.7",
+      "description": "경영·창업 컨설팅 전담 AI 코워커 — 사업계획서·비즈니스 모델·시장 분석(TAM/SAM/SOM)·경영 진단 브리프·정부 지원사업 탐색·상권분석 보고서 작성. 예비 창업자·소상공인·스타트업 운영자를 위한 스킬을 제공합니다.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr",
+        "url": "https://cowork.mo.ai.kr"
+      },
+      "homepage": "https://cowork.mo.ai.kr/plugins/",
+      "repository": "https://github.com/modu-ai/moai-cowork",
+      "license": "Apache-2.0",
+      "keywords": [
+        "moai",
+        "consultant",
+        "business",
+        "strategy",
+        "startup",
+        "컨설팅",
+        "사업계획서"
+      ],
+      "skills": "./skills/",
+      "interface": {
+        "displayName": "💼 컨설턴트",
+        "shortDescription": "💼 컨설턴트 — 사업계획서·시장분석·창업 컨설팅",
+        "longDescription": "경영·창업 컨설팅 전담 AI 코워커 — 사업계획서·비즈니스 모델·시장 분석(TAM/SAM/SOM)·경영 진단 브리프·정부 지원사업 탐색·상권분석 보고서 작성. 예비 창업자·소상공인·스타트업 운영자를 위한 스킬을 제공합니다.",
+        "developerName": "모두의 AI",
+        "category": "Business",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://cowork.mo.ai.kr",
+        "defaultPrompt": [
+          "사업계획서 초안 작성해줘",
+          "정부 지원사업 매칭 찾아줘"
+        ],
+        "brandColor": "#3d7d5f"
+      }
+    },
+    "claude_mcp": {},
+    "skills": 8,
+    "agents": 2
+  },
+  {
+    "name": "moai-coworker",
+    "claude_manifest": {
+      "name": "moai-coworker",
+      "displayName": "🧑‍💼 코워커",
+      "version": "1.2.27",
+      "description": "실무 범용 코어 AI 코워커 — 브랜드·제안서·보고·협상·프로세스 등 비즈니스 실무와 목표·습관·회고·여행·웰니스·행사기획을 돕습니다. 전문 영역은 해당 분야 플러그인으로 연결합니다. 이런 분께 추천: 1인 사업자·스타트업 운영자.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr"
+      },
+      "keywords": [
+        "moai",
+        "cowork",
+        "coworker",
+        "korean",
+        "all-in-one",
+        "통합",
+        "비즈니스",
+        "라이프스타일",
+        "자기계발"
+      ],
+      "license": "Apache-2.0",
+      "mcpServers": "./.mcp.json",
+      "userConfig": {
+        "DART_API_KEY": {
+          "type": "string",
+          "title": "OpenDART 인증키",
+          "description": "opendart.fss.or.kr 회원가입 후 인증키 신청 — 이메일로 즉시 발급되는 40자 키입니다. 하루 20,000건 무료.",
+          "sensitive": true
+        }
+      }
+    },
+    "codex_manifest": {
+      "name": "moai-coworker",
+      "version": "1.2.27",
+      "description": "실무 범용 코어 AI 코워커 — 브랜드·제안서·보고·협상·프로세스와 라이프스타일·자기계발 작업을 돕습니다.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr",
+        "url": "https://cowork.mo.ai.kr"
+      },
+      "homepage": "https://cowork.mo.ai.kr/plugins/",
+      "repository": "https://github.com/modu-ai/moai-cowork",
+      "license": "Apache-2.0",
+      "keywords": [
+        "moai",
+        "cowork",
+        "coworker",
+        "korean",
+        "all-in-one",
+        "productivity",
+        "business",
+        "lifestyle"
+      ],
+      "skills": "./skills/",
+      "mcpServers": {
+        "dart": {
+          "command": "uv",
+          "args": [
+            "run",
+            "--script",
+            "./mcp-launch/mcp_launch.py",
+            "--service",
+            "dart",
+            "--keys",
+            "DART_API_KEY",
+            "--",
+            "npx",
+            "-y",
+            "korean-dart-mcp"
+          ],
+          "cwd": "."
+        }
+      },
+      "interface": {
+        "displayName": "🧑‍💼 코워커",
+        "shortDescription": "실무 범용 코어 AI 코워커 — 비즈니스 + 라이프스타일 올인원",
+        "longDescription": "브랜드·제안서·보고·협상·프로세스 등 비즈니스 실무와 목표·습관·회고·여행·웰니스·행사기획을 돕습니다. 1인 사업자·스타트업 운영자에게 추천합니다.",
+        "developerName": "모두의 AI",
+        "category": "Productivity",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://cowork.mo.ai.kr",
+        "defaultPrompt": [
+          "코워커, 이번 주 회고 정리해줘",
+          "B2B 영업 제안서 초안 작성해줘"
+        ],
+        "brandColor": "#3d7d5f"
+      }
+    },
+    "claude_mcp": {
+      "mcpServers": {
+        "dart": {
+          "$comment": "OpenDART 전자공시 MCP (chrisryugj/korean-dart-mcp, MIT) — 83개 API를 15 도구로 압축. 공시·재무·지분·XBRL(markdown_full 전체 계정 + 계산 검증) + 버핏급 애널리스트 프레임(insider_signal·disclosure_anomaly·buffett_quality_snapshot) + HWP/PDF 첨부 마크다운화(kordoc 엔진) + 90일 자동분할. 사전 설치: Node.js 20.19+(LTS 권장). 회사명/종목코드/corp_code 자동 해결(SQLite FTS, 첫 기동 시 11.6만건 덤프 약 5-10초). 키 발급: opendart.fss.or.kr 회원가입 → 인증키 신청(이메일 즉시, 40자, 일 20,000건 무료).",
+          "command": "uv",
+          "args": [
+            "run",
+            "--script",
+            "${CLAUDE_PLUGIN_ROOT}/mcp-launch/mcp_launch.py",
+            "--service",
+            "dart",
+            "--keys",
+            "DART_API_KEY",
+            "--",
+            "npx",
+            "-y",
+            "korean-dart-mcp"
+          ],
+          "env": {
+            "DART_API_KEY": "${user_config.DART_API_KEY}"
+          }
+        }
+      }
+    },
+    "skills": 32,
+    "agents": 0
+  },
+  {
+    "name": "moai-cs",
+    "claude_manifest": {
+      "name": "moai-cs",
+      "displayName": "🎧 CS매니저",
+      "version": "1.2.8",
+      "description": "고객지원·CRM 전담 AI 코워커 — 티켓 분류·응답 초안·에스컬레이션·지식베이스와 VOC 분석·채널 메시지까지 고객 접점 실무 스킬을 제공합니다. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 온라인 셀러·CS 담당자·1인 사업자.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr"
+      },
+      "license": "Apache-2.0"
+    },
+    "codex_manifest": {
+      "name": "moai-cs",
+      "version": "1.2.8",
+      "description": "고객지원·CRM 전담 AI 코워커 — 티켓 분류·응답 초안·에스컬레이션·지식베이스와 VOC 분석·채널 메시지까지 고객 접점 실무 스킬을 제공합니다. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 온라인 셀러·CS 담당자·1인 사업자.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr",
+        "url": "https://cowork.mo.ai.kr"
+      },
+      "homepage": "https://cowork.mo.ai.kr/plugins/",
+      "repository": "https://github.com/modu-ai/moai-cowork",
+      "license": "Apache-2.0",
+      "keywords": [
+        "moai",
+        "cs",
+        "support",
+        "crm",
+        "ticket",
+        "voc",
+        "고객지원"
+      ],
+      "skills": "./skills/",
+      "interface": {
+        "displayName": "🎧 CS매니저",
+        "shortDescription": "🎧 CS매니저 — 고객지원 티켓·VOC·채널 메시지",
+        "longDescription": "고객지원·CRM 전담 AI 코워커 — 티켓 분류·응답 초안·에스컬레이션·지식베이스와 VOC 분석·채널 메시지까지 고객 접점 실무 스킬을 제공합니다. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 온라인 셀러·CS 담당자·1인 사업자.",
+        "developerName": "모두의 AI",
+        "category": "Support",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://cowork.mo.ai.kr",
+        "defaultPrompt": [
+          "VOC 유형별 분류해줘",
+          "고객 응답 초안 작성해줘"
+        ],
+        "brandColor": "#3d7d5f"
+      }
+    },
+    "claude_mcp": {},
+    "skills": 8,
+    "agents": 2
+  },
+  {
+    "name": "moai-designer",
+    "claude_manifest": {
+      "name": "moai-designer",
+      "displayName": "🎨 디자이너",
+      "version": "1.4.72",
+      "description": "브랜드 디자인 시스템과 DESIGN.md, 디자인 토큰, 로고·비주얼, 모션 랜딩 제작을 돕는 스킬. Claude Design 핸드오프를 읽고 공식 Higgsfield 연결 또는 앱 이미지 도구로 브랜드 이미지 작업을 진행합니다.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr"
+      },
+      "keywords": [
+        "moai",
+        "design",
+        "claude-design",
+        "design-tokens",
+        "brand",
+        "디자인"
+      ],
+      "license": "Apache-2.0"
+    },
+    "codex_manifest": {
+      "name": "moai-designer",
+      "version": "1.4.72",
+      "description": "브랜드 디자인 시스템과 DESIGN.md, 디자인 토큰, 로고·비주얼, 모션 랜딩 제작을 돕는 스킬. Claude Design 핸드오프를 읽고 공식 Higgsfield 연결 또는 앱 이미지 도구로 브랜드 이미지 작업을 진행합니다.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr",
+        "url": "https://cowork.mo.ai.kr"
+      },
+      "homepage": "https://cowork.mo.ai.kr/plugins/",
+      "repository": "https://github.com/modu-ai/moai-cowork",
+      "license": "Apache-2.0",
+      "keywords": [
+        "moai",
+        "design",
+        "claude-design",
+        "design-tokens",
+        "brand",
+        "디자인"
+      ],
+      "skills": "./skills/",
+      "mcpServers": "./.mcp.json",
+      "interface": {
+        "displayName": "🎨 디자이너",
+        "shortDescription": "🎨 디자이너 — Claude Design 연동 브랜드 디자인 시스템",
+        "longDescription": "브랜드 디자인 시스템과 DESIGN.md, 디자인 토큰, 로고·비주얼, 모션 랜딩 제작을 돕는 스킬. Claude Design 핸드오프를 읽고 공식 Higgsfield 연결 또는 앱 이미지 도구로 브랜드 이미지 작업을 진행합니다.",
+        "developerName": "모두의 AI",
+        "category": "Design",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://cowork.mo.ai.kr",
+        "defaultPrompt": [
+          "브랜드 로고 브리프 작성해줘",
+          "DESIGN.md 초안 만들어줘"
+        ],
+        "brandColor": "#3d7d5f"
+      }
+    },
+    "claude_mcp": {
+      "mcpServers": {
+        "higgsfield": {
+          "$comment": "Higgsfield 공식 이미지·영상 MCP — 브랜드 비주얼·목업·히어로 이미지 작업에 사용. 실제 연결의 도구·모델·비용 지원 범위를 생성 전에 확인한다. 인증: Higgsfield 계정 로그인/OAuth 승인.",
+          "type": "http",
+          "url": "https://mcp.higgsfield.ai/mcp",
+          "timeout": 120000,
+          "headers": {
+            "User-Agent": "MoAI-Designer/1.4.30"
+          }
+        }
+      }
+    },
+    "skills": 17,
+    "agents": 0
+  },
+  {
+    "name": "moai-lawyer",
+    "claude_manifest": {
+      "name": "moai-lawyer",
+      "displayName": "⚖️ 법무 담당",
+      "version": "1.4.16",
+      "description": "법무 전담 AI 코워커 — 계약 검토·NDA 트리아지·컴플라이언스 점검·법령/판례 리서치·국내외 특허/상표 선행조사·식약처 안전 기준 스킬. 국가법령정보 MCP(korean-law)로 인용을 검증하고, 특허/상표 공식 데이터 MCP(moai-mcp-ip)로 한국·미국·일본·유럽 DB를 조회합니다. 이런 분께 추천: 1인 사업자·스타트업 운영자. ※ 법률 자문 대체가 아닌 참고 자료입니다.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr"
+      },
+      "license": "Apache-2.0",
+      "userConfig": {
+        "KOREAN_LAW_OC": {
+          "type": "string",
+          "title": "법제처 Open API OC 키",
+          "description": "law.go.kr 에서 무료로 발급받는 사용자별 키입니다.",
+          "sensitive": true
+        },
+        "KIPRIS_API_KEY": {
+          "type": "string",
+          "title": "KIPRIS Plus 인증키",
+          "description": "한국 특허·상표 조회용. KIPRIS Plus 마이페이지 → APIKEY 관리에서 확인합니다. 쓰지 않으면 비워 두세요.",
+          "sensitive": true
+        },
+        "USPTO_ODP_API_KEY": {
+          "type": "string",
+          "title": "USPTO Open Data Portal API 키",
+          "description": "미국 특허 검색용. data.uspto.gov 에서 발급합니다. 쓰지 않으면 비워 두세요.",
+          "sensitive": true
+        },
+        "USPTO_TSDR_API_KEY": {
+          "type": "string",
+          "title": "USPTO TSDR API 키",
+          "description": "미국 상표 사건 상태 조회용. USPTO API Key Manager 에서 발급합니다. 쓰지 않으면 비워 두세요.",
+          "sensitive": true
+        },
+        "JPO_API_USER": {
+          "type": "string",
+          "title": "일본 특허청(JPO) API 아이디",
+          "description": "JPO 特許情報取得API 이용 등록 후 받은 ID. 쓰지 않으면 비워 두세요.",
+          "sensitive": false
+        },
+        "JPO_API_PASSWORD": {
+          "type": "string",
+          "title": "일본 특허청(JPO) API 비밀번호",
+          "description": "JPO 가 발급한 비밀번호. 쓰지 않으면 비워 두세요.",
+          "sensitive": true
+        },
+        "EPO_OPS_KEY": {
+          "type": "string",
+          "title": "EPO OPS consumer key",
+          "description": "유럽·국제 특허 조회용. developers.epo.org 앱에서 발급합니다. 쓰지 않으면 비워 두세요.",
+          "sensitive": true
+        },
+        "EPO_OPS_SECRET": {
+          "type": "string",
+          "title": "EPO OPS consumer secret",
+          "description": "EPO OPS 앱의 secret. 쓰지 않으면 비워 두세요.",
+          "sensitive": true
+        }
+      }
+    },
+    "codex_manifest": {
+      "name": "moai-lawyer",
+      "version": "1.4.16",
+      "description": "법무 전담 AI 코워커 — 계약 검토·NDA 트리아지·컴플라이언스 점검·법령/판례 리서치·국내외 특허/상표 선행조사·식약처 안전 기준 스킬. 국가법령정보 MCP(korean-law)로 인용을 검증하고, 특허/상표 공식 데이터 MCP(moai-mcp-ip)로 한국·미국·일본·유럽 DB를 조회합니다. 이런 분께 추천: 1인 사업자·스타트업 운영자. ※ 법률 자문 대체가 아닌 참고 자료입니다.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr",
+        "url": "https://cowork.mo.ai.kr"
+      },
+      "homepage": "https://cowork.mo.ai.kr/plugins/",
+      "repository": "https://github.com/modu-ai/moai-cowork",
+      "license": "Apache-2.0",
+      "keywords": [
+        "moai",
+        "lawyer",
+        "legal",
+        "contract",
+        "compliance",
+        "법무",
+        "계약"
+      ],
+      "skills": "./skills/",
+      "mcpServers": {
+        "korean-law": {
+          "command": "uv",
+          "args": [
+            "run",
+            "--script",
+            "./mcp-launch/mcp_launch.py",
+            "--service",
+            "korean-law",
+            "--keys",
+            "LAW_OC",
+            "--",
+            "npx",
+            "--yes",
+            "--ignore-scripts",
+            "--omit=optional",
+            "korean-law-mcp"
+          ],
+          "cwd": "."
+        },
+        "moai-mcp-ip": {
+          "command": "uv",
+          "args": [
+            "run",
+            "--directory",
+            "./mcp-servers/moai-mcp-ip",
+            "moai-mcp-ip"
+          ],
+          "cwd": "."
+        }
+      },
+      "interface": {
+        "displayName": "⚖️ 법무 담당",
+        "shortDescription": "⚖️ 법무 담당 — 계약 검토·컴플라이언스·법령 리서치",
+        "longDescription": "법무 전담 AI 코워커 — 계약 검토·NDA 트리아지·컴플라이언스 점검·법령/판례 리서치·국내외 특허/상표 선행조사·식약처 안전 기준 스킬. 국가법령정보 MCP(korean-law)로 인용을 검증하고, 특허/상표 공식 데이터 MCP(moai-mcp-ip)로 한국·미국·일본·유럽 DB를 조회합니다. 이런 분께 추천: 1인 사업자·스타트업 운영자. ※ 법률 자문 대체가 아닌 참고 자료입니다.",
+        "developerName": "모두의 AI",
+        "category": "Legal",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://cowork.mo.ai.kr",
+        "defaultPrompt": [
+          "표준 NDA 초안 검토해줘",
+          "특허 선행기술 검색해줘"
+        ],
+        "brandColor": "#3d7d5f"
+      }
+    },
+    "claude_mcp": {
+      "mcpServers": {
+        "korean-law": {
+          "$comment": "제3자 국가법령정보 MCP (chrisryugj/korean-law-mcp, MIT). 법령·판례·행정규칙 등 원문 조회와 인용 검증 도구를 제공한다. Claude는 사용자 설정의 법제처 OC 키를 hosted URL에 보간한다. Codex는 제3자 패키지와 로컬 자격증명 파일을 사용한다.",
+          "type": "http",
+          "url": "https://mcp.gomdori.app/law?oc=${user_config.KOREAN_LAW_OC}"
+        },
+        "moai-mcp-ip": {
+          "$comment": "특허·상표 공식 데이터 MCP(자체 제작) — KIPRIS Plus(한국 특허·상표)·USPTO ODP(미국 특허)·TSDR(미국 상표 상태)·JPO 特許情報取得API(일본, 번호 기반)·EPO OPS(유럽·국제 특허 검색·패밀리·법적상태). 공식 기관 MCP가 없어 직접 만들었다. ip_check_access 로 소스별 자격증명을 먼저 확인한다(값은 응답에 싣지 않음). 자격증명: 환경변수 → ~/.moai/mcp/ip.json. 사전 설치: uv. 등록 절차는 mcp-servers/moai-mcp-ip/CONNECTORS.md.",
+          "command": "uv",
+          "args": [
+            "run",
+            "--directory",
+            "${CLAUDE_PLUGIN_ROOT}/mcp-servers/moai-mcp-ip",
+            "moai-mcp-ip"
+          ],
+          "env": {
+            "KIPRIS_API_KEY": "${user_config.KIPRIS_API_KEY}",
+            "USPTO_ODP_API_KEY": "${user_config.USPTO_ODP_API_KEY}",
+            "USPTO_TSDR_API_KEY": "${user_config.USPTO_TSDR_API_KEY}",
+            "JPO_API_USER": "${user_config.JPO_API_USER}",
+            "JPO_API_PASSWORD": "${user_config.JPO_API_PASSWORD}",
+            "EPO_OPS_KEY": "${user_config.EPO_OPS_KEY}",
+            "EPO_OPS_SECRET": "${user_config.EPO_OPS_SECRET}"
+          }
+        }
+      }
+    },
+    "skills": 13,
+    "agents": 2
+  },
+  {
+    "name": "moai-marketer",
+    "claude_manifest": {
+      "name": "moai-marketer",
+      "displayName": "📣 마케터",
+      "version": "1.2.23",
+      "description": "마케팅 전담 AI 코워커 — 캠페인 기획·퍼포먼스 분석·키워드 리서치·그로스 실험·리텐션, 블로그·뉴스레터·SNS 콘텐츠 스킬. Meta Ads·게시 채널 MCP 연동. 일반 이미지는 ChatGPT 기본 도구를, 전문 미디어 제작은 연결된 도구와 moai-media 스킬을 확인합니다. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 마케터·콘텐츠 크리에이터·1인 브랜드.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr"
+      },
+      "license": "Apache-2.0"
+    },
+    "codex_manifest": {
+      "name": "moai-marketer",
+      "version": "1.2.23",
+      "description": "마케팅 전담 AI 코워커 — 캠페인 기획·퍼포먼스 분석·키워드 리서치·그로스 실험·리텐션, 블로그·뉴스레터·SNS 콘텐츠 스킬. Meta Ads·게시 채널 MCP 연동. 일반 이미지는 ChatGPT 기본 도구를, 전문 미디어 제작은 연결된 도구와 moai-media 스킬을 확인합니다. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 마케터·콘텐츠 크리에이터·1인 브랜드.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr",
+        "url": "https://cowork.mo.ai.kr"
+      },
+      "homepage": "https://cowork.mo.ai.kr/plugins/",
+      "repository": "https://github.com/modu-ai/moai-cowork",
+      "license": "Apache-2.0",
+      "keywords": [
+        "moai",
+        "marketer",
+        "marketing",
+        "campaign",
+        "content",
+        "growth",
+        "마케팅",
+        "콘텐츠"
+      ],
+      "skills": "./skills/",
+      "mcpServers": "./.mcp.json",
+      "interface": {
+        "displayName": "📣 마케터",
+        "shortDescription": "📣 마케터 — 마케팅 캠페인·콘텐츠 올인원",
+        "longDescription": "마케팅 전담 AI 코워커 — 캠페인 기획·퍼포먼스 분석·키워드 리서치·그로스 실험·리텐션, 블로그·뉴스레터·SNS 콘텐츠 스킬. Meta Ads·게시 채널 MCP 연동. 일반 이미지는 ChatGPT 기본 도구를, 전문 미디어 제작은 연결된 도구와 moai-media 스킬을 확인합니다. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 마케터·콘텐츠 크리에이터·1인 브랜드.",
+        "developerName": "모두의 AI",
+        "category": "Marketing",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://cowork.mo.ai.kr",
+        "defaultPrompt": [
+          "마케터, 신제품 런칭 캠페인 기획해줘",
+          "블로그 포스트 초안 작성해줘"
+        ],
+        "brandColor": "#3d7d5f"
+      }
+    },
+    "claude_mcp": {
+      "mcpServers": {
+        "meta-ads": {
+          "$comment": "Meta Ads AI Connectors 원격 MCP. 베타 기능·인증 화면·계정 권한·도구 목록은 Claude Cowork와 ChatGPT Work의 실제 연결에서 확인한다. 광고 쓰기와 활성화는 moai-marketer:marketing-meta-ads-manager의 계정·예산·상태 확인 절차를 따른다.",
+          "type": "http",
+          "url": "https://mcp.facebook.com/ads"
+        },
+        "typefully": {
+          "$comment": "Typefully 공식 원격 MCP (support.typefully.com/en/articles/13128440) — X/Threads 스레드 작성·예약·큐 관리. 인증: OAuth 2.0 (RFC 9728 protected-resource discovery). API 키 불필요 — 커넥터 등록 시 브라우저에서 Typefully 계정 승인. 구 주소 api.typefully.com/mcp 는 404 이므로 사용 금지.",
+          "type": "http",
+          "url": "https://mcp.typefully.com/mcp"
+        },
+        "wordpress": {
+          "$comment": "WordPress.com 공식 원격 MCP (wordpress.com/support/model-context-protocol-mcp-settings/) — 포스트 발행·미디어·사이트 관리. 인증: OAuth 2.0 Bearer (WWW-Authenticate resource_metadata 디스커버리). 사전 준비: my.wordpress.com/me/preferences/mcp 에서 MCP 접근 허용 + 대상 사이트 지정. 구 주소 mcp.wordpress.com/mcp 는 존재하지 않는 서브도메인이므로 사용 금지.",
+          "type": "http",
+          "url": "https://public-api.wordpress.com/wpcom/v2/mcp/v1"
+        }
+      }
+    },
+    "skills": 23,
+    "agents": 2
+  },
+  {
+    "name": "moai-media",
+    "claude_manifest": {
+      "name": "moai-media",
+      "displayName": "🎬 미디어 크리에이터",
+      "version": "3.3.14",
+      "description": "미디어 생성 전담 AI 코워커 — ChatGPT Work 기본 이미지 생성, Higgsfield 이미지·영상·제품 촬영·캐릭터 일관성(Soul/Element), ElevenLabs TTS/보이스클로닝, GPT Image 2.5·Gemini 3·Midjourney v8 프롬프트 빌더와 NotebookLM 연동. Higgsfield 3D·설명 영상 완성은 현재 연결에 제출·조립 도구가 있을 때만 진행합니다. ChatGPT Images 2.5는 기본 이미지 도구를 사용하고 Flare·Sunburst API 모델 ID 지정은 별도 경로를 확인합니다.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr"
+      },
+      "license": "Apache-2.0",
+      "userConfig": {
+        "ELEVENLABS_API_KEY": {
+          "type": "string",
+          "title": "ElevenLabs API 키",
+          "description": "elevenlabs.io/app/settings/api-keys 에서 발급합니다.",
+          "sensitive": true
+        },
+        "OPENAI_API_KEY": {
+          "type": "string",
+          "title": "OpenAI API 키 (GPT Image 2.5)",
+          "description": "OpenAI API에서 별도로 발급합니다. 이미지 생성에는 별도 과금이 적용됩니다.",
+          "sensitive": true
+        }
+      }
+    },
+    "codex_manifest": {
+      "name": "moai-media",
+      "version": "3.3.14",
+      "description": "미디어 생성 전담 AI 코워커 — ChatGPT Work 기본 이미지 생성, Higgsfield 이미지·영상·제품 촬영·캐릭터 일관성(Soul/Element), ElevenLabs TTS/보이스클로닝, GPT Image 2.5·Gemini 3·Midjourney v8 프롬프트 빌더와 NotebookLM 연동. Higgsfield 3D·설명 영상 완성은 현재 연결에 제출·조립 도구가 있을 때만 진행합니다. ChatGPT Images 2.5는 기본 이미지 도구를 사용하고 Flare·Sunburst API 모델 ID 지정은 별도 경로를 확인합니다.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr",
+        "url": "https://cowork.mo.ai.kr"
+      },
+      "homepage": "https://cowork.mo.ai.kr/plugins/",
+      "repository": "https://github.com/modu-ai/moai-cowork",
+      "license": "Apache-2.0",
+      "keywords": [
+        "moai",
+        "media",
+        "image",
+        "video",
+        "audio",
+        "generation",
+        "미디어",
+        "생성"
+      ],
+      "skills": "./skills/",
+      "mcpServers": {
+        "ElevenLabs": {
+          "command": "uv",
+          "args": [
+            "run",
+            "--script",
+            "./mcp-launch/mcp_launch.py",
+            "--service",
+            "elevenlabs",
+            "--keys",
+            "ELEVENLABS_API_KEY",
+            "--",
+            "uvx",
+            "elevenlabs-mcp"
+          ],
+          "cwd": "."
+        },
+        "moai-mcp-openai": {
+          "command": "uv",
+          "args": [
+            "run",
+            "--directory",
+            "./mcp-servers/moai-mcp-openai",
+            "moai-mcp-openai"
+          ],
+          "cwd": "."
+        }
+      },
+      "interface": {
+        "displayName": "🎬 미디어 크리에이터",
+        "shortDescription": "🎬 미디어 크리에이터 — 이미지·영상·오디오 멀티모달 생성",
+        "longDescription": "미디어 생성 전담 AI 코워커 — ChatGPT Work 기본 이미지 생성, Higgsfield 이미지·영상·3D·설명영상·제품촬영·캐릭터 일관성(Soul/Element), ElevenLabs TTS/보이스클로닝, GPT Image 2.5·Gemini 3·Midjourney v8 프롬프트 빌더와 NotebookLM 연동. ChatGPT Images 2.5는 기본 이미지 도구를 사용하고 Flare·Sunburst API 모델 ID 지정은 별도 경로를 확인합니다.",
+        "developerName": "모두의 AI",
+        "category": "Media",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://cowork.mo.ai.kr",
+        "defaultPrompt": [
+          "제품 이미지 생성해줘",
+          "설명영상 시나리오 만들어줘"
+        ],
+        "brandColor": "#3d7d5f"
+      }
+    },
+    "claude_mcp": {
+      "mcpServers": {
+        "ElevenLabs": {
+          "$comment": "ElevenLabs 공식 MCP (github.com/elevenlabs/elevenlabs-mcp) — TTS·보이스 클로닝·다국어 더빙·효과음. media-audio-gen 스킬 전용. 사전 준비: uv 설치 필요 — macOS/Windows 양쪽 설치 방법은 cowork.mo.ai.kr/plugins/mcp/install/ 1단계 참조. ELEVENLABS_API_KEY 필수 (elevenlabs.io/app/settings/api-keys 발급). 옵션: ELEVENLABS_MCP_BASE_PATH (기본값은 바탕화면 — macOS ~/Desktop, Windows C:\\Users\\사용자이름\\Desktop), ELEVENLABS_MCP_OUTPUT_MODE (files/resources/both), ELEVENLABS_API_RESIDENCY (us 등).",
+          "command": "uv",
+          "args": [
+            "run",
+            "--script",
+            "${CLAUDE_PLUGIN_ROOT}/mcp-launch/mcp_launch.py",
+            "--service",
+            "elevenlabs",
+            "--keys",
+            "ELEVENLABS_API_KEY",
+            "--",
+            "uvx",
+            "elevenlabs-mcp"
+          ],
+          "env": {
+            "ELEVENLABS_API_KEY": "${user_config.ELEVENLABS_API_KEY}"
+          }
+        },
+        "higgsfield": {
+          "$comment": "Higgsfield AI 영상·이미지 생성 MCP — media-higgsfield-image·media-higgsfield-video 스킬이 사용. 공식 연결에서 Higgsfield 계정 OAuth 로그인. MCP 생성은 크레딧 차감.",
+          "type": "http",
+          "url": "https://mcp.higgsfield.ai/mcp",
+          "timeout": 120000,
+          "headers": {
+            "User-Agent": "MoAI-Media/3.3.9"
+          }
+        },
+        "moai-mcp-openai": {
+          "$comment": "정확한 GPT Image 2.5 모델 지정용 OpenAI Image API MCP. 별도 API 키·과금 필요. 키는 앱 MCP 연결 설정 또는 ~/.moai/mcp/openai.json에 저장하고 채팅에 입력하지 않는다.",
+          "command": "uv",
+          "args": [
+            "run",
+            "--directory",
+            "${CLAUDE_PLUGIN_ROOT}/mcp-servers/moai-mcp-openai",
+            "moai-mcp-openai"
+          ],
+          "env": {
+            "OPENAI_API_KEY": "${user_config.OPENAI_API_KEY}"
+          }
+        }
+      }
+    },
+    "skills": 16,
+    "agents": 2
+  },
+  {
+    "name": "moai-officer",
+    "claude_manifest": {
+      "name": "moai-officer",
+      "displayName": "📄 사무관",
+      "version": "1.3.8",
+      "description": "사무 문서 전담 AI 코워커 — 한국형 오피스 문서(HWPX·DOCX·XLSX·PPTX·PDF)·HTML 리포트/슬라이드 생성, 공문서 파싱, 노션 템플릿·생산성 루틴 스킬. kordoc MCP 연동. 공공데이터 조회·데이터 분석은 moai-analyst로, 라이프스타일·자기계발은 moai-coworker로 분리되었습니다. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 사무직·기획자·자영업 운영자.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr"
+      },
+      "license": "Apache-2.0"
+    },
+    "codex_manifest": {
+      "name": "moai-officer",
+      "version": "1.3.8",
+      "description": "사무 문서 전담 AI 코워커 — 한국형 오피스 문서(HWPX·DOCX·XLSX·PPTX·PDF)·HTML 리포트/슬라이드 생성, 공문서 파싱, 노션 템플릿·생산성 루틴 스킬. kordoc MCP 연동. 공공데이터 조회·데이터 분석은 moai-analyst로, 라이프스타일·자기계발은 moai-coworker로 분리. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 사무직·기획자·자영업 운영자.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr",
+        "url": "https://cowork.mo.ai.kr"
+      },
+      "homepage": "https://cowork.mo.ai.kr/plugins/",
+      "repository": "https://github.com/modu-ai/moai-cowork",
+      "license": "Apache-2.0",
+      "keywords": [
+        "moai",
+        "officer",
+        "document",
+        "hwpx",
+        "office",
+        "문서",
+        "오피스"
+      ],
+      "skills": "./skills/",
+      "mcpServers": "./.mcp.json",
+      "interface": {
+        "displayName": "📄 사무관",
+        "shortDescription": "📄 사무관 — HWPX·DOCX·XLSX·PPTX 오피스 문서 생성",
+        "longDescription": "사무 문서 전담 AI 코워커 — 한국형 오피스 문서(HWPX·DOCX·XLSX·PPTX·PDF)·HTML 리포트/슬라이드 생성, 공문서 파싱, 노션 템플릿·생산성 루틴 스킬. kordoc MCP 연동. 공공데이터 조회·데이터 분석은 moai-analyst로, 라이프스타일·자기계발은 moai-coworker로 분리. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 사무직·기획자·자영업 운영자.",
+        "developerName": "모두의 AI",
+        "category": "Productivity",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://cowork.mo.ai.kr",
+        "defaultPrompt": [
+          "HWPX 보고서 초안 작성해줘",
+          "엑셀 예산 템플릿 만들어줘"
+        ],
+        "brandColor": "#3d7d5f"
+      }
+    },
+    "claude_mcp": {
+      "mcpServers": {
+        "kordoc": {
+          "$comment": "한국 공문서 파서 MCP (제3자 chrisryugj/kordoc, MIT). HWP·HWPX·PDF·XLSX·DOCX 등의 파싱 도구는 현재 연결의 실제 목록을 확인한다. 사전 설치: 해당 패키지가 요구하는 Node.js. 키 불필요. 관련 스킬: moai-officer:doc-reader.",
+          "command": "npx",
+          "args": [
+            "-y",
+            "kordoc",
+            "mcp"
+          ]
+        }
+      }
+    },
+    "skills": 15,
+    "agents": 2
+  },
+  {
+    "name": "moai-pm",
+    "claude_manifest": {
+      "name": "moai-pm",
+      "displayName": "🚀 PM",
+      "version": "1.6.7",
+      "description": "프로젝트 초기화 허브 AI 코워커 — /project로 진입합니다. Claude Cowork·ChatGPT Work에서 설치된 코워커를 확인하고 AGENTS.md와 호스트별 커스텀 에이전트를 생성하며, 이후 프로젝트 지침을 개선합니다. 비개발자도 자연어 한마디로 프로젝트를 시작할 수 있습니다.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr"
+      },
+      "keywords": [
+        "moai",
+        "pm",
+        "project",
+        "허브",
+        "라우터",
+        "초기화"
+      ],
+      "license": "Apache-2.0"
+    },
+    "codex_manifest": {
+      "name": "moai-pm",
+      "version": "1.6.7",
+      "description": "프로젝트 초기화 허브 AI 코워커 — /project로 진입합니다. Claude Cowork·ChatGPT Work에서 설치된 코워커를 확인하고 AGENTS.md와 호스트별 커스텀 에이전트를 생성하며, 이후 프로젝트 지침을 개선합니다. 비개발자도 자연어 한마디로 프로젝트를 시작할 수 있습니다.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr",
+        "url": "https://cowork.mo.ai.kr"
+      },
+      "homepage": "https://cowork.mo.ai.kr/plugins/",
+      "repository": "https://github.com/modu-ai/moai-cowork",
+      "license": "Apache-2.0",
+      "keywords": [
+        "moai",
+        "pm",
+        "project",
+        "허브",
+        "라우터",
+        "초기화"
+      ],
+      "skills": "./skills/",
+      "interface": {
+        "displayName": "🚀 PM",
+        "shortDescription": "🚀 PM — 프로젝트 초기화 허브, AI 코워커 라우팅",
+        "longDescription": "프로젝트 초기화 허브 AI 코워커 — /project로 진입합니다. Claude Cowork·ChatGPT Work에서 설치된 코워커를 확인하고 AGENTS.md와 호스트별 커스텀 에이전트를 생성하며, 이후 프로젝트 지침을 개선합니다. 비개발자도 자연어 한마디로 프로젝트를 시작할 수 있습니다.",
+        "developerName": "모두의 AI",
+        "category": "Productivity",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://cowork.mo.ai.kr",
+        "defaultPrompt": [
+          "프로젝트 초기화해줘",
+          "/project 새 프로젝트 시작해줘"
+        ],
+        "brandColor": "#3d7d5f"
+      }
+    },
+    "claude_mcp": {},
+    "skills": 1,
+    "agents": 0
+  },
+  {
+    "name": "moai-recruiter",
+    "claude_manifest": {
+      "name": "moai-recruiter",
+      "displayName": "🤝 인사·채용 담당",
+      "version": "2.0.8",
+      "description": "인사·채용 전담 AI 코워커(고용주 편) — 채용 공고 분석·이력서 스크리닝·오퍼레터/근로계약서·성과평가·People Ops를 돕습니다. 구직자 편은 moai-career(커리어코치)로 분리되었습니다. 이런 분께 추천: 채용 담당자·인사 실무자.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr"
+      },
+      "license": "Apache-2.0"
+    },
+    "codex_manifest": {
+      "name": "moai-recruiter",
+      "version": "2.0.8",
+      "description": "인사·채용 전담 AI 코워커(고용주 편) — 채용 공고 분석·이력서 스크리닝·오퍼레터/근로계약서·성과평가·People Ops를 돕습니다. 구직자 편은 moai-career(커리어코치)로 분리되었습니다. 이런 분께 추천: 채용 담당자·인사 실무자.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr",
+        "url": "https://cowork.mo.ai.kr"
+      },
+      "homepage": "https://cowork.mo.ai.kr/plugins/",
+      "repository": "https://github.com/modu-ai/moai-cowork",
+      "license": "Apache-2.0",
+      "keywords": [
+        "moai",
+        "recruiter",
+        "hr",
+        "recruiting",
+        "hiring",
+        "인사",
+        "채용"
+      ],
+      "skills": "./skills/",
+      "interface": {
+        "displayName": "🤝 인사·채용 담당",
+        "shortDescription": "🤝 인사·채용 담당 — 채용 공고·이력서 스크리닝·근로계약서",
+        "longDescription": "인사·채용 전담 AI 코워커(고용주 편) — 채용 공고 분석·이력서 스크리닝·오퍼레터/근로계약서·성과평가·People Ops를 돕습니다. 구직자 편은 moai-career(커리어코치)로 분리되었습니다. 이런 분께 추천: 채용 담당자·인사 실무자.",
+        "developerName": "모두의 AI",
+        "category": "HR",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://cowork.mo.ai.kr",
+        "defaultPrompt": [
+          "채용 공고 작성해줘",
+          "이력서 스크리닝 체크리스트 만들어줘"
+        ],
+        "brandColor": "#3d7d5f"
+      }
+    },
+    "claude_mcp": {},
+    "skills": 8,
+    "agents": 2
+  },
+  {
+    "name": "moai-seller",
+    "claude_manifest": {
+      "name": "moai-seller",
+      "displayName": "🛒 셀러",
+      "version": "1.4.31",
+      "description": "이커머스 셀러 전담 AI 코워커 — 스마트스토어·아임웹·카페24 MCP 연동과 상세페이지·마켓플레이스·광고·CRM 등 커머스 실무 스킬. VOC·채널 메시지는 moai-cs(CS매니저)로 이관. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 온라인 셀러·이커머스 운영자.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr"
+      },
+      "license": "Apache-2.0",
+      "userConfig": {
+        "NAVER_COMMERCE_CLIENT_ID": {
+          "type": "string",
+          "title": "네이버 커머스 애플리케이션 ID",
+          "description": "커머스API센터에서 발급받은 애플리케이션 ID.",
+          "sensitive": true
+        },
+        "NAVER_COMMERCE_CLIENT_SECRET": {
+          "type": "string",
+          "title": "네이버 커머스 애플리케이션 시크릿",
+          "description": "전자서명(bcrypt salt)에 쓰입니다.",
+          "sensitive": true
+        },
+        "NAVER_COMMERCE_ACCOUNT_ID": {
+          "type": "string",
+          "title": "판매자 계정 ID",
+          "description": "인증 주체가 SELLER 일 때만 필요합니다.",
+          "sensitive": false
+        },
+        "NAVER_COMMERCE_TYPE": {
+          "type": "string",
+          "title": "인증 주체 타입",
+          "description": "SELF(기본) 또는 SELLER 중 하나입니다.",
+          "sensitive": false,
+          "default": "SELF"
+        },
+        "IMWEB_CLIENT_ID": {
+          "type": "string",
+          "title": "아임웹 클라이언트 ID",
+          "description": "아임웹 OPEN API v3 앱의 클라이언트 ID.",
+          "sensitive": true
+        },
+        "IMWEB_CLIENT_SECRET": {
+          "type": "string",
+          "title": "아임웹 클라이언트 시크릿",
+          "description": "토큰 자동 갱신에 쓰입니다.",
+          "sensitive": true
+        },
+        "IMWEB_ACCESS_TOKEN": {
+          "type": "string",
+          "title": "아임웹 액세스 토큰",
+          "description": "최초 1회 발급값. 이후에는 자동 갱신되어 저장됩니다.",
+          "sensitive": true
+        },
+        "IMWEB_REFRESH_TOKEN": {
+          "type": "string",
+          "title": "아임웹 리프레시 토큰",
+          "description": "최초 1회 발급값. 이후에는 자동 갱신되어 저장됩니다.",
+          "sensitive": true
+        },
+        "IMWEB_UNIT_CODE": {
+          "type": "string",
+          "title": "아임웹 유닛 코드",
+          "description": "다중 사이트를 쓸 때 대상 사이트를 지정합니다.",
+          "sensitive": false
+        },
+        "CAFE24_MALL_ID": {
+          "type": "string",
+          "title": "카페24 몰 ID",
+          "description": "쇼핑몰 주소의 앞부분입니다 (mymall.cafe24.com 이면 mymall).",
+          "sensitive": false
+        },
+        "CAFE24_CLIENT_ID": {
+          "type": "string",
+          "title": "카페24 클라이언트 ID",
+          "description": "카페24 개발자센터 앱의 클라이언트 ID.",
+          "sensitive": true
+        },
+        "CAFE24_CLIENT_SECRET": {
+          "type": "string",
+          "title": "카페24 클라이언트 시크릿",
+          "description": "토큰 자동 갱신에 쓰입니다.",
+          "sensitive": true
+        },
+        "CAFE24_ACCESS_TOKEN": {
+          "type": "string",
+          "title": "카페24 액세스 토큰",
+          "description": "최초 1회 발급값(2시간). 이후 자동 갱신되어 저장됩니다.",
+          "sensitive": true
+        },
+        "CAFE24_REFRESH_TOKEN": {
+          "type": "string",
+          "title": "카페24 리프레시 토큰",
+          "description": "최초 1회 발급값(2주, 갱신 시 회전). 이후 자동 저장됩니다.",
+          "sensitive": true
+        }
+      }
+    },
+    "codex_manifest": {
+      "name": "moai-seller",
+      "version": "1.4.31",
+      "description": "이커머스 셀러 전담 AI 코워커 — 스마트스토어·아임웹·카페24 MCP 연동과 상세페이지·마켓플레이스·광고·CRM 등 커머스 실무 스킬. VOC·채널 메시지는 moai-cs(CS매니저)로 이관. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 온라인 셀러·이커머스 운영자.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr",
+        "url": "https://cowork.mo.ai.kr"
+      },
+      "homepage": "https://cowork.mo.ai.kr/plugins/",
+      "repository": "https://github.com/modu-ai/moai-cowork",
+      "license": "Apache-2.0",
+      "keywords": [
+        "moai",
+        "seller",
+        "ecommerce",
+        "smartstore",
+        "commerce",
+        "이커머스",
+        "셀러"
+      ],
+      "skills": "./skills/",
+      "mcpServers": {
+        "cafe24-catalog-mcp": {
+          "type": "http",
+          "url": "https://mcp-catalog.cafe24.com/api/mcp"
+        },
+        "moai-mcp-smartstore": {
+          "command": "uv",
+          "args": [
+            "run",
+            "--directory",
+            "./mcp-servers/moai-mcp-smartstore",
+            "moai-mcp-smartstore"
+          ],
+          "cwd": "."
+        },
+        "moai-mcp-imweb": {
+          "command": "uv",
+          "args": [
+            "run",
+            "--directory",
+            "./mcp-servers/moai-mcp-imweb",
+            "moai-mcp-imweb"
+          ],
+          "cwd": "."
+        },
+        "moai-mcp-cafe24": {
+          "command": "uv",
+          "args": [
+            "run",
+            "--directory",
+            "./mcp-servers/moai-mcp-cafe24",
+            "moai-mcp-cafe24"
+          ],
+          "cwd": "."
+        }
+      },
+      "interface": {
+        "displayName": "🛒 셀러",
+        "shortDescription": "🛒 셀러 — 이커머스 상세페이지·광고·CRM 실무",
+        "longDescription": "이커머스 셀러 전담 AI 코워커 — 스마트스토어·아임웹·카페24 MCP 연동과 상세페이지·마켓플레이스·광고·CRM 실무 스킬. VOC·채널 메시지는 moai-cs(CS매니저)로 이관. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 온라인 셀러·이커머스 운영자.",
+        "developerName": "모두의 AI",
+        "category": "Commerce",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://cowork.mo.ai.kr",
+        "defaultPrompt": [
+          "스마트스토어 상세페이지 작성해줘",
+          "네이버 쇼핑 광고 소스 만들어줘"
+        ],
+        "brandColor": "#3d7d5f"
+      }
+    },
+    "claude_mcp": {
+      "mcpServers": {
+        "moai-mcp-smartstore": {
+          "$comment": "네이버 커머스(스마트스토어) 운영/관리 MCP. 실행에는 uv와 판매자 자격증명이 필요하다. 발급·인증 절차는 mcp-servers/moai-mcp-smartstore/CONNECTORS.md를 확인한다. 통계(stats_*)는 API데이터솔루션 별도 사용신청이 필요하다. 실제 앱 연결과 권한은 확인해야 한다.",
+          "command": "uv",
+          "args": [
+            "run",
+            "--directory",
+            "${CLAUDE_PLUGIN_ROOT}/mcp-servers/moai-mcp-smartstore",
+            "moai-mcp-smartstore"
+          ],
+          "env": {
+            "NAVER_COMMERCE_CLIENT_ID": "${user_config.NAVER_COMMERCE_CLIENT_ID}",
+            "NAVER_COMMERCE_CLIENT_SECRET": "${user_config.NAVER_COMMERCE_CLIENT_SECRET}",
+            "NAVER_COMMERCE_ACCOUNT_ID": "${user_config.NAVER_COMMERCE_ACCOUNT_ID}",
+            "NAVER_COMMERCE_TYPE": "${user_config.NAVER_COMMERCE_TYPE}"
+          }
+        },
+        "moai-mcp-imweb": {
+          "$comment": "아임웹 OPEN API 판매자 서버. 공식 명세에서 생성한 작업 138개를 카테고리 도구 8개로 제공합니다. 앱 등록·인가·필요 권한은 mcp-servers/moai-mcp-imweb/CONNECTORS.md와 공식 명세를 확인하세요.",
+          "command": "uv",
+          "args": [
+            "run",
+            "--directory",
+            "${CLAUDE_PLUGIN_ROOT}/mcp-servers/moai-mcp-imweb",
+            "moai-mcp-imweb"
+          ],
+          "env": {
+            "IMWEB_CLIENT_ID": "${user_config.IMWEB_CLIENT_ID}",
+            "IMWEB_CLIENT_SECRET": "${user_config.IMWEB_CLIENT_SECRET}",
+            "IMWEB_ACCESS_TOKEN": "${user_config.IMWEB_ACCESS_TOKEN}",
+            "IMWEB_REFRESH_TOKEN": "${user_config.IMWEB_REFRESH_TOKEN}",
+            "IMWEB_UNIT_CODE": "${user_config.IMWEB_UNIT_CODE}"
+          }
+        },
+        "moai-mcp-cafe24": {
+          "$comment": "카페24 판매자 Admin API와 Analytics API용 자체 서버. 20개 카테고리 도구에 526개 작업 정의가 있으며, 계정 권한·현행 API 정합성은 작업별 확인이 필요합니다. 첫 OAuth 인가 절차는 mcp-servers/moai-mcp-cafe24/README.md를 참고하세요.",
+          "command": "uv",
+          "args": [
+            "run",
+            "--directory",
+            "${CLAUDE_PLUGIN_ROOT}/mcp-servers/moai-mcp-cafe24",
+            "moai-mcp-cafe24"
+          ],
+          "env": {
+            "CAFE24_MALL_ID": "${user_config.CAFE24_MALL_ID}",
+            "CAFE24_CLIENT_ID": "${user_config.CAFE24_CLIENT_ID}",
+            "CAFE24_CLIENT_SECRET": "${user_config.CAFE24_CLIENT_SECRET}",
+            "CAFE24_ACCESS_TOKEN": "${user_config.CAFE24_ACCESS_TOKEN}",
+            "CAFE24_REFRESH_TOKEN": "${user_config.CAFE24_REFRESH_TOKEN}"
+          }
+        },
+        "cafe24-catalog-mcp": {
+          "$comment": "카페24 공식 Catalog MCP. 상품 검색 등 제공 기능은 현재 tools/list로 확인합니다. 판매자 Admin API와는 용도가 다릅니다.",
+          "command": "npx",
+          "args": [
+            "-y",
+            "mcp-remote",
+            "https://mcp-catalog.cafe24.com/api/mcp"
+          ]
+        },
+        "higgsfield": {
+          "$comment": "Higgsfield 공식 이미지·영상 MCP. Claude에서 계정 인증과 도구 노출, 크레딧 비용을 확인한다. ChatGPT는 Higgsfield 공식 플러그인을 별도로 설치·인증한다. 참조 사진은 채팅 첨부 외 별도 업로드 완료를 확인한다.",
+          "type": "http",
+          "url": "https://mcp.higgsfield.ai/mcp"
+        }
+      }
+    },
+    "skills": 33,
+    "agents": 2
+  },
+  {
+    "name": "moai-story",
+    "claude_manifest": {
+      "name": "moai-story",
+      "displayName": "📖 스토리 크리에이터",
+      "version": "1.2.4",
+      "description": "스토리/IP 창작 전담 AI 코워커 — 웹툰 제작 체인(기획→캐릭터→회차→식자→작화→QC)·웹소설 연재(기획→집필)·영상 시나리오·콘티·표지·IP 사업화 스킬. 플랫폼 제출 규격은 최신 공고를 확인하고, 이미지는 현재 앱의 도구로, Higgsfield 요청은 별도 공식 연결로 생성합니다. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 웹툰/웹소설 창작자·시나리오 작가·IP 콘텐츠 기획자.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr"
+      },
+      "license": "Apache-2.0"
+    },
+    "codex_manifest": {
+      "name": "moai-story",
+      "version": "1.2.4",
+      "description": "스토리/IP 창작 전담 AI 코워커 — 웹툰 제작 체인(기획→캐릭터→회차→식자→작화→QC)·웹소설 연재(기획→집필)·영상 시나리오·콘티·표지·IP 사업화 스킬. 플랫폼 제출 규격은 최신 공고를 확인하고, 이미지는 현재 앱의 도구로, Higgsfield 요청은 별도 공식 연결로 생성합니다. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 웹툰/웹소설 창작자·시나리오 작가·IP 콘텐츠 기획자.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr",
+        "url": "https://cowork.mo.ai.kr"
+      },
+      "homepage": "https://cowork.mo.ai.kr/plugins/",
+      "repository": "https://github.com/modu-ai/moai-cowork",
+      "license": "Apache-2.0",
+      "keywords": [
+        "moai",
+        "story",
+        "webtoon",
+        "webnovel",
+        "ip",
+        "scenario",
+        "스토리",
+        "웹툰"
+      ],
+      "skills": "./skills/",
+      "mcpServers": "./.mcp.json",
+      "interface": {
+        "displayName": "📖 스토리 크리에이터",
+        "shortDescription": "📖 스토리 크리에이터 — 웹툰·웹소설·시나리오 IP 창작 체인",
+        "longDescription": "스토리/IP 창작 전담 AI 코워커 — 웹툰 제작 체인(기획→캐릭터→회차→식자→작화→QC)·웹소설 연재(기획→집필)·영상 시나리오·콘티·표지·IP 사업화 스킬. 플랫폼 제출 규격은 현재 공고를 확인합니다. 이미지는 앱 도구로 생성하고, Higgsfield 요청은 별도 공식 플러그인 연결을 확인합니다. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 웹툰/웹소설 창작자·시나리오 작가·IP 콘텐츠 기획자.",
+        "developerName": "모두의 AI",
+        "category": "Creative",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://cowork.mo.ai.kr",
+        "defaultPrompt": [
+          "웹툰 신작 기획해줘",
+          "웹소설 1화 초안 작성해줘"
+        ],
+        "brandColor": "#3d7d5f"
+      }
+    },
+    "claude_mcp": {
+      "mcpServers": {
+        "higgsfield": {
+          "$comment": "Higgsfield 공식 영상·이미지 MCP — Claude 연결에서 계정 인증 후 노출된 도구·비용을 확인한다. ChatGPT에서는 Higgsfield 공식 플러그인을 별도 설치·인증한다. story-* 스킬은 유료 생성 전 비용 고지와 승인, 참조 이미지의 별도 업로드 완료를 확인한다.",
+          "type": "http",
+          "url": "https://mcp.higgsfield.ai/mcp",
+          "timeout": 120000,
+          "headers": {
+            "User-Agent": "MoAI-Story/1.2.4"
+          }
+        }
+      }
+    },
+    "skills": 19,
+    "agents": 2
+  },
+  {
+    "name": "moai-threads-poster",
+    "claude_manifest": {
+      "name": "moai-threads-poster",
+      "displayName": "📸 SNS 크리에이터",
+      "version": "2.0.5",
+      "description": "Threads·Instagram(Meta) 자율 발행 전담 AI 코워커 — MCP 서버로 직접 Graph API 연결(월정액 없음). 세션 안에서 초안을 작성해 보여드리고 승인하면 텍스트·이미지·비디오를 즉시 발행합니다. 큐·예약·승인 상태머신은 없습니다. 예약·정기 발행은 사용 중인 앱의 지원 여부를 확인합니다. Facebook 개인 계정은 API 미지원(정책)이라 복붙만 지원합니다.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr"
+      },
+      "keywords": [
+        "moai",
+        "threads",
+        "meta",
+        "poster",
+        "mcp",
+        "스레드",
+        "자동포스팅"
+      ],
+      "license": "Apache-2.0",
+      "mcpServers": "./.mcp.json",
+      "userConfig": {
+        "THREADS_ACCESS_TOKEN": {
+          "type": "string",
+          "title": "Threads 액세스 토큰",
+          "description": "Meta 개발자센터에서 발급한 Threads Graph API 토큰.",
+          "sensitive": true
+        },
+        "THREADS_USER_ID": {
+          "type": "string",
+          "title": "Threads 사용자 ID",
+          "description": "발행 대상 Threads 계정의 숫자 ID.",
+          "sensitive": false
+        },
+        "IG_ACCESS_TOKEN": {
+          "type": "string",
+          "title": "Instagram 액세스 토큰",
+          "description": "인스타그램 동시 발행을 쓸 때만 필요합니다.",
+          "sensitive": true
+        },
+        "IG_USER_ID": {
+          "type": "string",
+          "title": "Instagram 사용자 ID",
+          "description": "Professional(비즈니스·크리에이터) 계정의 숫자 ID.",
+          "sensitive": false
+        }
+      }
+    },
+    "codex_manifest": {
+      "name": "moai-threads-poster",
+      "version": "2.0.5",
+      "description": "Threads·Instagram(Meta) 자율 발행 전담 AI 코워커 — 직접 Graph API 연결 MCP(월정액 없음). 세션 안에서 초안을 작성해 보여드리고 승인하면 텍스트·이미지·비디오를 즉시 발행합니다. 큐·예약·승인 상태머신은 없습니다. 예약·정기 발행은 사용 중인 앱의 지원 여부를 확인합니다. Facebook 개인 계정은 API 미지원(정책)이라 복붙만 지원합니다.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr",
+        "url": "https://cowork.mo.ai.kr"
+      },
+      "homepage": "https://cowork.mo.ai.kr/plugins/",
+      "repository": "https://github.com/modu-ai/moai-cowork",
+      "license": "Apache-2.0",
+      "keywords": [
+        "moai",
+        "threads",
+        "meta",
+        "poster",
+        "mcp",
+        "스레드",
+        "자동포스팅"
+      ],
+      "skills": "./skills/",
+      "mcpServers": {
+        "moai-mcp-threads-poster": {
+          "command": "uv",
+          "args": [
+            "run",
+            "--directory",
+            "./mcp-servers/moai-mcp-threads-poster",
+            "moai-mcp-threads-poster"
+          ],
+          "cwd": "."
+        }
+      },
+      "interface": {
+        "displayName": "📸 SNS 크리에이터",
+        "shortDescription": "SNS 크리에이터 — Threads·Instagram 직접 발행",
+        "longDescription": "Threads·Instagram(Meta) 자율 발행 전담 AI 코워커 — 직접 Graph API 연결 MCP(월정액 없음). 세션 안에서 초안을 작성해 보여드리고 승인하면 텍스트·이미지·비디오를 즉시 발행합니다. 큐·예약·승인 상태머신은 없습니다. 예약·정기 발행은 사용 중인 앱의 지원 여부를 확인합니다. Facebook 개인 계정은 API 미지원(정책)이라 복붙만 지원합니다.",
+        "developerName": "모두의 AI",
+        "category": "Social",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://cowork.mo.ai.kr",
+        "defaultPrompt": [
+          "Threads에 포스트 올려줘",
+          "이번 주 콘텐츠 초안 작성해줘"
+        ],
+        "brandColor": "#3d7d5f"
+      }
+    },
+    "claude_mcp": {
+      "mcpServers": {
+        "moai-mcp-threads-poster": {
+          "$comment": "Threads(Meta) Graph API 자동 포스팅 MCP — 텍스트/이미지/비디오 2단계 발행(create container → publish). OAuth2 Bearer access_token. 사전 설치: uv (macOS/Linux는 astral.sh/uv 설치 스크립트, Windows는 winget install astral-sh.uv 또는 pip install uv). 소스를 플러그인에 자체 vendor(mcp-servers/moai-mcp-threads-poster) — PyPI 불필요, 설치 즉시 작동. 자격증명 발급·인증 절차는 mcp-servers/moai-mcp-threads-poster/CONNECTORS.md.",
+          "command": "uv",
+          "args": [
+            "run",
+            "--directory",
+            "${CLAUDE_PLUGIN_ROOT}/mcp-servers/moai-mcp-threads-poster",
+            "moai-mcp-threads-poster"
+          ],
+          "env": {
+            "THREADS_ACCESS_TOKEN": "${user_config.THREADS_ACCESS_TOKEN}",
+            "THREADS_USER_ID": "${user_config.THREADS_USER_ID}",
+            "IG_ACCESS_TOKEN": "${user_config.IG_ACCESS_TOKEN}",
+            "IG_USER_ID": "${user_config.IG_USER_ID}"
+          }
+        }
+      }
+    },
+    "skills": 5,
+    "agents": 0
+  },
+  {
+    "name": "moai-tutor",
+    "claude_manifest": {
+      "name": "moai-tutor",
+      "displayName": "🎓 튜터",
+      "version": "1.3.4",
+      "description": "교육 전담 AI 코워커 — 커리큘럼 설계·학습 자료·평가 문항 제작·강좌 운영 매뉴얼·논문 검색/작성·연구 보조 스킬. 강사와 학습자 양쪽 워크플로우를 지원합니다. 이런 분께 추천: 강사·교육 기획자·대학원생·연구자.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr"
+      },
+      "license": "Apache-2.0"
+    },
+    "codex_manifest": {
+      "name": "moai-tutor",
+      "version": "1.3.4",
+      "description": "교육 전담 AI 코워커 — 커리큘럼 설계·학습 자료·평가 문항 제작·강좌 운영 매뉴얼·논문 검색/작성·연구 보조 스킬. 강사와 학습자 양쪽 워크플로우를 지원합니다. 이런 분께 추천: 강사·교육 기획자·대학원생·연구자.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr",
+        "url": "https://cowork.mo.ai.kr"
+      },
+      "homepage": "https://cowork.mo.ai.kr/plugins/",
+      "repository": "https://github.com/modu-ai/moai-cowork",
+      "license": "Apache-2.0",
+      "keywords": [
+        "moai",
+        "tutor",
+        "education",
+        "curriculum",
+        "learning",
+        "교육",
+        "강의"
+      ],
+      "skills": "./skills/",
+      "interface": {
+        "displayName": "🎓 튜터",
+        "shortDescription": "🎓 튜터 — 커리큘럼 설계·학습 자료·논문 연구 보조",
+        "longDescription": "교육 전담 AI 코워커 — 커리큘럼 설계·학습 자료·평가 문항 제작·강좌 운영 매뉴얼·논문 검색/작성·연구 보조를 돕습니다. 강사와 학습자 양쪽 워크플로우를 지원합니다. 이런 분께 추천: 강사·교육 기획자·대학원생·연구자.",
+        "developerName": "모두의 AI",
+        "category": "Education",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://cowork.mo.ai.kr",
+        "defaultPrompt": [
+          "초등 영어 커리큘럼 설계해줘",
+          "논문 주제 리서치해줘"
+        ],
+        "brandColor": "#3d7d5f"
+      }
+    },
+    "claude_mcp": {},
+    "skills": 13,
+    "agents": 2
+  },
+  {
+    "name": "moai-writer",
+    "claude_manifest": {
+      "name": "moai-writer",
+      "displayName": "✍️ 작가",
+      "version": "1.5.13",
+      "description": "출판·텍스트 전담 AI 코워커 — 도서 기획·집필·퇴고·제안서·출판사 조사와 한국어 윤문을 돕습니다. 공개 맞춤법 검사기는 이용 조건과 원고 공개 범위를 확인한 뒤 사용자 주도로 사용합니다. 스토리/IP 창작은 별도 moai-story 플러그인이 담당합니다. 이런 분께 추천: 작가·1인 출판인·실용서 저자.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr"
+      },
+      "license": "Apache-2.0"
+    },
+    "codex_manifest": {
+      "name": "moai-writer",
+      "version": "1.5.13",
+      "description": "출판·텍스트 전담 AI 코워커 — 도서 기획·집필·퇴고·제안서·출판사 조사와 한국어 윤문을 돕습니다. 공개 맞춤법 검사기는 이용 조건과 원고 공개 범위를 확인한 뒤 사용자 주도로 사용합니다. 스토리/IP 창작은 별도 moai-story 플러그인이 담당합니다. 이런 분께 추천: 작가·1인 출판인·실용서 저자.",
+      "author": {
+        "name": "모두의 AI",
+        "email": "email@mo.ai.kr",
+        "url": "https://cowork.mo.ai.kr"
+      },
+      "homepage": "https://cowork.mo.ai.kr/plugins/",
+      "repository": "https://github.com/modu-ai/moai-cowork",
+      "license": "Apache-2.0",
+      "keywords": [
+        "moai",
+        "writer",
+        "writing",
+        "publishing",
+        "book",
+        "korean",
+        "출판",
+        "작가"
+      ],
+      "skills": "./skills/",
+      "mcpServers": "./.mcp.json",
+      "interface": {
+        "displayName": "✍️ 작가",
+        "shortDescription": "✍️ 작가 — 출판 기획·집필·윤문 텍스트 창작 올인원",
+        "longDescription": "출판·텍스트 전담 AI 코워커 — 도서 기획·집필·퇴고·제안서·출판사 조사와 한국어 윤문을 돕습니다. 공개 맞춤법 검사기는 이용 조건과 원고 공개 범위를 확인한 뒤 사용자 주도로 사용합니다. 스토리/IP 창작은 별도 moai-story 플러그인이 담당합니다. 이런 분께 추천: 작가·1인 출판인·실용서 저자.",
+        "developerName": "모두의 AI",
+        "category": "Writing",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://cowork.mo.ai.kr",
+        "defaultPrompt": [
+          "전자책 출간 기획해줘",
+          "블로그 원고 한국어 윤문해줘"
+        ],
+        "brandColor": "#3d7d5f"
+      }
+    },
+    "claude_mcp": {
+      "mcpServers": {}
+    },
+    "skills": 12,
+    "agents": 2
+  }
+]

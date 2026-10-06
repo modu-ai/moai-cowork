@@ -13,7 +13,8 @@ description: |
   한컴오피스(아래아한글) 호환 표준 양식을 따르며, 한컴이 없는 환경이면 워드(.docx) 생성으로 대체할 수 있습니다.
   아래아한글(.hwpx) 문서를 만들 때는 현재 앱의 실제 문서 생성 기능을 확인하고 이 스킬의 검수 절차를 적용하세요.
   [책임 경계] vs moai-officer:doc-docx: 이 스킬=한컴 .hwpx 한글 파일, 저 스킬=MS 워드 .docx 파일.
-version: "1.1.2"
+metadata:
+  version: "1.1.3"
 ---
 
 # 한글 문서 작성자 (HWPX Writer)

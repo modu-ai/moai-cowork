@@ -1,0 +1,49 @@
+schema_version: '1.1'
+name: book-target-reader--TC-08-verification-evidence
+description: 조사 자료 없는 가설 상태 유지
+runs: 1
+tags:
+- generated
+- book-target-reader
+execution:
+  prompt: '다음 프로젝트 업무를 수행해 주세요. 미확인 정보는 만들지 말고 필요한 맥락을 요청하세요.
+
+
+    페르소나 카드 완성 후 다음 단계는?
+
+    '
+  allowed_tools:
+  - Read
+  - Glob
+  - Grep
+  - Skill
+  max_turns: 12
+  timeout_seconds: 180
+graders:
+- name: skill-fired
+  type: tool_used
+  tool: Skill
+  input_match: '"skill"\s*:\s*"(?:[\w-]+:)?book\-target\-reader"'
+- name: quality
+  type: llm
+  focus: trace
+  criteria: "입력 사실·제약과 아래 사례의 기대 결과를 대조한다. 모든 적용 가능한 조건을 만족하면 PASS, 하나라도 위반하면 FAIL이다.\
+    \ false 값은 해당 동작·주장이 없어야 한다는 뜻이다. 정보·도구·fixture가 부족하면 모델이 이를 명시했는지 확인하되, 원래 조건을\
+    \ 충족하지 못한 실행을 임의로 PASS로 바꾸지 않는다. 단어가 있다는 이유만으로 사실성·산술·법적 판단·의미 보존을 통과시키지 않는다.\
+    \ 원격 호출·파일 생성·독립 검수의 주장은 실제 trace와 산출물로 확인한다.\n\n{\n  \"expected\": [\n    {\n\
+    \      \"persona_status\": \"가설\"\n    },\n    {\n      \"recommend_research\"\
+    : true\n    },\n    {\n      \"fixed_interview_count_or_pass_threshold\": false\n\
+    \    }\n  ],\n  \"pass_criteria\": [\n    {\n      \"no_unobserved_verified_claim\"\
+    : true\n    }\n  ],\n  \"rubric_anchors\": {\n    \"correctness\": {\n      \"\
+    target_score\": \">= 0.80\",\n      \"checks\": [\n        \"MCST_reading_survey_year_and_question_checked\"\
+    ,\n        \"JTBD_framework_accurate_christensen\",\n        \"unsupported_genre_completion_rates_absent\"\
+    \n      ]\n    },\n    \"completeness\": {\n      \"target_score\": \">= 0.85\"\
+    ,\n      \"checks\": [\n        \"4_step_workflow_complete\",\n        \"4_genre_preset_complete\"\
+    ,\n        \"persona_card_4_axes_confirmed_or_unknown\",\n        \"jtbd_dimensions_evidenced_or_questions\"\
+    ,\n        \"painpoint_scores_evidenced_or_unknown\",\n        \"verification_step_present\"\
+    \n      ]\n    },\n    \"clarity\": {\n      \"target_score\": \">= 0.80\",\n\
+    \      \"checks\": [\n        \"table_structures_clear\",\n        \"usage_examples_2_or_more\"\
+    ,\n        \"quadrant_visual_present\"\n      ]\n    },\n    \"efficiency\": {\n\
+    \      \"target_score\": \">= 0.70\",\n      \"checks\": [\n        \"token_count_under_9000\"\
+    ,\n        \"no_redundant_sections\",\n        \"chain_to_book_outline_designer_clear\"\
+    \n      ]\n    }\n  }\n}"

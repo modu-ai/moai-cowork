@@ -22,7 +22,8 @@
 
 1. **환경변수** — 값이 실제로 들어 있을 때만. Claude 의 `${user_config.KEY}` 가 채워진
    경우, `codex mcp add --env` 로 넣은 경우, 개발자가 셸에 export 한 경우가 여기 해당한다.
-2. **자격증명 파일** — `~/.moai/mcp/<service>.json`. 설정 스킬이 대화로 물어보고 적는다.
+2. **자격증명 파일** — 명시적 경로 또는 `<SERVICE>_CREDENTIALS_FILE`,
+   지정이 없으면 `~/.moai/mcp/<service>.json`. 실제 비밀값은 개인 인증 설정에서 입력한다.
    런타임과 무관하므로 네 실행 환경 모두에서 동일하게 동작한다.
 3. **기본값** — 호출부가 준 값. 없으면 빈 문자열.
 
@@ -72,7 +73,7 @@ class CredentialStore:
     Args:
         service: 서비스 슬러그. 파일명이 된다 (`smartstore` → `smartstore.json`).
         path: 자격증명 파일 경로를 직접 지정할 때.
-        env_var: 경로를 덮어쓸 환경변수 이름 (예: `SMARTSTORE_CREDENTIALS_FILE`).
+        env_var: 경로 변수의 별도 이름. 생략하면 `<SERVICE>_CREDENTIALS_FILE`.
 
     파일을 읽지 못해도 예외를 던지지 않는다. 자격증명이 환경변수로만 들어오는 배치도
     정상 사용이며, 그때 파일은 그냥 없다.
@@ -97,10 +98,12 @@ class CredentialStore:
     ) -> Path:
         if path is not None:
             return Path(path).expanduser()
-        if env_var:
-            override = os.environ.get(env_var)
-            if not is_unset(override):
-                return Path(override).expanduser()  # type: ignore[arg-type]
+        # 프로젝트마다 다른 계정을 선택할 수 있도록 모든 서비스에 같은 경로 규칙을 쓴다.
+        # 값·토큰은 옮기지 않고, 기존 전역 파일은 별도 경로가 없을 때만 유지한다.
+        path_var = env_var or re.sub(r"[^A-Za-z0-9]", "_", service).upper() + "_CREDENTIALS_FILE"
+        override = os.environ.get(path_var)
+        if not is_unset(override):
+            return Path(override).expanduser()  # type: ignore[arg-type]
         return DEFAULT_DIR / f"{service}.json"
 
     def _read_file(self) -> dict[str, str]:

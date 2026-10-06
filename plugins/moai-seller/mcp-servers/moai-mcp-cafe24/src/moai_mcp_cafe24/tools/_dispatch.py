@@ -42,6 +42,8 @@ from __future__ import annotations
 from collections import defaultdict
 from typing import Any
 
+from mcp.types import ToolAnnotations
+
 from .._app import mcp
 from ..registry import REGISTRY, Endpoint
 
@@ -291,6 +293,12 @@ def register_all() -> int:
             name=f"cafe24_{category}",
             description=fn.__doc__,
             meta=_tool_meta(category, eps),
+            annotations=ToolAnnotations(
+                readOnlyHint=all(ep.method in {"GET", "HEAD"} for ep in eps),
+                destructiveHint=any(ep.method not in {"GET", "HEAD"} for ep in eps),
+                idempotentHint=all(ep.method in {"GET", "HEAD"} for ep in eps),
+                openWorldHint=True,
+            ),
         )
         count += 1
     return count

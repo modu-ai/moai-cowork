@@ -3,7 +3,8 @@ name: legal-contract-review
 description: |
   계약서의 조항별 위험과 누락 사항을 검토하고, 이용약관·개인정보 처리방침·
   SLA 등의 초안을 실제 서비스 사실과 현행 공식 근거에 맞춰 작성합니다.
-version: "1.1.2"
+metadata:
+  version: "1.1.3"
 ---
 
 # 계약서와 서비스 법무 문서 검토

@@ -2,7 +2,8 @@
 name: cs-workflow
 description: |
   고객 문의 분류부터 응답·에스컬레이션·FAQ·VOC 분석까지 여러 고객지원 산출물을 함께 만들 때 실제 문의와 셀러 정책을 확인하고 moai-cs의 cs-* 스킬로 연결합니다.
-version: "1.0.0"
+metadata:
+  version: "1.0.1"
 ---
 
 # 고객지원 작업 경로

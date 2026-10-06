@@ -1,0 +1,22 @@
+{{- $id := printf "rate-%d" .Ordinal -}}
+<figure class="concept-figure">
+<div class="figure-scroll" role="region" tabindex="0" aria-label="지역별 문의와 완료 건수 그림">
+<svg class="rate-chart" viewBox="0 0 640 324" role="img" aria-labelledby="{{ $id }}-title {{ $id }}-desc">
+<title id="{{ $id }}-title">지역별 문의에서 완료된 건수가 차지하는 비율</title>
+<desc id="{{ $id }}-desc">가상 자료. A지역은 문의 30건 중 완료 24건, B지역은 20건 중 10건입니다. 전체는 문의 50건 중 완료 34건으로 68%입니다. 막대 길이는 문의 수이며 검은 면은 완료 수입니다.</desc>
+<rect width="640" height="324" fill="#f4f4ef"/>
+<g font-size="16" fill="#202020">
+<text x="24" y="32">막대 전체 = 문의 수 · 검은 면 = 완료 수</text>
+<text x="24" y="88">A지역</text><text x="24" y="158">B지역</text><text x="24" y="228">전체</text>
+<text x="24" y="294">전체 완료율 = (24 + 10) ÷ (30 + 20) × 100 = 68%</text>
+</g>
+<g stroke="#707070"><rect x="108" y="64" width="240" height="32" fill="#ddddd6"/><rect x="108" y="134" width="160" height="32" fill="#ddddd6"/><rect x="108" y="204" width="400" height="32" fill="#ddddd6"/></g>
+<g fill="#202020"><rect x="108" y="64" width="192" height="32"/><rect x="108" y="134" width="80" height="32"/><rect x="108" y="204" width="272" height="32"/></g>
+<g font-size="16" fill="#202020"><text x="364" y="88">24 / 30건</text><text x="284" y="158">10 / 20건</text><text x="520" y="228">34 / 50</text></g>
+</svg>
+</div>
+<figcaption>각 지역의 문의 수가 다르므로 막대 길이도 다릅니다. 두 지역의 완료 건수와 문의 건수를 각각 더한 뒤 전체 비율을 구합니다. 위 수치는 수업용 가상 자료입니다.</figcaption>
+</figure>
+<div class="table-wrap" role="region" tabindex="0" aria-label="지역별 완료율 원자료">
+<table><thead><tr><th>지역</th><th>문의</th><th>완료</th><th>완료율</th></tr></thead><tbody><tr><th>A</th><td>30건</td><td>24건</td><td>80%</td></tr><tr><th>B</th><td>20건</td><td>10건</td><td>50%</td></tr><tr><th>전체</th><td>50건</td><td>34건</td><td>68%</td></tr></tbody></table>
+</div>

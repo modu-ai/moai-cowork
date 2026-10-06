@@ -1,0 +1,89 @@
+[
+  {
+    "test": "한국어 검색 결과에서 문서 이동",
+    "url": "http://127.0.0.1:1313/getting-started/questions/",
+    "title": "질문과 추가 맥락 | 모두의 코워크"
+  },
+  {
+    "test": "존재하지 않는 검색어",
+    "observed": "검색 결과 없음."
+  },
+  {
+    "test": "검색창 Escape 닫기",
+    "dialogs": 0
+  },
+  {
+    "test": "강의 답안 펼치기",
+    "url": "http://127.0.0.1:1313/learn/03-first-result/",
+    "details": [
+      {
+        "open": true,
+        "text": "답안과 해설 보기\n그대로 쓰면 안 됩니다. 예제에는 지연 원인이 없으므로 “원인 확인 필요”로 고칩니다. 자연스럽게 읽히는 것과 원문 근거가 있는 것은 별개입니다.\n"
+      }
+    ]
+  },
+  {
+    "test": "강의 다음 이동",
+    "url": "http://127.0.0.1:1313/learn/04-skills-plugins/",
+    "title": "4강 · 필요한 스킬과 플러그인 선택 | 모두의 코워크"
+  },
+  {
+    "test": "4강 수정 후 학습 목표 순서",
+    "headings": [
+      "\n        이번 수업에서 배울 내용\n    ",
+      "\n        그림으로 먼저 이해하기\n    ",
+      "\n        패키지 이름보다 필요한 업무를 먼저 정하세요\n    ",
+      "\n        설치 화면을 읽는 방법\n    ",
+      "\n        실습 · 실제 사용 가능 여부 묻기\n    ",
+      "\n        MCP는 언제 추가할까요?\n    ",
+      "\n        확인 문제\n    "
+    ]
+  },
+  {
+    "test": "실습 CSV 다운로드",
+    "bytes": 311,
+    "path": "/Users/goos/Downloads/문의.csv",
+    "content": "﻿id,유형,문의\nQ1,배송,언제 출고되나요?\nQ2,배송,출고 알림을 받았는데 언제 도착하나요?\nQ3,배송,주말에도 출고하나요?\nQ4,반품,반품 신청은 어떻게 하나요?\nQ5,반품,반품 비용은 누가 부담하나요?\nQ6,결제,카드 결제가 승인되지 않았어요.\n"
+  },
+  {
+    "test": "강의 예제 코드 복사",
+    "copiedTextMatches": true,
+    "copiedCharacters": 130,
+    "expectedCharacters": 130,
+    "unchangedFromBefore": false,
+    "containsExpectedPhrase": true
+  },
+  {
+    "test": "접힌 메뉴 펼치고 첫 프로젝트 이동",
+    "url": "http://127.0.0.1:1313/workflows/first-project/",
+    "title": "PM으로 첫 프로젝트 만들기 | 모두의 코워크"
+  },
+  {
+    "test": "그림 확대 보기",
+    "url": "http://127.0.0.1:1313/infographics/pages/pm-setup.svg",
+    "title": "내 프로젝트에 맞는 지침 만들기",
+    "observed": "클릭 후 새 탭에서 SVG 제목과 설명 관측"
+  },
+  {
+    "test": "모바일 메뉴에서 질문 안내 이동",
+    "url": "http://127.0.0.1:1313/getting-started/questions/"
+  },
+  {
+    "test": "모바일 홈에서 첫 결과물 이동",
+    "url": "http://127.0.0.1:1313/getting-started/first-task/",
+    "observed": "홈 링크 클릭 후 제목과 본문 관측"
+  },
+  {
+    "test": "없는 주소의 안내",
+    "url": "http://127.0.0.1:1313/missing-local-test-page-20261006/",
+    "heading": "페이지를 찾을 수 없습니다"
+  },
+  {
+    "test": "없는 주소 안내에서 홈 복귀",
+    "url": "http://127.0.0.1:1313/"
+  },
+  {
+    "test": "본문 절 앵커 이동",
+    "url": "http://127.0.0.1:1313/learn/03-first-result/#%ec%9d%b4%eb%b2%88-%ec%88%98%ec%97%85%ec%97%90%ec%84%9c-%eb%b0%b0%ec%9a%b8-%eb%82%b4%ec%9a%a9"
+  }
+]

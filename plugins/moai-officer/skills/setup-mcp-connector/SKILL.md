@@ -4,7 +4,8 @@ description: |
   Claude Cowork와 ChatGPT Work에서 Google Drive·Notion·Higgsfield 등의 외부 앱과
   설치된 MoAI 플러그인의 MCP 연결·인증 상태를 확인하고 문제를 좁혀 안내합니다.
   앱 설치, 계정 연결, 도구 노출, 실제 읽기 호출을 각각 구분합니다.
-version: "1.1.4"
+metadata:
+  version: "1.1.5"
 ---
 
 # 외부 앱과 MCP 연결 확인

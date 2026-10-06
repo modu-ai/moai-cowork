@@ -1,0 +1,23 @@
+{
+  "baseline_pages": 171,
+  "current_pages": 173,
+  "changed_pages": 77,
+  "new_pages": 2,
+  "sections": {
+    "root": 1,
+    "advanced": 4,
+    "cookbook": 52,
+    "getting-started": 8,
+    "help": 12,
+    "learn": 11,
+    "moai-agents": 19,
+    "plugins": 11,
+    "releases": 49,
+    "workflows": 6
+  },
+  "worked_pages": 59,
+  "new_output_tables": 54,
+  "historical_missing_skill_pages": 15,
+  "active_missing_skills": [],
+  "concept_instances": 26
+}

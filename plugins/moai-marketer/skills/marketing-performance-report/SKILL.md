@@ -3,7 +3,8 @@ name: marketing-performance-report
 description: |
   사용자가 제공한 GA4·광고·판매 데이터를 기간과 지표 정의를 맞춰 분석하고 마케팅 성과 보고서를 작성합니다.
   실제 연결·집계하지 않은 플랫폼 데이터와 성과 수치를 만들어 내지 않습니다.
-version: "1.1.2"
+metadata:
+  version: "1.1.3"
 ---
 
 # 마케팅 성과 보고서

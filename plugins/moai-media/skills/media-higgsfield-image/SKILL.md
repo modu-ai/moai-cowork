@@ -14,7 +14,8 @@ description: |
   references/prompt-craft/*.md에 출처와 함께 큐레이션돼 있고, 실제 파라미터(모델 id·해상도·비율·비용)는
   런타임에 라이브 조회합니다. 프롬프트만 필요하면 media-gpt-image-prompt 등 해당 모델의
   프롬프트 스킬을 사용하세요.
-version: "1.3.7"
+metadata:
+  version: "1.3.8"
 ---
 
 # Higgsfield 이미지 생성 (media-higgsfield-image)

@@ -1,0 +1,267 @@
+[
+  {
+    "path": "www/content/cookbook/blog-pipeline.md",
+    "before": "모을 ",
+    "after": "모를 "
+  },
+  {
+    "path": "www/content/cookbook/blog-pipeline.md",
+    "before": "위을 ",
+    "after": "위를 "
+  },
+  {
+    "path": "www/content/cookbook/contract-review.md",
+    "before": "적를 ",
+    "after": "적을 "
+  },
+  {
+    "path": "www/content/cookbook/contract-review.md",
+    "before": "표을 ",
+    "after": "표를 "
+  },
+  {
+    "path": "www/content/cookbook/design/presentation.md",
+    "before": "식를 ",
+    "after": "식을 "
+  },
+  {
+    "path": "www/content/cookbook/design/presentation.md",
+    "before": "위을 ",
+    "after": "위를 "
+  },
+  {
+    "path": "www/content/cookbook/guides/content-marketing.md",
+    "before": "표을 ",
+    "after": "표를 "
+  },
+  {
+    "path": "www/content/cookbook/guides/contract-drafting.md",
+    "before": "건를 ",
+    "after": "건을 "
+  },
+  {
+    "path": "www/content/cookbook/guides/funding.md",
+    "before": "문를 ",
+    "after": "문을 "
+  },
+  {
+    "path": "www/content/cookbook/guides/funding.md",
+    "before": "료을 ",
+    "after": "료를 "
+  },
+  {
+    "path": "www/content/cookbook/guides/funding.md",
+    "before": "거을 ",
+    "after": "거를 "
+  },
+  {
+    "path": "www/content/cookbook/guides/social-media.md",
+    "before": "부을 ",
+    "after": "부를 "
+  },
+  {
+    "path": "www/content/cookbook/ir-deck.md",
+    "before": "지을 ",
+    "after": "지를 "
+  },
+  {
+    "path": "www/content/cookbook/legal-nda-batch.md",
+    "before": "할를 ",
+    "after": "할을 "
+  },
+  {
+    "path": "www/content/cookbook/projects/career-transition-4weeks.md",
+    "before": "료을 ",
+    "after": "료를 "
+  },
+  {
+    "path": "www/content/cookbook/projects/contract-risk-report.md",
+    "before": "할를 ",
+    "after": "할을 "
+  },
+  {
+    "path": "www/content/cookbook/projects/contract-risk-report.md",
+    "before": "서을 ",
+    "after": "서를 "
+  },
+  {
+    "path": "www/content/cookbook/projects/gov-grant-application.md",
+    "before": "건를 ",
+    "after": "건을 "
+  },
+  {
+    "path": "www/content/cookbook/projects/hiring-pipeline.md",
+    "before": "식를 ",
+    "after": "식을 "
+  },
+  {
+    "path": "www/content/cookbook/projects/hiring-pipeline.md",
+    "before": "위을 ",
+    "after": "위를 "
+  },
+  {
+    "path": "www/content/cookbook/projects/public-data-report.md",
+    "before": "간를 ",
+    "after": "간을 "
+  },
+  {
+    "path": "www/content/cookbook/projects/public-data-report.md",
+    "before": "서을 ",
+    "after": "서를 "
+  },
+  {
+    "path": "www/content/cookbook/projects/public-data-report.md",
+    "before": "위을 ",
+    "after": "위를 "
+  },
+  {
+    "path": "www/content/cookbook/projects/smartstore-launch.md",
+    "before": "건를 ",
+    "after": "건을 "
+  },
+  {
+    "path": "www/content/cookbook/projects/smartstore-launch.md",
+    "before": "태을 ",
+    "after": "태를 "
+  },
+  {
+    "path": "www/content/cookbook/projects/sns-content-month.md",
+    "before": "태을 ",
+    "after": "태를 "
+  },
+  {
+    "path": "www/content/cookbook/projects/startup-feasibility.md",
+    "before": "표을 ",
+    "after": "표를 "
+  },
+  {
+    "path": "www/content/cookbook/projects/webnovel-project.md",
+    "before": "물를 ",
+    "after": "물을 "
+  },
+  {
+    "path": "www/content/cookbook/report-automation.md",
+    "before": "간를 ",
+    "after": "간을 "
+  },
+  {
+    "path": "www/content/cookbook/report-automation.md",
+    "before": "태을 ",
+    "after": "태를 "
+  },
+  {
+    "path": "www/content/cookbook/templates/compliance.md",
+    "before": "책를 ",
+    "after": "책을 "
+  },
+  {
+    "path": "www/content/cookbook/templates/email.md",
+    "before": "태을 ",
+    "after": "태를 "
+  },
+  {
+    "path": "www/content/cookbook/templates/excel.md",
+    "before": "산를 ",
+    "after": "산을 "
+  },
+  {
+    "path": "www/content/cookbook/templates/excel.md",
+    "before": "트을 ",
+    "after": "트를 "
+  },
+  {
+    "path": "www/content/cookbook/templates/excel.md",
+    "before": "기을 ",
+    "after": "기를 "
+  },
+  {
+    "path": "www/content/cookbook/templates/financial.md",
+    "before": "간를 ",
+    "after": "간을 "
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-advertising.md",
+    "before": "부을 ",
+    "after": "부를 "
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-commerce.md",
+    "before": "태을 ",
+    "after": "태를 "
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-content.md",
+    "before": "널를 ",
+    "after": "널을 "
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-content.md",
+    "before": "태을 ",
+    "after": "태를 "
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-data.md",
+    "before": "서을 ",
+    "after": "서를 "
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-documents.md",
+    "before": "식를 ",
+    "after": "식을 "
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-documents.md",
+    "before": "기을 ",
+    "after": "기를 "
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-finance.md",
+    "before": "간를 ",
+    "after": "간을 "
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-finance.md",
+    "before": "표을 ",
+    "after": "표를 "
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-hr.md",
+    "before": "식를 ",
+    "after": "식을 "
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-hr.md",
+    "before": "서을 ",
+    "after": "서를 "
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-legal.md",
+    "before": "적를 ",
+    "after": "적을 "
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-operations.md",
+    "before": "준를 ",
+    "after": "준을 "
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-operations.md",
+    "before": "서을 ",
+    "after": "서를 "
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-product.md",
+    "before": "위을 ",
+    "after": "위를 "
+  },
+  {
+    "path": "www/content/moai-agents/accountant.md",
+    "before": "표을 ",
+    "after": "표를 "
+  },
+  {
+    "path": "www/content/moai-agents/media.md",
+    "before": "과을 ",
+    "after": "과를 "
+  }
+]

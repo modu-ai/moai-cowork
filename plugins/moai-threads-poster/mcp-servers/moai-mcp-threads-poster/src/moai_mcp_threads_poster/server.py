@@ -43,6 +43,7 @@ from typing import Any, Callable, Optional
 from moai_mcp_core import CredentialStore
 
 from mcp.server.fastmcp import FastMCP
+from mcp.types import ToolAnnotations
 
 from .threads_api import ThreadsAPIError, ThreadsClient
 from .instagram_api import InstagramAPIError, InstagramClient
@@ -198,7 +199,7 @@ def _publish_result(media_id: str, container_id: str) -> dict[str, Any]:
 
 
 # ------------------------------------------------------------------ tools
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=False, destructiveHint=False, idempotentHint=False, openWorldHint=True))
 def threads_publish_text(text: str) -> dict[str, Any]:
     r"""Threads 에 텍스트 게시 (publish a text post).
 
@@ -224,7 +225,7 @@ def threads_publish_text(text: str) -> dict[str, Any]:
         return _error_dict(exc)
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=False, destructiveHint=False, idempotentHint=False, openWorldHint=True))
 def threads_publish_image(text: str, image_url: str) -> dict[str, Any]:
     r"""Threads 에 이미지 게시 (publish an image post).
 
@@ -254,7 +255,7 @@ def threads_publish_image(text: str, image_url: str) -> dict[str, Any]:
         return _error_dict(exc)
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=False, destructiveHint=False, idempotentHint=False, openWorldHint=True))
 def threads_publish_video(text: str, video_url: str) -> dict[str, Any]:
     r"""Threads 에 비디오 게시 (publish a video post).
 
@@ -284,7 +285,7 @@ def threads_publish_video(text: str, video_url: str) -> dict[str, Any]:
         return _error_dict(exc)
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=True))
 def threads_get_profile() -> dict[str, Any]:
     r"""Threads 프로필 조회 (health check / who-am-I).
 
@@ -303,7 +304,7 @@ def threads_get_profile() -> dict[str, Any]:
         return _error_dict(exc)
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=False, destructiveHint=True, idempotentHint=False, openWorldHint=True))
 def threads_refresh_token() -> dict[str, Any]:
     r"""장기 액세스 토큰 수동 갱신 (manually refresh long-lived token).
 
@@ -347,7 +348,7 @@ def _legacy_style_paths() -> list[Path]:
     return paths
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=False, destructiveHint=True, idempotentHint=True, openWorldHint=False))
 def threads_style_save(
     profile_markdown: str, path: Optional[str] = None
 ) -> dict[str, Any]:
@@ -380,7 +381,7 @@ def threads_style_save(
     return {"path": str(target), "saved": True, "chars": len(profile_markdown)}
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=False))
 def threads_style_load(path: Optional[str] = None) -> dict[str, Any]:
     r"""저장된 문체 프로필을 읽는다 (load the style profile markdown).
 
@@ -584,7 +585,7 @@ def _split_for_x_thread(
     return chunks
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=False))
 def threads_format_multi_channel(
     text: str,
     x_tier: str = "free",
@@ -683,7 +684,7 @@ def _ig_publish_result(media_id: str, container_id: str) -> dict[str, Any]:
     }
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=False, destructiveHint=False, idempotentHint=False, openWorldHint=True))
 def instagram_publish_image(text: str, image_url: str) -> dict[str, Any]:
     r"""Instagram 에 이미지 발행 (publish an image — JPEG-only, immediate 2-stage).
 
@@ -708,7 +709,7 @@ def instagram_publish_image(text: str, image_url: str) -> dict[str, Any]:
         return _error_dict(exc)
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=False, destructiveHint=False, idempotentHint=False, openWorldHint=True))
 def instagram_publish_video(text: str, video_url: str) -> dict[str, Any]:
     r"""Instagram 에 비디오 발행 (publish a video — 2-stage + container polling).
 
@@ -729,7 +730,7 @@ def instagram_publish_video(text: str, video_url: str) -> dict[str, Any]:
         return _error_dict(exc)
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=False, destructiveHint=False, idempotentHint=False, openWorldHint=True))
 def instagram_publish_reel(
     text: str, video_url: str, share_to_feed: bool = True
 ) -> dict[str, Any]:
@@ -753,7 +754,7 @@ def instagram_publish_reel(
         return _error_dict(exc)
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=True))
 def instagram_get_profile() -> dict[str, Any]:
     r"""Instagram 프로필 조회 (health check / who-am-I).
 
@@ -769,7 +770,7 @@ def instagram_get_profile() -> dict[str, Any]:
         return _error_dict(exc)
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=False, destructiveHint=True, idempotentHint=False, openWorldHint=True))
 def instagram_refresh_token() -> dict[str, Any]:
     r"""Instagram 장기 Page 토큰 수동 갱신 (refresh long-lived Facebook Page token).
 
@@ -786,7 +787,7 @@ def instagram_refresh_token() -> dict[str, Any]:
         return _error_dict(exc)
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=True))
 def instagram_comments_list(media_id: str) -> dict[str, Any]:
     r"""Instagram 미디어의 댓글 목록 (list comments on a media object).
 
@@ -802,7 +803,7 @@ def instagram_comments_list(media_id: str) -> dict[str, Any]:
         return _error_dict(exc)
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=False, destructiveHint=False, idempotentHint=False, openWorldHint=True))
 def instagram_comments_reply(comment_id: str, text: str) -> dict[str, Any]:
     r"""Instagram 댓글에 답글 작성 (reply to a comment).
 
@@ -817,7 +818,7 @@ def instagram_comments_reply(comment_id: str, text: str) -> dict[str, Any]:
         return _error_dict(exc)
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=False, destructiveHint=True, idempotentHint=False, openWorldHint=True))
 def instagram_comments_hide(comment_id: str) -> dict[str, Any]:
     r"""Instagram 댓글 숨김 (hide a comment).
 
@@ -832,7 +833,7 @@ def instagram_comments_hide(comment_id: str) -> dict[str, Any]:
         return _error_dict(exc)
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=True))
 def instagram_insights(
     metric: str = "reach,impressions",
     period: str = "day",

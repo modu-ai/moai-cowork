@@ -4,8 +4,9 @@ description: |
   반복적 디자인 품질 개선을 위한 빌더-평가자 GAN 루프 워크플로. 스프린트 컨트랙트 협상, 4차원 평가(디자인 품질·오리지널리티·완결성·기능성), 정체 감지, 에스컬레이션 프로토콜을 구현합니다. design.yaml에서 파라미터를 읽습니다.
 
   Use for the Builder-Evaluator GAN loop: iterative design-quality improvement via Sprint Contract negotiation, 4-dimension scoring (Design Quality, Originality, Completeness, Functionality), stagnation detection, and escalation.
-user-invocable: false
-version: "1.1.2"
+metadata:
+  invocation-scope: "workflow"
+  version: "1.1.3"
 ---
 
 > MoAI-ADK 프로젝트에서는 `.moai/config/sections/design.yaml`과 기존 스프린트 산출물을 읽는다. Claude Cowork·ChatGPT Work 데스크톱에서는 사용자가 제공한 브리프와 실제 시안으로 같은 평가 항목을 점검할 수 있다. 설정 파일이나 검사 도구가 없으면 그 항목을 미검증으로 기록하고 점수나 PASS를 만들어 내지 않는다.

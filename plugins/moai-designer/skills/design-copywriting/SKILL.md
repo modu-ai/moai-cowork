@@ -4,8 +4,9 @@ description: |
   브랜드 보이스와 실제 제품 자료에 맞춰 웹 화면의 제목·설명·버튼·오류 문구를 작성합니다.
   디자인 파이프라인이 필요하면 섹션별 JSON으로, 단독 요청이면 사용자가 원하는 형식으로 제공합니다.
   수치·보증·후기는 확인된 근거가 있을 때만 사용합니다.
-user-invocable: false
-version: "1.1.3"
+metadata:
+  invocation-scope: "workflow"
+  version: "1.1.4"
 ---
 
 # 브랜드 카피 작성

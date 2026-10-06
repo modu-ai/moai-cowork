@@ -171,7 +171,7 @@ svg.svg-sprite { display: none !important; }
 .gnav-gh > .ds-icon { width: 16px; height: 16px; }
 .gnav-gh-count { display: inline-flex; align-items: center; gap: 3px; }
 .gnav-gh-count .ds-icon { width: 13px; height: 13px; }
-.gnav-gh-star { color: var(--color-warning, #c47b2a); }
+.gnav-gh-star { color: var(--color-warning, #858585); }
 .gnav-gh-count [data-gh-stars] { font-variant-numeric: tabular-nums; min-width: 1.2em; text-align: left; }
 
 @media (max-width: 1180px) { .gnav-prod { display: none; } }
@@ -259,7 +259,7 @@ svg.svg-sprite { display: none !important; }
     width: 40px; height: 40px;
     border: 1px solid var(--border-1); border-radius: var(--radius-md, 10px);
     background: var(--color-surface); color: var(--fg-1);
-    box-shadow: var(--shadow-sm, 0 1px 2px rgba(0,0,0,.06)); cursor: pointer;
+    box-shadow: var(--shadow-sm, 0 1px 2px rgba(0, 0, 0, .06)); cursor: pointer;
   }
   .nav-drawer-btn .ds-icon { width: 20px; height: 20px; }
 
@@ -269,7 +269,7 @@ svg.svg-sprite { display: none !important; }
     width: min(86vw, 320px);
     margin: 0; padding: 16px 12px;
     background: var(--color-surface);
-    box-shadow: var(--shadow-lg, 0 12px 32px rgba(0,0,0,.18));
+    box-shadow: var(--shadow-lg, 0 12px 32px rgba(0, 0, 0, .18));
     transform: translateX(-100%);
     visibility: hidden;            /* 닫힘: Tab/SR 탐색 차단(inert 와 이중 안전망) */
     transition: transform var(--duration-normal, 200ms) var(--easing-default, ease),
@@ -289,7 +289,7 @@ svg.svg-sprite { display: none !important; }
   .nav-overlay {
     display: block;
     position: fixed; inset: 0; z-index: 70;
-    background: rgba(0, 0, 0, 0.42);
+    background: rgba(0, 0, 0,  0.42);
     opacity: 0; pointer-events: none;
     transition: opacity 200ms ease;
   }
@@ -397,7 +397,7 @@ svg.svg-sprite { display: none !important; }
 .cw-hero {
   position: relative;
   overflow: hidden;
-  background: var(--color-primary-active);   /* 다크 그린 프레임 통일 (#265240) — 헤더·푸터와 위아래 동일 */
+  background: var(--color-primary-active);   /* 다크 그린 프레임 통일 (#474747) — 헤더·푸터와 위아래 동일 */
   color: #fff;
   border-radius: var(--radius-xl);
   padding: 48px 44px;
@@ -417,8 +417,8 @@ svg.svg-sprite { display: none !important; }
   flex: none;
   width: 196px; height: 196px;
   border-radius: var(--radius-xl);
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255,  0.12);
+  border: 1px solid rgba(255, 255, 255,  0.2);
   display: flex; align-items: center; justify-content: center;
   padding: 14px;
   box-sizing: border-box;
@@ -431,7 +431,7 @@ svg.svg-sprite { display: none !important; }
   font: var(--fw-semibold) 12px / 1 var(--font-mono);
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.75) !important;
+  color: rgba(255, 255, 255,  0.75) !important;
   margin-bottom: 18px;
 }
 .cw-hero .eyebrow .dot {
@@ -462,12 +462,12 @@ svg.svg-sprite { display: none !important; }
   font-size: 17px;
   line-height: var(--lh-relaxed);
   letter-spacing: -0.03em;
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: rgba(255, 255, 255,  0.9) !important;
   word-break: keep-all;
   text-wrap: pretty;
 }
 .cw-hero .lead-p strong { color: #fff !important; font-weight: var(--fw-bold); }
-.cw-hero .cw-hero-rule { border: 0; border-top: 1px solid rgba(255, 255, 255, 0.25); margin: 18px 0; max-width: 680px; }
+.cw-hero .cw-hero-rule { border: 0; border-top: 1px solid rgba(255, 255, 255,  0.25); margin: 18px 0; max-width: 680px; }
 .cw-hero-ctas { display: flex; flex-wrap: wrap; gap: 10px; margin: 26px 0 0; }
 .cw-hero .btn {
   display: inline-flex;
@@ -487,14 +487,14 @@ svg.svg-sprite { display: none !important; }
   color: var(--color-primary) !important;
   font-weight: var(--fw-bold);
 }
-.cw-hero .btn.btn--primary:hover { box-shadow: 0 8px 32px rgba(6, 6, 6, 0.28); text-decoration: none; }
+.cw-hero .btn.btn--primary:hover { box-shadow: 0 8px 32px rgba(6, 6, 6,  0.28); text-decoration: none; }
 .cw-hero .btn.btn--ghost {
   background: transparent;
   color: #fff !important;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255,  0.35);
   font-weight: var(--fw-semibold);
 }
-.cw-hero .btn.btn--ghost:hover { background: rgba(255, 255, 255, 0.12); text-decoration: none; }
+.cw-hero .btn.btn--ghost:hover { background: rgba(255, 255, 255,  0.12); text-decoration: none; }
 
 /* 히어로 지표 — dc.html .hero-stats (구분선 + 투명 배경) */
 .cw-hero-meta {
@@ -522,7 +522,7 @@ svg.svg-sprite { display: none !important; }
   font-family: var(--font-sans);
   font-size: 12.5px;
   letter-spacing: -0.02em;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255,  0.7);
   margin-top: 4px;
   text-transform: none;
 }
@@ -699,7 +699,7 @@ svg.svg-sprite { display: none !important; }
   border-radius: var(--radius-pill);
   white-space: nowrap;
 }
-.cw-coral-cta__btn:hover { box-shadow: 0 8px 32px rgba(6, 6, 6, 0.28); text-decoration: none; }
+.cw-coral-cta__btn:hover { box-shadow: 0 8px 32px rgba(6, 6, 6,  0.28); text-decoration: none; }
 
 @media (max-width: 1080px) {
   .cw-prodgrid, .cw-plugrid, .cw-qstart { grid-template-columns: 1fr; }
@@ -906,19 +906,19 @@ svg.svg-sprite { display: none !important; }
 
 /* warning / danger — 앰버 (dc.html isWarn) */
 .gdoc-hint.warning, .gdoc-hint.danger, .gdoc-hint.important {
-  background: rgba(196, 123, 42, 0.10);
-  border-color: rgba(196, 123, 42, 0.40) !important;
-  border-left-color: rgba(196, 123, 42, 0.40) !important;
+  background: rgba(133, 133, 133,  0.10);
+  border-color: rgba(133, 133, 133,  0.40) !important;
+  border-left-color: rgba(133, 133, 133,  0.40) !important;
 }
 .gdoc-hint.warning .gdoc-hint__title,
 .gdoc-hint.danger .gdoc-hint__title,
-.gdoc-hint.important .gdoc-hint__title { color: #8a6108; }
+.gdoc-hint.important .gdoc-hint__title { color: #636363; }
 .gdoc-hint.warning .gdoc-hint__title svg,
 .gdoc-hint.danger .gdoc-hint__title svg,
-.gdoc-hint.important .gdoc-hint__title svg { color: #a8760a; }
+.gdoc-hint.important .gdoc-hint__title svg { color: #797979; }
 
 /* ── 인라인 코드 / 칩 ──
-   글자색은 primary(#3d7d5f)가 아니라 primary-active(#265240)를 쓴다.
+   글자색은 primary(#6d6d6d)가 아니라 primary-active(#474747)를 쓴다.
    배경이 primary 8% 틴트라, primary 원색을 얹으면 대비가 3.58~4.42:1 로
    WCAG AA(4.5:1)에 미달한다. primary-active 는 최악 6.51:1 로 여유가 있다. */
 .gdoc-markdown code {
@@ -968,11 +968,11 @@ svg.svg-sprite { display: none !important; }
   display: block;
   height: 38px;
   background:
-    radial-gradient(circle at 20px 19px, #ff5f57 5.5px, transparent 6px),
-    radial-gradient(circle at 40px 19px, #febc2e 5.5px, transparent 6px),
-    radial-gradient(circle at 60px 19px, #28c840 5.5px, transparent 6px),
-    rgba(255, 255, 255, 0.04);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    radial-gradient(circle at 20px 19px, #808080 5.5px, transparent 6px),
+    radial-gradient(circle at 40px 19px, #c0c0c0 5.5px, transparent 6px),
+    radial-gradient(circle at 60px 19px, #9c9c9c 5.5px, transparent 6px),
+    rgba(255, 255, 255,  0.04);
+  border-bottom: 1px solid rgba(255, 255, 255,  0.08);
 }
 
 /* ── 페이지 이동 카드 — dc.html pager ── */
@@ -1137,32 +1137,32 @@ svg.svg-sprite { display: none !important; }
 }
 
 /* ════════════════════════════════════════════════════════════════════════
-   §F — 다크 그린 프레임 (헤더·히어로·푸터를 #265240 통일, 내부 흰색 테마)
+   §F — 다크 그린 프레임 (헤더·히어로·푸터를 #474747 통일, 내부 흰색 테마)
    배경 이미지를 빼고 프레임 3영역을 다크 그린으로 통일. v2 최종 확정 레이어.
    ════════════════════════════════════════════════════════════════════════ */
 
-/* 헤더(.gnav) — 배경 다크 그린(#265240) + 내부 흰색 (푸터와 위아래 통일) */
+/* 헤더(.gnav) — 배경 다크 그린(#474747) + 내부 흰색 (푸터와 위아래 통일) */
 .gnav { background: var(--color-primary-active); }
 .gnav-brand-mark { background: transparent; }              /* 로고 타일 투명 → 백색 로고 직접 표시 */
 .gnav-brand-name { color: #fff; }
-.gnav-brand-tag { color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.12); }
-.gnav-link { color: rgba(255,255,255,0.82); }
+.gnav-brand-tag { color: rgba(255, 255, 255, 0.9); background: rgba(255, 255, 255, 0.12); }
+.gnav-link { color: rgba(255, 255, 255, 0.82); }
 .gnav-link:hover { color: #fff; }
 .gnav-link.active { color: #fff; }
 .gnav-link.active::after { background: #fff; }              /* 활성 언더라인 흰색 */
-.prodnav-link { color: rgba(255,255,255,0.78); }
-.prodnav-link:hover { color: #fff; background: rgba(255,255,255,0.12); }
-.prodnav-link.active { color: #fff; background: rgba(255,255,255,0.16); }
-.gnav-search { background: transparent; color: rgba(255,255,255,0.92); border-color: rgba(255,255,255,0.28); }
-.gnav-search kbd { background: rgba(255,255,255,0.14); color: rgba(255,255,255,0.9); }
-.gnav-gh { background: #fff; color: #09110f !important; }
-.gnav-gh:hover { color: #09110f; border-color: var(--color-primary); }
+.prodnav-link { color: rgba(255, 255, 255, 0.78); }
+.prodnav-link:hover { color: #fff; background: rgba(255, 255, 255, 0.12); }
+.prodnav-link.active { color: #fff; background: rgba(255, 255, 255, 0.16); }
+.gnav-search { background: transparent; color: rgba(255, 255, 255, 0.92); border-color: rgba(255, 255, 255, 0.28); }
+.gnav-search kbd { background: rgba(255, 255, 255, 0.14); color: rgba(255, 255, 255, 0.9); }
+.gnav-gh { background: #fff; color: #0f0f0f !important; }
+.gnav-gh:hover { color: #0f0f0f; border-color: var(--color-primary); }
 
 /* 푸터(.ds-footer) — 배경 다크 그린 + 내부 흰색 */
-.ds-footer { background: var(--color-primary-active); border-top-color: rgba(255,255,255,0.14); }
+.ds-footer { background: var(--color-primary-active); border-top-color: rgba(255, 255, 255, 0.14); }
 .ds-footer-logo { background: transparent; }
 .ds-footer-title { color: #fff; }
 .ds-footer-links,
-.ds-footer-links a { color: rgba(255,255,255,0.82); }
+.ds-footer-links a { color: rgba(255, 255, 255, 0.82); }
 .ds-footer-links a:hover { color: #fff; }
-.ds-footer-tag { color: rgba(255,255,255,0.64); }
+.ds-footer-tag { color: rgba(255, 255, 255, 0.64); }

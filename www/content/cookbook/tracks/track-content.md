@@ -1,195 +1,109 @@
 ---
 title: "콘텐츠 트랙"
-weight: 22
-description: "콘텐츠 크리에이터·블로거·SNS 운영자를 위한 워크플로우. moai-marketer(content·marketing 스킬) + moai-media + moai-writer(한국어 검수)로 블로그·카드뉴스·랜딩·뉴스레터를 한 줄 요청으로 자동 생성."
+description: "원고·독자·채널을 준비해 콘텐츠 초안을 만드는 실습"
+weight: 10
+date: 2026-10-05T00:00:00+09:00
+lastmod: 2026-10-06
 geekdocBreadcrumb: true
-date: 2026-08-07T00:00:00+09:00
-lastmod: 2026-09-01T00:00:00+09:00
 ---
 
-> **대상**: 1인 콘텐츠 크리에이터, 마케터, 블로거, 인플루언서, 뉴스레터 발행자
-> **전제**: moai-marketer 활성화 + (선택) moai-media·moai-writer
-> **소요**: 시나리오당 약 3-10분
+**이 실습의 결과는 콘텐츠 초안입니다.** ChatGPT Work와 Claude Cowork 모두 목표와 자료를 제공하는 방식으로 시작합니다. 실제 서비스 연결과 지원 도구는 현재 앱에서 확인하세요.
 
-## 무엇을 할 수 있나
 
-```mermaid
-flowchart TD
-   subgraph 입력["입력"]
-       A["주제 한 줄"]
-   end
-   subgraph 생성["콘텐츠 생성 (도메인별)"]
-       B1["content-blog<br/>6 플랫폼 SEO"]
-       B2["content-card-news<br/>인스타 캐러셀"]
-       B3["marketing-landing-page<br/>shadcn/ui 랜딩"]
-       B4["content-newsletter<br/>이메일 발행"]
-       B5["content-sns-content<br/>9채널 매트릭스"]
-   end
-   subgraph 검수["3중 후처리"]
-       C1["ai-slop-reviewer<br/>AI 슬롭 검수"]
-       C2["korean-spell-check<br/>맞춤법"]
-       C3["korean-humanize<br/>AI 티 정밀 윤문"]
-   end
-   subgraph 발행["발행 (외부 커넥터, 선택)"]
-       D1["WordPress MCP<br/>커넥터"]
-       D2["Typefully MCP<br/>커넥터"]
-   end
-   입력 --> 생성 --> 검수 --> 발행
-   style 검수 fill:#e8f1ec,stroke:#265240
+<!--more-->
+
+
+## 준비물
+
+원고·독자·채널을 준비합니다. 실습에서는 가상 자료나 공개 가능한 자료를 사용할 수 있습니다. [관련 역할](/moai-agents/writer/)의 스킬을 추가하려면 [설치 안내](/plugins/install/)를 확인합니다.
+
+## 첫 요청
+
+```text
+제공한 자료로 콘텐츠 초안을 만들어 줘.
+목표·독자·결과 형식을 먼저 확인하고 부족한 정보는 질문해 줘.
+자료 확인, 요구 정리, 초안, 검토 순서로 진행해 줘.
+자료 없는 사실과 수치는 만들지 말고 미정 항목을 표시해 줘.
+외부 게시·발송·계정 변경 없이 검토용 결과부터 보여 줘.
 ```
 
-## 한 줄 요청 예시 4종
+## 진행 순서
 
-| # | 한 줄 요청 | 자동 체인 |
-|---|---|---|
-| 1 | "비건 카페 오픈 블로그 시리즈 5편 써줘" | content-blog × 5 → ai-slop-reviewer → korean-spell-check → korean-humanize → 최종 검수 |
-| 2 | "프리랜서 세금 카드뉴스 8장 만들어줘" | content-card-news → media-higgsfield-image → ai-slop-reviewer |
-| 3 | "AI 영어 회화 앱 랜딩 페이지 만들어줘" | marketing-landing-page (shadcn/ui 인터뷰) → ai-slop-reviewer |
-| 4 | "월간 뉴스레터 발행해줘. 구독자 500명" | content-newsletter → ai-slop-reviewer → korean-spell-check → 이메일 발송 |
+1. **자료 확인:** 원고·독자·채널 중 읽을 수 있는 것과 없는 것을 구분합니다.
+2. **맥락 확인:** 독자·형식·범위를 질문에 답해 정합니다.
+3. **초안 작성:** 자료 확인, 요구 정리, 초안, 검토 순서로 진행합니다.
+4. **검토:** 원문·어투·권리·게시 상태를 확인합니다.
+5. **수정·저장:** 변경할 부분을 지정하고 결과를 별도 위치에 저장합니다.
 
----
+독립적인 조사만 병렬로 진행하고, 앞 결과가 필요한 작성·변환은 순차로 진행합니다. [전문가 분업](/workflows/experts/)의 역할·입출력 계약을 사용할 수 있습니다.
 
-## 시나리오 ① 네이버 블로그 시리즈 발행 (약 10분)
+## 가상 예제로 더 이해하기
 
-### 사용자 입력
+아래 자료와 모범 설명은 수업을 위해 작성했습니다. 실제 회사·고객의 실적이나 앱 실행 결과가 아닙니다. 먼저 제공 자료로 작은 결과를 만든 뒤 자신의 자료로 바꿔 보세요.
 
-{{< terminal title="claude — cowork" raw="true" >}}
-비건 카페 오픈 시리즈 블로그 5편 써줘
-{{< /terminal >}}
-
-### 시스템 인터뷰
-
-1. **플랫폼**: 네이버 / 티스토리 / 브런치 / WordPress / Ghost
-2. **편당 분량**: 1500자 / 2000자 / 3000자
-3. **시리즈 구성**: 자동 5편 분류 (오픈 소식 → 메뉴 → 인테리어 → 운영 → 후기) 확인
-4. **키워드**: 자동 추출 + 사용자 추가 입력
-5. **이미지 첨부**: WordPress MCP 커넥터 자동 업로드 / 로컬 저장
-
-### 자동 체인
-
-`content-blog × 5편` → `ai-slop-reviewer` (1차 일반) → `korean-spell-check` (바른한글) → `korean-humanize` (한국어 정밀 윤문, A/B/C/D 등급) → `최종 검수` (원문 대조) → (선택) WordPress MCP 커넥터 발행
-
-### 산출물
-
-- 5편 본문 (네이버 C-Rank·D.I.A. 알고리즘 친화)
-- 각 편 SEO 최적화 메타데이터 + 추천 키워드
-- 한국어 윤문 보고서 (변경률 + 등급)
-
----
-
-## 시나리오 ② 인스타 카드뉴스 (약 6분)
-
-### 사용자 입력
-
-{{< terminal title="claude — cowork" raw="true" >}}
-프리랜서 3.3% 원천징수 카드뉴스 8장 만들어줘
-{{< /terminal >}}
-
-### 시스템 인터뷰
-
-1. **슬라이드 수**: 6-10장
-2. **톤**: 친근 / 격식 / 유머
-3. **이미지 비율**: 1:1 / 4:5 / 9:16 (스토리)
-4. **AI 이미지 생성**: 예/아니오 (`media-higgsfield-image` 호출)
-
-### 자동 체인
-
-`content-card-news` → `media-higgsfield-image` (한국어 타이포 정확도 우수) → `ai-slop-reviewer`
-
----
-
-## 시나리오 ③ 랜딩 페이지 — shadcn/ui (약 8분)
-
-### 사용자 입력
-
-{{< terminal title="claude — cowork" raw="true" >}}
-AI 영어 회화 앱 랜딩 페이지 만들어줘
-{{< /terminal >}}
-
-### 시스템 인터뷰 (소크라테스식 테마 인터뷰)
-
-1. **베이스 팔레트**: Neutral / Zinc / Stone / Slate
-2. **컬러 모드**: Light / Dark / System / Auto Toggle
-3. **모서리 반경**: Sharp - Pill
-4. **효과**: Fade-up · Scroll Reveal · Parallax · Chart
-
-### 자동 체인
-
-`marketing-landing-page` (Next.js 15 + shadcn/ui + Tailwind v4 + OKLCH 토큰) → `ai-slop-reviewer` → `korean-humanize`
-
-### 산출물
-
-- `90_Output/landing/index.tsx` — Next.js App Router 컴포넌트
-- 히어로·CTA·FAQ·소셜 프루프 6섹션
-- Framer Motion 애니메이션 옵션
-
----
-
-## 시나리오 ④ AI 슬롭 3중 검수 (모든 텍스트 산출물 공통)
-
-콘텐츠 트랙의 핵심 — 모든 텍스트는 **반드시 3중 후처리** 거침:
-
-```mermaid
-flowchart TD
-   Gen["콘텐츠 생성<br/>(content-blog·content-card-news·...)"] --> S1["ai-slop-reviewer<br/>일반 AI 패턴 검수"]
-   S1 --> S2["korean-spell-check<br/>바른한글 맞춤법"]
-   S2 --> S3["korean-humanize<br/>한국어 SSOT 40+ 패턴"]
-   S3 --> User["사용자 최종 검토"]
-   style S1 fill:#fbf0dc,stroke:#c47b2a
-   style S3 fill:#e8f1ec,stroke:#265240
+```text
+가상 원문: 이번 주 문의 12건에 답변했고 FAQ 초안 4개를 만들었다. 배송 지연 원인은 아직 확인하지 못했다.
 ```
 
-| 후처리 | 범위 | 정량 메트릭 |
+### 먼저 확인할 질문
+
+독자와 말투는 무엇인가요? 사실의 범위를 유지해야 하나요? 답을 모르면 해당 항목을 미정으로 남기고, 그 정보 없이 가능한 범위를 정합니다.
+
+### 모범 결과를 읽는 방법
+
+세 사실을 유지하며 읽기 쉬운 문장으로 다듬습니다. 원인과 추가 성과를 만들지 않고 초안 상태를 보존합니다. 문장과 서식은 달라도 이 기준을 충족하는지 직접 비교합니다. 원문 위치·출처·상태가 결과에 함께 남으면 다음 검토자에게 넘기기 쉽습니다.
+
+### 직접 비교할 모범 결과
+
+| 항목 | 결과 예시 | 근거·상태 |
 |---|---|---|
-| ai-slop-reviewer | 일반 AI 슬롭 (영어 표현, 과한 형용사, hype 어휘) | — |
-| korean-spell-check | 띄어쓰기·맞춤법 (부산대 바른한글 표면) | 오류 N건 |
-| korean-humanize | 10대 카테고리 × 40+ 패턴 (번역투·관용구·형식명사) | 변경률 % + A/B/C/D 등급 |
-| 최종 검수 | 원문↔윤문본 대조 — 의미 보존·과윤문 여부 | 통과/보류 판정 |
+| 다듬은 문장 | 이번 주 문의 12건에 답변하고 FAQ 초안 4개를 작성했습니다. | 원문 수치·상태 유지 |
+| 후속 문장 | 배송 지연 원인은 아직 확인하지 못했습니다. | 미확인 상태 유지 |
+| 추가하지 않은 내용 | 지연 원인·성과·개선 효과 | 자료 없음 |
 
-**안전 가드**: korean-humanize은 변경률 30% 초과 시 경고, 50% 초과 시 강제 중단·전체 롤백하여 의미를 100% 보존합니다. 윤문이 끝나면 최종 검수가 원문과 윤문본을 직접 대조해 뜻이 그대로인지, 윤문이 과하지 않았는지 마지막으로 확인합니다 — 판정이 보류면 전달되지 않고 다시 고쳐집니다.
+### 흔한 실수와 수정 요청
 
----
+글을 자연스럽게 하려다가 미확인 원인을 확정하거나 초안을 완성본으로 바꿉니다. 이때는 결과 전체를 다시 만들어 달라는 말보다, 틀린 기준과 고칠 위치를 구체적으로 알려 주세요.
 
-## AskUserQuestion 표준 슬롯 (콘텐츠 트랙 공통)
+```text
+표현만 다듬고 사실·숫자·미확인 상태는 바꾸지 마. 추가한 정보가 있으면 표시해 줘.
+수정한 부분과 아직 확인할 항목을 따로 알려 줘.
+```
 
-| 슬롯 | 예시 값 |
-|---|---|
-| 플랫폼 | 네이버·티스토리·브런치·WordPress·Ghost |
-| 분량 | 1500/2000/3000자 |
-| 톤 | 친근·격식·유머·전문 |
-| 키워드 | 자동 추출 + 사용자 추가 |
-| 이미지 자동 생성 | 예/아니오 (media-higgsfield-image 호출) |
-| 발행 자동화 | WordPress MCP / Typefully MCP / 수동 (외부 커넥터, 선택) |
+### 확인 문제
 
----
+윤문 전후에 가장 먼저 비교할 것은 무엇인가요?
 
-## 자주 묻는 질문
+<details><summary>답안과 해설 보기</summary>
 
-### Q. 여러 스킬 중 어떤 걸 호출해야 할까요?
+사실과 숫자, 책임 범위, 완료 상태가 바뀌지 않았는지 비교합니다. 그다음 문장 흐름을 봅니다.
 
-**사용자는 호출 안 함**. 시스템이 한 줄 요청을 분석해 자동 선택. 예: "블로그" → `content-blog`, "랜딩" → `marketing-landing-page`, "카드뉴스" → `content-card-news`.
+</details>
 
-### Q. 윤문(korean-humanize)을 끄고 싶어요.
+### 내 업무로 바꿔 보기
 
-AskUserQuestion에서 "AI 검수 강도" 선택 시 "기본" (3중) / "약함" (ai-slop만) / "끄기" 옵션 제공.
+예제의 자료를 자신의 공개 가능한 자료로 바꾸고, 결과의 독자와 형식을 다시 정합니다. 변하지 않는 검토 기준은 프로젝트 지침에 저장하고, 이번 작업의 수치와 미정 조건은 새 자료로 제공합니다. [프로젝트와 자료 수업](/learn/02-project-context/)에서 구분 방법을 확인합니다.
 
-### Q. WordPress 자동 발행이 안 됩니다.
+## 사용할 수 있는 스킬 후보
 
-발행은 cowork 스킬이 아닌 **외부 MCP 커넥터**(선택)로 동작합니다. WordPress MCP 외에 Typefully(X/Threads 스레드 예약) 커넥터도 같은 절차로 등록할 수 있습니다. Settings → Connectors → 해당 커넥터 활성화.
+아래는 이 업무에 참고할 수 있는 패키지 기능입니다. 실제 설치·노출 상태를 먼저 확인하며 이 순서로 반드시 자동 실행된다는 뜻은 아닙니다.
 
----
+- `moai-coworker:ai-slop-reviewer`
+- `moai-writer:korean-humanize`
+- `moai-writer:korean-spell-check`
+- `moai-marketer:content-blog`
+- `moai-marketer:content-card-news`
 
-## 다음 단계
+## 완료 기준
 
-- ****
-- **[광고 트랙](../track-advertising/)** — 콘텐츠 + 광고 결합
-- **[마케터 코워커](../../../moai-agents/marketer/)** — content·marketing 스킬 전체
-- **[블로그 파이프라인 쿡북](../../blog-pipeline/)** — 발행 시퀀스 심화
+결과물에 사용 자료와 미확인 항목이 표시되어 있습니다. 원문·어투·권리·게시 상태을 직접 확인했습니다. 파일을 요청한 경우 저장된 파일을 열어 확인합니다. 실제 게시·발송·예약 작업은 별도의 실행 결과로 확인합니다.
 
----
+## 막혔을 때
 
-### Sources
+자료나 연결이 없으면 제공 자료로 가능한 초안과 다음 준비 목록을 요청합니다. 원문·수치가 다르면 해당 위치와 근거를 지정해 고칩니다. 전문 판단이 필요한 부분은 근거와 쟁점을 정리하고 해당 업무 책임자가 확인합니다.
 
-- [moai-marketer 플러그인](https://github.com/modu-ai/moai-cowork/tree/main/plugins/moai-marketer)
-- korean-humanize — 한국 번역학계 8유형 번역투 계보 기반 cowork 자체 저작
-- [NomaDamas/k-skill (MIT)](https://github.com/NomaDamas/k-skill) — korean-spell-check 원본
+[결과 검토](/workflows/review/) · [반복 업무](/workflows/reuse/) · [다른 실습 선택](/cookbook/)
+
+## 공식 문서와 참고 자료
+
+- [관련 플러그인 원본](https://github.com/modu-ai/moai-cowork/tree/main/plugins/moai-writer)

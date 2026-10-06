@@ -1,0 +1,13 @@
+{
+  "images": [
+    {
+      "alt": "질문을 받았을 때 이렇게 답하세요 · 알고 있는 정보 / 아직 모르는 정보 / 꼭 필요한 정보 / 독립적으로 가능한 일",
+      "complete": true,
+      "currentSrc": "http://127.0.0.1:1313/infographics/pages/questions-mobile.svg",
+      "naturalWidth": 800
+    }
+  ],
+  "scrollWidth": 379,
+  "url": "http://127.0.0.1:1313/getting-started/questions/",
+  "width": 379
+}

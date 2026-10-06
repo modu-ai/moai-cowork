@@ -5,6 +5,8 @@ from typing import Literal, Union
 
 from pydantic import BaseModel, ConfigDict, Field
 
+from mcp.types import ToolAnnotations
+
 from .._app import mcp
 from .._base import get_client
 
@@ -75,7 +77,7 @@ class BulkUpdateMemberGradeBody(BaseModel):
 
 Body = Union[UpdateMemberAgreeInfoBody, UpdateMemberGroupBody, BulkUpdateMemberGroupBody, UpdateMemberGradeByMemberUidBody, BulkUpdateMemberGradeBody]
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=False, destructiveHint=True, idempotentHint=False, openWorldHint=True))
 def imweb_member_info(action: Literal["read_member_info_list", "read_member_info_list_by_cursor", "read_all_shop_prod_wish_by_prod_no", "read_all_shop_order_cart_by_prod_no", "read_one_member_info_by_unit_code_and_member_uid", "read_member_group_list_by_site_code", "read_member_group_member_list", "read_member_grade_list_by_site_code", "read_member_list_by_member_grade", "read_admin_group_list", "read_admin_group_member_list", "read_one_admin_info_by_admin_uid", "update_member_agree_info", "update_member_group", "bulk_update_member_group", "update_member_grade_by_member_uid", "bulk_update_member_grade", "read_all_shop_prod_wish_by_member_uid", "read_member_cart_list_by_member_uid"], params: dict | None = None, body: Body | None = None, paginate: bool = False) -> dict:
     r"""회원 정보 도구 — 19개 action 을 디스패치합니다.
 

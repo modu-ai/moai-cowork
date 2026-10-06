@@ -1,89 +1,9 @@
 {{ if default false .Site.Params.geekdocMermaid }}
-<script>
-(function(){
-  // ────────────────────────────────────────────────────────────────────
-  // Mermaid — 모두의AI DS v2 테마 적용
-  //
-  // geekdoc 이 번들한 mermaid 는 `window.mermaid` 를 노출하지 않고 로드 즉시
-  // 스스로 다이어그램을 그린다. 따라서 mermaid.initialize({themeVariables})
-  // 로는 테마를 바꿀 수 없다(이 경로는 실제로 한 번도 실행되지 않았고, 기본
-  // 보라·노랑 팔레트가 그대로 나왔다).
-  // → 렌더 후 번들이 주입한 <style> 의 기본 팔레트 색만 DS 값으로 바꾼다.
-  //   본문 classDef/style 로 지정한 색(의미색: 경고 앰버·위험 레드 등)은
-  //   건드리지 않는다.
-  // SSOT: www/design-system/handoff/colors_and_type.css
-  // ────────────────────────────────────────────────────────────────────
-
-  function findBlocks() {
-    return document.querySelectorAll('pre.gdoc-mermaid, pre.mermaid, .mermaid');
-  }
-
-  // mermaid 기본 팔레트 → DS v2
-  var SWAP = [
-    [/#ECECFF/gi, '#e8f1ec'],   // 노드 면      → 그린 8% 틴트
-    [/#9370DB/gi, '#3d7d5f'],   // 노드 테두리  → 마스코트 그린
-    [/#ffffde/gi, '#f4f4f4'],   // 클러스터 면  → 캔버스
-    [/#aaaa33/gi, '#d1d1d1'],   // 클러스터 선  → hairline
-    [/#552222/gi, '#c44a3a'],   // 에러         → DS danger
-    [/#000000\b/gi, '#060606'],
-    [/#000\b/gi, '#060606']
-  ];
-  // 속성별로 나눠야 하는 회색 — 글자는 잉크, 선은 중간 회색
-  function normalizeGray(css) {
-    css = css.replace(/(stroke\s*:\s*)#3{3}(?:3{3})?\b/gi, '$1#757575');
-    css = css.replace(/((?:fill|color|border-color)\s*:\s*)#3{3}(?:3{3})?\b/gi, '$1#060606');
-    return css.replace(/#3{3}(?:3{3})?\b/gi, '#565656');
-  }
-
-  function restyle() {
-    var done = 0;
-    document.querySelectorAll('svg[id^="mermaid-"] style, style').forEach(function(st){
-      if (st.dataset.dsThemed) return;
-      var css = st.textContent;
-      if (css.indexOf('#mermaid-') === -1) return;   // mermaid 가 주입한 것만
-      SWAP.forEach(function(p){ css = css.replace(p[0], p[1]); });
-      css = normalizeGray(css);
-      st.textContent = css;
-      st.dataset.dsThemed = '1';
-      done++;
-    });
-    return done;
-  }
-
-  function watch() {
-    restyle();
-    // 번들이 비동기로 그리므로 잠시 동안 반복 확인한다.
-    var n = 0;
-    var timer = setInterval(function(){
-      restyle();
-      if (++n > 40) clearInterval(timer);   // 최대 ~8초
-    }, 200);
-    if (window.MutationObserver) {
-      new MutationObserver(function(){ restyle(); })
-        .observe(document.body, { childList: true, subtree: true });
-    }
-  }
-
-  function loadMermaidBundle() {
-    if (!findBlocks().length) return;   // 페이지에 다이어그램 없음 (~640KB 로드 방지)
-    watch();
-    if (document.querySelector('script[data-mermaid-bundle]')) return;
-    var s = document.createElement('script');
-    s.src = '{{ index (index hugo.Data.assets "mermaid.js") "src" | relURL }}';
-    s.setAttribute('data-mermaid-bundle', '1');
-    s.onload = watch;
-    s.onerror = function() { console.error('[mermaid] bundle load failed'); };
-    document.head.appendChild(s);
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', loadMermaidBundle);
-  } else {
-    loadMermaidBundle();
-  }
-})();
-</script>
+{{ if or (strings.Contains .Content "mermaid") (strings.Contains .Content "concept-figure") }}
+<script src="{{ "js/moai-mermaid.bundle.js" | relURL }}?v={{ readFile "static/js/moai-mermaid.bundle.js" | sha256 }}"></script>
 {{ end }}
+{{ end }}
+
 
 <script>
 (function () {
@@ -105,8 +25,10 @@
     ta.setAttribute('readonly', '');
     document.body.appendChild(ta);
     ta.select();
-    try { document.execCommand('copy'); } catch (e) {}
+    var copied = false;
+    try { copied = document.execCommand('copy'); } catch (e) {}
     document.body.removeChild(ta);
+    return copied;
   }
 
   // 각 라인의 선행 `$ ` 프롬프트 제거 — 복사 시 명령어만 담기도록.
@@ -117,6 +39,8 @@
   }
 
   function markCopied(btn) {
+    btn.setAttribute('aria-label', '코드 복사');
+    btn.removeAttribute('title');
     var label = btn.querySelector('.copy-label');
     var copyIcon = btn.querySelector('.copy-icon');
     var checkIcon = btn.querySelector('.check-icon');
@@ -132,23 +56,32 @@
     }, 1800);
   }
 
+  function fallbackResult(text, btn) {
+    if (fallbackCopy(text)) {
+      markCopied(btn);
+    } else {
+      var label = btn.querySelector('.copy-label');
+      if (label) label.textContent = '직접 복사';
+      btn.setAttribute('aria-label', '자동 복사 불가 · 본문을 선택해 복사하세요');
+      btn.title = '본문을 선택해 복사하세요.';
+    }
+  }
+
   ready(function () {
     document.querySelectorAll('.copy-btn[data-copy-target]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var card = btn.closest('.code-card');
         var pre = card && (card.querySelector('.code-pre') || card.querySelector('pre'));
         if (!pre) return;
-        var text = stripPrompt(pre.innerText || pre.textContent);
+        var text = stripPrompt(pre.textContent || pre.innerText);
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(text).then(function () {
             markCopied(btn);
           }).catch(function () {
-            fallbackCopy(text);
-            markCopied(btn);
+            fallbackResult(text, btn);
           });
         } else {
-          fallbackCopy(text);
-          markCopied(btn);
+          fallbackResult(text, btn);
         }
       });
     });

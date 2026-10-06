@@ -2,7 +2,8 @@
 name: cs-quality-audit
 description: |
   고객 응답 초안·티켓 분류·에스컬레이션·VOC 보고서·FAQ를 원문의 문의와 셀러 정책에 대조해 읽기 전용으로 검수합니다. 미승인 약속, 개인정보 노출, 근거 없는 수치를 찾을 때 사용합니다.
-version: "1.0.0"
+metadata:
+  version: "1.0.1"
 ---
 
 # 고객지원 산출물 검수

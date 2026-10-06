@@ -1,133 +1,97 @@
 ---
 title: "SNS 크리에이터 — Threads·Instagram 직접 발행 담당"
-weight: 18
-description: "Threads(Meta)·Instagram 직접 발행 전담 AI 코워커 — MCP 도구로 즉시 발행, 문체 학습, 멀티 채널 포맷까지. 예약·정기 발행은 Claude Cowork 이 담당합니다."
+description: "게시 초안·말투 기준·대상로 SNS 초안과 게시 계획을 만드는 역할과 첫 요청 예제"
+weight: 10
+date: 2026-10-05T00:00:00+09:00
+lastmod: 2026-10-06
+geekdocBreadcrumb: true
 aliases: ["/agent-teams/threads-poster/"]
-date: 2026-08-07T00:00:00+09:00
-lastmod: 2026-08-07T00:00:00+09:00
 ---
 
-1인 브랜드·콘텐츠 크리에이터가 Threads·Instagram 을 운영할 때 가장 큰 병목은 "**규칙적인 게시**" 와 "**쓰는 손글씨(문체)의 일관성**" 입니다. SNS 크리에이터 코워커는 이 둘을 돕습니다. 주제를 받아 저장된 문체를 적용해 초안을 작성하고, 사용자에게 보여드린 뒤 승인하면 **즉시** Graph API 로 발행합니다. 큐·예약·승인 상태머신은 없습니다 — 세션 안에서 한 흐름으로 작성 → 확인 → 발행합니다.
+**이 역할은 SNS 초안과 게시 계획을 준비할 때 살펴보세요.** 먼저 게시 초안·말투 기준·대상을 제공합니다. 아래 기능 목록은 패키지 원본에서 생성하며, 실제 사용할 수 있는 기능은 현재 앱에서 확인합니다.
 
-스킬은 5종입니다. 초안 작성(문체 자동 적용)·문체 학습·멀티 채널 포맷(Threads/Facebook/X)·Instagram 포스트 발행·Instagram 댓글 관리를 다룹니다. MCP 서버로 Threads·Instagram Graph API 에 직접 연결되며, 월정액 없이 무료로 사용합니다.
 
-왜 "직접 발행" 모델인가. 예약·정기 발행(예: 매주 수요일 12시 자동 게시)은 Claude Cowork 이 담당합니다. 본 플러그인은 세션 안에서 즉시 발행하는 데만 집중합니다 — 초안을 보여드리고 승인하면 그 자리에서 게시됩니다.
+<!--more-->
 
-```mermaid
-flowchart LR
-  A["주제 수집"] --> B["문체 학습"]
-  B --> C["초안 작성<br/>(문체 적용)"]
-  C --> D["멀티 채널 포맷"]
-  D --> E["Threads/IG 즉시 발행"]
-  D --> F["Facebook/X 복붙용"]
 
-  style A fill:#e8f1ec,stroke:#265240,color:#09110f
-  style B fill:#e8f1ec,stroke:#265240,color:#09110f
-  style C fill:#d6e7de,stroke:#3d7d5f,color:#09110f
-  style D fill:#d6e7de,stroke:#3d7d5f,color:#09110f
-  style E fill:#fbf0dc,stroke:#c47b2a,color:#09110f
-  style F fill:#e6e6e6,stroke:#757575,color:#09110f
+## 첫 요청
+
+```text
+이 초안을 SNS 형식으로 다듬어 줘. 실제 게시하지 말고 검토용으로 보여 줘.
+부족한 맥락은 질문하고, 사용한 자료와 아직 확인하지 못한 항목을 남겨 줘.
 ```
+
+## 준비할 자료와 결과
+
+| 준비물 | 결과 | 확인 기준 |
+|---|---|---|
+| 게시 초안·말투 기준·대상 | SNS 초안과 게시 계획 | 제공 자료와 일치하고 미정 항목을 구분 |
+
+외부 연결 없이 제공 자료로 초안을 만들 수 있습니다. 실시간 조회·생성·게시가 필요할 때는 현재 도구와 연결 계정을 확인합니다. 실제 실행이 없으면 초안·제작안 단계로 표시합니다.
+
+## 가상 예제로 더 이해하기
+
+아래 자료와 모범 설명은 수업을 위해 작성했습니다. 실제 회사·고객의 실적이나 앱 실행 결과가 아닙니다. 먼저 제공 자료로 작은 결과를 만든 뒤 자신의 자료로 바꿔 보세요.
+
+```text
+가상 게시물: 고객 문의 메모를 보고서로 바꾸는 방법을 소개한다. 숫자는 예제 12건과 FAQ 초안 4개이며 실제 회사 사례가 아님.
+```
+
+### 먼저 확인할 질문
+
+게시 계정과 목적은 무엇인가요? 지금은 초안인가요, 실제 게시인가요? 답을 모르면 해당 항목을 미정으로 남기고, 그 정보 없이 가능한 범위를 정합니다.
+
+### 모범 결과를 읽는 방법
+
+가상 예제임을 표시한 게시물 초안을 만듭니다. 실제 계정에 게시하지 않았으면 초안 상태로 보고합니다. 문장과 서식은 달라도 이 기준을 충족하는지 직접 비교합니다. 원문 위치·출처·상태가 결과에 함께 남으면 다음 검토자에게 넘기기 쉽습니다.
+
+### 직접 비교할 모범 결과
+
+| 항목 | 결과 예시 | 근거·상태 |
+|---|---|---|
+| 게시물 초안 | 수업용 가상 메모로 보고서를 만들어 봤습니다. 문의 12건은 답변 완료, FAQ 4개는 검토 전 초안입니다. | 실제 고객 사례 아님 |
+| 독자가 할 일 | 원문 수치와 완료·초안 상태를 대조해 보세요. | 검토 연습 |
+| 실행 상태 | 게시 계정·예약 시점은 미정 | 초안·게시 미실시 |
+
+### 흔한 실수와 수정 요청
+
+실제 고객 성공 사례로 소개하거나 게시가 없는데 게시 완료라고 합니다. 이때는 결과 전체를 다시 만들어 달라는 말보다, 틀린 기준과 고칠 위치를 구체적으로 알려 주세요.
+
+```text
+가상 수업 예제라는 설명을 넣어 줘. 초안과 실제 게시 상태를 구분해 줘.
+수정한 부분과 아직 확인할 항목을 따로 알려 줘.
+```
+
+### 확인 문제
+
+게시 도구가 보이면 게시가 완료된 것일까요?
+
+<details><summary>답안과 해설 보기</summary>
+
+아닙니다. 해당 계정의 실제 게시 결과와 상태를 확인해야 합니다.
+
+</details>
+
+### 내 업무로 바꿔 보기
+
+예제의 자료를 자신의 공개 가능한 자료로 바꾸고, 결과의 독자와 형식을 다시 정합니다. 변하지 않는 검토 기준은 프로젝트 지침에 저장하고, 이번 작업의 수치와 미정 조건은 새 자료로 제공합니다. [프로젝트와 자료 수업](/learn/02-project-context/)에서 구분 방법을 확인합니다.
 
 ## 스킬 카탈로그
 
-전체 목록입니다.
-
 {{< employee-skills "moai-threads-poster" >}}
 
-## MCP 도구
+## 포함된 에이전트
 
-MCP 서버가 노출하는 도구들입니다. 큐·예약 도구는 없습니다 — 전부 직접 발행·조회·포맷 도구입니다.
+{{< employee-agents "moai-threads-poster" >}}
 
-| 도구 | 설명 |
-|------|------|
-| `threads_publish_text` | 텍스트 스레드 발행 (500 UTF-8 바이트 제한) |
-| `threads_publish_image` | 이미지(JPEG/PNG, ≤8MB) 발행 |
-| `threads_publish_video` | 비디오(MOV/MP4, ≤1GB, ≤5분) 발행 |
-| `threads_get_profile` | 프로필 조회 — health check / who-am-I |
-| `threads_refresh_token` | 장기 액세스 토큰(60일) 수동 갱신 |
-| `instagram_publish_image` | Instagram 이미지 발행 (JPEG-only) |
-| `instagram_publish_video` | Instagram 비디오 발행 (컨테이너 폴링 후 발행) |
-| `instagram_publish_reel` | Instagram 릴 발행 (`share_to_feed` 옵션) |
-| `instagram_get_profile` | Instagram 프로필 조회 |
-| `instagram_refresh_token` | Instagram 장기 Page 토큰 갱신 |
-| `instagram_comments_list` | Instagram 미디어 댓글 목록 |
-| `instagram_comments_reply` | Instagram 댓글에 답글 작성 |
-| `instagram_comments_hide` | Instagram 댓글 숨김 |
-| `instagram_insights` | Instagram 인사이트 조회 (계정/미디어 수준) |
-| `threads_style_save` | 문체 프로필 저장 |
-| `threads_style_load` | 문체 프로필 불러오기 |
-| `threads_format_multi_channel` | 하나의 텍스트를 Threads/Facebook/X 용으로 포맷 |
+에이전트 파일의 존재와 별도 실행은 다릅니다. 현재 앱이 해당 형식을 지원하는지 확인하며, 지원하지 않으면 역할별 단계를 순차 수행합니다. [전문가 분업](/workflows/experts/)에서 적용 방법을 확인하세요.
 
-## 대표 시나리오 3선
+## 결과 확인과 다음 단계
 
-**1. 문체 학습 → 주제 초안 → 즉시 발행.** "내 문체 학습시켜줘"라고 과거 포스팅 3-10개를 붙여넣으면 `threads-style-learn`가 문체 프로필을 저장합니다. 그 뒤 "최신 AI 뉴스로 Threads 포스트 작성해줘"라고 하면 `threads-post-draft`가 저장된 문체를 자동으로 적용해 초안을 만들어 보여드립니다. 승인하면 `threads_publish_text`로 그 자리에서 즉시 발행됩니다.
+원문·출처·숫자·형식이 맞는지 확인하고 수정할 위치를 구체적으로 알려 주세요. 다른 역할에 넘길 때는 목표·자료·미정 항목·완료 기준을 함께 전달합니다.
 
-**2. 멀티 채널 배포.** 블로그 글을 쓰고 나서 "이거 Threads랑 Facebook, X용으로 포맷해줘"라고 하면 `threads-multichannel`이 세 채널용 텍스트를 한 번에 만들어줍니다. Threads용은 승인 시 즉시 발행하고, Facebook/X용은 복붙용으로 제공합니다.
+[설치와 관리](/plugins/install/) · [결과 검토](/workflows/review/) · [업무별 실습](/cookbook/)
 
-**3. Instagram 릴 + 댓글 모더레이션.** "이 영상 인스타 릴로 올려줘"라고 하면 `instagram-post`가 캡션을 작성해 보여드리고, 승인하면 `instagram_publish_reel`로 즉시 발행합니다. 발행 후 "최근 릴 댓글 확인해줘"라고 하면 `instagram-comments`가 댓글을 조회하고 답글·숨김 처리를 합니다.
+## 공식 문서와 참고 자료
 
-**잘 안 될 때** — Threads 인증이 실패하면 `THREADS_ACCESS_TOKEN`과 `THREADS_USER_ID` 환경변수를 확인하세요. Instagram 인증이 실패하면 `IG_ACCESS_TOKEN`과 `IG_USER_ID`를 확인하세요. 토큰 발급 절차는 `mcp-servers/threads-poster/CONNECTORS.md`를 참조하세요. Facebook 개인 계정/그룹은 API 발행이 정책상 불가하므로 복붙만 지원합니다.
-
-## Instagram 지원
-
-Instagram Graph API를 통한 직접 발행도 지원합니다. Threads와 동일한 "직접 발행" 모델을 따릅니다 — 세션 안에서 초안을 보여드리고 승인하면 즉시 발행합니다.
-
-### 발행 모델
-
-1. **초안 작성** — `instagram-post` 스킬이 캡션과 미디어 URL을 작성해 사용자에게 보여드립니다.
-2. **승인 게이트** — 사용자가 초안을 승인합니다 (승인 없이는 발행하지 않습니다).
-3. **즉시 발행** — `instagram_publish_image/video/reel` 도구로 Graph API 에 바로 게시합니다.
-
-**백그라운드 스케줄러 없음.** 예약·정기 발행은 Claude Cowork 이 담당합니다. 본 플러그인은 즉시 발행만 합니다.
-
-### 지원 콘텐츠
-
-| 콘텐츠 | MCP 도구 | 제한 |
-|--------|----------|------|
-| **이미지** | `instagram_publish_image` | JPEG만 (PNG 제한), 8MB 이하 |
-| **비디오** | `instagram_publish_video` | MOV/MP4, 1GB 이하, 5분 이하 |
-| **릴스** | `instagram_publish_reel` | 비디오 URL만, `share_to_feed` 옵션 |
-| **댓글 관리** | `instagram_comments_list`, `instagram_comments_reply`, `instagram_comments_hide` | — |
-| **인사이트** | `instagram_insights` | 계정/미디어별 노출/참여 지표 |
-
-### Instagram 특이사항
-
-**2단계 발행 프로세스** — 이미지/비디오는 Graph API의 2단계 발행(Container → Media Publish)를 따릅니다. `instagram_publish_image`/`instagram_publish_reel`이 먼저 컨테이너를 생성하고, `instagram_publish_video`가 폴링으로 상태를 확인한 뒤 완료되면 `Media Publishing API`로 최종 발행합니다. 완료까지 최대 5분이 소요될 수 있습니다(EXPIRED 예외 처리됨).
-
-**Professional 계정 필요** — Instagram Graph API 발행은 Professional(Business 또는 Creator) 계정만 지원합니다. 개인 계정은 API 정책상 지원되지 않습니다. 설정 시 `IG_ACCESS_TOKEN`과 `IG_USER_ID` 환경변수가 필요합니다.
-
-**Facebook Login for Business** — Instagram 토큰 발급은 Facebook Login for Business 흐름을 통해 이루어집니다. Meta App의 Instagram Product를 설정하고, 시스템 사용자(System User) 토큰을 발급받아 `IG_ACCESS_TOKEN`으로 등록합니다. 상세 절차는 `CONNECTORS.md`의 Instagram 섹션을 참조하세요.
-
-### 셋업
-
-환경변수:
-{{< terminal title="Terminal" lang="bash" raw="true" >}}
-export THREADS_ACCESS_TOKEN="<Threads 장기 액세스 토큰(60일)>"
-export THREADS_USER_ID="<Threads 사용자 ID>"
-export IG_ACCESS_TOKEN="<Instagram 장기 액세스 토큰(무기한)>"
-export IG_USER_ID="<Instagram Business 계정 ID>"
-{{< /terminal >}}
-
-`IG_USER_ID`는 Instagram Graph API `get_profile` 응답의 `id` 필드 또는 Facebook Login 콜백에서 제공되는 사용자 ID입니다. Professional 계정 요건은 `CONNECTORS.md`를 참조하세요.
-
-## 책임 경계
-
-| 채널 | 직접 발행? | 설명 |
-|------|-----------|------|
-| **Threads** | 예 | MCP 도구로 즉시 직접 발행 |
-| **Instagram** | 예 | MCP 도구로 즉시 직접 발행 (Professional 계정만) |
-| **Facebook** | **아니오** (복붙) | 개인 계정/그룹은 API 발행 불가 — 복붙용 텍스트만 제공. 페이지는 추후 추가 가능 |
-| **X** | **아니오** (복붙) | 무료 280자 제한 → `1/`·`2/` 번호 트윗 체인으로 자동 분할. Premium 25,000자는 단일 문자열. 둘 다 복붙용 |
-
-예약·정기 발행은 본 플러그인 범위 밖입니다 — Claude Cowork 이 담당합니다.
-
-## 설치·셋업
-
-이 플러그인을 사용하려면 Meta App 등록과 토큰 발급이 필요합니다. 자세한 절차는 `mcp-servers/threads-poster/CONNECTORS.md`를 참조하세요.
-
-환경변수:
-{{< terminal title="Terminal" lang="bash" raw="true" >}}
-export THREADS_ACCESS_TOKEN="<장기 액세스 토큰(60일)>"
-export THREADS_USER_ID="<Threads 사용자 ID>"
-{{< /terminal >}}
+- [패키지 원본](https://github.com/modu-ai/moai-cowork/tree/main/plugins/moai-threads-poster)

@@ -4,7 +4,8 @@ description: |
   브랜드·디자인 시스템 자료를 Claude Design에 전달할 수 있게 준비하고, 현재 세션에서 확인된
   업로드 경로로 진행합니다. Claude Cowork는 대화·첨부, ChatGPT Work는 전달 패키지와 앱 UI
   안내를 기본으로 하며, DesignSync 도구가 실제로 있을 때만 그 계약을 확인해 사용합니다.
-version: "1.3.1"
+metadata:
+  version: "1.3.2"
 ---
 
 # design-sync-upload — 디자인 시스템 자료 전달

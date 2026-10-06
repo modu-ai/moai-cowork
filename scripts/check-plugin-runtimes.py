@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""플러그인이 네 실행 환경 모두에서 동작하는지 기계적으로 검사한다.
+"""호환 매니페스트·경로·런처의 정합성을 정적으로 검사한다.
 
     Claude 데스크톱 · Claude Code CLI · Codex 데스크톱 · Codex CLI
-    (그리고 그 각각이 macOS, Windows, Linux)
+    이 검사는 실제 앱 설치·인증·도구 실행 성공을 증명하지 않는다.
+    공통 plugin.json·mcp.json은 check-skill-contracts.py로 별도 검사한다.
 
     python3 scripts/check-plugin-runtimes.py            # 전체
     python3 scripts/check-plugin-runtimes.py moai-seller

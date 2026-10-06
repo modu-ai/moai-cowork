@@ -2,7 +2,8 @@
 name: marketing-evidence-audit
 description: |
   캠페인 계획·예산·광고 카피·콘텐츠 일정·성과 보고서의 수치, 출처, 계산, 채널 제약과 주장 근거를 읽기 전용으로 검수합니다.
-version: "1.0.0"
+metadata:
+  version: "1.0.1"
 ---
 
 # 마케팅 산출물 근거 검수

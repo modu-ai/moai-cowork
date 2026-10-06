@@ -12,6 +12,7 @@ from typing import Literal
 
 import httpx
 from mcp.server.fastmcp import FastMCP
+from mcp.types import ToolAnnotations
 from mcp.types import CallToolResult, ImageContent, TextContent
 
 from moai_mcp_core.credentials import CredentialStore, is_unset
@@ -53,7 +54,7 @@ def _valid_size(size: str) -> bool:
     )
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=False, destructiveHint=False, idempotentHint=False, openWorldHint=True))
 def openai_image_generate(
     prompt: str,
     model: Literal["gpt-image-2.5-flare", "gpt-image-2.5-sunburst"] = "gpt-image-2.5-flare",

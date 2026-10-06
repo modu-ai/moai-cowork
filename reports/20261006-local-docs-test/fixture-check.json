@@ -1,0 +1,14 @@
+{
+  "download_matches_source": true,
+  "download_rows": 6,
+  "types": {
+    "배송": 3,
+    "반품": 2,
+    "결제": 1
+  },
+  "lesson_order_regression_detected": [
+    "03-first-result.md: learning goal must precede other sections"
+  ],
+  "errors": [],
+  "scope": "downloaded virtual class fixture and an automatically removed temporary source copy"
+}

@@ -1,0 +1,1220 @@
+[
+  {
+    "name": "consult-brief--TC-001",
+    "source": "plugins/moai-consultant/skills/consult-brief/tests/test-cases.yaml",
+    "case_id": "TC-001",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-consultant/evals/generated/consult-brief--TC-001/case.yaml"
+  },
+  {
+    "name": "consult-brief--TC-002",
+    "source": "plugins/moai-consultant/skills/consult-brief/tests/test-cases.yaml",
+    "case_id": "TC-002",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-consultant/evals/generated/consult-brief--TC-002/case.yaml"
+  },
+  {
+    "name": "consult-brief--TC-003",
+    "source": "plugins/moai-consultant/skills/consult-brief/tests/test-cases.yaml",
+    "case_id": "TC-003",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-consultant/evals/generated/consult-brief--TC-003/case.yaml"
+  },
+  {
+    "name": "consult-startup--TC-001",
+    "source": "plugins/moai-consultant/skills/consult-startup/tests/test-cases.yaml",
+    "case_id": "TC-001",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-consultant/evals/generated/consult-startup--TC-001/case.yaml"
+  },
+  {
+    "name": "consult-startup--TC-002",
+    "source": "plugins/moai-consultant/skills/consult-startup/tests/test-cases.yaml",
+    "case_id": "TC-002",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-consultant/evals/generated/consult-startup--TC-002/case.yaml"
+  },
+  {
+    "name": "consult-startup--TC-003",
+    "source": "plugins/moai-consultant/skills/consult-startup/tests/test-cases.yaml",
+    "case_id": "TC-003",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-consultant/evals/generated/consult-startup--TC-003/case.yaml"
+  },
+  {
+    "name": "ai-diagnostic--TC-001",
+    "source": "plugins/moai-coworker/skills/ai-diagnostic/tests/test-cases.yaml",
+    "case_id": "TC-001",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-coworker/evals/generated/ai-diagnostic--TC-001/case.yaml"
+  },
+  {
+    "name": "ai-diagnostic--TC-002",
+    "source": "plugins/moai-coworker/skills/ai-diagnostic/tests/test-cases.yaml",
+    "case_id": "TC-002",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-coworker/evals/generated/ai-diagnostic--TC-002/case.yaml"
+  },
+  {
+    "name": "ai-diagnostic--TC-003",
+    "source": "plugins/moai-coworker/skills/ai-diagnostic/tests/test-cases.yaml",
+    "case_id": "TC-003",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-coworker/evals/generated/ai-diagnostic--TC-003/case.yaml"
+  },
+  {
+    "name": "collab-exec-summary--T01",
+    "source": "plugins/moai-coworker/skills/collab-exec-summary/tests/test-cases.yaml",
+    "case_id": "T01",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-coworker/evals/generated/collab-exec-summary--T01/case.yaml"
+  },
+  {
+    "name": "collab-exec-summary--T02",
+    "source": "plugins/moai-coworker/skills/collab-exec-summary/tests/test-cases.yaml",
+    "case_id": "T02",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-coworker/evals/generated/collab-exec-summary--T02/case.yaml"
+  },
+  {
+    "name": "collab-exec-summary--T03",
+    "source": "plugins/moai-coworker/skills/collab-exec-summary/tests/test-cases.yaml",
+    "case_id": "T03",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-coworker/evals/generated/collab-exec-summary--T03/case.yaml"
+  },
+  {
+    "name": "collab-exec-summary--T04",
+    "source": "plugins/moai-coworker/skills/collab-exec-summary/tests/test-cases.yaml",
+    "case_id": "T04",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-coworker/evals/generated/collab-exec-summary--T04/case.yaml"
+  },
+  {
+    "name": "collab-exec-summary--T05",
+    "source": "plugins/moai-coworker/skills/collab-exec-summary/tests/test-cases.yaml",
+    "case_id": "T05",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-coworker/evals/generated/collab-exec-summary--T05/case.yaml"
+  },
+  {
+    "name": "collab-exec-summary--T06",
+    "source": "plugins/moai-coworker/skills/collab-exec-summary/tests/test-cases.yaml",
+    "case_id": "T06",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-coworker/evals/generated/collab-exec-summary--T06/case.yaml"
+  },
+  {
+    "name": "collab-exec-summary--T07",
+    "source": "plugins/moai-coworker/skills/collab-exec-summary/tests/test-cases.yaml",
+    "case_id": "T07",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-coworker/evals/generated/collab-exec-summary--T07/case.yaml"
+  },
+  {
+    "name": "collab-pm-report--T01",
+    "source": "plugins/moai-coworker/skills/collab-pm-report/tests/test-cases.yaml",
+    "case_id": "T01",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-coworker/evals/generated/collab-pm-report--T01/case.yaml"
+  },
+  {
+    "name": "collab-pm-report--T02",
+    "source": "plugins/moai-coworker/skills/collab-pm-report/tests/test-cases.yaml",
+    "case_id": "T02",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-coworker/evals/generated/collab-pm-report--T02/case.yaml"
+  },
+  {
+    "name": "collab-pm-report--T03",
+    "source": "plugins/moai-coworker/skills/collab-pm-report/tests/test-cases.yaml",
+    "case_id": "T03",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-coworker/evals/generated/collab-pm-report--T03/case.yaml"
+  },
+  {
+    "name": "collab-pm-report--T04",
+    "source": "plugins/moai-coworker/skills/collab-pm-report/tests/test-cases.yaml",
+    "case_id": "T04",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-coworker/evals/generated/collab-pm-report--T04/case.yaml"
+  },
+  {
+    "name": "collab-pm-report--T05",
+    "source": "plugins/moai-coworker/skills/collab-pm-report/tests/test-cases.yaml",
+    "case_id": "T05",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-coworker/evals/generated/collab-pm-report--T05/case.yaml"
+  },
+  {
+    "name": "collab-pm-report--T06",
+    "source": "plugins/moai-coworker/skills/collab-pm-report/tests/test-cases.yaml",
+    "case_id": "T06",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-coworker/evals/generated/collab-pm-report--T06/case.yaml"
+  },
+  {
+    "name": "collab-proposal--T01",
+    "source": "plugins/moai-coworker/skills/collab-proposal/tests/test-cases.yaml",
+    "case_id": "T01",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-coworker/evals/generated/collab-proposal--T01/case.yaml"
+  },
+  {
+    "name": "collab-proposal--T02",
+    "source": "plugins/moai-coworker/skills/collab-proposal/tests/test-cases.yaml",
+    "case_id": "T02",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-coworker/evals/generated/collab-proposal--T02/case.yaml"
+  },
+  {
+    "name": "collab-proposal--T03",
+    "source": "plugins/moai-coworker/skills/collab-proposal/tests/test-cases.yaml",
+    "case_id": "T03",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-coworker/evals/generated/collab-proposal--T03/case.yaml"
+  },
+  {
+    "name": "collab-proposal--T04",
+    "source": "plugins/moai-coworker/skills/collab-proposal/tests/test-cases.yaml",
+    "case_id": "T04",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-coworker/evals/generated/collab-proposal--T04/case.yaml"
+  },
+  {
+    "name": "collab-proposal--T05",
+    "source": "plugins/moai-coworker/skills/collab-proposal/tests/test-cases.yaml",
+    "case_id": "T05",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-coworker/evals/generated/collab-proposal--T05/case.yaml"
+  },
+  {
+    "name": "collab-sales-playbook--TC-001",
+    "source": "plugins/moai-coworker/skills/collab-sales-playbook/tests/test-cases.yaml",
+    "case_id": "TC-001",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-coworker/evals/generated/collab-sales-playbook--TC-001/case.yaml"
+  },
+  {
+    "name": "collab-sales-playbook--TC-002",
+    "source": "plugins/moai-coworker/skills/collab-sales-playbook/tests/test-cases.yaml",
+    "case_id": "TC-002",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-coworker/evals/generated/collab-sales-playbook--TC-002/case.yaml"
+  },
+  {
+    "name": "collab-sales-playbook--TC-003",
+    "source": "plugins/moai-coworker/skills/collab-sales-playbook/tests/test-cases.yaml",
+    "case_id": "TC-003",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-coworker/evals/generated/collab-sales-playbook--TC-003/case.yaml"
+  },
+  {
+    "name": "collab-ux-design--TC-001",
+    "source": "plugins/moai-coworker/skills/collab-ux-design/tests/test-cases.yaml",
+    "case_id": "TC-001",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-coworker/evals/generated/collab-ux-design--TC-001/case.yaml"
+  },
+  {
+    "name": "collab-ux-design--TC-002",
+    "source": "plugins/moai-coworker/skills/collab-ux-design/tests/test-cases.yaml",
+    "case_id": "TC-002",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-coworker/evals/generated/collab-ux-design--TC-002/case.yaml"
+  },
+  {
+    "name": "collab-ux-design--TC-003",
+    "source": "plugins/moai-coworker/skills/collab-ux-design/tests/test-cases.yaml",
+    "case_id": "TC-003",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-coworker/evals/generated/collab-ux-design--TC-003/case.yaml"
+  },
+  {
+    "name": "marketing-target-script--TC-001",
+    "source": "plugins/moai-marketer/skills/marketing-target-script/tests/test-cases.yaml",
+    "case_id": "TC-001",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-marketer/evals/generated/marketing-target-script--TC-001/case.yaml"
+  },
+  {
+    "name": "marketing-target-script--TC-002",
+    "source": "plugins/moai-marketer/skills/marketing-target-script/tests/test-cases.yaml",
+    "case_id": "TC-002",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-marketer/evals/generated/marketing-target-script--TC-002/case.yaml"
+  },
+  {
+    "name": "marketing-target-script--TC-003",
+    "source": "plugins/moai-marketer/skills/marketing-target-script/tests/test-cases.yaml",
+    "case_id": "TC-003",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-marketer/evals/generated/marketing-target-script--TC-003/case.yaml"
+  },
+  {
+    "name": "media-gemini-3-image-prompt--happy-path-product-shot",
+    "source": "plugins/moai-media/skills/media-gemini-3-image-prompt/tests/test-cases.yaml",
+    "case_id": "happy-path-product-shot",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-media/evals/generated/media-gemini-3-image-prompt--happy-path-product-shot/case.yaml"
+  },
+  {
+    "name": "media-gemini-3-image-prompt--happy-path-portrait-21-9",
+    "source": "plugins/moai-media/skills/media-gemini-3-image-prompt/tests/test-cases.yaml",
+    "case_id": "happy-path-portrait-21-9",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-media/evals/generated/media-gemini-3-image-prompt--happy-path-portrait-21-9/case.yaml"
+  },
+  {
+    "name": "media-gemini-3-image-prompt--search-grounding-infographic",
+    "source": "plugins/moai-media/skills/media-gemini-3-image-prompt/tests/test-cases.yaml",
+    "case_id": "search-grounding-infographic",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-media/evals/generated/media-gemini-3-image-prompt--search-grounding-infographic/case.yaml"
+  },
+  {
+    "name": "media-gemini-3-image-prompt--reference-images-character",
+    "source": "plugins/moai-media/skills/media-gemini-3-image-prompt/tests/test-cases.yaml",
+    "case_id": "reference-images-character",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-media/evals/generated/media-gemini-3-image-prompt--reference-images-character/case.yaml"
+  },
+  {
+    "name": "media-gemini-3-image-prompt--edge-case-ambiguous-input",
+    "source": "plugins/moai-media/skills/media-gemini-3-image-prompt/tests/test-cases.yaml",
+    "case_id": "edge-case-ambiguous-input",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-media/evals/generated/media-gemini-3-image-prompt--edge-case-ambiguous-input/case.yaml"
+  },
+  {
+    "name": "media-gpt-image-prompt--happy-path-product-shot",
+    "source": "plugins/moai-media/skills/media-gpt-image-prompt/tests/test-cases.yaml",
+    "case_id": "happy-path-product-shot",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-media/evals/generated/media-gpt-image-prompt--happy-path-product-shot/case.yaml"
+  },
+  {
+    "name": "media-gpt-image-prompt--happy-path-portrait-9-16",
+    "source": "plugins/moai-media/skills/media-gpt-image-prompt/tests/test-cases.yaml",
+    "case_id": "happy-path-portrait-9-16",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-media/evals/generated/media-gpt-image-prompt--happy-path-portrait-9-16/case.yaml"
+  },
+  {
+    "name": "media-gpt-image-prompt--sunburst-selection",
+    "source": "plugins/moai-media/skills/media-gpt-image-prompt/tests/test-cases.yaml",
+    "case_id": "sunburst-selection",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-media/evals/generated/media-gpt-image-prompt--sunburst-selection/case.yaml"
+  },
+  {
+    "name": "media-gpt-image-prompt--edit-mode-2-column-logic",
+    "source": "plugins/moai-media/skills/media-gpt-image-prompt/tests/test-cases.yaml",
+    "case_id": "edit-mode-2-column-logic",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-media/evals/generated/media-gpt-image-prompt--edit-mode-2-column-logic/case.yaml"
+  },
+  {
+    "name": "media-gpt-image-prompt--text-rendering-korean",
+    "source": "plugins/moai-media/skills/media-gpt-image-prompt/tests/test-cases.yaml",
+    "case_id": "text-rendering-korean",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-media/evals/generated/media-gpt-image-prompt--text-rendering-korean/case.yaml"
+  },
+  {
+    "name": "media-gpt-image-prompt--slide-recipe-high-quality",
+    "source": "plugins/moai-media/skills/media-gpt-image-prompt/tests/test-cases.yaml",
+    "case_id": "slide-recipe-high-quality",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-media/evals/generated/media-gpt-image-prompt--slide-recipe-high-quality/case.yaml"
+  },
+  {
+    "name": "media-gpt-image-prompt--transparent-logo",
+    "source": "plugins/moai-media/skills/media-gpt-image-prompt/tests/test-cases.yaml",
+    "case_id": "transparent-logo",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-media/evals/generated/media-gpt-image-prompt--transparent-logo/case.yaml"
+  },
+  {
+    "name": "media-gpt-image-prompt--edge-case-ambiguous-input",
+    "source": "plugins/moai-media/skills/media-gpt-image-prompt/tests/test-cases.yaml",
+    "case_id": "edge-case-ambiguous-input",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-media/evals/generated/media-gpt-image-prompt--edge-case-ambiguous-input/case.yaml"
+  },
+  {
+    "name": "media-midjourney-v8-prompt--product-shot-hd",
+    "source": "plugins/moai-media/skills/media-midjourney-v8-prompt/tests/test-cases.yaml",
+    "case_id": "product-shot-hd",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-media/evals/generated/media-midjourney-v8-prompt--product-shot-hd/case.yaml"
+  },
+  {
+    "name": "media-midjourney-v8-prompt--legacy-omni-reference",
+    "source": "plugins/moai-media/skills/media-midjourney-v8-prompt/tests/test-cases.yaml",
+    "case_id": "legacy-omni-reference",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-media/evals/generated/media-midjourney-v8-prompt--legacy-omni-reference/case.yaml"
+  },
+  {
+    "name": "media-midjourney-v8-prompt--style-reference",
+    "source": "plugins/moai-media/skills/media-midjourney-v8-prompt/tests/test-cases.yaml",
+    "case_id": "style-reference",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-media/evals/generated/media-midjourney-v8-prompt--style-reference/case.yaml"
+  },
+  {
+    "name": "media-midjourney-v8-prompt--unsupported-quality",
+    "source": "plugins/moai-media/skills/media-midjourney-v8-prompt/tests/test-cases.yaml",
+    "case_id": "unsupported-quality",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-media/evals/generated/media-midjourney-v8-prompt--unsupported-quality/case.yaml"
+  },
+  {
+    "name": "media-midjourney-v8-prompt--ultrawide-21-9",
+    "source": "plugins/moai-media/skills/media-midjourney-v8-prompt/tests/test-cases.yaml",
+    "case_id": "ultrawide-21-9",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-media/evals/generated/media-midjourney-v8-prompt--ultrawide-21-9/case.yaml"
+  },
+  {
+    "name": "media-midjourney-v8-prompt--deprecated-character-reference",
+    "source": "plugins/moai-media/skills/media-midjourney-v8-prompt/tests/test-cases.yaml",
+    "case_id": "deprecated-character-reference",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-media/evals/generated/media-midjourney-v8-prompt--deprecated-character-reference/case.yaml"
+  },
+  {
+    "name": "media-midjourney-v8-prompt--ambiguous-input",
+    "source": "plugins/moai-media/skills/media-midjourney-v8-prompt/tests/test-cases.yaml",
+    "case_id": "ambiguous-input",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-media/evals/generated/media-midjourney-v8-prompt--ambiguous-input/case.yaml"
+  },
+  {
+    "name": "doc-pdf--TC-001",
+    "source": "plugins/moai-officer/skills/doc-pdf/tests/test-cases.yaml",
+    "case_id": "TC-001",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-officer/evals/generated/doc-pdf--TC-001/case.yaml"
+  },
+  {
+    "name": "doc-pdf--TC-002",
+    "source": "plugins/moai-officer/skills/doc-pdf/tests/test-cases.yaml",
+    "case_id": "TC-002",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-officer/evals/generated/doc-pdf--TC-002/case.yaml"
+  },
+  {
+    "name": "doc-pdf--TC-003",
+    "source": "plugins/moai-officer/skills/doc-pdf/tests/test-cases.yaml",
+    "case_id": "TC-003",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-officer/evals/generated/doc-pdf--TC-003/case.yaml"
+  },
+  {
+    "name": "doc-pdf--TC-004",
+    "source": "plugins/moai-officer/skills/doc-pdf/tests/test-cases.yaml",
+    "case_id": "TC-004",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-officer/evals/generated/doc-pdf--TC-004/case.yaml"
+  },
+  {
+    "name": "doc-pdf--TC-005",
+    "source": "plugins/moai-officer/skills/doc-pdf/tests/test-cases.yaml",
+    "case_id": "TC-005",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-officer/evals/generated/doc-pdf--TC-005/case.yaml"
+  },
+  {
+    "name": "hr-resume-screener--T01",
+    "source": "plugins/moai-recruiter/skills/hr-resume-screener/tests/test-cases.yaml",
+    "case_id": "T01",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-recruiter/evals/generated/hr-resume-screener--T01/case.yaml"
+  },
+  {
+    "name": "hr-resume-screener--T02",
+    "source": "plugins/moai-recruiter/skills/hr-resume-screener/tests/test-cases.yaml",
+    "case_id": "T02",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-recruiter/evals/generated/hr-resume-screener--T02/case.yaml"
+  },
+  {
+    "name": "hr-resume-screener--T03",
+    "source": "plugins/moai-recruiter/skills/hr-resume-screener/tests/test-cases.yaml",
+    "case_id": "T03",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-recruiter/evals/generated/hr-resume-screener--T03/case.yaml"
+  },
+  {
+    "name": "hr-resume-screener--T04",
+    "source": "plugins/moai-recruiter/skills/hr-resume-screener/tests/test-cases.yaml",
+    "case_id": "T04",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-recruiter/evals/generated/hr-resume-screener--T04/case.yaml"
+  },
+  {
+    "name": "hr-resume-screener--T05",
+    "source": "plugins/moai-recruiter/skills/hr-resume-screener/tests/test-cases.yaml",
+    "case_id": "T05",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-recruiter/evals/generated/hr-resume-screener--T05/case.yaml"
+  },
+  {
+    "name": "hr-resume-screener--T06",
+    "source": "plugins/moai-recruiter/skills/hr-resume-screener/tests/test-cases.yaml",
+    "case_id": "T06",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-recruiter/evals/generated/hr-resume-screener--T06/case.yaml"
+  },
+  {
+    "name": "commerce-detail-page-copy--supported_electronics",
+    "source": "plugins/moai-seller/skills/commerce-detail-page-copy/tests/test-cases.yaml",
+    "case_id": "supported_electronics",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-detail-page-copy--supported_electronics/case.yaml"
+  },
+  {
+    "name": "commerce-detail-page-copy--missing_evidence",
+    "source": "plugins/moai-seller/skills/commerce-detail-page-copy/tests/test-cases.yaml",
+    "case_id": "missing_evidence",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-detail-page-copy--missing_evidence/case.yaml"
+  },
+  {
+    "name": "commerce-detail-page-copy--medical_claim",
+    "source": "plugins/moai-seller/skills/commerce-detail-page-copy/tests/test-cases.yaml",
+    "case_id": "medical_claim",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-detail-page-copy--medical_claim/case.yaml"
+  },
+  {
+    "name": "commerce-detail-page-image--all_sections",
+    "source": "plugins/moai-seller/skills/commerce-detail-page-image/tests/test-cases.yaml",
+    "case_id": "all_sections",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-detail-page-image--all_sections/case.yaml"
+  },
+  {
+    "name": "commerce-detail-page-image--partial_failure",
+    "source": "plugins/moai-seller/skills/commerce-detail-page-image/tests/test-cases.yaml",
+    "case_id": "partial_failure",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-detail-page-image--partial_failure/case.yaml"
+  },
+  {
+    "name": "commerce-detail-page-image--channel_export",
+    "source": "plugins/moai-seller/skills/commerce-detail-page-image/tests/test-cases.yaml",
+    "case_id": "channel_export",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-detail-page-image--channel_export/case.yaml"
+  },
+  {
+    "name": "commerce-detail-page-planner--beauty_without_efficacy_evidence",
+    "source": "plugins/moai-seller/skills/commerce-detail-page-planner/tests/test-cases.yaml",
+    "case_id": "beauty_without_efficacy_evidence",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-detail-page-planner--beauty_without_efficacy_evidence/case.yaml"
+  },
+  {
+    "name": "commerce-detail-page-planner--laptop_without_fixed_template",
+    "source": "plugins/moai-seller/skills/commerce-detail-page-planner/tests/test-cases.yaml",
+    "case_id": "laptop_without_fixed_template",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-detail-page-planner--laptop_without_fixed_template/case.yaml"
+  },
+  {
+    "name": "commerce-detail-page-planner--simple_request_without_claude_tool",
+    "source": "plugins/moai-seller/skills/commerce-detail-page-planner/tests/test-cases.yaml",
+    "case_id": "simple_request_without_claude_tool",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-detail-page-planner--simple_request_without_claude_tool/case.yaml"
+  },
+  {
+    "name": "commerce-detail-page-planner--brief_handoff",
+    "source": "plugins/moai-seller/skills/commerce-detail-page-planner/tests/test-cases.yaml",
+    "case_id": "brief_handoff",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-detail-page-planner--brief_handoff/case.yaml"
+  },
+  {
+    "name": "commerce-detail-page-planner--one_message_only",
+    "source": "plugins/moai-seller/skills/commerce-detail-page-planner/tests/test-cases.yaml",
+    "case_id": "one_message_only",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-detail-page-planner--one_message_only/case.yaml"
+  },
+  {
+    "name": "commerce-detail-page-planner--food_label_and_brief_format",
+    "source": "plugins/moai-seller/skills/commerce-detail-page-planner/tests/test-cases.yaml",
+    "case_id": "food_label_and_brief_format",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-detail-page-planner--food_label_and_brief_format/case.yaml"
+  },
+  {
+    "name": "commerce-detail-page-planner--b2b_self_service_checkout",
+    "source": "plugins/moai-seller/skills/commerce-detail-page-planner/tests/test-cases.yaml",
+    "case_id": "b2b_self_service_checkout",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-detail-page-planner--b2b_self_service_checkout/case.yaml"
+  },
+  {
+    "name": "commerce-detail-page-planner--subscription_without_ai_feature",
+    "source": "plugins/moai-seller/skills/commerce-detail-page-planner/tests/test-cases.yaml",
+    "case_id": "subscription_without_ai_feature",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-detail-page-planner--subscription_without_ai_feature/case.yaml"
+  },
+  {
+    "name": "commerce-detail-page-planner--child_product_without_age_evidence",
+    "source": "plugins/moai-seller/skills/commerce-detail-page-planner/tests/test-cases.yaml",
+    "case_id": "child_product_without_age_evidence",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-detail-page-planner--child_product_without_age_evidence/case.yaml"
+  },
+  {
+    "name": "commerce-detail-page-planner--beauty_before_after_without_rights",
+    "source": "plugins/moai-seller/skills/commerce-detail-page-planner/tests/test-cases.yaml",
+    "case_id": "beauty_before_after_without_rights",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-detail-page-planner--beauty_before_after_without_rights/case.yaml"
+  },
+  {
+    "name": "commerce-live-commerce--naver_verified_offer",
+    "source": "plugins/moai-seller/skills/commerce-live-commerce/tests/test-cases.yaml",
+    "case_id": "naver_verified_offer",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-live-commerce--naver_verified_offer/case.yaml"
+  },
+  {
+    "name": "commerce-live-commerce--grip_direct_broadcast",
+    "source": "plugins/moai-seller/skills/commerce-live-commerce/tests/test-cases.yaml",
+    "case_id": "grip_direct_broadcast",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-live-commerce--grip_direct_broadcast/case.yaml"
+  },
+  {
+    "name": "commerce-live-commerce--missing_live_setup",
+    "source": "plugins/moai-seller/skills/commerce-live-commerce/tests/test-cases.yaml",
+    "case_id": "missing_live_setup",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-live-commerce--missing_live_setup/case.yaml"
+  },
+  {
+    "name": "commerce-live-commerce--simple_opening_without_setup",
+    "source": "plugins/moai-seller/skills/commerce-live-commerce/tests/test-cases.yaml",
+    "case_id": "simple_opening_without_setup",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-live-commerce--simple_opening_without_setup/case.yaml"
+  },
+  {
+    "name": "commerce-live-commerce--no_invented_countdown",
+    "source": "plugins/moai-seller/skills/commerce-live-commerce/tests/test-cases.yaml",
+    "case_id": "no_invented_countdown",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-live-commerce--no_invented_countdown/case.yaml"
+  },
+  {
+    "name": "commerce-marketplace-coupang--unverified_image_upload",
+    "source": "plugins/moai-seller/skills/commerce-marketplace-coupang/tests/test-cases.yaml",
+    "case_id": "unverified_image_upload",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-marketplace-coupang--unverified_image_upload/case.yaml"
+  },
+  {
+    "name": "commerce-marketplace-coupang--delivery_type_without_contract",
+    "source": "plugins/moai-seller/skills/commerce-marketplace-coupang/tests/test-cases.yaml",
+    "case_id": "delivery_type_without_contract",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-marketplace-coupang--delivery_type_without_contract/case.yaml"
+  },
+  {
+    "name": "commerce-marketplace-coupang--unsupported_health_claim",
+    "source": "plugins/moai-seller/skills/commerce-marketplace-coupang/tests/test-cases.yaml",
+    "case_id": "unsupported_health_claim",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-marketplace-coupang--unsupported_health_claim/case.yaml"
+  },
+  {
+    "name": "commerce-marketplace-crowdfunding--wadiz_tech_draft",
+    "source": "plugins/moai-seller/skills/commerce-marketplace-crowdfunding/tests/test-cases.yaml",
+    "case_id": "wadiz_tech_draft",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-marketplace-crowdfunding--wadiz_tech_draft/case.yaml"
+  },
+  {
+    "name": "commerce-marketplace-crowdfunding--copy_only_without_account",
+    "source": "plugins/moai-seller/skills/commerce-marketplace-crowdfunding/tests/test-cases.yaml",
+    "case_id": "copy_only_without_account",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-marketplace-crowdfunding--copy_only_without_account/case.yaml"
+  },
+  {
+    "name": "commerce-marketplace-crowdfunding--tumblbug_book_draft",
+    "source": "plugins/moai-seller/skills/commerce-marketplace-crowdfunding/tests/test-cases.yaml",
+    "case_id": "tumblbug_book_draft",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-marketplace-crowdfunding--tumblbug_book_draft/case.yaml"
+  },
+  {
+    "name": "commerce-marketplace-crowdfunding--unverified_certification_and_claim",
+    "source": "plugins/moai-seller/skills/commerce-marketplace-crowdfunding/tests/test-cases.yaml",
+    "case_id": "unverified_certification_and_claim",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-marketplace-crowdfunding--unverified_certification_and_claim/case.yaml"
+  },
+  {
+    "name": "commerce-marketplace-curation--29cm_lifestyle_proposal",
+    "source": "plugins/moai-seller/skills/commerce-marketplace-curation/tests/test-cases.yaml",
+    "case_id": "29cm_lifestyle_proposal",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-marketplace-curation--29cm_lifestyle_proposal/case.yaml"
+  },
+  {
+    "name": "commerce-marketplace-curation--kakao_makers_production_plan",
+    "source": "plugins/moai-seller/skills/commerce-marketplace-curation/tests/test-cases.yaml",
+    "case_id": "kakao_makers_production_plan",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-marketplace-curation--kakao_makers_production_plan/case.yaml"
+  },
+  {
+    "name": "commerce-marketplace-curation--musinsa_new_brand",
+    "source": "plugins/moai-seller/skills/commerce-marketplace-curation/tests/test-cases.yaml",
+    "case_id": "musinsa_new_brand",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-marketplace-curation--musinsa_new_brand/case.yaml"
+  },
+  {
+    "name": "commerce-marketplace-curation--copy_only_without_partner_account",
+    "source": "plugins/moai-seller/skills/commerce-marketplace-curation/tests/test-cases.yaml",
+    "case_id": "copy_only_without_partner_account",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-marketplace-curation--copy_only_without_partner_account/case.yaml"
+  },
+  {
+    "name": "commerce-marketplace-d2c--simple_comparison_without_account",
+    "source": "plugins/moai-seller/skills/commerce-marketplace-d2c/tests/test-cases.yaml",
+    "case_id": "simple_comparison_without_account",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-marketplace-d2c--simple_comparison_without_account/case.yaml"
+  },
+  {
+    "name": "commerce-marketplace-d2c--imweb_retired_plan",
+    "source": "plugins/moai-seller/skills/commerce-marketplace-d2c/tests/test-cases.yaml",
+    "case_id": "imweb_retired_plan",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-marketplace-d2c--imweb_retired_plan/case.yaml"
+  },
+  {
+    "name": "commerce-marketplace-d2c--no_business_registration",
+    "source": "plugins/moai-seller/skills/commerce-marketplace-d2c/tests/test-cases.yaml",
+    "case_id": "no_business_registration",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-marketplace-d2c--no_business_registration/case.yaml"
+  },
+  {
+    "name": "commerce-marketplace-d2c--cost_comparison_missing_contract",
+    "source": "plugins/moai-seller/skills/commerce-marketplace-d2c/tests/test-cases.yaml",
+    "case_id": "cost_comparison_missing_contract",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-marketplace-d2c--cost_comparison_missing_contract/case.yaml"
+  },
+  {
+    "name": "commerce-marketplace-naver--smartstore_unverified_image",
+    "source": "plugins/moai-seller/skills/commerce-marketplace-naver/tests/test-cases.yaml",
+    "case_id": "smartstore_unverified_image",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-marketplace-naver--smartstore_unverified_image/case.yaml"
+  },
+  {
+    "name": "commerce-marketplace-naver--multiple_markets",
+    "source": "plugins/moai-seller/skills/commerce-marketplace-naver/tests/test-cases.yaml",
+    "case_id": "multiple_markets",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-marketplace-naver--multiple_markets/case.yaml"
+  },
+  {
+    "name": "commerce-marketplace-naver--review_manipulation",
+    "source": "plugins/moai-seller/skills/commerce-marketplace-naver/tests/test-cases.yaml",
+    "case_id": "review_manipulation",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-marketplace-naver--review_manipulation/case.yaml"
+  },
+  {
+    "name": "commerce-product-photo-brief--happy_5_photos_electronics",
+    "source": "plugins/moai-seller/skills/commerce-product-photo-brief/tests/test-cases.yaml",
+    "case_id": "happy_5_photos_electronics",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-product-photo-brief--happy_5_photos_electronics/case.yaml"
+  },
+  {
+    "name": "commerce-product-photo-brief--edge_minimum_1_photo",
+    "source": "plugins/moai-seller/skills/commerce-product-photo-brief/tests/test-cases.yaml",
+    "case_id": "edge_minimum_1_photo",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-product-photo-brief--edge_minimum_1_photo/case.yaml"
+  },
+  {
+    "name": "commerce-product-photo-brief--failure_unsupported_format",
+    "source": "plugins/moai-seller/skills/commerce-product-photo-brief/tests/test-cases.yaml",
+    "case_id": "failure_unsupported_format",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-seller/evals/generated/commerce-product-photo-brief--failure_unsupported_format/case.yaml"
+  },
+  {
+    "name": "book-author-bio--TC-01-3-lengths",
+    "source": "plugins/moai-writer/skills/book-author-bio/tests/test-cases.yaml",
+    "case_id": "TC-01-3-lengths",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-author-bio--TC-01-3-lengths/case.yaml"
+  },
+  {
+    "name": "book-author-bio--TC-02-3-trust-signals",
+    "source": "plugins/moai-writer/skills/book-author-bio/tests/test-cases.yaml",
+    "case_id": "TC-02-3-trust-signals",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-author-bio--TC-02-3-trust-signals/case.yaml"
+  },
+  {
+    "name": "book-author-bio--TC-03-author-message-4-sections",
+    "source": "plugins/moai-writer/skills/book-author-bio/tests/test-cases.yaml",
+    "case_id": "TC-03-author-message-4-sections",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-author-bio--TC-03-author-message-4-sections/case.yaml"
+  },
+  {
+    "name": "book-author-bio--TC-04-genre-preset-tech",
+    "source": "plugins/moai-writer/skills/book-author-bio/tests/test-cases.yaml",
+    "case_id": "TC-04-genre-preset-tech",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-author-bio--TC-04-genre-preset-tech/case.yaml"
+  },
+  {
+    "name": "book-author-bio--TC-05-genre-preset-essay",
+    "source": "plugins/moai-writer/skills/book-author-bio/tests/test-cases.yaml",
+    "case_id": "TC-05-genre-preset-essay",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-author-bio--TC-05-genre-preset-essay/case.yaml"
+  },
+  {
+    "name": "book-author-bio--TC-06-sns-bios",
+    "source": "plugins/moai-writer/skills/book-author-bio/tests/test-cases.yaml",
+    "case_id": "TC-06-sns-bios",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-author-bio--TC-06-sns-bios/case.yaml"
+  },
+  {
+    "name": "book-author-bio--TC-09-no-invented-credentials",
+    "source": "plugins/moai-writer/skills/book-author-bio/tests/test-cases.yaml",
+    "case_id": "TC-09-no-invented-credentials",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-author-bio--TC-09-no-invented-credentials/case.yaml"
+  },
+  {
+    "name": "book-author-bio--TC-07-author-message-traps",
+    "source": "plugins/moai-writer/skills/book-author-bio/tests/test-cases.yaml",
+    "case_id": "TC-07-author-message-traps",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-author-bio--TC-07-author-message-traps/case.yaml"
+  },
+  {
+    "name": "book-author-bio--TC-08-persona-simulation",
+    "source": "plugins/moai-writer/skills/book-author-bio/tests/test-cases.yaml",
+    "case_id": "TC-08-persona-simulation",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-author-bio--TC-08-persona-simulation/case.yaml"
+  },
+  {
+    "name": "book-chapter-writer--TC-01-structure",
+    "source": "plugins/moai-writer/skills/book-chapter-writer/tests/test-cases.yaml",
+    "case_id": "TC-01-structure",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-chapter-writer--TC-01-structure/case.yaml"
+  },
+  {
+    "name": "book-chapter-writer--TC-02-genre-style-practical",
+    "source": "plugins/moai-writer/skills/book-chapter-writer/tests/test-cases.yaml",
+    "case_id": "TC-02-genre-style-practical",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-chapter-writer--TC-02-genre-style-practical/case.yaml"
+  },
+  {
+    "name": "book-chapter-writer--TC-03-genre-style-tech",
+    "source": "plugins/moai-writer/skills/book-chapter-writer/tests/test-cases.yaml",
+    "case_id": "TC-03-genre-style-tech",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-chapter-writer--TC-03-genre-style-tech/case.yaml"
+  },
+  {
+    "name": "book-chapter-writer--TC-04-genre-style-essay",
+    "source": "plugins/moai-writer/skills/book-chapter-writer/tests/test-cases.yaml",
+    "case_id": "TC-04-genre-style-essay",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-chapter-writer--TC-04-genre-style-essay/case.yaml"
+  },
+  {
+    "name": "book-chapter-writer--TC-05-genre-style-fiction",
+    "source": "plugins/moai-writer/skills/book-chapter-writer/tests/test-cases.yaml",
+    "case_id": "TC-05-genre-style-fiction",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-chapter-writer--TC-05-genre-style-fiction/case.yaml"
+  },
+  {
+    "name": "book-chapter-writer--TC-06-200ja-----count",
+    "source": "plugins/moai-writer/skills/book-chapter-writer/tests/test-cases.yaml",
+    "case_id": "TC-06-200ja-원고지-count",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-chapter-writer--TC-06-200ja-----count/case.yaml"
+  },
+  {
+    "name": "book-chapter-writer--TC-07-citation-handling",
+    "source": "plugins/moai-writer/skills/book-chapter-writer/tests/test-cases.yaml",
+    "case_id": "TC-07-citation-handling",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-chapter-writer--TC-07-citation-handling/case.yaml"
+  },
+  {
+    "name": "book-chapter-writer--TC-08-verbatim-quote-rejection",
+    "source": "plugins/moai-writer/skills/book-chapter-writer/tests/test-cases.yaml",
+    "case_id": "TC-08-verbatim-quote-rejection",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-chapter-writer--TC-08-verbatim-quote-rejection/case.yaml"
+  },
+  {
+    "name": "book-chapter-writer--TC-09-chain-post-review",
+    "source": "plugins/moai-writer/skills/book-chapter-writer/tests/test-cases.yaml",
+    "case_id": "TC-09-chain-post-review",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-chapter-writer--TC-09-chain-post-review/case.yaml"
+  },
+  {
+    "name": "book-chapter-writer--TC-10-publisher-unknown",
+    "source": "plugins/moai-writer/skills/book-chapter-writer/tests/test-cases.yaml",
+    "case_id": "TC-10-publisher-unknown",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-chapter-writer--TC-10-publisher-unknown/case.yaml"
+  },
+  {
+    "name": "book-chapter-writer--TC-11-licensed-quotation",
+    "source": "plugins/moai-writer/skills/book-chapter-writer/tests/test-cases.yaml",
+    "case_id": "TC-11-licensed-quotation",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-chapter-writer--TC-11-licensed-quotation/case.yaml"
+  },
+  {
+    "name": "book-chapter-writer--TC-12-review-meaning",
+    "source": "plugins/moai-writer/skills/book-chapter-writer/tests/test-cases.yaml",
+    "case_id": "TC-12-review-meaning",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-chapter-writer--TC-12-review-meaning/case.yaml"
+  },
+  {
+    "name": "book-concept-planner--TC-01-missing-reader-data",
+    "source": "plugins/moai-writer/skills/book-concept-planner/tests/test-cases.yaml",
+    "case_id": "TC-01-missing-reader-data",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-concept-planner--TC-01-missing-reader-data/case.yaml"
+  },
+  {
+    "name": "book-concept-planner--TC-02-competitor-evidence",
+    "source": "plugins/moai-writer/skills/book-concept-planner/tests/test-cases.yaml",
+    "case_id": "TC-02-competitor-evidence",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-concept-planner--TC-02-competitor-evidence/case.yaml"
+  },
+  {
+    "name": "book-concept-planner--TC-03-tech-manuscript-size",
+    "source": "plugins/moai-writer/skills/book-concept-planner/tests/test-cases.yaml",
+    "case_id": "TC-03-tech-manuscript-size",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-concept-planner--TC-03-tech-manuscript-size/case.yaml"
+  },
+  {
+    "name": "book-concept-planner--TC-04-submission-route",
+    "source": "plugins/moai-writer/skills/book-concept-planner/tests/test-cases.yaml",
+    "case_id": "TC-04-submission-route",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-concept-planner--TC-04-submission-route/case.yaml"
+  },
+  {
+    "name": "book-concept-planner--TC-05-self-publishing",
+    "source": "plugins/moai-writer/skills/book-concept-planner/tests/test-cases.yaml",
+    "case_id": "TC-05-self-publishing",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-concept-planner--TC-05-self-publishing/case.yaml"
+  },
+  {
+    "name": "book-concept-planner--TC-06-optional-review",
+    "source": "plugins/moai-writer/skills/book-concept-planner/tests/test-cases.yaml",
+    "case_id": "TC-06-optional-review",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-concept-planner--TC-06-optional-review/case.yaml"
+  },
+  {
+    "name": "book-outline-designer--TC-01-flexible-levels",
+    "source": "plugins/moai-writer/skills/book-outline-designer/tests/test-cases.yaml",
+    "case_id": "TC-01-flexible-levels",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-outline-designer--TC-01-flexible-levels/case.yaml"
+  },
+  {
+    "name": "book-outline-designer--TC-02-count-basis",
+    "source": "plugins/moai-writer/skills/book-outline-designer/tests/test-cases.yaml",
+    "case_id": "TC-02-count-basis",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-outline-designer--TC-02-count-basis/case.yaml"
+  },
+  {
+    "name": "book-outline-designer--TC-03-synopsis",
+    "source": "plugins/moai-writer/skills/book-outline-designer/tests/test-cases.yaml",
+    "case_id": "TC-03-synopsis",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-outline-designer--TC-03-synopsis/case.yaml"
+  },
+  {
+    "name": "book-outline-designer--TC-04-reader-reaction",
+    "source": "plugins/moai-writer/skills/book-outline-designer/tests/test-cases.yaml",
+    "case_id": "TC-04-reader-reaction",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-outline-designer--TC-04-reader-reaction/case.yaml"
+  },
+  {
+    "name": "book-outline-designer--TC-05-publisher-format",
+    "source": "plugins/moai-writer/skills/book-outline-designer/tests/test-cases.yaml",
+    "case_id": "TC-05-publisher-format",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-outline-designer--TC-05-publisher-format/case.yaml"
+  },
+  {
+    "name": "book-outline-designer--TC-06-concept-handoff",
+    "source": "plugins/moai-writer/skills/book-outline-designer/tests/test-cases.yaml",
+    "case_id": "TC-06-concept-handoff",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-outline-designer--TC-06-concept-handoff/case.yaml"
+  },
+  {
+    "name": "book-proposal-writer--TC-01-3-package",
+    "source": "plugins/moai-writer/skills/book-proposal-writer/tests/test-cases.yaml",
+    "case_id": "TC-01-3-package",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-proposal-writer--TC-01-3-package/case.yaml"
+  },
+  {
+    "name": "book-proposal-writer--TC-02-5-sections",
+    "source": "plugins/moai-writer/skills/book-proposal-writer/tests/test-cases.yaml",
+    "case_id": "TC-02-5-sections",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-proposal-writer--TC-02-5-sections/case.yaml"
+  },
+  {
+    "name": "book-proposal-writer--TC-03-marketing-5-categories",
+    "source": "plugins/moai-writer/skills/book-proposal-writer/tests/test-cases.yaml",
+    "case_id": "TC-03-marketing-5-categories",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-proposal-writer--TC-03-marketing-5-categories/case.yaml"
+  },
+  {
+    "name": "book-proposal-writer--TC-04-publisher-format-tech",
+    "source": "plugins/moai-writer/skills/book-proposal-writer/tests/test-cases.yaml",
+    "case_id": "TC-04-publisher-format-tech",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-proposal-writer--TC-04-publisher-format-tech/case.yaml"
+  },
+  {
+    "name": "book-proposal-writer--TC-05-publisher-format-literary",
+    "source": "plugins/moai-writer/skills/book-proposal-writer/tests/test-cases.yaml",
+    "case_id": "TC-05-publisher-format-literary",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-proposal-writer--TC-05-publisher-format-literary/case.yaml"
+  },
+  {
+    "name": "book-proposal-writer--TC-06-rejection-signal-detection",
+    "source": "plugins/moai-writer/skills/book-proposal-writer/tests/test-cases.yaml",
+    "case_id": "TC-06-rejection-signal-detection",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-proposal-writer--TC-06-rejection-signal-detection/case.yaml"
+  },
+  {
+    "name": "book-proposal-writer--TC-07-sample-chapter-quality",
+    "source": "plugins/moai-writer/skills/book-proposal-writer/tests/test-cases.yaml",
+    "case_id": "TC-07-sample-chapter-quality",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-proposal-writer--TC-07-sample-chapter-quality/case.yaml"
+  },
+  {
+    "name": "book-proposal-writer--TC-08-stereotype-publisher-naming",
+    "source": "plugins/moai-writer/skills/book-proposal-writer/tests/test-cases.yaml",
+    "case_id": "TC-08-stereotype-publisher-naming",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-proposal-writer--TC-08-stereotype-publisher-naming/case.yaml"
+  },
+  {
+    "name": "book-proposal-writer--TC-09-unsourced-market",
+    "source": "plugins/moai-writer/skills/book-proposal-writer/tests/test-cases.yaml",
+    "case_id": "TC-09-unsourced-market",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-proposal-writer--TC-09-unsourced-market/case.yaml"
+  },
+  {
+    "name": "book-proposal-writer--TC-10-official-submission-fixture",
+    "source": "plugins/moai-writer/skills/book-proposal-writer/tests/test-cases.yaml",
+    "case_id": "TC-10-official-submission-fixture",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-proposal-writer--TC-10-official-submission-fixture/case.yaml"
+  },
+  {
+    "name": "book-proposal-writer--TC-11-reader-hypothesis-handoff",
+    "source": "plugins/moai-writer/skills/book-proposal-writer/tests/test-cases.yaml",
+    "case_id": "TC-11-reader-hypothesis-handoff",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-proposal-writer--TC-11-reader-hypothesis-handoff/case.yaml"
+  },
+  {
+    "name": "book-publisher-matcher--current_submission_route",
+    "source": "plugins/moai-writer/skills/book-publisher-matcher/tests/test-cases.yaml",
+    "case_id": "current_submission_route",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-publisher-matcher--current_submission_route/case.yaml"
+  },
+  {
+    "name": "book-publisher-matcher--unknown_contract",
+    "source": "plugins/moai-writer/skills/book-publisher-matcher/tests/test-cases.yaml",
+    "case_id": "unknown_contract",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-publisher-matcher--unknown_contract/case.yaml"
+  },
+  {
+    "name": "book-publisher-matcher--no_verified_candidates",
+    "source": "plugins/moai-writer/skills/book-publisher-matcher/tests/test-cases.yaml",
+    "case_id": "no_verified_candidates",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-publisher-matcher--no_verified_candidates/case.yaml"
+  },
+  {
+    "name": "book-publisher-matcher--no_external_send",
+    "source": "plugins/moai-writer/skills/book-publisher-matcher/tests/test-cases.yaml",
+    "case_id": "no_external_send",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-publisher-matcher--no_external_send/case.yaml"
+  },
+  {
+    "name": "book-revision-coach--TC-01-7-step-checklist",
+    "source": "plugins/moai-writer/skills/book-revision-coach/tests/test-cases.yaml",
+    "case_id": "TC-01-7-step-checklist",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-revision-coach--TC-01-7-step-checklist/case.yaml"
+  },
+  {
+    "name": "book-revision-coach--TC-02-genre-style-consistency",
+    "source": "plugins/moai-writer/skills/book-revision-coach/tests/test-cases.yaml",
+    "case_id": "TC-02-genre-style-consistency",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-revision-coach--TC-02-genre-style-consistency/case.yaml"
+  },
+  {
+    "name": "book-revision-coach--TC-03-chapter-flow-check",
+    "source": "plugins/moai-writer/skills/book-revision-coach/tests/test-cases.yaml",
+    "case_id": "TC-03-chapter-flow-check",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-revision-coach--TC-03-chapter-flow-check/case.yaml"
+  },
+  {
+    "name": "book-revision-coach--TC-04-citation-completeness",
+    "source": "plugins/moai-writer/skills/book-revision-coach/tests/test-cases.yaml",
+    "case_id": "TC-04-citation-completeness",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-revision-coach--TC-04-citation-completeness/case.yaml"
+  },
+  {
+    "name": "book-revision-coach--TC-05-volume-balance",
+    "source": "plugins/moai-writer/skills/book-revision-coach/tests/test-cases.yaml",
+    "case_id": "TC-05-volume-balance",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-revision-coach--TC-05-volume-balance/case.yaml"
+  },
+  {
+    "name": "book-revision-coach--TC-06-visual-asset-integrity",
+    "source": "plugins/moai-writer/skills/book-revision-coach/tests/test-cases.yaml",
+    "case_id": "TC-06-visual-asset-integrity",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-revision-coach--TC-06-visual-asset-integrity/case.yaml"
+  },
+  {
+    "name": "book-revision-coach--TC-07-terminology-consistency",
+    "source": "plugins/moai-writer/skills/book-revision-coach/tests/test-cases.yaml",
+    "case_id": "TC-07-terminology-consistency",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-revision-coach--TC-07-terminology-consistency/case.yaml"
+  },
+  {
+    "name": "book-revision-coach--TC-08-publisher-style-compliance",
+    "source": "plugins/moai-writer/skills/book-revision-coach/tests/test-cases.yaml",
+    "case_id": "TC-08-publisher-style-compliance",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-revision-coach--TC-08-publisher-style-compliance/case.yaml"
+  },
+  {
+    "name": "book-revision-coach--TC-09-chain-recommendation",
+    "source": "plugins/moai-writer/skills/book-revision-coach/tests/test-cases.yaml",
+    "case_id": "TC-09-chain-recommendation",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-revision-coach--TC-09-chain-recommendation/case.yaml"
+  },
+  {
+    "name": "book-target-reader--TC-01-persona-card",
+    "source": "plugins/moai-writer/skills/book-target-reader/tests/test-cases.yaml",
+    "case_id": "TC-01-persona-card",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-target-reader--TC-01-persona-card/case.yaml"
+  },
+  {
+    "name": "book-target-reader--TC-02-jtbd-3-dimensions",
+    "source": "plugins/moai-writer/skills/book-target-reader/tests/test-cases.yaml",
+    "case_id": "TC-02-jtbd-3-dimensions",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-target-reader--TC-02-jtbd-3-dimensions/case.yaml"
+  },
+  {
+    "name": "book-target-reader--TC-03-painpoint-matrix",
+    "source": "plugins/moai-writer/skills/book-target-reader/tests/test-cases.yaml",
+    "case_id": "TC-03-painpoint-matrix",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-target-reader--TC-03-painpoint-matrix/case.yaml"
+  },
+  {
+    "name": "book-target-reader--TC-04-genre-preset-tech",
+    "source": "plugins/moai-writer/skills/book-target-reader/tests/test-cases.yaml",
+    "case_id": "TC-04-genre-preset-tech",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-target-reader--TC-04-genre-preset-tech/case.yaml"
+  },
+  {
+    "name": "book-target-reader--TC-05-reading-behavior",
+    "source": "plugins/moai-writer/skills/book-target-reader/tests/test-cases.yaml",
+    "case_id": "TC-05-reading-behavior",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-target-reader--TC-05-reading-behavior/case.yaml"
+  },
+  {
+    "name": "book-target-reader--TC-06-no-verbatim-quotes",
+    "source": "plugins/moai-writer/skills/book-target-reader/tests/test-cases.yaml",
+    "case_id": "TC-06-no-verbatim-quotes",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-target-reader--TC-06-no-verbatim-quotes/case.yaml"
+  },
+  {
+    "name": "book-target-reader--TC-07-stereotype-avoidance",
+    "source": "plugins/moai-writer/skills/book-target-reader/tests/test-cases.yaml",
+    "case_id": "TC-07-stereotype-avoidance",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-target-reader--TC-07-stereotype-avoidance/case.yaml"
+  },
+  {
+    "name": "book-target-reader--TC-08-verification-evidence",
+    "source": "plugins/moai-writer/skills/book-target-reader/tests/test-cases.yaml",
+    "case_id": "TC-08-verification-evidence",
+    "execution_status": "NOT-RUN",
+    "eval": "plugins/moai-writer/evals/generated/book-target-reader--TC-08-verification-evidence/case.yaml"
+  }
+]

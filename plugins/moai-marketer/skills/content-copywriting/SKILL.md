@@ -1,7 +1,8 @@
 ---
 name: content-copywriting
 description: 제품·브랜드 자료를 바탕으로 헤드라인, CTA, 슬로건, 광고 문구와 스토리보드 카피를 작성합니다. 성능·가격·후기·희소성 주장은 실제 근거와 조건을 확인합니다.
-version: "1.1.3"
+metadata:
+  version: "1.1.4"
 ---
 
 # 카피라이팅

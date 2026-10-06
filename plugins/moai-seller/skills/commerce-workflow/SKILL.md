@@ -2,7 +2,8 @@
 name: commerce-workflow
 description: |
   상품 상세페이지·마켓 등록·가격·프로모션·재구매 계획을 함께 준비할 때 상품 사실과 채널 조건을 확인하고 moai-seller의 commerce-* 스킬로 연결합니다.
-version: "1.0.1"
+metadata:
+  version: "1.0.2"
 ---
 
 # 셀러 작업 경로

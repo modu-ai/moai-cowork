@@ -3,7 +3,8 @@ name: marketing-pixel-audit
 description: |
   Meta Pixel·Conversions API와 Google 태그·전환 측정의 설치 및 이벤트 흐름을 실제 증거로 점검합니다.
   사이트 화면만으로 서버 이벤트나 광고 계정 설정을 검증했다고 말하지 않습니다.
-version: "1.1.1"
+metadata:
+  version: "1.1.2"
 ---
 
 # 광고 전환 측정 점검

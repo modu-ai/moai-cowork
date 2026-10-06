@@ -4,7 +4,8 @@ description: |
   HWP·HWPX·HWPML·PDF·XLSX·DOCX 등 문서의 내용을 읽고 표·메타데이터·양식 필드를 확인할 때 사용합니다.
   연결된 kordoc MCP의 실제 도구로 형식을 감지하고 결과와 경고를 원본에 대조합니다.
   요청 예: "이 HWP 파일 읽어줘", "PDF 표 추출해줘", "두 문서 비교해줘", "양식 필드 확인해줘".
-version: "1.1.1"
+metadata:
+  version: "1.1.2"
 ---
 
 # 문서 읽기 (doc-reader)

@@ -10,7 +10,8 @@ description: |
   - "/media-gemini-3-image-prompt" (직접 호출)
 
   본 스킬은 프롬프트 텍스트 산출 전용입니다. Gemini 이미지 자체 생성은 현재 앱에 Gemini 모델을 실행하는 연결이 확인될 때만 진행하고, 연결이 없으면 완성된 프롬프트를 제공합니다. 사용자가 Higgsfield를 지정했을 때만 해당 연결을 사용합니다.
-version: "1.1.8"
+metadata:
+  version: "1.1.9"
 ---
 
 # Gemini 3 Pro Image Prompt Builder — 5-Component + 3-모델 동시 출력

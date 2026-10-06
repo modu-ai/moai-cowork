@@ -1,0 +1,37 @@
+{
+  "assets": {
+    "headingFont": "NeoDunggeunmo, \"Noto Sans JP\", \"Noto Sans SC\", \"Noto Sans TC\", monospace",
+    "images": [
+      {
+        "complete": true,
+        "height": 1024,
+        "src": "assets/parallel-pixel-ko.png",
+        "width": 1536
+      },
+      {
+        "complete": true,
+        "height": 1024,
+        "src": "assets/parallel-pixel-ko.png",
+        "width": 1536
+      },
+      {
+        "complete": true,
+        "height": 1024,
+        "src": "assets/context-pixel-ko.png",
+        "width": 1536
+      }
+    ],
+    "pixelFontsLoaded": "true"
+  },
+  "before": {
+    "content": 768,
+    "left": 0,
+    "width": 333
+  },
+  "after": {
+    "content": 768,
+    "left": 40,
+    "width": 333
+  },
+  "errors": []
+}

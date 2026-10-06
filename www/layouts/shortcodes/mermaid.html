@@ -1,7 +1,2 @@
-<!-- prettier-ignore-start -->
-{{- /* mermaid shortcode override: 본문 inline <script defer>는 동작 보장 안 되므로
-       마크업만 출력. bundle 로드와 init은 foot.html에서 동적 처리. */ -}}
-<!-- prettier-ignore-end -->
-<pre class="gdoc-mermaid mermaid{{ with .Get "class" }}{{ printf " %s" . }}{{ end }} text-center">
-{{- .Inner | safeHTML -}}
-</pre>
+{{- /* 글꼴을 불러온 뒤 foot.html의 현재 Mermaid 설정으로 렌더링한다. */ -}}
+<pre class="gdoc-mermaid kindle-mermaid" role="region" tabindex="0" aria-label="본문의 업무 흐름 도식">{{ .Inner }}</pre>

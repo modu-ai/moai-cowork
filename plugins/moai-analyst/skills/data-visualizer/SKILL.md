@@ -8,7 +8,8 @@ description: |
   - "시각화해줘"
   - "대시보드 만들어줘"
   데이터 형식과 사용자의 기존 프로젝트에 맞춰 표·Mermaid·단일 HTML 차트·기존 앱의 차트 라이브러리 중 필요한 방식을 선택합니다. PPT·Word가 필요하면 사용할 수 있는 문서 도구로 연결합니다.
-version: "1.1.2"
+metadata:
+  version: "1.1.3"
 ---
 
 # 데이터 시각화 (Data Visualizer)

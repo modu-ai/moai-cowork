@@ -1,0 +1,457 @@
+[
+  {
+    "source": "https://cowork.mo.ai.kr/getting-started",
+    "href": "first-task/",
+    "target": "https://cowork.mo.ai.kr/first-task/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/getting-started",
+    "href": "install/",
+    "target": "https://cowork.mo.ai.kr/install/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/getting-started",
+    "href": "concepts/",
+    "target": "https://cowork.mo.ai.kr/concepts/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/getting-started",
+    "href": "quick-start/",
+    "target": "https://cowork.mo.ai.kr/quick-start/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/getting-started",
+    "href": "first-task/",
+    "target": "https://cowork.mo.ai.kr/first-task/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/getting-started",
+    "href": "install/",
+    "target": "https://cowork.mo.ai.kr/install/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/getting-started",
+    "href": "concepts/",
+    "target": "https://cowork.mo.ai.kr/concepts/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/plugins/install/",
+    "href": "mcp/credentials/",
+    "target": "https://cowork.mo.ai.kr/plugins/install/mcp/credentials/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/plugins/install/",
+    "href": "higgsfield-setup/",
+    "target": "https://cowork.mo.ai.kr/plugins/install/higgsfield-setup/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/plugins/install/",
+    "href": "higgsfield-setup/",
+    "target": "https://cowork.mo.ai.kr/plugins/install/higgsfield-setup/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/plugins/install/",
+    "href": "mcp/credentials/",
+    "target": "https://cowork.mo.ai.kr/plugins/install/mcp/credentials/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/cookbook",
+    "href": "./projects/",
+    "target": "https://cowork.mo.ai.kr/projects/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/cookbook",
+    "href": "./tracks/",
+    "target": "https://cowork.mo.ai.kr/tracks/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/cookbook",
+    "href": "./best-practices/",
+    "target": "https://cowork.mo.ai.kr/best-practices/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/cookbook",
+    "href": "./automation-recipes/",
+    "target": "https://cowork.mo.ai.kr/automation-recipes/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/cookbook",
+    "href": "./report-automation/",
+    "target": "https://cowork.mo.ai.kr/report-automation/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/cookbook",
+    "href": "./business-plan/",
+    "target": "https://cowork.mo.ai.kr/business-plan/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/cookbook",
+    "href": "./ir-deck/",
+    "target": "https://cowork.mo.ai.kr/ir-deck/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/cookbook",
+    "href": "./contract-review/",
+    "target": "https://cowork.mo.ai.kr/contract-review/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/cookbook",
+    "href": "./troubleshooting/",
+    "target": "https://cowork.mo.ai.kr/troubleshooting/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/cookbook/best-practices",
+    "href": "../automation-recipes/",
+    "target": "https://cowork.mo.ai.kr/automation-recipes/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/cookbook/business-plan",
+    "href": "../ir-deck/",
+    "target": "https://cowork.mo.ai.kr/ir-deck/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/cookbook/legal-nda-batch",
+    "href": "../contract-review/",
+    "target": "https://cowork.mo.ai.kr/contract-review/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/cookbook/legal-nda-batch",
+    "href": "../troubleshooting/",
+    "target": "https://cowork.mo.ai.kr/troubleshooting/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/cookbook/skill-chaining",
+    "href": "../blog-pipeline/",
+    "target": "https://cowork.mo.ai.kr/blog-pipeline/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/cookbook/skill-chaining",
+    "href": "../business-plan/",
+    "target": "https://cowork.mo.ai.kr/business-plan/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/cookbook/tracks/track-data/",
+    "href": "../report-automation/",
+    "target": "https://cowork.mo.ai.kr/cookbook/tracks/report-automation/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/cookbook/tracks/track-documents/",
+    "href": "../contract-review/",
+    "target": "https://cowork.mo.ai.kr/cookbook/tracks/contract-review/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/cookbook/tracks/track-documents/",
+    "href": "../business-plan/",
+    "target": "https://cowork.mo.ai.kr/cookbook/tracks/business-plan/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/getting-started/concepts",
+    "href": "../first-task/",
+    "target": "https://cowork.mo.ai.kr/first-task/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/getting-started/concepts",
+    "href": "../first-task/",
+    "target": "https://cowork.mo.ai.kr/first-task/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/getting-started/first-task",
+    "href": "../concepts/",
+    "target": "https://cowork.mo.ai.kr/concepts/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/getting-started/first-task",
+    "href": "../quick-start/",
+    "target": "https://cowork.mo.ai.kr/quick-start/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/getting-started/install",
+    "href": "../concepts/",
+    "target": "https://cowork.mo.ai.kr/concepts/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/getting-started/install",
+    "href": "../first-task/",
+    "target": "https://cowork.mo.ai.kr/first-task/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/getting-started/quick-start",
+    "href": "../install/",
+    "target": "https://cowork.mo.ai.kr/install/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/help/account",
+    "href": "../plans-billing/",
+    "target": "https://cowork.mo.ai.kr/plans-billing/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/help/account",
+    "href": "../personalization/",
+    "target": "https://cowork.mo.ai.kr/personalization/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/help/account",
+    "href": "../conversations/",
+    "target": "https://cowork.mo.ai.kr/conversations/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/help/account",
+    "href": "../troubleshooting/",
+    "target": "https://cowork.mo.ai.kr/troubleshooting/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/moai-agents",
+    "href": "pm/",
+    "target": "https://cowork.mo.ai.kr/pm/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/moai-agents",
+    "href": "coworker/",
+    "target": "https://cowork.mo.ai.kr/coworker/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/moai-agents",
+    "href": "writer/",
+    "target": "https://cowork.mo.ai.kr/writer/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/moai-agents",
+    "href": "story/",
+    "target": "https://cowork.mo.ai.kr/story/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/moai-agents",
+    "href": "marketer/",
+    "target": "https://cowork.mo.ai.kr/marketer/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/moai-agents",
+    "href": "media/",
+    "target": "https://cowork.mo.ai.kr/media/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/moai-agents",
+    "href": "seller/",
+    "target": "https://cowork.mo.ai.kr/seller/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/moai-agents",
+    "href": "officer/",
+    "target": "https://cowork.mo.ai.kr/officer/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/moai-agents",
+    "href": "analyst/",
+    "target": "https://cowork.mo.ai.kr/analyst/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/moai-agents",
+    "href": "lawyer/",
+    "target": "https://cowork.mo.ai.kr/lawyer/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/moai-agents",
+    "href": "accountant/",
+    "target": "https://cowork.mo.ai.kr/accountant/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/moai-agents",
+    "href": "recruiter/",
+    "target": "https://cowork.mo.ai.kr/recruiter/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/moai-agents",
+    "href": "cs/",
+    "target": "https://cowork.mo.ai.kr/cs/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/moai-agents",
+    "href": "consultant/",
+    "target": "https://cowork.mo.ai.kr/consultant/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/moai-agents",
+    "href": "career/",
+    "target": "https://cowork.mo.ai.kr/career/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/moai-agents",
+    "href": "tutor/",
+    "target": "https://cowork.mo.ai.kr/tutor/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/moai-agents",
+    "href": "designer/",
+    "target": "https://cowork.mo.ai.kr/designer/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/moai-agents",
+    "href": "threads-poster/",
+    "target": "https://cowork.mo.ai.kr/threads-poster/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/moai-agents",
+    "href": "pm/",
+    "target": "https://cowork.mo.ai.kr/pm/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/moai-agents/career",
+    "href": "../recruiter/",
+    "target": "https://cowork.mo.ai.kr/recruiter/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/moai-agents/cs",
+    "href": "../seller/",
+    "target": "https://cowork.mo.ai.kr/seller/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/moai-agents/marketer",
+    "href": "../media/",
+    "target": "https://cowork.mo.ai.kr/media/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/moai-agents/marketer",
+    "href": "../media/",
+    "target": "https://cowork.mo.ai.kr/media/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/moai-agents/marketer",
+    "href": "../media/",
+    "target": "https://cowork.mo.ai.kr/media/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/moai-agents/marketer",
+    "href": "../media/",
+    "target": "https://cowork.mo.ai.kr/media/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/moai-agents/officer",
+    "href": "../analyst/",
+    "target": "https://cowork.mo.ai.kr/analyst/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/moai-agents/officer",
+    "href": "../analyst/",
+    "target": "https://cowork.mo.ai.kr/analyst/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/moai-agents/recruiter",
+    "href": "../career/",
+    "target": "https://cowork.mo.ai.kr/career/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/moai-agents/seller",
+    "href": "../cs/",
+    "target": "https://cowork.mo.ai.kr/cs/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/moai-agents/writer",
+    "href": "../story/",
+    "target": "https://cowork.mo.ai.kr/story/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/plugins",
+    "href": "install/",
+    "target": "https://cowork.mo.ai.kr/install/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/plugins",
+    "href": "agents/",
+    "target": "https://cowork.mo.ai.kr/agents/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/plugins",
+    "href": "teams/",
+    "target": "https://cowork.mo.ai.kr/teams/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/plugins",
+    "href": "higgsfield-setup/",
+    "target": "https://cowork.mo.ai.kr/higgsfield-setup/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/plugins",
+    "href": "install/",
+    "target": "https://cowork.mo.ai.kr/install/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/plugins",
+    "href": "agents/",
+    "target": "https://cowork.mo.ai.kr/agents/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/plugins",
+    "href": "teams/",
+    "target": "https://cowork.mo.ai.kr/teams/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/plugins",
+    "href": "license/",
+    "target": "https://cowork.mo.ai.kr/license/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/plugins/agents",
+    "href": "../teams/",
+    "target": "https://cowork.mo.ai.kr/teams/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/plugins/install",
+    "href": "../agents/",
+    "target": "https://cowork.mo.ai.kr/agents/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/plugins/mcp",
+    "href": "../open-source/",
+    "target": "https://cowork.mo.ai.kr/open-source/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/plugins/mcp",
+    "href": "credentials/",
+    "target": "https://cowork.mo.ai.kr/plugins/credentials/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/plugins/mcp",
+    "href": "troubleshooting/",
+    "target": "https://cowork.mo.ai.kr/plugins/troubleshooting/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/plugins/mcp/credentials",
+    "href": "../troubleshooting/",
+    "target": "https://cowork.mo.ai.kr/plugins/troubleshooting/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/plugins/open-source",
+    "href": "../license/",
+    "target": "https://cowork.mo.ai.kr/license/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/plugins/teams",
+    "href": "../agents/",
+    "target": "https://cowork.mo.ai.kr/agents/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/plugins/teams",
+    "href": "../agents/",
+    "target": "https://cowork.mo.ai.kr/agents/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/plugins/teams",
+    "href": "../install/",
+    "target": "https://cowork.mo.ai.kr/install/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/plugins/teams",
+    "href": "../install/",
+    "target": "https://cowork.mo.ai.kr/install/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/plugins/teams",
+    "href": "../agents/",
+    "target": "https://cowork.mo.ai.kr/agents/"
+  },
+  {
+    "source": "https://cowork.mo.ai.kr/plugins/mcp/install/",
+    "href": "troubleshooting/",
+    "target": "https://cowork.mo.ai.kr/plugins/mcp/install/troubleshooting/"
+  }
+]

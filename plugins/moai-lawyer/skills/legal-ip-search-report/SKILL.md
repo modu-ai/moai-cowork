@@ -10,7 +10,8 @@ description: |
   - "FTO 예비조사 보고서 작성해줘"
   - "특허·상표 API 키는 어디서 받아?"
   국내 특허 목록만 빠르게 뽑을 때는 moai-lawyer:legal-patent-search, 동향·청구항 대비·출원서 초안은 moai-lawyer:legal-patent-analyzer로 이어집니다.
-version: "1.0.2"
+metadata:
+  version: "1.0.3"
 ---
 
 # IP 선행조사 보고서 (상표·특허, 국내외)

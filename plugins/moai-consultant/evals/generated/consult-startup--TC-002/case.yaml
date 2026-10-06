@@ -1,0 +1,42 @@
+schema_version: '1.1'
+name: consult-startup--TC-002
+description: '최소한의 입력값(1인 창업, 단순 아이디어)으로도
+
+  기본적인 계획서 구조가 생성되는지 검증합니다.
+
+  '
+runs: 1
+tags:
+- generated
+- consult-startup
+execution:
+  prompt: "다음 프로젝트 업무를 수행해 주세요. 미확인 정보는 만들지 말고 필요한 맥락을 요청하세요.\n\n{\n  \"startup_name\"\
+    : \"펫케어\",\n  \"idea\": \"반려동물 유기농 사료 D2C 브랜드\",\n  \"target_market\": \"반려동물\
+    \ 보유 1인 가구\",\n  \"team_info\": [\n    {\n      \"CEO\": \"이커머스 운영 5년\"\n    }\n\
+    \  ],\n  \"initial_capital\": \"1억원 (팀 자출 1억원)\"\n}"
+  allowed_tools:
+  - Read
+  - Glob
+  - Grep
+  - Skill
+  max_turns: 12
+  timeout_seconds: 180
+graders:
+- name: skill-fired
+  type: tool_used
+  tool: Skill
+  input_match: '"skill"\s*:\s*"(?:[\w-]+:)?consult\-startup"'
+- name: quality
+  type: llm
+  focus: trace
+  criteria: "입력 사실·제약과 아래 사례의 기대 결과를 대조한다. 모든 적용 가능한 조건을 만족하면 PASS, 하나라도 위반하면 FAIL이다.\
+    \ false 값은 해당 동작·주장이 없어야 한다는 뜻이다. 정보·도구·fixture가 부족하면 모델이 이를 명시했는지 확인하되, 원래 조건을\
+    \ 충족하지 못한 실행을 임의로 PASS로 바꾸지 않는다. 단어가 있다는 이유만으로 사실성·산술·법적 판단·의미 보존을 통과시키지 않는다.\
+    \ 원격 호출·파일 생성·독립 검수의 주장은 실제 trace와 산출물로 확인한다.\n\n{\n  \"expected_outputs\": [\n\
+    \    \"아이디어 검증 섹션 존재 (단, 팀 역량 제한 고려)\",\n    \"시장 분석 섹션 존재 (원자료가 없다면 TAM/SAM/SOM\
+    \ 계산을 보류)\",\n    \"비즈니스 모델 캔버스 섹션 존재 (1인 창업에 맞는 간소화 모델)\",\n    \"피치덱 구조 섹션 존재\
+    \ (증빙된 내용만 포함)\",\n    \"재무 모델 섹션 존재 (초기 자본 외 가격·원가 자료 부족 표시)\",\n    \"실행 로드맵\
+    \ 섹션 존재 (1인 창업 고려 단순화 로드맵)\"\n  ],\n  \"pass_criteria\": [\n    \"최소 입력값으로도 모든\
+    \ 필수 섹션이 생성됨\",\n    \"1인 창업 특성(자원 제한, 단순화 모델)이 반영됨\",\n    \"가격·원가·판매량이 없을 때\
+    \ 매출·손익 수치 산정을 보류\",\n    \"팀 빌딩 필요성이 실행 로드맵에 명시됨\",\n    \"특정 전문가(CTO, CMO 등)\
+    \ 부족에 대한 리스크 분석 포함\"\n  ]\n}"

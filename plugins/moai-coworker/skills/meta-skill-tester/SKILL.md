@@ -10,8 +10,9 @@ description: |
   - "스킬 회귀 테스트", "스킬 체인 테스트"
   - "스킬 루브릭 스코어링", "4차원 평가"
   - meta-skill-builder Phase 5 이후 검증이 필요할 때
-user-invocable: false
-version: "1.1.2"
+metadata:
+  invocation-scope: "workflow"
+  version: "1.1.3"
 ---
 
 # Skill Tester — 스킬 품질 검증 도구 (루브릭 + 체인 내장)

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "dart": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--script",
+        "./mcp-launch/mcp_launch.py",
+        "--service",
+        "dart",
+        "--keys",
+        "DART_API_KEY",
+        "--",
+        "npx",
+        "-y",
+        "korean-dart-mcp"
+      ],
+      "cwd": "./",
+      "type": "stdio"
+    }
+  }
+}

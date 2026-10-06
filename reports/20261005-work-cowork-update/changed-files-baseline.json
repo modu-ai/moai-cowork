@@ -1,0 +1,2432 @@
+{
+  "root": "/Users/goos/.codex/worktrees/b0aa/moai-cowork",
+  "head": "2c3cef1d24e88b3bfe8db61c713ffae317b346d0",
+  "branch": "",
+  "source_session_id": "01a10aae-6716-7681-b5d7-d558155d9f86",
+  "files": [
+    {
+      "path": ".agents/skills/commands.json",
+      "sha256": "55467ba6f954a3a32db81ecbbf8d6d29ed894d08b9636d9682f8aede8860a80b"
+    },
+    {
+      "path": ".agents/skills/moai-clean/SKILL.md",
+      "sha256": "19b501526a01ceedc06ea434ba4c5e225276ef74fedaea1a8ded4551b2bacde4"
+    },
+    {
+      "path": ".agents/skills/moai-codemaps/SKILL.md",
+      "sha256": "cb80d8344335f1d8b9f2adf3556b1dc85f2c1351b13cfb7dab07734cbb1c8420"
+    },
+    {
+      "path": ".agents/skills/moai-e2e/SKILL.md",
+      "sha256": "22fcbf304108f922e093346f309671d82fd19bba8f93427edd6ea93f3fe31df9"
+    },
+    {
+      "path": ".agents/skills/moai-feedback/SKILL.md",
+      "sha256": "db2cdb83cc9418b2d64525fb62f3b91f3747533e318d138050f09e701c277031"
+    },
+    {
+      "path": ".agents/skills/moai-fix/SKILL.md",
+      "sha256": "87420bb98d12f5471047ee98365697d4dbebdc50397587a19551a4101c5ac1b7"
+    },
+    {
+      "path": ".agents/skills/moai-gate/SKILL.md",
+      "sha256": "96c0160309ad894784c1d91d978f348a7fa4fe5161f9a53cce8d4ea7be184394"
+    },
+    {
+      "path": ".agents/skills/moai-goal/SKILL.md",
+      "sha256": "b5ceb283ba97c11201f25321a9a5c50e42e4d3e4041ad1b64ea1336f0965b2d8"
+    },
+    {
+      "path": ".agents/skills/moai-gtd/SKILL.md",
+      "sha256": "7e69de029267c1bd019e89b686100bd04334f0d8bbc2ddd60e8d76db67328b78"
+    },
+    {
+      "path": ".agents/skills/moai-harness/SKILL.md",
+      "sha256": "91de72561fe74d2c17cdac92e7a66a3a650b1f29f4893f45b15e29db0e9db2fd"
+    },
+    {
+      "path": ".agents/skills/moai-loop/SKILL.md",
+      "sha256": "61797751abfda87ee30fff4be8cb5151706dd4ed16c4f600257e155639c8bedb"
+    },
+    {
+      "path": ".agents/skills/moai-mx/SKILL.md",
+      "sha256": "42c580a87afd6fd91cb2769a6412ade99ecd12b5fe41786de513d7bdb374bc20"
+    },
+    {
+      "path": ".agents/skills/moai-plan/SKILL.md",
+      "sha256": "b4479faa9852ebaec673becabbaeee6403a020b62cf3d6a53fd5ac081b13a59b"
+    },
+    {
+      "path": ".agents/skills/moai-project/SKILL.md",
+      "sha256": "3a67e9aeca988c2b9453733c4a604c8452a7722fdab79e5e4bbbc02d94b523a4"
+    },
+    {
+      "path": ".agents/skills/moai-review/SKILL.md",
+      "sha256": "4800cb1dde25d1b51c68ee3389c91e5520ea1e9b5b89fa623ef2d49ad998b2d5"
+    },
+    {
+      "path": ".agents/skills/moai-run/SKILL.md",
+      "sha256": "b3afd38d965759f935044d0d6d945b37eb5522b2776d875adbb768e1f3c4bc81"
+    },
+    {
+      "path": ".agents/skills/moai-sync/SKILL.md",
+      "sha256": "3025fe9e34149fe24c6478026bd6fe26bf4438fdf4f6ab17b25f1eb69a1a2e4d"
+    },
+    {
+      "path": ".agents/skills/moai-todo/SKILL.md",
+      "sha256": "1aaf2fb03e3068918665650c493d2aad8bdf09e216b524fc32356eab3d4799f0"
+    },
+    {
+      "path": ".claude-plugin/marketplace.json",
+      "sha256": "c4bb86d39114265145be32ed2262874138e2a736c5e3273f84586a62f375345b"
+    },
+    {
+      "path": ".github/workflows/mcp-cross-platform.yml",
+      "sha256": "899c17e7494acfaef260b95563e416a9cf927a4cb9754cbe138be9b0daa8f4e8"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "bab38d00aade9ccf3aba8944a297af11d52077702a4e816b0a2181007633f5c2"
+    },
+    {
+      "path": "README.md",
+      "sha256": "23048db948553920b0ca034da8b175cd9a96d742978d220dc19b58dbeee4f0d9"
+    },
+    {
+      "path": "docs/behavioral-evals.md",
+      "sha256": "d04ecc80cf2ed815fb9ee8d2efeeece277c5bed3d9d0c3b37a86b0e05c2c4af2"
+    },
+    {
+      "path": "plugins/_shared/moai-mcp-core/README.md",
+      "sha256": "523d8d6f7c73ca591c6211e80f27698ae57c862b6fb527eea69dcd1b8e2f325b"
+    },
+    {
+      "path": "plugins/_shared/moai-mcp-core/moai_mcp_core/__init__.py",
+      "sha256": "77ac8d1325270201b57fd5d4ee4c967bad477bc722e2b79c090d841f484ab513"
+    },
+    {
+      "path": "plugins/_shared/moai-mcp-core/moai_mcp_core/credentials.py",
+      "sha256": "7e3bc4e2581cc13d0a844a31d8595e9c6d4e434177ad289af8643317ae850c69"
+    },
+    {
+      "path": "plugins/_shared/moai-mcp-core/pyproject.toml",
+      "sha256": "f035cde6b64ceec7596834656aae9f333f76a1322f25eaf21344bfac9c369c2b"
+    },
+    {
+      "path": "plugins/_shared/moai-mcp-core/tests/test_credentials.py",
+      "sha256": "86751da0c7ff81956ae60be7c7f84a7172ad90d3db757563d79c9820d3f85fbf"
+    },
+    {
+      "path": "plugins/_shared/moai-mcp-core/uv.lock",
+      "sha256": "3f34fe6dcf04b2cf34d8cbd74c32593e200eed1667ca5cccd1779af04fba69b8"
+    },
+    {
+      "path": "plugins/moai-accountant/.claude-plugin/plugin.json",
+      "sha256": "80d6a3b37b9dbac7a9e2746a6e1e874dfdd4ebf1e2d9861929de798249598cb8"
+    },
+    {
+      "path": "plugins/moai-accountant/.codex-plugin/plugin.json",
+      "sha256": "dc3c111a79898951d5f740aab7993eca98aacfa203494a57c6c374b2c1d8fd2e"
+    },
+    {
+      "path": "plugins/moai-accountant/mcp.json",
+      "sha256": "7246e9800850bc88ff88bad1569f5f0dd27b459358834b8c33a497880f572867"
+    },
+    {
+      "path": "plugins/moai-accountant/plugin.json",
+      "sha256": "f20923a51e65bf85202d024b15c300bc6961b76e2b9bbdea39c933ad9d3a8ab6"
+    },
+    {
+      "path": "plugins/moai-accountant/skills/finance-audit/SKILL.md",
+      "sha256": "c2ec1b0068e7fde794545850f355c15f9a39b6acb475b054565805ff8f609e9a"
+    },
+    {
+      "path": "plugins/moai-accountant/skills/finance-close-management/SKILL.md",
+      "sha256": "a8521507d5618584f8ee052897db6f9ec47c3795abbb19c42cb619ef4d3aca80"
+    },
+    {
+      "path": "plugins/moai-accountant/skills/finance-econ-literacy/SKILL.md",
+      "sha256": "3047f825481d327a520fa6164fec535b098778072c818bcbdecb868865a7a6c8"
+    },
+    {
+      "path": "plugins/moai-accountant/skills/finance-financial-statements/SKILL.md",
+      "sha256": "a3cc7e35887c015f5dcbc027f845f45b386cf56ba75dd6afcf87257a69e54623"
+    },
+    {
+      "path": "plugins/moai-accountant/skills/finance-household-budget/SKILL.md",
+      "sha256": "c6f783baf1b4968272f445afd91ca59de6153c26c2a668af848aa5ad29e7c76c"
+    },
+    {
+      "path": "plugins/moai-accountant/skills/finance-insurance-fit/SKILL.md",
+      "sha256": "3c5c53255cb528a6ca4b23788a6675eb5370bbb219c7e62e1660b5f6517e6245"
+    },
+    {
+      "path": "plugins/moai-accountant/skills/finance-invest-primer/SKILL.md",
+      "sha256": "cac6601977262453e736e5b5e94073ae0bcccfb22494768cd6f9b19c957745e9"
+    },
+    {
+      "path": "plugins/moai-accountant/skills/finance-investor-relations/SKILL.md",
+      "sha256": "23590f2cd0ad858504c79f6401cd5361bb269f025ff868574f14ed700a8eb745"
+    },
+    {
+      "path": "plugins/moai-accountant/skills/finance-personal-tax-saver/SKILL.md",
+      "sha256": "0f3bf3912224490fdfb853d84229c9d0ed90cf0917e8c2d3b0a11d83a50a87b9"
+    },
+    {
+      "path": "plugins/moai-accountant/skills/finance-tax-helper/SKILL.md",
+      "sha256": "27c71ef745cb0ef22e96aa654a4f2be6e3bcffe2a787c694d479b2b27d917a99"
+    },
+    {
+      "path": "plugins/moai-accountant/skills/finance-variance-analysis/SKILL.md",
+      "sha256": "beb9fa3f1702ccfdaa35496dd338e652743c61ad08191ce366ec9fad7fdf27e2"
+    },
+    {
+      "path": "plugins/moai-accountant/skills/finance-wealth-roadmap/SKILL.md",
+      "sha256": "8c9866c35419f9da9c4bd6d42e3116a591e01ad4cb6e4cd1dbb9b0031fd6db70"
+    },
+    {
+      "path": "plugins/moai-accountant/skills/finance-workflow/SKILL.md",
+      "sha256": "b8e9ae6a6f76b63558036c76af7c8bf12bf495413a073c77c23f5c964485c4bc"
+    },
+    {
+      "path": "plugins/moai-analyst/.claude-plugin/plugin.json",
+      "sha256": "3ab825307a09d327eadda476a016b2cba23231fa67d8c92dbba5bd77ca96ef1d"
+    },
+    {
+      "path": "plugins/moai-analyst/.codex-plugin/plugin.json",
+      "sha256": "6729b4b0972961bf4a8eecb3fe9359590485a85d4fc4a0bd04bc5a84fc14aa38"
+    },
+    {
+      "path": "plugins/moai-analyst/mcp.json",
+      "sha256": "42c12b2431be1119dd1fa9d88684e8b250fc7415aa310d6a49119e9276f93452"
+    },
+    {
+      "path": "plugins/moai-analyst/plugin.json",
+      "sha256": "9da0decfb59549755c9f4911d549598bcd000c43e64f7afd562ea6e5d948bf8d"
+    },
+    {
+      "path": "plugins/moai-analyst/skills/data-building-ledger/SKILL.md",
+      "sha256": "87c2ed5359b8d1fab64d805d57f2191a20f0e96e188650aca86da916a2c36f31"
+    },
+    {
+      "path": "plugins/moai-analyst/skills/data-court-auction/SKILL.md",
+      "sha256": "5bf54c48991c20c231bd4e71b9a7ac6da9ca407d7699dc48908d951026c27692"
+    },
+    {
+      "path": "plugins/moai-analyst/skills/data-explorer/SKILL.md",
+      "sha256": "068e13986984fe0233417e39148ea0cde6df92f6bb879abd5a0b84386767fd1e"
+    },
+    {
+      "path": "plugins/moai-analyst/skills/data-provenance-audit/SKILL.md",
+      "sha256": "ff1ca565907c38a771b892c88a884f728a99ab6b12a7af915cfae77cb2e2fe31"
+    },
+    {
+      "path": "plugins/moai-analyst/skills/data-public/SKILL.md",
+      "sha256": "a5d038b4241f6df2c70434e4fcbca068a0ea2487c4844ecf99e6516917fedcd3"
+    },
+    {
+      "path": "plugins/moai-analyst/skills/data-realestate/SKILL.md",
+      "sha256": "e86a0e0fd72b814bbb3dba61da83ee7fdf508e9cf23fbcf2920c93403f30a4f7"
+    },
+    {
+      "path": "plugins/moai-analyst/skills/data-stock/SKILL.md",
+      "sha256": "e7c462a0812a11bb93f818dfd9d2d86ef176c887f046d3fda920bc3b37529518"
+    },
+    {
+      "path": "plugins/moai-analyst/skills/data-visualizer/SKILL.md",
+      "sha256": "17f651f751530afe45a5d565cb9fa1c7ef6b52799c51fb0166e001e997e79c8a"
+    },
+    {
+      "path": "plugins/moai-analyst/skills/data-workflow/SKILL.md",
+      "sha256": "c1e11e3fbff00eff90497b9bc75ab710166d5261b69d7bc86d6f35a16dfe32a4"
+    },
+    {
+      "path": "plugins/moai-career/.claude-plugin/plugin.json",
+      "sha256": "754b424b515ebbe1dc0f65aba341bd7cfa0c38e6a9c99b3c8ea3c7b4e92511a7"
+    },
+    {
+      "path": "plugins/moai-career/.codex-plugin/plugin.json",
+      "sha256": "0591b57c5114ad26e4e10ce8283708e70d8411db348b7d624e2bb1acd068e8cc"
+    },
+    {
+      "path": "plugins/moai-career/mcp.json",
+      "sha256": "1788697eb2d3aa1caa8da59a62331a92529e24885f0e7151418f915000fbf7fd"
+    },
+    {
+      "path": "plugins/moai-career/plugin.json",
+      "sha256": "04d5e4962767317ca5b9e70e775e168134e960e0214e2b5e6aed51bc5f16f6e5"
+    },
+    {
+      "path": "plugins/moai-career/skills/career-claim-audit/SKILL.md",
+      "sha256": "b4c7a5abf1fbb84cafd8f3bcd17b6661d010a2fb4f66e69da1c542783bd9c8f8"
+    },
+    {
+      "path": "plugins/moai-career/skills/career-interview/SKILL.md",
+      "sha256": "0f262f4273c30850ec1bdbec0f1277380179468b96e7f09e53b771c5444276b6"
+    },
+    {
+      "path": "plugins/moai-career/skills/career-junior-onboarding/SKILL.md",
+      "sha256": "a096d1faa5255039484b8f870f4fa4be9bf2fc8e101a36fed26ceb8558e60b7c"
+    },
+    {
+      "path": "plugins/moai-career/skills/career-portfolio/SKILL.md",
+      "sha256": "00af6165cf5e1494d74e220fe6bc956d3456d86a6b034fbf93fc5b5ee8018fef"
+    },
+    {
+      "path": "plugins/moai-career/skills/career-resume/SKILL.md",
+      "sha256": "12699495d7746884c27fbcec2354e5500979136711e442b0f3ade9b3a95c5af4"
+    },
+    {
+      "path": "plugins/moai-career/skills/career-transition/SKILL.md",
+      "sha256": "42b0767b9450f19a67cd39413a719d6e1c0738f3531fd68f30edb681007852d0"
+    },
+    {
+      "path": "plugins/moai-career/skills/career-workflow/SKILL.md",
+      "sha256": "3ba4c2eedebbe966916f975443642e8cad862b786b9b2c158994e8c3d83cd42e"
+    },
+    {
+      "path": "plugins/moai-consultant/.claude-plugin/plugin.json",
+      "sha256": "0ac14be4771c5ef8cf49136903d682204c2ecc855a64c6a6372d659bdef5adea"
+    },
+    {
+      "path": "plugins/moai-consultant/.codex-plugin/plugin.json",
+      "sha256": "13309e949cc8dde5858fce0cd87d2bc8f85964e9b66e1cdf3c3aeef2b7d7709e"
+    },
+    {
+      "path": "plugins/moai-consultant/evals/generated/consult-brief--TC-001/case.yaml",
+      "sha256": "e519cf47b08b3da9d8fcbb3a8cbd33634647072ef406c356f522e9444fac169d"
+    },
+    {
+      "path": "plugins/moai-consultant/evals/generated/consult-brief--TC-002/case.yaml",
+      "sha256": "9ce3c82315efac6a6f08430bf90605168c94fb4ec8adf75651f4120f9aeb3c7d"
+    },
+    {
+      "path": "plugins/moai-consultant/evals/generated/consult-brief--TC-003/case.yaml",
+      "sha256": "ff3a7ceb8cf4665aa4bc8ee452ce6d98fd7961733e256d08d366c60f7a364fc2"
+    },
+    {
+      "path": "plugins/moai-consultant/evals/generated/consult-startup--TC-001/case.yaml",
+      "sha256": "79af3793aac8ce70ef4a0c365ec99a9f3ac18a91a670747c05cb9a1128f3176f"
+    },
+    {
+      "path": "plugins/moai-consultant/evals/generated/consult-startup--TC-002/case.yaml",
+      "sha256": "ebeae9ccac1512382a06ea4b107cd6d27d7538af62476e7f486642bd642be1e2"
+    },
+    {
+      "path": "plugins/moai-consultant/evals/generated/consult-startup--TC-003/case.yaml",
+      "sha256": "d5549ce8d8f537495c0f18f0cf6a907112cccf0240031479419f6652dce0be41"
+    },
+    {
+      "path": "plugins/moai-consultant/mcp.json",
+      "sha256": "1788697eb2d3aa1caa8da59a62331a92529e24885f0e7151418f915000fbf7fd"
+    },
+    {
+      "path": "plugins/moai-consultant/plugin.json",
+      "sha256": "fdb1551fd736a984707ff5cb6d5ebaa6abdf234aa5278ee0f8bd3735b9ebd2f8"
+    },
+    {
+      "path": "plugins/moai-consultant/skills/consult-brief/SKILL.md",
+      "sha256": "3a308fb4069258cdd43f5b211c778fd04f9e6dc1693ee3860fa5ee640cb625ca"
+    },
+    {
+      "path": "plugins/moai-consultant/skills/consult-feasibility-audit/SKILL.md",
+      "sha256": "07a5a43e606c1c6ea6564850af189acdfd81c6f2075c33c91c61962d1e0d8556"
+    },
+    {
+      "path": "plugins/moai-consultant/skills/consult-gov-grant/SKILL.md",
+      "sha256": "b44abc205b25b5ab7f9b03d931f5097dca31ec9f2e447f01e1f20ffcb38c0609"
+    },
+    {
+      "path": "plugins/moai-consultant/skills/consult-market/SKILL.md",
+      "sha256": "43234c02421f9b1e4c532e4aff9baccf7b617155d7ca93abcdfec610cf596862"
+    },
+    {
+      "path": "plugins/moai-consultant/skills/consult-sbiz365/SKILL.md",
+      "sha256": "56c2e55ab6e8146c17ea353e527e48ec2773a3781f768c9a45edd70c7ecf3ccf"
+    },
+    {
+      "path": "plugins/moai-consultant/skills/consult-startup/SKILL.md",
+      "sha256": "b6e1e1260896bc6511de1d4e11ad8d6a902007e66e6e38194f851769011e77db"
+    },
+    {
+      "path": "plugins/moai-consultant/skills/consult-strategy/SKILL.md",
+      "sha256": "aef1856e81bccd4d34d81039f08b63709309b474e1b7c890674dcb742f4c9b32"
+    },
+    {
+      "path": "plugins/moai-consultant/skills/consult-workflow/SKILL.md",
+      "sha256": "dcb4a26cec204c7470317ad9318e7a99ac7df921c879d560935f188bb604c103"
+    },
+    {
+      "path": "plugins/moai-coworker/.claude-plugin/plugin.json",
+      "sha256": "c4ae4d98f5e41d5bb0b7bd8d32a7a76929bb9ac21a22ba5a00ec344a49afaecc"
+    },
+    {
+      "path": "plugins/moai-coworker/.codex-plugin/plugin.json",
+      "sha256": "c34dcb0f0cecd5e35d15f8cae94e519354a54c32c50e106643c3ea725efae058"
+    },
+    {
+      "path": "plugins/moai-coworker/evals/generated/ai-diagnostic--TC-001/case.yaml",
+      "sha256": "74013aae403a0de75614126cf7255a26991a417176aa9401962c61eda4df40e5"
+    },
+    {
+      "path": "plugins/moai-coworker/evals/generated/ai-diagnostic--TC-002/case.yaml",
+      "sha256": "286ec47fda312f519f9388f36fa309e5764856d8e04b186b2621ba4a4bd6c190"
+    },
+    {
+      "path": "plugins/moai-coworker/evals/generated/ai-diagnostic--TC-003/case.yaml",
+      "sha256": "c83561543aefae89303dd1a715dfb14c2ded3ae19850490a11782330ea3656a3"
+    },
+    {
+      "path": "plugins/moai-coworker/evals/generated/collab-exec-summary--T01/case.yaml",
+      "sha256": "3d41f67b3ca7314cb1cfbf39430d7fbd82f688952225b0839e2cc1349d5e98c2"
+    },
+    {
+      "path": "plugins/moai-coworker/evals/generated/collab-exec-summary--T02/case.yaml",
+      "sha256": "57eaa9300bb05f01996ebac2a37172313bec9ea4878e353a12554c415008cfdc"
+    },
+    {
+      "path": "plugins/moai-coworker/evals/generated/collab-exec-summary--T03/case.yaml",
+      "sha256": "9ffba1dd56566f649e63a25ab5a487b0b7a4a28abdb72600c2d48c9bb1c875a2"
+    },
+    {
+      "path": "plugins/moai-coworker/evals/generated/collab-exec-summary--T04/case.yaml",
+      "sha256": "30903bae487804aa00702439e80f61ce687c7a62380a0ecddbf70637f2983825"
+    },
+    {
+      "path": "plugins/moai-coworker/evals/generated/collab-exec-summary--T05/case.yaml",
+      "sha256": "33d326dd047a511b9deaf320459bcd6144dd699a8a3409b9b4017211b16359ca"
+    },
+    {
+      "path": "plugins/moai-coworker/evals/generated/collab-exec-summary--T06/case.yaml",
+      "sha256": "994331069be12379df3a3440e59e4645c23fc0cd0fdc9621a9de1c19c1fad66d"
+    },
+    {
+      "path": "plugins/moai-coworker/evals/generated/collab-exec-summary--T07/case.yaml",
+      "sha256": "097eae6a957f3b861a1d49e9ddb471a0e600e33c1e7d469f8f3f39d3accfc2f0"
+    },
+    {
+      "path": "plugins/moai-coworker/evals/generated/collab-pm-report--T01/case.yaml",
+      "sha256": "349d44ca25e7cc6c4104befb334f454575c5b2f905174d76c74fb787e9ee40a5"
+    },
+    {
+      "path": "plugins/moai-coworker/evals/generated/collab-pm-report--T02/case.yaml",
+      "sha256": "8e69e2bb706be92a31ccf88e84f1c6596100c1b8c12d597112f7bdff76b99649"
+    },
+    {
+      "path": "plugins/moai-coworker/evals/generated/collab-pm-report--T03/case.yaml",
+      "sha256": "fa81fb831eb0bd83a32f271c076f81e02a1944ac2f8f5f0de7ae536bb01fea7f"
+    },
+    {
+      "path": "plugins/moai-coworker/evals/generated/collab-pm-report--T04/case.yaml",
+      "sha256": "a43d0e24b1123070c5e390ce34129b1980302d73883b57e9552c6c14daf0b554"
+    },
+    {
+      "path": "plugins/moai-coworker/evals/generated/collab-pm-report--T05/case.yaml",
+      "sha256": "147cff7e7c99294846146bafddfdc905fa29a1920a13d9b12444adc86c5548fc"
+    },
+    {
+      "path": "plugins/moai-coworker/evals/generated/collab-pm-report--T06/case.yaml",
+      "sha256": "1ea899631e66b21c36a9ee466d5f25b006f23225d956abe1c638b5d544cf0ebf"
+    },
+    {
+      "path": "plugins/moai-coworker/evals/generated/collab-proposal--T01/case.yaml",
+      "sha256": "a705e4626e56ae494a26bf5622c83c924643c3db7fbd25e453b386effd7614d3"
+    },
+    {
+      "path": "plugins/moai-coworker/evals/generated/collab-proposal--T02/case.yaml",
+      "sha256": "475f0e9923740353da058a535ba347d32971ebff844f3e5796b500ef64fc84ae"
+    },
+    {
+      "path": "plugins/moai-coworker/evals/generated/collab-proposal--T03/case.yaml",
+      "sha256": "387b7ac74e811d02b7d5af782731ab3443ef8e528e77d301fd692ced33d6cc18"
+    },
+    {
+      "path": "plugins/moai-coworker/evals/generated/collab-proposal--T04/case.yaml",
+      "sha256": "b337d731c57a1df930aefc02649b0b4adc0335157e09ea2a2877e2c5e31f909f"
+    },
+    {
+      "path": "plugins/moai-coworker/evals/generated/collab-proposal--T05/case.yaml",
+      "sha256": "7a705864542418a742dc366244c4c6f1f880193b11893a26b505ea966cb28537"
+    },
+    {
+      "path": "plugins/moai-coworker/evals/generated/collab-sales-playbook--TC-001/case.yaml",
+      "sha256": "6c527d04f5ab8669dac83768873afd98e999185b4f6d9af1343bf03742f7a2a2"
+    },
+    {
+      "path": "plugins/moai-coworker/evals/generated/collab-sales-playbook--TC-002/case.yaml",
+      "sha256": "894a30107993e3945a7317498f1fa240c072c8ded17f757b9df876bcbf3c22f5"
+    },
+    {
+      "path": "plugins/moai-coworker/evals/generated/collab-sales-playbook--TC-003/case.yaml",
+      "sha256": "5da8db3cda30faa16f012ca5bab4d0b017d73e42b38f9904f310cf964cc3c37f"
+    },
+    {
+      "path": "plugins/moai-coworker/evals/generated/collab-ux-design--TC-001/case.yaml",
+      "sha256": "8e61e05fdf496ba368ceb8b71d4d8113935a206b89b6f5c45308495eb49fd457"
+    },
+    {
+      "path": "plugins/moai-coworker/evals/generated/collab-ux-design--TC-002/case.yaml",
+      "sha256": "012f38ded24d8b2141455e0c1e7fa030d62986e64e3e0288e9992e00658ff8f1"
+    },
+    {
+      "path": "plugins/moai-coworker/evals/generated/collab-ux-design--TC-003/case.yaml",
+      "sha256": "5e9fcec56972fb551ee2c0cb3e556885b2693e0a99379bec7bdaccf77ea419f0"
+    },
+    {
+      "path": "plugins/moai-coworker/mcp.json",
+      "sha256": "7246e9800850bc88ff88bad1569f5f0dd27b459358834b8c33a497880f572867"
+    },
+    {
+      "path": "plugins/moai-coworker/plugin.json",
+      "sha256": "b0ba1e3a8b3d7dc00f65bf2773c270f6abec16ee4bf9f6274fbb474317e29fb0"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/ai-diagnostic/SKILL.md",
+      "sha256": "b3cde891599adda902f55dd6918c0591826f3deec12a678597f632bd0ed5f006"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/ai-prompting-basics/SKILL.md",
+      "sha256": "d495ec30f56dc474344afd98d1ebcf41b81b2e92f76bd2a89f6c821b0320d58e"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/ai-slop-reviewer/SKILL.md",
+      "sha256": "166892cded154e4ca92dc917aa98b1d21e5ae058953c3197096b185683d39eaf"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-brand-identity/SKILL.md",
+      "sha256": "15ee6670efe0112a2f1b9e098633d9b240a177ca456f690d3f81505c82af6a18"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-conflict/SKILL.md",
+      "sha256": "0ff9d86f5632e92d3099a34ba6cb2a937795051a84a6055b0d478b525999ab79"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-exec-summary/SKILL.md",
+      "sha256": "55711e6d57fa59d85ceaf75e610eb7578336a4a7c0ffa3b672436438b6953aa8"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-feedback-loop/SKILL.md",
+      "sha256": "980d0c26513ed47d912534653336891c87c349c5e66c5d82d38253006e0ce77c"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-meeting/SKILL.md",
+      "sha256": "5e081cb578f1c531b86e6e55ab04e5971a03d61e0e7207354244715207154aad"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-negotiation/SKILL.md",
+      "sha256": "55b3a4de20aaf780dd146d9b0c97290f7f31c2bb4ac3fc39b21970cbe8c9b026"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-pm-report/SKILL.md",
+      "sha256": "65b63a01d8fd1c137a3f6154d1eb46915df68b187542e158441fed63bd670348"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-process/SKILL.md",
+      "sha256": "b73b6951b9dd45ad91e2a8d7d4c7e37d3e3d5b183321357fd3e27aecf54cc101"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-productivity-report/SKILL.md",
+      "sha256": "26766b7fe09c3024d518ca7403326fb6ca5730faab655f58936e4bdc3e6e490f"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-proposal/SKILL.md",
+      "sha256": "a6a7b4270443add04ae7f52105c948bd93449d9ba6efb26f66aefbdfd556cc30"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-report-speak/SKILL.md",
+      "sha256": "5036d03ff13d28aba3c57ff3c87e673354823dd40d8896fbff0f4a9f3ef6c229"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-roadmap/SKILL.md",
+      "sha256": "ec6047c571e43ed53130d6423febbfac224ae1d9fe88b04972b7e28bede0f59f"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-sales-playbook/SKILL.md",
+      "sha256": "295dea39e863b9513fecb818788cc3f48f05896a6fc21949a94b0ea0b7063618"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-spec/SKILL.md",
+      "sha256": "8550b46fb719539f3e4d1474810d36c394be0b31c657433921fa43f51841a06d"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-status-report/SKILL.md",
+      "sha256": "a292ff63f60815c6f593ec66e91ccdac13f37c936caa8e9d46925953bd82453b"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-ux-design/SKILL.md",
+      "sha256": "5761688c92e0d4fa4cf74daf80c44749445389d17ba6aafb911ce6c3b113c25d"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-ux-research/SKILL.md",
+      "sha256": "34ef02fc53d603ebc108e450a73f8d4316a479055b25c61c7df2b62c43519c1b"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/collab-vendor/SKILL.md",
+      "sha256": "a300ef8c65810e62d5bb402bc91794bc18b1816524d5366b4b98c08de0339e13"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/meta-feedback/SKILL.md",
+      "sha256": "ef5bd7197d190667ba98b4befe896837c02f2fd229f71a2fca6375d559cc5c51"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/meta-skill-builder/SKILL.md",
+      "sha256": "3243576dd435fd8b3cd1150a98016a30b0e0cb0d677041fbecac03769b0286aa"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/meta-skill-template/SKILL.md",
+      "sha256": "4a80f07d6804c7fcbaaa97b46471d7b9eb39780190ef32928880160b856da283"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/meta-skill-tester/SKILL.md",
+      "sha256": "e10d820a396e68c5ffecbbc048a61eda9d037c3deb06d009108f28bbe4cf3c98"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/personal-event/SKILL.md",
+      "sha256": "691bc73377f301726ae8ed39ab394529b636e42a266bdecd48e86bea31c89f0d"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/personal-self-care/SKILL.md",
+      "sha256": "385c0f7e391535dd1410de9d6cf8cc7602395360e38bdcb524e246f13e48ea54"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/personal-travel/SKILL.md",
+      "sha256": "d79b900a162212e4bbea85d95afb4812ee2bc9f132b2dc422b06e349c56f5adc"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/personal-wellness/SKILL.md",
+      "sha256": "fbf0a15ada64c8988630af299a4edfc6fa1aafd48dadd80f8384b5be0a2c4748"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/productivity-goal/SKILL.md",
+      "sha256": "67a84ce318f5bcc2749e22d4bec89f02994cb7f9900ac2ec3e05a825fe47f572"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/productivity-habit/SKILL.md",
+      "sha256": "dfe4c07238230b87db0d4fd19e759f9f164a4a59c2f3206ce39eec471a567daf"
+    },
+    {
+      "path": "plugins/moai-coworker/skills/productivity-retro/SKILL.md",
+      "sha256": "a905314c03f09556427b1cc1f2d0bef8ebee985e8c0e7c75e412ea8c4874dd41"
+    },
+    {
+      "path": "plugins/moai-cs/.claude-plugin/plugin.json",
+      "sha256": "746953b5014402acdd7cf3f3fc43db0742c22057f51621a9e67fbcb636fd3e6e"
+    },
+    {
+      "path": "plugins/moai-cs/.codex-plugin/plugin.json",
+      "sha256": "da56e2739ece9121ab8c54725207303f9fcc7fc49410c4921be13f85fe44d617"
+    },
+    {
+      "path": "plugins/moai-cs/mcp.json",
+      "sha256": "1788697eb2d3aa1caa8da59a62331a92529e24885f0e7151418f915000fbf7fd"
+    },
+    {
+      "path": "plugins/moai-cs/plugin.json",
+      "sha256": "d641ee24505d393d993b2f29d878d1d1380175e92a1e606691df28fc4bc3f58a"
+    },
+    {
+      "path": "plugins/moai-cs/skills/cs-channel-message/SKILL.md",
+      "sha256": "3b4ecd9e7afd84c41c8f964f1677d5323775dc06a8493c03af08f9ace0ad34f0"
+    },
+    {
+      "path": "plugins/moai-cs/skills/cs-draft-response/SKILL.md",
+      "sha256": "158eb4dbc024c1373e4bfe0194b682cde48fd6867c77009f4fd18ff4766a57f2"
+    },
+    {
+      "path": "plugins/moai-cs/skills/cs-escalation/SKILL.md",
+      "sha256": "7fe99f48355de2c4845b130516f23f4930d23f0dd4683372db5cc47e1c9f02be"
+    },
+    {
+      "path": "plugins/moai-cs/skills/cs-kb-article/SKILL.md",
+      "sha256": "8c273c71b442811e13d2f6a34b710b077f57d622cb88b3efbc35c87eb1c144b6"
+    },
+    {
+      "path": "plugins/moai-cs/skills/cs-quality-audit/SKILL.md",
+      "sha256": "ad63f9e104c5ceb1c62309759744d470b79f11c6e55bc14ec8b4d466e21f5349"
+    },
+    {
+      "path": "plugins/moai-cs/skills/cs-ticket-triage/SKILL.md",
+      "sha256": "0d0f30168dc75777331bdc7d94944cf69be38bf620102117ab99c9a572830f20"
+    },
+    {
+      "path": "plugins/moai-cs/skills/cs-voc-triage/SKILL.md",
+      "sha256": "53478400b0b5cd4fe7a7e843d8b60824f1a583f7723f1c7e1503eb3de909d62b"
+    },
+    {
+      "path": "plugins/moai-cs/skills/cs-workflow/SKILL.md",
+      "sha256": "fbd79b77047c1233c7276ae3f431ecd74db1f1006796660ca6f1aaf5bb984869"
+    },
+    {
+      "path": "plugins/moai-designer/.claude-plugin/plugin.json",
+      "sha256": "233b4fbbc6f9a7afa04f77d8e5e3faf140bcb4875540be96dc52d55d938fc7eb"
+    },
+    {
+      "path": "plugins/moai-designer/.codex-plugin/plugin.json",
+      "sha256": "10f31127ae79e7b5a86de0b9c1e025985a14dd55dbe9a3ec12a6c99d2fe56777"
+    },
+    {
+      "path": "plugins/moai-designer/mcp.json",
+      "sha256": "d198a44eba11fdfb4a1c8293d2b588a3670ba9e68d19dba77b2349c113807adb"
+    },
+    {
+      "path": "plugins/moai-designer/plugin.json",
+      "sha256": "1f2aa45b39bdb03dddb9110769d09d3b11a67c62dba6e848419060df92be642e"
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-brand-system/SKILL.md",
+      "sha256": "c4103a98185fbc964ac38196418964d82d33be7f6ea2be03b2d26961a164b7af"
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-brand-visual/SKILL.md",
+      "sha256": "e634f561aaa39b763d5179be1ef274a2bceaa8be488c7fc8302be01031178db7"
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-brief/SKILL.md",
+      "sha256": "473fd1ff44a8a5742b42a5f2b41ec4835513282b5722ac4d6b1b0e58908d5f28"
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-copywriting/SKILL.md",
+      "sha256": "1468d6336b521e49d5489fa37219d513d5e5c8063db9126894579576de84da13"
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-gui-guide/SKILL.md",
+      "sha256": "e0319bb7abb0ba1a3d92dc7c4973ef10e0a789fdc05d6f52b7ee6ec4162a5a94"
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-handoff-reader/SKILL.md",
+      "sha256": "739fff925ccee91bb2df73d4d7a0010cbfcf6b25b059498f854d8fa9301fd96e"
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-handoff/SKILL.md",
+      "sha256": "87c2d7f128a5582fb1a175fe3f95ec4b232a248da243d7ba8417271ef73675ab"
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-iteration-loop/SKILL.md",
+      "sha256": "20bdc6ce61bddc5d83f04e26d5b80dd04ed6d12d605c332332eac04ef6e95d43"
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-landing-motion/SKILL.md",
+      "sha256": "626877160f320dbdfcbc48cb67bf3c648059e42d259d68608885b0c34a20dc61"
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-logo/SKILL.md",
+      "sha256": "f2eb4ba59e476e5cb45713e7a0b75b45711002547a82ebf2cbdbbb97f3b4f5f4"
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-prompt-builder/SKILL.md",
+      "sha256": "0f0dd2e963200c50acd81d3f0406f43c87e537763a712d8f2946bcde8eaa9185"
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-slop-check/SKILL.md",
+      "sha256": "4903e7f188519892a7d359ebf9436ae69444c97202ab0609a3c031e6a46f2d84"
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-sync-upload/SKILL.md",
+      "sha256": "b23613ceb086afb9c271bf80210f7fae97aba5827053e4757ad3acc50691c481"
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-system-library/SKILL.md",
+      "sha256": "9591a9f508c6c02df44e01cb2bee54672bed62be23cfce6565dcf6fa6cb94c47"
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-system-prep/SKILL.md",
+      "sha256": "c2cebf4f642b07f5ea78a76d126bacb2383fbc4ed066179dc1e2992e33fc7016"
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-tokens-transformer/SKILL.md",
+      "sha256": "219f6c53dd547059a9f819419d702b4bde32691838d9136948a9950323a3fd3a"
+    },
+    {
+      "path": "plugins/moai-designer/skills/design-workflow/SKILL.md",
+      "sha256": "c1eac344334ea267ffb934b05ad662c2a83436ad3064249568832a0ed26dcd39"
+    },
+    {
+      "path": "plugins/moai-lawyer/.claude-plugin/plugin.json",
+      "sha256": "4d1392044871c6b92882f26bafe3818ceec79c62d3d40502fb9e7487c2b81b4a"
+    },
+    {
+      "path": "plugins/moai-lawyer/.codex-plugin/plugin.json",
+      "sha256": "dee78556352ae6b505329de6bb2210db950f073e9be199164b3e1af44ecb2a16"
+    },
+    {
+      "path": "plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_core/__init__.py",
+      "sha256": "a6cdec2a5915bce75d3f1e95c77c5033fdcb01195b90d4198e743c2d7538b133"
+    },
+    {
+      "path": "plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_core/credentials.py",
+      "sha256": "f8f4c05636ecedf8d44300caf7c9acf0f23773830c12f9ff86da86487d58fd71"
+    },
+    {
+      "path": "plugins/moai-lawyer/mcp-servers/moai-mcp-ip/src/moai_mcp_ip/server.py",
+      "sha256": "2aeb205100953ef837c5f2285eb4f1ecf9e4a791f31bf9f19b92d809d1ea9fab"
+    },
+    {
+      "path": "plugins/moai-lawyer/mcp.json",
+      "sha256": "738f538a8f63104beb2850ae046f2ce5b4a2578422c2e667d20038452f8b9aca"
+    },
+    {
+      "path": "plugins/moai-lawyer/plugin.json",
+      "sha256": "46c85b05945c39b9ac1fd81e1175ed2d4a1bc720533ca0479048ecb372042a1d"
+    },
+    {
+      "path": "plugins/moai-lawyer/skills/legal-compliance-check/SKILL.md",
+      "sha256": "9ff3f7901ccd3f403ac896f0bc224b47a0ebeca79b7374df0cbef2085585e38e"
+    },
+    {
+      "path": "plugins/moai-lawyer/skills/legal-contract-review/SKILL.md",
+      "sha256": "05c777e9c50380b5527494d9919a67a8c568dcd2c67856e97acd1b13bc579811"
+    },
+    {
+      "path": "plugins/moai-lawyer/skills/legal-evidence-audit/SKILL.md",
+      "sha256": "da7ff582cd73cc149ab78c490d53fa0fbb9643378fc685568aeb1713318158af"
+    },
+    {
+      "path": "plugins/moai-lawyer/skills/legal-ip-search-report/SKILL.md",
+      "sha256": "abebb6fade4cbbd82d7c884433ad4355d7cb2acc6753479ae3bdbe9140962827"
+    },
+    {
+      "path": "plugins/moai-lawyer/skills/legal-iros-registry-automation/SKILL.md",
+      "sha256": "6cf2433318752bbc008f0383dd2ce4f460aed2a57bdc15e719de5e8184211cfe"
+    },
+    {
+      "path": "plugins/moai-lawyer/skills/legal-law-research/SKILL.md",
+      "sha256": "aacab76cbe0fc955b04ad8732e08acb3a55ba7522ae010ec6db3fb4d7cdab31e"
+    },
+    {
+      "path": "plugins/moai-lawyer/skills/legal-legal-risk/SKILL.md",
+      "sha256": "6255844079b957574dfc516a2d3c85e1fc8980b2cd0ae928b27bfa136c7173ed"
+    },
+    {
+      "path": "plugins/moai-lawyer/skills/legal-mfds-safety/SKILL.md",
+      "sha256": "80a2a78d527cd8601786f8ad3f4e9fbec47e53cb3a6396c442348cd9170b6b7a"
+    },
+    {
+      "path": "plugins/moai-lawyer/skills/legal-nda-triage/SKILL.md",
+      "sha256": "bdb567b9bc7f1e0e8a2e959545046af91c08e4b42081ed1f89326ce35f617a14"
+    },
+    {
+      "path": "plugins/moai-lawyer/skills/legal-patent-analyzer/SKILL.md",
+      "sha256": "358ac28b3ca293bd316b632877953b07ca775431e23afe8704de7cd9c05a9d5a"
+    },
+    {
+      "path": "plugins/moai-lawyer/skills/legal-patent-search/SKILL.md",
+      "sha256": "282771284cad9dc4635d9d2fea3808ef8841b1b91a24a5aed9fcc9a84d19a655"
+    },
+    {
+      "path": "plugins/moai-lawyer/skills/legal-service-launch-checklist/SKILL.md",
+      "sha256": "a3e9b942b55336280485d140d0e9ccabbadc0fe51e4231805aef549274841458"
+    },
+    {
+      "path": "plugins/moai-lawyer/skills/legal-workflow/SKILL.md",
+      "sha256": "af4877273c55c07d17f0906e3bfa30b1b74298162bf021d16d79cd4a462864fb"
+    },
+    {
+      "path": "plugins/moai-marketer/.claude-plugin/plugin.json",
+      "sha256": "4c09a809b61e3549342b1128c8bb15017dbe20de717526cd30c52a8ac1f3e477"
+    },
+    {
+      "path": "plugins/moai-marketer/.codex-plugin/plugin.json",
+      "sha256": "1390394928123985d0696dbf034d4b7dc922749f834ab048c2d103032ef91142"
+    },
+    {
+      "path": "plugins/moai-marketer/evals/generated/marketing-target-script--TC-001/case.yaml",
+      "sha256": "3062b238c477d286cc8b011108f3765cba29fde6156e4e30f567387b48a241e5"
+    },
+    {
+      "path": "plugins/moai-marketer/evals/generated/marketing-target-script--TC-002/case.yaml",
+      "sha256": "3330dbc26bc2833749319e53d690a4d463ea8971ba31c1eab21712a20c68daba"
+    },
+    {
+      "path": "plugins/moai-marketer/evals/generated/marketing-target-script--TC-003/case.yaml",
+      "sha256": "27288bce6dcc6a36393cbf8f899e44eb5bf49e224382e17bf666c3948546348f"
+    },
+    {
+      "path": "plugins/moai-marketer/mcp.json",
+      "sha256": "db0d412d2a3ec5ea06f17c68eedac594d1eee9e4bd684967b9bcddbe74f9bf82"
+    },
+    {
+      "path": "plugins/moai-marketer/plugin.json",
+      "sha256": "02f70d78df042aa06828c33b5b3432b6ff262c6420027d8ddd94bde5aa798c1f"
+    },
+    {
+      "path": "plugins/moai-marketer/skills/content-blog/SKILL.md",
+      "sha256": "13a8e042d9f5bad7efdbcae3d9f316d0e08c1ffae7a1635aee72b5773da90b18"
+    },
+    {
+      "path": "plugins/moai-marketer/skills/content-card-news/SKILL.md",
+      "sha256": "5a82187cf20d02580254d08a0ef005781024abd19c71a3eb2de92afe6d60474e"
+    },
+    {
+      "path": "plugins/moai-marketer/skills/content-copywriting/SKILL.md",
+      "sha256": "9b1fbd3961c0c7f2df2838d5ca1b43433d74d2a00f2727043dbe5e4cf4399e93"
+    },
+    {
+      "path": "plugins/moai-marketer/skills/content-editorial-calendar/SKILL.md",
+      "sha256": "e51608bda54bd681c105b4516d209bd1f264bfbdcbced22fedd418009f85fd52"
+    },
+    {
+      "path": "plugins/moai-marketer/skills/content-email-sequence/SKILL.md",
+      "sha256": "0c72f8cdbc2cb14dc7a48eb2af16dc2ac3a0f9b22277782c2d35b43845d2f606"
+    },
+    {
+      "path": "plugins/moai-marketer/skills/content-newsletter/SKILL.md",
+      "sha256": "7983af92480086e2a93b5305cf891cba2f63364a2625e9bda53d6ab44eeaf64f"
+    },
+    {
+      "path": "plugins/moai-marketer/skills/content-sns-content/SKILL.md",
+      "sha256": "e407c5fb24b7cb27d421459c9be1c12237b7c903cae5406e02646a60340ac116"
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-campaign-planner/SKILL.md",
+      "sha256": "38bcbdc77b69b6df073a62e36b9550c4b3cf20f38d8b92b6bb26513118254c6a"
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-evidence-audit/SKILL.md",
+      "sha256": "a24587f42223b8df057a8e2aad9cea1dff192f91c4879ef425db4c1fa1370983"
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-growth-experiment/SKILL.md",
+      "sha256": "133c62e3ab65dc494010f0d77a61a3c8fbb6fa59ec152c1a89004df2f51b73a8"
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-keyword-research/SKILL.md",
+      "sha256": "f975419599856a2a75c341f9e360eddea853ed993f34eae9fc6520a13f31a02f"
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-landing-page-conversion-audit/SKILL.md",
+      "sha256": "96cb0749eebea918d73a0cc93702d1869085e30f8ebbe2854d7b0d6d3e4c21c1"
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-landing-page/SKILL.md",
+      "sha256": "398403e6c815ecca9a3e2eee583907d7843a4e3efd3fde6b5b5c08ca99524e80"
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-meta-ads-analyzer/SKILL.md",
+      "sha256": "fdc8fbd32131b746b5548b8a514867f1406f557d23da2e42d30294cfc510b8cd"
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-meta-ads-manager/SKILL.md",
+      "sha256": "dfe5c304e0f1bc94fb79f28845b71555c4a8bdfe3ec5bb9c8bf0f7bc00f8ebb7"
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-performance-report/SKILL.md",
+      "sha256": "6a6f79391fdc412c19ca981cb06eeddc7c12a0fb0195e1e6e5772ecef8242bdf"
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-personal-branding/SKILL.md",
+      "sha256": "ba06810bca49f5da2b1c2eb266da2079babbe8b034585653f3d52e1043789898"
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-pixel-audit/SKILL.md",
+      "sha256": "1b4ffa5210b98d6122a8643d0d9e6c96f93773f932c3053e32d7147f3ce2ec2c"
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-retention/SKILL.md",
+      "sha256": "b11bcbfa126143cee949c3798054e3c360765029eae7a8e0298cc3a601b15192"
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-seo-audit/SKILL.md",
+      "sha256": "ce2b858dc200d10fb9329a232607b778da9c7d10a5013f7769ccff4827cc5e57"
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-target-script/SKILL.md",
+      "sha256": "b4dadcd5403f003cf59182eed0bb35c669cca6607cb598b6614b47e97176836c"
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-workflow/SKILL.md",
+      "sha256": "4f3a47699267784b04af65b6304cbad630d1215fab3743e835be94201b65c074"
+    },
+    {
+      "path": "plugins/moai-marketer/skills/marketing-youtube-podcast-planner/SKILL.md",
+      "sha256": "20e5c9bc148ae87eb0fa8eee3c4e1e1ad8f09ca9a081d6c824ec6ec69c38abd8"
+    },
+    {
+      "path": "plugins/moai-media/.claude-plugin/plugin.json",
+      "sha256": "f24f2ec0c3489748971fae4bae264f3ac2e7695727ac9c2db7d2810533b2e16f"
+    },
+    {
+      "path": "plugins/moai-media/.codex-plugin/plugin.json",
+      "sha256": "6c612e24352588735d7ca843bfb673ea5eba4169517b95c533b26b5c7d632202"
+    },
+    {
+      "path": "plugins/moai-media/evals/generated/media-gemini-3-image-prompt--edge-case-ambiguous-input/case.yaml",
+      "sha256": "b6b1dc9ee46ada7d5fb722703fffdb2f3bb9beef8b6ea60ccbde32f0e24fcb81"
+    },
+    {
+      "path": "plugins/moai-media/evals/generated/media-gemini-3-image-prompt--happy-path-portrait-21-9/case.yaml",
+      "sha256": "3371a24016191494f543a7076d81e3f01a20faf6cd22b31a745dc8c8f92cb47b"
+    },
+    {
+      "path": "plugins/moai-media/evals/generated/media-gemini-3-image-prompt--happy-path-product-shot/case.yaml",
+      "sha256": "7641e75612c8a54a414d2337db2e41cb85501bc143c72dc77f176a40c8491542"
+    },
+    {
+      "path": "plugins/moai-media/evals/generated/media-gemini-3-image-prompt--reference-images-character/case.yaml",
+      "sha256": "4eb6a06bd9cd1edc680d2b5ae9db51bae961933fd0a7a8a1fec3e458ee70dd4f"
+    },
+    {
+      "path": "plugins/moai-media/evals/generated/media-gemini-3-image-prompt--search-grounding-infographic/case.yaml",
+      "sha256": "b5555def2429ec854edb5c265f040a4ab6796d62ec821abd9c4bcdef9ab9b12e"
+    },
+    {
+      "path": "plugins/moai-media/evals/generated/media-gpt-image-prompt--edge-case-ambiguous-input/case.yaml",
+      "sha256": "53c6e9b5fff04b7021b57dd7ec7a850b2ccee9ad1b7dd41ecb2052469149b338"
+    },
+    {
+      "path": "plugins/moai-media/evals/generated/media-gpt-image-prompt--edit-mode-2-column-logic/case.yaml",
+      "sha256": "3414c5f8766bca87fb2e854b9065f1cca661ff31fa93a58fdea10fde8ff5184b"
+    },
+    {
+      "path": "plugins/moai-media/evals/generated/media-gpt-image-prompt--happy-path-portrait-9-16/case.yaml",
+      "sha256": "4afa22d889dc2e86352eaf335c1f2a6e1fb5b4357a582274cdfb9dfc2d9a1ea0"
+    },
+    {
+      "path": "plugins/moai-media/evals/generated/media-gpt-image-prompt--happy-path-product-shot/case.yaml",
+      "sha256": "dd9622ab67ed3c038a20d299a9acc4cb2f53841be04fbcdc0514d90b84485f8f"
+    },
+    {
+      "path": "plugins/moai-media/evals/generated/media-gpt-image-prompt--slide-recipe-high-quality/case.yaml",
+      "sha256": "bdc4e3ad52eec431bf08b3f513bc01774edb5ab08c5449d57d5d7c5f620a71c3"
+    },
+    {
+      "path": "plugins/moai-media/evals/generated/media-gpt-image-prompt--sunburst-selection/case.yaml",
+      "sha256": "6623d1e8224986719358b51f3f346d5381128465bb250df5277c02bc275d124d"
+    },
+    {
+      "path": "plugins/moai-media/evals/generated/media-gpt-image-prompt--text-rendering-korean/case.yaml",
+      "sha256": "036b8c4dac9e1210ae1b4732d9f0417d538664116197da28a7f371aed64c7fc7"
+    },
+    {
+      "path": "plugins/moai-media/evals/generated/media-gpt-image-prompt--transparent-logo/case.yaml",
+      "sha256": "4dd74c611e99ba66a5c6d70c93ffb9f162554e1bd62632d4f4b9ae85b88bc46c"
+    },
+    {
+      "path": "plugins/moai-media/evals/generated/media-midjourney-v8-prompt--ambiguous-input/case.yaml",
+      "sha256": "492ac387e9176f32b7e7bc1874f17a414385828686380da48034c3c5ee9ce37a"
+    },
+    {
+      "path": "plugins/moai-media/evals/generated/media-midjourney-v8-prompt--deprecated-character-reference/case.yaml",
+      "sha256": "f1599b8ea237070291f2e7402c4929322f148eb4572f829df89cfbccf89f277c"
+    },
+    {
+      "path": "plugins/moai-media/evals/generated/media-midjourney-v8-prompt--legacy-omni-reference/case.yaml",
+      "sha256": "3d4c1c3cc0c9f9d89e326b3c002923eff9af18ac097536e3ed8942aba4564f51"
+    },
+    {
+      "path": "plugins/moai-media/evals/generated/media-midjourney-v8-prompt--product-shot-hd/case.yaml",
+      "sha256": "2f153dd61f15e1ab6aba77221956f0c49eb5199ba9006f27c5e9bba6af98533e"
+    },
+    {
+      "path": "plugins/moai-media/evals/generated/media-midjourney-v8-prompt--style-reference/case.yaml",
+      "sha256": "7a81644caae7267ed9c975c1d95824c79d3e5df09895e7a228885831352d7413"
+    },
+    {
+      "path": "plugins/moai-media/evals/generated/media-midjourney-v8-prompt--ultrawide-21-9/case.yaml",
+      "sha256": "cb67f385e0c394bb2ca94c5346b41cf4d6c97dc782e18fc5cd7b40e9251b8e31"
+    },
+    {
+      "path": "plugins/moai-media/evals/generated/media-midjourney-v8-prompt--unsupported-quality/case.yaml",
+      "sha256": "3a394f16fb6552418ec014995fd1db35d41bdd01a47ad7d97f48fdf4c021e19b"
+    },
+    {
+      "path": "plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/__init__.py",
+      "sha256": "a6cdec2a5915bce75d3f1e95c77c5033fdcb01195b90d4198e743c2d7538b133"
+    },
+    {
+      "path": "plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_core/credentials.py",
+      "sha256": "f8f4c05636ecedf8d44300caf7c9acf0f23773830c12f9ff86da86487d58fd71"
+    },
+    {
+      "path": "plugins/moai-media/mcp-servers/moai-mcp-openai/src/moai_mcp_openai/server.py",
+      "sha256": "64ec9e340fd967e50ea6db5d4dbbd130c0a3e584067cd01a5264c7967f47468d"
+    },
+    {
+      "path": "plugins/moai-media/mcp.json",
+      "sha256": "0c2f75440bf19fabd41c5a14617eb419dc5f019c732ffa4fa372c825f18271fd"
+    },
+    {
+      "path": "plugins/moai-media/plugin.json",
+      "sha256": "eec2f1547144667bbe651cf9d2377fdc60ecc136e1441b1ea3222031528007e4"
+    },
+    {
+      "path": "plugins/moai-media/skills/media-asset-production/SKILL.md",
+      "sha256": "01a67eef7fc32251f4cfc71b9ae4d196110503f5b630a3ad7ba79423f5da8feb"
+    },
+    {
+      "path": "plugins/moai-media/skills/media-audio-gen/SKILL.md",
+      "sha256": "aa69080b419e173291b0f746928c72d03f02fdb937f422e0877d6515cf21048d"
+    },
+    {
+      "path": "plugins/moai-media/skills/media-brand-audit/SKILL.md",
+      "sha256": "ea07fecbbc597ba50d7a1fd1583b0042d718043ff20d05230f49f9d3a2530bd3"
+    },
+    {
+      "path": "plugins/moai-media/skills/media-codex-image/SKILL.md",
+      "sha256": "bfb0eb8abcde71075f09f11b4e0557a5cb115e72b40a1815e356173ae8c0bc9a"
+    },
+    {
+      "path": "plugins/moai-media/skills/media-gemini-3-image-prompt/SKILL.md",
+      "sha256": "e68038ddec3d44928065d7e3cab4e624830f3038ae69035b78728e60ee26f47d"
+    },
+    {
+      "path": "plugins/moai-media/skills/media-gpt-image-prompt/SKILL.md",
+      "sha256": "086221b5e26e5b8c2334e6283120bad41ca21fbcdfae3f2276cd3384a9a1a13a"
+    },
+    {
+      "path": "plugins/moai-media/skills/media-higgsfield-assets/SKILL.md",
+      "sha256": "37449b4c489de7bb2333f0623bdc98c3079b8c3cad7b43fdd820e9b759c51062"
+    },
+    {
+      "path": "plugins/moai-media/skills/media-higgsfield-core/SKILL.md",
+      "sha256": "278c0d342fd1c4bb0cc174e8d1b47c1da05f6762fccce15035344fed3aeaccb2"
+    },
+    {
+      "path": "plugins/moai-media/skills/media-higgsfield-explainer/SKILL.md",
+      "sha256": "c00ac04a90f1bc00100c43e5f76e85ab2145da8ffb484b13c39eaeb8b1f0a9e3"
+    },
+    {
+      "path": "plugins/moai-media/skills/media-higgsfield-identity/SKILL.md",
+      "sha256": "9f10baad910d91a240e28153cdd3a732ae85c5c3e34fc22444ad37d261a6bacd"
+    },
+    {
+      "path": "plugins/moai-media/skills/media-higgsfield-image/SKILL.md",
+      "sha256": "5c7e8de6eacf800f41fd5f97790f07b9c73e3e9b3538ef4d91478b86cee86059"
+    },
+    {
+      "path": "plugins/moai-media/skills/media-higgsfield-product/SKILL.md",
+      "sha256": "663eef662e5813f1e6beae87f098740348fd427f4f16540964006ca6123db182"
+    },
+    {
+      "path": "plugins/moai-media/skills/media-higgsfield-video/SKILL.md",
+      "sha256": "059eee72fdd6994a22511d35669e2840f04a668ffe385bab31751eb67252aed4"
+    },
+    {
+      "path": "plugins/moai-media/skills/media-midjourney-v8-prompt/SKILL.md",
+      "sha256": "24953cc7c51643ab40b3c1bd12bcfabeba1b814389b211f9498ef24971ecaa67"
+    },
+    {
+      "path": "plugins/moai-media/skills/media-notebooklm-slide-prompt/SKILL.md",
+      "sha256": "22647dac276c4d1bcf912222cac2df6ab17fd889be83fe9dd13a8de3efd5b93f"
+    },
+    {
+      "path": "plugins/moai-media/skills/media-production/SKILL.md",
+      "sha256": "fa574a9e7ec30c65ed42777ef25ad59cb3443b23d51875bbce72c2703baafc31"
+    },
+    {
+      "path": "plugins/moai-officer/.claude-plugin/plugin.json",
+      "sha256": "fab6e1cdd085aaa77fd7790f08f389d0db88c7b99a2c91da8ee6e8588bd903f7"
+    },
+    {
+      "path": "plugins/moai-officer/.codex-plugin/plugin.json",
+      "sha256": "db8a9e782e9c0bb444be32d1636c7b890d98fc5ac793e6617f5185823f1ef275"
+    },
+    {
+      "path": "plugins/moai-officer/evals/generated/doc-pdf--TC-001/case.yaml",
+      "sha256": "70e83372bdc9cab9063325da49d0461997d2b7783088ecfed024549b1b20d62f"
+    },
+    {
+      "path": "plugins/moai-officer/evals/generated/doc-pdf--TC-002/case.yaml",
+      "sha256": "aa4fe2d011f46269aa302dfe422d51024c655cd2462730fd13a8f325f0d91737"
+    },
+    {
+      "path": "plugins/moai-officer/evals/generated/doc-pdf--TC-003/case.yaml",
+      "sha256": "e635070e12d2fd27391c236af492ff4432b69e787cd1fe974bc354790c70e19c"
+    },
+    {
+      "path": "plugins/moai-officer/evals/generated/doc-pdf--TC-004/case.yaml",
+      "sha256": "45b436c2b0481951a4c61bf2b904b0857e35b4e186235d1eaf175db535e10790"
+    },
+    {
+      "path": "plugins/moai-officer/evals/generated/doc-pdf--TC-005/case.yaml",
+      "sha256": "c91190ed9b62c18620ed80f614dfb231d8bb117346e67dd802475cd0dac8affd"
+    },
+    {
+      "path": "plugins/moai-officer/mcp.json",
+      "sha256": "46ade3d839def14f769a5ca93bf289f090018bbb78900936e30911c8500082c6"
+    },
+    {
+      "path": "plugins/moai-officer/plugin.json",
+      "sha256": "a85bc1bac4c8194f124fc252e01f42095f0a2a29b751462a6befcb22ba800e2d"
+    },
+    {
+      "path": "plugins/moai-officer/skills/doc-data-audit/SKILL.md",
+      "sha256": "84024c857fd0a94414a46f0cf38a6fb1dab845cf7223365fad93a725dc59922c"
+    },
+    {
+      "path": "plugins/moai-officer/skills/doc-design-library/SKILL.md",
+      "sha256": "95b5286715d78e0a4d751c7ca2af59b7ffafd2db702d4416ad5c436b1e729dd0"
+    },
+    {
+      "path": "plugins/moai-officer/skills/doc-docx/SKILL.md",
+      "sha256": "0840a241b53e0e71a034b59e8ae4616c00b5bafd90c387627abadc6508d90d27"
+    },
+    {
+      "path": "plugins/moai-officer/skills/doc-html-report/SKILL.md",
+      "sha256": "d11d3868993fdf1834eb2e7aeb8e23aeb15966c33ebc46db83a883c07acf286a"
+    },
+    {
+      "path": "plugins/moai-officer/skills/doc-html-slide/SKILL.md",
+      "sha256": "625203af69f95f0685b7f28017bab0db85b49969bffab6fff5545ddd85c1fedc"
+    },
+    {
+      "path": "plugins/moai-officer/skills/doc-html-slide/references/design-system-links.md",
+      "sha256": "cffe90ad593f913371db54a7d8d12cb932e86548677a381bdea96d4e06ff1879"
+    },
+    {
+      "path": "plugins/moai-officer/skills/doc-hwp/SKILL.md",
+      "sha256": "ef00c72916e5aedc3c19bdf4759e4b738f4dc6f1e42996ce320208b853bc33a7"
+    },
+    {
+      "path": "plugins/moai-officer/skills/doc-notion-template/SKILL.md",
+      "sha256": "fc2d9215432d394eb0bce620bf4eac778852dcd6d975048d7d77534ca676dac1"
+    },
+    {
+      "path": "plugins/moai-officer/skills/doc-pdf/SKILL.md",
+      "sha256": "fc70311457f0b64eee0791b9403bd6da443d16c39e664cb4f9968fa05465c2a4"
+    },
+    {
+      "path": "plugins/moai-officer/skills/doc-pptx/SKILL.md",
+      "sha256": "2dda2046e8d2184cf94cc90fa41962f1d54196b6209ac0927ba727b80cfefddc"
+    },
+    {
+      "path": "plugins/moai-officer/skills/doc-reader/SKILL.md",
+      "sha256": "e4ec13164dea818d0dbced61135ab3cfbfe7d2a0076ba7c69abb39d0e9645e84"
+    },
+    {
+      "path": "plugins/moai-officer/skills/doc-workflow/SKILL.md",
+      "sha256": "dbd8dd46b85308147aca2e180f05817c579d760f0c4484d812c74f6f859a821c"
+    },
+    {
+      "path": "plugins/moai-officer/skills/doc-xlsx/SKILL.md",
+      "sha256": "96c153e5fcc694e128f787e5bc52871a057534eacffee4e833550581591e48b2"
+    },
+    {
+      "path": "plugins/moai-officer/skills/productivity-briefing/SKILL.md",
+      "sha256": "bb785a4442ad17a045bc464e95c19cf080893c9487306eab684c8f5a1afa24bf"
+    },
+    {
+      "path": "plugins/moai-officer/skills/productivity-time/SKILL.md",
+      "sha256": "77c7b98896b85bc55e3f9b38a04d1f70c4c91169db291acb8b0868d119a9c0c9"
+    },
+    {
+      "path": "plugins/moai-officer/skills/setup-mcp-connector/SKILL.md",
+      "sha256": "aa60e9bb21b57e8842cc8baa4f6db83b3efe33819b380efb252c68070dc18832"
+    },
+    {
+      "path": "plugins/moai-pm/.claude-plugin/plugin.json",
+      "sha256": "f0b9c2c8f17533f313197d1bb68f0fe02d451afb476b2d7f660e9be332e4a9aa"
+    },
+    {
+      "path": "plugins/moai-pm/.codex-plugin/plugin.json",
+      "sha256": "1cc348c5779157022ac9131d7cd09c867405a929a28e6030bdcdebe1c7bbddd4"
+    },
+    {
+      "path": "plugins/moai-pm/evals/dependency-plan/case.yaml",
+      "sha256": "fddd2169bb5caf12057d617ea44bb9680986951e544387fba06a169de30c429b"
+    },
+    {
+      "path": "plugins/moai-pm/evals/missing-context/case.yaml",
+      "sha256": "0a73946bec9de05fa2016adc072accb393ab7dbbb7c2c5cdc0b75f15cf5746ab"
+    },
+    {
+      "path": "plugins/moai-pm/evals/project-application/case.yaml",
+      "sha256": "bb855f5777354640ed90756a43ade7d709bf376c40a6ce07c736fb7fac24ff41"
+    },
+    {
+      "path": "plugins/moai-pm/evals/resume-context/case.yaml",
+      "sha256": "51c0251ee7bef6f4c12a0bb662dbff425e6600261c30f331a6c4836ad6f7ad40"
+    },
+    {
+      "path": "plugins/moai-pm/mcp.json",
+      "sha256": "1788697eb2d3aa1caa8da59a62331a92529e24885f0e7151418f915000fbf7fd"
+    },
+    {
+      "path": "plugins/moai-pm/plugin.json",
+      "sha256": "d85a602912950c21838fae8acd82a78dd76cee605e9a12ef728dd2c42b60f53b"
+    },
+    {
+      "path": "plugins/moai-pm/skills/project/SKILL.md",
+      "sha256": "4fa6702402079222ed7430fc55800b51b94d707f92fd0922deeabcacc5148d70"
+    },
+    {
+      "path": "plugins/moai-pm/skills/project/references/INDEX.md",
+      "sha256": "97034859ca20565a7cf10b7d59252e53e9d9659dbca14c5372ba0cfd09b808ea"
+    },
+    {
+      "path": "plugins/moai-pm/skills/project/references/account-bindings.md",
+      "sha256": "5a5d136fa4ea3ab51b3dec52b6d35de59fd7b49a7efb925260806166c5d32ca7"
+    },
+    {
+      "path": "plugins/moai-pm/skills/project/references/agentsmd-generator.md",
+      "sha256": "0a2e612b9da233e7db4503a3b0336b9487c4ddf582c2ce696d65a62885fb1676"
+    },
+    {
+      "path": "plugins/moai-pm/skills/project/references/context-collector.md",
+      "sha256": "26246f44d57026c8669e212fe5fb9f3c7dbacaa105f2f630bc53a323e258b211"
+    },
+    {
+      "path": "plugins/moai-pm/skills/project/references/cowork-setup.md",
+      "sha256": "3e498fbcc2545acdb9db4cbf27b2010e4ade0bc04ec3ee5f7ef4422168813787"
+    },
+    {
+      "path": "plugins/moai-pm/skills/project/references/diagnostic-protocol.md",
+      "sha256": "643e6d07bf7faf78700474d31547f8b062b3878a5cdee91baf900bd5f8cad6b6"
+    },
+    {
+      "path": "plugins/moai-pm/skills/project/references/evolution-protocol.md",
+      "sha256": "6f0b952c6562ad1b06b464424d684730dcf232f68f355dd3e44fccf017839503"
+    },
+    {
+      "path": "plugins/moai-pm/skills/project/references/execution-protocol.md",
+      "sha256": "f8d7c3b3e6efbfffa34df94b8933b049394ee0b2bdbeedff7bf37f614cf3d13a"
+    },
+    {
+      "path": "plugins/moai-pm/skills/project/references/expert-contract.md",
+      "sha256": "ba5a8e950eb96d081c2c10902d26ff8ad6a8d0ad77a45c45191a71fbc74ebc77"
+    },
+    {
+      "path": "plugins/moai-pm/skills/project/references/host-capabilities.md",
+      "sha256": "2e6fd1c2b13db1b25e8f9098a40e31f524f1cacb9c201e65b60ba581a5438dd0"
+    },
+    {
+      "path": "plugins/moai-pm/skills/project/references/init-protocol.md",
+      "sha256": "02dd56261cd09ee59fea4b900fd86273dc87078ab064f1c40c5f88e6967f2df2"
+    },
+    {
+      "path": "plugins/moai-pm/skills/project/references/question-protocol.md",
+      "sha256": "57fedb665a62c94f6fd70d0150c89dd552f1045a01cbd328b5b885067bb29245"
+    },
+    {
+      "path": "plugins/moai-pm/skills/project/references/router.md",
+      "sha256": "85761b651bd2b9e48c78c8f4b7275ddcc5d5de53a7bd10b9e4411f3f8d7b5dcb"
+    },
+    {
+      "path": "plugins/moai-pm/skills/project/references/skill-catalog.json",
+      "sha256": "9736e7aa746fd161e7d51e7522f1e8c169e7c1ec869f63ca9d9c32f42eccf5e4"
+    },
+    {
+      "path": "plugins/moai-pm/skills/project/references/templates/AGENTS.md.tmpl",
+      "sha256": "b72f47b515670c5968b3c674345ae85ef52640e65a1082d81fb51e097c578017"
+    },
+    {
+      "path": "plugins/moai-pm/skills/project/references/templates/config.example.json",
+      "sha256": "40417c3152a3b71ef97dcb8a706192bd44d07a7bf9f543d4b7bae4a3dd61e36b"
+    },
+    {
+      "path": "plugins/moai-pm/skills/project/references/templates/config.schema.json",
+      "sha256": "4463f3013734ce5083b9a7c0c9a9266112e8de44a352961bb6d7c9bec0b60f17"
+    },
+    {
+      "path": "plugins/moai-pm/skills/project/references/update-protocol.md",
+      "sha256": "ed43e6408e89cd9a9ac9fc16a8c12ac76cd32b90821777fd573e2dc54da19430"
+    },
+    {
+      "path": "plugins/moai-pm/skills/project/scripts/project_contract.py",
+      "sha256": "194b801ac502994fb5c29416f8b85e292d9270a2468e4765c57b9fb7ab0d5d0f"
+    },
+    {
+      "path": "plugins/moai-pm/skills/project/tests/test_project_contract.py",
+      "sha256": "6f2bfd2312d7b7e3f9df95768731093be686b91147ee3f11b9e8d2bea83293e7"
+    },
+    {
+      "path": "plugins/moai-recruiter/.claude-plugin/plugin.json",
+      "sha256": "b1a66fd3a57761d8adac0bb73ab64c58f48f11d3fb99e2ee1575134feeafd2d6"
+    },
+    {
+      "path": "plugins/moai-recruiter/.codex-plugin/plugin.json",
+      "sha256": "bd70cec7c9dc8ebba2bf839134aa6a3182c5ba47813ef2f2304b27b2a0f339eb"
+    },
+    {
+      "path": "plugins/moai-recruiter/evals/generated/hr-resume-screener--T01/case.yaml",
+      "sha256": "58237f44819be0751f1e08dc5fd109475a3f9068409b6f00da113231fe30924d"
+    },
+    {
+      "path": "plugins/moai-recruiter/evals/generated/hr-resume-screener--T02/case.yaml",
+      "sha256": "50304a2f218efd21b16b141a7ebba111ed06a90be13e4e244adc25b397f5b410"
+    },
+    {
+      "path": "plugins/moai-recruiter/evals/generated/hr-resume-screener--T03/case.yaml",
+      "sha256": "16a3694e84230c704f22b6bbdf4c6ee2f5441aa6f1ec45e589ca6292ca4dae39"
+    },
+    {
+      "path": "plugins/moai-recruiter/evals/generated/hr-resume-screener--T04/case.yaml",
+      "sha256": "eb95f347c381ca5e26acd9ffbe672aafe03a951b4bfea11b11ec23b464eac064"
+    },
+    {
+      "path": "plugins/moai-recruiter/evals/generated/hr-resume-screener--T05/case.yaml",
+      "sha256": "1793b64103d5a50c405648ddf526ef3d21838c96e810816217eb1ccf0cb2a932"
+    },
+    {
+      "path": "plugins/moai-recruiter/evals/generated/hr-resume-screener--T06/case.yaml",
+      "sha256": "01b8782ec0f8997f5dbc6c9143d05fc5efb9e2e9e4c924ec57cb5e4881fc2c18"
+    },
+    {
+      "path": "plugins/moai-recruiter/mcp.json",
+      "sha256": "1788697eb2d3aa1caa8da59a62331a92529e24885f0e7151418f915000fbf7fd"
+    },
+    {
+      "path": "plugins/moai-recruiter/plugin.json",
+      "sha256": "17bc0f6dbfa44a20190853e761ef95299284466999a862ec4cf29c184683cabe"
+    },
+    {
+      "path": "plugins/moai-recruiter/skills/hr-draft-offer/SKILL.md",
+      "sha256": "006836b1a99cc10320b835da7415de526ec41bcc1ebf45398a778bd713c97bf7"
+    },
+    {
+      "path": "plugins/moai-recruiter/skills/hr-employment/SKILL.md",
+      "sha256": "19c29a52c65fca3e028c87574e7bac50d0b6852104f11ebdf4ed56a972211eec"
+    },
+    {
+      "path": "plugins/moai-recruiter/skills/hr-job-analysis/SKILL.md",
+      "sha256": "cb59c4fc96af93a42c9c08d1ede8e4bd742b7559bdf6d62825cd656ee93a7a39"
+    },
+    {
+      "path": "plugins/moai-recruiter/skills/hr-operations/SKILL.md",
+      "sha256": "32c8f4d26cd95a4dcb862cd5fd31c421d6fd1cf0b8de65db404d10e23ee85837"
+    },
+    {
+      "path": "plugins/moai-recruiter/skills/hr-performance-review/SKILL.md",
+      "sha256": "cbf08b9ff7fb50b632ed78107f34a0e3889c9dbfbecaad811f513df57f117e76"
+    },
+    {
+      "path": "plugins/moai-recruiter/skills/hr-resume-screener/SKILL.md",
+      "sha256": "9d5c3976e3abfdaf8025716408aa4aa23bae7b9ac233d464f97e64f98ef0acf0"
+    },
+    {
+      "path": "plugins/moai-recruiter/skills/hr-screening-audit/SKILL.md",
+      "sha256": "e76552c012181e9712f9fca8c3c4a66aa0f4f627f1bd569b8e83071d81778746"
+    },
+    {
+      "path": "plugins/moai-recruiter/skills/hr-workflow/SKILL.md",
+      "sha256": "fffb132ca00892ab1c1af494c15a22710e2dd7af18bbabe7ad98255540a91806"
+    },
+    {
+      "path": "plugins/moai-seller/.claude-plugin/plugin.json",
+      "sha256": "35352ee5e0ffe5c6d11d708ec8b8a3e9d8f2b510a8cbef7887c50254c5bb7963"
+    },
+    {
+      "path": "plugins/moai-seller/.codex-plugin/plugin.json",
+      "sha256": "3db3b8bb6a9ad47bb75ddf4b4612d2fb378493f054d1ecbc41de0f96d3a7d2b0"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-detail-page-copy--medical_claim/case.yaml",
+      "sha256": "a0b176e5e87881d133da4f04afeb336a99c00d939af8258508b8490c8b25fcb4"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-detail-page-copy--missing_evidence/case.yaml",
+      "sha256": "5cb4d2a8b0682352b106f652f133dc11722234cd6c9824d35e6649ab2895dda6"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-detail-page-copy--supported_electronics/case.yaml",
+      "sha256": "c053dfe9080db5cc047278e582bef7efca4fb32375ddef1c5275b15258aab6d7"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-detail-page-image--all_sections/case.yaml",
+      "sha256": "fba5828f8887d194249025f5ef1d544cc2e4da59035b68ddc863eafb4ccdd909"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-detail-page-image--all_sections/scaffold.sh",
+      "sha256": "255d750570231f585a896f35611c772691a07b4536561805b551784c4e2f1caf"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-detail-page-image--channel_export/case.yaml",
+      "sha256": "ad298a5ec3ca97b78674726eda5dea66cb7d842d8a2333628dfc7e92ecddf69a"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-detail-page-image--partial_failure/case.yaml",
+      "sha256": "fd515c444457399e7dd23f949c069742cbb0ea9e575fbf1407ac4a42a8fc7be5"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-detail-page-planner--b2b_self_service_checkout/case.yaml",
+      "sha256": "6d0c552f829f2c04a23505de57b172c46bf72cab5d1e62ff33f3856f340e2da0"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-detail-page-planner--beauty_before_after_without_rights/case.yaml",
+      "sha256": "b325c56dc5d34533699e044508be440733327f0f2aa0da82841b877b67760128"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-detail-page-planner--beauty_without_efficacy_evidence/case.yaml",
+      "sha256": "b8639f7bfdffa8e8e8203397099cf95e28f87d2289cf5f2bcb13cc7023c9a65f"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-detail-page-planner--brief_handoff/case.yaml",
+      "sha256": "e3b5da36fe0204debb096f78dd23665ade4b6adfacb9b5246021cd4719901aeb"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-detail-page-planner--child_product_without_age_evidence/case.yaml",
+      "sha256": "b2521e54c5ae28222610d1c9ef65fce25f37affc482554127f8a07876d40282d"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-detail-page-planner--food_label_and_brief_format/case.yaml",
+      "sha256": "550ed1f10e3d3764f0987d594ed397ad970ec6432553de1b1ed2b5a17b1027d9"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-detail-page-planner--laptop_without_fixed_template/case.yaml",
+      "sha256": "a2efc8827bb784a627e4cd8f22d155dd0c772e005b9c122d904e1db24f10376a"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-detail-page-planner--one_message_only/case.yaml",
+      "sha256": "c54c0e1fe88b55f26aa2543c833e16dbdb224e68d6cc48dedf25113a90d1e1d8"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-detail-page-planner--simple_request_without_claude_tool/case.yaml",
+      "sha256": "e2452e0ad61b934c0dcc453d52f75da29578d21befc8e20be36342036b7115ca"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-detail-page-planner--subscription_without_ai_feature/case.yaml",
+      "sha256": "713f5ad2aaf2a802931ff7eb9bed08341c97210613e16419db920992a3aced6e"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-live-commerce--grip_direct_broadcast/case.yaml",
+      "sha256": "acb7025f2ae8cb011c84189c7dee6dc21871868c5e8db386b48748d9be901852"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-live-commerce--missing_live_setup/case.yaml",
+      "sha256": "3bd651d7c49dd844dbe041bb77b17d08f1c0f6f93253b25b0679d000bb441c3d"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-live-commerce--naver_verified_offer/case.yaml",
+      "sha256": "8b205689177ceca094a4f56d67e85746ff40e9a2076d220f03f75f4659ba6d51"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-live-commerce--no_invented_countdown/case.yaml",
+      "sha256": "0656aff1f67193b56907d1a6efc96f18aca82970518f90ed4509d0140d22c5d6"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-live-commerce--simple_opening_without_setup/case.yaml",
+      "sha256": "c40e8bf3b6d2a6e53cf85da42a8ce85086cbff6d58fe529f1e597cdecd124bf3"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-marketplace-coupang--delivery_type_without_contract/case.yaml",
+      "sha256": "55434390cfbb92c6f2face827aef644c50f5502a6897f1ea291f7684d0c67d94"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-marketplace-coupang--unsupported_health_claim/case.yaml",
+      "sha256": "6e4bd6d6a244734cd945bfc0cb2254e934e3b2fd97e4771860c3242551c34cf1"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-marketplace-coupang--unverified_image_upload/case.yaml",
+      "sha256": "0001395ac52271467d9a9493b1572d6280533d9d9ffd28b9b33f9f7bf9324fbb"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-marketplace-crowdfunding--copy_only_without_account/case.yaml",
+      "sha256": "c8bf7eb0aeb2a7f0f178fdb84de98d3f5a2a49406df07b374f5238a0c99c8bdb"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-marketplace-crowdfunding--tumblbug_book_draft/case.yaml",
+      "sha256": "74da0b772dd0a655e81085c4d40202468354ba6a8137bd72a98fde2eda2c0093"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-marketplace-crowdfunding--unverified_certification_and_claim/case.yaml",
+      "sha256": "547cb447012029bddbf9374c8e7f3089268a6b8b73e357cc6c6835ee5eab44d2"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-marketplace-crowdfunding--wadiz_tech_draft/case.yaml",
+      "sha256": "e45a19a0de123ccc8e2a381445c6baef0904b1142acef2302c3a65c1bfa60b94"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-marketplace-curation--29cm_lifestyle_proposal/case.yaml",
+      "sha256": "7e5cf68fbf84ab32b2a41ac5a8af6b88bbc61d3ebf7cca9cc86b21c11d638d37"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-marketplace-curation--copy_only_without_partner_account/case.yaml",
+      "sha256": "078afc437c83648aa29ec3c492e5f33d93a2f2926e0e4796d5b50803e5a3837c"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-marketplace-curation--kakao_makers_production_plan/case.yaml",
+      "sha256": "59a2bfe785a62d035b95b3bc9c686d813d8a76405961940a3fd65d6e45d5b4be"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-marketplace-curation--musinsa_new_brand/case.yaml",
+      "sha256": "bf955af740c260557d4700cd079e352590261172f685444960f273a46c39537c"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-marketplace-d2c--cost_comparison_missing_contract/case.yaml",
+      "sha256": "0ded2602ae7e1a4cab3d9620af0e22d18bea7de11f49d0f50fecaf78dbc803b6"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-marketplace-d2c--imweb_retired_plan/case.yaml",
+      "sha256": "94ad7fa9927f3f0be266ee82f7c493f6bd7e38f073c7ddf018323ae0c7f688b4"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-marketplace-d2c--no_business_registration/case.yaml",
+      "sha256": "f787335a2795949ecdf0e9b0a7a96443ea50570228355e7e11037a39717dd00c"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-marketplace-d2c--simple_comparison_without_account/case.yaml",
+      "sha256": "00781d2a3ae690823912e99537a22c6ff3efb01bb3393855b63382381c399bb8"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-marketplace-naver--multiple_markets/case.yaml",
+      "sha256": "e539f6599372c361992cd279825845de2ba039143d297d6aab04f57c20e1a454"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-marketplace-naver--review_manipulation/case.yaml",
+      "sha256": "83b502aa05f82d4a3d8698528874f981391e8d8103dc19b70792fe3cc5f0e72e"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-marketplace-naver--smartstore_unverified_image/case.yaml",
+      "sha256": "cbf87494a7dc3ba61dc84d297a4eb1a6d423ed8024166891f24b614eb7473936"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-product-photo-brief--edge_minimum_1_photo/case.yaml",
+      "sha256": "c0c35731b898d4f68149b806e4932be1818595b8639f85f82d79142aa0c2385d"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-product-photo-brief--failure_unsupported_format/case.yaml",
+      "sha256": "f07f9d933c64ff8e069d9234217d2e170a26eaad419e213526c9638e1ecba095"
+    },
+    {
+      "path": "plugins/moai-seller/evals/generated/commerce-product-photo-brief--happy_5_photos_electronics/case.yaml",
+      "sha256": "9b47353073d757653a957356273d4d5d6c2f6fc291d42211f649f13ccf69dfcb"
+    },
+    {
+      "path": "plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_cafe24/tools/_dispatch.py",
+      "sha256": "36307a2adcbdcddecac0b4a0f7e975a1d178aa0a949211c4194825b02e12e3ba"
+    },
+    {
+      "path": "plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_core/__init__.py",
+      "sha256": "a6cdec2a5915bce75d3f1e95c77c5033fdcb01195b90d4198e743c2d7538b133"
+    },
+    {
+      "path": "plugins/moai-seller/mcp-servers/moai-mcp-cafe24/src/moai_mcp_core/credentials.py",
+      "sha256": "f8f4c05636ecedf8d44300caf7c9acf0f23773830c12f9ff86da86487d58fd71"
+    },
+    {
+      "path": "plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_core/__init__.py",
+      "sha256": "a6cdec2a5915bce75d3f1e95c77c5033fdcb01195b90d4198e743c2d7538b133"
+    },
+    {
+      "path": "plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_core/credentials.py",
+      "sha256": "f8f4c05636ecedf8d44300caf7c9acf0f23773830c12f9ff86da86487d58fd71"
+    },
+    {
+      "path": "plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/community.py",
+      "sha256": "7e70b9dd91abf27d4e44b3420c79134c24a94513ebeb2d38f218f7cda3d419ec"
+    },
+    {
+      "path": "plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/member_info.py",
+      "sha256": "c90240b2553251a5c5513243217bdd3d9b3c1a4b61d824c91fc820e295d5e3c3"
+    },
+    {
+      "path": "plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/order.py",
+      "sha256": "610fe2d34950258fa73fde8bd4f9b55decdc755fe13fc5be4c8c5b33bf8f4ac9"
+    },
+    {
+      "path": "plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/payment.py",
+      "sha256": "9cddb91c3a2f55bdd1c05713736d0d0f1ea6dc4ea5a6a85baee3470c0cf4a36a"
+    },
+    {
+      "path": "plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/product.py",
+      "sha256": "d4a930e521eaeb5c42c801a7ebd6c0f6d554f01e428f1e85db3913f068557edb"
+    },
+    {
+      "path": "plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/promotion.py",
+      "sha256": "ccc576360dd2d4c48e25cf69c22f317de8631b04c69a60a92cfbcf6989f58026"
+    },
+    {
+      "path": "plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/script.py",
+      "sha256": "9d3856a91c49eab3d80f9b38140b2dd48bc0593d60a162c9d3a1fba11ab2c605"
+    },
+    {
+      "path": "plugins/moai-seller/mcp-servers/moai-mcp-imweb/src/moai_mcp_imweb/tools/site_info.py",
+      "sha256": "1eaddd6dce761b525a97ddf89e0d7f31fc1135f58f23d8b368d6a50ccfce380b"
+    },
+    {
+      "path": "plugins/moai-seller/mcp-servers/moai-mcp-imweb/tools/_generator.py",
+      "sha256": "00f8c2c22b55194dd92219e36e0443f7aa3b4e277e1b67d91df6a036e537a97a"
+    },
+    {
+      "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_core/__init__.py",
+      "sha256": "a6cdec2a5915bce75d3f1e95c77c5033fdcb01195b90d4198e743c2d7538b133"
+    },
+    {
+      "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_core/credentials.py",
+      "sha256": "f8f4c05636ecedf8d44300caf7c9acf0f23773830c12f9ff86da86487d58fd71"
+    },
+    {
+      "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/auth.py",
+      "sha256": "9dadafd9f89e88f6aa119627192ee46635fed375b9b39a176abb1643992b9b61"
+    },
+    {
+      "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/inquiries.py",
+      "sha256": "b0ae3ee247052e24d6b10b3605eb922b18bf9b99b16fa22ae4aad0302bbe2937"
+    },
+    {
+      "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/logistics.py",
+      "sha256": "91a7e20cc4d5916e20a09189353cf994f636bc9c79be7e4e7039589306f89222"
+    },
+    {
+      "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/orders.py",
+      "sha256": "1ecc6b6b7019512be1df82a2380eb3e758b6d30dea0a141da38ee3bafe0c0975"
+    },
+    {
+      "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/products.py",
+      "sha256": "619455df8346b655deebab9b212e981ef6f4482af21b4a7686141f24d55134b6"
+    },
+    {
+      "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/seller.py",
+      "sha256": "fcda2a2f744e36a707d2e50cfb7b488b5c939fb134f0d699f0513ee256bdd06b"
+    },
+    {
+      "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/settlement.py",
+      "sha256": "d827ccb2ad943604599968d8c13240f0a4d158f05602b29ea3d53719ac89e52b"
+    },
+    {
+      "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/solutions.py",
+      "sha256": "ac4ca28164b0ca955bdd19eaaf81ef97422bd54ee8b1adfee75e0374c386bc72"
+    },
+    {
+      "path": "plugins/moai-seller/mcp-servers/moai-mcp-smartstore/src/moai_mcp_smartstore/tools/stats.py",
+      "sha256": "42d87edb3b4b067c5b27d8ecca2da52c0945cea2fe41c73a9a88f9bbdc3ef458"
+    },
+    {
+      "path": "plugins/moai-seller/mcp.json",
+      "sha256": "655edac0d82f272d39f8688479a801a77986895cf03c9d4c0b0124d312fac7ca"
+    },
+    {
+      "path": "plugins/moai-seller/plugin.json",
+      "sha256": "ade9577898218710f59ca03d0d15ce26a04b92e6812964ffaa4f082980012ef0"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-ad-claim-compliance-kr/SKILL.md",
+      "sha256": "d758c8dc4be5ee6d3280e51132d3ddcc938ad32d5b5b6886671a725b20940059"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-automation-audit/SKILL.md",
+      "sha256": "545b8c7417a7bfca88b73bcea15088e3d82297e9c52d10265f49507da7e021fa"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-coupang-ad-optimizer/SKILL.md",
+      "sha256": "3f2c3b96b3bcdcfbedea0a3ed4fb43ef8a00e722772f19a84d85af612bfab0c3"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-detail-page-copy/SKILL.md",
+      "sha256": "b5e6f6736aa60abf593911c315780c8dc28c06446354c6cd3f4cc169285d0ba7"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-detail-page-image/SKILL.md",
+      "sha256": "980a751ed3ed1b5aa817e9b13cb52b76ee116ce2eca7a235697ad10737a5e1cb"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-detail-page-image/tests/scaffold.sh",
+      "sha256": "255d750570231f585a896f35611c772691a07b4536561805b551784c4e2f1caf"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-detail-page-image/tests/test-cases.yaml",
+      "sha256": "81cf2188d110c995c91f74f1fa55b35048d3832a6ad3166a5f79714fc5487e30"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-detail-page-planner/SKILL.md",
+      "sha256": "8eecc49d0983d5de919e1bbc7c16dca1c3cc2a8fb3bae778a8d5d5f2e3cb9ec0"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-early-fan-builder/SKILL.md",
+      "sha256": "9c5e3cefc6aa00c9afcca5c30fd6c3a53e80fb25d07985c640345c07b7acf887"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-influencer-collab/SKILL.md",
+      "sha256": "7dbf51c5b871bb819cd9f52fd5121e54d4f5780d46ea843f3aa31e91efa529a8"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-integrated-strategy/SKILL.md",
+      "sha256": "192c7fc1e5ea6f5138115ffc605236bb111ad842aa7011fcf6b9a50fdd5127cc"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-jtbd-persona/SKILL.md",
+      "sha256": "53f6439f5cba6693dad28f99396debf386f472429e87f8a3c5ac1463ed5985bf"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-live-commerce/SKILL.md",
+      "sha256": "b56c7482ebd5f13852c2d76e56f1de6629a8e9bd015c9be7f1d4e12f80f38a3d"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-ltv-cac-architect/SKILL.md",
+      "sha256": "b0f4123b49edbfe89359d923a1791fc9c1899210c16b608c98083eb05da8e31b"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-margin-audit/SKILL.md",
+      "sha256": "7da0c4726fbd1f25af83321f0128bffe275e5f923ae071b6a0465c42ee52e89a"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-margin-calculator/SKILL.md",
+      "sha256": "09221dd55ef99160eda346e9cf0654fe99752c260a080802e329382c6340993a"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-market-research/SKILL.md",
+      "sha256": "30f98fb0e43ec12c2d057d90ce10849db0ef5c12c647b30d73ac5b33d1eed2c9"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-marketplace-coupang-ads/SKILL.md",
+      "sha256": "3ca8da8be0104202a4f540030bdbcbfeb0ee40ee2706d9ad1fda2250b8ed33ee"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-marketplace-coupang/SKILL.md",
+      "sha256": "b1fbe5e42461f7ea9bdc9eb5e62b295afa573019f00d4e5a0486f8e9a322b3ce"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-marketplace-crowdfunding/SKILL.md",
+      "sha256": "8d285441968bf2ddb7bfac73ec516ab256d9dc8eb69c441ae6b53379c3d7d11b"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-marketplace-curation/SKILL.md",
+      "sha256": "a8930c73004521a1cfff0ca3446b9d98b82611c14df3251042b83c0a168bb06f"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-marketplace-d2c/SKILL.md",
+      "sha256": "76ccbd99dd7e44c235ef1181b12d5466b7a365d87b15a2e0da61c3fe1b5de1ef"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-marketplace-naver-ads/SKILL.md",
+      "sha256": "44fd925c46c21b7d88906cd88b694c6f8229763dec71df18e0daea9a6251acb7"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-marketplace-naver/SKILL.md",
+      "sha256": "015858aa92e65720d0a09956c211f33ca22ef21752411f5c325ab6937d73b3db"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-message-compliance-kr/SKILL.md",
+      "sha256": "1d212f0c075da76eb98f18e17592e94c27ebc4f30a2b2e2a234f7e4a254bd741"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-morning-brief/SKILL.md",
+      "sha256": "f8af5945ecf4029194c335fd452eea3639e88e94419b07ceea97a92b2618098c"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-product-detail/SKILL.md",
+      "sha256": "ab448804cdd1611f719eeef014cddb2849cdb84b4bb490907480743f71471475"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-product-image-pipeline/SKILL.md",
+      "sha256": "adb69f3e6c04a59e8165338cae1a6d839a5873f430aae9ac80edd1233397abde"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-product-naming/SKILL.md",
+      "sha256": "42ec1450480bb91bbabcb78c2930a1ff71ce9cd56c7c08acb3af8c8160e24789"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-product-photo-brief/SKILL.md",
+      "sha256": "506da7d0f2d327925a7e45577e91cd92d3a26d71420f674ce823c4afca849b09"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-promotion-planner/SKILL.md",
+      "sha256": "33c4d2de7bfd99c80dc94638b34ac4b67367deb53fcd050c527eb08fc3a8b619"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-repurchase-timer/SKILL.md",
+      "sha256": "5ed1078aa2d3967e2045d1bad958b4e84d98a80d1f7fccc76b57b36b1158990e"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-season-calendar/SKILL.md",
+      "sha256": "1219211e483db482ef6e97aa8d57a0d38d97f1e69bb450b908da81a22a94a083"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-subscription-strategist/SKILL.md",
+      "sha256": "8c3d06243f7824d426a565883fa1f98fd847fc7620d99e05257ef1095b630227"
+    },
+    {
+      "path": "plugins/moai-seller/skills/commerce-workflow/SKILL.md",
+      "sha256": "4f8ca93e565cf495e639e38fcdc100b2d8ce0a089ad6378a1a6ed6cd6cc36588"
+    },
+    {
+      "path": "plugins/moai-story/.claude-plugin/plugin.json",
+      "sha256": "03a1990e0b173dfbc4ed4e96cb6be63e4846f163b7f122dcde5b961ce26cf5e3"
+    },
+    {
+      "path": "plugins/moai-story/.codex-plugin/plugin.json",
+      "sha256": "36ec0479c2bba4598d9dedbe6f89a660866af4073e21b0610b6abe501fb0100f"
+    },
+    {
+      "path": "plugins/moai-story/mcp.json",
+      "sha256": "60a518a3b90a955d693ea91a304ffc9b654e2aad57b981a9f0be23678ccac1ba"
+    },
+    {
+      "path": "plugins/moai-story/plugin.json",
+      "sha256": "47e3ab78d3c009cf14f8c3845e6e94da1f7ebcccc91c6b73aa0a61ef5c599ae8"
+    },
+    {
+      "path": "plugins/moai-story/skills/story-ad-conti/SKILL.md",
+      "sha256": "e25166402b7c2bc07489a53487f142664c4db7e3637e7251b893c767febcc650"
+    },
+    {
+      "path": "plugins/moai-story/skills/story-character-sheet/SKILL.md",
+      "sha256": "64dd3bcb98d4089cdcc703e95c6e604b6b68b1d3722dd403dfeaf0255c78693f"
+    },
+    {
+      "path": "plugins/moai-story/skills/story-conti/SKILL.md",
+      "sha256": "f6ca28d10222e1c21d8ff58933b49e4691e3cf3f638f3a16abefa1afb430acff"
+    },
+    {
+      "path": "plugins/moai-story/skills/story-continuity-audit/SKILL.md",
+      "sha256": "ddc9ec6315d26a48b48a07b001bf8992b236a45225985c2d0a3cf8a6cb373701"
+    },
+    {
+      "path": "plugins/moai-story/skills/story-cover-art/SKILL.md",
+      "sha256": "0ff78553f2e2bfe383cd7333639d08afedcfc265b33ce2640803f8314de0061e"
+    },
+    {
+      "path": "plugins/moai-story/skills/story-ip-pitch/SKILL.md",
+      "sha256": "553908e1acdc0f119e033aa2c65e607607ac129036682d7d145650d28acbc057"
+    },
+    {
+      "path": "plugins/moai-story/skills/story-previz/SKILL.md",
+      "sha256": "13752db4681f05d478d3f98c4990d50816e47e8a0a2ff0412a5559ecacb60751"
+    },
+    {
+      "path": "plugins/moai-story/skills/story-project/SKILL.md",
+      "sha256": "50baee9ae55d67879c58c37f6d9f87489bec07c0ed73b2429e05b14dfe5e83e8"
+    },
+    {
+      "path": "plugins/moai-story/skills/story-screenplay/SKILL.md",
+      "sha256": "88dac47f3fd337cc74b4d3c36841de68aecf59f7cbc20be28b5d08776e3823b1"
+    },
+    {
+      "path": "plugins/moai-story/skills/story-series-bible/SKILL.md",
+      "sha256": "873a4cfe1631a0dca352c0ba3259b009462af9c6a701f7644561b0501e482d55"
+    },
+    {
+      "path": "plugins/moai-story/skills/story-synopsis/SKILL.md",
+      "sha256": "afe91cbbd913f8907597661ad0c97ba665da1ce2395c96fd620e0ef9f7c03b2e"
+    },
+    {
+      "path": "plugins/moai-story/skills/story-webnovel-planner/SKILL.md",
+      "sha256": "ebe5ff9edd6d0e85c13eb0d28f30edf54636bcfd4f49a44feba73e0c81714d8f"
+    },
+    {
+      "path": "plugins/moai-story/skills/story-webnovel-writer/SKILL.md",
+      "sha256": "920f71292383745394f2fb9c803148ce2f646bbfb37e45990f05f46ab7282bde"
+    },
+    {
+      "path": "plugins/moai-story/skills/story-webtoon-art/SKILL.md",
+      "sha256": "6e117445b3b3232cb620d4ea8723f4e66675ce9d700869057c1dea978478304c"
+    },
+    {
+      "path": "plugins/moai-story/skills/story-webtoon-episode/SKILL.md",
+      "sha256": "16239ad091cc4b632922e0d5c172df9a2ecdb7a17c99e094ff204cc1e3d97694"
+    },
+    {
+      "path": "plugins/moai-story/skills/story-webtoon-lettering/SKILL.md",
+      "sha256": "a5bcb265f46ca3ae57c7eddcc89565721b45a84aded751c5964de811800c8eb1"
+    },
+    {
+      "path": "plugins/moai-story/skills/story-webtoon-planner/SKILL.md",
+      "sha256": "8303a1407f5a373e277c2d83f516955cb4b6f99c50528eb47bf19f444874d665"
+    },
+    {
+      "path": "plugins/moai-story/skills/story-webtoon-qc/SKILL.md",
+      "sha256": "2562317aa601ccebf65ef63b7557a3bd045d96454ed8b2eb497d8edb318136cd"
+    },
+    {
+      "path": "plugins/moai-story/skills/story-webtoon-spec/SKILL.md",
+      "sha256": "955ae1620615e9bb30baa658583969b351408f50accdcf0735d28fe85db23166"
+    },
+    {
+      "path": "plugins/moai-threads-poster/.claude-plugin/plugin.json",
+      "sha256": "39131e5a2beb2d7355cf2d2a73fadae061b45afe06b96ef60e41b2b905661551"
+    },
+    {
+      "path": "plugins/moai-threads-poster/.codex-plugin/plugin.json",
+      "sha256": "88a85e005aa9ed8de68053baf2a2a776cea8c6dfc7f1d9a5d3e470155d2780c5"
+    },
+    {
+      "path": "plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_core/__init__.py",
+      "sha256": "a6cdec2a5915bce75d3f1e95c77c5033fdcb01195b90d4198e743c2d7538b133"
+    },
+    {
+      "path": "plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_core/credentials.py",
+      "sha256": "f8f4c05636ecedf8d44300caf7c9acf0f23773830c12f9ff86da86487d58fd71"
+    },
+    {
+      "path": "plugins/moai-threads-poster/mcp-servers/moai-mcp-threads-poster/src/moai_mcp_threads_poster/server.py",
+      "sha256": "f405a36f9d3c09563d7afda61508ff9c433f41a3c951f2c90d82308f3a5e1a91"
+    },
+    {
+      "path": "plugins/moai-threads-poster/mcp.json",
+      "sha256": "a8f7af85e7a358ddf86f396ed40f56008b6d1da9662d29b3d56c841d92c8469c"
+    },
+    {
+      "path": "plugins/moai-threads-poster/plugin.json",
+      "sha256": "58eb3d4c08374aa9d01385e7b2ab4fb3deec97b968c87dc5606fdfb5a606a5fe"
+    },
+    {
+      "path": "plugins/moai-threads-poster/skills/instagram-comments/SKILL.md",
+      "sha256": "799275c591647595592823d9720c12dc4b906d9329b164bccf685b02c89d88c6"
+    },
+    {
+      "path": "plugins/moai-threads-poster/skills/instagram-post/SKILL.md",
+      "sha256": "4d7150a3fed18e38a10d2fe234a474e473046ba185c3903c0130fbce47b7f679"
+    },
+    {
+      "path": "plugins/moai-threads-poster/skills/threads-multichannel/SKILL.md",
+      "sha256": "e55048fba0802f9efc664212f8bfab9061edafa01a87adf260aee96d19dc0d27"
+    },
+    {
+      "path": "plugins/moai-threads-poster/skills/threads-post-draft/SKILL.md",
+      "sha256": "8c088a085aa896914a9d3cf2cc26ce4a187feb5a65a19601c742e3336c7f3a1a"
+    },
+    {
+      "path": "plugins/moai-threads-poster/skills/threads-style-learn/SKILL.md",
+      "sha256": "35e42f202c540f39ee14293dfaec198e024df5614cff4400f0e7a12492c3a6d3"
+    },
+    {
+      "path": "plugins/moai-tutor/.claude-plugin/plugin.json",
+      "sha256": "3f785e84362cea4c45b5e508aee2aac9ff650b4207b3bdb1f01346671d90bb6b"
+    },
+    {
+      "path": "plugins/moai-tutor/.codex-plugin/plugin.json",
+      "sha256": "b95a91d471ef07b94373eb2994b4280efb113b99cec4ad304e14af4cd613f60f"
+    },
+    {
+      "path": "plugins/moai-tutor/mcp.json",
+      "sha256": "1788697eb2d3aa1caa8da59a62331a92529e24885f0e7151418f915000fbf7fd"
+    },
+    {
+      "path": "plugins/moai-tutor/plugin.json",
+      "sha256": "c2a0fb51b11e028e1cc1c1dd1bd66e409e5630a780494b099313975744cfe1ef"
+    },
+    {
+      "path": "plugins/moai-tutor/skills/education-assessment-audit/SKILL.md",
+      "sha256": "83eb62f374607edf966203181ec142ec97aff11ab6cfadc5b76a77ca0260ee97"
+    },
+    {
+      "path": "plugins/moai-tutor/skills/education-assessment-creator/SKILL.md",
+      "sha256": "182596662d17104e9c37d509cef7f3fc81bb582dac8735aeafd409bcbf7c5f17"
+    },
+    {
+      "path": "plugins/moai-tutor/skills/education-course-followup-sequence/SKILL.md",
+      "sha256": "386783ec880b5524d64c4d837d6d1fd11537cea2493539bddd33a28d2c1469fc"
+    },
+    {
+      "path": "plugins/moai-tutor/skills/education-course-operations-manual/SKILL.md",
+      "sha256": "0464aa45f6bb2e3f533e9eb478218bc3a4279bed7562de204dfd630957f2fd28"
+    },
+    {
+      "path": "plugins/moai-tutor/skills/education-curriculum-designer/SKILL.md",
+      "sha256": "c203c305bc4b3f131a8911dfa78e660f52166ccd5ca1770c9e9a0d5ca6b80c14"
+    },
+    {
+      "path": "plugins/moai-tutor/skills/education-grant-writer/SKILL.md",
+      "sha256": "65f3ffdb14f93616ecf9201c7259fff0f82748bd2e48092c33800c23760c1398"
+    },
+    {
+      "path": "plugins/moai-tutor/skills/education-learning-material/SKILL.md",
+      "sha256": "822506a85b959044a3e1f5c3e724b32cfa0cccda47b0b564f755989faf313730"
+    },
+    {
+      "path": "plugins/moai-tutor/skills/education-learning-project/SKILL.md",
+      "sha256": "7290fd42da62d4409faf3b07444f491bcc3558bbba6a724a0e8544d463db7599"
+    },
+    {
+      "path": "plugins/moai-tutor/skills/education-paper-search/SKILL.md",
+      "sha256": "a8bfdf2a705b9a87488bf2758c8d4536bc3eb36ea45bfb39b74639ce5d1c20ad"
+    },
+    {
+      "path": "plugins/moai-tutor/skills/education-paper-writer/SKILL.md",
+      "sha256": "f7bf7501d9be240993bd389515331bdb2c05a57197c03c6a5750babf5f7f3ec6"
+    },
+    {
+      "path": "plugins/moai-tutor/skills/education-research-assistant/SKILL.md",
+      "sha256": "692d3823091ec3f7c1a851e06c4c3193e1f270cbe22ab2161eebbc49f8c4d6e9"
+    },
+    {
+      "path": "plugins/moai-tutor/skills/education-tutor-research/SKILL.md",
+      "sha256": "2dc659a44f66b9043f697cee73f141fe216bbfacfe3240ea78ee648fc865b57e"
+    },
+    {
+      "path": "plugins/moai-tutor/skills/education-workflow/SKILL.md",
+      "sha256": "409ab44ed890ee08c7cc2303fe0a9811096f5d58e2820563fdc8cb35671abc74"
+    },
+    {
+      "path": "plugins/moai-writer/.claude-plugin/plugin.json",
+      "sha256": "4c51c05b9142b2c0d0dbdf71b6cf26e46a62dd60c3e3a4d581d969c5d296a372"
+    },
+    {
+      "path": "plugins/moai-writer/.codex-plugin/plugin.json",
+      "sha256": "5a1064d8e34192b980f395d1952f8e4caa340b91a2e359863e45091ba315dc58"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-author-bio--TC-01-3-lengths/case.yaml",
+      "sha256": "b5f0fbfdd3b7368097436af4bd57af3c8313427afc227cf85cbb6d8728e51f26"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-author-bio--TC-02-3-trust-signals/case.yaml",
+      "sha256": "65aee0078c95dc132542a2dc25dd602fc76bae60cdffbf985387a649da3347e1"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-author-bio--TC-03-author-message-4-sections/case.yaml",
+      "sha256": "4d2141f149c441436eded4332630c2efe78aef8f461b19390d4026e807b02ddf"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-author-bio--TC-04-genre-preset-tech/case.yaml",
+      "sha256": "0e6c6b417b578dd37810d1dc5e542fe485366ea64138e3adf076c1f565e8c7bb"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-author-bio--TC-05-genre-preset-essay/case.yaml",
+      "sha256": "c1cb0e36d8501cfefe67337fdba129fa175d4690f2422261d6cbfec3e8cf9a2d"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-author-bio--TC-06-sns-bios/case.yaml",
+      "sha256": "e29167389c198a662905c9a2845b369489a90d074c0a881446099d7e85dbd387"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-author-bio--TC-07-author-message-traps/case.yaml",
+      "sha256": "b8f9f3ae3f70d9265622ed3a329d8ae3f16f6f7571587e91b683974415422173"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-author-bio--TC-08-persona-simulation/case.yaml",
+      "sha256": "142d6e92ba975bb55189914d492b65e981a626e5a8b50c7cc257b013290076c3"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-author-bio--TC-09-no-invented-credentials/case.yaml",
+      "sha256": "2cfb8b83abfed10250c539f52084df01e0b42379d80653ea7a955ae771da1744"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-chapter-writer--TC-01-structure/case.yaml",
+      "sha256": "349d12f8fa88d3b4923412f763310013d15f3bd74cdabce87818c368167ebe71"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-chapter-writer--TC-02-genre-style-practical/case.yaml",
+      "sha256": "394dc348440fc9e67c5de1d63b00eaa04e39b45ed4c8817b237bbf1cfb6f6774"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-chapter-writer--TC-03-genre-style-tech/case.yaml",
+      "sha256": "e6aaabf8eb65ffbdb4c1aa687b3a3e9454c998a00bf21d09c8690225145a2ca5"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-chapter-writer--TC-04-genre-style-essay/case.yaml",
+      "sha256": "2fb121d0d2f61f7a631866e0b0db9f77b51c6eebe1375eec90610fe6f7b1c10c"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-chapter-writer--TC-05-genre-style-fiction/case.yaml",
+      "sha256": "ddbdd98e8cc124ee7cebe07e85ca9f4524191b7c79af520d95d5884046cdc275"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-chapter-writer--TC-06-200ja-----count/case.yaml",
+      "sha256": "b739eaebe58aab349417de3821063f650289f046797bc6bcad2ffc0328d4cc6d"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-chapter-writer--TC-07-citation-handling/case.yaml",
+      "sha256": "7cf3df240a12c98f133289fe58f0651fb3d5ef36a8799bdb9ba3e9ff712d33be"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-chapter-writer--TC-08-verbatim-quote-rejection/case.yaml",
+      "sha256": "d24d1c2563b37ea9596e01290e90d295d06dbb1670599e5442af2e69cc556978"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-chapter-writer--TC-09-chain-post-review/case.yaml",
+      "sha256": "fa60bc272b5963ef45573eaff47d1123fc45ce56f1b03ab35926c9eb8a030de0"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-chapter-writer--TC-10-publisher-unknown/case.yaml",
+      "sha256": "36f56c9a40e85314afbdc39e5da8744328ac8cd966bed467abf67e3d8514186e"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-chapter-writer--TC-11-licensed-quotation/case.yaml",
+      "sha256": "44dd4e9bc7ad7b5dc1e4fdccb75e8e8fe0030081ef10ad2c4e1b23797867e5c3"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-chapter-writer--TC-12-review-meaning/case.yaml",
+      "sha256": "9162fe1fc4810a0b3173da82b29235efae6e8210fbd62a004277db5cdc2affd4"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-concept-planner--TC-01-missing-reader-data/case.yaml",
+      "sha256": "a81006b20a13394a0fcbb06f474d33bc5fb6c28467a2c3630c3f33fb6baf816a"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-concept-planner--TC-02-competitor-evidence/case.yaml",
+      "sha256": "2b8adc78a792829ef1667bac9e84b4947c14f0fb6017fb48a6d247d9d045db3c"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-concept-planner--TC-03-tech-manuscript-size/case.yaml",
+      "sha256": "69e340cbb6d1bd13ffe87ff3df261d093de7c8609aff4a864b3e6627b975b93a"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-concept-planner--TC-04-submission-route/case.yaml",
+      "sha256": "824151b5ac7f444b68ea68891fb7ac3d24fa60ea968321d6f0a559a45bb3d113"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-concept-planner--TC-05-self-publishing/case.yaml",
+      "sha256": "59c06a3078e25495f4884dc6964b7af9aae9e98183adc6f9aa65631761d4f507"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-concept-planner--TC-06-optional-review/case.yaml",
+      "sha256": "f44389408379e96dcc7f0071e0f51ac0ee9fb19b7a77977ca46764f3e2cc9b1c"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-outline-designer--TC-01-flexible-levels/case.yaml",
+      "sha256": "89c859ffe9ff1b26aae29ccdd01de086e111a063851eec2dda687aea5ce7b0e6"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-outline-designer--TC-02-count-basis/case.yaml",
+      "sha256": "363ea6156cf459d029e1b4092c24f02d4ec27735544cd9fd222ccb3f131d776a"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-outline-designer--TC-03-synopsis/case.yaml",
+      "sha256": "2b48e83ef65c9697ab6d86edebb1cec378a31d64208c779a3817eaccc921933b"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-outline-designer--TC-04-reader-reaction/case.yaml",
+      "sha256": "b996e6e048ccb79a275b6e24a051549988e71b432d29c9e0d13db3c462438afb"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-outline-designer--TC-05-publisher-format/case.yaml",
+      "sha256": "b4b1d4abbb89195c27998b3b734af210ea71d6ac7bb4acb9edda5686b7e138b9"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-outline-designer--TC-06-concept-handoff/case.yaml",
+      "sha256": "359c7dc822a9069ee37490592aeeb6d642f85f8a57347393dda6ff6078173aff"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-proposal-writer--TC-01-3-package/case.yaml",
+      "sha256": "36da51b0ff9f47d836a907c314825f35c81e2da78537106975fe42f27330d34c"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-proposal-writer--TC-02-5-sections/case.yaml",
+      "sha256": "8830a89b20e8d5446ec75c2f2eb826ad90ebf542b1b6ea10ee0fd8ca2f6997c7"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-proposal-writer--TC-03-marketing-5-categories/case.yaml",
+      "sha256": "dfe78712bd650632daed54a6a9b6fc6a8daac9211d276ba60d9b0007333ca739"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-proposal-writer--TC-04-publisher-format-tech/case.yaml",
+      "sha256": "c4bc6e70cc9691afb04fc6f4781418084b149c998c94c9a06965509f04adf578"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-proposal-writer--TC-05-publisher-format-literary/case.yaml",
+      "sha256": "95ccd370860eaca1c50c1664da32ef092dbd027cae15207a14a2eed34a291356"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-proposal-writer--TC-06-rejection-signal-detection/case.yaml",
+      "sha256": "75364367909b8db0664556adea7347a15e7c6f629fb88cdb0eead0e1318cee03"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-proposal-writer--TC-07-sample-chapter-quality/case.yaml",
+      "sha256": "47ec03bca7c0857cc207bf35f339be6c370b75b1da7589ffb65292af64d85091"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-proposal-writer--TC-08-stereotype-publisher-naming/case.yaml",
+      "sha256": "8f3512ef72464c07f73822a469afe5b39f17a200774dcfa8198e42d54b7d6958"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-proposal-writer--TC-09-unsourced-market/case.yaml",
+      "sha256": "fe7b4eaa557650729e8821a2f9ad980445c9ccf6e7c4983313570fa668b2e1fb"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-proposal-writer--TC-10-official-submission-fixture/case.yaml",
+      "sha256": "af89f0a132ebb58bd6ee8d71d5868d1dcf199f3dcce5e16490510e8e96aea052"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-proposal-writer--TC-11-reader-hypothesis-handoff/case.yaml",
+      "sha256": "1c74569ffb4e1db831bbf63306a7f9c288dd87b83f2d81481e78975d6b3c5b11"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-publisher-matcher--current_submission_route/case.yaml",
+      "sha256": "6c421b1d175c1ee7b318d29f650ce11b4d10784e040709386b013927e5badb4d"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-publisher-matcher--no_external_send/case.yaml",
+      "sha256": "c4da737ffad52f3276e1e057d030546968a6fdb9c0bfeb41ee88947993fb84d0"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-publisher-matcher--no_verified_candidates/case.yaml",
+      "sha256": "2355a905d5619f4eb54c63c64704c0f67c0f5628b21f074ebe9c64ff99ccf37c"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-publisher-matcher--unknown_contract/case.yaml",
+      "sha256": "e465ad1140df7243a69852707a262222c27315ed0cc2fba1bfbd8d2650a960b7"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-revision-coach--TC-01-7-step-checklist/case.yaml",
+      "sha256": "039d197d413581a52c4a2eaebcc7d55bcb519e72e9a9556d9a456f13713ff06e"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-revision-coach--TC-02-genre-style-consistency/case.yaml",
+      "sha256": "607bfdf597f1251fb30d3973d9a3b047ce3f7473c7bab07364fc239cd8bbe4d9"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-revision-coach--TC-03-chapter-flow-check/case.yaml",
+      "sha256": "6e5fc0bdd8104445c87a3e87c9227c3ac3e51bfe5e3f79a5df710034526f7825"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-revision-coach--TC-04-citation-completeness/case.yaml",
+      "sha256": "57bdf1b7802929e08e6494eed161ef828acd5d8b3165219dcf30e43c1da58968"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-revision-coach--TC-05-volume-balance/case.yaml",
+      "sha256": "0439864c5f9e23a7e2e0e9905d5822464d5db453417f7c0a3a29b3f9ccc65db9"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-revision-coach--TC-06-visual-asset-integrity/case.yaml",
+      "sha256": "5295869d1fe17f602a8bdda94340b6efe9da6a72a131920961e223452b5c0974"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-revision-coach--TC-07-terminology-consistency/case.yaml",
+      "sha256": "94e69ab0647ca8e82d2a715b3caa53a9b67fe0d6779c44c0a8de17fe727c07eb"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-revision-coach--TC-08-publisher-style-compliance/case.yaml",
+      "sha256": "ce7763dd89e7f3b743c87f90e47af7abd2ab285ebbbc89585f76bca2a0e32560"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-revision-coach--TC-09-chain-recommendation/case.yaml",
+      "sha256": "b4e248c833edce79ee1c3189ea0d0d125fa346d30885cbafbfa7efd46ebf33cc"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-target-reader--TC-01-persona-card/case.yaml",
+      "sha256": "34dc5fff7aabab7fecec75601210690b15fbd7172aee2729ca386fa41463b027"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-target-reader--TC-02-jtbd-3-dimensions/case.yaml",
+      "sha256": "ed6c8d88114cd50e7b15f3a00586b140b8f962aeb19c430d7365585623259d65"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-target-reader--TC-03-painpoint-matrix/case.yaml",
+      "sha256": "340098d145ab98c705308f6c092895b97dd187d188685a9762d61dc2a920932d"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-target-reader--TC-04-genre-preset-tech/case.yaml",
+      "sha256": "01afd9809ba7cbb071d01cd8af5d3a5f89a11130dd31e9f62d5a1f6bda675fe3"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-target-reader--TC-05-reading-behavior/case.yaml",
+      "sha256": "f439254bde6177d495a32d52fb343fd2bf7f058dd2ab72ba76513beda48e9952"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-target-reader--TC-06-no-verbatim-quotes/case.yaml",
+      "sha256": "9ea102cdbc7e51c449003c8a57a65efb1a1c0d879071a52b6bee300a5be74237"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-target-reader--TC-07-stereotype-avoidance/case.yaml",
+      "sha256": "38c4f7bedace2262359f727b3bc3101121478dbe3a9bbd16e984baf1ac0065d3"
+    },
+    {
+      "path": "plugins/moai-writer/evals/generated/book-target-reader--TC-08-verification-evidence/case.yaml",
+      "sha256": "a04a240d19110043fa36a1400ee1d8aa2473700fe7c719777d0a762623cb4d9b"
+    },
+    {
+      "path": "plugins/moai-writer/mcp.json",
+      "sha256": "1788697eb2d3aa1caa8da59a62331a92529e24885f0e7151418f915000fbf7fd"
+    },
+    {
+      "path": "plugins/moai-writer/plugin.json",
+      "sha256": "20553b494863ef71590deabf7b3b4fc608ce265236f2079829b89d3ccb4cf593"
+    },
+    {
+      "path": "plugins/moai-writer/skills/book-author-bio/SKILL.md",
+      "sha256": "4deebb542a57e92bc9b01c3a1641503d1145012bec01b716cf0c77fc65d6e7f9"
+    },
+    {
+      "path": "plugins/moai-writer/skills/book-chapter-writer/SKILL.md",
+      "sha256": "70fc936a6f5a5180e24e130bf9b9251a903a51163185b6e303f4746bb75fc041"
+    },
+    {
+      "path": "plugins/moai-writer/skills/book-concept-planner/SKILL.md",
+      "sha256": "990710939077e4c48cc74e568c40a50dd9e808ec22c4ac7a300895c083cf4516"
+    },
+    {
+      "path": "plugins/moai-writer/skills/book-manuscript-audit/SKILL.md",
+      "sha256": "204f55c3cadf9f054313e4f5d22a6769bb66351a1e42dc25a3fc3952027d9c95"
+    },
+    {
+      "path": "plugins/moai-writer/skills/book-outline-designer/SKILL.md",
+      "sha256": "1d8b8fea71b9be9c26cb8398ed883a5ffafed7b2aaefcb02158218dc708bdca9"
+    },
+    {
+      "path": "plugins/moai-writer/skills/book-proposal-writer/SKILL.md",
+      "sha256": "84855b67e2ab86d0d7607656905bb2e309fcd2ebac8e7ee3537660a4826eaa5b"
+    },
+    {
+      "path": "plugins/moai-writer/skills/book-publisher-matcher/SKILL.md",
+      "sha256": "87d282cb55197ad42b0ac54d33715078d65376a97e46e33de32b597a6403314d"
+    },
+    {
+      "path": "plugins/moai-writer/skills/book-revision-coach/SKILL.md",
+      "sha256": "9ba57dfdec1deb53fd6619d9bdb66f720b85aff48a46d3b21407fc21eeeb33ca"
+    },
+    {
+      "path": "plugins/moai-writer/skills/book-target-reader/SKILL.md",
+      "sha256": "a6b4cb06b02423ffbc615d471c466788dbfa6da1aa1a56bda0b92a65c71d58fe"
+    },
+    {
+      "path": "plugins/moai-writer/skills/book-workflow/SKILL.md",
+      "sha256": "892956f3ed21fafc61b22d8da2e7a8cb2e038a503f664422313b9f37a07661d1"
+    },
+    {
+      "path": "plugins/moai-writer/skills/korean-humanize/SKILL.md",
+      "sha256": "a902df24e18af0c38f709588e099cbf5dff5cc729f84b4c343d79c565d03c87e"
+    },
+    {
+      "path": "plugins/moai-writer/skills/korean-humanize/references/execution-phases.md",
+      "sha256": "85e82e62cc95fe794e83a171553a46ac354aafedf859d956ac5f37428c04985e"
+    },
+    {
+      "path": "plugins/moai-writer/skills/korean-spell-check/SKILL.md",
+      "sha256": "deff960deb7e22180fcaf61f1c3b39131945bcaa0bb4e3a2d6986e8bacd3543a"
+    },
+    {
+      "path": "scripts/check-mcp-annotations.py",
+      "sha256": "88bd9e26a70402c2b998f60d969133045406241c922eee3fea08b9ec5001fa2e"
+    },
+    {
+      "path": "scripts/check-plugin-runtimes.py",
+      "sha256": "a559d4946eb4172e99a36d4cbeac8ee04053d94537791d4c94516564a2050fac"
+    },
+    {
+      "path": "scripts/check-skill-contracts.py",
+      "sha256": "cf099226c0220b66c58c80de4792a45d6362966003014f4887da437cc4433ece"
+    },
+    {
+      "path": "scripts/schemas/README.md",
+      "sha256": "cdc1c403150f1c7efbc96a23108ecedbadb5aa2bba88de5e719bd4f33cda08bc"
+    },
+    {
+      "path": "scripts/schemas/mcp.schema.json",
+      "sha256": "2d4b2b9d1c95e75a356152534d2071f18094c1ee9be2eec238c91a1e1f9bd115"
+    },
+    {
+      "path": "scripts/schemas/plugin.schema.json",
+      "sha256": "bd0cfd6388f7d5c5c1b4c5edd70df030276345df115274686a0e6d52a92366ed"
+    },
+    {
+      "path": "scripts/skill-evals-index.json",
+      "sha256": "8fe47a2a44bd9e2769e4b001a3ad73792e8fc9b571bdacf940886d65fec9cdf1"
+    },
+    {
+      "path": "scripts/sync-dev-skills.py",
+      "sha256": "860827194ce99e37f93d19563773a40b3a58dc361599f57df794ff34d65a8e10"
+    },
+    {
+      "path": "scripts/sync-plugin-contracts.py",
+      "sha256": "1f6ac77f25505b35be431301d4d885e187e03f02e35ce62fa355fc7ba09ef501"
+    },
+    {
+      "path": "scripts/sync-skill-evals.py",
+      "sha256": "576e43708105a018487ebe8ab735df66b7844fd84f3ff5beb4e4e1346869ba3c"
+    },
+    {
+      "path": "www/content/cookbook/guides/legal-risk.md",
+      "sha256": "cbf2d6780fc3c233b89e06f272657e190795b768376ace78066c4fc54c9e4669"
+    },
+    {
+      "path": "www/content/cookbook/templates/email.md",
+      "sha256": "ed9b9ab9efe8ecf8a052ac0df6ac7a5bd9fd4b230eb308c59960a3487dc0f3a5"
+    },
+    {
+      "path": "www/content/moai-agents/pm.md",
+      "sha256": "2bab17f92ff28b450474f3280ffa0e2d71f5c924c060cc7ecc354b433f473860"
+    },
+    {
+      "path": "www/content/plugins/agents.md",
+      "sha256": "e94bc9e45bc2eaa42e4d4abc94619023f514183de1bdeb1e53fd07af9856b7bf"
+    },
+    {
+      "path": "www/data/agent_teams.json",
+      "sha256": "ea79d2dcc766c3f8a562e24d4e4ff7a37b7d35db755361721bdae64702a9219b"
+    },
+    {
+      "path": "www/hugo.toml",
+      "sha256": "15881dbdbe3925e51e215a1460bd048bc0a3277694f4983adfa4153bdcdb42a4"
+    }
+  ]
+}

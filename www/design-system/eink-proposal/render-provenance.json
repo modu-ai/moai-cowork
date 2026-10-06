@@ -1,0 +1,15 @@
+{
+  "render_method": "CUA live browser DOM export; local Pretendard loaded before layout",
+  "renderer": "repository Mermaid bundle with font-wait-only local bootstrap",
+  "bundle_sha256": "f10966e425e8b6577dccc09a6c13c0711d768e8477e5671ca43b7591b456413f",
+  "helper_sha256": "182260cf8efe157843a50b48d0af2e0f42b6c8e60b16fcf58b6f273c9204f9f5",
+  "config_hash": "7ad79a9a39b727020ea33dcebf4af4d874470f989d427b7e44910f4bb2cf8887",
+  "font_sha256": "9599f12fd42fc0bce1cd50b47a0c022e108d7aa64dd0d1bb0ed44f3282d900b4",
+  "source_hashes": {
+    "questions.mmd": "f3a7368b103d393c1167c8e0756a3281fcd377add8867459c2c1eadee739b947",
+    "parallel.mmd": "9b857634ebc2f4f91dee2610f45169dd4b107eb8f4d028045c97ef62c72a034e",
+    "handoff.mmd": "98d2d0ecdb49f45f0c6627433b16cd0d9d23cc91f2042d53a84066880af803b4",
+    "reuse.mmd": "f971fd930ec3a0cd66ce595147e68cbcb85c405cecf400d292faef19e73e2ec4",
+    "context.mmd": "30de02302349e19a2b3807be58c4fb9e2258027a572a81bc65718070fa16198b"
+  }
+}

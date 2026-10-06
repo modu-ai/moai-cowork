@@ -1,0 +1,33 @@
+schema_version: '1.1'
+name: commerce-marketplace-crowdfunding--wadiz_tech_draft
+description: 가전 프로젝트 초안에서 현재 유형·자격·요금제를 확인
+runs: 1
+tags:
+- generated
+- commerce-marketplace-crowdfunding
+execution:
+  prompt: "다음 프로젝트 업무를 수행해 주세요. 미확인 정보는 만들지 말고 필요한 맥락을 요청하세요.\n\n{\n  \"product\"\
+    : \"무선 이어폰\",\n  \"category\": \"테크·가전\",\n  \"list_price\": 149000\n}"
+  allowed_tools:
+  - Read
+  - Glob
+  - Grep
+  - Skill
+  max_turns: 12
+  timeout_seconds: 180
+graders:
+- name: skill-fired
+  type: tool_used
+  tool: Skill
+  input_match: '"skill"\s*:\s*"(?:[\w-]+:)?commerce\-marketplace\-crowdfunding"'
+- name: quality
+  type: llm
+  focus: trace
+  criteria: "입력 사실·제약과 아래 사례의 기대 결과를 대조한다. 모든 적용 가능한 조건을 만족하면 PASS, 하나라도 위반하면 FAIL이다.\
+    \ false 값은 해당 동작·주장이 없어야 한다는 뜻이다. 정보·도구·fixture가 부족하면 모델이 이를 명시했는지 확인하되, 원래 조건을\
+    \ 충족하지 못한 실행을 임의로 PASS로 바꾸지 않는다. 단어가 있다는 이유만으로 사실성·산술·법적 판단·의미 보존을 통과시키지 않는다.\
+    \ 원격 호출·파일 생성·독립 검수의 주장은 실제 trace와 산출물로 확인한다.\n\n{\n  \"expected\": {\n    \"\
+    channel_candidate\": \"wadiz\",\n    \"project_type_requires_current_account_check\"\
+    : true,\n    \"no_fixed_fee_or_review_days\": true,\n    \"rewards_status\": \"\
+    원가·재고 미확인 — 가격과 수량 확정 보류\",\n    \"video_required_only_if_current_project_requires_it\"\
+    : true\n  }\n}"

@@ -2,7 +2,8 @@
 name: book-manuscript-audit
 description: |
   도서 원고·챕터·출판사 제안서의 인물·설정·시점·사실 앵커와 출판 정보 근거를 읽기 전용으로 대조합니다. 윤문 후 의미와 수치 보존도 검수합니다.
-version: "1.0.0"
+metadata:
+  version: "1.0.1"
 ---
 
 # 도서 원고·제안서 검수

@@ -1,0 +1,35 @@
+schema_version: '1.1'
+name: marketing-target-script--TC-001
+description: 제품 효과 수치가 검증되지 않은 B2B 캠페인
+runs: 1
+tags:
+- generated
+- marketing-target-script
+execution:
+  prompt: "다음 프로젝트 업무를 수행해 주세요. 미확인 정보는 만들지 말고 필요한 맥락을 요청하세요.\n\n{\n  \"target_audience\"\
+    : \"중소 제조업체의 생산 담당자\",\n  \"product\": \"AI 기반 생산 일정 관리 SaaS\",\n  \"claimed_result\"\
+    : \"생산 비용 15% 절감\",\n  \"evidence_for_result\": \"없음\",\n  \"campaign_goal\":\
+    \ \"무료 체험 신청\",\n  \"channels\": [\n    \"email\",\n    \"landing_page\"\n  ]\n\
+    }"
+  allowed_tools:
+  - Read
+  - Glob
+  - Grep
+  - Skill
+  max_turns: 12
+  timeout_seconds: 180
+graders:
+- name: skill-fired
+  type: tool_used
+  tool: Skill
+  input_match: '"skill"\s*:\s*"(?:[\w-]+:)?marketing\-target\-script"'
+- name: quality
+  type: llm
+  focus: trace
+  criteria: "입력 사실·제약과 아래 사례의 기대 결과를 대조한다. 모든 적용 가능한 조건을 만족하면 PASS, 하나라도 위반하면 FAIL이다.\
+    \ false 값은 해당 동작·주장이 없어야 한다는 뜻이다. 정보·도구·fixture가 부족하면 모델이 이를 명시했는지 확인하되, 원래 조건을\
+    \ 충족하지 못한 실행을 임의로 PASS로 바꾸지 않는다. 단어가 있다는 이유만으로 사실성·산술·법적 판단·의미 보존을 통과시키지 않는다.\
+    \ 원격 호출·파일 생성·독립 검수의 주장은 실제 trace와 산출물로 확인한다.\n\n{\n  \"pass_criteria\": [\n \
+    \   \"고객 문제를 관찰 사실과 가설로 구분한다.\",\n    \"입증 자료가 없는 15% 절감 수치를 광고 문구에서 제외한다.\",\n\
+    \    \"무료 체험 조건을 확인할 항목으로 표시한다.\",\n    \"이메일 발송 자격과 실제 채널 규격을 확인하도록 안내한다.\",\n\
+    \    \"두 채널의 메시지와 전환 정의를 제시한다.\"\n  ]\n}"

@@ -1,0 +1,6 @@
+{
+  "source": "http://127.0.0.1:1313/getting-started/questions/",
+  "destination": "http://127.0.0.1:1313/infographics/pages/questions.svg",
+  "title": "질문을 받았을 때 이렇게 답하세요",
+  "action": "Clicked the accessible enlarge image link and observed a new SVG tab"
+}

@@ -5,6 +5,8 @@ from typing import Literal, Union
 
 from pydantic import BaseModel, ConfigDict, Field
 
+from mcp.types import ToolAnnotations
+
 from .._app import mcp
 from .._base import get_client
 
@@ -76,7 +78,7 @@ class CreateSiteReviewAnswerBody(BaseModel):
 
 Body = Union[CreateSiteQnaReplyBody, CreateSiteReviewBody, UpdateSiteReviewByReviewNoBody, CreateSiteReviewAnswerBody]
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=False, destructiveHint=True, idempotentHint=False, openWorldHint=True))
 def imweb_community(action: Literal["read_all_forms", "read_one_form", "read_all_form_submissions", "read_one_form_submission", "read_all_site_qna", "create_site_qna_reply", "read_site_qna_answer", "read_one_site_qna_by_idx", "read_all_site_review", "create_site_review", "read_one_site_review", "update_site_review_by_review_no", "delete_site_review_by_review_no", "read_site_review_answer", "create_site_review_answer", "delete_site_review_answer_by_review_no", "read_all_site_review_by_cursor"], params: dict | None = None, body: Body | None = None, paginate: bool = False) -> dict:
     r"""커뮤니티 (폼/Q&A/구매평) 도구 — 17개 action 을 디스패치합니다.
 

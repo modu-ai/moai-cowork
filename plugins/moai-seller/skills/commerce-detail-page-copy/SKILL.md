@@ -3,7 +3,8 @@ name: commerce-detail-page-copy
 description: >
   상품 근거 자료를 바탕으로 상세페이지 카피를 작성하거나 현재 페이지를 진단합니다.
   13개 섹션 구조, 페르소나별 대안, 마크다운 미리보기를 제공합니다.
-version: "1.1.1"
+metadata:
+  version: "1.1.2"
 ---
 
 # 상세페이지 카피

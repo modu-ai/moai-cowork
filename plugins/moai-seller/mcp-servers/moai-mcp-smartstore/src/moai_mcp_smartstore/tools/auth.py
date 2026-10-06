@@ -1,11 +1,13 @@
 """인증/연결 진단 도구."""
 from __future__ import annotations
 
+from mcp.types import ToolAnnotations
+
 from ..server import mcp
 from ._common import call, config_status
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=True))
 def smartstore_test_connection() -> dict:
     """네이버 커머스 API 인증·연결을 검증한다.
 
@@ -18,7 +20,7 @@ def smartstore_test_connection() -> dict:
     return call("GET", "/v1/seller/account", endpoint="GET /v1/seller/account")
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=False))
 def smartstore_config_status() -> dict:
     """네이버 커머스 API 자격증명 설정 상태를 반환한다 (API 미호출, 비밀키 원문 제외).
 

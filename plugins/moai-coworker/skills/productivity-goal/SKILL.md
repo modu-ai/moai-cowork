@@ -2,7 +2,8 @@
 name: productivity-goal
 description: >
   개인 목표를 사용자의 상황에 맞는 실행 계획과 점검 방법으로 정리합니다. "목표 세워줘", "12주 계획 짜줘", "만다라트 만들어줘", "개인 OKR 정리해줘" 같은 요청에 사용하세요.
-version: "1.1.1"
+metadata:
+  version: "1.1.2"
 ---
 
 # 개인 목표 계획

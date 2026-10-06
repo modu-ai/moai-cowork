@@ -1,0 +1,86 @@
+[
+  {
+    "server": "moai-mcp-ip",
+    "command": [
+      "/var/folders/kt/nq2q81cn4gx3y41r7x47ggmr0000gn/T/moai-cowork-audit-cbsj5su2/moai-mcp-ip/venv/bin/python",
+      "-c",
+      "import asyncio,json; from moai_mcp_ip.server import mcp; print(json.dumps([t.model_dump(mode=\"json\") for t in asyncio.run(mcp.list_tools())],ensure_ascii=False))"
+    ],
+    "cwd": "/Users/goos/.codex/worktrees/b0aa/moai-cowork",
+    "head": "2c3cef1d24e88b3bfe8db61c713ffae317b346d0",
+    "exit_code": 0,
+    "registered_tools": 18,
+    "without_annotations": 18,
+    "input_schema_utf8_bytes": 7516
+  },
+  {
+    "server": "moai-mcp-openai",
+    "command": [
+      "/var/folders/kt/nq2q81cn4gx3y41r7x47ggmr0000gn/T/moai-cowork-audit-cbsj5su2/moai-mcp-openai/venv/bin/python",
+      "-c",
+      "import asyncio,json; from moai_mcp_openai.server import mcp; print(json.dumps([t.model_dump(mode=\"json\") for t in asyncio.run(mcp.list_tools())],ensure_ascii=False))"
+    ],
+    "cwd": "/Users/goos/.codex/worktrees/b0aa/moai-cowork",
+    "head": "2c3cef1d24e88b3bfe8db61c713ffae317b346d0",
+    "exit_code": 0,
+    "registered_tools": 1,
+    "without_annotations": 1,
+    "input_schema_utf8_bytes": 604
+  },
+  {
+    "server": "moai-mcp-smartstore",
+    "command": [
+      "/var/folders/kt/nq2q81cn4gx3y41r7x47ggmr0000gn/T/moai-cowork-audit-cbsj5su2/moai-mcp-smartstore/venv/bin/python",
+      "-c",
+      "import asyncio,json; from moai_mcp_smartstore.server import mcp; print(json.dumps([t.model_dump(mode=\"json\") for t in asyncio.run(mcp.list_tools())],ensure_ascii=False))"
+    ],
+    "cwd": "/Users/goos/.codex/worktrees/b0aa/moai-cowork",
+    "head": "2c3cef1d24e88b3bfe8db61c713ffae317b346d0",
+    "exit_code": 0,
+    "registered_tools": 90,
+    "without_annotations": 90,
+    "input_schema_utf8_bytes": 17964
+  },
+  {
+    "server": "moai-mcp-imweb",
+    "command": [
+      "/var/folders/kt/nq2q81cn4gx3y41r7x47ggmr0000gn/T/moai-cowork-audit-cbsj5su2/moai-mcp-imweb/venv/bin/python",
+      "-c",
+      "import asyncio,json; from moai_mcp_imweb.server import mcp; print(json.dumps([t.model_dump(mode=\"json\") for t in asyncio.run(mcp.list_tools())],ensure_ascii=False))"
+    ],
+    "cwd": "/Users/goos/.codex/worktrees/b0aa/moai-cowork",
+    "head": "2c3cef1d24e88b3bfe8db61c713ffae317b346d0",
+    "exit_code": 0,
+    "registered_tools": 8,
+    "without_annotations": 8,
+    "input_schema_utf8_bytes": 84670
+  },
+  {
+    "server": "moai-mcp-cafe24",
+    "command": [
+      "/var/folders/kt/nq2q81cn4gx3y41r7x47ggmr0000gn/T/moai-cowork-audit-cbsj5su2/moai-mcp-cafe24/venv/bin/python",
+      "-c",
+      "import asyncio,json; from moai_mcp_cafe24.server import mcp; print(json.dumps([t.model_dump(mode=\"json\") for t in asyncio.run(mcp.list_tools())],ensure_ascii=False))"
+    ],
+    "cwd": "/Users/goos/.codex/worktrees/b0aa/moai-cowork",
+    "head": "2c3cef1d24e88b3bfe8db61c713ffae317b346d0",
+    "exit_code": 0,
+    "registered_tools": 20,
+    "without_annotations": 20,
+    "input_schema_utf8_bytes": 33687
+  },
+  {
+    "server": "moai-mcp-threads-poster",
+    "command": [
+      "/var/folders/kt/nq2q81cn4gx3y41r7x47ggmr0000gn/T/moai-cowork-audit-cbsj5su2/moai-mcp-threads-poster/venv/bin/python",
+      "-c",
+      "import asyncio,json; from moai_mcp_threads_poster.server import mcp; print(json.dumps([t.model_dump(mode=\"json\") for t in asyncio.run(mcp.list_tools())],ensure_ascii=False))"
+    ],
+    "cwd": "/Users/goos/.codex/worktrees/b0aa/moai-cowork",
+    "head": "2c3cef1d24e88b3bfe8db61c713ffae317b346d0",
+    "exit_code": 0,
+    "registered_tools": 17,
+    "without_annotations": 17,
+    "input_schema_utf8_bytes": 3253
+  }
+]

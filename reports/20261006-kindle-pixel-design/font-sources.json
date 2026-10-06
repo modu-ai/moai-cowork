@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://cdn.jsdelivr.net/gh/neodgm/neodgm-webfont@1.601/neodgm/neodgm.woff2",
+    "file": "assets/fonts/NeoDunggeunmo.woff2",
+    "bytes": 44352,
+    "sha256": "0c0ca9cd73f692a5da5d7fb39737902aa9ea312537237779972a9d81ef0a33bf"
+  },
+  {
+    "url": "https://cdn.jsdelivr.net/gh/neodgm/neodgm-webfont@1.601/neodgm_code/neodgm_code.woff2",
+    "file": "assets/fonts/NeoDunggeunmoCode.woff2",
+    "bytes": 39772,
+    "sha256": "ea3a6af159aa584fba45a2b47640cf267be193110b5877b59a689a669ad9a4c6"
+  }
+]

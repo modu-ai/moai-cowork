@@ -11,7 +11,8 @@ description: |
   - "OKR 설정해줘"
   - "해외 진출 전략 짜줘"
   현황 분석·전략 프레임워크·전략 방향·실행 로드맵 구조로 작성하며, 파일 변환 기능이 있으면 요청한 PPT 형식으로도 전달합니다.
-version: "1.1.2"
+metadata:
+  version: "1.1.3"
 ---
 
 # 전략 플래너 (Strategy Planner)

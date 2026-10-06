@@ -9,6 +9,8 @@ from __future__ import annotations
 
 from typing import Any
 
+from mcp.types import ToolAnnotations
+
 from ..server import mcp
 from ._common import call, segment
 
@@ -26,7 +28,7 @@ _SALES_DATASETS = {
 _SHOPPING_DATASETS = {"page-detail", "product-detail"}
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=True))
 def stats_marketing(channel_no: str, dataset: str, params: dict[str, Any] | None = None) -> dict:
     """마케팅 성과 통계. GET /v1/bizdata-stats/channels/{channelNo}/marketing/{dataset}
 
@@ -43,7 +45,7 @@ def stats_marketing(channel_no: str, dataset: str, params: dict[str, Any] | None
     )
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=True))
 def stats_sales(channel_no: str, dataset: str, params: dict[str, Any] | None = None) -> dict:
     """판매 성과 통계. GET /v1/bizdata-stats/channels/{channelNo}/sales/{dataset}
 
@@ -60,7 +62,7 @@ def stats_sales(channel_no: str, dataset: str, params: dict[str, Any] | None = N
     )
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=True))
 def stats_shopping(channel_no: str, dataset: str, params: dict[str, Any] | None = None) -> dict:
     """쇼핑행동 통계. GET /v1/bizdata-stats/channels/{channelNo}/shopping/{dataset}
 
@@ -76,7 +78,7 @@ def stats_shopping(channel_no: str, dataset: str, params: dict[str, Any] | None 
     )
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=True))
 def stats_realtime(channel_no: str, params: dict[str, Any] | None = None) -> dict:
     """오늘 실시간 채널 보고서(1~5분 폴링 권장). GET /v1/bizdata-stats/channels/{channelNo}/realtime/daily"""
     return call(
@@ -86,7 +88,7 @@ def stats_realtime(channel_no: str, params: dict[str, Any] | None = None) -> dic
     )
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=True))
 def stats_customer_status(channel_no: str = "") -> dict:
     """고객 현황 통계. channel_no 미제공 시 계정(전 채널 합산), 제공 시 채널 단위.
 
@@ -101,7 +103,7 @@ def stats_customer_status(channel_no: str = "") -> dict:
     return call("GET", "/v1/customer-data/customer-status/account/statistics")
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=True))
 def stats_repurchase() -> dict:
     """계정 단위 재구매 통계(고객 충성도/재구매 캠페인 ROI). GET /v1/customer-data/repurchase/account/statistics"""
     return call("GET", "/v1/customer-data/repurchase/account/statistics")

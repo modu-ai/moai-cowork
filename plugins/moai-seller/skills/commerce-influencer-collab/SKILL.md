@@ -3,7 +3,8 @@ name: commerce-influencer-collab
 description: |
   인플루언서 협업·체험단·고객 콘텐츠 재사용 계획을 세우고 경제적 이해관계 표시를 확인합니다.
   요청 예: "인플루언서 협업", "체험단 운영", "후기 리그램 동의".
-version: "1.1.1"
+metadata:
+  version: "1.1.2"
 ---
 
 # 인플루언서·UGC 협업

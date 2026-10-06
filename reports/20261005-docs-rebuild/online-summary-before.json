@@ -1,0 +1,200 @@
+{
+  "pages_requested": 201,
+  "success": 153,
+  "errors": [
+    {
+      "url": "https://cowork.mo.ai.kr/concepts/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/first-task/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/install/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/plugins/install/higgsfield-setup/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/plugins/install/mcp/credentials/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/quick-start/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/accountant/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/agents/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/analyst/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/automation-recipes/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/best-practices/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/blog-pipeline/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/business-plan/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/career/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/consultant/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/contract-review/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/conversations/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/cookbook/tracks/business-plan/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/cookbook/tracks/contract-review/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/cookbook/tracks/report-automation/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/coworker/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/cs/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/designer/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/higgsfield-setup/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/ir-deck/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/lawyer/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/license/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/marketer/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/media/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/officer/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/open-source/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/personalization/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/plans-billing/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/plugins/credentials/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/plugins/troubleshooting/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/pm/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/projects/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/recruiter/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/report-automation/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/seller/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/story/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/teams/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/threads-poster/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/tracks/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/troubleshooting/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/tutor/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/writer/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://cowork.mo.ai.kr/plugins/mcp/install/troubleshooting/",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ],
+  "remaining_at_bound": [],
+  "base": "https://cowork.mo.ai.kr/"
+}

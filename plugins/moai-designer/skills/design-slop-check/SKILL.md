@@ -4,7 +4,8 @@ description: |
   디자인 결과물의 한국어·영어 카피에서 상투적인 표현, 근거 없는 주장, 어색한 문장 구조를
   문맥과 브랜드 말투에 비추어 검토하고 수정안을 제안합니다. Claude Design·ChatGPT Work의
   화면 문구, CTA, 오류 메시지, 랜딩 카피에 사용합니다.
-version: "1.1.3"
+metadata:
+  version: "1.1.4"
 ---
 
 # design-slop-check — 디자인 카피 검수

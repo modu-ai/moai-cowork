@@ -5,7 +5,8 @@ description: |
   "PRD 작성해줘", "기능 명세서 만들어줘", "AI 도입 전략 정리해줘" 같은 요청에 사용하세요.
   제공된 요구사항과 근거를 검토 가능한 문서로 정리하고 미결정 사항을 분리합니다.
   정부 지원사업 신청서는 moai-consultant:consult-gov-grant, 연구비 과제 신청서는 moai-tutor:education-grant-writer로 연결합니다.
-version: "1.1.2"
+metadata:
+  version: "1.1.3"
 ---
 
 # 제품 명세와 AI 도입 검토

@@ -2,7 +2,8 @@
 name: consult-feasibility-audit
 description: |
   사업계획서·시장 분석·지원사업 신청서·상권 보고서의 수치, 출처, 산식, 자격요건과 타당성 주장을 읽기 전용으로 검수합니다. 근거 없는 판정을 찾고 미검증 항목을 분리할 때 사용합니다.
-version: "1.0.1"
+metadata:
+  version: "1.0.2"
 ---
 
 # 경영 타당성 검수

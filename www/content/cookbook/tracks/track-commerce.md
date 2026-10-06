@@ -1,290 +1,110 @@
 ---
 title: "이커머스 트랙"
-weight: 25
-description: "D2C 셀러·이커머스 운영자를 위한 풀스택 워크플로우. moai-seller 30스킬 + moai-media 미디어 생성으로 신상품 출시부터 재구매·VOC·LTV까지 한 플러그인 안에서 자동화."
+description: "상품·주문·고객 자료를 준비해 쇼핑몰 운영안을 만드는 실습"
+weight: 10
+date: 2026-10-05T00:00:00+09:00
+lastmod: 2026-10-06
 geekdocBreadcrumb: true
-date: 2026-08-07T00:00:00+09:00
-lastmod: 2026-08-22T00:00:00+09:00
 ---
 
-> **대상**: 스마트스토어·쿠팡·자사몰·크라우드펀딩 운영자, D2C 브랜드 PM, 이커머스 마케터
-> **전제**: moai-coworker · moai-seller · moai-media 활성화 + (선택) [Higgsfield 로그인](/plugins/higgsfield-setup/)(이미지·영상 생성 시, 최초 1회)
-> **소요**: 시나리오당 약 5-20분 (산출물 종류에 따라)
+**이 실습의 결과는 쇼핑몰 운영안입니다.** ChatGPT Work와 Claude Cowork 모두 목표와 자료를 제공하는 방식으로 시작합니다. 실제 서비스 연결과 지원 도구는 현재 앱에서 확인하세요.
 
-## 무엇을 할 수 있나
 
-```mermaid
-flowchart TB
-   subgraph 시작["1. 시장조사"]
-       M1["commerce-market-research<br/>경쟁사·트렌드"]
-   end
-   subgraph 상품["2. 상품 기획"]
-       P1["commerce-jtbd-persona<br/>고객 분석"]
-       P2["commerce-product-naming<br/>상품명 3안"]
-       P3["commerce-promotion-planner<br/>프로모션 기획"]
-   end
-   subgraph 콘텐츠["3. 콘텐츠 자동화"]
-       C1["commerce-detail-page-planner<br/>13섹션 Brief"]
-       C2["commerce-detail-page-copy<br/>13섹션 카피"]
-       C3["commerce-detail-page-image<br/>1080×1270 PNG"]
-       C4["commerce-product-image-pipeline<br/>광고 영상 풀세트"]
-   end
-   subgraph 운영["4. 운영·CRM"]
-       O1["cs-channel-message<br/>카톡·SMS·앱 푸시"]
-       O2["commerce-repurchase-timer<br/>재구매 골든타임"]
-       O3["cs-voc-triage<br/>VOC 응대"]
-       O4["commerce-subscription-strategist<br/>구독 설계"]
-   end
-   subgraph 분석["5. 수익 분석"]
-       A1["commerce-margin-calculator<br/>마진"]
-       A2["commerce-ltv-cac-architect<br/>LTV/CAC"]
-       A3["commerce-coupang-ad-optimizer<br/>쿠팡 광고"]
-   end
-   시작 --> 상품 --> 콘텐츠 --> 운영 --> 분석
-   style 콘텐츠 fill:#fbf0dc,stroke:#c47b2a
-   style 운영 fill:#e8f1ec,stroke:#265240
-```
+<!--more-->
 
-## 한 줄 요청 예시 5종
 
-| # | 한 줄 요청 (사용자) | 자동 체인 (시스템) |
-|---|---|---|
-| 1 | "신상품 상세페이지 만들어줘" | commerce-detail-page-planner → commerce-detail-page-copy → commerce-detail-page-image → ai-slop-reviewer |
-| 2 | "이번 시즌 프로모션 기획해줘" | commerce-promotion-planner → cs-channel-message → commerce-marketing-compliance-kr |
-| 3 | "재구매 캠페인 자동 설계해줘" | commerce-repurchase-timer → cs-channel-message |
-| 4 | "리뷰 5채널 통합 분석해줘" | cs-voc-triage (리뷰 집계 모드) → doc-docx → ai-slop-reviewer |
-| 5 | "우리 D2C 광고비 30% 의존도 탈출 전략 짜줘" | commerce-ltv-cac-architect → commerce-margin-calculator → commerce-integrated-strategy |
+## 준비물
 
----
+상품·주문·고객 자료를 준비합니다. 실습에서는 가상 자료나 공개 가능한 자료를 사용할 수 있습니다. [관련 역할](/moai-agents/seller/)의 스킬을 추가하려면 [설치 안내](/plugins/install/)를 확인합니다.
 
-## 시나리오 ① 신상품 상세페이지 — 첫 출시 (약 15분)
-
-**상황**: 무선 이어폰을 스마트스토어 + 자사몰에 출시.
-
-### 사용자 입력
-
-{{< terminal title="claude — cowork" raw="true" >}}
-무선 이어폰 상세페이지 만들어줘
-{{< /terminal >}}
-
-### 시스템이 묻는 항목 (AskUserQuestion)
-
-1. **상품 정보**: 카테고리·가격대·핵심 USP 3개 (예: 노캔·60시간·한국어 음성)
-2. **타깃**: 직장인·학생·운동러 등 페르소나
-3. **채널**: 스마트스토어 / 쿠팡 / 자사몰 / 와디즈 (다중 선택)
-4. **이미지**: 보유 사진 폴더 경로 (없으면 생성)
-5. **참고 경쟁사**: 0-3개 URL
-
-### 자동 체인
-
-```mermaid
-flowchart TD
-   P1["commerce-detail-page-planner<br/>Brief 생성"] --> P2["commerce-detail-page-copy<br/>13섹션 감정 여정"]
-   P2 --> P3["commerce-detail-page-image<br/>1080×1270 PNG"]
-   P3 --> P4["ai-slop-reviewer<br/>카피 검수"]
-   P4 --> P5["korean-humanize<br/>AI 티 제거"]
-   P5 --> P6["최종 검수<br/>원문 대조"]
-   P6 --> Out["산출물<br/>HTML·PNG·DOCX"]
-   style Out fill:#e8f1ec,stroke:#265240
-```
-
-### 산출물
-
-- `90_Output/products/wireless-ear/detail.html` — 13섹션 HTML (Next.js + shadcn/ui)
-- `90_Output/products/wireless-ear/detail-1080x1270.png` — 단일 합성 이미지
-- `90_Output/products/wireless-ear/copy-personas.md` — 페르소나 2세트 비교
-
----
-
-## 시나리오 ② 시즌 프로모션 — 11월 빼빼로 데이 (약 10분)
-
-### 사용자 입력
-
-{{< terminal title="claude — cowork" raw="true" >}}
-11월 빼빼로 데이 프로모션 기획해줘
-{{< /terminal >}}
-
-### 시스템 인터뷰
-
-1. **카테고리·브랜드 단계**: 화장품/식품/... · 신생/스몰/중대형
-2. **목표**: 인지도 / 충성고객 / 즉각매출
-3. **할인율 한도**: 0-15% / 16-30% / 31%+
-4. **채널 우선순위**: 인스타·카톡·앱 푸시·이메일
-5. **시즌 캘린더 자동 매핑**: D-30 / D-60 / D-90 사전 준비
-
-### 자동 체인
-
-`commerce-season-calendar` → `commerce-promotion-planner` → `cs-channel-message` (AARRR 5단계, 카톡·SMS·앱 푸시) → `commerce-message-compliance-kr` (정통망법 게이트) → `ai-slop-reviewer`
-
-### 산출물
-
-- 노션 프로모션 템플릿 페이지 8섹션 (이슈화·얼리버드·한정 3종 세트)
-- 카톡 친구톡 + 앱 푸시 카피 3안 (Timely·Personal·Actionable)
-- 정통망법 BLOCK/PASS 사전 검증 표
-
----
-
-## 시나리오 ③ 재구매 자동화 — 화장품 평균 주기 45일 (약 5분)
-
-### 사용자 입력
-
-{{< terminal title="claude — cowork" raw="true" >}}
-화장품 재구매 메시지 시퀀스 설계해줘
-{{< /terminal >}}
-
-### 시스템 인터뷰
-
-1. **카테고리** + **평균 구매 주기 T** (자동: 화장품=45일)
-2. **재구매율 현황** (선택)
-3. **채널**: 앱 푸시 / 카톡 / 이메일
-4. **인센티브 강도**: 골든타임 3구간 자동 매핑 가능?
-
-### 자동 체인
-
-`commerce-repurchase-timer` → 3구간 산출 (D+36 리마인드 / D+50 데드라인 / D+68 휴면) → `cs-channel-message` (구간별 톤) → `commerce-message-compliance-kr`
-
-### 산출물
+## 첫 요청
 
 ```text
-[D+36 리마인드 — 앱 푸시, 0-5% 인센티브, 가벼운 톤]
-"세럼 다 쓰셨나요? 다음 주 신상 알려드릴게요 "
-
-[D+50 데드라인 — 카톡 친구톡, 10-15% 인센티브, 긴급 톤]
-"이번주만 — 단골 할인 15% 자동 적용 (~5/24)"
-
-[D+68 휴면 — 카톡 + SMS, 25-40% + 사은품, 위닝백 톤]
-"오랜만이에요. 30% + 신제품 미니어처 동봉 — 5/30까지"
+제공한 자료로 쇼핑몰 운영안을 만들어 줘.
+목표·독자·결과 형식을 먼저 확인하고 부족한 정보는 질문해 줘.
+자료 확인, 요구 정리, 초안, 검토 순서로 진행해 줘.
+자료 없는 사실과 수치는 만들지 말고 미정 항목을 표시해 줘.
+외부 게시·발송·계정 변경 없이 검토용 결과부터 보여 줘.
 ```
 
----
+## 진행 순서
 
-## 시나리오 ④ 멀티채널 리뷰 통합 분석 (약 8분)
+1. **자료 확인:** 상품·주문·고객 자료 중 읽을 수 있는 것과 없는 것을 구분합니다.
+2. **맥락 확인:** 독자·형식·범위를 질문에 답해 정합니다.
+3. **초안 작성:** 자료 확인, 요구 정리, 초안, 검토 순서로 진행합니다.
+4. **검토:** 상품 사실·계정·재고·게시 상태를 확인합니다.
+5. **수정·저장:** 변경할 부분을 지정하고 결과를 별도 위치에 저장합니다.
 
-### 사용자 입력
+독립적인 조사만 병렬로 진행하고, 앞 결과가 필요한 작성·변환은 순차로 진행합니다. [전문가 분업](/workflows/experts/)의 역할·입출력 계약을 사용할 수 있습니다.
 
-{{< terminal title="claude — cowork" raw="true" >}}
-우리 비건 세럼 5채널 리뷰 통합 분석해줘
-{{< /terminal >}}
+## 가상 예제로 더 이해하기
 
-### 시스템 인터뷰
+아래 자료와 모범 설명은 수업을 위해 작성했습니다. 실제 회사·고객의 실적이나 앱 실행 결과가 아닙니다. 먼저 제공 자료로 작은 결과를 만든 뒤 자신의 자료로 바꿔 보세요.
 
-1. **채널 + API 키 보유 여부**: 네이버·쿠팡·자사몰·YouTube·인스타
-2. **분석 기간**: 30/90/180일
-3. **출력 형식**: JSON · DOCX · PPT (미리캔버스)
-4. **VOC 응대 가이드 동봉**: 예/아니오
-
-### 자동 체인
-
-`cs-voc-triage` (리뷰 집계 모드 — 5채널 감정·키워드·인사이트·액션플랜 4단 분석) → `doc-docx` → `ai-slop-reviewer`
-
-### 산출물 미리보기
-
-```json
-{
-  "total_reviews": 1247,
-  "sentiment": {"positive": 78, "negative": 12, "neutral": 10},
-  "insights": {
-    "strengths": ["흡수력·발림성", "비건 인증 신뢰", "용기 디자인"],
-    "weaknesses": ["향 호불호", "용량 부족", "가격 부담"]
-  },
-  "action_plan": [
-    {"priority": 1, "term": "즉각", "action": "상세페이지 향 정보 보강"},
-    {"priority": 2, "term": "단기", "action": "100ml SKU 추가"}
-  ]
-}
+```text
+가상 상품: USB-C 충전 스탠드, 높이 28cm, 밝기 3단계. 가격·배송비·사용 시간·인증 정보는 없음.
 ```
 
----
+### 먼저 확인할 질문
 
-## 시나리오 ⑤ LTV/CAC 광고 의존도 탈출 (약 12분)
+확정된 판매 조건과 제품 정보가 있나요? 실제 등록인가요, 소개 초안인가요? 답을 모르면 해당 항목을 미정으로 남기고, 그 정보 없이 가능한 범위를 정합니다.
 
-### 사용자 입력
+### 모범 결과를 읽는 방법
 
-{{< terminal title="claude — cowork" raw="true" >}}
-우리 D2C 광고비 30% 의존도 탈출 전략 짜줘
-{{< /terminal >}}
+확인된 사양으로 소개 초안을 만들고 가격·배송비·사용 시간·인증은 확인 목록으로 나눕니다. 실제 등록은 수행하지 않은 상태로 표시합니다. 문장과 서식은 달라도 이 기준을 충족하는지 직접 비교합니다. 원문 위치·출처·상태가 결과에 함께 남으면 다음 검토자에게 넘기기 쉽습니다.
 
-### 시스템 인터뷰
+### 직접 비교할 모범 결과
 
-1. **카테고리** (한국 D2C 벤치마크 자동 매칭)
-2. **6대 지표 입력** (또는 산정): CAC·재구매율·구매주기·ARPU·공헌이익·LTV
-3. **현재 ROAS·광고 비중**
-4. **세그먼트별 분해 원하는 정도**
-
-### 자동 체인
-
-`commerce-ltv-cac-architect` (6대 지표 진단) → `commerce-margin-calculator` (손익분기 ROAS) → `commerce-early-fan-builder` (충성 100명 부트스트랩) → `commerce-integrated-strategy` (Month 1-6 로드맵)
-
-### 산출물
-
-- **현황 진단표**: LTV/CAC ratio (3+ 건강 / <1 손실) · Payback Period · 광고 의존도 (30%+ 위험)
-- **탈출 6단계 로드맵** (Month 1-6, 광고 비중 30% → 11-15% 목표)
-- **세그먼트별 재구매율 분해** + 광고 vs 추천 vs 자연유입 매트릭스
-
----
-
-## 광고 영상 풀스택 (보너스, 약 15분)
-
-이커머스 셀러가 상품 광고 영상까지 한 번에 만드는 시나리오. `commerce-product-image-pipeline`이 Higgsfield MCP 기반 4단계 체인을 자동 실행합니다.
-
-{{< terminal title="claude — cowork" raw="true" >}}
-스킨케어 상품 광고 영상 풀세트 만들어줘. 메타 + 네이버 GFA + 카카오 채널 변환까지
-{{< /terminal >}}
-
-자동 체인: `commerce-product-image-pipeline` — 캐릭터 일관성(선택) → 이미지 생성 (Soul, 5축: Hero·Lifestyle·Detail·Use-case·Result) → 영상 생성 (DOP, 모션 프리셋 자동) → 메타·네이버·카카오 채널 규격 변환
-
-**비용 추정**: ₩2,300-4,000/상품 1건 (1 캐릭터 + 5 이미지 + 1 메인 영상 + 채널 3 변환)
-
----
-
-## AskUserQuestion 표준 슬롯 (이커머스 트랙 공통)
-
-이커머스 시나리오에서 시스템이 자주 묻는 항목 — 한 번 답하면 `.moai/project/profile.md`에 저장되어 다음부터 자동 참조:
-
-| 슬롯 | 예시 값 | 저장 위치 |
+| 항목 | 결과 예시 | 근거·상태 |
 |---|---|---|
-| 브랜드 단계 | 신생 / 스몰 / 중대형 | profile.md |
-| 카테고리 | 화장품·식품·패션·반려동물 등 | profile.md |
-| 주요 판매 채널 | 스마트스토어·쿠팡·자사몰·와디즈 | profile.md |
-| 핵심 페르소나 | 직장인·학생·운동러 등 | profile.md |
-| 광고 예산·ROAS 목표 | 월 100만 · ROAS 3+ | profile.md |
-| 영업비밀·제외 키워드 | 알고리즘·고객사 명단 등 | .moai/secrets.md |
+| 상품명 초안 | USB-C 충전 스탠드 | 소개 초안 |
+| 사양 | 높이 28cm · 밝기 3단계 | 제공 자료에서 확인 |
+| 판매 조건 | 가격·배송비·사용 시간·인증 | 미확인 |
+| 실행 상태 | 실제 상품 등록은 수행하지 않음 | 등록 전 |
 
----
+### 흔한 실수와 수정 요청
 
-## 자주 묻는 질문
+효능이나 인증을 만들어 넣거나 초안을 만든 뒤 상품을 등록했다고 보고합니다. 이때는 결과 전체를 다시 만들어 달라는 말보다, 틀린 기준과 고칠 위치를 구체적으로 알려 주세요.
 
-### Q. 30개 스킬을 다 외워야 하나요?
+```text
+자료에 없는 인증·효능·배송 조건은 넣지 마. 소개 초안과 실제 등록 상태를 구분해 줘.
+수정한 부분과 아직 확인할 항목을 따로 알려 줘.
+```
 
-아니오. **사용자는 짧은 한 줄만 입력**하면 시스템이 자동으로 적절한 스킬을 선택해 체이닝합니다. 예: "재구매 메시지 짜줘" → 시스템이 `commerce-repurchase-timer + cs-channel-message + commerce-message-compliance-kr`를 자동 호출.
+### 확인 문제
 
-### Q. 광고 영상 만들 때 비용이 걱정됩니다.
+상품 페이지 초안이 완성되면 판매 준비가 모두 끝난 것일까요?
 
-`commerce-product-image-pipeline`은 상품 1건당 **₩2,300-4,000** 예상. 무드보드 단계에서 스토리보드를 확정한 후 최종 생성하므로 재생성 비용 최소화. 무료 모드(이미지만)도 가능.
+<details><summary>답안과 해설 보기</summary>
 
-### Q. 정통망법 위반 위험은 자동 차단되나요?
+실제 사양·인증·가격·배송·계정 등록 등 필요한 조건을 추가로 확인해야 합니다.
 
-예. **`commerce-message-compliance-kr`** 가 모든 마케팅 메시지 워크플로우에 자동 게이트로 들어갑니다. 야간 21시-익일 8시 발송, (광고) 표기 누락, 수신거부 미명시 등 6대 위반 자동 BLOCK. 과태료 1회 최대 3,000만원 회피.
+</details>
 
-### Q. 시스템이 인터뷰하는 게 귀찮으면?
+### 내 업무로 바꿔 보기
 
-`.moai/project/profile.md`에 브랜드 정보·카테고리·페르소나를 한 번 저장하세요. 다음부터는 시스템이 자동 참조하므로 인터뷰가 1-2개로 줄어듭니다.
+예제의 자료를 자신의 공개 가능한 자료로 바꾸고, 결과의 독자와 형식을 다시 정합니다. 변하지 않는 검토 기준은 프로젝트 지침에 저장하고, 이번 작업의 수치와 미정 조건은 새 자료로 제공합니다. [프로젝트와 자료 수업](/learn/02-project-context/)에서 구분 방법을 확인합니다.
 
----
+## 사용할 수 있는 스킬 후보
 
-## 다음 단계
+아래는 이 업무에 참고할 수 있는 패키지 기능입니다. 실제 설치·노출 상태를 먼저 확인하며 이 순서로 반드시 자동 실행된다는 뜻은 아닙니다.
 
-- [**표준 패턴**](../) — 4가지 표준 사용 패턴
-- **[moai-seller 플러그인](/moai-agents/seller/)** — 30스킬 전체 카탈로그
-- **[moai-media 플러그인](/moai-agents/media/)** — 이미지·영상 생성 미디어 14스킬
-- **[광고 트랙](../track-advertising/)** — 메타·구글 광고 진단·최적화
-- **[법무 트랙](../track-legal/)** — 표시광고법·정통망법 컴플라이언스
+- `moai-coworker:ai-slop-reviewer`
+- `moai-writer:korean-humanize`
+- `moai-seller:commerce-coupang-ad-optimizer`
+- `moai-seller:commerce-detail-page-copy`
+- `moai-seller:commerce-detail-page-image`
 
----
+## 완료 기준
 
-### Sources
+결과물에 사용 자료와 미확인 항목이 표시되어 있습니다. 상품 사실·계정·재고·게시 상태을 직접 확인했습니다. 파일을 요청한 경우 저장된 파일을 열어 확인합니다. 실제 게시·발송·예약 작업은 별도의 실행 결과로 확인합니다.
 
-- [moai-seller 디렉터리](https://github.com/modu-ai/moai-cowork/tree/main/plugins/moai-seller)
-- 커머스 실무 노트 기반 통합 가이드
-- [정보통신망법 제50조](https://www.law.go.kr/법령/정보통신망이용촉진및정보보호등에관한법률)
-- 한국 D2C 카테고리 벤치마크: commerce-ltv-cac-architect 내장 데이터
+## 막혔을 때
+
+자료나 연결이 없으면 제공 자료로 가능한 초안과 다음 준비 목록을 요청합니다. 원문·수치가 다르면 해당 위치와 근거를 지정해 고칩니다. 전문 판단이 필요한 부분은 근거와 쟁점을 정리하고 해당 업무 책임자가 확인합니다.
+
+[결과 검토](/workflows/review/) · [반복 업무](/workflows/reuse/) · [다른 실습 선택](/cookbook/)
+
+## 공식 문서와 참고 자료
+
+- [관련 플러그인 원본](https://github.com/modu-ai/moai-cowork/tree/main/plugins/moai-seller)

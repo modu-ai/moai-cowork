@@ -1,0 +1,44 @@
+schema_version: '1.1'
+name: consult-startup--TC-001
+description: '표준 입력값(아이디어, 시장, 팀, 자본)이 모두 제공된 경우,
+
+  완전한 종합 계획서가 생성되는지 검증합니다.
+
+  '
+runs: 1
+tags:
+- generated
+- consult-startup
+execution:
+  prompt: "다음 프로젝트 업무를 수행해 주세요. 미확인 정보는 만들지 말고 필요한 맥락을 요청하세요.\n\n{\n  \"startup_name\"\
+    : \"AI옵틱스\",\n  \"idea\": \"중소 제조업체를 위한 AI 기반 생산 최적화 SaaS\",\n  \"target_market\"\
+    : \"국내 중소 제조업체 (직원 10-100인, 연 매출 10-100억원)\",\n  \"team_info\": [\n    {\n   \
+    \   \"CEO\": \"제조업 컨설팅 10년\"\n    },\n    {\n      \"CTO\": \"AI/ML 8년\"\n   \
+    \ }\n  ],\n  \"initial_capital\": \"3억원 (팀 자출 1억원 + 엔젤 투자 2억원)\"\n}"
+  allowed_tools:
+  - Read
+  - Glob
+  - Grep
+  - Skill
+  max_turns: 12
+  timeout_seconds: 180
+graders:
+- name: skill-fired
+  type: tool_used
+  tool: Skill
+  input_match: '"skill"\s*:\s*"(?:[\w-]+:)?consult\-startup"'
+- name: quality
+  type: llm
+  focus: trace
+  criteria: "입력 사실·제약과 아래 사례의 기대 결과를 대조한다. 모든 적용 가능한 조건을 만족하면 PASS, 하나라도 위반하면 FAIL이다.\
+    \ false 값은 해당 동작·주장이 없어야 한다는 뜻이다. 정보·도구·fixture가 부족하면 모델이 이를 명시했는지 확인하되, 원래 조건을\
+    \ 충족하지 못한 실행을 임의로 PASS로 바꾸지 않는다. 단어가 있다는 이유만으로 사실성·산술·법적 판단·의미 보존을 통과시키지 않는다.\
+    \ 원격 호출·파일 생성·독립 검수의 주장은 실제 trace와 산출물로 확인한다.\n\n{\n  \"expected_outputs\": [\n\
+    \    \"아이디어 검증 섹션 존재 (문제 정의, 솔루션, 타겟 고객, 경쟁 Landscape, 실행 가능성)\",\n    \"시장 분석\
+    \ 섹션 존재 (TAM/SAM/SOM, 성장성, 고객 세분화, 진입 장벽)\",\n    \"비즈니스 모델 캔버스 섹션 존재 (9개 빌딩 블록,\
+    \ 수익 모델, 가격 책정)\",\n    \"피치덱 구조 섹션 존재 (10-15슬라이드 구성, 각 슬라이드 핵심 메시지)\",\n    \"\
+    재무 모델 섹션 존재 (입력값·산식 또는 필요한 자료 목록)\",\n    \"실행 로드맵 섹션 존재 (제공된 자원에 맞는 검증 단계와 지표)\"\
+    ,\n    \"Markdown 형식 구조화된 문서\"\n  ],\n  \"pass_criteria\": [\n    \"모든 필수 섹션(6개)이\
+    \ 존재하고 내용이 구체적임\",\n    \"B2B SaaS 특성(SaaS 구독 모델, 직접 영업, 중소 제조업체 타겟)이 반영됨\",\n\
+    \    \"매출·원가·가격 입력값이 없으면 재무 수치를 꾸미지 않고 필요한 자료와 계산 틀을 제시\",\n    \"피치덱에 증빙되지 않은\
+    \ 트랙션을 추가하지 않음\",\n    \"실행 로드맵은 사용자가 정한 기간에 맞춤\"\n  ]\n}"

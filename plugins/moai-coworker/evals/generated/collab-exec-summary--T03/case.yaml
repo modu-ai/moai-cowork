@@ -1,0 +1,36 @@
+schema_version: '1.1'
+name: collab-exec-summary--T03
+description: 선택지가 없으면 권고 보류
+runs: 1
+tags:
+- generated
+- collab-exec-summary
+execution:
+  prompt: '다음 프로젝트 업무를 수행해 주세요. 미확인 정보는 만들지 말고 필요한 맥락을 요청하세요.
+
+
+    보안 감사 대응 옵션을 정리해줘. 예산과 감사 범위는 아직 몰라.'
+  allowed_tools:
+  - Read
+  - Glob
+  - Grep
+  - Skill
+  max_turns: 12
+  timeout_seconds: 180
+graders:
+- name: skill-fired
+  type: tool_used
+  tool: Skill
+  input_match: '"skill"\s*:\s*"(?:[\w-]+:)?collab\-exec\-summary"'
+- name: quality
+  type: llm
+  focus: trace
+  criteria: "입력 사실·제약과 아래 사례의 기대 결과를 대조한다. 모든 적용 가능한 조건을 만족하면 PASS, 하나라도 위반하면 FAIL이다.\
+    \ false 값은 해당 동작·주장이 없어야 한다는 뜻이다. 정보·도구·fixture가 부족하면 모델이 이를 명시했는지 확인하되, 원래 조건을\
+    \ 충족하지 못한 실행을 임의로 PASS로 바꾸지 않는다. 단어가 있다는 이유만으로 사실성·산술·법적 판단·의미 보존을 통과시키지 않는다.\
+    \ 원격 호출·파일 생성·독립 검수의 주장은 실제 trace와 산출물로 확인한다.\n\n{\n  \"assertions\": [\n    {\n\
+    \      \"states_missing_decision_inputs\": true\n    },\n    {\n      \"does_not_invent_budget_or_deadline\"\
+    : true\n    }\n  ],\n  \"rubric\": {\n    \"correctness\": 0.3,\n    \"completeness\"\
+    : 0.25,\n    \"clarity\": 0.25,\n    \"efficiency\": 0.2\n  },\n  \"anti_patterns\"\
+    : [\n    \"자료 없이 수치와 원인을 만들어 냄\",\n    \"조건 없는 권고를 확정함\",\n    \"파일·공유를 실행하지 않고\
+    \ 완료했다고 말함\",\n    \"Casual tone in executive output\"\n  ]\n}"

@@ -1,0 +1,41 @@
+[
+  {
+    "clipped": [],
+    "diagrams": 0,
+    "nodeLabels": 0,
+    "overflow": false,
+    "path": "/learn/contents/",
+    "pretendard": true,
+    "rendered": 0,
+    "scrollWidth": 379,
+    "tables": 1,
+    "title": "전체 목차와 학습 경로",
+    "width": 390
+  },
+  {
+    "clipped": [],
+    "diagrams": 1,
+    "nodeLabels": 9,
+    "overflow": false,
+    "path": "/getting-started/install/",
+    "pretendard": true,
+    "rendered": 1,
+    "scrollWidth": 379,
+    "tables": 3,
+    "title": "데스크톱 앱 설치와 로그인",
+    "width": 390
+  },
+  {
+    "clipped": [],
+    "diagrams": 1,
+    "nodeLabels": 10,
+    "overflow": false,
+    "path": "/plugins/install/",
+    "pretendard": true,
+    "rendered": 1,
+    "scrollWidth": 379,
+    "tables": 2,
+    "title": "플러그인 설치와 관리",
+    "width": 390
+  }
+]

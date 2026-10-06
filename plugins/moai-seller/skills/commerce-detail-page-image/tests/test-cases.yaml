@@ -1,8 +1,15 @@
 name: commerce-detail-page-image
 version: 1.1.5
-# 검토 시나리오. 입력 fixture와 실행기가 없는 상태에서는 테스트 통과를 주장할 수 없습니다.
+# 합성 사례는 판매 자료가 아닌 단색 fixture로 크기·순서만 검증합니다.
 test_cases:
   - id: all_sections
+    input:
+      request: "fixtures/sections의 13장을 표준 섹션 높이에 맞춰 순서대로 합성하고 PNG 크기를 검사해 줘. 판매용 업로드는 하지 마."
+      sections_dir: fixtures/sections
+      fixture_kind: synthetic-layout-only
+    eval_context:
+      scaffold_script: scaffold.sh
+      allowed_tools: [Read, Glob, Grep, Skill, Bash, Write]
     expected:
       sections_count: 13
       combined_size: 1080x12720

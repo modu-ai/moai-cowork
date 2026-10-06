@@ -1,0 +1,13 @@
+{
+  "base_url": "http://127.0.0.1:1313",
+  "build": "/private/tmp/moai-docs-local-test-20261006",
+  "html_responses": 288,
+  "asset_responses": 196,
+  "checked_responses": 484,
+  "missing_route": {
+    "status": 404,
+    "body_prefix": "<!DOCTYPE html>\n<html\n  lang=\"ko\"\n  class=\"color-toggle-light\"\n  color-theme=\"light\"\n  \n>\n  <head><script src=\"/livereload.js?mindelay=10&amp;v=2&amp;port=1313&"
+  },
+  "errors": [],
+  "scope": "local HTTP responses and static asset bytes; not browser interactions"
+}

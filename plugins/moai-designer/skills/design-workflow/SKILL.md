@@ -3,8 +3,9 @@ name: design-workflow
 description: |
   디자인 자료를 프로젝트의 브랜드 기준과 함께 읽고, 확인된 토큰과 자산을
   구현에 전달합니다. 프로젝트 설정이 있을 때만 MoAI 전용 경로를 사용합니다.
-user-invocable: false
-version: "1.1.3"
+metadata:
+  invocation-scope: "workflow"
+  version: "1.1.4"
 ---
 
 # 디자인 자료 연결

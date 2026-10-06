@@ -1,0 +1,200 @@
+[
+  {
+    "path": "plugins/moai-accountant",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-accountant"
+    ],
+    "exit_code": 0,
+    "output": "Validating plugin manifest: /Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-accountant/.claude-plugin/plugin.json\n\n✔ Validation passed\n"
+  },
+  {
+    "path": "plugins/moai-analyst",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-analyst"
+    ],
+    "exit_code": 0,
+    "output": "Validating plugin manifest: /Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-analyst/.claude-plugin/plugin.json\n\n✔ Validation passed\n"
+  },
+  {
+    "path": "plugins/moai-career",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-career"
+    ],
+    "exit_code": 0,
+    "output": "Validating plugin manifest: /Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-career/.claude-plugin/plugin.json\n\n✔ Validation passed\n"
+  },
+  {
+    "path": "plugins/moai-consultant",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-consultant"
+    ],
+    "exit_code": 0,
+    "output": "Validating plugin manifest: /Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-consultant/.claude-plugin/plugin.json\n\n✔ Validation passed\n"
+  },
+  {
+    "path": "plugins/moai-coworker",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-coworker"
+    ],
+    "exit_code": 0,
+    "output": "Validating plugin manifest: /Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-coworker/.claude-plugin/plugin.json\n\n✔ Validation passed\n"
+  },
+  {
+    "path": "plugins/moai-cs",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-cs"
+    ],
+    "exit_code": 0,
+    "output": "Validating plugin manifest: /Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-cs/.claude-plugin/plugin.json\n\n✔ Validation passed\n"
+  },
+  {
+    "path": "plugins/moai-designer",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-designer"
+    ],
+    "exit_code": 0,
+    "output": "Validating plugin manifest: /Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-designer/.claude-plugin/plugin.json\n\n✔ Validation passed\n"
+  },
+  {
+    "path": "plugins/moai-lawyer",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-lawyer"
+    ],
+    "exit_code": 0,
+    "output": "Validating plugin manifest: /Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-lawyer/.claude-plugin/plugin.json\n\n✔ Validation passed\n"
+  },
+  {
+    "path": "plugins/moai-marketer",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-marketer"
+    ],
+    "exit_code": 0,
+    "output": "Validating plugin manifest: /Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-marketer/.claude-plugin/plugin.json\n\n✔ Validation passed\n"
+  },
+  {
+    "path": "plugins/moai-media",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-media"
+    ],
+    "exit_code": 0,
+    "output": "Validating plugin manifest: /Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-media/.claude-plugin/plugin.json\n\n✔ Validation passed\n"
+  },
+  {
+    "path": "plugins/moai-officer",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-officer"
+    ],
+    "exit_code": 0,
+    "output": "Validating plugin manifest: /Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-officer/.claude-plugin/plugin.json\n\n✔ Validation passed\n"
+  },
+  {
+    "path": "plugins/moai-pm",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-pm"
+    ],
+    "exit_code": 0,
+    "output": "Validating plugin manifest: /Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-pm/.claude-plugin/plugin.json\n\n✔ Validation passed\n"
+  },
+  {
+    "path": "plugins/moai-recruiter",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-recruiter"
+    ],
+    "exit_code": 0,
+    "output": "Validating plugin manifest: /Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-recruiter/.claude-plugin/plugin.json\n\n✔ Validation passed\n"
+  },
+  {
+    "path": "plugins/moai-seller",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-seller"
+    ],
+    "exit_code": 0,
+    "output": "Validating plugin manifest: /Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-seller/.claude-plugin/plugin.json\n\n✔ Validation passed\n"
+  },
+  {
+    "path": "plugins/moai-story",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-story"
+    ],
+    "exit_code": 0,
+    "output": "Validating plugin manifest: /Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-story/.claude-plugin/plugin.json\n\n✔ Validation passed\n"
+  },
+  {
+    "path": "plugins/moai-threads-poster",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-threads-poster"
+    ],
+    "exit_code": 0,
+    "output": "Validating plugin manifest: /Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-threads-poster/.claude-plugin/plugin.json\n\n✔ Validation passed\n"
+  },
+  {
+    "path": "plugins/moai-tutor",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-tutor"
+    ],
+    "exit_code": 0,
+    "output": "Validating plugin manifest: /Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-tutor/.claude-plugin/plugin.json\n\n✔ Validation passed\n"
+  },
+  {
+    "path": "plugins/moai-writer",
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "/Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-writer"
+    ],
+    "exit_code": 0,
+    "output": "Validating plugin manifest: /Users/goos/.codex/worktrees/b0aa/moai-cowork/plugins/moai-writer/.claude-plugin/plugin.json\n\n✔ Validation passed\n"
+  }
+]

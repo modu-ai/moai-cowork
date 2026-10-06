@@ -1,0 +1,87 @@
+[
+  {
+    "name": "moai-clean",
+    "description": "Identify and safely remove dead code with test verification",
+    "arguments": "clean $ARGUMENTS"
+  },
+  {
+    "name": "moai-codemaps",
+    "description": "Scan codebase and generate architecture documentation in codemaps/",
+    "arguments": "codemaps $ARGUMENTS"
+  },
+  {
+    "name": "moai-e2e",
+    "description": "Create and run E2E tests across web, mobile, and desktop with auto-detection and CLI-first toolchains",
+    "arguments": "e2e $ARGUMENTS"
+  },
+  {
+    "name": "moai-feedback",
+    "description": "Collect feedback and create GitHub issue (bug report, feature request)",
+    "arguments": "feedback $ARGUMENTS"
+  },
+  {
+    "name": "moai-fix",
+    "description": "Auto-detect and fix LSP errors, linting issues, and type errors",
+    "arguments": "fix $ARGUMENTS"
+  },
+  {
+    "name": "moai-gate",
+    "description": "Run lint+format+type-check+test in parallel (pre-commit quality gate)",
+    "arguments": "gate $ARGUMENTS"
+  },
+  {
+    "name": "moai-goal",
+    "description": "Register a completion condition and arm the autonomous continuation loop",
+    "arguments": "goal $ARGUMENTS"
+  },
+  {
+    "name": "moai-gtd",
+    "description": "Canonical GTD entry point for capture, clarification, organization, review, and engagement",
+    "arguments": "`gtd` $ARGUMENTS"
+  },
+  {
+    "name": "moai-harness",
+    "description": "Manage harness learning subsystem (status/apply/rollback/disable) OR create a harness via natural-language analysis (Context-First Discovery + name derivation + approval gate)",
+    "arguments": "harness $ARGUMENTS"
+  },
+  {
+    "name": "moai-loop",
+    "description": "Iteratively fix issues until all resolved or max iterations reached",
+    "arguments": "loop $ARGUMENTS"
+  },
+  {
+    "name": "moai-mx",
+    "description": "Scan codebase and add @MX code-level annotations for AI context",
+    "arguments": "mx $ARGUMENTS"
+  },
+  {
+    "name": "moai-plan",
+    "description": "Create SPEC document with EARS format requirements and acceptance criteria",
+    "arguments": "plan $ARGUMENTS"
+  },
+  {
+    "name": "moai-project",
+    "description": "Generate project documentation (product.md, structure.md, tech.md, codemaps/)",
+    "arguments": "project $ARGUMENTS"
+  },
+  {
+    "name": "moai-review",
+    "description": "Code review with security and @MX tag compliance check",
+    "arguments": "review $ARGUMENTS"
+  },
+  {
+    "name": "moai-run",
+    "description": "Implement SPEC requirements using DDD/TDD methodology",
+    "arguments": "run $ARGUMENTS"
+  },
+  {
+    "name": "moai-sync",
+    "description": "Synchronize documentation, codemaps, and create pull request",
+    "arguments": "sync $ARGUMENTS"
+  },
+  {
+    "name": "moai-todo",
+    "description": "Backlog queue for Kanban Mode — add, list, or pick the next card",
+    "arguments": "todo $ARGUMENTS"
+  }
+]

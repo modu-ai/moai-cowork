@@ -3,7 +3,8 @@ name: marketing-meta-ads-analyzer
 description: |
   Meta 광고 보고서나 실제 연결된 계정에서 조회한 데이터를 분석해 확인된 성과와 개선 가설을 정리합니다.
   원본의 집계 단위와 기여 설정을 확인하고, 없는 교차 데이터·벤치마크·예상 효과를 만들지 않습니다.
-version: "1.1.2"
+metadata:
+  version: "1.1.3"
 ---
 
 # Meta 광고 성과 분석

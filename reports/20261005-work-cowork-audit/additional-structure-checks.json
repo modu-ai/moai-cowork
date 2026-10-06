@@ -1,0 +1,19 @@
+{
+  "top_level_frontmatter_keys": {
+    "name": 252,
+    "description": 252,
+    "version": 252,
+    "metadata": 2,
+    "user-invocable": 10
+  },
+  "description_over_1024": [
+    {
+      "path": "plugins/moai-writer/skills/korean-humanize/SKILL.md",
+      "characters": 1483
+    }
+  ],
+  "skill_name_directory_mismatches": [],
+  "test_case_files": 32,
+  "pm_template_bytes": 13461,
+  "pm_template_lines": 171
+}

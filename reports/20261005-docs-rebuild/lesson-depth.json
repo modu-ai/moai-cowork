@@ -1,0 +1,44 @@
+[
+  {
+    "lesson": "01-delegation.md",
+    "characters": 2517,
+    "bytes": 5129,
+    "sections": 7,
+    "quiz_answers": 1
+  },
+  {
+    "lesson": "02-project-context.md",
+    "characters": 2853,
+    "bytes": 5873,
+    "sections": 6,
+    "quiz_answers": 1
+  },
+  {
+    "lesson": "03-first-result.md",
+    "characters": 2560,
+    "bytes": 5326,
+    "sections": 8,
+    "quiz_answers": 1
+  },
+  {
+    "lesson": "04-skills-plugins.md",
+    "characters": 2564,
+    "bytes": 5165,
+    "sections": 6,
+    "quiz_answers": 1
+  },
+  {
+    "lesson": "05-expert-workflow.md",
+    "characters": 2695,
+    "bytes": 5365,
+    "sections": 8,
+    "quiz_answers": 1
+  },
+  {
+    "lesson": "06-review-reuse.md",
+    "characters": 2405,
+    "bytes": 5116,
+    "sections": 8,
+    "quiz_answers": 1
+  }
+]

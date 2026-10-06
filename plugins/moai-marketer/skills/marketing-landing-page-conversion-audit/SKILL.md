@@ -3,7 +3,8 @@ name: marketing-landing-page-conversion-audit
 description: |
   기존 랜딩페이지의 메시지·신뢰 자료·전환 흐름을 점검하고 개선 우선순위를 제안합니다.
   실제 광고·분석 자료 없이 이탈 원인, 점수, 개선 효과를 확정하지 않습니다.
-version: "1.1.1"
+metadata:
+  version: "1.1.2"
 ---
 
 # 랜딩페이지 전환 점검

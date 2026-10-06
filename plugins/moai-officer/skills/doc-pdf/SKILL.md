@@ -4,7 +4,8 @@ description: |
   HTML·Markdown·JSON·일반 텍스트를 PDF로 만들거나 기존 문서를 PDF로 변환할 때 사용합니다.
   현재 호스트의 PDF 출력 기능을 확인하고, 결과 파일의 내용·글꼴·페이지 배치를 검수합니다.
   요청 예: "PDF로 만들어줘", "HTML 보고서를 PDF로", "한글 PDF 출력", "Markdown을 PDF로".
-version: "1.1.2"
+metadata:
+  version: "1.1.3"
 ---
 
 # PDF 생성 (doc-pdf)

@@ -1,0 +1,49 @@
+{
+  "desktop": {
+    "cards": [
+      {
+        "background": "rgb(20, 20, 20)",
+        "font": "\"Pretendard Variable\", Pretendard, \"Noto Sans JP\", \"Noto Sans SC\", \"Noto Sans TC\", sans-serif",
+        "fontSize": "16px",
+        "radius": "12px"
+      }
+    ],
+    "pageWidth": 846,
+    "paper": "rgb(233, 233, 229)",
+    "url": "/getting-started/install/",
+    "viewport": 856
+  },
+  "mobileTerminal": {
+    "cards": [
+      {
+        "background": "rgb(20, 20, 20)",
+        "font": "\"Pretendard Variable\", Pretendard, \"Noto Sans JP\", \"Noto Sans SC\", \"Noto Sans TC\", sans-serif",
+        "fontSize": "16px",
+        "radius": "12px",
+        "terminal": true
+      },
+      {
+        "background": "rgb(20, 20, 20)",
+        "font": "\"Pretendard Variable\", Pretendard, \"Noto Sans JP\", \"Noto Sans SC\", \"Noto Sans TC\", sans-serif",
+        "fontSize": "16px",
+        "radius": "12px",
+        "terminal": true
+      },
+      {
+        "background": "rgb(20, 20, 20)",
+        "font": "\"Pretendard Variable\", Pretendard, \"Noto Sans JP\", \"Noto Sans SC\", \"Noto Sans TC\", sans-serif",
+        "fontSize": "16px",
+        "radius": "12px",
+        "terminal": false
+      }
+    ],
+    "pageWidth": 423,
+    "url": "/releases/archive/v2.9/",
+    "viewport": 433
+  },
+  "copyFeedback": "복사됨",
+  "gaps": [
+    "자동화 브라우저의 가상 클립보드가 비어 있어 복사한 문자열은 확인하지 못함",
+    "인쇄 미리보기는 확인하지 않음"
+  ]
+}

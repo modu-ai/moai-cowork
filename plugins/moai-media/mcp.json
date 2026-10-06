@@ -1,0 +1,33 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "ElevenLabs": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--script",
+        "./mcp-launch/mcp_launch.py",
+        "--service",
+        "elevenlabs",
+        "--keys",
+        "ELEVENLABS_API_KEY",
+        "--",
+        "uvx",
+        "elevenlabs-mcp"
+      ],
+      "cwd": "./",
+      "type": "stdio"
+    },
+    "moai-mcp-openai": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "./mcp-servers/moai-mcp-openai",
+        "moai-mcp-openai"
+      ],
+      "cwd": "./",
+      "type": "stdio"
+    }
+  }
+}

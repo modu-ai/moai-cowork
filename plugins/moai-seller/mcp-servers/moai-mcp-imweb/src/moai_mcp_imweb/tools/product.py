@@ -5,6 +5,8 @@ from typing import Literal, Union
 
 from pydantic import BaseModel, ConfigDict, Field
 
+from mcp.types import ToolAnnotations
+
 from .._app import mcp
 from .._base import get_client
 
@@ -249,7 +251,7 @@ class CreateProductImagesBody(BaseModel):
 
 Body = Union[CreateProductBody, UpdateMultipleProductStatusBody, UpdateProductOptionsBody, UpdateProductInfoByProdNoBody, UpdateProductOptionDetailsBody, UpdateProductRelativeInfoBody, UpdateProductSeoInfoBody, UpdateProductShippingSettingsByProdNoBody, UpdateProductStockInfoByProdNoBody, UpdateProductPriceByProdNoBody, UpdateProductDiscountInfoByProdNoBody, UpdateProductDisplayInfoByProdNoBody, UpdateProductClassificationBody, UpdateProductStatusBody, UpdateProductExternalIntegrationInfoBody, UpdateProductAdditionalInfoBody, UpdateProductEtcInfoBody, UpdateProductExhibitionsBody, CreateProductImagesBody]
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=False, destructiveHint=True, idempotentHint=False, openWorldHint=True))
 def imweb_product(action: Literal["read_all_shop_products_by_filter", "create_product", "read_all_shop_categories_by_site_code_and_unit_code", "read_all_shop_showcases_by_site_code", "read_all_shop_naver_categories", "update_multiple_product_status", "read_all_shop_product_options_by_prod_no", "read_shop_product_options_by_prod_no", "update_product_options", "read_shop_product_options_by_prod_nos", "read_product_custom_attribute_definitions", "read_product_custom_attribute_values", "read_one_shop_products_by_prod_no", "update_product_info_by_prod_no", "read_all_shop_product_option_details_by_prod_no", "read_shop_product_option_details_by_prod_no", "update_product_option_details", "read_shipping_service_settings", "update_product_relative_info", "update_product_seo_info", "read_all_shop_product_shipping_settings_by_prod_no", "update_product_shipping_settings_by_prod_no", "update_product_stock_info_by_prod_no", "update_product_price_by_prod_no", "update_product_discount_info_by_prod_no", "update_product_display_info_by_prod_no", "update_product_classification", "update_product_status", "update_product_external_integration_info", "update_product_additional_info", "update_product_etc_info", "update_product_exhibitions", "create_product_images"], params: dict | None = None, body: Body | None = None, paginate: bool = False) -> dict:
     r"""상품 도구 — 33개 action 을 디스패치합니다.
 

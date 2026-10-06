@@ -20,6 +20,7 @@ from typing import Any
 
 import httpx
 from mcp.server.fastmcp import FastMCP
+from mcp.types import ToolAnnotations
 
 from moai_mcp_core import McpToolError, SetupRequired, to_tool_result
 
@@ -214,7 +215,7 @@ def _verify(source_id: str) -> dict[str, Any]:
     return {"result": "unknown_source"}
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=True))
 def ip_check_access(sources: list[str] | None = None, verify: bool = False) -> dict[str, Any]:
     """조사 전에 데이터 소스별 자격증명 설정 여부를 확인한다 (값은 절대 돌려주지 않음).
 
@@ -239,7 +240,7 @@ def ip_check_access(sources: list[str] | None = None, verify: bool = False) -> d
 
 
 # ------------------------------------------------------------------ KIPRIS
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=True))
 def kipris_patent_search(
     word: str = "",
     invention_title: str = "",
@@ -284,13 +285,13 @@ def kipris_patent_search(
     )
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=True))
 def kipris_patent_detail(application_number: str) -> dict[str, Any]:
     """한국 특허·실용신안 서지 상세 (출원번호 기준, 하이픈 허용)."""
     return _with(_kipris, lambda c: c.patent_detail(application_number))
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=True))
 def kipris_trademark_search(
     trademark_name: str = "",
     trademark_name_match: str = "",
@@ -343,14 +344,14 @@ def kipris_trademark_search(
     )
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=True))
 def kipris_trademark_detail(application_number: str) -> dict[str, Any]:
     """한국 상표 서지·행정처리 이력 상세 (출원번호 기준)."""
     return _with(_kipris, lambda c: c.trademark_detail(application_number))
 
 
 # ------------------------------------------------------------------ USPTO
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=True))
 def uspto_patent_search(
     q: str = "",
     filters: list[dict[str, Any]] | None = None,
@@ -378,13 +379,13 @@ def uspto_patent_search(
     )
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=True))
 def uspto_patent_application(application_number: str) -> dict[str, Any]:
     """미국 특허 출원 메타데이터 (출원번호 기준, 예: 16123456 또는 16/123,456)."""
     return _with(_odp, lambda c: c.patent_application(application_number))
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=True))
 def uspto_trademark_status(number: str, number_type: str = "sn") -> dict[str, Any]:
     """미국 상표 사건 상태 (USPTO TSDR, ST.96 XML을 구조화해 반환).
 
@@ -399,31 +400,31 @@ def uspto_trademark_status(number: str, number_type: str = "sn") -> dict[str, An
 
 
 # ------------------------------------------------------------------ JPO
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=True))
 def jpo_patent_progress(application_number: str, simple: bool = False) -> dict[str, Any]:
     """일본 특허 경과 정보 (출원번호 10자리: 서기 4자리+6자리, 예: 2020008423). simple=true면 간이 경과."""
     return _with(_jpo, lambda c: c.progress("patent", application_number, simple=simple))
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=True))
 def jpo_patent_registration(application_number: str) -> dict[str, Any]:
     """일본 특허 등록 정보 (출원번호 10자리)."""
     return _with(_jpo, lambda c: c.registration("patent", application_number))
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=True))
 def jpo_trademark_progress(application_number: str) -> dict[str, Any]:
     """일본 상표 경과 정보 (출원번호 10자리). 표시용 상표·음역·지정상품·권리자 포함."""
     return _with(_jpo, lambda c: c.progress("trademark", application_number))
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=True))
 def jpo_trademark_registration(application_number: str) -> dict[str, Any]:
     """일본 상표 등록 정보 (출원번호 10자리)."""
     return _with(_jpo, lambda c: c.registration("trademark", application_number))
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=True))
 def jpo_case_number_reference(right: str, kind: str, number: str) -> dict[str, Any]:
     """일본 사건 번호 상호 참조 — 공개·등록번호로 출원번호 등을 찾는다.
 
@@ -435,14 +436,14 @@ def jpo_case_number_reference(right: str, kind: str, number: str) -> dict[str, A
     return _with(_jpo, lambda c: c.case_number_reference(right, kind, number))
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=True))
 def jpo_applicant_lookup(right: str, name: str) -> dict[str, Any]:
     """일본 출원인·대리인 코드 조회 (정확한 이름 기준). right: patent 또는 trademark."""
     return _with(_jpo, lambda c: c.applicant_lookup(right, name))
 
 
 # ------------------------------------------------------------------ EPO
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=True))
 def epo_search(cql: str, start: int = 1, end: int = 25, with_biblio: bool = False) -> dict[str, Any]:
     """유럽·국제 공개 특허 검색 (EPO OPS, CQL).
 
@@ -455,13 +456,13 @@ def epo_search(cql: str, start: int = 1, end: int = 25, with_biblio: bool = Fals
     return _with(_epo, lambda c: c.search(cql, start=start, end=end, with_biblio=with_biblio))
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=True))
 def epo_biblio(reference_type: str, number: str, input_format: str = "docdb") -> dict[str, Any]:
     """EPO 서지 정보. reference_type: publication·application·priority. input_format: docdb(EP.1000000.A1) 또는 epodoc(EP1000000)."""
     return _with(_epo, lambda c: c.biblio(reference_type, number, input_format))
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=True))
 def epo_family(
     reference_type: str, number: str, input_format: str = "docdb", constituent: str = ""
 ) -> dict[str, Any]:
@@ -469,7 +470,7 @@ def epo_family(
     return _with(_epo, lambda c: c.family(reference_type, number, input_format, constituent))
 
 
-@mcp.tool()
+@mcp.tool(annotations=ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=True))
 def epo_legal(reference_type: str, number: str, input_format: str = "docdb") -> dict[str, Any]:
     """INPADOC 법적 상태 이력. 공식 법적 상태 표시는 지연될 수 있으므로 중요한 권리는 원등록부로 재확인한다."""
     return _with(_epo, lambda c: c.legal(reference_type, number, input_format))

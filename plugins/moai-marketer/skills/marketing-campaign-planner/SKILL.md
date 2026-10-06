@@ -3,7 +3,8 @@ name: marketing-campaign-planner
 description: |
   광고·SNS·이메일을 묶은 캠페인 기획안과 A/B 테스트, 인플루언서 협업, 고객 여정·CRM 전략을 작성합니다.
   확인된 사업 자료와 가정을 구분하고, 예산·성과 수치를 임의로 확정하지 않습니다.
-version: "1.1.4"
+metadata:
+  version: "1.1.5"
 ---
 
 # 캠페인 플래너

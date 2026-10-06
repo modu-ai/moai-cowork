@@ -4,7 +4,7 @@ weight: 20
 description: "Claude Cowork의 Higgsfield MCP와 ChatGPT Work의 공식 Higgsfield 플러그인 연결, 계정 승인과 크레딧 확인 안내."
 geekdocBreadcrumb: true
 date: 2026-09-25T00:00:00+09:00
-lastmod: 2026-09-25T00:00:00+09:00
+lastmod: 2026-10-06
 ---
 
 [Higgsfield](https://higgsfield.ai)는 이미지·영상 등의 생성 서비스를 제공합니다.
@@ -24,6 +24,10 @@ Higgsfield 연결을 사용하는 스킬은 다음과 같습니다.
 - `moai-designer`: `design-brand-visual`, `design-logo`,
   `design-landing-motion`. 생성 실행은 `moai-media`에 맡깁니다.
 
+
+<!--more-->
+
+
 ## 1. 앱에서 연결
 
 **Claude Cowork:** Settings → Connectors → Add custom connector에서 이름을
@@ -38,9 +42,11 @@ Connect를 선택합니다. 플러그인의 `.mcp.json`도 이 주소를 가리�
 
 ## 2. Higgsfield 계정 승인
 
-두 앱 모두 Higgsfield 로그인 창에서 사용할 계정을 확인하고 접근을 승인합니다.
+공식 연결 안내는 활성 유료 구독이 필요하다고 설명합니다. 또한 ChatGPT 연결에서는 오디오 생성과 Website Building 스킬을 제공하지 않는다고 안내합니다. 이미지·영상 연결이 된 것과 다른 기능의 제공 여부를 구분하세요. [Higgsfield 공식 연결 안내](https://higgsfield.ai/creator-hub/help-center/integrations/how-do-i-connect-higgsfield-to-ai-agent).
+
+두 앱 모두 Higgsfield 로그인 창에서 사용할 계정과 허용 범위를 확인합니다.
 API 키를 플러그인 문서나 대화에 붙여 넣을 필요는 없습니다. 연결 뒤
-이미지·영상·Soul·오디오·설명 영상 등 요청한 기능의 도구가 현재 세션에
+이미지·영상 등 요청한 기능의 도구가 현재 세션에
 실제로 있는지 확인하세요. 도구가 보이지 않으면 해당 기능을 실행할 수
 있다고 안내하지 않습니다.
 
@@ -73,5 +79,5 @@ Higgsfield 연결이 없거나 요청한 도구가 노출되지 않았다면 실
 
 - [Higgsfield 공식 연결 안내](https://higgsfield.ai/creator-hub/help-center/integrations/how-do-i-connect-higgsfield-to-ai-agent)
 - [Higgsfield 공식 MCP와 플랫폼 안내](https://higgsfield.ai/creator-hub/help-center/getting-started/official-higgsfield-platforms)
-- [OpenAI 플러그인 설치·연결 안내](https://help.openai.com/en/articles/20001256/)
+- [OpenAI 플러그인 설치·연결 안내](https://learn.chatgpt.com/docs/plugins)
 - 마켓플레이스 진실 원본: [`/.claude-plugin/marketplace.json`](https://github.com/modu-ai/moai-cowork/blob/main/.claude-plugin/marketplace.json)

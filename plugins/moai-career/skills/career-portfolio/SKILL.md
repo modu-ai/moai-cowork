@@ -5,7 +5,8 @@ description: >
   "포트폴리오 만들어줘", "프로젝트 정리해줘", "노션 포트폴리오 구성해줘"처럼 말하면 됩니다.
   개발(GitHub·기술 블로그)/디자인(Figma·Behance)/마케팅/기획 분야별 + 검색되는 노션
   포트폴리오 + 채용공고 맞춤형 1page 소개서와 프로젝트별 비중 조정을 지원합니다.
-version: "1.1.4"
+metadata:
+  version: "1.1.5"
 ---
 
 # 포트폴리오 가이드 (career-portfolio)

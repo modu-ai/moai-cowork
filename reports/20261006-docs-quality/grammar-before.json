@@ -1,0 +1,275 @@
+[
+  {
+    "path": "www/content/cookbook/blog-pipeline.md",
+    "line": 36,
+    "text": "4. **검토:** 인용 출처·독자에 맞는 표현·공개 범위을 확인합니다.",
+    "wrong": "위을",
+    "correct": "위를"
+  },
+  {
+    "path": "www/content/cookbook/contract-review.md",
+    "line": 4,
+    "text": "description: \"계약서·당사자 역할·관할·검토 목적를 준비해 조항별 쟁점 표을 만드는 실습\"",
+    "wrong": "적를",
+    "correct": "적을"
+  },
+  {
+    "path": "www/content/cookbook/design/presentation.md",
+    "line": 3,
+    "text": "description: \"발표 내용·청중·양식를 준비해 발표 구성과 시안을 만드는 실습\"",
+    "wrong": "식를",
+    "correct": "식을"
+  },
+  {
+    "path": "www/content/cookbook/design/presentation.md",
+    "line": 35,
+    "text": "4. **검토:** 한 장의 메시지·글자 가독성·차트 단위을 확인합니다.",
+    "wrong": "위을",
+    "correct": "위를"
+  },
+  {
+    "path": "www/content/cookbook/guides/content-marketing.md",
+    "line": 35,
+    "text": "4. **검토:** 브랜드 기준·주장 근거·평가 지표을 확인합니다.",
+    "wrong": "표을",
+    "correct": "표를"
+  },
+  {
+    "path": "www/content/cookbook/guides/contract-drafting.md",
+    "line": 3,
+    "text": "description: \"합의 내용·당사자·관할·조건를 준비해 계약 초안과 확인 목록을 만드는 실습\"",
+    "wrong": "건를",
+    "correct": "건을"
+  },
+  {
+    "path": "www/content/cookbook/guides/funding.md",
+    "line": 3,
+    "text": "description: \"사업 지표·투자 단계·검토 질문를 준비해 투자 설명 자료을 만드는 실습\"",
+    "wrong": "문를",
+    "correct": "문을"
+  },
+  {
+    "path": "www/content/cookbook/guides/funding.md",
+    "line": 35,
+    "text": "4. **검토:** 실적과 전망의 구분·자금 사용 근거을 확인합니다.",
+    "wrong": "거을",
+    "correct": "거를"
+  },
+  {
+    "path": "www/content/cookbook/guides/social-media.md",
+    "line": 35,
+    "text": "4. **검토:** 링크·문구·이미지 권리·게시 여부을 확인합니다.",
+    "wrong": "부을",
+    "correct": "부를"
+  },
+  {
+    "path": "www/content/cookbook/ir-deck.md",
+    "line": 36,
+    "text": "4. **검토:** 수치와 기간·가정·출처·슬라이드 메시지을 확인합니다.",
+    "wrong": "지을",
+    "correct": "지를"
+  },
+  {
+    "path": "www/content/cookbook/legal-nda-batch.md",
+    "line": 4,
+    "text": "description: \"NDA 문서 묶음·검토 기준·관할를 준비해 문서별 검토표와 종합 쟁점을 만드는 실습\"",
+    "wrong": "할를",
+    "correct": "할을"
+  },
+  {
+    "path": "www/content/cookbook/projects/contract-risk-report.md",
+    "line": 4,
+    "text": "description: \"계약서·검토 목적·관할를 준비해 조항별 쟁점 보고서을 만드는 실습\"",
+    "wrong": "할를",
+    "correct": "할을"
+  },
+  {
+    "path": "www/content/cookbook/projects/gov-grant-application.md",
+    "line": 4,
+    "text": "description: \"공고문·사업 자료·자격 요건를 준비해 지원사업 신청서 초안을 만드는 실습\"",
+    "wrong": "건를",
+    "correct": "건을"
+  },
+  {
+    "path": "www/content/cookbook/projects/hiring-pipeline.md",
+    "line": 4,
+    "text": "description: \"직무 요구·채용 절차·공고 양식를 준비해 채용 문서와 진행 기준을 만드는 실습\"",
+    "wrong": "식를",
+    "correct": "식을"
+  },
+  {
+    "path": "www/content/cookbook/projects/hiring-pipeline.md",
+    "line": 36,
+    "text": "4. **검토:** 직무 관련성·평가 기준·민감정보 범위을 확인합니다.",
+    "wrong": "위을",
+    "correct": "위를"
+  },
+  {
+    "path": "www/content/cookbook/projects/public-data-report.md",
+    "line": 4,
+    "text": "description: \"조사 질문·공공데이터·지역·기간를 준비해 근거가 있는 시장 분석 보고서을 만드는 실습\"",
+    "wrong": "간를",
+    "correct": "간을"
+  },
+  {
+    "path": "www/content/cookbook/projects/public-data-report.md",
+    "line": 36,
+    "text": "4. **검토:** 데이터 출처·갱신일·지역·단위을 확인합니다.",
+    "wrong": "위을",
+    "correct": "위를"
+  },
+  {
+    "path": "www/content/cookbook/projects/smartstore-launch.md",
+    "line": 4,
+    "text": "description: \"상품 정보·사진·고객·판매 조건를 준비해 상품 소개와 출시 준비 목록을 만드는 실습\"",
+    "wrong": "건를",
+    "correct": "건을"
+  },
+  {
+    "path": "www/content/cookbook/projects/smartstore-launch.md",
+    "line": 36,
+    "text": "4. **검토:** 인증·효능 근거·가격·배송 조건·게시 상태을 확인합니다.",
+    "wrong": "태을",
+    "correct": "태를"
+  },
+  {
+    "path": "www/content/cookbook/projects/sns-content-month.md",
+    "line": 36,
+    "text": "4. **검토:** 중복 주제·브랜드 기준·소재 권리·게시 상태을 확인합니다.",
+    "wrong": "태을",
+    "correct": "태를"
+  },
+  {
+    "path": "www/content/cookbook/projects/webnovel-project.md",
+    "line": 4,
+    "text": "description: \"장르·독자·세계관·등장인물를 준비해 웹소설 기획안과 첫 회 초안을 만드는 실습\"",
+    "wrong": "물를",
+    "correct": "물을"
+  },
+  {
+    "path": "www/content/cookbook/report-automation.md",
+    "line": 4,
+    "text": "description: \"업무 메모·보고 양식·기간를 준비해 주간보고와 반복 실행 계획을 만드는 실습\"",
+    "wrong": "간를",
+    "correct": "간을"
+  },
+  {
+    "path": "www/content/cookbook/report-automation.md",
+    "line": 36,
+    "text": "4. **검토:** 원문 숫자·기간·단위·미정 담당자·예약 등록 상태을 확인합니다.",
+    "wrong": "태을",
+    "correct": "태를"
+  },
+  {
+    "path": "www/content/cookbook/templates/compliance.md",
+    "line": 3,
+    "text": "description: \"사업·관할·처리 정보·관련 정책를 준비해 준수 여부 확인 목록을 만드는 실습\"",
+    "wrong": "책를",
+    "correct": "책을"
+  },
+  {
+    "path": "www/content/cookbook/templates/email.md",
+    "line": 35,
+    "text": "4. **검토:** 사실·링크·수신 대상·동의 범위·발송 상태을 확인합니다.",
+    "wrong": "태을",
+    "correct": "태를"
+  },
+  {
+    "path": "www/content/cookbook/templates/excel.md",
+    "line": 3,
+    "text": "description: \"표·열 정의·원하는 계산를 준비해 집계표 또는 스프레드시트을 만드는 실습\"",
+    "wrong": "산를",
+    "correct": "산을"
+  },
+  {
+    "path": "www/content/cookbook/templates/excel.md",
+    "line": 35,
+    "text": "4. **검토:** 원문 값·수식·단위·누락·파일 열기을 확인합니다.",
+    "wrong": "기을",
+    "correct": "기를"
+  },
+  {
+    "path": "www/content/cookbook/templates/financial.md",
+    "line": 3,
+    "text": "description: \"실적·비용·성장 가정·기간를 준비해 재무 모델 초안을 만드는 실습\"",
+    "wrong": "간를",
+    "correct": "간을"
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-advertising.md",
+    "line": 35,
+    "text": "4. **검토:** 지표 정의·계정·기간·예산 변경 여부을 확인합니다.",
+    "wrong": "부을",
+    "correct": "부를"
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-commerce.md",
+    "line": 35,
+    "text": "4. **검토:** 상품 사실·계정·재고·게시 상태을 확인합니다.",
+    "wrong": "태을",
+    "correct": "태를"
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-content.md",
+    "line": 3,
+    "text": "description: \"원고·독자·채널를 준비해 콘텐츠 초안을 만드는 실습\"",
+    "wrong": "널를",
+    "correct": "널을"
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-content.md",
+    "line": 35,
+    "text": "4. **검토:** 원문·어투·권리·게시 상태을 확인합니다.",
+    "wrong": "태을",
+    "correct": "태를"
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-documents.md",
+    "line": 4,
+    "text": "description: \"초안·양식·파일 형식를 준비해 문서 파일을 만드는 실습\"",
+    "wrong": "식를",
+    "correct": "식을"
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-documents.md",
+    "line": 36,
+    "text": "4. **검토:** 원문·서식·파일 열기을 확인합니다.",
+    "wrong": "기을",
+    "correct": "기를"
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-finance.md",
+    "line": 3,
+    "text": "description: \"재무 자료·가정·기간를 준비해 재무 검토표을 만드는 실습\"",
+    "wrong": "간를",
+    "correct": "간을"
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-hr.md",
+    "line": 3,
+    "text": "description: \"직무·채용 기준·양식를 준비해 채용·인사 문서을 만드는 실습\"",
+    "wrong": "식를",
+    "correct": "식을"
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-legal.md",
+    "line": 3,
+    "text": "description: \"문서·관할·검토 목적를 준비해 법률 확인 목록을 만드는 실습\"",
+    "wrong": "적를",
+    "correct": "적을"
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-operations.md",
+    "line": 3,
+    "text": "description: \"업무 절차·팀 기준를 준비해 운영 절차와 보고서을 만드는 실습\"",
+    "wrong": "준를",
+    "correct": "준을"
+  },
+  {
+    "path": "www/content/cookbook/tracks/track-product.md",
+    "line": 35,
+    "text": "4. **검토:** 사용자 근거·요구와 가정·우선순위을 확인합니다.",
+    "wrong": "위을",
+    "correct": "위를"
+  }
+]

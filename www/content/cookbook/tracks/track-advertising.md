@@ -1,300 +1,110 @@
 ---
 title: "광고 트랙"
-weight: 23
-description: "퍼포먼스 마케터를 위한 메타·쿠팡 광고 진단·최적화 풀세트. moai-marketer 21스킬 + moai-media 광고 영상으로 광고 리포트 분석부터 픽셀·랜딩 진단까지 한 줄 요청."
+description: "광고 자료·기간·목표를 준비해 광고 성과 분석과 개선안을 만드는 실습"
+weight: 10
+date: 2026-10-05T00:00:00+09:00
+lastmod: 2026-10-06
 geekdocBreadcrumb: true
-date: 2026-08-07T00:00:00+09:00
-lastmod: 2026-09-13T17:30:00+09:00
 ---
 
-> **대상**: 메타·구글·쿠팡 광고 운영자, 퍼포먼스 마케터, 광고 대행사
-> **전제**: moai-coworker · moai-marketer 활성화 + (선택) Meta 광고 AI 커넥터(공식 OAuth) 또는 `META_ACCESS_TOKEN`
-> **소요**: 시나리오당 약 5-15분
+**이 실습의 결과는 광고 성과 분석과 개선안입니다.** ChatGPT Work와 Claude Cowork 모두 목표와 자료를 제공하는 방식으로 시작합니다. 실제 서비스 연결과 지원 도구는 현재 앱에서 확인하세요.
 
-## 무엇을 할 수 있나
 
-```mermaid
-flowchart TB
-   subgraph 진단["1. 진단"]
-       D1["marketing-meta-ads-analyzer<br/>.xlsx 보고서 9 모듈"]
-       D2["marketing-pixel-audit<br/>픽셀·1st Party"]
-       D3["marketing-landing-page-conversion-audit<br/>랜딩 6섹션"]
-   end
-   subgraph 기획["2. 캠페인 기획"]
-       P1["marketing-campaign-planner<br/>광고 심리학 풀세트"]
-       P2["marketing-target-script<br/>타깃·예산 분배"]
-   end
-   subgraph 콘텐츠["3. 광고 크리에이티브"]
-       C1["media-higgsfield-image<br/>광고 이미지 11 모델"]
-       C2["media-higgsfield-video<br/>광고 영상 11 모델 + 6 프리셋"]
-       C3["media-gpt-image-prompt<br/>외부 도구 프롬프트 빌더"]
-   end
-   subgraph 채널["4. 채널 카피·검수"]
-       Pkg["content-sns-content<br/>9채널 매트릭스 카피"]
-       Disc["ai-slop-reviewer<br/>카피 검수"]
-   end
-   subgraph 분석["5. 성과 분석"]
-       R1["marketing-performance-report<br/>주간·월간 성과"]
-       R2["commerce-coupang-ad-optimizer<br/>쿠팡 광고 풀세트"]
-   end
-   진단 --> 기획 --> 콘텐츠 --> 채널 --> 분석
-   style 진단 fill:#fbf0dc,stroke:#c47b2a
-   style 채널 fill:#e8f1ec,stroke:#265240
+<!--more-->
+
+
+## 준비물
+
+광고 자료·기간·목표를 준비합니다. 실습에서는 가상 자료나 공개 가능한 자료를 사용할 수 있습니다. [관련 역할](/moai-agents/marketer/)의 스킬을 추가하려면 [설치 안내](/plugins/install/)를 확인합니다.
+
+## 첫 요청
+
+```text
+제공한 자료로 광고 성과 분석과 개선안을 만들어 줘.
+목표·독자·결과 형식을 먼저 확인하고 부족한 정보는 질문해 줘.
+자료 확인, 요구 정리, 초안, 검토 순서로 진행해 줘.
+자료 없는 사실과 수치는 만들지 말고 미정 항목을 표시해 줘.
+외부 게시·발송·계정 변경 없이 검토용 결과부터 보여 줘.
 ```
 
-## 한 줄 요청 예시 4종
+## 진행 순서
 
-| # | 한 줄 요청 | 자동 체인 |
+1. **자료 확인:** 광고 자료·기간·목표 중 읽을 수 있는 것과 없는 것을 구분합니다.
+2. **맥락 확인:** 독자·형식·범위를 질문에 답해 정합니다.
+3. **초안 작성:** 자료 확인, 요구 정리, 초안, 검토 순서로 진행합니다.
+4. **검토:** 지표 정의·계정·기간·예산 변경 여부를 확인합니다.
+5. **수정·저장:** 변경할 부분을 지정하고 결과를 별도 위치에 저장합니다.
+
+독립적인 조사만 병렬로 진행하고, 앞 결과가 필요한 작성·변환은 순차로 진행합니다. [전문가 분업](/workflows/experts/)의 역할·입출력 계약을 사용할 수 있습니다.
+
+## 가상 예제로 더 이해하기
+
+아래 자료와 모범 설명은 수업을 위해 작성했습니다. 실제 회사·고객의 실적이나 앱 실행 결과가 아닙니다. 먼저 제공 자료로 작은 결과를 만든 뒤 자신의 자료로 바꿔 보세요.
+
+```text
+가상 무선 스탠드: USB-C 충전, 밝기 3단계, 높이 28cm. 사용 시간·판매가·인증 여부는 자료에 없음. 대상은 책상 공간을 정리하려는 사용자.
+```
+
+### 먼저 확인할 질문
+
+게시 채널과 독자는 누구인가요? 가격·사용 시간·근거 자료가 있나요? 답을 모르면 해당 항목을 미정으로 남기고, 그 정보 없이 가능한 범위를 정합니다.
+
+### 모범 결과를 읽는 방법
+
+USB-C 충전과 밝기 조절이라는 확인된 특징으로 초안을 씁니다. 가격과 사용 시간은 확인 필요 목록으로 분리합니다. 문장과 서식은 달라도 이 기준을 충족하는지 직접 비교합니다. 원문 위치·출처·상태가 결과에 함께 남으면 다음 검토자에게 넘기기 쉽습니다.
+
+### 직접 비교할 모범 결과
+
+| 항목 | 결과 예시 | 근거·상태 |
 |---|---|---|
-| 1 | "신상품 메타 광고 3주차 보고서 분석해줘" | marketing-meta-ads-analyzer → 9 모듈 분석 → DOCX |
-| 2 | "광고 떨어지는데 뭐가 문제야? 픽셀·랜딩 진단해줘" | marketing-pixel-audit → marketing-landing-page-conversion-audit → 진단 리포트 |
-| 3 | "스킨케어 메타 광고 영상 풀세트 만들어줘" | media-higgsfield-image → media-higgsfield-video → content-sns-content → ai-slop-reviewer |
-| 4 | "쿠팡 광고 최적화 가이드 짜줘" | commerce-coupang-ad-optimizer → 3 캠페인 분류 → 자동규칙 3종 |
-| 5 | "신상품 메타 광고 캠페인 만들어서 운영해줘" | marketing-meta-ads-manager → OAuth 연결 → 캠페인·광고세트 생성(PAUSED) → 승인 → 활성화 |
+| 제목 초안 | 책상 위에 두는 USB-C 충전 스탠드 | 표현 제안·게시 전 |
+| 사양 | 높이 28cm · 밝기 3단계 | 제공 자료에서 확인 |
+| 제외한 주장 | 사용 시간·판매가·인증·최저가 | 자료 없음 |
+| 다음 확인 | 사용 사진 권한과 링크·상품 정보 원본 | 확인 필요 |
 
----
+### 흔한 실수와 수정 요청
 
-## 시나리오 ① 메타 광고 .xlsx 보고서 분석 (약 10분)
-
-**상황**: 메타 광고관리자에서 추출한 3개월 .xlsx 보고서 분석.
-
-### 사용자 입력
-
-{{< terminal title="claude — cowork" raw="true" >}}
-내 브랜드 3개월 메타 광고 보고서 분석해줘. .xlsx 첨부.
-{{< /terminal >}}
-
-### 시스템 인터뷰
-
-1. **사용자 그룹** (HARD 명시 입력, 자동 추정 없음): 인하우스 / 대행사 / 소규모
-2. **분석 모드**: 단일 캠페인 / 통합 분석 / 다중 월 비교 / 다중 캠페인 일괄
-3. **출력 형식**: HTML(Recharts) / DOCX(8섹션) / PPTX(10-15장) / MD
-4. **강도별 액션 옵션** 표시: {{< icon name="circle" class="tone-success" >}} 보수안 / {{< icon name="circle" class="tone-warning" >}} 중도안 / {{< icon name="circle" class="tone-error" >}} 적극안 모두 / 권장만
-
-### 자동 체인
-
-`marketing-meta-ads-analyzer` → 9 모듈 (퍼널·KPI·차원·매트릭스·누수·라이프사이클·학습·예산·시뮬레이션) → 4D 교차 (광고×지면×연령×성별) → 50-check audit matrix → 출력 4 형식
-
-### 산출물
-
-- 7-Level 출력 계층 (한 줄 요약 → 영역별 진단 → 강도별 액션 → 시나리오 시뮬)
-- 한국 벤치마크 매핑 (CPC ₩500-1,500, ROAS 1.5-2.5, 업계 평균 1.80 참고치)
-- 5 규제 검사 (PIPA · ITNA · 전상법 · 표시광고법 · 식약처)
-
----
-
-## 시나리오 ② 광고 떨어지는데 원인 찾기 (약 8분)
-
-### 사용자 입력
-
-{{< terminal title="claude — cowork" raw="true" >}}
-메타 광고 CTR 1% 미만 떨어졌어. 원인 찾아줘
-{{< /terminal >}}
-
-### 시스템 인터뷰
-
-1. **현황**: 캠페인명 · 기간 · 예산 · 현재 ROAS
-2. **진단 범위**: 픽셀 / 랜딩 / 카피 / 타깃
-3. **장바구니 이탈률** 알고 있는가?
-
-### 자동 진단 분기
-
-```mermaid
-flowchart TD
-   Q["증상 입력"] --> D1{"CTR↓?"}
-   D1 -->|예| AD["광고 진단<br/>marketing-pixel-audit"]
-   D1 -->|아니오| D2{"CVR↓?"}
-   D2 -->|예| LP["랜딩 진단<br/>marketing-landing-page-conversion-audit"]
-   D2 -->|아니오| D3{"장바구니 이탈↑?"}
-   D3 -->|예| Pay["결제 진단<br/>간편결제·불안 해소"]
-   AD --> Fix["빠른 처방<br/>3종 액션"]
-   LP --> Fix
-   Pay --> Fix
-```
-
-### 자동 체인
-
-`marketing-pixel-audit` (메타·구글 픽셀 설치 검증 + 3종 실수 점검: 구매자 미제외/이벤트 파라미터/CAPI) → `marketing-landing-page-conversion-audit` (6섹션: 히어로·공감·증명·사회증거·CTA·FAQ) → 빠른 처방 3종
-
----
-
-## 시나리오 ③ 광고 영상 풀세트 (약 15분)
-
-### 사용자 입력
-
-{{< terminal title="claude — cowork" raw="true" >}}
-스킨케어 메타 광고 영상 풀세트 만들어줘. 의심차단형 후크
-{{< /terminal >}}
-
-### 시스템 인터뷰
-
-1. **카테고리** (영상 모델 추천: 의류·식품=Kling / 뷰티=Veo 3 / 생활용품=Seedance)
-2. **광고 목적**: 인지도 / 클릭 / 전환
-3. **후크 유형**: 의심차단형 / 호기심 / 권위 / 사회증거
-4. **채널**: 메타 1:1·9:16 / 네이버 GFA / 카카오모먼트 1:1·16:9
-
-### 자동 체인 (광고 풀세트)
+하루 종일 사용, 업계 최저가 같은 근거 없는 표현을 넣습니다. 이때는 결과 전체를 다시 만들어 달라는 말보다, 틀린 기준과 고칠 위치를 구체적으로 알려 주세요.
 
 ```text
-media-higgsfield-image  → 광고 이미지 세트 (Hero·인포·라이프스타일·CTA — Soul·DOP·Character 계열, Higgsfield 22 모델)
-media-higgsfield-video  → 메인 영상 5-10초 + 보조 2컷 (Kling·Veo 3·Seedance 등 11 모델 + 6 프리셋)
-content-sns-content     → 메타 1:1·9:16 / 네이버 GFA / 카카오모먼트 1:1·16:9 채널별 카피
-ai-slop-reviewer        → 카피 검수 (AI 티 제거)
+제공 자료에 없는 사용 시간과 최저가 표현은 삭제해 줘. 확인된 특징과 구매 전에 확인할 항목을 나눠 줘.
+수정한 부분과 아직 확인할 항목을 따로 알려 줘.
 ```
 
-AI 생성 소재는 채널별 "AI 생성" 표기 정책에 맞춰 캡션·메타데이터에 명시하세요 (광고심의·소비자보호법 대응).
+### 확인 문제
 
-### 산출물 + 비용
+제품 소개를 더 설득력 있게 하려고 없는 수치를 넣어도 될까요?
 
-- 광고 이미지 세트(Hero·인포·라이프스타일·CTA) + 메인 영상 1편 + 보조 영상 2컷 + 채널별 카피
-- 비용 추정: ₩2,300-4,000/상품 1건 (Higgsfield 종량제 기준)
+<details><summary>답안과 해설 보기</summary>
 
----
+넣지 않습니다. 확인된 특징을 독자의 사용 상황과 연결하고, 수치가 필요하면 근거 자료를 요청합니다.
 
-## 시나리오 ④ 쿠팡 광고 풀세트 최적화 (약 10분)
+</details>
 
-### 사용자 입력
+### 내 업무로 바꿔 보기
 
-{{< terminal title="claude — cowork" raw="true" >}}
-쿠팡 광고 최적화 가이드 짜줘. 우리 광고비 3.6억
-{{< /terminal >}}
+예제의 자료를 자신의 공개 가능한 자료로 바꾸고, 결과의 독자와 형식을 다시 정합니다. 변하지 않는 검토 기준은 프로젝트 지침에 저장하고, 이번 작업의 수치와 미정 조건은 새 자료로 제공합니다. [프로젝트와 자료 수업](/learn/02-project-context/)에서 구분 방법을 확인합니다.
 
-### 시스템 인터뷰
+## 사용할 수 있는 스킬 후보
 
-1. **3 캠페인 유형**: AI스마트 / 매출최적화 / 수동키워드
-2. **검색영역 vs 비검색영역**: 매출 분리 분석 (CPM 167배 차이)
-3. **현재 ROAS·CTR·CVR**
-4. **엔드 ROAS(본전 ROAS)** 자동 계산
+아래는 이 업무에 참고할 수 있는 패키지 기능입니다. 실제 설치·노출 상태를 먼저 확인하며 이 순서로 반드시 자동 실행된다는 뜻은 아닙니다.
 
-### 자동 체인
+- `moai-coworker:ai-slop-reviewer`
+- `moai-marketer:content-sns-content`
+- `moai-marketer:marketing-campaign-planner`
+- `moai-marketer:marketing-landing-page-conversion-audit`
+- `moai-marketer:marketing-meta-ads-analyzer`
 
-`commerce-marketplace-coupang-ads` → 3 캠페인 분류 + 자동규칙 3종 가이드 (골든타임/350%이상 증액/100%미만 알림) + 상품별 의사결정 분기
+## 완료 기준
 
-### 산출물
+결과물에 사용 자료와 미확인 항목이 표시되어 있습니다. 지표 정의·계정·기간·예산 변경 여부을 직접 확인했습니다. 파일을 요청한 경우 저장된 파일을 열어 확인합니다. 실제 게시·발송·예약 작업은 별도의 실행 결과로 확인합니다.
 
-- 쿠팡 광고 월 매출 분석 + 최적화 로드맵 + 자동규칙 설정 가이드
-- 검색·비검색 영역 분리 분석 + 본전 ROAS 기반 의사결정 분기
+## 막혔을 때
 
----
+자료나 연결이 없으면 제공 자료로 가능한 초안과 다음 준비 목록을 요청합니다. 원문·수치가 다르면 해당 위치와 근거를 지정해 고칩니다. 전문 판단이 필요한 부분은 근거와 쟁점을 정리하고 해당 업무 책임자가 확인합니다.
 
-## 시나리오 ⑤ 메타 광고 직접 운영 — 공식 커넥터 (약 10분)
+[결과 검토](/workflows/review/) · [반복 업무](/workflows/reuse/) · [다른 실습 선택](/cookbook/)
 
-**상황**: 보고서 분석이 아니라 메타 광고를 **직접 만들고 운영**한다. Meta 공식 **Ads AI Connectors**(OAuth 커넥터)에 연결해 자연어로 캠페인·광고세트·광고를 생성·수정·예산조정·온오프한다. 보고서 분석(`marketing-meta-ads-analyzer`)과 명확히 구분되는 **라이브 운영** 시나리오다.
+## 공식 문서와 참고 자료
 
-### 0. 사전 연결 (최초 1회)
-
-Meta 공식 Ads AI Connectors(2026-04-29 오픈 베타)를 OAuth로 연결한다. 앱 생성·앱 심사·토큰 복사가 **필요 없다**.
-
-1. Cowork 설정 → 커넥터 → 커스텀 커넥터 추가 → URL `https://mcp.facebook.com/ads`
-2. 브라우저에서 **Meta Business OAuth 로그인** (필요 시 2FA)
-3. 공유할 광고 계정·페이지 + 권한 등급 선택 (read-only로 시작 권장)
-
-> `moai-marketer` 설치 시 `meta-ads`가 `.mcp.json`에 미리 등록되어 있어 URL 입력이 생략된다. Claude 재시작 후 첫 호출 시 OAuth 로그인만 진행하면 된다. 자세히는 .
-
-### 사용자 입력
-
-{{< terminal title="claude — cowork" raw="true" >}}
-신상품 비타민 메타 광고 캠페인 만들어서 운영해줘. 일예산 5만원, 전환 목표.
-{{< /terminal >}}
-
-### 시스템 인터뷰
-
-1. **광고 계정·페이지 확정** (read-only로 목록 조회 후 선택)
-2. **목표**: 전환 / 트래픽 / 도달 / 참여
-3. **예산**: 일예산 / 총예산 + 집행 기간
-4. **타겟**: 지역·연령·관심사 / 기존 커스텀 오디언스
-5. **소재**: 이미지·영상·문구 (없으면 `moai-media` 체이닝 제안)
-
-### 워크플로우 (안전 우선)
-
-```mermaid
-flowchart TD
-   A["read-only 연결<br/>계정·페이지 확정"] --> B["운영 의도 수집<br/>목표·예산·타겟·소재"]
-   B --> C["변경안 표 제시<br/>캠페인→광고세트→광고"]
-   C --> D{"사용자 승인"}
-   D -->|승인| E["PAUSED로 생성<br/>리소스 ID 회신"]
-   D -->|수정| B
-   E --> F{"활성화 승인"}
-   F -->|승인| G["광고 ON<br/>지출 시작"]
-   F -->|보류| H["PAUSED 유지"]
-   style E fill:#fbf0dc,stroke:#c47b2a,color:#09110f
-   style G fill:#e8f1ec,stroke:#265240,color:#09110f
-```
-
-### 안전 가드 (HARD)
-
-| 가드 | 규칙 |
-|---|---|
-| 기본 PAUSED | 자연어로 생성한 신규 캠페인·광고세트·광고는 **항상 PAUSED**. 자동 활성화 금지. |
-| 활성화 승인 | 광고를 켜거나 지출 시작 전 사용자 명시 확인. |
-| 쓰기 승인 | 모든 쓰기·예산·결제 동작은 실행 전 승인 (커넥터도 동작별 승인 요구). |
-| 권한 최소화 | read-only로 시작, 운영 시에만 read+write, 결제는 financial 등급에서만. |
-
-### 자동 체인
-
-```text
-marketing-meta-ads-manager (생성·운영, PAUSED)
-  → (성과 누적 후) marketing-meta-ads-analyzer (진단)
-  → ai-slop-reviewer (진단 텍스트 검수)
-```
-
-### 산출물
-
-- 변경안 표 (캠페인→광고세트→광고, 예산, 상태=PAUSED)
-- 실행 결과: 생성된 리소스 ID·상태, 적용된 변경 요약
-- 활성화 후 성과 조회: spend / impressions / CTR / ROAS + breakdown
-
----
-
-## AskUserQuestion 표준 슬롯 (광고 트랙 공통)
-
-| 슬롯 | 예시 값 |
-|---|---|
-| 사용자 그룹 | 인하우스 / 대행사 / 소규모 (HARD 명시) |
-| 카테고리 | 식품·뷰티·건강기능식품·IT·가정용품·교육·B2B·기타 |
-| 분석 기간 | 1주 / 4주 / 12주 / 6개월 |
-| 출력 형식 | HTML / DOCX / PPTX / MD |
-| 강도별 액션 | {{< icon name="circle" class="tone-success" >}} 보수 / {{< icon name="circle" class="tone-warning" >}} 중도 / {{< icon name="circle" class="tone-error" >}} 적극 / 권장만 |
-| 규제 검사 자동 | PIPA·ITNA·전상법·표시광고법·식약처 |
-
----
-
-## 자주 묻는 질문
-
-### Q. `META_ACCESS_TOKEN` 없이도 분석 가능한가요?
-
-예. **`.xlsx` 업로드 fallback** 자동 동작. Meta 공식 MCP는 OAuth 필요하지만 비활성 환경에서도 모든 분석 가능.
-
-### Q. 한국 벤치마크 출처는 정확한가요?
-
-`marketing-meta-ads-analyzer` 내장 한국 벤치마크는 일반 참고용. 자사 카테고리·시장 데이터로 보정 권장.
-
-### Q. 식약처 광고 심의 자동 검출되나요?
-
-예. 카테고리가 식품·건강기능식품이면 `commerce-ad-claim-compliance-kr`이 자동 활성화됩니다.
-
-### Q. 광고를 직접 만들면 바로 집행되나요?
-
-아니요. `marketing-meta-ads-manager`로 만든 신규 캠페인·광고세트·광고는 **항상 PAUSED**로 생성됩니다. 활성화·예산 증액·결제는 실행 전 사용자 승인을 거칩니다. 안심하고 초안을 만들어 검토할 수 있습니다.
-
-### Q. 공식 커넥터 연결에 개발자 앱이 필요한가요?
-
-아니요. Meta 공식 Ads AI Connectors는 OAuth 2.0 커넥터 흐름을 씁니다. 커넥터 URL(`mcp.facebook.com/ads`) 등록 후 브라우저에서 Meta Business 로그인만 하면 됩니다 — 개발자 앱 생성·앱 심사·토큰 수동 복사가 필요 없습니다. (개발 환경에서만 `META_ACCESS_TOKEN` 정적 토큰을 fallback으로 씁니다.)
-
----
-
-## 다음 단계
-
-- **[콘텐츠 트랙](../track-content/)** — 광고용 콘텐츠 생성
-- **[이커머스 트랙](../track-commerce/)** — 광고 + 상품 통합
-- **[moai-marketer 플러그인](/moai-agents/marketer/)**
-- **[marketing-meta-ads-analyzer 스킬](https://github.com/modu-ai/moai-cowork/tree/main/plugins/moai-marketer/skills/marketing-meta-ads-analyzer)**
-
----
-
-### Sources
-
-- [agricidaniel/claude-ads v1.5.1 (MIT)](https://github.com/AgriciDaniel/claude-ads) — 50-check matrix 방법론
-- [Meta 광고 AI 커넥터 — Meta Business Help](https://www.facebook.com/business/help/1456422242197840) — 공식 커넥터
-- [Meta for Developers — Introducing the Ads CLI (2026-04-29)](https://developers.facebook.com/blog/post/2026/04/29/introducing-ads-cli/) — 공식 MCP·CLI
-- [정보통신망법 + 표시광고법 + 식약처 광고 심의](https://www.law.go.kr) — 5 규제
+- [관련 플러그인 원본](https://github.com/modu-ai/moai-cowork/tree/main/plugins/moai-marketer)

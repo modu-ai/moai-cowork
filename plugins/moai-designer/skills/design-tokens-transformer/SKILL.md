@@ -3,7 +3,8 @@ name: design-tokens-transformer
 description: |
   실제 디자인 토큰을 DTCG 형식과 프로젝트의 CSS 변수·테마 형식 사이에서
   변환하고, 매핑 손실과 색 대비를 확인합니다.
-version: "1.1.2"
+metadata:
+  version: "1.1.3"
 ---
 
 # 디자인 토큰 변환

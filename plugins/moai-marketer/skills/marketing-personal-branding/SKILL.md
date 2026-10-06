@@ -3,7 +3,8 @@ name: marketing-personal-branding
 description: |
   개인의 확인된 경력·작업물·전문 분야를 바탕으로 포지셔닝, 프로필과 콘텐츠·채널 계획을 정리합니다.
   성과·직함·후기와 플랫폼 알고리즘 효과를 만들어 내지 않습니다.
-version: "1.1.4"
+metadata:
+  version: "1.1.5"
 ---
 
 # 개인 브랜딩

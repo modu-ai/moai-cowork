@@ -2,7 +2,8 @@
 name: education-workflow
 description: |
   커리큘럼·학습자료·평가·운영 계획이나 학술 자료를 함께 만들 때 학습자 수준과 목표를 확인하고 moai-tutor의 education-* 스킬로 연결합니다.
-version: "1.0.0"
+metadata:
+  version: "1.0.1"
 ---
 
 # 교육 설계 작업 경로

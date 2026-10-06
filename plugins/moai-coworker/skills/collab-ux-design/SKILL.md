@@ -4,7 +4,8 @@ description: |
   제공된 화면·플로우를 휴리스틱과 접근성 관점에서 검토하고 개선안을 정리합니다.
   "UX 디자인 검토해줘", "접근성 점검해줘", "사용자 플로우 분석해줘" 같은 요청에 사용하세요.
   실제 사용자 인터뷰와 VOC 분석은 moai-coworker:collab-ux-research로 연결합니다.
-version: "1.1.2"
+metadata:
+  version: "1.1.3"
 ---
 
 # UX 디자인 검토

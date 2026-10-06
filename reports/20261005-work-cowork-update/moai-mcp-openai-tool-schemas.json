@@ -1,0 +1,68 @@
+[
+  {
+    "name": "openai_image_generate",
+    "title": null,
+    "description": "유료 OpenAI Image API로 GPT Image 2.5 이미지 한 장을 직접 생성합니다.",
+    "inputSchema": {
+      "properties": {
+        "prompt": {
+          "title": "Prompt",
+          "type": "string"
+        },
+        "model": {
+          "default": "gpt-image-2.5-flare",
+          "enum": [
+            "gpt-image-2.5-flare",
+            "gpt-image-2.5-sunburst"
+          ],
+          "title": "Model",
+          "type": "string"
+        },
+        "size": {
+          "default": "1024x1024",
+          "title": "Size",
+          "type": "string"
+        },
+        "quality": {
+          "default": "medium",
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max",
+            "auto"
+          ],
+          "title": "Quality",
+          "type": "string"
+        },
+        "output_format": {
+          "default": "png",
+          "enum": [
+            "png",
+            "jpeg",
+            "webp"
+          ],
+          "title": "Output Format",
+          "type": "string"
+        }
+      },
+      "required": [
+        "prompt"
+      ],
+      "title": "openai_image_generateArguments",
+      "type": "object"
+    },
+    "outputSchema": null,
+    "icons": null,
+    "annotations": {
+      "title": null,
+      "readOnlyHint": false,
+      "destructiveHint": false,
+      "idempotentHint": false,
+      "openWorldHint": true
+    },
+    "meta": null,
+    "execution": null
+  }
+]
