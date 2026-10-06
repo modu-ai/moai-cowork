@@ -1,0 +1,15 @@
+{
+  "generator": "built-in image_gen",
+  "source_reference": "www/static/moai-cowork-og.jpg",
+  "asset": "www/static/moai-cowork-og-gray-pixel-20261007.png",
+  "width": 1731,
+  "height": 909,
+  "bytes": 1491476,
+  "non_gray_pixels": 1434931,
+  "sha256": "6840e9c1f4e21065ad692e7d883773c84a7884a6adbfb14d77c091ffed23c91f",
+  "text_visually_checked": [
+    "MoAI-Cowork",
+    "ChatGPT",
+    "Claude"
+  ]
+}
