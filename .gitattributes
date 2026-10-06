@@ -1,0 +1,2 @@
+# 스킬 카탈로그의 원문 SHA-256을 모든 운영체제에서 동일하게 유지한다.
+plugins/**/SKILL.md text eol=lf

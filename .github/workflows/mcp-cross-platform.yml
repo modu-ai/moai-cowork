@@ -3,6 +3,7 @@ name: MCP cross-platform tests
 on:
   pull_request:
     paths:
+      - ".gitattributes"
       - ".github/workflows/mcp-cross-platform.yml"
       - ".agents/plugins/marketplace.json"
       - ".claude-plugin/marketplace.json"
@@ -29,6 +30,7 @@ on:
       - "scripts/sync-mcp-core.py"
   push:
     paths:
+      - ".gitattributes"
       - ".github/workflows/mcp-cross-platform.yml"
       - ".agents/plugins/marketplace.json"
       - ".claude-plugin/marketplace.json"

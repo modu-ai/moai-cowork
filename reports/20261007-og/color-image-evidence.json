@@ -1,0 +1,11 @@
+{
+  "generator": "built-in image_gen",
+  "asset": "www/static/moai-cowork-og-color-pixel-20261007.png",
+  "width": 1730,
+  "height": 909,
+  "bytes": 1926985,
+  "sha256": "7c5dcbf9ab6a0125ee73fa48dedb6091b634c6988fbc6e2ed9acd0357080d18d",
+  "text_visually_checked": "MoAI-Cowork for ChatGPT, Claude",
+  "logo_visually_checked": "모두의AI 로고만 좌측 하단에 배치, 하단 영문 문구 제거",
+  "style": "16비트 컬러 픽셀 아트"
+}
