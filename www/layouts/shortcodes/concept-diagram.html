@@ -1,5 +1,5 @@
 {{- $key := .Get 0 -}}
-{{- $meta := index .Site.Data.concepts $key -}}
+{{- $meta := index hugo.Data.concepts $key -}}
 {{- if not $meta -}}{{ errorf "정의되지 않은 개념 그림: %s" $key }}{{- end -}}
 {{- $source := readFile (printf "assets/diagrams/%s.mmd" $key) -}}
 <figure class="concept-figure">

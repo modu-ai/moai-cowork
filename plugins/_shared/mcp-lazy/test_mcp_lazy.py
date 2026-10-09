@@ -21,6 +21,79 @@ INIT = {"protocolVersion": VERSION, "capabilities": {"tools": {"listChanged": Fa
         "serverInfo": {"name": "fake", "version": "1"}, "instructions": "fake instructions"}
 DISCOVERY = {"tools/list": TOOLS, "resources/list": {"resources": []},
              "resources/templates/list": {"resourceTemplates": []}, "prompts/list": {"prompts": []}}
+
+
+def proxy_module():
+    spec = importlib.util.spec_from_file_location("mcp_lazy_test", PROXY)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def test_queue_budget_transfers_single_oversized_message_without_double_counting():
+    m = proxy_module()
+    budget = m.Budget(max_bytes=16, max_messages=2)
+    source, destination = m.BudgetQueue(budget), m.BudgetQueue(budget)
+    payload = b"image" * 128
+    source.put(payload)
+    item, cost = source.take()
+    destination.put(item, lease=cost)
+    assert (budget.bytes, budget.count) == (len(payload), 1)
+    assert destination.get_nowait() == payload
+    assert (budget.bytes, budget.count) == (0, 0)
+
+
+@pytest.mark.parametrize("max_bytes,max_messages", [(4, 8), (32, 2)])
+def test_queue_budget_rejects_excess_without_blocking_and_controls_bypass_full(max_bytes, max_messages):
+    m = proxy_module()
+    budget = m.Budget(max_bytes=max_bytes, max_messages=max_messages)
+    q = m.BudgetQueue(budget)
+    q.put(b"aa")
+    q.put(b"bb")
+    with pytest.raises(m.QueueLimit):
+        q.put(b"cc")
+    assert budget.overflow.is_set()
+    q.put(None, control=True)
+    assert [q.get_nowait(), q.get_nowait(), q.get_nowait()] == [b"aa", b"bb", None]
+    assert (budget.bytes, budget.count) == (0, 0)
+
+
+def test_writer_full_budget_does_not_block_finish_sentinel():
+    m = proxy_module()
+    budget = m.Budget(max_bytes=1024, max_messages=1)
+    read_fd, write_fd = os.pipe()
+    stream = os.fdopen(write_fd, "wb", buffering=0)
+    writer = m.Writer(stream, queue.Queue(), "write", budget)
+    try:
+        writer.send({"large": "x" * 131072})
+        assert not writer.finish(0.01)
+        assert budget.count == 1
+    finally:
+        os.close(read_fd)
+        stream.close()
+        writer.thread.join(timeout=2)
+    assert not writer.thread.is_alive()
+    assert (budget.bytes, budget.count) == (0, 0)
+
+
+def test_final_error_send_failure_does_not_skip_child_cleanup(monkeypatch):
+    m = proxy_module()
+    proxy = m.Proxy({}, [], 1, 0.01)
+    proxy.child = object()
+    proxy.pending.add(1)
+    cleaned = []
+    class FakeWriter:
+        def __init__(self, *_): pass
+        def finish(self, _): return True
+    def fail_error(*_, **__):
+        raise RuntimeError("output unavailable")
+    monkeypatch.setattr(m, "Writer", FakeWriter)
+    monkeypatch.setattr(m, "reader", lambda _, events, source: events.put((source, None)))
+    monkeypatch.setattr(m.signal, "signal", lambda *_: None)
+    monkeypatch.setattr(m, "stop_child", lambda child, _: cleaned.append(child))
+    monkeypatch.setattr(proxy, "error", fail_error)
+    assert proxy.run() == 1
+    assert cleaned == [proxy.child]
 BACKEND = r'''
 import json, os, subprocess, sys, time
 from pathlib import Path
@@ -69,7 +142,7 @@ for line in sys.stdin:
 
 
 class Host:
-    def __init__(self, tmp_path, mode="normal", timeout=2, read_output=True):
+    def __init__(self, tmp_path, mode="normal", timeout=2, read_output=True, budget=None):
         self.read_output = read_output
         self.marker = tmp_path / "starts"
         backend = tmp_path / "backend.py"
@@ -78,8 +151,18 @@ class Host:
         catalog.write_text(json.dumps({"format": 1, "supported_protocol_versions": ["2024-11-05", VERSION],
                                       "initialize": INIT, "discovery": DISCOVERY}), encoding="utf-8")
         env = dict(os.environ, FAKE_INIT=json.dumps(INIT), FAKE_TOOLS=json.dumps(TOOLS))
+        launcher = PROXY
+        if budget:
+            launcher = tmp_path / "small_budget.py"
+            launcher.write_text(
+                "import importlib.util, sys\n"
+                f"spec = importlib.util.spec_from_file_location('proxy', {str(PROXY)!r})\n"
+                "m = importlib.util.module_from_spec(spec)\nspec.loader.exec_module(m)\n"
+                "original = m.Budget\n"
+                f"m.Budget = lambda: original(max_bytes={budget[0]}, max_messages={budget[1]})\n"
+                "raise SystemExit(m.main())\n", encoding="utf-8")
         self.process = subprocess.Popen(
-            [sys.executable, str(PROXY), "--catalog", str(catalog), "--startup-timeout", str(timeout),
+            [sys.executable, str(launcher), "--catalog", str(catalog), "--startup-timeout", str(timeout),
              "--shutdown-grace", "0.1", "--", sys.executable, str(backend), str(self.marker), mode],
             stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, encoding="utf-8", env=env,
         )
@@ -310,8 +393,8 @@ def test_host_eof_while_tool_hangs_cleans_child(host):
     assert_dead(pid)
 
 
-def blocked_backend_writer(host):
-    h = host("hang")
+def blocked_backend_writer(host, budget=None):
+    h = host("hang", budget=budget)
     h.initialize()
     h.call(1)
     pid = wait_started(h)
@@ -321,8 +404,9 @@ def blocked_backend_writer(host):
     return h, pid
 
 
-def test_host_eof_during_backend_write_backpressure_cleans_child_and_fails_pending(host):
-    h, pid = blocked_backend_writer(host)
+@pytest.mark.parametrize("budget", [None, (65536, 8)])
+def test_host_eof_during_backend_write_backpressure_cleans_child_and_fails_pending(host, budget):
+    h, pid = blocked_backend_writer(host, budget)
     h.process.stdin.close()
     assert h.process.wait(timeout=3) == 0
     assert_dead(pid)
@@ -331,10 +415,43 @@ def test_host_eof_during_backend_write_backpressure_cleans_child_and_fails_pendi
     assert all("error" in r for r in replies)
 
 
+def test_queue_overflow_fails_connection_cleans_backend_and_does_not_replay(host):
+    h = host("hang", budget=(65536, 8))
+    h.initialize()
+    h.call(1)
+    wait_called(h)
+    pid = wait_started(h)
+    h.request(2, "tools/call", {"name": "echo", "arguments": {"payload": "x" * 131072}})
+    time.sleep(0.1)
+    h.request(3, "ping")
+    assert h.process.wait(timeout=3) != 0
+    assert_dead(pid)
+    assert len(h.marker.read_text().splitlines()) == 1
+    replies = [h.receive(), h.receive()]
+    assert {r["id"] for r in replies} == {1, 2}
+    assert all("error" in r for r in replies)
+    assert all("예산" in r["error"]["message"] for r in replies)
+
+
+def test_pending_id_limit_prevents_retaining_unbounded_hanging_calls(host):
+    h = host("hang", budget=(65536, 4))
+    h.initialize()
+    h.call(1)
+    wait_called(h)
+    pid = wait_started(h)
+    for ident in range(2, 6):
+        h.call(ident)
+        time.sleep(0.03)
+    assert h.process.wait(timeout=3) != 0
+    assert_dead(pid)
+    assert len(h.marker.read_text().splitlines()) == 1
+
+
 @pytest.mark.skipif(os.name == "nt", reason="POSIX 종료 신호 검증")
 @pytest.mark.parametrize("sig", [signal.SIGTERM, signal.SIGINT])
-def test_signal_during_backend_write_backpressure_cleans_child(host, sig):
-    h, pid = blocked_backend_writer(host)
+@pytest.mark.parametrize("budget", [None, (65536, 8)])
+def test_signal_during_backend_write_backpressure_cleans_child(host, sig, budget):
+    h, pid = blocked_backend_writer(host, budget)
     h.process.send_signal(sig)
     assert h.process.wait(timeout=3) == 0
     assert_dead(pid)

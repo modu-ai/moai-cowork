@@ -11,6 +11,7 @@ stdio 전용이며 공유 데몬이나 호출 재시도를 사용하지 않는�
 from __future__ import annotations
 
 import argparse
+from collections import deque
 import json
 import math
 import os
@@ -24,12 +25,69 @@ import time
 import uuid
 
 
+class QueueLimit(RuntimeError):
+    pass
+
+
+class Budget:
+    """대기·전송 중 메시지의 공유 예산. 빈 예산에는 단일 대형 메시지를 허용한다."""
+    def __init__(self, max_bytes=256 * 1024 * 1024, max_messages=64):
+        self.max_bytes, self.max_messages = max_bytes, max_messages
+        self.bytes = self.count = 0
+        self.lock, self.overflow = threading.Lock(), threading.Event()
+
+    def reserve(self, size, lease=0):
+        with self.lock:
+            total = self.bytes - lease + size
+            count = self.count - bool(lease) + bool(size)
+            if count > self.max_messages or (total > self.max_bytes and count > 1):
+                self.overflow.set()
+                raise QueueLimit("MCP 메시지 대기 예산을 초과했습니다.")
+            self.bytes, self.count = total, count
+
+    def release(self, size):
+        if size:
+            with self.lock:
+                self.bytes -= size
+                self.count -= 1
+
+
+class BudgetQueue(queue.Queue):
+    """put은 기다리지 않는다. take는 예약을 유지해 다음 큐로 이전한다."""
+    def __init__(self, budget, size=len):
+        super().__init__()
+        self.budget, self.size = budget, size
+
+    def put(self, item, block=True, timeout=None, *, lease=0, control=False):
+        size = 0 if control else self.size(item)
+        self.budget.reserve(size, lease)
+        super().put((item, size), block=False)
+
+    def take(self, block=True, timeout=None):
+        return super().get(block, timeout)
+
+    def get(self, block=True, timeout=None):
+        item, size = self.take(block, timeout)
+        self.budget.release(size)
+        return item
+
+    def discard(self, predicate):
+        with self.mutex:
+            kept = deque()
+            for item, size in self.queue:
+                if predicate(item):
+                    self.budget.release(size)
+                else:
+                    kept.append((item, size))
+            self.queue = kept
+
+
 def reader(stream, events, source):
     """Windows 파이프에서도 select 없이 읽는다. 줄 크기에 제한을 두지 않는다."""
     try:
         for line in stream:
             events.put((source, line))
-    except (OSError, UnicodeError):
+    except (OSError, UnicodeError, QueueLimit):
         pass
     finally:
         events.put((source, None))
@@ -37,29 +95,36 @@ def reader(stream, events, source):
 
 class Writer:
     """파이프가 가득 차도 종료 이벤트 처리를 막지 않는 순서 보존 writer."""
-    def __init__(self, stream, events, source):
-        self.queue = queue.Queue()
+    def __init__(self, stream, events, source, budget=None):
+        self.queue = BudgetQueue(budget or Budget())
         self.fd = os.dup(stream.fileno())
         self.events, self.source = events, source
         self.thread = threading.Thread(target=self.run, daemon=True)
         self.thread.start()
 
-    def send(self, message):
-        self.queue.put((json.dumps(message, ensure_ascii=False, allow_nan=False) + "\n").encode("utf-8"))
+    def send(self, message, *, lease=0, control=False):
+        self.queue.put((json.dumps(message, ensure_ascii=False, allow_nan=False) + "\n").encode("utf-8"),
+                       lease=lease, control=control)
 
     def run(self):
         try:
-            while (data := self.queue.get()) is not None:
-                remaining = memoryview(data)
-                while remaining:
-                    remaining = remaining[os.write(self.fd, remaining):]
+            while True:
+                data, size = self.queue.take()
+                if data is None:
+                    break
+                try:
+                    remaining = memoryview(data)
+                    while remaining:
+                        remaining = remaining[os.write(self.fd, remaining):]
+                finally:
+                    self.queue.budget.release(size)
         except OSError:
             self.events.put((self.source, None))
         finally:
             os.close(self.fd)
 
     def finish(self, grace):
-        self.queue.put(None)
+        self.queue.put(None, control=True)
         self.thread.join(timeout=grace)
         return not self.thread.is_alive()
 
@@ -111,13 +176,15 @@ class Proxy:
     def __init__(self, catalog, command, timeout, grace):
         self.catalog, self.command = catalog, command
         self.timeout, self.grace = timeout, grace
-        self.events = queue.Queue()
+        self.budget = Budget()
+        self.events = BudgetQueue(self.budget, size=lambda event: len(event[1].encode("utf-8")) if event[1] else 0)
+        self.lease, self.stopping = 0, threading.Event()
         self.child = None
         self.state = "cold"
         self.params = None
         self.initialized = False
-        self.pending = {}
-        self.buffered = []
+        self.pending = set()
+        self.buffered = BudgetQueue(self.budget, size=lambda message: len(json.dumps(message, ensure_ascii=False).encode("utf-8")))
         self.internal_id = None
         self.deadline = 0
         self.parent = os.getppid()
@@ -129,15 +196,24 @@ class Proxy:
         stream.write(json.dumps(message, ensure_ascii=False, allow_nan=False) + "\n")
         stream.flush()
 
-    def error(self, ident, code, text):
-        self.host_writer.send({"jsonrpc": "2.0", "id": ident, "error": {"code": code, "message": text}})
+    def relay(self, writer, message, *, control=False):
+        writer.send(message, lease=self.lease, control=control)
+        self.lease = 0
+
+    def track(self, ident):
+        if len(self.pending) >= self.budget.max_messages:
+            raise QueueLimit("MCP 진행 중 요청 수가 상한을 초과했습니다.")
+        self.pending.add(ident)
+
+    def error(self, ident, code, text, *, control=False):
+        self.relay(self.host_writer, {"jsonrpc": "2.0", "id": ident, "error": {"code": code, "message": text}}, control=control)
 
     def result(self, ident, result):
-        self.host_writer.send({"jsonrpc": "2.0", "id": ident, "result": result})
+        self.relay(self.host_writer, {"jsonrpc": "2.0", "id": ident, "result": result})
 
     def internal(self, method, params=None):
         self.internal_id = str(uuid.uuid4())
-        self.backend_writer.send({"jsonrpc": "2.0", "id": self.internal_id,
+        self.relay(self.backend_writer, {"jsonrpc": "2.0", "id": self.internal_id,
                                      "method": method, "params": params or {}})
 
     def start(self):
@@ -147,7 +223,7 @@ class Proxy:
                                       creationflags=subprocess.CREATE_NEW_PROCESS_GROUP if os.name == "nt" else 0)
         self.state = "initializing"
         self.deadline = time.monotonic() + self.timeout
-        self.backend_writer = Writer(self.child.stdin, self.events, "backend-write")
+        self.backend_writer = Writer(self.child.stdin, self.events, "backend-write", self.budget)
         threading.Thread(target=reader, args=(self.child.stdout, self.events, "backend"), daemon=True).start()
         self.internal("initialize", self.params)
 
@@ -159,7 +235,7 @@ class Proxy:
         ident, method = message.get("id"), message.get("method")
         if method is None:
             if self.state == "ready" and "id" in message and (("result" in message) != ("error" in message)):
-                self.backend_writer.send(message)
+                self.relay(self.backend_writer, message)
             else:
                 self.error(None, -32600, "잘못된 JSON-RPC 응답입니다.")
             return
@@ -171,14 +247,14 @@ class Proxy:
             if method == "notifications/initialized" and self.params:
                 self.initialized = True
             elif self.state == "ready":
-                self.backend_writer.send(message)
+                self.relay(self.backend_writer, message)
             elif method == "notifications/cancelled":
                 cancelled = params.get("requestId")
                 if not valid_id(cancelled):
                     return
-                self.buffered = [m for m in self.buffered if m["id"] != cancelled]
+                self.buffered.discard(lambda message: message["id"] == cancelled)
                 if cancelled in self.pending:
-                    self.pending.pop(cancelled)
+                    self.pending.discard(cancelled)
                     self.error(cancelled, -32800, "호출이 취소되었습니다.")
             return
         if ident in self.pending:
@@ -200,8 +276,8 @@ class Proxy:
         elif not self.initialized:
             self.error(ident, -32000, "initialize와 initialized가 필요합니다.")
         elif self.state == "ready":
-            self.pending[ident] = message
-            self.backend_writer.send(message)
+            self.track(ident)
+            self.relay(self.backend_writer, message)
         elif method in self.catalog["discovery"]:
             if params.get("cursor") is not None:
                 self.error(ident, -32602, "정적 목록에는 다음 페이지가 없습니다.")
@@ -212,8 +288,9 @@ class Proxy:
             if not any(t["name"] == params.get("name") for t in tools) or not isinstance(params.get("arguments", {}), dict):
                 self.error(ident, -32602, "알 수 없는 도구 또는 잘못된 인수입니다.")
                 return
-            self.pending[ident] = message
-            self.buffered.append(message)
+            self.track(ident)
+            self.buffered.put(message, lease=self.lease)
+            self.lease = 0
             if self.state == "cold":
                 self.start()
         else:
@@ -227,42 +304,53 @@ class Proxy:
             if message.get("id") != self.internal_id:
                 # 초기화 중 로그·진행 알림은 전달하되 내부 응답은 호스트에 노출하지 않는다.
                 if "method" in message:
-                    self.host_writer.send(message)
+                    self.relay(self.host_writer, message)
                 return
             expected = (dict(self.catalog["initialize"], protocolVersion=self.params["protocolVersion"])
                         if self.state == "initializing" else self.catalog["discovery"]["tools/list"])
             if message.get("result") != expected:
                 raise ValueError("백엔드와 목록 스냅샷 불일치")
             if self.state == "initializing":
-                self.backend_writer.send({"jsonrpc": "2.0", "method": "notifications/initialized"})
+                self.relay(self.backend_writer, {"jsonrpc": "2.0", "method": "notifications/initialized"})
                 self.state = "listing"
                 self.internal("tools/list")
             else:
                 self.state = "ready"
-                for buffered in self.buffered:
-                    self.backend_writer.send(buffered)
-                self.buffered.clear()
+                self.budget.release(self.lease)
+                self.lease = 0
+                while not self.buffered.empty():
+                    buffered, self.lease = self.buffered.take(block=False)
+                    self.relay(self.backend_writer, buffered)
             return
         if "method" not in message:
-            self.pending.pop(message.get("id"), None)
-        self.host_writer.send(message)
+            self.pending.discard(message.get("id"))
+        self.relay(self.host_writer, message)
 
     def run(self):
-        self.host_writer = Writer(sys.stdout, self.events, "host-write")
+        self.host_writer = Writer(sys.stdout, self.events, "host-write", self.budget)
         threading.Thread(target=reader, args=(sys.stdin, self.events, "client"), daemon=True).start()
         for sig in (signal.SIGINT, signal.SIGTERM):
-            signal.signal(sig, lambda *_: self.events.put(("stop", None)))
+            signal.signal(sig, lambda *_: self.stopping.set())
         status = 0
+        failure = "백엔드 연결이 종료되었습니다."
         try:
             while True:
+                self.budget.release(self.lease)
+                self.lease = 0
+                if self.budget.overflow.is_set():
+                    raise QueueLimit("MCP 메시지 대기 예산을 초과했습니다.")
+                if self.stopping.is_set():
+                    break
                 if self.state in ("initializing", "listing") and time.monotonic() > self.deadline:
                     raise TimeoutError("백엔드 초기화 제한 초과")
                 if os.name != "nt" and os.getppid() != self.parent:
                     break
                 try:
-                    source, line = self.events.get(timeout=0.1)
+                    (source, line), self.lease = self.events.take(timeout=0.1)
                 except queue.Empty:
                     continue
+                if self.budget.overflow.is_set():
+                    raise QueueLimit("MCP 메시지 대기 예산을 초과했습니다.")
                 if line is None:
                     if source in ("backend", "backend-write", "host-write"):
                         raise RuntimeError("백엔드 연결 종료")
@@ -275,13 +363,18 @@ class Proxy:
                         continue
                     raise
                 (self.client if source == "client" else self.backend)(message)
+        except QueueLimit:
+            status = 1
+            failure = "MCP 메시지 대기 예산 또는 진행 중 요청 수를 초과했습니다."
         except (OSError, ValueError, RuntimeError, TimeoutError):
             status = 1
         finally:
+            self.budget.release(self.lease)
+            self.lease = 0
             try:
                 for ident in self.pending:
-                    self.error(ident, -32000, "백엔드 연결이 종료되었습니다. 호출은 자동 재시도하지 않습니다.")
-            except (OSError, ValueError):
+                    self.error(ident, -32000, failure + " 호출은 자동 재시도하지 않습니다.", control=True)
+            except (OSError, ValueError, RuntimeError):
                 status = 1
             if self.backend_writer:
                 self.backend_writer.finish(self.grace)

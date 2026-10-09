@@ -183,5 +183,10 @@ main:
         ref: /releases/docs-20261005/
       - name: 릴리스 정보
         ref: /releases/
+      - name: v1.2.8
+        ref: /releases/v1.2.8/
+        isNew: true
+      - name: v1.2.7
+        ref: /releases/v1.2.7/
       - name: 이전 릴리스
         ref: /releases/archive/
