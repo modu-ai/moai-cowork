@@ -1,0 +1,2408 @@
+{
+  "format": 1,
+  "source_digest": "12c03fe5f8de03f810832aa7005c8295cb084c29f46c5729a173753ff9437c0e",
+  "sdk_version": "1.28.1",
+  "supported_protocol_versions": [
+    "2024-11-05",
+    "2025-03-26",
+    "2025-06-18",
+    "2025-11-25"
+  ],
+  "initialize": {
+    "protocolVersion": "2025-11-25",
+    "capabilities": {
+      "experimental": {},
+      "prompts": {
+        "listChanged": false
+      },
+      "resources": {
+        "subscribe": false,
+        "listChanged": false
+      },
+      "tools": {
+        "listChanged": false
+      }
+    },
+    "serverInfo": {
+      "name": "moai-mcp-smartstore/0.1.0",
+      "version": "1.28.1"
+    },
+    "instructions": "네이버 커머스(스마트스토어) 운영/관리 MCP. 자격증명은 환경변수 또는 사용자 홈의 .moai/mcp/smartstore.json에서 읽는다. 먼저 smartstore_test_connection 으로 인증을 검증하고, 각 도구의 endpoint 필드로 대상 API 를 식별한다. 모든 도구는 {ok, endpoint, data|error} 형태로 응답한다."
+  },
+  "discovery": {
+    "tools/list": {
+      "tools": [
+        {
+          "name": "smartstore_test_connection",
+          "description": "네이버 커머스 API 인증·연결을 검증한다.\n\n    GET /v1/seller/account 를 1회 호출해 토큰 발급 → Bearer 인증 → 도메인 API 응답\n    전체 흐름이 정상 동작하는지 확인한다. 자격증명 연동 후 첫 1회 호출 검증용.\n\n    Returns:\n        {\"ok\": true, \"data\": {계정 정보}} 또는 {\"ok\": false, \"error\": ...}\n    ",
+          "inputSchema": {
+            "properties": {},
+            "title": "smartstore_test_connectionArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "smartstore_config_status",
+          "description": "네이버 커머스 API 자격증명 설정 상태를 반환한다 (API 미호출, 비밀키 원문 제외).\n\n    Returns:\n        {\"configured\": bool, \"type\": \"SELF\"|\"SELLER\", \"base_url\": str,\n         \"account_id_set\": bool, \"client_id_set\": bool}\n    ",
+          "inputSchema": {
+            "properties": {},
+            "title": "smartstore_config_statusArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "qna_list",
+          "description": "상품 문의 목록 조회(미답변 모니터링/SLA 관리). GET /v1/contents/qnas",
+          "inputSchema": {
+            "properties": {
+              "params": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Params"
+              }
+            },
+            "title": "qna_listArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "qna_answer",
+          "description": "상품 문의 답변 등록/수정. PUT /v1/contents/qnas/{questionId}\n\n    body 예: {\"answer\": \"답변 내용\"}\n    ",
+          "inputSchema": {
+            "properties": {
+              "question_id": {
+                "title": "Question Id",
+                "type": "string"
+              },
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "question_id",
+              "body"
+            ],
+            "title": "qna_answerArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "qna_templates",
+          "description": "판매자 답변 템플릿 목록. GET /v1/contents/qnas/templates",
+          "inputSchema": {
+            "properties": {},
+            "title": "qna_templatesArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "customer_inquiry_list",
+          "description": "고객 문의(네이버페이 결제 문의) 내역 조회. GET /v1/pay-user/inquiries",
+          "inputSchema": {
+            "properties": {
+              "params": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Params"
+              }
+            },
+            "title": "customer_inquiry_listArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "customer_inquiry_answer",
+          "description": "고객 문의 신규 답변 등록. POST /v1/pay-merchant/inquiries/{inquiryNo}/answer",
+          "inputSchema": {
+            "properties": {
+              "inquiry_no": {
+                "title": "Inquiry No",
+                "type": "string"
+              },
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "inquiry_no",
+              "body"
+            ],
+            "title": "customer_inquiry_answerArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": false,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "customer_inquiry_answer_update",
+          "description": "고객 문의 기존 답변 수정. PUT /v1/pay-merchant/inquiries/{inquiryNo}/answer/{answerContentId}",
+          "inputSchema": {
+            "properties": {
+              "inquiry_no": {
+                "title": "Inquiry No",
+                "type": "string"
+              },
+              "answer_content_id": {
+                "title": "Answer Content Id",
+                "type": "string"
+              },
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "inquiry_no",
+              "answer_content_id",
+              "body"
+            ],
+            "title": "customer_inquiry_answer_updateArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "logistics_companies",
+          "description": "연동 택배사/물류사 정보(발송 deliveryCompanyCode 캐시용). GET /v1/logistics/logistics-companies",
+          "inputSchema": {
+            "properties": {},
+            "title": "logistics_companiesArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "outbound_locations",
+          "description": "판매자 출고 창고 정보. GET /v1/logistics/outbound-locations",
+          "inputSchema": {
+            "properties": {},
+            "title": "outbound_locationsArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "return_delivery_companies",
+          "description": "반품 처리 가능 택배사 목록. GET /v2/product-delivery-info/return-delivery-companies",
+          "inputSchema": {
+            "properties": {},
+            "title": "return_delivery_companiesArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "sku_get",
+          "description": "N배송 SKU 1건 조회. GET /v1/logistics/products/sellers/me/skus/{nsId}",
+          "inputSchema": {
+            "properties": {
+              "ns_id": {
+                "title": "Ns Id",
+                "type": "string"
+              }
+            },
+            "required": [
+              "ns_id"
+            ],
+            "title": "sku_getArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "sku_mappings",
+          "description": "SKU 연결(채널) 상품 매핑 현황 페이징 조회. GET .../skus/{nsId}/product-mappings",
+          "inputSchema": {
+            "properties": {
+              "ns_id": {
+                "title": "Ns Id",
+                "type": "string"
+              },
+              "params": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Params"
+              }
+            },
+            "required": [
+              "ns_id"
+            ],
+            "title": "sku_mappingsArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "sku_list",
+          "description": "본인 SKU 복합조건 페이징 검색. POST /v1/logistics/products/sellers/me/skus/query-paged-list",
+          "inputSchema": {
+            "properties": {
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "body"
+            ],
+            "title": "sku_listArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "order_list_product_orders",
+          "description": "조건형 상품 주문 상세 내역 페이징 조회. GET /v1/pay-order/seller/product-orders\n\n    params 예: {\"productOrderStatuses\": \"PAYED\", \"pageSize\": 100}\n    ",
+          "inputSchema": {
+            "properties": {
+              "params": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Params"
+              }
+            },
+            "title": "order_list_product_ordersArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "order_query_product_orders",
+          "description": "다수 productOrderId 상세 주문 내역 일괄 조회. POST /v1/pay-order/seller/product-orders/query\n\n    body 예: {\"productOrderIds\": [\"20240101-0001\", ...]}\n    ",
+          "inputSchema": {
+            "properties": {
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "body"
+            ],
+            "title": "order_query_product_ordersArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "order_changed_product_orders",
+          "description": "지정 시점 이후 변경된 상품 주문 조회(변경 피드). GET .../last-changed-statuses\n\n    OMS/CRM 주문 동기화 핵심. 1~3분 주기 폴링 권장.\n    params 예: {\"fromDateString\": \"2024-01-01T00:00:00+09:00\"}\n    ",
+          "inputSchema": {
+            "properties": {
+              "params": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Params"
+              }
+            },
+            "title": "order_changed_product_ordersArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "order_list_by_order",
+          "description": "주문(orderId) 내 상품 주문 ID 목록. GET /v1/pay-order/seller/orders/{orderId}/product-order-ids",
+          "inputSchema": {
+            "properties": {
+              "order_id": {
+                "title": "Order Id",
+                "type": "string"
+              }
+            },
+            "required": [
+              "order_id"
+            ],
+            "title": "order_list_by_orderArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "order_confirm",
+          "description": "결제완료 주문 발주 확인 일괄 처리. POST /v1/pay-order/seller/product-orders/confirm\n\n    body 예: {\"productOrderIds\": [...]}\n    ",
+          "inputSchema": {
+            "properties": {
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "body"
+            ],
+            "title": "order_confirmArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "order_dispatch",
+          "description": "다건 상품 주문 발송 처리(택배사/송장번호 등록). POST .../dispatch\n\n    deliveryMethod/택배사 코드/송장번호가 실무상 필수.\n    ",
+          "inputSchema": {
+            "properties": {
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "body"
+            ],
+            "title": "order_dispatchArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "order_delay",
+          "description": "발송 지연 등록(사유코드+새 발송예정일). POST .../{productOrderId}/delay",
+          "inputSchema": {
+            "properties": {
+              "product_order_id": {
+                "title": "Product Order Id",
+                "type": "string"
+              },
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "product_order_id",
+              "body"
+            ],
+            "title": "order_delayArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "order_change_hope_delivery",
+          "description": "배송 희망일 변경 처리. POST .../{productOrderId}/hope-delivery/change",
+          "inputSchema": {
+            "properties": {
+              "product_order_id": {
+                "title": "Product Order Id",
+                "type": "string"
+              },
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "product_order_id",
+              "body"
+            ],
+            "title": "order_change_hope_deliveryArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "order_cancel_request",
+          "description": "판매자 주도 취소 요청(재고부족 등). POST .../{id}/claim/cancel/request",
+          "inputSchema": {
+            "properties": {
+              "product_order_id": {
+                "title": "Product Order Id",
+                "type": "string"
+              },
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "product_order_id",
+              "body"
+            ],
+            "title": "order_cancel_requestArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "order_cancel_approve",
+          "description": "고객 취소 요청 승인(승인 즉시 환불). POST .../{id}/claim/cancel/approve",
+          "inputSchema": {
+            "properties": {
+              "product_order_id": {
+                "title": "Product Order Id",
+                "type": "string"
+              },
+              "body": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Body"
+              }
+            },
+            "required": [
+              "product_order_id"
+            ],
+            "title": "order_cancel_approveArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "order_return_request",
+          "description": "판매자 주도 반품 요청 등록. POST .../{id}/claim/return/request",
+          "inputSchema": {
+            "properties": {
+              "product_order_id": {
+                "title": "Product Order Id",
+                "type": "string"
+              },
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "product_order_id",
+              "body"
+            ],
+            "title": "order_return_requestArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "order_return_approve",
+          "description": "고객 반품 요청 승인(수거완료 건 자동/일괄 승인, 이후 환불). POST .../{id}/claim/return/approve",
+          "inputSchema": {
+            "properties": {
+              "product_order_id": {
+                "title": "Product Order Id",
+                "type": "string"
+              },
+              "body": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Body"
+              }
+            },
+            "required": [
+              "product_order_id"
+            ],
+            "title": "order_return_approveArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "order_return_reject",
+          "description": "반품 요청 거부/철회(거부사유코드+안내메시지). POST .../{id}/claim/return/reject",
+          "inputSchema": {
+            "properties": {
+              "product_order_id": {
+                "title": "Product Order Id",
+                "type": "string"
+              },
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "product_order_id",
+              "body"
+            ],
+            "title": "order_return_rejectArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "order_return_holdback",
+          "description": "반품 환불 일시 보류(추가 협의 필요 시). POST .../{id}/claim/return/holdback",
+          "inputSchema": {
+            "properties": {
+              "product_order_id": {
+                "title": "Product Order Id",
+                "type": "string"
+              },
+              "body": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Body"
+              }
+            },
+            "required": [
+              "product_order_id"
+            ],
+            "title": "order_return_holdbackArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "order_return_holdback_release",
+          "description": "반품 보류 해제(환불 재개). POST .../{id}/claim/return/holdback/release",
+          "inputSchema": {
+            "properties": {
+              "product_order_id": {
+                "title": "Product Order Id",
+                "type": "string"
+              },
+              "body": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Body"
+              }
+            },
+            "required": [
+              "product_order_id"
+            ],
+            "title": "order_return_holdback_releaseArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "order_exchange_collect_approve",
+          "description": "교환 수거(회수) 완료 등록 → 자동 재배송 단계 전이. POST .../{id}/claim/exchange/collect/approve",
+          "inputSchema": {
+            "properties": {
+              "product_order_id": {
+                "title": "Product Order Id",
+                "type": "string"
+              },
+              "body": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Body"
+              }
+            },
+            "required": [
+              "product_order_id"
+            ],
+            "title": "order_exchange_collect_approveArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "order_exchange_dispatch",
+          "description": "교환 상품 재배송 처리(택배사/송장번호 필수). POST .../{id}/claim/exchange/dispatch",
+          "inputSchema": {
+            "properties": {
+              "product_order_id": {
+                "title": "Product Order Id",
+                "type": "string"
+              },
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "product_order_id",
+              "body"
+            ],
+            "title": "order_exchange_dispatchArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "order_exchange_holdback",
+          "description": "교환 일시 보류. POST .../{id}/claim/exchange/holdback",
+          "inputSchema": {
+            "properties": {
+              "product_order_id": {
+                "title": "Product Order Id",
+                "type": "string"
+              },
+              "body": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Body"
+              }
+            },
+            "required": [
+              "product_order_id"
+            ],
+            "title": "order_exchange_holdbackArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "order_exchange_holdback_release",
+          "description": "교환 보류 해제. POST .../{id}/claim/exchange/holdback/release",
+          "inputSchema": {
+            "properties": {
+              "product_order_id": {
+                "title": "Product Order Id",
+                "type": "string"
+              },
+              "body": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Body"
+              }
+            },
+            "required": [
+              "product_order_id"
+            ],
+            "title": "order_exchange_holdback_releaseArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "order_exchange_reject",
+          "description": "교환 거부/철회(재고부족·사유미충족). POST .../{id}/claim/exchange/reject",
+          "inputSchema": {
+            "properties": {
+              "product_order_id": {
+                "title": "Product Order Id",
+                "type": "string"
+              },
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "product_order_id",
+              "body"
+            ],
+            "title": "order_exchange_rejectArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "product_search",
+          "description": "상품 목록을 복합 조건으로 페이징 조회한다.\n\n    POST /v1/products/search — 다건 ID 본문 전달을 위해 POST 형태.\n    body 예: {\"keyword\": ..., \"status\": ..., \"pageSize\": 100, \"pageNumber\": 1}\n    ",
+          "inputSchema": {
+            "properties": {
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "body"
+            ],
+            "title": "product_searchArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "product_get_origin",
+          "description": "원상품 1건 상세 조회. GET /v2/products/origin-products/{originProductNo}",
+          "inputSchema": {
+            "properties": {
+              "origin_product_no": {
+                "title": "Origin Product No",
+                "type": "string"
+              }
+            },
+            "required": [
+              "origin_product_no"
+            ],
+            "title": "product_get_originArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "product_get_channel",
+          "description": "채널 상품 1건 상세 조회. GET /v2/products/channel-products/{channelProductNo}",
+          "inputSchema": {
+            "properties": {
+              "channel_product_no": {
+                "title": "Channel Product No",
+                "type": "string"
+              }
+            },
+            "required": [
+              "channel_product_no"
+            ],
+            "title": "product_get_channelArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "product_create",
+          "description": "신규 상품(원상품) 등록. POST /v2/products — 카테고리/이미지/가격/재고가 실무상 필수.",
+          "inputSchema": {
+            "properties": {
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "body"
+            ],
+            "title": "product_createArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": false,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "product_update_origin",
+          "description": "원상품 수정(전체 본문). PUT /v2/products/origin-products/{originProductNo}",
+          "inputSchema": {
+            "properties": {
+              "origin_product_no": {
+                "title": "Origin Product No",
+                "type": "string"
+              },
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "origin_product_no",
+              "body"
+            ],
+            "title": "product_update_originArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "product_update_channel",
+          "description": "채널 상품 수정(전체 본문). PUT /v2/products/channel-products/{channelProductNo}",
+          "inputSchema": {
+            "properties": {
+              "channel_product_no": {
+                "title": "Channel Product No",
+                "type": "string"
+              },
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "channel_product_no",
+              "body"
+            ],
+            "title": "product_update_channelArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "product_delete_origin",
+          "description": "원상품 삭제(비가역). DELETE /v2/products/origin-products/{originProductNo}",
+          "inputSchema": {
+            "properties": {
+              "origin_product_no": {
+                "title": "Origin Product No",
+                "type": "string"
+              }
+            },
+            "required": [
+              "origin_product_no"
+            ],
+            "title": "product_delete_originArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "product_delete_channel",
+          "description": "채널 상품 삭제(비가역). DELETE /v2/products/channel-products/{channelProductNo}",
+          "inputSchema": {
+            "properties": {
+              "channel_product_no": {
+                "title": "Channel Product No",
+                "type": "string"
+              }
+            },
+            "required": [
+              "channel_product_no"
+            ],
+            "title": "product_delete_channelArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "product_change_status",
+          "description": "원상품 판매 상태(판매중/판매중지) 변경. PUT /v1/products/origin-products/{id}/change-status\n\n    body 예: {\"status\": \"SALE\" | \"OUT_OF_STOCK\" | \"STOP\"} (공식 status enum 준용)\n    ",
+          "inputSchema": {
+            "properties": {
+              "origin_product_no": {
+                "title": "Origin Product No",
+                "type": "string"
+              },
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "origin_product_no",
+              "body"
+            ],
+            "title": "product_change_statusArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "product_update_stock",
+          "description": "원상품 옵션별 재고·가격·할인가 변경. PUT /v1/products/origin-products/{id}/option-stock\n\n    동일 원상품 동시 호출은 직렬화 권장(정합성).\n    ",
+          "inputSchema": {
+            "properties": {
+              "origin_product_no": {
+                "title": "Origin Product No",
+                "type": "string"
+              },
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "origin_product_no",
+              "body"
+            ],
+            "title": "product_update_stockArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "product_bulk_update",
+          "description": "다건 원상품 일괄 PUT 갱신. PUT /v1/products/origin-products/bulk-update",
+          "inputSchema": {
+            "properties": {
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "body"
+            ],
+            "title": "product_bulk_updateArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "product_multi_update",
+          "description": "다건 원상품 일부 속성 일괄 변경(PATCH). PATCH /v1/products/origin-products/multi-update\n\n    가격 일괄 인상·노출 여부 변경 등에 적합.\n    ",
+          "inputSchema": {
+            "properties": {
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "body"
+            ],
+            "title": "product_multi_updateArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "product_upload_images",
+          "description": "상품 이미지 다건 업로드 → 호스팅 URL 발급. POST /v1/product-images/upload",
+          "inputSchema": {
+            "properties": {
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "body"
+            ],
+            "title": "product_upload_imagesArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": false,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "category_list",
+          "description": "커머스 전체 카테고리 트리 조회. GET /v1/categories",
+          "inputSchema": {
+            "properties": {},
+            "title": "category_listArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "category_get",
+          "description": "카테고리 1건 상세(표시명/속성/상위경로). GET /v1/categories/{categoryId}",
+          "inputSchema": {
+            "properties": {
+              "category_id": {
+                "title": "Category Id",
+                "type": "string"
+              }
+            },
+            "required": [
+              "category_id"
+            ],
+            "title": "category_getArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "category_subcategories",
+          "description": "특정 카테고리의 하위 카테고리만 조회. GET /v1/categories/{categoryId}/sub-categories",
+          "inputSchema": {
+            "properties": {
+              "category_id": {
+                "title": "Category Id",
+                "type": "string"
+              }
+            },
+            "required": [
+              "category_id"
+            ],
+            "title": "category_subcategoriesArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "brand_search",
+          "description": "상품에 사용 가능한 브랜드 조회(키워드). GET /v1/product-brands",
+          "inputSchema": {
+            "properties": {
+              "keyword": {
+                "default": "",
+                "title": "Keyword",
+                "type": "string"
+              }
+            },
+            "title": "brand_searchArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "manufacturer_search",
+          "description": "상품에 사용 가능한 제조사 조회(키워드). GET /v1/product-manufacturers",
+          "inputSchema": {
+            "properties": {
+              "keyword": {
+                "default": "",
+                "title": "Keyword",
+                "type": "string"
+              }
+            },
+            "title": "manufacturer_searchArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "product_attributes",
+          "description": "카테고리별 상품 속성 목록. GET /v1/product-attributes/attributes?categoryId=",
+          "inputSchema": {
+            "properties": {
+              "category_id": {
+                "default": "",
+                "title": "Category Id",
+                "type": "string"
+              }
+            },
+            "title": "product_attributesArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "product_origin_areas",
+          "description": "원산지 코드 정보 전체/다건 조회. GET /v1/product-origin-areas",
+          "inputSchema": {
+            "properties": {
+              "keyword": {
+                "default": "",
+                "title": "Keyword",
+                "type": "string"
+              }
+            },
+            "title": "product_origin_areasArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "seller_notice_list",
+          "description": "판매자 공지사항 목록 조회. GET /v1/contents/seller-notices",
+          "inputSchema": {
+            "properties": {
+              "params": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Params"
+              }
+            },
+            "title": "seller_notice_listArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "seller_notice_get",
+          "description": "판매자 공지사항 1건 조회. GET /v1/contents/seller-notices/{sellerNoticeId}",
+          "inputSchema": {
+            "properties": {
+              "seller_notice_id": {
+                "title": "Seller Notice Id",
+                "type": "string"
+              }
+            },
+            "required": [
+              "seller_notice_id"
+            ],
+            "title": "seller_notice_getArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "seller_notice_create",
+          "description": "판매자 공지사항 신규 등록. POST /v1/contents/seller-notices",
+          "inputSchema": {
+            "properties": {
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "body"
+            ],
+            "title": "seller_notice_createArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": false,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "seller_notice_update",
+          "description": "판매자 공지사항 수정(전체 본문). PUT /v1/contents/seller-notices/{sellerNoticeId}",
+          "inputSchema": {
+            "properties": {
+              "seller_notice_id": {
+                "title": "Seller Notice Id",
+                "type": "string"
+              },
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "seller_notice_id",
+              "body"
+            ],
+            "title": "seller_notice_updateArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "seller_notice_delete",
+          "description": "판매자 공지사항 삭제. DELETE /v1/contents/seller-notices/{sellerNoticeId}",
+          "inputSchema": {
+            "properties": {
+              "seller_notice_id": {
+                "title": "Seller Notice Id",
+                "type": "string"
+              }
+            },
+            "required": [
+              "seller_notice_id"
+            ],
+            "title": "seller_notice_deleteArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "group_product_create",
+          "description": "표준형 옵션 기반 그룹상품 신규 등록. POST /v2/standard-group-products",
+          "inputSchema": {
+            "properties": {
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "body"
+            ],
+            "title": "group_product_createArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": false,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "group_product_status",
+          "description": "그룹상품 비동기 작업 처리 결과 조회. GET /v2/standard-group-products/status",
+          "inputSchema": {
+            "properties": {
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "body"
+            ],
+            "title": "group_product_statusArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "group_product_convert",
+          "description": "개별 상품 → 표준형 그룹상품 전환(비동기). POST /v2/standard-group-products/convert-products",
+          "inputSchema": {
+            "properties": {
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "body"
+            ],
+            "title": "group_product_convertArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "group_product_release",
+          "description": "그룹상품 그룹화 해제(개별 상품로 분리). POST /v2/standard-group-products/release-group",
+          "inputSchema": {
+            "properties": {
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "body"
+            ],
+            "title": "group_product_releaseArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "inspection_list",
+          "description": "검수 수정 요청 발생 채널 상품 목록. GET /v1/product-inspections/channel-products",
+          "inputSchema": {
+            "properties": {
+              "params": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Params"
+              }
+            },
+            "title": "inspection_listArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "inspection_restore",
+          "description": "검수 수정 요청 상품 복원(재노출). PUT /v1/product-inspections/channel-product/{id}/restore",
+          "inputSchema": {
+            "properties": {
+              "channel_product_no": {
+                "title": "Channel Product No",
+                "type": "string"
+              }
+            },
+            "required": [
+              "channel_product_no"
+            ],
+            "title": "inspection_restoreArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "seller_account",
+          "description": "인증 토큰의 판매자 계정 기본 정보. GET /v1/seller/account",
+          "inputSchema": {
+            "properties": {},
+            "title": "seller_accountArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "seller_channels",
+          "description": "계정 연결 채널(스마트스토어/브랜드스토어) 목록. GET /v1/seller/channels",
+          "inputSchema": {
+            "properties": {},
+            "title": "seller_channelsArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "addressbook_list",
+          "description": "판매자 주소록 페이지 조회. GET /v1/seller/addressbooks-for-page",
+          "inputSchema": {
+            "properties": {
+              "params": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Params"
+              }
+            },
+            "title": "addressbook_listArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "addressbook_get",
+          "description": "주소록 1건 조회. GET /v1/seller/addressbooks/{addressBookNo}",
+          "inputSchema": {
+            "properties": {
+              "address_book_no": {
+                "title": "Address Book No",
+                "type": "string"
+              }
+            },
+            "required": [
+              "address_book_no"
+            ],
+            "title": "addressbook_getArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "this_day_dispatch_get",
+          "description": "오늘출발(즉시발송) 정책 설정값 조회. GET /v1/seller/this-day-dispatch",
+          "inputSchema": {
+            "properties": {},
+            "title": "this_day_dispatch_getArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "this_day_dispatch_set",
+          "description": "오늘출발 정책 설정/변경. POST /v1/seller/this-day-dispatch",
+          "inputSchema": {
+            "properties": {
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "body"
+            ],
+            "title": "this_day_dispatch_setArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "settlement_daily",
+          "description": "일별 정산 합계 내역(계좌이체/충전금 구분). GET /v1/pay-settle/settle/daily\n\n    params 예: {\"startSettleDate\": \"2024-01-01\", \"endSettleDate\": \"2024-01-31\"}\n    ",
+          "inputSchema": {
+            "properties": {
+              "params": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Params"
+              }
+            },
+            "title": "settlement_dailyArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "settlement_case",
+          "description": "건별 정산 내역(주문/상품주문/배송비 단위 분해). GET /v1/pay-settle/settle/case",
+          "inputSchema": {
+            "properties": {
+              "params": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Params"
+              }
+            },
+            "title": "settlement_caseArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "settlement_commission_details",
+          "description": "수수료 상세 내역(수수료 유형/결제수단 분해). GET /v1/pay-settle/settle/commission-details",
+          "inputSchema": {
+            "properties": {
+              "params": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Params"
+              }
+            },
+            "title": "settlement_commission_detailsArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "vat_daily",
+          "description": "일별 부가세 합산 내역(세무 신고 기초자료). GET /v1/pay-settle/vat/daily",
+          "inputSchema": {
+            "properties": {
+              "params": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Params"
+              }
+            },
+            "title": "vat_dailyArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "vat_case",
+          "description": "건별 부가세 내역(상품주문 단위 원천 분개). GET /v1/pay-settle/vat/case",
+          "inputSchema": {
+            "properties": {
+              "params": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Params"
+              }
+            },
+            "title": "vat_caseArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "solution_seller_info_by_token",
+          "description": "판매자 인증 JWE 토큰 해석 → 판매자 식별 정보. GET /v1/commerce-solutions/seller-info-by-token",
+          "inputSchema": {
+            "properties": {
+              "params": {
+                "additionalProperties": true,
+                "title": "Params",
+                "type": "object"
+              }
+            },
+            "required": [
+              "params"
+            ],
+            "title": "solution_seller_info_by_tokenArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "solution_subscription_get",
+          "description": "특정 accountUid 솔루션 사용 상태 조회. GET /v1/commerce-solutions/subscriptions/{accountUid}",
+          "inputSchema": {
+            "properties": {
+              "account_uid": {
+                "title": "Account Uid",
+                "type": "string"
+              }
+            },
+            "required": [
+              "account_uid"
+            ],
+            "title": "solution_subscription_getArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "solution_transactions",
+          "description": "비즈월렛 결제 내역 조회. GET /v1/commerce-solutions/transactions",
+          "inputSchema": {
+            "properties": {
+              "params": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Params"
+              }
+            },
+            "title": "solution_transactionsArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "solution_external_transaction_send",
+          "description": "솔루션 자체 결제 내역을 네이버 정산 데이터로 전송(멱등 키 필수). POST .../external-transactions",
+          "inputSchema": {
+            "properties": {
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "body"
+            ],
+            "title": "solution_external_transaction_sendArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": false,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "solution_approve",
+          "description": "솔루션 사용 시작 신청 최종 승인. PUT /v1/commerce-solutions/subscriptions/approve",
+          "inputSchema": {
+            "properties": {
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "body"
+            ],
+            "title": "solution_approveArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "solution_reject",
+          "description": "솔루션 사용 시작 거절. PUT /v1/commerce-solutions/subscriptions/{accountUid}/reject",
+          "inputSchema": {
+            "properties": {
+              "account_uid": {
+                "title": "Account Uid",
+                "type": "string"
+              },
+              "body": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Body"
+              }
+            },
+            "required": [
+              "account_uid"
+            ],
+            "title": "solution_rejectArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "solution_unsubscribe",
+          "description": "솔루션 사용 중지(결제정지 동반). PUT /v1/commerce-solutions/subscriptions/{accountUid}/unsubscription",
+          "inputSchema": {
+            "properties": {
+              "account_uid": {
+                "title": "Account Uid",
+                "type": "string"
+              },
+              "body": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Body"
+              }
+            },
+            "required": [
+              "account_uid"
+            ],
+            "title": "solution_unsubscribeArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "solution_unsubscribe_approve",
+          "description": "솔루션 사용 해지 신청 최종 승인. PUT /v1/commerce-solutions/subscriptions/unsubscription/approve",
+          "inputSchema": {
+            "properties": {
+              "body": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            },
+            "required": [
+              "body"
+            ],
+            "title": "solution_unsubscribe_approveArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "stats_marketing",
+          "description": "마케팅 성과 통계. GET /v1/bizdata-stats/channels/{channelNo}/marketing/{dataset}\n\n    dataset ∈ {all-daily, all-detail, custom-detail, custom-simple, hourly-detail,\n    hourly-simple, search-detail, search-keyword, website-daily, website-detail}\n    ",
+          "inputSchema": {
+            "properties": {
+              "channel_no": {
+                "title": "Channel No",
+                "type": "string"
+              },
+              "dataset": {
+                "title": "Dataset",
+                "type": "string"
+              },
+              "params": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Params"
+              }
+            },
+            "required": [
+              "channel_no",
+              "dataset"
+            ],
+            "title": "stats_marketingArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "stats_sales",
+          "description": "판매 성과 통계. GET /v1/bizdata-stats/channels/{channelNo}/sales/{dataset}\n\n    dataset ∈ {delivery-detail, hourly-detail, product-detail, product-marketing-category,\n    product-marketing-detail, product-search-detail, product-search-keyword-by-product}\n    ",
+          "inputSchema": {
+            "properties": {
+              "channel_no": {
+                "title": "Channel No",
+                "type": "string"
+              },
+              "dataset": {
+                "title": "Dataset",
+                "type": "string"
+              },
+              "params": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Params"
+              }
+            },
+            "required": [
+              "channel_no",
+              "dataset"
+            ],
+            "title": "stats_salesArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "stats_shopping",
+          "description": "쇼핑행동 통계. GET /v1/bizdata-stats/channels/{channelNo}/shopping/{dataset}\n\n    dataset ∈ {page-detail, product-detail}\n    ",
+          "inputSchema": {
+            "properties": {
+              "channel_no": {
+                "title": "Channel No",
+                "type": "string"
+              },
+              "dataset": {
+                "title": "Dataset",
+                "type": "string"
+              },
+              "params": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Params"
+              }
+            },
+            "required": [
+              "channel_no",
+              "dataset"
+            ],
+            "title": "stats_shoppingArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "stats_realtime",
+          "description": "오늘 실시간 채널 보고서(1~5분 폴링 권장). GET /v1/bizdata-stats/channels/{channelNo}/realtime/daily",
+          "inputSchema": {
+            "properties": {
+              "channel_no": {
+                "title": "Channel No",
+                "type": "string"
+              },
+              "params": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Params"
+              }
+            },
+            "required": [
+              "channel_no"
+            ],
+            "title": "stats_realtimeArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "stats_customer_status",
+          "description": "고객 현황 통계. channel_no 미제공 시 계정(전 채널 합산), 제공 시 채널 단위.\n\n    - 계정: GET /v1/customer-data/customer-status/account/statistics\n    - 채널: GET /v1/customer-data/customer-status/channels/{channelNo}/statistics\n    ",
+          "inputSchema": {
+            "properties": {
+              "channel_no": {
+                "default": "",
+                "title": "Channel No",
+                "type": "string"
+              }
+            },
+            "title": "stats_customer_statusArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "stats_repurchase",
+          "description": "계정 단위 재구매 통계(고객 충성도/재구매 캠페인 ROI). GET /v1/customer-data/repurchase/account/statistics",
+          "inputSchema": {
+            "properties": {},
+            "title": "stats_repurchaseArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        }
+      ]
+    },
+    "resources/list": {
+      "resources": []
+    },
+    "resources/templates/list": {
+      "resourceTemplates": []
+    },
+    "prompts/list": {
+      "prompts": []
+    }
+  }
+}

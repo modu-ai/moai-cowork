@@ -54,6 +54,55 @@ def _no_network(request: httpx.Request) -> httpx.Response:  # pragma: no cover -
     raise AssertionError(f"외부 호출이 나가면 안 됩니다: {request.url}")
 
 
+def test_cached_auth_closes_previous_only_after_successful_replacement():
+    from unittest.mock import Mock
+
+    previous = Mock()
+    replacement = Mock()
+    assert server._cached_auth("test", {"key": "old"}, lambda: previous) is previous
+    assert server._cached_auth("test", {"key": "old"}, Mock()) is previous
+    previous.close.assert_not_called()
+
+    def factory():
+        previous.close.assert_not_called()
+        return replacement
+
+    assert server._cached_auth("test", {"key": "new"}, factory) is replacement
+    previous.close.assert_called_once_with()
+    replacement.close.assert_not_called()
+
+
+def test_cached_auth_keeps_previous_when_replacement_factory_fails():
+    from unittest.mock import Mock
+
+    previous = Mock()
+    server._cached_auth("test", {"key": "old"}, lambda: previous)
+
+    def factory():
+        raise RuntimeError("factory failed")
+
+    with pytest.raises(RuntimeError, match="factory failed"):
+        server._cached_auth("test", {"key": "new"}, factory)
+
+    previous.close.assert_not_called()
+    assert server._cached_auth("test", {"key": "old"}, Mock()) is previous
+
+
+def test_cached_auth_retains_replacement_if_previous_close_fails(caplog):
+    from unittest.mock import Mock
+
+    previous = Mock()
+    previous.close.side_effect = RuntimeError("sensitive error text")
+    replacement = Mock()
+    server._cached_auth("test", {"key": "old"}, lambda: previous)
+
+    assert server._cached_auth("test", {"key": "new"}, lambda: replacement) is replacement
+    previous.close.assert_called_once_with()
+    assert server._cached_auth("test", {"key": "new"}, Mock()) is replacement
+    assert "sensitive error text" not in caplog.text
+    assert caplog.records
+
+
 # ------------------------------------------------------------------ 게이트
 def test_check_access_reports_missing_without_values(monkeypatch):
     result = server.ip_check_access()

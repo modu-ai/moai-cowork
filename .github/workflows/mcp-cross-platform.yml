@@ -8,6 +8,7 @@ on:
       - ".agents/plugins/marketplace.json"
       - ".claude-plugin/marketplace.json"
       - "plugins/_shared/mcp-launch/**"
+      - "plugins/_shared/mcp-lazy/**"
       - "plugins/_shared/moai-mcp-core/**"
       - "plugins/*/mcp-launch/**"
       - "plugins/*/.claude-plugin/plugin.json"
@@ -28,6 +29,7 @@ on:
       - "scripts/schemas/**"
       - "scripts/check-plugin-runtimes.py"
       - "scripts/sync-mcp-core.py"
+      - "scripts/sync-mcp-lazy.py"
   push:
     paths:
       - ".gitattributes"
@@ -35,6 +37,7 @@ on:
       - ".agents/plugins/marketplace.json"
       - ".claude-plugin/marketplace.json"
       - "plugins/_shared/mcp-launch/**"
+      - "plugins/_shared/mcp-lazy/**"
       - "plugins/_shared/moai-mcp-core/**"
       - "plugins/*/mcp-launch/**"
       - "plugins/*/.claude-plugin/plugin.json"
@@ -55,6 +58,7 @@ on:
       - "scripts/schemas/**"
       - "scripts/check-plugin-runtimes.py"
       - "scripts/sync-mcp-core.py"
+      - "scripts/sync-mcp-lazy.py"
   workflow_dispatch:
 
 permissions:
@@ -90,6 +94,8 @@ jobs:
         run: uv run --no-project --python 3.11 python -m unittest discover -s plugins/moai-pm/skills/project/tests -q
       - name: Check shared core copies
         run: uv run --python 3.11 python scripts/sync-mcp-core.py --check
+      - name: Check lazy MCP catalogs and proxy copies
+        run: uv run --python 3.11 python scripts/sync-mcp-lazy.py --check
 
   core:
     name: ${{ matrix.os }} / MCP core
@@ -145,6 +151,8 @@ jobs:
         run: uv run --python 3.11 --directory ${{ matrix.server.path }} ${{ matrix.server.dev }} python "${{ github.workspace }}/scripts/check-mcp-annotations.py" --server "moai-mcp-${{ matrix.server.name }}"
       - name: Run server tests
         run: uv run --python 3.11 --directory ${{ matrix.server.path }} ${{ matrix.server.dev }} pytest -q
+      - name: Verify lazy discovery against the locked SDK
+        run: uv run --python 3.11 --directory ${{ matrix.server.path }} ${{ matrix.server.dev }} python "${{ github.workspace }}/scripts/sync-mcp-lazy.py" --verify --server "moai-mcp-${{ matrix.server.name }}"
 
   launcher:
     name: ${{ matrix.os }} / MCP launcher
@@ -161,7 +169,7 @@ jobs:
         with:
           version: "0.9.3"
       - name: Run launcher tests
-        run: uv run --python 3.11 --with pytest pytest -q plugins/_shared/mcp-launch/test_mcp_launch.py
+        run: uv run --python 3.11 --with pytest pytest -q plugins/_shared/mcp-launch/test_mcp_launch.py plugins/_shared/mcp-lazy/test_mcp_lazy.py
 
   writer-humanize:
     name: ${{ matrix.os }} / Korean humanize

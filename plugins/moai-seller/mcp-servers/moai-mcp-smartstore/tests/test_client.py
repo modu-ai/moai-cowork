@@ -84,6 +84,21 @@ def _client(session: FakeSession, type_: str = "SELF", account_id: str = ""):
     return NaverCommerceClient(_cfg(type_, account_id), session=session)
 
 
+def test_reset_closes_singleton_session_once_and_clears_it(monkeypatch):
+    from unittest.mock import Mock
+    from moai_mcp_smartstore import client as client_mod
+
+    session = Mock()
+    singleton = NaverCommerceClient(_cfg(), session=session)
+    monkeypatch.setattr(client_mod, "_client", singleton)
+
+    client_mod.reset_client()
+    client_mod.reset_client()
+
+    session.close.assert_called_once_with()
+    assert client_mod._client is None
+
+
 def test_get_token_caches_between_calls():
     s = FakeSession()
     s.queue(FakeResponse(200, {"access_token": "tok1", "expires_in": 3600}))

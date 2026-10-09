@@ -5,6 +5,15 @@
       "command": "uv",
       "args": [
         "run",
+        "--no-project",
+        "--script",
+        "${CLAUDE_PLUGIN_ROOT}/mcp-launch/mcp_lazy.py",
+        "--catalog",
+        "${CLAUDE_PLUGIN_ROOT}/mcp-servers/moai-mcp-smartstore/mcp-catalog.json",
+        "--",
+        "uv",
+        "run",
+        "--locked",
         "--directory",
         "${CLAUDE_PLUGIN_ROOT}/mcp-servers/moai-mcp-smartstore",
         "moai-mcp-smartstore"
@@ -21,6 +30,15 @@
       "command": "uv",
       "args": [
         "run",
+        "--no-project",
+        "--script",
+        "${CLAUDE_PLUGIN_ROOT}/mcp-launch/mcp_lazy.py",
+        "--catalog",
+        "${CLAUDE_PLUGIN_ROOT}/mcp-servers/moai-mcp-imweb/mcp-catalog.json",
+        "--",
+        "uv",
+        "run",
+        "--locked",
         "--directory",
         "${CLAUDE_PLUGIN_ROOT}/mcp-servers/moai-mcp-imweb",
         "moai-mcp-imweb"
@@ -38,6 +56,15 @@
       "command": "uv",
       "args": [
         "run",
+        "--no-project",
+        "--script",
+        "${CLAUDE_PLUGIN_ROOT}/mcp-launch/mcp_lazy.py",
+        "--catalog",
+        "${CLAUDE_PLUGIN_ROOT}/mcp-servers/moai-mcp-cafe24/mcp-catalog.json",
+        "--",
+        "uv",
+        "run",
+        "--locked",
         "--directory",
         "${CLAUDE_PLUGIN_ROOT}/mcp-servers/moai-mcp-cafe24",
         "moai-mcp-cafe24"
@@ -53,7 +80,11 @@
     "cafe24-catalog-mcp": {
       "$comment": "카페24 공식 Catalog MCP. 상품 검색 등 제공 기능은 현재 tools/list로 확인합니다. 판매자 Admin API와는 용도가 다릅니다.",
       "command": "npx",
-      "args": ["-y", "mcp-remote", "https://mcp-catalog.cafe24.com/api/mcp"]
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp-catalog.cafe24.com/api/mcp"
+      ]
     },
     "higgsfield": {
       "$comment": "Higgsfield 공식 이미지·영상 MCP. Claude에서 계정 인증과 도구 노출, 크레딧 비용을 확인한다. ChatGPT는 Higgsfield 공식 플러그인을 별도로 설치·인증한다. 참조 사진은 채팅 첨부 외 별도 업로드 완료를 확인한다.",

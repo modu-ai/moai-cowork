@@ -14,6 +14,7 @@
 
 from __future__ import annotations
 
+import math
 import random
 import time
 from collections.abc import Callable
@@ -116,7 +117,9 @@ class HttpClient:
 
             if response.status_code == 429:
                 retry_after = self._retry_after(response)
-                if attempt >= self.max_retries:
+                if attempt >= self.max_retries or (
+                    retry_after is not None and retry_after > self.max_backoff
+                ):
                     raise RateLimited(
                         "호출 한도에 걸렸습니다. 잠시 후 다시 시도하세요.",
                         retry_after=retry_after,
@@ -167,7 +170,8 @@ class HttpClient:
         if not raw:
             return None
         try:
-            return max(0.0, float(raw))
+            delay = float(raw)
+            return max(0.0, delay) if math.isfinite(delay) else None
         except ValueError:
             # HTTP-date 형식은 지원하지 않는다 — 백오프로 넘긴다.
             return None

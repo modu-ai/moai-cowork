@@ -22,6 +22,15 @@
       "command": "uv",
       "args": [
         "run",
+        "--no-project",
+        "--script",
+        "./mcp-launch/mcp_lazy.py",
+        "--catalog",
+        "./mcp-servers/moai-mcp-openai/mcp-catalog.json",
+        "--",
+        "uv",
+        "run",
+        "--locked",
         "--directory",
         "./mcp-servers/moai-mcp-openai",
         "moai-mcp-openai"

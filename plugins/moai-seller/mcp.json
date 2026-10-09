@@ -9,6 +9,15 @@
       "command": "uv",
       "args": [
         "run",
+        "--no-project",
+        "--script",
+        "./mcp-launch/mcp_lazy.py",
+        "--catalog",
+        "./mcp-servers/moai-mcp-smartstore/mcp-catalog.json",
+        "--",
+        "uv",
+        "run",
+        "--locked",
         "--directory",
         "./mcp-servers/moai-mcp-smartstore",
         "moai-mcp-smartstore"
@@ -20,6 +29,15 @@
       "command": "uv",
       "args": [
         "run",
+        "--no-project",
+        "--script",
+        "./mcp-launch/mcp_lazy.py",
+        "--catalog",
+        "./mcp-servers/moai-mcp-imweb/mcp-catalog.json",
+        "--",
+        "uv",
+        "run",
+        "--locked",
         "--directory",
         "./mcp-servers/moai-mcp-imweb",
         "moai-mcp-imweb"
@@ -31,6 +49,15 @@
       "command": "uv",
       "args": [
         "run",
+        "--no-project",
+        "--script",
+        "./mcp-launch/mcp_lazy.py",
+        "--catalog",
+        "./mcp-servers/moai-mcp-cafe24/mcp-catalog.json",
+        "--",
+        "uv",
+        "run",
+        "--locked",
         "--directory",
         "./mcp-servers/moai-mcp-cafe24",
         "moai-mcp-cafe24"

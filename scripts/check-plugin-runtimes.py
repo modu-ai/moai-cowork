@@ -335,14 +335,15 @@ def check_launcher_copy(name: str, plugin: Path, report: Report) -> None:
 
 def check_launcher_referenced(name: str, claude: dict, codex: dict, plugin: Path, report: Report) -> None:
     """런처를 참조하는데 사본이 없으면 그 서버는 뜨지 않는다."""
-    needs = any(
-        "mcp-launch/" in " ".join(str(a) for a in (cfg or {}).get("args", []) or [])
-        for group in (claude, codex)
-        for cfg in group.values()
-        if isinstance(cfg, dict)
-    )
-    if needs and not (plugin / "mcp-launch" / "mcp_launch.py").is_file():
-        report.error(name, "런처를 참조하는데 mcp-launch/mcp_launch.py 가 없습니다")
+    for launcher in ("mcp_launch.py", "mcp_lazy.py"):
+        needs = any(
+            f"mcp-launch/{launcher}" in " ".join(str(a) for a in cfg.get("args", []) or [])
+            for group in (claude, codex)
+            for cfg in group.values()
+            if isinstance(cfg, dict)
+        )
+        if needs and not (plugin / "mcp-launch" / launcher).is_file():
+            report.error(name, f"런처를 참조하는데 mcp-launch/{launcher} 가 없습니다")
 
 
 def check_plugin(plugin: Path, report: Report) -> None:

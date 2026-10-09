@@ -10,6 +10,15 @@
       "command": "uv",
       "args": [
         "run",
+        "--no-project",
+        "--script",
+        "${CLAUDE_PLUGIN_ROOT}/mcp-launch/mcp_lazy.py",
+        "--catalog",
+        "${CLAUDE_PLUGIN_ROOT}/mcp-servers/moai-mcp-ip/mcp-catalog.json",
+        "--",
+        "uv",
+        "run",
+        "--locked",
         "--directory",
         "${CLAUDE_PLUGIN_ROOT}/mcp-servers/moai-mcp-ip",
         "moai-mcp-ip"

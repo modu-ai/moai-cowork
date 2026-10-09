@@ -128,6 +128,11 @@ def _cached_auth(source_id: str, creds: dict[str, str], factory: Callable[[], An
         return cached[1]
     auth = factory()
     _auth_cache[source_id] = (fingerprint, auth)
+    if cached:
+        try:
+            cached[1].close()
+        except Exception:
+            logging.getLogger(__name__).warning("이전 인증 객체의 연결을 닫지 못했습니다.")
     return auth
 
 

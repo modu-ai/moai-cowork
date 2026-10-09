@@ -45,6 +45,10 @@ class NaverCommerceClient:
         self._token_expiry: float = 0.0
         self._lock = threading.Lock()
 
+    def close(self) -> None:
+        """HTTP 세션의 연결 자원을 해제한다."""
+        self._session.close()
+
     # ------------------------------------------------------------------
     # 토큰 발급 / 캐싱
     # ------------------------------------------------------------------
@@ -197,4 +201,6 @@ def reset_client() -> None:
     """테스트/설정 변경 시 싱글톤 초기화."""
     global _client
     with _singleton_lock:
+        if _client is not None:
+            _client.close()
         _client = None

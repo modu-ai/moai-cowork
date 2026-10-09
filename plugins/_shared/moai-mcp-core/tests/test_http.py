@@ -100,6 +100,40 @@ def test_429가_계속되면_rate_limited():
     assert err.value.to_dict()["retryable"] is True
 
 
+def test_retry_after_over_backoff_limit_returns_without_sleep_or_early_retry():
+    slept = []
+    calls = []
+
+    def handler(request):
+        calls.append(request)
+        return httpx.Response(429, headers={"Retry-After": "3600"})
+
+    with _client(handler, max_backoff=0.1, sleep=slept.append) as c:
+        with pytest.raises(RateLimited) as err:
+            c.get_json("/v1/x")
+
+    assert err.value.retry_after == 3600.0
+    assert slept == []
+    assert len(calls) == 1
+
+
+@pytest.mark.parametrize("header", ["inf", "-inf", "nan", "1e999"])
+def test_nonfinite_retry_after_falls_back_to_bounded_backoff(header):
+    slept = []
+    with _client(
+        lambda r: httpx.Response(429, headers={"Retry-After": header}),
+        max_retries=1,
+        max_backoff=0.1,
+        sleep=slept.append,
+    ) as c:
+        with pytest.raises(RateLimited) as err:
+            c.get_json("/v1/x")
+
+    assert err.value.retry_after is None
+    assert len(slept) == 1
+    assert 0 < slept[0] <= 0.1
+
+
 def test_5xx는_재시도하고_끝내_실패하면_upstream_error():
     calls = {"n": 0}
 

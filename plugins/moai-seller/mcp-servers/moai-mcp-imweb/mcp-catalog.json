@@ -1,0 +1,4871 @@
+{
+  "format": 1,
+  "source_digest": "43f09c589ab6fe3871172bad4f938c93f355107d3a6dc38acb927e94015a49d0",
+  "sdk_version": "1.28.1",
+  "supported_protocol_versions": [
+    "2024-11-05",
+    "2025-03-26",
+    "2025-06-18",
+    "2025-11-25"
+  ],
+  "initialize": {
+    "protocolVersion": "2025-11-25",
+    "capabilities": {
+      "experimental": {},
+      "prompts": {
+        "listChanged": false
+      },
+      "resources": {
+        "subscribe": false,
+        "listChanged": false
+      },
+      "tools": {
+        "listChanged": false
+      }
+    },
+    "serverInfo": {
+      "name": "moai-imweb",
+      "version": "1.28.1"
+    },
+    "instructions": "아임웹(Imweb) OPEN API v3 쇼핑몰 운영 MCP. 주문·상품·회원·커뮤니티(Q&A·구매평)·프로모션(적립금·쿠폰)·결제·사이트 정보·스크립트 8 카테고리. 각 도구는 action(enum)으로 세부 작업을 디스패치 — params=path+query, body=POST/PATCH 본문(action별 typed Body 모델), paginate=True로 list 계열 전체 페이지 자동 집계. OAuth2 authorizationCode + JWT(자동 갱신)."
+  },
+  "discovery": {
+    "tools/list": {
+      "tools": [
+        {
+          "name": "imweb_site_info",
+          "description": "사이트 정보 도구 — 6개 action 을 디스패치합니다.\n\nArgs:\n    action: 수행 작업 키 (inputSchema enum 으로 6개 전체 공개).\n    params: path + query 파라미터 딕셔너리. 예: {\"orderNo\": \"ORD123\", \"page\": 1}.\n    body: POST/PATCH/PUT 본문. action 별 Body 모델(inputSchema anyOf) 중 해당 action 의 필드만 채움 (모델명 = action 의 PascalCase + Body).\n    paginate: list 계열 GET 에서 전체 페이지 자동 집계 (기본 False = 단일 페이지).\n\nReturns: API JSON.",
+          "inputSchema": {
+            "$defs": {
+              "UpdateGroundAppIntegrationCompleteBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_ground_app_integration_complete' [PATCH /site-info/integration-complete]).",
+                "properties": {
+                  "configData": {
+                    "anyOf": [
+                      {
+                        "additionalProperties": true,
+                        "type": "object"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "연동에 필요한 데이터 아임웹과 협의된 앱만 전달해 주세요.",
+                    "title": "Configdata"
+                  }
+                },
+                "title": "UpdateGroundAppIntegrationCompleteBody",
+                "type": "object"
+              },
+              "UpdateGroundAppIntegrationInfoBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_ground_app_integration_info' [PATCH /site-info/integration-info]). 필수 필드: configData.",
+                "properties": {
+                  "configData": {
+                    "additionalProperties": true,
+                    "description": "연동에 필요한 데이터 아임웹과 협의된 앱만 전달해 주세요.",
+                    "title": "Configdata",
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "configData"
+                ],
+                "title": "UpdateGroundAppIntegrationInfoBody",
+                "type": "object"
+              }
+            },
+            "properties": {
+              "action": {
+                "enum": [
+                  "read_one_site_info_by_site_code",
+                  "read_site_menu_list",
+                  "read_one_unit_info_by_unit_code",
+                  "update_ground_app_integration_complete",
+                  "update_ground_app_integration_cancellation",
+                  "update_ground_app_integration_info"
+                ],
+                "title": "Action",
+                "type": "string"
+              },
+              "params": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Params"
+              },
+              "body": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/UpdateGroundAppIntegrationCompleteBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateGroundAppIntegrationInfoBody"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Body"
+              },
+              "paginate": {
+                "default": false,
+                "title": "Paginate",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "action"
+            ],
+            "title": "imweb_site_infoArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "imweb_member_info",
+          "description": "회원 정보 도구 — 19개 action 을 디스패치합니다.\n\nArgs:\n    action: 수행 작업 키 (inputSchema enum 으로 19개 전체 공개).\n    params: path + query 파라미터 딕셔너리. 예: {\"orderNo\": \"ORD123\", \"page\": 1}.\n    body: POST/PATCH/PUT 본문. action 별 Body 모델(inputSchema anyOf) 중 해당 action 의 필드만 채움 (모델명 = action 의 PascalCase + Body).\n    paginate: list 계열 GET 에서 전체 페이지 자동 집계 (기본 False = 단일 페이지).\n\nReturns: API JSON.",
+          "inputSchema": {
+            "$defs": {
+              "BulkUpdateMemberGradeBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='bulk_update_member_grade' [PUT /member-info/members/grades/bulk]). 필수 필드: unitCode, memberUids, isDefaultGrade.",
+                "properties": {
+                  "unitCode": {
+                    "description": "유닛 코드",
+                    "title": "Unitcode",
+                    "type": "string"
+                  },
+                  "memberUids": {
+                    "description": "등급을 변경할 회원 ID 목록 (최대 30건)",
+                    "items": {
+                      "type": "string"
+                    },
+                    "title": "Memberuids",
+                    "type": "array"
+                  },
+                  "isDefaultGrade": {
+                    "description": "기본 등급 여부",
+                    "title": "Isdefaultgrade",
+                    "type": "string"
+                  },
+                  "useAutoGrade": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "자동 등급 사용 여부",
+                    "title": "Useautograde"
+                  },
+                  "memberGradeCode": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "변경할 회원 등급 코드",
+                    "title": "Membergradecode"
+                  }
+                },
+                "required": [
+                  "unitCode",
+                  "memberUids",
+                  "isDefaultGrade"
+                ],
+                "title": "BulkUpdateMemberGradeBody",
+                "type": "object"
+              },
+              "BulkUpdateMemberGroupBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='bulk_update_member_group' [PUT /member-info/members/groups/bulk]). 필수 필드: unitCode, memberUids, groupCodes.",
+                "properties": {
+                  "unitCode": {
+                    "description": "유닛 코드",
+                    "title": "Unitcode",
+                    "type": "string"
+                  },
+                  "memberUids": {
+                    "description": "그룹을 변경할 회원 ID 목록 (최대 30건)",
+                    "items": {
+                      "type": "string"
+                    },
+                    "title": "Memberuids",
+                    "type": "array"
+                  },
+                  "groupCodes": {
+                    "description": "최종 적용할 회원 그룹 코드 리스트",
+                    "items": {
+                      "type": "string"
+                    },
+                    "title": "Groupcodes",
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "unitCode",
+                  "memberUids",
+                  "groupCodes"
+                ],
+                "title": "BulkUpdateMemberGroupBody",
+                "type": "object"
+              },
+              "UpdateMemberAgreeInfoBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_member_agree_info' [PATCH /member-info/members/{memberUid}/agree-info]).",
+                "properties": {
+                  "smsAgree": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "sms 수신 동의 여부",
+                    "title": "Smsagree"
+                  },
+                  "emailAgree": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "email 수신 동의 여부",
+                    "title": "Emailagree"
+                  },
+                  "thirdPartyAgree": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "제 3자 정보제공 동의 여부",
+                    "title": "Thirdpartyagree"
+                  }
+                },
+                "title": "UpdateMemberAgreeInfoBody",
+                "type": "object"
+              },
+              "UpdateMemberGradeByMemberUidBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_member_grade_by_member_uid' [PUT /member-info/members/{memberUid}/grade]). 필수 필드: unitCode, isDefaultGrade, memberGradeCode.",
+                "properties": {
+                  "unitCode": {
+                    "description": "유닛 코드",
+                    "title": "Unitcode",
+                    "type": "string"
+                  },
+                  "isDefaultGrade": {
+                    "description": "기본 등급 여부",
+                    "title": "Isdefaultgrade",
+                    "type": "string"
+                  },
+                  "useAutoGrade": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "자동 등급 사용 여부",
+                    "title": "Useautograde"
+                  },
+                  "memberGradeCode": {
+                    "description": "변경할 회원 등급 코드",
+                    "title": "Membergradecode",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "unitCode",
+                  "isDefaultGrade",
+                  "memberGradeCode"
+                ],
+                "title": "UpdateMemberGradeByMemberUidBody",
+                "type": "object"
+              },
+              "UpdateMemberGroupBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_member_group' [PUT /member-info/members/{memberUid}/groups]). 필수 필드: unitCode, groupCodes.",
+                "properties": {
+                  "unitCode": {
+                    "description": "유닛 코드",
+                    "title": "Unitcode",
+                    "type": "string"
+                  },
+                  "groupCodes": {
+                    "description": "변경할 회원 그룹 코드 리스트",
+                    "items": {
+                      "type": "string"
+                    },
+                    "title": "Groupcodes",
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "unitCode",
+                  "groupCodes"
+                ],
+                "title": "UpdateMemberGroupBody",
+                "type": "object"
+              }
+            },
+            "properties": {
+              "action": {
+                "enum": [
+                  "read_member_info_list",
+                  "read_member_info_list_by_cursor",
+                  "read_all_shop_prod_wish_by_prod_no",
+                  "read_all_shop_order_cart_by_prod_no",
+                  "read_one_member_info_by_unit_code_and_member_uid",
+                  "read_member_group_list_by_site_code",
+                  "read_member_group_member_list",
+                  "read_member_grade_list_by_site_code",
+                  "read_member_list_by_member_grade",
+                  "read_admin_group_list",
+                  "read_admin_group_member_list",
+                  "read_one_admin_info_by_admin_uid",
+                  "update_member_agree_info",
+                  "update_member_group",
+                  "bulk_update_member_group",
+                  "update_member_grade_by_member_uid",
+                  "bulk_update_member_grade",
+                  "read_all_shop_prod_wish_by_member_uid",
+                  "read_member_cart_list_by_member_uid"
+                ],
+                "title": "Action",
+                "type": "string"
+              },
+              "params": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Params"
+              },
+              "body": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/UpdateMemberAgreeInfoBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateMemberGroupBody"
+                  },
+                  {
+                    "$ref": "#/$defs/BulkUpdateMemberGroupBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateMemberGradeByMemberUidBody"
+                  },
+                  {
+                    "$ref": "#/$defs/BulkUpdateMemberGradeBody"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Body"
+              },
+              "paginate": {
+                "default": false,
+                "title": "Paginate",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "action"
+            ],
+            "title": "imweb_member_infoArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "imweb_community",
+          "description": "커뮤니티 (폼/Q&A/구매평) 도구 — 17개 action 을 디스패치합니다.\n\nArgs:\n    action: 수행 작업 키 (inputSchema enum 으로 17개 전체 공개).\n    params: path + query 파라미터 딕셔너리. 예: {\"orderNo\": \"ORD123\", \"page\": 1}.\n    body: POST/PATCH/PUT 본문. action 별 Body 모델(inputSchema anyOf) 중 해당 action 의 필드만 채움 (모델명 = action 의 PascalCase + Body).\n    paginate: list 계열 GET 에서 전체 페이지 자동 집계 (기본 False = 단일 페이지).\n\nReturns: API JSON.",
+          "inputSchema": {
+            "$defs": {
+              "CreateSiteQnaReplyBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='create_site_qna_reply' [POST /community/qna]). 필수 필드: qnaNo, reply, memberUid.",
+                "properties": {
+                  "qnaNo": {
+                    "description": "답변할 Q&A 번호",
+                    "title": "Qnano",
+                    "type": "number"
+                  },
+                  "reply": {
+                    "description": "Q&A 답변 내용",
+                    "title": "Reply",
+                    "type": "string"
+                  },
+                  "memberUid": {
+                    "description": "Q&A 답변 작성자 아이디",
+                    "title": "Memberuid",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "qnaNo",
+                  "reply",
+                  "memberUid"
+                ],
+                "title": "CreateSiteQnaReplyBody",
+                "type": "object"
+              },
+              "CreateSiteReviewAnswerBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='create_site_review_answer' [POST /community/review-answer]). 필수 필드: reviewNo, unitCode, body, nick, wtime.",
+                "properties": {
+                  "reviewNo": {
+                    "description": "답글을 작성할 구매평 번호",
+                    "title": "Reviewno",
+                    "type": "number"
+                  },
+                  "unitCode": {
+                    "description": "유닛코드",
+                    "title": "Unitcode",
+                    "type": "string"
+                  },
+                  "body": {
+                    "description": "구매평 답글 내용",
+                    "title": "Body",
+                    "type": "string"
+                  },
+                  "nick": {
+                    "description": "작성자 이름",
+                    "title": "Nick",
+                    "type": "string"
+                  },
+                  "wtime": {
+                    "description": "작성 시각 (ISO 8601, UTC). 현재 시각 이후(미래)의 값은 허용되지 않습니다.",
+                    "title": "Wtime",
+                    "type": "string"
+                  },
+                  "memberUid": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "회원 ID",
+                    "title": "Memberuid"
+                  },
+                  "originReviewId": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "원본 리뷰 ID",
+                    "title": "Originreviewid"
+                  }
+                },
+                "required": [
+                  "reviewNo",
+                  "unitCode",
+                  "body",
+                  "nick",
+                  "wtime"
+                ],
+                "title": "CreateSiteReviewAnswerBody",
+                "type": "object"
+              },
+              "CreateSiteReviewBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='create_site_review' [POST /community/review]). 필수 필드: unitCode, prodNo, body, nick, wtime, rating.",
+                "properties": {
+                  "unitCode": {
+                    "description": "유닛코드",
+                    "title": "Unitcode",
+                    "type": "string"
+                  },
+                  "prodNo": {
+                    "description": "상품번호",
+                    "title": "Prodno",
+                    "type": "number"
+                  },
+                  "body": {
+                    "description": "구매평 내용",
+                    "title": "Body",
+                    "type": "string"
+                  },
+                  "nick": {
+                    "description": "작성자 이름",
+                    "title": "Nick",
+                    "type": "string"
+                  },
+                  "wtime": {
+                    "description": "작성 시각 (ISO 8601 형식). 현재 시각 이후(미래)의 값은 허용되지 않습니다.",
+                    "title": "Wtime",
+                    "type": "string"
+                  },
+                  "rating": {
+                    "description": "평점 (1~5점)",
+                    "title": "Rating",
+                    "type": "number"
+                  },
+                  "memberUid": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "회원 ID",
+                    "title": "Memberuid"
+                  },
+                  "isHide": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "숨김 여부",
+                    "title": "Ishide"
+                  },
+                  "grade": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "구매평 등급 (1-워스트, 2-일반, 3-베스트)",
+                    "title": "Grade"
+                  },
+                  "prodOption": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "구매한 상품 옵션 명",
+                    "title": "Prodoption"
+                  },
+                  "orderItemCode": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "주문 아이템 코드",
+                    "title": "Orderitemcode"
+                  },
+                  "originReviewId": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "원본 리뷰 ID",
+                    "title": "Originreviewid"
+                  },
+                  "images": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "리뷰 이미지 파일 (선택, 최대 20개)",
+                    "title": "Images"
+                  }
+                },
+                "required": [
+                  "unitCode",
+                  "prodNo",
+                  "body",
+                  "nick",
+                  "wtime",
+                  "rating"
+                ],
+                "title": "CreateSiteReviewBody",
+                "type": "object"
+              },
+              "UpdateSiteReviewByReviewNoBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_site_review_by_review_no' [PUT /community/review/{reviewNo}]).",
+                "properties": {
+                  "body": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "구매평 내용",
+                    "title": "Body"
+                  },
+                  "rating": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "구매평 평점",
+                    "title": "Rating"
+                  }
+                },
+                "title": "UpdateSiteReviewByReviewNoBody",
+                "type": "object"
+              }
+            },
+            "properties": {
+              "action": {
+                "enum": [
+                  "read_all_forms",
+                  "read_one_form",
+                  "read_all_form_submissions",
+                  "read_one_form_submission",
+                  "read_all_site_qna",
+                  "create_site_qna_reply",
+                  "read_site_qna_answer",
+                  "read_one_site_qna_by_idx",
+                  "read_all_site_review",
+                  "create_site_review",
+                  "read_one_site_review",
+                  "update_site_review_by_review_no",
+                  "delete_site_review_by_review_no",
+                  "read_site_review_answer",
+                  "create_site_review_answer",
+                  "delete_site_review_answer_by_review_no",
+                  "read_all_site_review_by_cursor"
+                ],
+                "title": "Action",
+                "type": "string"
+              },
+              "params": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Params"
+              },
+              "body": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/CreateSiteQnaReplyBody"
+                  },
+                  {
+                    "$ref": "#/$defs/CreateSiteReviewBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateSiteReviewByReviewNoBody"
+                  },
+                  {
+                    "$ref": "#/$defs/CreateSiteReviewAnswerBody"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Body"
+              },
+              "paginate": {
+                "default": false,
+                "title": "Paginate",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "action"
+            ],
+            "title": "imweb_communityArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "imweb_promotion",
+          "description": "프로모션 (적립금/쿠폰) 도구 — 14개 action 을 디스패치합니다.\n\nArgs:\n    action: 수행 작업 키 (inputSchema enum 으로 14개 전체 공개).\n    params: path + query 파라미터 딕셔너리. 예: {\"orderNo\": \"ORD123\", \"page\": 1}.\n    body: POST/PATCH/PUT 본문. action 별 Body 모델(inputSchema anyOf) 중 해당 action 의 필드만 채움 (모델명 = action 의 PascalCase + Body).\n    paginate: list 계열 GET 에서 전체 페이지 자동 집계 (기본 False = 단일 페이지).\n\nReturns: API JSON.",
+          "inputSchema": {
+            "$defs": {
+              "ChangeShopPointByGroupTypeBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='change_shop_point_by_group_type' [PUT /promotion/shop-point/change/type]). 필수 필드: unitCode, division, groupCode, changeType, point, reason.",
+                "properties": {
+                  "unitCode": {
+                    "description": "유닛 코드",
+                    "title": "Unitcode",
+                    "type": "string"
+                  },
+                  "division": {
+                    "description": "그룹 구분 타입",
+                    "title": "Division",
+                    "type": "string"
+                  },
+                  "groupCode": {
+                    "description": "그룹 코드",
+                    "title": "Groupcode",
+                    "type": "string"
+                  },
+                  "changeType": {
+                    "description": "변경 타입(지급/차감)",
+                    "title": "Changetype",
+                    "type": "string"
+                  },
+                  "point": {
+                    "description": "적립금",
+                    "title": "Point",
+                    "type": "number"
+                  },
+                  "reason": {
+                    "description": "사유",
+                    "title": "Reason",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "unitCode",
+                  "division",
+                  "groupCode",
+                  "changeType",
+                  "point",
+                  "reason"
+                ],
+                "title": "ChangeShopPointByGroupTypeBody",
+                "type": "object"
+              },
+              "ChangeShopPointByMemberBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='change_shop_point_by_member' [PUT /promotion/shop-point/change/member/{memberUid}]). 필수 필드: unitCode, changeType, point, reason.",
+                "properties": {
+                  "unitCode": {
+                    "description": "유닛 코드",
+                    "title": "Unitcode",
+                    "type": "string"
+                  },
+                  "changeType": {
+                    "description": "변경 타입(지급/차감)",
+                    "title": "Changetype",
+                    "type": "string"
+                  },
+                  "point": {
+                    "description": "적립금",
+                    "title": "Point",
+                    "type": "number"
+                  },
+                  "reason": {
+                    "description": "사유",
+                    "title": "Reason",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "unitCode",
+                  "changeType",
+                  "point",
+                  "reason"
+                ],
+                "title": "ChangeShopPointByMemberBody",
+                "type": "object"
+              },
+              "CreateShopCouponBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='create_shop_coupon' [POST /promotion/shop-coupon/{couponCode}/issue]). 필수 필드: unitCode, memberUid.",
+                "properties": {
+                  "unitCode": {
+                    "description": "유닛 코드",
+                    "title": "Unitcode",
+                    "type": "string"
+                  },
+                  "memberUid": {
+                    "description": "아임웹 회원 아이디",
+                    "title": "Memberuid",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "unitCode",
+                  "memberUid"
+                ],
+                "title": "CreateShopCouponBody",
+                "type": "object"
+              },
+              "CreateShopCouponBulkBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='create_shop_coupon_bulk' [POST /promotion/shop-coupon/{couponCode}/issue/bulk]). 필수 필드: unitCode, memberUids.",
+                "properties": {
+                  "unitCode": {
+                    "description": "유닛 코드",
+                    "title": "Unitcode",
+                    "type": "string"
+                  },
+                  "memberUids": {
+                    "description": "회원 아이디 목록. 최대 50명",
+                    "items": {
+                      "type": "string"
+                    },
+                    "title": "Memberuids",
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "unitCode",
+                  "memberUids"
+                ],
+                "title": "CreateShopCouponBulkBody",
+                "type": "object"
+              },
+              "CreateShopCouponByGroupTypeBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='create_shop_coupon_by_group_type' [POST /promotion/shop-coupon/{couponCode}/issue/group]). 필수 필드: unitCode, division, groupCode.",
+                "properties": {
+                  "unitCode": {
+                    "description": "유닛 코드",
+                    "title": "Unitcode",
+                    "type": "string"
+                  },
+                  "division": {
+                    "description": "그룹 구분 타입",
+                    "title": "Division",
+                    "type": "string"
+                  },
+                  "groupCode": {
+                    "description": "그룹 코드",
+                    "title": "Groupcode",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "unitCode",
+                  "division",
+                  "groupCode"
+                ],
+                "title": "CreateShopCouponByGroupTypeBody",
+                "type": "object"
+              },
+              "CreateShopCouponDefinitionBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='create_shop_coupon_definition' [POST /promotion/shop-coupon]). 필수 필드: unitCode, name, type, basicSetting, benefitSetting, operationSetting.",
+                "properties": {
+                  "unitCode": {
+                    "description": "유닛 코드",
+                    "title": "Unitcode",
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "쿠폰 이름",
+                    "title": "Name",
+                    "type": "string"
+                  },
+                  "type": {
+                    "description": "쿠폰 타입",
+                    "title": "Type",
+                    "type": "string"
+                  },
+                  "basicSetting": {
+                    "additionalProperties": true,
+                    "description": "기본 설정",
+                    "title": "Basicsetting",
+                    "type": "object"
+                  },
+                  "benefitSetting": {
+                    "additionalProperties": true,
+                    "description": "혜택 설정",
+                    "title": "Benefitsetting",
+                    "type": "object"
+                  },
+                  "operationSetting": {
+                    "additionalProperties": true,
+                    "description": "운영 설정",
+                    "title": "Operationsetting",
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "unitCode",
+                  "name",
+                  "type",
+                  "basicSetting",
+                  "benefitSetting",
+                  "operationSetting"
+                ],
+                "title": "CreateShopCouponDefinitionBody",
+                "type": "object"
+              }
+            },
+            "properties": {
+              "action": {
+                "enum": [
+                  "read_member_shop_point_by_filter",
+                  "read_member_shop_point_log",
+                  "change_shop_point_by_member",
+                  "change_shop_point_by_group_type",
+                  "read_one_shop_coupon_by_coupon_code",
+                  "read_shop_coupon_by_filter",
+                  "create_shop_coupon_definition",
+                  "create_shop_coupon",
+                  "create_shop_coupon_bulk",
+                  "create_shop_coupon_by_group_type",
+                  "read_coupon_issue_list",
+                  "read_shop_coupon_issue_target_list",
+                  "read_member_shop_coupon_issue_target_list",
+                  "read_member_coupon_issue_list"
+                ],
+                "title": "Action",
+                "type": "string"
+              },
+              "params": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Params"
+              },
+              "body": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/ChangeShopPointByMemberBody"
+                  },
+                  {
+                    "$ref": "#/$defs/ChangeShopPointByGroupTypeBody"
+                  },
+                  {
+                    "$ref": "#/$defs/CreateShopCouponDefinitionBody"
+                  },
+                  {
+                    "$ref": "#/$defs/CreateShopCouponBody"
+                  },
+                  {
+                    "$ref": "#/$defs/CreateShopCouponBulkBody"
+                  },
+                  {
+                    "$ref": "#/$defs/CreateShopCouponByGroupTypeBody"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Body"
+              },
+              "paginate": {
+                "default": false,
+                "title": "Paginate",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "action"
+            ],
+            "title": "imweb_promotionArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "imweb_product",
+          "description": "상품 도구 — 33개 action 을 디스패치합니다.\n\nArgs:\n    action: 수행 작업 키 (inputSchema enum 으로 33개 전체 공개).\n    params: path + query 파라미터 딕셔너리. 예: {\"orderNo\": \"ORD123\", \"page\": 1}.\n    body: POST/PATCH/PUT 본문. action 별 Body 모델(inputSchema anyOf) 중 해당 action 의 필드만 채움 (모델명 = action 의 PascalCase + Body).\n    paginate: list 계열 GET 에서 전체 페이지 자동 집계 (기본 False = 단일 페이지).\n\nReturns: API JSON.",
+          "inputSchema": {
+            "$defs": {
+              "CreateProductBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='create_product' [POST /products]). 필수 필드: productImages, productBaseInfo, productClassificationInfo, productPriceInfo, productDiscountInfo.",
+                "properties": {
+                  "productImages": {
+                    "description": "상품 이미지<br> 상품 등록 시 이미지는 최대 10개까지 등록할 수 있고, 더 추가하려면 상품 수정 API를 이용하시면 됩니다.",
+                    "items": {
+                      "type": "string"
+                    },
+                    "title": "Productimages",
+                    "type": "array"
+                  },
+                  "digitalImage": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "디지털 상품 등록 시 업로드할 파일<br> 디지털 상품 파일은 최대 1개까지 업로드 할 수 있습니다.",
+                    "title": "Digitalimage"
+                  },
+                  "externalIntegrationImage": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "외부 연동 이미지<br> 외부 연동 이미지는 최대 1개까지 업로드 할 수 있습니다.",
+                    "title": "Externalintegrationimage"
+                  },
+                  "productBaseInfo": {
+                    "additionalProperties": true,
+                    "description": "상품 기본 정보 데이터",
+                    "title": "Productbaseinfo",
+                    "type": "object"
+                  },
+                  "productClassificationInfo": {
+                    "additionalProperties": true,
+                    "description": "상품 분류 데이터",
+                    "title": "Productclassificationinfo",
+                    "type": "object"
+                  },
+                  "productPriceInfo": {
+                    "description": "상품 가격 데이터",
+                    "items": {
+                      "additionalProperties": true,
+                      "type": "object"
+                    },
+                    "title": "Productpriceinfo",
+                    "type": "array"
+                  },
+                  "productDiscountInfo": {
+                    "description": "상품 할인 설정 데이터",
+                    "items": {
+                      "additionalProperties": true,
+                      "type": "object"
+                    },
+                    "title": "Productdiscountinfo",
+                    "type": "array"
+                  },
+                  "productShippingSettingInfo": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "additionalProperties": true,
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "상품 배송 설정 데이터",
+                    "title": "Productshippingsettinginfo"
+                  },
+                  "productEtcInfo": {
+                    "anyOf": [
+                      {
+                        "additionalProperties": true,
+                        "type": "object"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "상품 기타 정보 데이터",
+                    "title": "Productetcinfo"
+                  },
+                  "productExhibitionInfo": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "additionalProperties": true,
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "상품 전시 설정 데이터",
+                    "title": "Productexhibitioninfo"
+                  },
+                  "productSeoInfo": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "additionalProperties": true,
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "상품 SEO 설정 데이터",
+                    "title": "Productseoinfo"
+                  },
+                  "productOptionInfo": {
+                    "anyOf": [
+                      {
+                        "additionalProperties": true,
+                        "type": "object"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "상품 옵션 데이터",
+                    "title": "Productoptioninfo"
+                  },
+                  "productExternalIntegrationInfo": {
+                    "anyOf": [
+                      {
+                        "additionalProperties": true,
+                        "type": "object"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "상품 외부 연동 정보 데이터",
+                    "title": "Productexternalintegrationinfo"
+                  }
+                },
+                "required": [
+                  "productImages",
+                  "productBaseInfo",
+                  "productClassificationInfo",
+                  "productPriceInfo",
+                  "productDiscountInfo"
+                ],
+                "title": "CreateProductBody",
+                "type": "object"
+              },
+              "CreateProductImagesBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='create_product_images' [POST /products/{prodNo}/images]).",
+                "properties": {
+                  "images": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "업로드할 이미지 파일 목록",
+                    "title": "Images"
+                  }
+                },
+                "title": "CreateProductImagesBody",
+                "type": "object"
+              },
+              "UpdateMultipleProductStatusBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_multiple_product_status' [PATCH /products/status]). 필수 필드: status, prodNos.",
+                "properties": {
+                  "status": {
+                    "description": "상품 상태 코드",
+                    "title": "Status",
+                    "type": "string"
+                  },
+                  "prodNos": {
+                    "description": "수정할 상품 번호 리스트",
+                    "items": {
+                      "type": "number"
+                    },
+                    "title": "Prodnos",
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "status",
+                  "prodNos"
+                ],
+                "title": "UpdateMultipleProductStatusBody",
+                "type": "object"
+              },
+              "UpdateProductAdditionalInfoBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_product_additional_info' [PATCH /products/{prodNo}/additional-info]). 필수 필드: unitCode, prodNos.",
+                "properties": {
+                  "unitCode": {
+                    "description": "유닛 코드",
+                    "title": "Unitcode",
+                    "type": "string"
+                  },
+                  "prodNos": {
+                    "description": "수정할 추가 상품 번호 리스트",
+                    "items": {
+                      "type": "number"
+                    },
+                    "title": "Prodnos",
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "unitCode",
+                  "prodNos"
+                ],
+                "title": "UpdateProductAdditionalInfoBody",
+                "type": "object"
+              },
+              "UpdateProductClassificationBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_product_classification' [PATCH /products/{prodNo}/classification]).",
+                "properties": {
+                  "badge": {
+                    "anyOf": [
+                      {
+                        "additionalProperties": true,
+                        "type": "object"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "상품 뱃지 설정",
+                    "title": "Badge"
+                  },
+                  "categories": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "상품 카테고리",
+                    "title": "Categories"
+                  },
+                  "showcases": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "상품 기획전",
+                    "title": "Showcases"
+                  },
+                  "origin": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "원산지",
+                    "title": "Origin"
+                  },
+                  "maker": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "제조사",
+                    "title": "Maker"
+                  },
+                  "brand": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "브랜드",
+                    "title": "Brand"
+                  }
+                },
+                "title": "UpdateProductClassificationBody",
+                "type": "object"
+              },
+              "UpdateProductDiscountInfoByProdNoBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_product_discount_info_by_prod_no' [PATCH /products/{prodNo}/discount-info]). 필수 필드: unitCode, coupon, point, shoppingGroup, period.",
+                "properties": {
+                  "unitCode": {
+                    "description": "유닛코드",
+                    "title": "Unitcode",
+                    "type": "string"
+                  },
+                  "coupon": {
+                    "description": "쿠폰 할인 설정 여부",
+                    "title": "Coupon",
+                    "type": "string"
+                  },
+                  "point": {
+                    "description": "포인트 할인 설정 여부",
+                    "title": "Point",
+                    "type": "string"
+                  },
+                  "shoppingGroup": {
+                    "description": "쇼핑등급 할인 설정 여부",
+                    "title": "Shoppinggroup",
+                    "type": "string"
+                  },
+                  "givePointType": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "적립금 지급 기준 타입",
+                    "title": "Givepointtype"
+                  },
+                  "pointCriteria": {
+                    "anyOf": [
+                      {
+                        "additionalProperties": true,
+                        "type": "object"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "적립금 지급 기준 설정",
+                    "title": "Pointcriteria"
+                  },
+                  "period": {
+                    "description": "즉시/기간 할인 설정 여부",
+                    "title": "Period",
+                    "type": "string"
+                  },
+                  "periodData": {
+                    "anyOf": [
+                      {
+                        "additionalProperties": true,
+                        "type": "object"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "기간 할인 설정 데이터",
+                    "title": "Perioddata"
+                  }
+                },
+                "required": [
+                  "unitCode",
+                  "coupon",
+                  "point",
+                  "shoppingGroup",
+                  "period"
+                ],
+                "title": "UpdateProductDiscountInfoByProdNoBody",
+                "type": "object"
+              },
+              "UpdateProductDisplayInfoByProdNoBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_product_display_info_by_prod_no' [PATCH /products/{prodNo}/display]). 필수 필드: unitCode, display.",
+                "properties": {
+                  "unitCode": {
+                    "description": "유닛코드",
+                    "title": "Unitcode",
+                    "type": "string"
+                  },
+                  "display": {
+                    "description": "노출 설정",
+                    "items": {
+                      "type": "string"
+                    },
+                    "title": "Display",
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "unitCode",
+                  "display"
+                ],
+                "title": "UpdateProductDisplayInfoByProdNoBody",
+                "type": "object"
+              },
+              "UpdateProductEtcInfoBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_product_etc_info' [PATCH /products/{prodNo}/etc-info]).",
+                "properties": {
+                  "minimumPurchaseQuantity": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "최소 구매수량",
+                    "title": "Minimumpurchasequantity"
+                  },
+                  "maximumPurchaseQuantity": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "1회 구매 시 최대 수량",
+                    "title": "Maximumpurchasequantity"
+                  },
+                  "maximumPurchaseQuantityType": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "1회 구매 수량 제한 타입 (주문 단위, 품목 단위)",
+                    "title": "Maximumpurchasequantitytype"
+                  },
+                  "memberMaximumPurchaseQuantity": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "1인 구매 시 최대 수량",
+                    "title": "Membermaximumpurchasequantity"
+                  },
+                  "optionalLimitType": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "0원 선택옵션 구매 시 최대 구매 제한 타입 (본 상품 구매 수량만큼 구매 가능, 최대 구매 수량 제한, 1개만 구매 가능)",
+                    "title": "Optionallimittype"
+                  },
+                  "optionalLimit": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "0원 선택옵션 구매 시 최대 구매 수량 (optionalLimitType 이 limit인 경우에만 입력)",
+                    "title": "Optionallimit"
+                  },
+                  "useUnipassNumber": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "개인통관고유부호 설정 (기본 방법을 따름, 사용함, 사용 안함)",
+                    "title": "Useunipassnumber"
+                  },
+                  "adultPurchase": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "미성년자 구매 불가능 여부 (구매불가, 구매가능)",
+                    "title": "Adultpurchase"
+                  }
+                },
+                "title": "UpdateProductEtcInfoBody",
+                "type": "object"
+              },
+              "UpdateProductExhibitionsBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_product_exhibitions' [PATCH /products/{prodNo}/exhibitions]). 필수 필드: unitCode, isDisplay.",
+                "properties": {
+                  "unitCode": {
+                    "description": "유닛코드",
+                    "title": "Unitcode",
+                    "type": "string"
+                  },
+                  "isDisplay": {
+                    "description": "진열 여부",
+                    "title": "Isdisplay",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "unitCode",
+                  "isDisplay"
+                ],
+                "title": "UpdateProductExhibitionsBody",
+                "type": "object"
+              },
+              "UpdateProductExternalIntegrationInfoBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_product_external_integration_info' [PATCH /products/{prodNo}/external-integration-info]).",
+                "properties": {
+                  "externalImage": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "외부연동 이미지",
+                    "title": "Externalimage"
+                  },
+                  "productName": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "외부 노출용 상품 명",
+                    "title": "Productname"
+                  },
+                  "eventDescription": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "외부 노출용 이벤트 문구",
+                    "title": "Eventdescription"
+                  },
+                  "naverCategoryCode": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "네이버 연동 용 카테고리 코드",
+                    "title": "Navercategorycode"
+                  },
+                  "status": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "외부 연동용 상품 상태",
+                    "title": "Status"
+                  },
+                  "saleMethod": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "외부 연동용 상품 판매 방식",
+                    "title": "Salemethod"
+                  },
+                  "parallelImport": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "병행 수입 여부",
+                    "title": "Parallelimport"
+                  },
+                  "orderMade": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "주문제작 상품 여부",
+                    "title": "Ordermade"
+                  },
+                  "purchasingAgent": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "구매 대행 여부",
+                    "title": "Purchasingagent"
+                  },
+                  "cultureBenefit": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "도서공연비 소득공제 여부",
+                    "title": "Culturebenefit"
+                  }
+                },
+                "title": "UpdateProductExternalIntegrationInfoBody",
+                "type": "object"
+              },
+              "UpdateProductInfoByProdNoBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_product_info_by_prod_no' [PATCH /products/{prodNo}]). 필수 필드: unitCode.",
+                "properties": {
+                  "digitalProductFile": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "디지털 상품 이미지",
+                    "title": "Digitalproductfile"
+                  },
+                  "unitCode": {
+                    "description": "unitCode",
+                    "title": "Unitcode",
+                    "type": "string"
+                  },
+                  "productName": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "상품명",
+                    "title": "Productname"
+                  },
+                  "summaryDescription": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "상품 요약 설명",
+                    "title": "Summarydescription"
+                  },
+                  "description": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "상품 상세 설명",
+                    "title": "Description"
+                  },
+                  "images": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "상품 이미지 URL 목록",
+                    "title": "Images"
+                  },
+                  "useMobileDescription": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "모바일 상세 설명 사용 여부",
+                    "title": "Usemobiledescription"
+                  },
+                  "mobileDescription": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "모바일 상세 설명",
+                    "title": "Mobiledescription"
+                  },
+                  "commonHeaderSettingType": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "상품 상세 상단 공통 설정 타입",
+                    "title": "Commonheadersettingtype"
+                  },
+                  "commonHeaderCode": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "상품 상세 상단 공통 설정 코드(상품 상세 상단 공통 설정 타입이 custom일 경우 필수)",
+                    "title": "Commonheadercode"
+                  },
+                  "commonFooterSettingType": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "상품 상세 하단 공통 설정 타입",
+                    "title": "Commonfootersettingtype"
+                  },
+                  "commonFooterCode": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "상품 상세 하단 공통 설정 코드(상품 상세 하단 공통 설정 타입이 custom일 경우 필수)",
+                    "title": "Commonfootercode"
+                  },
+                  "customProductCode": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "자체 상품 코드",
+                    "title": "Customproductcode"
+                  },
+                  "productType": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "판매 방식 설정",
+                    "title": "Producttype"
+                  },
+                  "digitalData": {
+                    "anyOf": [
+                      {
+                        "additionalProperties": true,
+                        "type": "object"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "디지털 상품 데이터",
+                    "title": "Digitaldata"
+                  },
+                  "subscribeData": {
+                    "anyOf": [
+                      {
+                        "additionalProperties": true,
+                        "type": "object"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "회원그룹 이용권 데이터",
+                    "title": "Subscribedata"
+                  },
+                  "useSalesPeriod": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "판매기간 사용 여부",
+                    "title": "Usesalesperiod"
+                  },
+                  "salesStartDate": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "판매 기간 시작일",
+                    "title": "Salesstartdate"
+                  },
+                  "salesEndDate": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "판매 기간 종료일",
+                    "title": "Salesenddate"
+                  },
+                  "productInfoNoticeType": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "상품정보제공고시 타입",
+                    "title": "Productinfonoticetype"
+                  },
+                  "productInfoNotice": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "상품정보제공고시",
+                    "title": "Productinfonotice"
+                  }
+                },
+                "required": [
+                  "unitCode"
+                ],
+                "title": "UpdateProductInfoByProdNoBody",
+                "type": "object"
+              },
+              "UpdateProductOptionDetailsBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_product_option_details' [PATCH /products/{prodNo}/option-details/{optionDetailCode}]). 필수 필드: unitCode.",
+                "properties": {
+                  "unitCode": {
+                    "description": "유닛코드",
+                    "title": "Unitcode",
+                    "type": "string"
+                  },
+                  "price": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "옵션 가격",
+                    "title": "Price"
+                  },
+                  "supplyPrice": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "옵션 공급가 (원가)",
+                    "title": "Supplyprice"
+                  },
+                  "stock": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "변경할 재고 수량(+ or -)",
+                    "title": "Stock"
+                  },
+                  "stockSku": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "재고관리 코드(SKU)",
+                    "title": "Stocksku"
+                  },
+                  "status": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "옵션 상세 상태",
+                    "title": "Status"
+                  }
+                },
+                "required": [
+                  "unitCode"
+                ],
+                "title": "UpdateProductOptionDetailsBody",
+                "type": "object"
+              },
+              "UpdateProductOptionsBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_product_options' [PATCH /products/{prodNo}/options/{optionCode}]). 필수 필드: unitCode.",
+                "properties": {
+                  "unitCode": {
+                    "description": "유닛코드",
+                    "title": "Unitcode",
+                    "type": "string"
+                  },
+                  "name": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "옵션 명",
+                    "title": "Name"
+                  },
+                  "optionValueList": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "additionalProperties": true,
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "수정할 옵션 값 정보",
+                    "title": "Optionvaluelist"
+                  }
+                },
+                "required": [
+                  "unitCode"
+                ],
+                "title": "UpdateProductOptionsBody",
+                "type": "object"
+              },
+              "UpdateProductPriceByProdNoBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_product_price_by_prod_no' [PATCH /products/{prodNo}/price]). 필수 필드: unitCode.",
+                "properties": {
+                  "unitCode": {
+                    "description": "유닛코드",
+                    "title": "Unitcode",
+                    "type": "string"
+                  },
+                  "supplyPrice": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "상품 공급가 (원가)",
+                    "title": "Supplyprice"
+                  },
+                  "isPriceTaxIncluded": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "부가세 포함 여부",
+                    "title": "Ispricetaxincluded"
+                  },
+                  "isPriceNone": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "가격 없음 여부",
+                    "title": "Ispricenone"
+                  },
+                  "price": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "판매가",
+                    "title": "Price"
+                  },
+                  "originalPrice": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "정가",
+                    "title": "Originalprice"
+                  }
+                },
+                "required": [
+                  "unitCode"
+                ],
+                "title": "UpdateProductPriceByProdNoBody",
+                "type": "object"
+              },
+              "UpdateProductRelativeInfoBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_product_relative_info' [PATCH /products/{prodNo}/relative-info]). 필수 필드: relativeData.",
+                "properties": {
+                  "relativeData": {
+                    "description": "수정할 연관 상품 정보 리스트",
+                    "items": {
+                      "additionalProperties": true,
+                      "type": "object"
+                    },
+                    "title": "Relativedata",
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "relativeData"
+                ],
+                "title": "UpdateProductRelativeInfoBody",
+                "type": "object"
+              },
+              "UpdateProductSeoInfoBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_product_seo_info' [PATCH /products/{prodNo}/seo]). 필수 필드: unitCode.",
+                "properties": {
+                  "unitCode": {
+                    "description": "유닛코드",
+                    "title": "Unitcode",
+                    "type": "string"
+                  },
+                  "seoAccessBot": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "상품 검색엔진 노출 여부",
+                    "title": "Seoaccessbot"
+                  },
+                  "seoTitle": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "SEO(검색엔진 최적화) 제목",
+                    "title": "Seotitle"
+                  },
+                  "seoDescription": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "SEO(검색엔진 최적화) 설명",
+                    "title": "Seodescription"
+                  }
+                },
+                "required": [
+                  "unitCode"
+                ],
+                "title": "UpdateProductSeoInfoBody",
+                "type": "object"
+              },
+              "UpdateProductShippingSettingsByProdNoBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_product_shipping_settings_by_prod_no' [PATCH /products/{prodNo}/shipping-settings]). 필수 필드: unitCode, useShippingNoticeTemplate.",
+                "properties": {
+                  "unitCode": {
+                    "description": "유닛코드",
+                    "title": "Unitcode",
+                    "type": "string"
+                  },
+                  "weight": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "상품 무게",
+                    "title": "Weight"
+                  },
+                  "useDefaultShippingTemplate": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "기본 배송 템플릿 사용 여부",
+                    "title": "Usedefaultshippingtemplate"
+                  },
+                  "shippingTemplateCode": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "선택할 배송 템플릿 코드",
+                    "title": "Shippingtemplatecode"
+                  },
+                  "useShippingNoticeTemplate": {
+                    "description": "배송 관련 안내 템플릿 사용 여부",
+                    "title": "Useshippingnoticetemplate",
+                    "type": "string"
+                  },
+                  "notice": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "배송 관련 안내",
+                    "title": "Notice"
+                  },
+                  "shippingSettingDataList": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "additionalProperties": true,
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "국가별 상품 배송 설정",
+                    "title": "Shippingsettingdatalist"
+                  }
+                },
+                "required": [
+                  "unitCode",
+                  "useShippingNoticeTemplate"
+                ],
+                "title": "UpdateProductShippingSettingsByProdNoBody",
+                "type": "object"
+              },
+              "UpdateProductStatusBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_product_status' [PATCH /products/{prodNo}/status]). 필수 필드: status.",
+                "properties": {
+                  "status": {
+                    "description": "상품 상태 코드",
+                    "title": "Status",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "status"
+                ],
+                "title": "UpdateProductStatusBody",
+                "type": "object"
+              },
+              "UpdateProductStockInfoByProdNoBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_product_stock_info_by_prod_no' [PATCH /products/{prodNo}/stock-info]).",
+                "properties": {
+                  "stock": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "변경할 재고 수량(+ or -)",
+                    "title": "Stock"
+                  },
+                  "customSkuCode": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "판매자 임의설정 재고 관리 번호(코드)",
+                    "title": "Customskucode"
+                  },
+                  "isUseStock": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "재고 관리 기능 사용 여부",
+                    "title": "Isusestock"
+                  },
+                  "isUnlimitedStock": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "재고 소진 후에도 주문 가능 여부",
+                    "title": "Isunlimitedstock"
+                  }
+                },
+                "title": "UpdateProductStockInfoByProdNoBody",
+                "type": "object"
+              }
+            },
+            "properties": {
+              "action": {
+                "enum": [
+                  "read_all_shop_products_by_filter",
+                  "create_product",
+                  "read_all_shop_categories_by_site_code_and_unit_code",
+                  "read_all_shop_showcases_by_site_code",
+                  "read_all_shop_naver_categories",
+                  "update_multiple_product_status",
+                  "read_all_shop_product_options_by_prod_no",
+                  "read_shop_product_options_by_prod_no",
+                  "update_product_options",
+                  "read_shop_product_options_by_prod_nos",
+                  "read_product_custom_attribute_definitions",
+                  "read_product_custom_attribute_values",
+                  "read_one_shop_products_by_prod_no",
+                  "update_product_info_by_prod_no",
+                  "read_all_shop_product_option_details_by_prod_no",
+                  "read_shop_product_option_details_by_prod_no",
+                  "update_product_option_details",
+                  "read_shipping_service_settings",
+                  "update_product_relative_info",
+                  "update_product_seo_info",
+                  "read_all_shop_product_shipping_settings_by_prod_no",
+                  "update_product_shipping_settings_by_prod_no",
+                  "update_product_stock_info_by_prod_no",
+                  "update_product_price_by_prod_no",
+                  "update_product_discount_info_by_prod_no",
+                  "update_product_display_info_by_prod_no",
+                  "update_product_classification",
+                  "update_product_status",
+                  "update_product_external_integration_info",
+                  "update_product_additional_info",
+                  "update_product_etc_info",
+                  "update_product_exhibitions",
+                  "create_product_images"
+                ],
+                "title": "Action",
+                "type": "string"
+              },
+              "params": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Params"
+              },
+              "body": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/CreateProductBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateMultipleProductStatusBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateProductOptionsBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateProductInfoByProdNoBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateProductOptionDetailsBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateProductRelativeInfoBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateProductSeoInfoBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateProductShippingSettingsByProdNoBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateProductStockInfoByProdNoBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateProductPriceByProdNoBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateProductDiscountInfoByProdNoBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateProductDisplayInfoByProdNoBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateProductClassificationBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateProductStatusBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateProductExternalIntegrationInfoBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateProductAdditionalInfoBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateProductEtcInfoBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateProductExhibitionsBody"
+                  },
+                  {
+                    "$ref": "#/$defs/CreateProductImagesBody"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Body"
+              },
+              "paginate": {
+                "default": false,
+                "title": "Paginate",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "action"
+            ],
+            "title": "imweb_productArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "imweb_order",
+          "description": "주문 도구 — 44개 action 을 디스패치합니다.\n\nArgs:\n    action: 수행 작업 키 (inputSchema enum 으로 44개 전체 공개).\n    params: path + query 파라미터 딕셔너리. 예: {\"orderNo\": \"ORD123\", \"page\": 1}.\n    body: POST/PATCH/PUT 본문. action 별 Body 모델(inputSchema anyOf) 중 해당 action 의 필드만 채움 (모델명 = action 의 PascalCase + Body).\n    paginate: list 계열 GET 에서 전체 페이지 자동 집계 (기본 False = 단일 페이지).\n\nReturns: API JSON.",
+          "inputSchema": {
+            "$defs": {
+              "CreateOrderInvoiceBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='create_order_invoice' [POST /orders/{orderNo}/invoice]).",
+                "properties": {
+                  "allInvoiceNo": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "하위 모든 섹션에 처리할 송장번호",
+                    "title": "Allinvoiceno"
+                  },
+                  "allParcelCompanyIdx": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "하위 모든 섹션에 처리할 택배사 고유 idx",
+                    "title": "Allparcelcompanyidx"
+                  },
+                  "orderSectionInvoiceDataList": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "additionalProperties": true,
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "송장 처리할 섹션 정보 리스트 (없다면 하위 섹션 모두 allInvoiceNo, allParcelCompanyIdx 으로 처리)",
+                    "title": "Ordersectioninvoicedatalist"
+                  }
+                },
+                "title": "CreateOrderInvoiceBody",
+                "type": "object"
+              },
+              "CreateOrderSectionInvoiceBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='create_order_section_invoice' [POST /orders/{orderNo}/order-section/{orderSectionCode}/invoice]).",
+                "properties": {
+                  "allInvoiceNo": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "하위 모든 섹션에 처리할 송장번호",
+                    "title": "Allinvoiceno"
+                  },
+                  "allParcelCompanyIdx": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "하위 모든 섹션에 처리할 택배사 고유 idx",
+                    "title": "Allparcelcompanyidx"
+                  },
+                  "orderSectionItemInvoiceDataList": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "additionalProperties": true,
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "송장 처리할 섹션 아이템 정보 리스트 (없다면 allInvoiceNo, allParcelCompanyIdx 으로 처리)",
+                    "title": "Ordersectioniteminvoicedatalist"
+                  }
+                },
+                "title": "CreateOrderSectionInvoiceBody",
+                "type": "object"
+              },
+              "CreateOrderSectionItemInvoiceBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='create_order_section_item_invoice' [POST /orders/{orderNo}/order-section-items/{orderSectionItemNo}/invoice]). 필수 필드: invoiceNo, parcelCompanyIdx.",
+                "properties": {
+                  "invoiceNo": {
+                    "description": "송장번호",
+                    "title": "Invoiceno",
+                    "type": "string"
+                  },
+                  "parcelCompanyIdx": {
+                    "description": "택배사 고유 idx",
+                    "title": "Parcelcompanyidx",
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "invoiceNo",
+                  "parcelCompanyIdx"
+                ],
+                "title": "CreateOrderSectionItemInvoiceBody",
+                "type": "object"
+              },
+              "RemoveOrderInvoiceBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='remove_order_invoice' [DELETE /orders/{orderNo}/invoice]).",
+                "properties": {
+                  "orderSectionCodeList": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "송장 삭제할 섹션 코드 목록",
+                    "title": "Ordersectioncodelist"
+                  }
+                },
+                "title": "RemoveOrderInvoiceBody",
+                "type": "object"
+              },
+              "UpdateOrderCancelRejectBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_order_cancel_reject' [PATCH /orders/{orderNo}/cancel-reject]).",
+                "properties": {
+                  "orderSectionCodeList": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "취소 요청을 거절할 주문 섹션 코드 리스트 (없다면 하위 섹션 모두 처리)",
+                    "title": "Ordersectioncodelist"
+                  },
+                  "invoiceNo": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "외부채널 주문 시 필수 입력 - 송장번호",
+                    "title": "Invoiceno"
+                  },
+                  "parcelCompanyIdx": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "외부채널 주문 시 필수 입력 - 택배사 고유 idx",
+                    "title": "Parcelcompanyidx"
+                  }
+                },
+                "title": "UpdateOrderCancelRejectBody",
+                "type": "object"
+              },
+              "UpdateOrderCancelRequestBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_order_cancel_request' [PATCH /orders/{orderNo}/cancel-request]). 필수 필드: cancelReason.",
+                "properties": {
+                  "cancelReason": {
+                    "description": "취소 사유",
+                    "title": "Cancelreason",
+                    "type": "string"
+                  },
+                  "cancelReasonDetail": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "취소 사유 상세",
+                    "title": "Cancelreasondetail"
+                  },
+                  "orderSectionCodeList": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "취소 처리할 주문 섹션 코드 리스트 (없다면 하위 섹션 모두 처리)",
+                    "title": "Ordersectioncodelist"
+                  }
+                },
+                "required": [
+                  "cancelReason"
+                ],
+                "title": "UpdateOrderCancelRequestBody",
+                "type": "object"
+              },
+              "UpdateOrderExchangeRejectBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_order_exchange_reject' [PATCH /orders/{orderNo}/exchange-reject]).",
+                "properties": {
+                  "orderSectionCodeList": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "교환 요청을 거절할 주문 섹션 코드 리스트 (없다면 하위 섹션 모두 처리)",
+                    "title": "Ordersectioncodelist"
+                  }
+                },
+                "title": "UpdateOrderExchangeRejectBody",
+                "type": "object"
+              },
+              "UpdateOrderExchangeRequestBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_order_exchange_request' [PATCH /orders/{orderNo}/exchange-request]). 필수 필드: retrieveType, exchangeReason.",
+                "properties": {
+                  "retrieveType": {
+                    "description": "수거타입",
+                    "title": "Retrievetype",
+                    "type": "string"
+                  },
+                  "retrievePayType": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "수거결제타입 (구매자 발송, 수동 수거신청일 경우 필수)",
+                    "title": "Retrievepaytype"
+                  },
+                  "invoiceNo": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "송장번호 (구매자 발송, 수동 수거신청일 경우 필수)",
+                    "title": "Invoiceno"
+                  },
+                  "parcelCompanyIdx": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "택배사 고유 idx (구매자 발송, 수동 수거신청일 경우 필수)",
+                    "title": "Parcelcompanyidx"
+                  },
+                  "retrieveMemo": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "수거 특이사항 메모 (수거 타입이 기타일 경우에만 입력 가능)",
+                    "title": "Retrievememo"
+                  },
+                  "exchangeReason": {
+                    "description": "교환 사유",
+                    "title": "Exchangereason",
+                    "type": "string"
+                  },
+                  "exchangeReasonDetail": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "교환 상세 사유",
+                    "title": "Exchangereasondetail"
+                  },
+                  "orderSectionCodeList": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "교환접수 처리할 주문 섹션 코드 리스트 (없다면 하위 섹션 모두 처리)",
+                    "title": "Ordersectioncodelist"
+                  },
+                  "exchangeOptionData": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "additionalProperties": true,
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "옵션 변경이 필요한 섹션/섹션아이템별 교환 옵션 정보 (없다면 현재 옵션으로 교환)",
+                    "title": "Exchangeoptiondata"
+                  }
+                },
+                "required": [
+                  "retrieveType",
+                  "exchangeReason"
+                ],
+                "title": "UpdateOrderExchangeRequestBody",
+                "type": "object"
+              },
+              "UpdateOrderInvoiceBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_order_invoice' [PATCH /orders/{orderNo}/invoice]).",
+                "properties": {
+                  "allInvoiceNo": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "하위 모든 섹션에 처리할 송장번호",
+                    "title": "Allinvoiceno"
+                  },
+                  "allParcelCompanyIdx": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "하위 모든 섹션에 처리할 택배사 고유 idx",
+                    "title": "Allparcelcompanyidx"
+                  },
+                  "orderSectionInvoiceDataList": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "additionalProperties": true,
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "송장 처리할 섹션 정보 리스트 (없다면 하위 섹션 모두 allInvoiceNo, allParcelCompanyIdx 으로 처리)",
+                    "title": "Ordersectioninvoicedatalist"
+                  }
+                },
+                "title": "UpdateOrderInvoiceBody",
+                "type": "object"
+              },
+              "UpdateOrderReturnRejectBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_order_return_reject' [PATCH /orders/{orderNo}/return-reject]).",
+                "properties": {
+                  "orderSectionCodeList": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "반품 요청을 거절할 주문 섹션 코드 리스트 (없다면 하위 섹션 모두 처리)",
+                    "title": "Ordersectioncodelist"
+                  },
+                  "externalRejectReason": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "외부 채널 주문 - 거절 사유 <br> 외부 채널 주문은 거절 사유를 입력해야 합니다.",
+                    "title": "Externalrejectreason"
+                  }
+                },
+                "title": "UpdateOrderReturnRejectBody",
+                "type": "object"
+              },
+              "UpdateOrderReturnRequestBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_order_return_request' [PATCH /orders/{orderNo}/return-request]). 필수 필드: retrieveType, returnReason.",
+                "properties": {
+                  "retrieveType": {
+                    "description": "수거타입",
+                    "title": "Retrievetype",
+                    "type": "string"
+                  },
+                  "retrievePayType": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "수거결제타입 (구매자 발송, 수동 수거신청일 경우 필수)",
+                    "title": "Retrievepaytype"
+                  },
+                  "returnReason": {
+                    "description": "반품 사유<br>        외부채널 주문일 경우 다음 사유들 중 하나를 입력해주세요     - PRODUCT_UNSATISFIED: 서비스 및 상품 불만족 (네이버페이) - DELAYED_DELIVERY: 배송 지연 (네이버페이, 톡체크아웃) - SOLD_OUT: 상품 품절 (네이버…",
+                    "title": "Returnreason",
+                    "type": "string"
+                  },
+                  "returnReasonDetail": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "반품 상세 사유",
+                    "title": "Returnreasondetail"
+                  },
+                  "invoiceNo": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "송장번호 (구매자 발송, 수동 수거신청일 경우 필수)",
+                    "title": "Invoiceno"
+                  },
+                  "parcelCompanyIdx": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "택배사 고유 idx (구매자 발송, 수동 수거신청일 경우 필수)",
+                    "title": "Parcelcompanyidx"
+                  },
+                  "retrieveMemo": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "수거 특이사항 메모 (수거 타입이 기타일 경우에만 입력 가능)",
+                    "title": "Retrievememo"
+                  },
+                  "orderSectionCodeList": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "반품접수 처리할 주문 섹션 코드 리스트 (없다면 하위 섹션 모두 처리)",
+                    "title": "Ordersectioncodelist"
+                  }
+                },
+                "required": [
+                  "retrieveType",
+                  "returnReason"
+                ],
+                "title": "UpdateOrderReturnRequestBody",
+                "type": "object"
+              },
+              "UpdateOrderSectionCancelApproveBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_order_section_cancel_approve' [PATCH /orders/{orderNo}/order-section/{orderSectionCode}/cancel-approve]).",
+                "properties": {
+                  "returnedCoupons": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "반환할 쿠폰 코드 목록",
+                    "title": "Returnedcoupons"
+                  },
+                  "excludeRefundAmount": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "환불에서 제외할 금액",
+                    "title": "Excluderefundamount"
+                  },
+                  "excludeRefundPoint": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "환불에서 제외할 적립금 금액 (requestedRefundAmount와 동시 입력 불가)",
+                    "title": "Excluderefundpoint"
+                  },
+                  "requestedRefundAmount": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "환불할 금액 (excludeRefundAmount와 동시 입력 불가, 최소 환불 금액은 0원 초과)",
+                    "title": "Requestedrefundamount"
+                  },
+                  "externalCancelReason": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "외부채널 주문 용 취소 사유",
+                    "title": "Externalcancelreason"
+                  },
+                  "externalCancelReasonDetail": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "외부채널 주문 전용 취소 사유 상세",
+                    "title": "Externalcancelreasondetail"
+                  }
+                },
+                "title": "UpdateOrderSectionCancelApproveBody",
+                "type": "object"
+              },
+              "UpdateOrderSectionCancelRejectBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_order_section_cancel_reject' [PATCH /orders/{orderNo}/order-section/{orderSectionCode}/cancel-reject]).",
+                "properties": {
+                  "orderSectionItemDataList": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "additionalProperties": true,
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "섹션아이템 목록",
+                    "title": "Ordersectionitemdatalist"
+                  },
+                  "invoiceNo": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "외부채널 주문 시 필수 입력 - 송장번호",
+                    "title": "Invoiceno"
+                  },
+                  "parcelCompanyIdx": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "외부채널 주문 시 필수 입력 - 택배사 고유 idx",
+                    "title": "Parcelcompanyidx"
+                  }
+                },
+                "title": "UpdateOrderSectionCancelRejectBody",
+                "type": "object"
+              },
+              "UpdateOrderSectionCancelRequestBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_order_section_cancel_request' [PATCH /orders/{orderNo}/order-section/{orderSectionCode}/cancel-request]). 필수 필드: cancelReason.",
+                "properties": {
+                  "cancelReason": {
+                    "description": "취소 사유",
+                    "title": "Cancelreason",
+                    "type": "string"
+                  },
+                  "cancelReasonDetail": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "취소 사유 상세",
+                    "title": "Cancelreasondetail"
+                  },
+                  "orderSectionItemDataList": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "additionalProperties": true,
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "섹션아이템 목록",
+                    "title": "Ordersectionitemdatalist"
+                  }
+                },
+                "required": [
+                  "cancelReason"
+                ],
+                "title": "UpdateOrderSectionCancelRequestBody",
+                "type": "object"
+              },
+              "UpdateOrderSectionExchangeApproveBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_order_section_exchange_approve' [PATCH /orders/{orderNo}/order-section/{orderSectionCode}/exchange-approve]).",
+                "properties": {
+                  "requestedDeliveryAmount": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "청구할 배송비 금액",
+                    "title": "Requesteddeliveryamount"
+                  },
+                  "excludeDeliveryAmount": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "차감할 배송비 금액",
+                    "title": "Excludedeliveryamount"
+                  }
+                },
+                "title": "UpdateOrderSectionExchangeApproveBody",
+                "type": "object"
+              },
+              "UpdateOrderSectionExchangeRejectBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_order_section_exchange_reject' [PATCH /orders/{orderNo}/order-section/{orderSectionCode}/exchange-reject]).",
+                "properties": {
+                  "orderSectionItemDataList": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "additionalProperties": true,
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "섹션아이템 목록",
+                    "title": "Ordersectionitemdatalist"
+                  }
+                },
+                "title": "UpdateOrderSectionExchangeRejectBody",
+                "type": "object"
+              },
+              "UpdateOrderSectionExchangeRequestBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_order_section_exchange_request' [PATCH /orders/{orderNo}/order-section/{orderSectionCode}/exchange-request]). 필수 필드: retrieveType, exchangeReason.",
+                "properties": {
+                  "retrieveType": {
+                    "description": "수거타입",
+                    "title": "Retrievetype",
+                    "type": "string"
+                  },
+                  "retrievePayType": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "수거결제타입 (구매자 발송, 수동 수거신청일 경우 필수)",
+                    "title": "Retrievepaytype"
+                  },
+                  "invoiceNo": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "송장번호 (구매자 발송, 수동 수거신청일 경우 필수)",
+                    "title": "Invoiceno"
+                  },
+                  "parcelCompanyIdx": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "택배사 고유 idx (구매자 발송, 수동 수거신청일 경우 필수)",
+                    "title": "Parcelcompanyidx"
+                  },
+                  "retrieveMemo": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "수거 특이사항 메모 (수거 타입이 기타일 경우에만 입력 가능)",
+                    "title": "Retrievememo"
+                  },
+                  "exchangeReason": {
+                    "description": "교환 사유",
+                    "title": "Exchangereason",
+                    "type": "string"
+                  },
+                  "exchangeReasonDetail": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "교환 상세 사유",
+                    "title": "Exchangereasondetail"
+                  },
+                  "orderSectionItemDataList": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "additionalProperties": true,
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "섹션아이템 목록",
+                    "title": "Ordersectionitemdatalist"
+                  }
+                },
+                "required": [
+                  "retrieveType",
+                  "exchangeReason"
+                ],
+                "title": "UpdateOrderSectionExchangeRequestBody",
+                "type": "object"
+              },
+              "UpdateOrderSectionInvoiceBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_order_section_invoice' [PATCH /orders/{orderNo}/order-section/{orderSectionCode}/invoice]). 필수 필드: invoiceNo, parcelCompanyIdx.",
+                "properties": {
+                  "invoiceNo": {
+                    "description": "송장번호",
+                    "title": "Invoiceno",
+                    "type": "string"
+                  },
+                  "parcelCompanyIdx": {
+                    "description": "택배사 고유 idx",
+                    "title": "Parcelcompanyidx",
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "invoiceNo",
+                  "parcelCompanyIdx"
+                ],
+                "title": "UpdateOrderSectionInvoiceBody",
+                "type": "object"
+              },
+              "UpdateOrderSectionItemCancelApproveBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_order_section_item_cancel_approve' [PATCH /orders/{orderNo}/order-section-items/{orderSectionItemNo}/cancel-approve]).",
+                "properties": {
+                  "returnedCoupons": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "반환할 쿠폰 코드 목록",
+                    "title": "Returnedcoupons"
+                  },
+                  "excludeRefundAmount": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "환불에서 제외할 금액",
+                    "title": "Excluderefundamount"
+                  },
+                  "excludeRefundPoint": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "환불에서 제외할 적립금 금액 (requestedRefundAmount와 동시 입력 불가)",
+                    "title": "Excluderefundpoint"
+                  },
+                  "requestedRefundAmount": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "환불할 금액 (excludeRefundAmount와 동시 입력 불가, 최소 환불 금액은 0원 초과)",
+                    "title": "Requestedrefundamount"
+                  },
+                  "externalCancelReason": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "외부채널 주문 전용 취소 사유",
+                    "title": "Externalcancelreason"
+                  },
+                  "externalCancelReasonDetail": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "외부채널 주문 전용 취소 사유 상세",
+                    "title": "Externalcancelreasondetail"
+                  }
+                },
+                "title": "UpdateOrderSectionItemCancelApproveBody",
+                "type": "object"
+              },
+              "UpdateOrderSectionItemCancelRejectBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_order_section_item_cancel_reject' [PATCH /orders/{orderNo}/order-section-items/{orderSectionItemNo}/cancel-reject]).",
+                "properties": {
+                  "invoiceNo": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "외부채널 주문일 경우 취소 요청을 거절하며 배송을 동시에 진행해야 하는 정책에 따라,  해당 필드에 택배사를 함께 입력해야 합니다. 일반 주문의 경우에는 입력하지 않습니다.",
+                    "title": "Invoiceno"
+                  },
+                  "parcelCompanyIdx": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "외부채널 주문 시 필수 입력 - 택배사 고유 idx",
+                    "title": "Parcelcompanyidx"
+                  }
+                },
+                "title": "UpdateOrderSectionItemCancelRejectBody",
+                "type": "object"
+              },
+              "UpdateOrderSectionItemCancelRequestBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_order_section_item_cancel_request' [PATCH /orders/{orderNo}/order-section-items/{orderSectionItemNo}/cancel-request]). 필수 필드: cancelReason.",
+                "properties": {
+                  "cancelReason": {
+                    "description": "취소 사유",
+                    "title": "Cancelreason",
+                    "type": "string"
+                  },
+                  "cancelReasonDetail": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "취소 사유 상세",
+                    "title": "Cancelreasondetail"
+                  },
+                  "qty": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "변경하려는 섹션아이템의 수량",
+                    "title": "Qty"
+                  }
+                },
+                "required": [
+                  "cancelReason"
+                ],
+                "title": "UpdateOrderSectionItemCancelRequestBody",
+                "type": "object"
+              },
+              "UpdateOrderSectionItemExchangeApproveBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_order_section_item_exchange_approve' [PATCH /orders/{orderNo}/order-section-items/{orderSectionItemNo}/exchange-approve]).",
+                "properties": {
+                  "requestedDeliveryAmount": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "청구할 배송비 금액",
+                    "title": "Requesteddeliveryamount"
+                  },
+                  "excludeDeliveryAmount": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "차감할 배송비 금액",
+                    "title": "Excludedeliveryamount"
+                  }
+                },
+                "title": "UpdateOrderSectionItemExchangeApproveBody",
+                "type": "object"
+              },
+              "UpdateOrderSectionItemExchangeRequestBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_order_section_item_exchange_request' [PATCH /orders/{orderNo}/order-section-items/{orderSectionItemNo}/exchange-request]). 필수 필드: retrieveType, exchangeReason.",
+                "properties": {
+                  "retrieveType": {
+                    "description": "수거타입",
+                    "title": "Retrievetype",
+                    "type": "string"
+                  },
+                  "retrievePayType": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "수거결제타입 (구매자 발송, 수동 수거신청일 경우 필수)",
+                    "title": "Retrievepaytype"
+                  },
+                  "invoiceNo": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "송장번호 (구매자 발송, 수동 수거신청일 경우 필수)",
+                    "title": "Invoiceno"
+                  },
+                  "parcelCompanyIdx": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "택배사 고유 idx (구매자 발송, 수동 수거신청일 경우 필수)",
+                    "title": "Parcelcompanyidx"
+                  },
+                  "retrieveMemo": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "수거 특이사항 메모 (수거 타입이 기타일 경우에만 입력 가능)",
+                    "title": "Retrievememo"
+                  },
+                  "exchangeReason": {
+                    "description": "교환 사유",
+                    "title": "Exchangereason",
+                    "type": "string"
+                  },
+                  "exchangeReasonDetail": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "교환 상세 사유",
+                    "title": "Exchangereasondetail"
+                  },
+                  "optionDetailCodes": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "변경할 옵션 상세 코드 리스트",
+                    "title": "Optiondetailcodes"
+                  },
+                  "qty": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "변경하려는 섹션아이템의 수량",
+                    "title": "Qty"
+                  }
+                },
+                "required": [
+                  "retrieveType",
+                  "exchangeReason"
+                ],
+                "title": "UpdateOrderSectionItemExchangeRequestBody",
+                "type": "object"
+              },
+              "UpdateOrderSectionItemReturnApproveBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_order_section_item_return_approve' [PATCH /orders/{orderNo}/order-section-items/{orderSectionItemNo}/return-approve]).",
+                "properties": {
+                  "returnedCoupons": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "반환할 쿠폰 코드 목록",
+                    "title": "Returnedcoupons"
+                  },
+                  "excludeRefundAmount": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "환불에서 제외할 적립금 금액 (requestedRefundAmount와 동시 입력 불가)",
+                    "title": "Excluderefundamount"
+                  },
+                  "excludeRefundPoint": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "환불에서 제외할 적립금 금액",
+                    "title": "Excluderefundpoint"
+                  },
+                  "requestedRefundAmount": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "환불할 금액 (excludeRefundAmount와 동시 입력 불가, 최소 환불 금액은 0원 초과)",
+                    "title": "Requestedrefundamount"
+                  }
+                },
+                "title": "UpdateOrderSectionItemReturnApproveBody",
+                "type": "object"
+              },
+              "UpdateOrderSectionItemReturnRejectBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_order_section_item_return_reject' [PATCH /orders/{orderNo}/order-section-items/{orderSectionItemNo}/return-reject]).",
+                "properties": {
+                  "externalRejectReason": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "외부 채널 주문 - 거절 사유 <br> 외부 채널 주문은 거절 사유를 입력해야 합니다.",
+                    "title": "Externalrejectreason"
+                  }
+                },
+                "title": "UpdateOrderSectionItemReturnRejectBody",
+                "type": "object"
+              },
+              "UpdateOrderSectionItemReturnRequestBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_order_section_item_return_request' [PATCH /orders/{orderNo}/order-section-items/{orderSectionItemNo}/return-request]). 필수 필드: retrieveType, returnReason.",
+                "properties": {
+                  "retrieveType": {
+                    "description": "수거타입",
+                    "title": "Retrievetype",
+                    "type": "string"
+                  },
+                  "retrievePayType": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "수거결제타입 (구매자 발송, 수동 수거신청일 경우 필수)",
+                    "title": "Retrievepaytype"
+                  },
+                  "returnReason": {
+                    "description": "반품 사유<br>        외부채널 주문일 경우 다음 사유들 중 하나를 입력해주세요     - PRODUCT_UNSATISFIED: 서비스 및 상품 불만족 (네이버페이) - DELAYED_DELIVERY: 배송 지연 (네이버페이, 톡체크아웃) - SOLD_OUT: 상품 품절 (네이버…",
+                    "title": "Returnreason",
+                    "type": "string"
+                  },
+                  "returnReasonDetail": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "반품 상세 사유",
+                    "title": "Returnreasondetail"
+                  },
+                  "invoiceNo": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "송장번호 (구매자 발송, 수동 수거신청일 경우 필수)",
+                    "title": "Invoiceno"
+                  },
+                  "parcelCompanyIdx": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "택배사 고유 idx (구매자 발송, 수동 수거신청일 경우 필수)",
+                    "title": "Parcelcompanyidx"
+                  },
+                  "retrieveMemo": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "수거 특이사항 메모 (수거 타입이 기타일 경우에만 입력 가능)",
+                    "title": "Retrievememo"
+                  },
+                  "qty": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "변경하려는 섹션아이템의 수량",
+                    "title": "Qty"
+                  }
+                },
+                "required": [
+                  "retrieveType",
+                  "returnReason"
+                ],
+                "title": "UpdateOrderSectionItemReturnRequestBody",
+                "type": "object"
+              },
+              "UpdateOrderSectionItemShippingOperationBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_order_section_item_shipping_operation' [PATCH /orders/{orderNo}/order-section-items/{orderSectionItemNo}/shipping-operation]). 필수 필드: orderSectionStatus.",
+                "properties": {
+                  "orderSectionStatus": {
+                    "description": "배송처리할 상태",
+                    "title": "Ordersectionstatus",
+                    "type": "string"
+                  },
+                  "qty": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "변경하려는 수량 (배송대기 변경 요청일 경우에만 입력 가능)",
+                    "title": "Qty"
+                  },
+                  "invoiceNo": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "송장번호",
+                    "title": "Invoiceno"
+                  },
+                  "parcelCompanyIdx": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "택배사 고유 idx",
+                    "title": "Parcelcompanyidx"
+                  }
+                },
+                "required": [
+                  "orderSectionStatus"
+                ],
+                "title": "UpdateOrderSectionItemShippingOperationBody",
+                "type": "object"
+              },
+              "UpdateOrderSectionReturnApproveBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_order_section_return_approve' [PATCH /orders/{orderNo}/order-section/{orderSectionCode}/return-approve]).",
+                "properties": {
+                  "returnedCoupons": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "반환할 쿠폰 코드 목록",
+                    "title": "Returnedcoupons"
+                  },
+                  "excludeRefundAmount": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "환불에서 제외할 적립금 금액 (requestedRefundAmount와 동시 입력 불가)",
+                    "title": "Excluderefundamount"
+                  },
+                  "excludeRefundPoint": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "환불에서 제외할 적립금 금액",
+                    "title": "Excluderefundpoint"
+                  },
+                  "requestedRefundAmount": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "환불할 금액 (excludeRefundAmount와 동시 입력 불가, 최소 환불 금액은 0원 초과)",
+                    "title": "Requestedrefundamount"
+                  }
+                },
+                "title": "UpdateOrderSectionReturnApproveBody",
+                "type": "object"
+              },
+              "UpdateOrderSectionReturnRejectBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_order_section_return_reject' [PATCH /orders/{orderNo}/order-section/{orderSectionCode}/return-reject]).",
+                "properties": {
+                  "orderSectionItemDataList": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "additionalProperties": true,
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "섹션아이템 목록",
+                    "title": "Ordersectionitemdatalist"
+                  },
+                  "externalRejectReason": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "외부 채널 주문 - 거절 사유 <br> 외부 채널 주문은 거절 사유를 입력해야 합니다.",
+                    "title": "Externalrejectreason"
+                  }
+                },
+                "title": "UpdateOrderSectionReturnRejectBody",
+                "type": "object"
+              },
+              "UpdateOrderSectionReturnRequestBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_order_section_return_request' [PATCH /orders/{orderNo}/order-section/{orderSectionCode}/return-request]). 필수 필드: retrieveType, returnReason.",
+                "properties": {
+                  "retrieveType": {
+                    "description": "수거타입",
+                    "title": "Retrievetype",
+                    "type": "string"
+                  },
+                  "retrievePayType": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "수거결제타입 (구매자 발송, 수동 수거신청일 경우 필수)",
+                    "title": "Retrievepaytype"
+                  },
+                  "returnReason": {
+                    "description": "반품 사유<br>        외부채널 주문일 경우 다음 사유들 중 하나를 입력해주세요     - PRODUCT_UNSATISFIED: 서비스 및 상품 불만족 (네이버페이) - DELAYED_DELIVERY: 배송 지연 (네이버페이, 톡체크아웃) - SOLD_OUT: 상품 품절 (네이버…",
+                    "title": "Returnreason",
+                    "type": "string"
+                  },
+                  "returnReasonDetail": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "반품 상세 사유",
+                    "title": "Returnreasondetail"
+                  },
+                  "invoiceNo": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "송장번호 (구매자 발송, 수동 수거신청일 경우 필수)",
+                    "title": "Invoiceno"
+                  },
+                  "parcelCompanyIdx": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "택배사 고유 idx (구매자 발송, 수동 수거신청일 경우 필수)",
+                    "title": "Parcelcompanyidx"
+                  },
+                  "retrieveMemo": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "수거 특이사항 메모 (수거 타입이 기타일 경우에만 입력 가능)",
+                    "title": "Retrievememo"
+                  },
+                  "orderSectionItemDataList": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "additionalProperties": true,
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "섹션아이템 목록",
+                    "title": "Ordersectionitemdatalist"
+                  }
+                },
+                "required": [
+                  "retrieveType",
+                  "returnReason"
+                ],
+                "title": "UpdateOrderSectionReturnRequestBody",
+                "type": "object"
+              },
+              "UpdateOrderSectionShippingOperationBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_order_section_shipping_operation' [PATCH /orders/{orderNo}/order-section/{orderSectionCode}/shipping-operation]). 필수 필드: orderSectionStatus.",
+                "properties": {
+                  "orderSectionStatus": {
+                    "description": "배송처리할 상태",
+                    "title": "Ordersectionstatus",
+                    "type": "string"
+                  },
+                  "orderSectionItemDataList": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "additionalProperties": true,
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "배송 처리할 주문 섹션아이템 번호 및 수량",
+                    "title": "Ordersectionitemdatalist"
+                  },
+                  "invoiceNo": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "송장번호",
+                    "title": "Invoiceno"
+                  },
+                  "parcelCompanyIdx": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "택배사 고유 idx",
+                    "title": "Parcelcompanyidx"
+                  }
+                },
+                "required": [
+                  "orderSectionStatus"
+                ],
+                "title": "UpdateOrderSectionShippingOperationBody",
+                "type": "object"
+              },
+              "UpdateOrderShippingOperationBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_order_shipping_operation' [PATCH /orders/{orderNo}/shipping-operation]). 필수 필드: orderSectionStatus.",
+                "properties": {
+                  "orderSectionStatus": {
+                    "description": "배송처리할 상태",
+                    "title": "Ordersectionstatus",
+                    "type": "string"
+                  },
+                  "orderSectionCodeList": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "배송 처리할 주문 섹션 코드 리스트 (없다면 하위 섹션 모두 처리)",
+                    "title": "Ordersectioncodelist"
+                  },
+                  "invoiceNo": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "송장번호",
+                    "title": "Invoiceno"
+                  },
+                  "parcelCompanyIdx": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "택배사 고유 idx",
+                    "title": "Parcelcompanyidx"
+                  }
+                },
+                "required": [
+                  "orderSectionStatus"
+                ],
+                "title": "UpdateOrderShippingOperationBody",
+                "type": "object"
+              }
+            },
+            "properties": {
+              "action": {
+                "enum": [
+                  "read_all_parcel_company_list",
+                  "read_all_shipping_place_list",
+                  "read_all_order",
+                  "read_one_order_by_order_no",
+                  "read_all_order_section",
+                  "read_one_order_section",
+                  "read_all_order_section_item",
+                  "read_one_order_section_item",
+                  "read_order_coupons",
+                  "update_order_shipping_operation",
+                  "update_order_section_shipping_operation",
+                  "update_order_section_item_shipping_operation",
+                  "create_order_invoice",
+                  "update_order_invoice",
+                  "remove_order_invoice",
+                  "create_order_section_invoice",
+                  "update_order_section_invoice",
+                  "remove_order_section_invoice",
+                  "create_order_section_item_invoice",
+                  "update_order_cancel_request",
+                  "update_order_section_cancel_request",
+                  "update_order_section_item_cancel_request",
+                  "update_order_cancel_reject",
+                  "update_order_section_cancel_reject",
+                  "update_order_section_item_cancel_reject",
+                  "update_order_return_request",
+                  "update_order_section_return_request",
+                  "update_order_section_item_return_request",
+                  "update_order_section_retrieve_complete",
+                  "update_order_return_reject",
+                  "update_order_section_return_reject",
+                  "update_order_section_item_return_reject",
+                  "update_order_exchange_request",
+                  "update_order_section_exchange_request",
+                  "update_order_section_item_exchange_request",
+                  "update_order_exchange_reject",
+                  "update_order_section_exchange_reject",
+                  "update_order_section_item_exchange_reject",
+                  "update_order_section_cancel_approve",
+                  "update_order_section_item_cancel_approve",
+                  "update_order_section_return_approve",
+                  "update_order_section_item_return_approve",
+                  "update_order_section_exchange_approve",
+                  "update_order_section_item_exchange_approve"
+                ],
+                "title": "Action",
+                "type": "string"
+              },
+              "params": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Params"
+              },
+              "body": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/UpdateOrderShippingOperationBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateOrderSectionShippingOperationBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateOrderSectionItemShippingOperationBody"
+                  },
+                  {
+                    "$ref": "#/$defs/CreateOrderInvoiceBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateOrderInvoiceBody"
+                  },
+                  {
+                    "$ref": "#/$defs/RemoveOrderInvoiceBody"
+                  },
+                  {
+                    "$ref": "#/$defs/CreateOrderSectionInvoiceBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateOrderSectionInvoiceBody"
+                  },
+                  {
+                    "$ref": "#/$defs/CreateOrderSectionItemInvoiceBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateOrderCancelRequestBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateOrderSectionCancelRequestBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateOrderSectionItemCancelRequestBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateOrderCancelRejectBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateOrderSectionCancelRejectBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateOrderSectionItemCancelRejectBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateOrderReturnRequestBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateOrderSectionReturnRequestBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateOrderSectionItemReturnRequestBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateOrderReturnRejectBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateOrderSectionReturnRejectBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateOrderSectionItemReturnRejectBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateOrderExchangeRequestBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateOrderSectionExchangeRequestBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateOrderSectionItemExchangeRequestBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateOrderExchangeRejectBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateOrderSectionExchangeRejectBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateOrderSectionCancelApproveBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateOrderSectionItemCancelApproveBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateOrderSectionReturnApproveBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateOrderSectionItemReturnApproveBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateOrderSectionExchangeApproveBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateOrderSectionItemExchangeApproveBody"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Body"
+              },
+              "paginate": {
+                "default": false,
+                "title": "Paginate",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "action"
+            ],
+            "title": "imweb_orderArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "imweb_script",
+          "description": "스크립트 도구 — 4개 action 을 디스패치합니다.\n\nArgs:\n    action: 수행 작업 키 (inputSchema enum 으로 4개 전체 공개).\n    params: path + query 파라미터 딕셔너리. 예: {\"orderNo\": \"ORD123\", \"page\": 1}.\n    body: POST/PATCH/PUT 본문. action 별 Body 모델(inputSchema anyOf) 중 해당 action 의 필드만 채움 (모델명 = action 의 PascalCase + Body).\n    paginate: list 계열 GET 에서 전체 페이지 자동 집계 (기본 False = 단일 페이지).\n\nReturns: API JSON.",
+          "inputSchema": {
+            "$defs": {
+              "CreateScriptBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='create_script' [POST /script]). 필수 필드: unitCode, position, scriptContent.",
+                "properties": {
+                  "unitCode": {
+                    "description": "유닛 코드",
+                    "title": "Unitcode",
+                    "type": "string"
+                  },
+                  "position": {
+                    "description": "스크립트 삽입 위치입니다. - header: 헤더 영역 - body: 바디 영역 - footer: 푸터 영역 - product_detail: 상품 상세 페이지 - login: 로그인 페이지 - cart: 장바구니 페이지 - join: 회원가입 페이지 - mypage: 마이페이지 - sh…",
+                    "title": "Position",
+                    "type": "string"
+                  },
+                  "scriptContent": {
+                    "description": "스크립트 내용",
+                    "title": "Scriptcontent",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "unitCode",
+                  "position",
+                  "scriptContent"
+                ],
+                "title": "CreateScriptBody",
+                "type": "object"
+              },
+              "UpdateScriptBody": {
+                "additionalProperties": true,
+                "description": "요청 본문 (action='update_script' [PUT /script]). 필수 필드: unitCode, position, scriptContent.",
+                "properties": {
+                  "unitCode": {
+                    "description": "유닛 코드",
+                    "title": "Unitcode",
+                    "type": "string"
+                  },
+                  "position": {
+                    "description": "스크립트 삽입 위치입니다. - header: 헤더 영역 - body: 바디 영역 - footer: 푸터 영역 - product_detail: 상품 상세 페이지 - login: 로그인 페이지 - cart: 장바구니 페이지 - join: 회원가입 페이지 - mypage: 마이페이지 - sh…",
+                    "title": "Position",
+                    "type": "string"
+                  },
+                  "scriptContent": {
+                    "description": "스크립트 내용",
+                    "title": "Scriptcontent",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "unitCode",
+                  "position",
+                  "scriptContent"
+                ],
+                "title": "UpdateScriptBody",
+                "type": "object"
+              }
+            },
+            "properties": {
+              "action": {
+                "enum": [
+                  "read_script_by_unit_code",
+                  "create_script",
+                  "update_script",
+                  "delete_script"
+                ],
+                "title": "Action",
+                "type": "string"
+              },
+              "params": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Params"
+              },
+              "body": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/CreateScriptBody"
+                  },
+                  {
+                    "$ref": "#/$defs/UpdateScriptBody"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Body"
+              },
+              "paginate": {
+                "default": false,
+                "title": "Paginate",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "action"
+            ],
+            "title": "imweb_scriptArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "imweb_payment",
+          "description": "결제 도구 — 1개 action 을 디스패치합니다.\n\nArgs:\n    action: 수행 작업 키 (inputSchema enum 으로 1개 전체 공개).\n    params: path + query 파라미터 딕셔너리. 예: {\"orderNo\": \"ORD123\", \"page\": 1}.\n    body: 미사용 (본문이 있는 action 없음).\n    paginate: list 계열 GET 에서 전체 페이지 자동 집계 (기본 False = 단일 페이지).\n\nReturns: API JSON.",
+          "inputSchema": {
+            "properties": {
+              "action": {
+                "const": "confirm_bank_transfer_by_order_no",
+                "title": "Action",
+                "type": "string"
+              },
+              "params": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Params"
+              },
+              "body": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Body"
+              },
+              "paginate": {
+                "default": false,
+                "title": "Paginate",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "action"
+            ],
+            "title": "imweb_paymentArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        }
+      ]
+    },
+    "resources/list": {
+      "resources": []
+    },
+    "resources/templates/list": {
+      "resourceTemplates": []
+    },
+    "prompts/list": {
+      "prompts": []
+    }
+  }
+}
